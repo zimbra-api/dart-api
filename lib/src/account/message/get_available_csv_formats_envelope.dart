@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'get_available_csv_formats_body.dart';
 
 class GetAvailableCsvFormatsEnvelope extends SoapEnvelope {
-  GetAvailableCsvFormatsEnvelope(GetAvailableCsvFormatsBody body, {SoapHeader? header}) : super(body, header: header);
+  GetAvailableCsvFormatsEnvelope(GetAvailableCsvFormatsBody body, {super.header}) : super(body);
 
   factory GetAvailableCsvFormatsEnvelope.fromJson(Map<String, dynamic> json) =>
       GetAvailableCsvFormatsEnvelope(GetAvailableCsvFormatsBody.fromJson(json['Body']),

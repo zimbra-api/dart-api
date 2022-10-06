@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'delete_identity_body.dart';
 
 class DeleteIdentityEnvelope extends SoapEnvelope {
-  DeleteIdentityEnvelope(DeleteIdentityBody body, {SoapHeader? header}) : super(body, header: header);
+  DeleteIdentityEnvelope(DeleteIdentityBody body, {super.header}) : super(body);
 
   factory DeleteIdentityEnvelope.fromJson(Map<String, dynamic> json) =>
       DeleteIdentityEnvelope(DeleteIdentityBody.fromJson(json['Body']),

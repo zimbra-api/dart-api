@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'create_signature_body.dart';
 
 class CreateSignatureEnvelope extends SoapEnvelope {
-  CreateSignatureEnvelope(CreateSignatureBody body, {SoapHeader? header}) : super(body, header: header);
+  CreateSignatureEnvelope(CreateSignatureBody body, {super.header}) : super(body);
 
   factory CreateSignatureEnvelope.fromJson(Map<String, dynamic> json) =>
       CreateSignatureEnvelope(CreateSignatureBody.fromJson(json['Body']),

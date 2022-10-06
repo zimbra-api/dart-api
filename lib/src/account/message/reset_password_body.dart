@@ -9,8 +9,8 @@ import 'reset_password_request.dart';
 import 'reset_password_response.dart';
 
 class ResetPasswordBody extends SoapBody {
-  ResetPasswordBody({ResetPasswordRequest? request, ResetPasswordResponse? response, SoapFault? fault})
-      : super(request: request, response: response, fault: fault);
+  ResetPasswordBody({ResetPasswordRequest? request, ResetPasswordResponse? response, super.fault})
+      : super(request: request, response: response);
 
   factory ResetPasswordBody.fromJson(Map<String, dynamic> json) => ResetPasswordBody(
       response:

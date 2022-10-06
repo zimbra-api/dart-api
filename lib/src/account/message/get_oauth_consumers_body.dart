@@ -9,8 +9,8 @@ import 'get_oauth_consumers_request.dart';
 import 'get_oauth_consumers_response.dart';
 
 class GetOAuthConsumersBody extends SoapBody {
-  GetOAuthConsumersBody({GetOAuthConsumersRequest? request, GetOAuthConsumersResponse? response, SoapFault? fault})
-      : super(request: request, response: response, fault: fault);
+  GetOAuthConsumersBody({GetOAuthConsumersRequest? request, GetOAuthConsumersResponse? response, super.fault})
+      : super(request: request, response: response);
 
   factory GetOAuthConsumersBody.fromJson(Map<String, dynamic> json) => GetOAuthConsumersBody(
       response: json['GetOAuthConsumersResponse'] != null

@@ -10,8 +10,8 @@ import 'get_distribution_list_members_response.dart';
 
 class GetDistributionListMembersBody extends SoapBody {
   GetDistributionListMembersBody(
-      {GetDistributionListMembersRequest? request, GetDistributionListMembersResponse? response, SoapFault? fault})
-      : super(request: request, response: response, fault: fault);
+      {GetDistributionListMembersRequest? request, GetDistributionListMembersResponse? response, super.fault})
+      : super(request: request, response: response);
 
   factory GetDistributionListMembersBody.fromJson(Map<String, dynamic> json) => GetDistributionListMembersBody(
       response: json['GetDistributionListMembersResponse'] != null

@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'reset_password_body.dart';
 
 class ResetPasswordEnvelope extends SoapEnvelope {
-  ResetPasswordEnvelope(ResetPasswordBody body, {SoapHeader? header}) : super(body, header: header);
+  ResetPasswordEnvelope(ResetPasswordBody body, {super.header}) : super(body);
 
   factory ResetPasswordEnvelope.fromJson(Map<String, dynamic> json) =>
       ResetPasswordEnvelope(ResetPasswordBody.fromJson(json['Body']),

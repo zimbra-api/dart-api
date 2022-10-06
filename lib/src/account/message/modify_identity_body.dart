@@ -9,8 +9,8 @@ import 'modify_identity_request.dart';
 import 'modify_identity_response.dart';
 
 class ModifyIdentityBody extends SoapBody {
-  ModifyIdentityBody({ModifyIdentityRequest? request, ModifyIdentityResponse? response, SoapFault? fault})
-      : super(request: request, response: response, fault: fault);
+  ModifyIdentityBody({ModifyIdentityRequest? request, ModifyIdentityResponse? response, super.fault})
+      : super(request: request, response: response);
 
   factory ModifyIdentityBody.fromJson(Map<String, dynamic> json) => ModifyIdentityBody(
       response: json['ModifyIdentityResponse'] != null

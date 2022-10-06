@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'search_gal_body.dart';
 
 class SearchGalEnvelope extends SoapEnvelope {
-  SearchGalEnvelope(SearchGalBody body, {SoapHeader? header}) : super(body, header: header);
+  SearchGalEnvelope(SearchGalBody body, {super.header}) : super(body);
 
   factory SearchGalEnvelope.fromJson(Map<String, dynamic> json) =>
       SearchGalEnvelope(SearchGalBody.fromJson(json['Body']),

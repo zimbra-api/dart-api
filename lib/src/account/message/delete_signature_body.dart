@@ -9,8 +9,8 @@ import 'delete_signature_request.dart';
 import 'delete_signature_response.dart';
 
 class DeleteSignatureBody extends SoapBody {
-  DeleteSignatureBody({DeleteSignatureRequest? request, DeleteSignatureResponse? response, SoapFault? fault})
-      : super(request: request, response: response, fault: fault);
+  DeleteSignatureBody({DeleteSignatureRequest? request, DeleteSignatureResponse? response, super.fault})
+      : super(request: request, response: response);
 
   factory DeleteSignatureBody.fromJson(Map<String, dynamic> json) => DeleteSignatureBody(
       response: json['DeleteSignatureResponse'] != null

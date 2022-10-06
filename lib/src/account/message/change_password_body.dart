@@ -9,8 +9,8 @@ import 'change_password_request.dart';
 import 'change_password_response.dart';
 
 class ChangePasswordBody extends SoapBody {
-  ChangePasswordBody({ChangePasswordRequest? request, ChangePasswordResponse? response, SoapFault? fault})
-      : super(request: request, response: response, fault: fault);
+  ChangePasswordBody({ChangePasswordRequest? request, ChangePasswordResponse? response, super.fault})
+      : super(request: request, response: response);
 
   factory ChangePasswordBody.fromJson(Map<String, dynamic> json) => ChangePasswordBody(
       response: json['ChangePasswordResponse'] != null

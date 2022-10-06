@@ -9,8 +9,8 @@ import 'discover_rights_request.dart';
 import 'discover_rights_response.dart';
 
 class DiscoverRightsBody extends SoapBody {
-  DiscoverRightsBody({DiscoverRightsRequest? request, DiscoverRightsResponse? response, SoapFault? fault})
-      : super(request: request, response: response, fault: fault);
+  DiscoverRightsBody({DiscoverRightsRequest? request, DiscoverRightsResponse? response, super.fault})
+      : super(request: request, response: response);
 
   factory DiscoverRightsBody.fromJson(Map<String, dynamic> json) => DiscoverRightsBody(
       response: json['DiscoverRightsResponse'] != null

@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'get_account_info_body.dart';
 
 class GetAccountInfoEnvelope extends SoapEnvelope {
-  GetAccountInfoEnvelope(GetAccountInfoBody body, {SoapHeader? header}) : super(body, header: header);
+  GetAccountInfoEnvelope(GetAccountInfoBody body, {super.header}) : super(body);
 
   factory GetAccountInfoEnvelope.fromJson(Map<String, dynamic> json) =>
       GetAccountInfoEnvelope(GetAccountInfoBody.fromJson(json['Body']),

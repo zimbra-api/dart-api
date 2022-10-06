@@ -9,8 +9,8 @@ import 'get_signatures_request.dart';
 import 'get_signatures_response.dart';
 
 class GetSignaturesBody extends SoapBody {
-  GetSignaturesBody({GetSignaturesRequest? request, GetSignaturesResponse? response, SoapFault? fault})
-      : super(request: request, response: response, fault: fault);
+  GetSignaturesBody({GetSignaturesRequest? request, GetSignaturesResponse? response, super.fault})
+      : super(request: request, response: response);
 
   factory GetSignaturesBody.fromJson(Map<String, dynamic> json) => GetSignaturesBody(
       response:

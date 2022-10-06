@@ -9,13 +9,11 @@ import 'check_rights_request.dart';
 import 'check_rights_response.dart';
 
 class CheckRightsBody extends SoapBody {
-  CheckRightsBody({CheckRightsRequest? request, CheckRightsResponse? response, SoapFault? fault})
-      : super(request: request, response: response, fault: fault);
+  CheckRightsBody({CheckRightsRequest? request, CheckRightsResponse? response, super.fault})
+      : super(request: request, response: response);
 
   factory CheckRightsBody.fromJson(Map<String, dynamic> json) => CheckRightsBody(
-      response: json['CheckRightsResponse'] != null
-          ? CheckRightsResponse.fromJson(json['CheckRightsResponse'])
-          : null,
+      response: json['CheckRightsResponse'] != null ? CheckRightsResponse.fromJson(json['CheckRightsResponse']) : null,
       fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
 
   CheckRightsRequest? get checkRightsRequest => request as CheckRightsRequest;

@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'get_rights_body.dart';
 
 class GetRightsEnvelope extends SoapEnvelope {
-  GetRightsEnvelope(GetRightsBody body, {SoapHeader? header}) : super(body, header: header);
+  GetRightsEnvelope(GetRightsBody body, {super.header}) : super(body);
 
   factory GetRightsEnvelope.fromJson(Map<String, dynamic> json) =>
       GetRightsEnvelope(GetRightsBody.fromJson(json['Body']),

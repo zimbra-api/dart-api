@@ -9,8 +9,8 @@ import 'get_info_request.dart';
 import 'get_info_response.dart';
 
 class GetInfoBody extends SoapBody {
-  GetInfoBody({GetInfoRequest? request, GetInfoResponse? response, SoapFault? fault})
-      : super(request: request, response: response, fault: fault);
+  GetInfoBody({GetInfoRequest? request, GetInfoResponse? response, super.fault})
+      : super(request: request, response: response);
 
   factory GetInfoBody.fromJson(Map<String, dynamic> json) => GetInfoBody(
       response: json['GetInfoResponse'] != null ? GetInfoResponse.fromJson(json['GetInfoResponse']) : null,

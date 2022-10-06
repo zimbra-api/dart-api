@@ -10,8 +10,8 @@ import 'search_calendar_resources_response.dart';
 
 class SearchCalendarResourcesBody extends SoapBody {
   SearchCalendarResourcesBody(
-      {SearchCalendarResourcesRequest? request, SearchCalendarResourcesResponse? response, SoapFault? fault})
-      : super(request: request, response: response, fault: fault);
+      {SearchCalendarResourcesRequest? request, SearchCalendarResourcesResponse? response, super.fault})
+      : super(request: request, response: response);
 
   factory SearchCalendarResourcesBody.fromJson(Map<String, dynamic> json) => SearchCalendarResourcesBody(
       response: json['SearchCalendarResourcesResponse'] != null

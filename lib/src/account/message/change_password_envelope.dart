@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'change_password_body.dart';
 
 class ChangePasswordEnvelope extends SoapEnvelope {
-  ChangePasswordEnvelope(ChangePasswordBody body, {SoapHeader? header}) : super(body, header: header);
+  ChangePasswordEnvelope(ChangePasswordBody body, {super.header}) : super(body);
 
   factory ChangePasswordEnvelope.fromJson(Map<String, dynamic> json) =>
       ChangePasswordEnvelope(ChangePasswordBody.fromJson(json['Body']),

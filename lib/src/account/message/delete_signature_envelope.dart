@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'delete_signature_body.dart';
 
 class DeleteSignatureEnvelope extends SoapEnvelope {
-  DeleteSignatureEnvelope(DeleteSignatureBody body, {SoapHeader? header}) : super(body, header: header);
+  DeleteSignatureEnvelope(DeleteSignatureBody body, {super.header}) : super(body);
 
   factory DeleteSignatureEnvelope.fromJson(Map<String, dynamic> json) =>
       DeleteSignatureEnvelope(DeleteSignatureBody.fromJson(json['Body']),

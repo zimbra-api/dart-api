@@ -9,8 +9,8 @@ import 'get_prefs_request.dart';
 import 'get_prefs_response.dart';
 
 class GetPrefsBody extends SoapBody {
-  GetPrefsBody({GetPrefsRequest? request, GetPrefsResponse? response, SoapFault? fault})
-      : super(request: request, response: response, fault: fault);
+  GetPrefsBody({GetPrefsRequest? request, GetPrefsResponse? response, super.fault})
+      : super(request: request, response: response);
 
   factory GetPrefsBody.fromJson(Map<String, dynamic> json) => GetPrefsBody(
       response: json['GetPrefsResponse'] != null ? GetPrefsResponse.fromJson(json['GetPrefsResponse']) : null,

@@ -8,8 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'get_distribution_list_members_body.dart';
 
 class GetDistributionListMembersEnvelope extends SoapEnvelope {
-  GetDistributionListMembersEnvelope(GetDistributionListMembersBody body, {SoapHeader? header})
-      : super(body, header: header);
+  GetDistributionListMembersEnvelope(GetDistributionListMembersBody body, {super.header}) : super(body);
 
   factory GetDistributionListMembersEnvelope.fromJson(Map<String, dynamic> json) =>
       GetDistributionListMembersEnvelope(GetDistributionListMembersBody.fromJson(json['Body']),

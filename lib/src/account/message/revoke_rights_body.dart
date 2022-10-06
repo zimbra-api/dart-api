@@ -9,8 +9,8 @@ import 'revoke_rights_request.dart';
 import 'revoke_rights_response.dart';
 
 class RevokeRightsBody extends SoapBody {
-  RevokeRightsBody({RevokeRightsRequest? request, RevokeRightsResponse? response, SoapFault? fault})
-      : super(request: request, response: response, fault: fault);
+  RevokeRightsBody({RevokeRightsRequest? request, RevokeRightsResponse? response, super.fault})
+      : super(request: request, response: response);
 
   factory RevokeRightsBody.fromJson(Map<String, dynamic> json) => RevokeRightsBody(
       response:

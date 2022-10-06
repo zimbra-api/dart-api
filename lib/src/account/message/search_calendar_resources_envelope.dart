@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'search_calendar_resources_body.dart';
 
 class SearchCalendarResourcesEnvelope extends SoapEnvelope {
-  SearchCalendarResourcesEnvelope(SearchCalendarResourcesBody body, {SoapHeader? header}) : super(body, header: header);
+  SearchCalendarResourcesEnvelope(SearchCalendarResourcesBody body, {super.header}) : super(body);
 
   factory SearchCalendarResourcesEnvelope.fromJson(Map<String, dynamic> json) =>
       SearchCalendarResourcesEnvelope(SearchCalendarResourcesBody.fromJson(json['Body']),

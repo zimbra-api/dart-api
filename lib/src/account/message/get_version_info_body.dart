@@ -9,8 +9,8 @@ import 'get_version_info_request.dart';
 import 'get_version_info_response.dart';
 
 class GetVersionInfoBody extends SoapBody {
-  GetVersionInfoBody({GetVersionInfoRequest? request, GetVersionInfoResponse? response, SoapFault? fault})
-      : super(request: request, response: response, fault: fault);
+  GetVersionInfoBody({GetVersionInfoRequest? request, GetVersionInfoResponse? response, super.fault})
+      : super(request: request, response: response);
 
   factory GetVersionInfoBody.fromJson(Map<String, dynamic> json) => GetVersionInfoBody(
       response: json['GetVersionInfoResponse'] != null

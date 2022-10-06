@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'auto_complete_gal_body.dart';
 
 class AutoCompleteGalEnvelope extends SoapEnvelope {
-  AutoCompleteGalEnvelope(AutoCompleteGalBody body, {SoapHeader? header}) : super(body, header: header);
+  AutoCompleteGalEnvelope(AutoCompleteGalBody body, {super.header}) : super(body);
 
   factory AutoCompleteGalEnvelope.fromJson(Map<String, dynamic> json) =>
       AutoCompleteGalEnvelope(AutoCompleteGalBody.fromJson(json['Body']),

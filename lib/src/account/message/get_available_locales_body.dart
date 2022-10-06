@@ -9,9 +9,8 @@ import 'get_available_locales_request.dart';
 import 'get_available_locales_response.dart';
 
 class GetAvailableLocalesBody extends SoapBody {
-  GetAvailableLocalesBody(
-      {GetAvailableLocalesRequest? request, GetAvailableLocalesResponse? response, SoapFault? fault})
-      : super(request: request, response: response, fault: fault);
+  GetAvailableLocalesBody({GetAvailableLocalesRequest? request, GetAvailableLocalesResponse? response, super.fault})
+      : super(request: request, response: response);
 
   factory GetAvailableLocalesBody.fromJson(Map<String, dynamic> json) => GetAvailableLocalesBody(
       response: json['GetAvailableLocalesResponse'] != null

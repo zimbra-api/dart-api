@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'discover_rights_body.dart';
 
 class DiscoverRightsEnvelope extends SoapEnvelope {
-  DiscoverRightsEnvelope(DiscoverRightsBody body, {SoapHeader? header}) : super(body, header: header);
+  DiscoverRightsEnvelope(DiscoverRightsBody body, {super.header}) : super(body);
 
   factory DiscoverRightsEnvelope.fromJson(Map<String, dynamic> json) =>
       DiscoverRightsEnvelope(DiscoverRightsBody.fromJson(json['Body']),

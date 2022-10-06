@@ -10,8 +10,8 @@ import 'get_available_csv_formats_response.dart';
 
 class GetAvailableCsvFormatsBody extends SoapBody {
   GetAvailableCsvFormatsBody(
-      {GetAvailableCsvFormatsRequest? request, GetAvailableCsvFormatsResponse? response, SoapFault? fault})
-      : super(request: request, response: response, fault: fault);
+      {GetAvailableCsvFormatsRequest? request, GetAvailableCsvFormatsResponse? response, super.fault})
+      : super(request: request, response: response);
 
   factory GetAvailableCsvFormatsBody.fromJson(Map<String, dynamic> json) => GetAvailableCsvFormatsBody(
       response: json['GetAvailableCsvFormatsResponse'] != null

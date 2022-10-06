@@ -9,8 +9,8 @@ import 'get_available_skins_request.dart';
 import 'get_available_skins_response.dart';
 
 class GetAvailableSkinsBody extends SoapBody {
-  GetAvailableSkinsBody({GetAvailableSkinsRequest? request, GetAvailableSkinsResponse? response, SoapFault? fault})
-      : super(request: request, response: response, fault: fault);
+  GetAvailableSkinsBody({GetAvailableSkinsRequest? request, GetAvailableSkinsResponse? response, super.fault})
+      : super(request: request, response: response);
 
   factory GetAvailableSkinsBody.fromJson(Map<String, dynamic> json) => GetAvailableSkinsBody(
       response: json['GetAvailableSkinsResponse'] != null

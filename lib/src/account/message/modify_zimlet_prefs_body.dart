@@ -9,8 +9,8 @@ import 'modify_zimlet_prefs_request.dart';
 import 'modify_zimlet_prefs_response.dart';
 
 class ModifyZimletPrefsBody extends SoapBody {
-  ModifyZimletPrefsBody({ModifyZimletPrefsRequest? request, ModifyZimletPrefsResponse? response, SoapFault? fault})
-      : super(request: request, response: response, fault: fault);
+  ModifyZimletPrefsBody({ModifyZimletPrefsRequest? request, ModifyZimletPrefsResponse? response, super.fault})
+      : super(request: request, response: response);
 
   factory ModifyZimletPrefsBody.fromJson(Map<String, dynamic> json) => ModifyZimletPrefsBody(
       response: json['ModifyZimletPrefsResponse'] != null

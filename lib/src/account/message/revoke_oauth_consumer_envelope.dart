@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'revoke_oauth_consumer_body.dart';
 
 class RevokeOAuthConsumerEnvelope extends SoapEnvelope {
-  RevokeOAuthConsumerEnvelope(RevokeOAuthConsumerBody body, {SoapHeader? header}) : super(body, header: header);
+  RevokeOAuthConsumerEnvelope(RevokeOAuthConsumerBody body, {super.header}) : super(body);
 
   factory RevokeOAuthConsumerEnvelope.fromJson(Map<String, dynamic> json) =>
       RevokeOAuthConsumerEnvelope(RevokeOAuthConsumerBody.fromJson(json['Body']),

@@ -9,8 +9,8 @@ import 'search_gal_request.dart';
 import 'search_gal_response.dart';
 
 class SearchGalBody extends SoapBody {
-  SearchGalBody({SearchGalRequest? request, SearchGalResponse? response, SoapFault? fault})
-      : super(request: request, response: response, fault: fault);
+  SearchGalBody({SearchGalRequest? request, SearchGalResponse? response, super.fault})
+      : super(request: request, response: response);
 
   factory SearchGalBody.fromJson(Map<String, dynamic> json) => SearchGalBody(
       response: json['SearchGalResponse'] != null ? SearchGalResponse.fromJson(json['SearchGalResponse']) : null,

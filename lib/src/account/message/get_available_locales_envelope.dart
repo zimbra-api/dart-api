@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'get_available_locales_body.dart';
 
 class GetAvailableLocalesEnvelope extends SoapEnvelope {
-  GetAvailableLocalesEnvelope(GetAvailableLocalesBody body, {SoapHeader? header}) : super(body, header: header);
+  GetAvailableLocalesEnvelope(GetAvailableLocalesBody body, {super.header}) : super(body);
 
   factory GetAvailableLocalesEnvelope.fromJson(Map<String, dynamic> json) =>
       GetAvailableLocalesEnvelope(GetAvailableLocalesBody.fromJson(json['Body']),

@@ -9,8 +9,7 @@ import 'auth_request.dart';
 import 'auth_response.dart';
 
 class AuthBody extends SoapBody {
-  AuthBody({AuthRequest? request, AuthResponse? response, SoapFault? fault})
-      : super(request: request, response: response, fault: fault);
+  AuthBody({AuthRequest? request, AuthResponse? response, super.fault}) : super(request: request, response: response);
 
   factory AuthBody.fromJson(Map<String, dynamic> json) => AuthBody(
       response: json['AuthResponse'] != null ? AuthResponse.fromJson(json['AuthResponse']) : null,

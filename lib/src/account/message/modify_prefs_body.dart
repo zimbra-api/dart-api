@@ -9,8 +9,8 @@ import 'modify_prefs_request.dart';
 import 'modify_prefs_response.dart';
 
 class ModifyPrefsBody extends SoapBody {
-  ModifyPrefsBody({ModifyPrefsRequest? request, ModifyPrefsResponse? response, SoapFault? fault})
-      : super(request: request, response: response, fault: fault);
+  ModifyPrefsBody({ModifyPrefsRequest? request, ModifyPrefsResponse? response, super.fault})
+      : super(request: request, response: response);
 
   factory ModifyPrefsBody.fromJson(Map<String, dynamic> json) => ModifyPrefsBody(
       response: json['ModifyPrefsResponse'] != null ? ModifyPrefsResponse.fromJson(json['ModifyPrefsResponse']) : null,

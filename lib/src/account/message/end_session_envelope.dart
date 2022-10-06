@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'end_session_body.dart';
 
 class EndSessionEnvelope extends SoapEnvelope {
-  EndSessionEnvelope(EndSessionBody body, {SoapHeader? header}) : super(body, header: header);
+  EndSessionEnvelope(EndSessionBody body, {super.header}) : super(body);
 
   factory EndSessionEnvelope.fromJson(Map<String, dynamic> json) =>
       EndSessionEnvelope(EndSessionBody.fromJson(json['Body']),

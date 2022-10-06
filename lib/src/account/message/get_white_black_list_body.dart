@@ -9,8 +9,8 @@ import 'get_white_black_list_request.dart';
 import 'get_white_black_list_response.dart';
 
 class GetWhiteBlackListBody extends SoapBody {
-  GetWhiteBlackListBody({GetWhiteBlackListRequest? request, GetWhiteBlackListResponse? response, SoapFault? fault})
-      : super(request: request, response: response, fault: fault);
+  GetWhiteBlackListBody({GetWhiteBlackListRequest? request, GetWhiteBlackListResponse? response, super.fault})
+      : super(request: request, response: response);
 
   factory GetWhiteBlackListBody.fromJson(Map<String, dynamic> json) => GetWhiteBlackListBody(
       response: json['GetWhiteBlackListResponse'] != null

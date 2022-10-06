@@ -10,8 +10,8 @@ import 'get_account_distribution_lists_response.dart';
 
 class GetAccountDistributionListsBody extends SoapBody {
   GetAccountDistributionListsBody(
-      {GetAccountDistributionListsRequest? request, GetAccountDistributionListsResponse? response, SoapFault? fault})
-      : super(request: request, response: response, fault: fault);
+      {GetAccountDistributionListsRequest? request, GetAccountDistributionListsResponse? response, super.fault})
+      : super(request: request, response: response);
 
   factory GetAccountDistributionListsBody.fromJson(Map<String, dynamic> json) => GetAccountDistributionListsBody(
       response: json['GetAccountDistributionListsResponse'] != null

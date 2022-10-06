@@ -10,8 +10,8 @@ import 'subscribe_distribution_list_response.dart';
 
 class SubscribeDistributionListBody extends SoapBody {
   SubscribeDistributionListBody(
-      {SubscribeDistributionListRequest? request, SubscribeDistributionListResponse? response, SoapFault? fault})
-      : super(request: request, response: response, fault: fault);
+      {SubscribeDistributionListRequest? request, SubscribeDistributionListResponse? response, super.fault})
+      : super(request: request, response: response);
 
   factory SubscribeDistributionListBody.fromJson(Map<String, dynamic> json) => SubscribeDistributionListBody(
       response: json['SubscribeDistributionListResponse'] != null

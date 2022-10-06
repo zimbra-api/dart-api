@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'get_prefs_body.dart';
 
 class GetPrefsEnvelope extends SoapEnvelope {
-  GetPrefsEnvelope(GetPrefsBody body, {SoapHeader? header}) : super(body, header: header);
+  GetPrefsEnvelope(GetPrefsBody body, {super.header}) : super(body);
 
   factory GetPrefsEnvelope.fromJson(Map<String, dynamic> json) => GetPrefsEnvelope(GetPrefsBody.fromJson(json['Body']),
       header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);

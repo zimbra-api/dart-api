@@ -9,8 +9,8 @@ import 'end_session_request.dart';
 import 'end_session_response.dart';
 
 class EndSessionBody extends SoapBody {
-  EndSessionBody({EndSessionRequest? request, EndSessionResponse? response, SoapFault? fault})
-      : super(request: request, response: response, fault: fault);
+  EndSessionBody({EndSessionRequest? request, EndSessionResponse? response, super.fault})
+      : super(request: request, response: response);
 
   factory EndSessionBody.fromJson(Map<String, dynamic> json) => EndSessionBody(
       response: json['EndSessionResponse'] != null ? EndSessionResponse.fromJson(json['EndSessionResponse']) : null,

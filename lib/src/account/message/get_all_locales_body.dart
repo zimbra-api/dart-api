@@ -9,8 +9,8 @@ import 'get_all_locales_request.dart';
 import 'get_all_locales_response.dart';
 
 class GetAllLocalesBody extends SoapBody {
-  GetAllLocalesBody({GetAllLocalesRequest? request, GetAllLocalesResponse? response, SoapFault? fault})
-      : super(request: request, response: response, fault: fault);
+  GetAllLocalesBody({GetAllLocalesRequest? request, GetAllLocalesResponse? response, super.fault})
+      : super(request: request, response: response);
 
   factory GetAllLocalesBody.fromJson(Map<String, dynamic> json) => GetAllLocalesBody(
       response:

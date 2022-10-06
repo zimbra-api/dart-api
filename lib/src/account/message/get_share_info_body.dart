@@ -9,8 +9,8 @@ import 'get_share_info_request.dart';
 import 'get_share_info_response.dart';
 
 class GetShareInfoBody extends SoapBody {
-  GetShareInfoBody({GetShareInfoRequest? request, GetShareInfoResponse? response, SoapFault? fault})
-      : super(request: request, response: response, fault: fault);
+  GetShareInfoBody({GetShareInfoRequest? request, GetShareInfoResponse? response, super.fault})
+      : super(request: request, response: response);
 
   factory GetShareInfoBody.fromJson(Map<String, dynamic> json) => GetShareInfoBody(
       response:

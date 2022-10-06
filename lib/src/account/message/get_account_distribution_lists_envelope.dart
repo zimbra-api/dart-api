@@ -8,8 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'get_account_distribution_lists_body.dart';
 
 class GetAccountDistributionListsEnvelope extends SoapEnvelope {
-  GetAccountDistributionListsEnvelope(GetAccountDistributionListsBody body, {SoapHeader? header})
-      : super(body, header: header);
+  GetAccountDistributionListsEnvelope(GetAccountDistributionListsBody body, {super.header}) : super(body);
 
   factory GetAccountDistributionListsEnvelope.fromJson(Map<String, dynamic> json) =>
       GetAccountDistributionListsEnvelope(GetAccountDistributionListsBody.fromJson(json['Body']),

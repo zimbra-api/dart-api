@@ -9,8 +9,8 @@ import 'create_identity_request.dart';
 import 'create_identity_response.dart';
 
 class CreateIdentityBody extends SoapBody {
-  CreateIdentityBody({CreateIdentityRequest? request, CreateIdentityResponse? response, SoapFault? fault})
-      : super(request: request, response: response, fault: fault);
+  CreateIdentityBody({CreateIdentityRequest? request, CreateIdentityResponse? response, super.fault})
+      : super(request: request, response: response);
 
   factory CreateIdentityBody.fromJson(Map<String, dynamic> json) => CreateIdentityBody(
       response: json['CreateIdentityResponse'] != null

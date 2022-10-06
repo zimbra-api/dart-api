@@ -9,8 +9,8 @@ import 'modify_signature_request.dart';
 import 'modify_signature_response.dart';
 
 class ModifySignatureBody extends SoapBody {
-  ModifySignatureBody({ModifySignatureRequest? request, ModifySignatureResponse? response, SoapFault? fault})
-      : super(request: request, response: response, fault: fault);
+  ModifySignatureBody({ModifySignatureRequest? request, ModifySignatureResponse? response, super.fault})
+      : super(request: request, response: response);
 
   factory ModifySignatureBody.fromJson(Map<String, dynamic> json) => ModifySignatureBody(
       response: json['ModifySignatureResponse'] != null

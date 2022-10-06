@@ -9,8 +9,8 @@ import 'grant_rights_request.dart';
 import 'grant_rights_response.dart';
 
 class GrantRightsBody extends SoapBody {
-  GrantRightsBody({GrantRightsRequest? request, GrantRightsResponse? response, SoapFault? fault})
-      : super(request: request, response: response, fault: fault);
+  GrantRightsBody({GrantRightsRequest? request, GrantRightsResponse? response, super.fault})
+      : super(request: request, response: response);
 
   factory GrantRightsBody.fromJson(Map<String, dynamic> json) => GrantRightsBody(
       response: json['GrantRightsResponse'] != null ? GrantRightsResponse.fromJson(json['GrantRightsResponse']) : null,

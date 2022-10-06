@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'auth_body.dart';
 
 class AuthEnvelope extends SoapEnvelope {
-  AuthEnvelope(AuthBody body, {SoapHeader? header}) : super(body, header: header);
+  AuthEnvelope(AuthBody body, {super.header}) : super(body);
 
   factory AuthEnvelope.fromJson(Map<String, dynamic> json) => AuthEnvelope(AuthBody.fromJson(json['Body']),
       header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);

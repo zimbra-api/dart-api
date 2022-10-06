@@ -9,8 +9,8 @@ import 'get_identities_request.dart';
 import 'get_identities_response.dart';
 
 class GetIdentitiesBody extends SoapBody {
-  GetIdentitiesBody({GetIdentitiesRequest? request, GetIdentitiesResponse? response, SoapFault? fault})
-      : super(request: request, response: response, fault: fault);
+  GetIdentitiesBody({GetIdentitiesRequest? request, GetIdentitiesResponse? response, super.fault})
+      : super(request: request, response: response);
 
   factory GetIdentitiesBody.fromJson(Map<String, dynamic> json) => GetIdentitiesBody(
       response:

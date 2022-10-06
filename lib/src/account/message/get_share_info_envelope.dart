@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'get_share_info_body.dart';
 
 class GetShareInfoEnvelope extends SoapEnvelope {
-  GetShareInfoEnvelope(GetShareInfoBody body, {SoapHeader? header}) : super(body, header: header);
+  GetShareInfoEnvelope(GetShareInfoBody body, {super.header}) : super(body);
 
   factory GetShareInfoEnvelope.fromJson(Map<String, dynamic> json) =>
       GetShareInfoEnvelope(GetShareInfoBody.fromJson(json['Body']),

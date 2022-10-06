@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'get_white_black_list_body.dart';
 
 class GetWhiteBlackListEnvelope extends SoapEnvelope {
-  GetWhiteBlackListEnvelope(GetWhiteBlackListBody body, {SoapHeader? header}) : super(body, header: header);
+  GetWhiteBlackListEnvelope(GetWhiteBlackListBody body, {super.header}) : super(body);
 
   factory GetWhiteBlackListEnvelope.fromJson(Map<String, dynamic> json) =>
       GetWhiteBlackListEnvelope(GetWhiteBlackListBody.fromJson(json['Body']),

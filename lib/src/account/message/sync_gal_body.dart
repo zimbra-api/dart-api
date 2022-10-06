@@ -9,8 +9,8 @@ import 'sync_gal_request.dart';
 import 'sync_gal_response.dart';
 
 class SyncGalBody extends SoapBody {
-  SyncGalBody({SyncGalRequest? request, SyncGalResponse? response, SoapFault? fault})
-      : super(request: request, response: response, fault: fault);
+  SyncGalBody({SyncGalRequest? request, SyncGalResponse? response, super.fault})
+      : super(request: request, response: response);
 
   factory SyncGalBody.fromJson(Map<String, dynamic> json) => SyncGalBody(
       response: json['SyncGalResponse'] != null ? SyncGalResponse.fromJson(json['SyncGalResponse']) : null,

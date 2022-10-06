@@ -9,8 +9,8 @@ import 'modify_properties_request.dart';
 import 'modify_properties_response.dart';
 
 class ModifyPropertiesBody extends SoapBody {
-  ModifyPropertiesBody({ModifyPropertiesRequest? request, ModifyPropertiesResponse? response, SoapFault? fault})
-      : super(request: request, response: response, fault: fault);
+  ModifyPropertiesBody({ModifyPropertiesRequest? request, ModifyPropertiesResponse? response, super.fault})
+      : super(request: request, response: response);
 
   factory ModifyPropertiesBody.fromJson(Map<String, dynamic> json) => ModifyPropertiesBody(
       response: json['ModifyPropertiesResponse'] != null

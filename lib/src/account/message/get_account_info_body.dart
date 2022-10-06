@@ -9,8 +9,8 @@ import 'get_account_info_request.dart';
 import 'get_account_info_response.dart';
 
 class GetAccountInfoBody extends SoapBody {
-  GetAccountInfoBody({GetAccountInfoRequest? request, GetAccountInfoResponse? response, SoapFault? fault})
-      : super(request: request, response: response, fault: fault);
+  GetAccountInfoBody({GetAccountInfoRequest? request, GetAccountInfoResponse? response, super.fault})
+      : super(request: request, response: response);
 
   factory GetAccountInfoBody.fromJson(Map<String, dynamic> json) => GetAccountInfoBody(
       response: json['GetAccountInfoResponse'] != null

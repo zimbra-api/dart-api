@@ -9,12 +9,11 @@ import 'client_info_request.dart';
 import 'client_info_response.dart';
 
 class ClientInfoBody extends SoapBody {
-  ClientInfoBody({ClientInfoRequest? request, ClientInfoResponse? response, SoapFault? fault})
-      : super(request: request, response: response, fault: fault);
+  ClientInfoBody({ClientInfoRequest? request, ClientInfoResponse? response, super.fault})
+      : super(request: request, response: response);
 
   factory ClientInfoBody.fromJson(Map<String, dynamic> json) => ClientInfoBody(
-      response:
-          json['ClientInfoResponse'] != null ? ClientInfoResponse.fromJson(json['ClientInfoResponse']) : null,
+      response: json['ClientInfoResponse'] != null ? ClientInfoResponse.fromJson(json['ClientInfoResponse']) : null,
       fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
 
   ClientInfoRequest? get clientInfoRequest => request as ClientInfoRequest;

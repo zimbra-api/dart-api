@@ -9,9 +9,8 @@ import 'revoke_oauth_consumer_request.dart';
 import 'revoke_oauth_consumer_response.dart';
 
 class RevokeOAuthConsumerBody extends SoapBody {
-  RevokeOAuthConsumerBody(
-      {RevokeOAuthConsumerRequest? request, RevokeOAuthConsumerResponse? response, SoapFault? fault})
-      : super(request: request, response: response, fault: fault);
+  RevokeOAuthConsumerBody({RevokeOAuthConsumerRequest? request, RevokeOAuthConsumerResponse? response, super.fault})
+      : super(request: request, response: response);
 
   factory RevokeOAuthConsumerBody.fromJson(Map<String, dynamic> json) => RevokeOAuthConsumerBody(
       response: json['RevokeOAuthConsumerResponse'] != null

@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'get_oauth_consumers_body.dart';
 
 class GetOAuthConsumersEnvelope extends SoapEnvelope {
-  GetOAuthConsumersEnvelope(GetOAuthConsumersBody body, {SoapHeader? header}) : super(body, header: header);
+  GetOAuthConsumersEnvelope(GetOAuthConsumersBody body, {super.header}) : super(body);
 
   factory GetOAuthConsumersEnvelope.fromJson(Map<String, dynamic> json) =>
       GetOAuthConsumersEnvelope(GetOAuthConsumersBody.fromJson(json['Body']),

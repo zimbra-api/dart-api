@@ -9,8 +9,8 @@ import 'delete_identity_request.dart';
 import 'delete_identity_response.dart';
 
 class DeleteIdentityBody extends SoapBody {
-  DeleteIdentityBody({DeleteIdentityRequest? request, DeleteIdentityResponse? response, SoapFault? fault})
-      : super(request: request, response: response, fault: fault);
+  DeleteIdentityBody({DeleteIdentityRequest? request, DeleteIdentityResponse? response, super.fault})
+      : super(request: request, response: response);
 
   factory DeleteIdentityBody.fromJson(Map<String, dynamic> json) => DeleteIdentityBody(
       response: json['DeleteIdentityResponse'] != null

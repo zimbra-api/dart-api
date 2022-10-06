@@ -9,8 +9,8 @@ import 'auto_complete_gal_request.dart';
 import 'auto_complete_gal_response.dart';
 
 class AutoCompleteGalBody extends SoapBody {
-  AutoCompleteGalBody({AutoCompleteGalRequest? request, AutoCompleteGalResponse? response, SoapFault? fault})
-      : super(request: request, response: response, fault: fault);
+  AutoCompleteGalBody({AutoCompleteGalRequest? request, AutoCompleteGalResponse? response, super.fault})
+      : super(request: request, response: response);
 
   factory AutoCompleteGalBody.fromJson(Map<String, dynamic> json) => AutoCompleteGalBody(
       response: json['AutoCompleteGalResponse'] != null

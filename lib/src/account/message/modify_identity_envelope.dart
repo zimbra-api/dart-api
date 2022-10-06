@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'modify_identity_body.dart';
 
 class ModifyIdentityEnvelope extends SoapEnvelope {
-  ModifyIdentityEnvelope(ModifyIdentityBody body, {SoapHeader? header}) : super(body, header: header);
+  ModifyIdentityEnvelope(ModifyIdentityBody body, {super.header}) : super(body);
 
   factory ModifyIdentityEnvelope.fromJson(Map<String, dynamic> json) =>
       ModifyIdentityEnvelope(ModifyIdentityBody.fromJson(json['Body']),

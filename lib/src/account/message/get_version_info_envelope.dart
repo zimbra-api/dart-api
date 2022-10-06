@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'get_version_info_body.dart';
 
 class GetVersionInfoEnvelope extends SoapEnvelope {
-  GetVersionInfoEnvelope(GetVersionInfoBody body, {SoapHeader? header}) : super(body, header: header);
+  GetVersionInfoEnvelope(GetVersionInfoBody body, {super.header}) : super(body);
 
   factory GetVersionInfoEnvelope.fromJson(Map<String, dynamic> json) =>
       GetVersionInfoEnvelope(GetVersionInfoBody.fromJson(json['Body']),

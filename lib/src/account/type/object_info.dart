@@ -6,10 +6,10 @@ import 'package:zimbra_api/src/common/type/key_value_pair.dart';
 
 abstract class ObjectInfo {
   /// Name
-  String name;
+  final String name;
 
   /// Id
-  String id;
+  final String id;
 
   /// Attributes
   final List<KeyValuePair> attrList;

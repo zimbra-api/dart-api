@@ -4,7 +4,7 @@
 
 class DiscoverRightsEmail {
   /// Email address
-  String addr;
+  final String addr;
 
   DiscoverRightsEmail(this.addr);
 

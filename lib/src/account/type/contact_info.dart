@@ -8,53 +8,53 @@ import 'account_custom_metadata.dart';
 import 'contact_group_member.dart';
 
 class ContactInfo {
-  String? sortField;
+  final String? sortField;
 
-  bool? canExpand;
+  final bool? canExpand;
 
-  String? id;
+  final String? id;
 
-  String? folder;
+  final String? folder;
 
-  String? flags;
+  final String? flags;
 
-  String? tags;
+  final String? tags;
 
-  String? tagNames;
+  final String? tagNames;
 
-  int? changeDate;
+  final int? changeDate;
 
-  int? modifiedSequenceId;
+  final int? modifiedSequenceId;
 
-  int? date;
+  final int? date;
 
-  int? revisionId;
+  final int? revisionId;
 
-  String? fileAs;
+  final String? fileAs;
 
-  String? email;
+  final String? email;
 
-  String? email2;
+  final String? email2;
 
-  String? email3;
+  final String? email3;
 
-  String? type;
+  final String? type;
 
-  String? dlist;
+  final String? dlist;
 
-  String? reference;
+  final String? reference;
 
-  bool? tooManyMembers;
+  final bool? tooManyMembers;
 
-  List<AccountCustomMetadata> metadatas = <AccountCustomMetadata>[];
+  final List<AccountCustomMetadata> metadatas = <AccountCustomMetadata>[];
 
-  List<ContactAttr> attrs = <ContactAttr>[];
+  final List<ContactAttr> attrs = <ContactAttr>[];
 
-  List<ContactGroupMember> contactGroupMembers = <ContactGroupMember>[];
+  final List<ContactGroupMember> contactGroupMembers = <ContactGroupMember>[];
 
-  bool? isOwner;
+  final bool? isOwner;
 
-  bool? isMember;
+  final bool? isMember;
 
   ContactInfo(
       {this.sortField,

@@ -5,11 +5,11 @@
 import 'signature_content.dart';
 
 class Signature {
-  String? name;
+  final String? name;
 
-  String? id;
+  final String? id;
 
-  String? cid;
+  final String? cid;
 
   /// Content of the signature
   final List<SignatureContent> contents;

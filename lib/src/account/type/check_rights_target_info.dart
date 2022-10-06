@@ -8,15 +8,15 @@ import 'package:zimbra_api/src/common/enum/target_type.dart';
 import 'check_rights_right_info.dart';
 
 class CheckRightsTargetInfo {
-  TargetType targetType;
+  final TargetType targetType;
 
-  TargetBy targetBy;
+  final TargetBy targetBy;
 
-  String targetKey;
+  final String targetKey;
 
-  bool allow;
+  final bool allow;
 
-  List<CheckRightsRightInfo> rights = <CheckRightsRightInfo>[];
+  final List<CheckRightsRightInfo> rights = <CheckRightsRightInfo>[];
 
   CheckRightsTargetInfo(
       {this.targetType = TargetType.account, this.targetBy = TargetBy.name, this.targetKey = '', this.allow = false});

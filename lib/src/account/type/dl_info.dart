@@ -8,25 +8,25 @@ import 'object_info.dart';
 
 class DLInfo extends ObjectInfo {
   /// ldap dn of the DL.
-  String ref;
+  final String ref;
 
   /// Display name of group
-  String? displayName;
+  final String? displayName;
 
   /// Flags whether the group is dynamic or not
-  bool? isDynamic;
+  final bool? isDynamic;
 
   /// Present if the account is a member of the returned list because they are either a
   /// direct or indirect member of another list that is a member of the returned list.
-  String? via;
+  final String? via;
 
   /// Flags whether user is the owner of the group.
   /// Only returned if ownerOf on the request is true
-  bool? isOwner;
+  final bool? isOwner;
 
   /// Flags whether user is a member of the group.
   /// Only returned if memberOf on the request is true
-  bool? isMember;
+  final bool? isMember;
 
   DLInfo(super.name, super.id, this.ref,
       {super.attrList, this.displayName, this.isDynamic, this.via, this.isOwner, this.isMember});

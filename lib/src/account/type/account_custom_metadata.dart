@@ -7,7 +7,7 @@ import 'package:zimbra_api/src/common/type/key_value_pairs.dart';
 import 'account_key_value_pairs.dart';
 
 class AccountCustomMetadata extends AccountKeyValuePairs {
-  String? section;
+  final String? section;
 
   AccountCustomMetadata({this.section, super.keyValuePairs});
 

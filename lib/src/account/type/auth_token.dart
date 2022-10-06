@@ -3,11 +3,11 @@
 // file that was distributed with this source code.
 
 class AuthToken {
-  String value;
+  final String value;
 
-  int lifetime;
+  final int lifetime;
 
-  bool verifyAccount;
+  final bool verifyAccount;
 
   AuthToken(this.value, {this.lifetime = 0, this.verifyAccount = false});
 

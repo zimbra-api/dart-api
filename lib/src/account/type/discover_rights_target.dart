@@ -11,13 +11,13 @@ class DiscoverRightsTarget {
   final TargetType type;
 
   /// Target ID
-  String? id;
+  final String? id;
 
   /// Target name
-  String? name;
+  final String? name;
 
   /// If a discovered target is an account or a group and the entry has a display name set then this is set to that display name.
-  String? displayName;
+  final String? displayName;
 
   /// Email addresses
   final List<DiscoverRightsEmail> emails;

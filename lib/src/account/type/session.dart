@@ -3,9 +3,9 @@
 // file that was distributed with this source code.
 
 class Session {
-  String id;
+  final String id;
 
-  String? type;
+  final String? type;
 
   Session(this.id, {this.type});
 

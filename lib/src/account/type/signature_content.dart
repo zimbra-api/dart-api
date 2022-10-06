@@ -5,9 +5,9 @@
 import 'package:zimbra_api/src/common/enum/content_type.dart';
 
 class SignatureContent {
-  ContentType type;
+  final ContentType type;
 
-  String? value;
+  final String? value;
 
   SignatureContent(this.type, {this.value});
 

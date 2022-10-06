@@ -6,12 +6,12 @@ import 'contact_info.dart';
 
 class ContactGroupMember {
   // Contact group member type
-  String type;
+  final String type;
 
   // Contact group member value
-  String value;
+  final String value;
 
-  ContactInfo? contact;
+  final ContactInfo? contact;
 
   ContactGroupMember({this.type = '', this.value = '', this.contact});
 

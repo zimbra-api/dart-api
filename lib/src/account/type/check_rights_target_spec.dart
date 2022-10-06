@@ -6,13 +6,13 @@ import 'package:zimbra_api/src/common/enum/target_by.dart';
 import 'package:zimbra_api/src/common/enum/target_type.dart';
 
 class CheckRightsTargetSpec {
-  TargetType targetType;
+  final TargetType targetType;
 
-  TargetBy targetBy;
+  final TargetBy targetBy;
 
-  String targetKey;
+  final String targetKey;
 
-  List<String> rights = <String>[];
+  final List<String> rights = <String>[];
 
   CheckRightsTargetSpec({this.targetType = TargetType.account, this.targetBy = TargetBy.name, this.targetKey = ''});
 

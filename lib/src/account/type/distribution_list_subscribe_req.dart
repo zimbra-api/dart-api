@@ -6,12 +6,12 @@ import 'package:zimbra_api/src/common/enum/distribution_list_subscribe_op.dart';
 
 class DistributionListSubscribeReq {
   /// operation
-  DistributionListSubscribeOp op;
+  final DistributionListSubscribeOp op;
 
-  String? value;
+  final String? value;
 
   /// Flag whether to bcc all other owners on the accept/reject notification emails.
-  bool? bccOwners;
+  final bool? bccOwners;
 
   DistributionListSubscribeReq({this.op = DistributionListSubscribeOp.subscribe, this.value, this.bccOwners});
 

@@ -3,9 +3,9 @@
 // file that was distributed with this source code.
 
 class NameId {
-  String? name;
+  final String? name;
 
-  String? id;
+  final String? id;
 
   NameId({this.name, this.id});
 

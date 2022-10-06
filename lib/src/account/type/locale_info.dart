@@ -4,13 +4,13 @@
 
 class LocaleInfo {
   /// Locale ID
-  String id;
+  final String id;
 
   /// Name of the locale in the locale itself
-  String name;
+  final String name;
 
   /// Name of the locale in the users' locale
-  String? localName;
+  final String? localName;
 
   LocaleInfo(this.id, this.name, {this.localName});
 

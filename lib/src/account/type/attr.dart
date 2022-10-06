@@ -3,11 +3,11 @@
 // file that was distributed with this source code.
 
 class Attr {
-  String name;
+  final String name;
 
-  String value;
+  final String value;
 
-  bool? permDenied;
+  final bool? permDenied;
 
   Attr(this.name, this.value, {this.permDenied});
 

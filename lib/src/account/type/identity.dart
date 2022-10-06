@@ -6,9 +6,9 @@ import 'attr.dart';
 import 'attrs.dart';
 
 class Identity extends Attrs {
-  String? name;
+  final String? name;
 
-  String? id;
+  final String? id;
 
   Identity({this.name, this.id, super.attrs});
 

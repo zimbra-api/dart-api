@@ -4,10 +4,10 @@
 
 class CheckRightsRightInfo {
   /// Flags whether the authed user has the right on the target
-  bool allow;
+  final bool allow;
 
   /// Name of right
-  String right;
+  final String right;
 
   CheckRightsRightInfo({this.right = '', this.allow = false});
 

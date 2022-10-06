@@ -10,11 +10,11 @@ import 'distribution_list_right_spec.dart';
 import 'distribution_list_subscribe_req.dart';
 
 class DistributionListAction extends AccountKeyValuePairs {
-  Operation op;
+  final Operation op;
 
-  String? newName;
+  final String? newName;
 
-  DistributionListSubscribeReq? subsReq;
+  final DistributionListSubscribeReq? subsReq;
 
   final List<String> members;
 

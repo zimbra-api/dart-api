@@ -5,7 +5,7 @@
 import 'distribution_list_grantee_selector.dart';
 
 class DistributionListRightSpec {
-  String right;
+  final String right;
 
   final List<DistributionListGranteeSelector> grantees;
 

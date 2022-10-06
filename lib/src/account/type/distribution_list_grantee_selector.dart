@@ -6,11 +6,11 @@ import 'package:zimbra_api/src/common/enum/distribution_list_grantee_by.dart';
 import 'package:zimbra_api/src/common/enum/grantee_type.dart';
 
 class DistributionListGranteeSelector {
-  GranteeType type;
+  final GranteeType type;
 
-  DistributionListGranteeBy by;
+  final DistributionListGranteeBy by;
 
-  String? value;
+  final String? value;
 
   DistributionListGranteeSelector({this.type = GranteeType.all, this.by = DistributionListGranteeBy.name, this.value});
 

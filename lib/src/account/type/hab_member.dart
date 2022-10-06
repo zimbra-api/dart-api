@@ -3,9 +3,9 @@
 // file that was distributed with this source code.
 
 abstract class HABMember {
-  String name;
+  final String name;
 
-  int? seniorityIndex;
+  final int? seniorityIndex;
 
   HABMember(this.name, {this.seniorityIndex});
 }

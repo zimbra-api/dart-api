@@ -14,10 +14,11 @@ class PreAuth {
   final int expiresTimestamp;
 
   PreAuth(AccountSelector account, String preauthKey, {this.timestamp = 0, this.expiresTimestamp = 0}) {
-    value = computeValue(account, preauthKey);
+    value = computeValue(account, preauthKey, timestamp: timestamp, expiresTimestamp: expiresTimestamp);
   }
 
-  String computeValue(AccountSelector account, String preauthKey) {
+  static String computeValue(AccountSelector account, String preauthKey,
+      {int expiresTimestamp = 0, int timestamp = 0}) {
     final preauth = "${account.value}|${account.by}|$expiresTimestamp|$timestamp";
     final hmac = Hmac(sha1, utf8.encode(preauthKey));
     final digest = hmac.convert(utf8.encode(preauth));

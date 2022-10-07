@@ -55,11 +55,11 @@ class AuthRequest extends SoapRequest {
   String? virtualHost;
 
   /// Requested preference settings.
-  final List<Pref> prefs = <Pref>[];
+  final List<Pref> prefs;
 
   /// Requested attribute settings.
   /// Only attributes that are allowed to be returned by GetInfo will be returned by this call
-  final List<Attr> attrs = <Attr>[];
+  final List<Attr> attrs;
 
   /// The requestedSkin. If specified the name of the skin requested by the client.
   String? requestedSkin;
@@ -97,7 +97,9 @@ class AuthRequest extends SoapRequest {
       this.trustedDeviceToken,
       this.deviceId,
       this.generateDeviceId,
-      this.tokenType});
+      this.tokenType,
+      this.prefs = const <Pref>[],
+      this.attrs = const <Attr>[]});
 
   @override
   SoapEnvelope getEnvelope() => AuthEnvelope(AuthBody(request: this));

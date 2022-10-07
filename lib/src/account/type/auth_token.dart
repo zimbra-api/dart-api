@@ -5,22 +5,20 @@
 class AuthToken {
   final String value;
 
-  final int lifetime;
+  final int? lifetime;
 
-  final bool verifyAccount;
+  final bool? verifyAccount;
 
-  AuthToken(this.value, {this.lifetime = 0, this.verifyAccount = false});
+  AuthToken(this.value, {this.lifetime, this.verifyAccount});
 
   factory AuthToken.fromJson(Map<String, dynamic> json) {
-    final verifyAccount =
-        (json['verifyAccount'] != null && json['verifyAccount'] is bool) ? json['verifyAccount'] as bool : false;
     return AuthToken(json['_content']?.toString() ?? '',
-        lifetime: int.tryParse(json['lifetime'].toString()) ?? 0, verifyAccount: verifyAccount);
+        lifetime: json['lifetime'], verifyAccount: json['verifyAccount']);
   }
 
   Map<String, dynamic> toJson() => {
-        'lifetime': lifetime,
-        'verifyAccount': verifyAccount,
         '_content': value,
+        if (lifetime != null) 'lifetime': lifetime,
+        if (verifyAccount != null) 'verifyAccount': verifyAccount,
       };
 }

@@ -38,8 +38,8 @@ class AccountApi extends Api {
       AuthToken? authToken,
       String? jwtToken,
       String? virtualHost,
-      List<Pref>? prefs,
-      List<Attr>? attrs,
+      List<Pref> prefs = const <Pref>[],
+      List<Attr> attrs = const <Attr>[],
       String? requestedSkin,
       bool? persistAuthTokenCookie,
       bool? csrfSupported,
@@ -65,17 +65,9 @@ class AccountApi extends Api {
         trustedDeviceToken: trustedDeviceToken,
         deviceId: deviceId,
         generateDeviceId: generateDeviceId,
-        tokenType: tokenType);
-    if (prefs != null) {
-      for (final pref in prefs) {
-        request.prefs.add(pref);
-      }
-    }
-    if (attrs != null) {
-      for (final attr in attrs) {
-        request.attrs.add(attr);
-      }
-    }
+        tokenType: tokenType,
+        prefs: prefs,
+        attrs: attrs);
     return invoke(request).then((json) => AuthEnvelope.fromJson(json).authBody.authResponse);
   }
 

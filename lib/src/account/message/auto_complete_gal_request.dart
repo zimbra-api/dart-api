@@ -14,7 +14,7 @@ import 'auto_complete_gal_body.dart';
 /// default value of 20.
 class AutoCompleteGalRequest extends SoapRequest {
   // The name to test for autocompletion
-  String name;
+  final String name;
 
   // type of addresses to auto-complete on
   // - "account" for regular user accounts, aliases and distribution lists
@@ -22,17 +22,17 @@ class AutoCompleteGalRequest extends SoapRequest {
   // - "group" for groups
   // - "all" for combination of all types
   // if omitted, defaults to "account"
-  GalSearchType? type;
+  final GalSearchType? type;
 
   // flag whether the {exp} flag is needed in the response for group entries.
   // default is false
-  bool? needCanExpand;
+  final bool? needCanExpand;
 
   // GAL Account ID
-  String? galAccountId;
+  final String? galAccountId;
 
   // An int specifying the maximum number of results to return
-  int? limit;
+  final int? limit;
 
   AutoCompleteGalRequest(this.name, {this.type, this.needCanExpand, this.galAccountId, this.limit});
 

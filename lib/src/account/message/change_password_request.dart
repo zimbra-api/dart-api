@@ -15,15 +15,15 @@ class ChangePasswordRequest extends SoapRequest {
   final AccountSelector account;
 
   /// Old password
-  String oldPassword;
+  final String oldPassword;
 
   /// New password to assign
-  String password;
+  final String password;
 
   /// specified virtual-host is used to determine the domain of the account name
-  String? virtualHost;
+  final String? virtualHost;
 
-  bool? dryRun;
+  final bool? dryRun;
 
   ChangePasswordRequest(this.account, this.oldPassword, this.password, {this.virtualHost, this.dryRun});
 

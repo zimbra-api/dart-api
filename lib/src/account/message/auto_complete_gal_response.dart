@@ -7,20 +7,20 @@ import 'package:zimbra_api/src/common/type/soap_response.dart';
 
 class AutoCompleteGalResponse extends SoapResponse {
   // Set to 1 if the results were truncated
-  bool? more;
+  final bool? more;
 
   // Either "and" or "or" (if present)
   // - Not present if the search key was not tokenized.
   // - Some clients backtrack on GAL results assuming the results of a more specific key is the subset of a more generic key,
   //   and it checks cached results instead of issuing another SOAP request to the server.
   //   If search key was tokenized and expanded with AND or OR, this cannot be assumed.
-  bool? tokenizeKey;
+  final bool? tokenizeKey;
 
   // Flag if pagination is supported
-  bool? pagingSupported;
+  final bool? pagingSupported;
 
   // Contacts matching the autocomplete request
-  List<ContactInfo> contacts = <ContactInfo>[];
+  final List<ContactInfo> contacts = <ContactInfo>[];
 
   AutoCompleteGalResponse({this.more, this.tokenizeKey, this.pagingSupported});
 

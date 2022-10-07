@@ -9,44 +9,44 @@ import 'package:zimbra_api/src/common/type/soap_response.dart';
 
 class AuthResponse extends SoapResponse {
   /// The authorization token
-  String? authToken;
+  final String? authToken;
 
   /// Life time for the authorization
-  int? lifetime;
+  final int? lifetime;
 
   /// trust lifetime, if a trusted token is issued
-  int? trustLifetime;
+  final int? trustLifetime;
 
   /// Session information
-  Session? session;
+  final Session? session;
 
   /// host additional SOAP requests should be directed to.
   /// Always returned, might be same as original host request was sent to.
-  String? refer;
+  final String? refer;
 
   /// if requestedSkin specified, the name of the skin to use Always returned,
   /// might be same as original host request was sent to.
-  String? skin;
+  final String? skin;
 
   /// if client is CSRF token enabled, the CSRF token Returned only when client says it is CSRF enabled.
-  String? csrfToken;
+  final String? csrfToken;
 
   /// random secure device ID generated for the requesting device
-  String? deviceId;
+  final String? deviceId;
 
   /// trusted device token
-  String? trustedToken;
+  final String? trustedToken;
 
   /// indicates whether the authentication account acts as a "Proxy" to a Zimbra account on another system.
-  bool? zmgProxy;
+  final bool? zmgProxy;
 
   final List<Pref> prefs = <Pref>[];
 
   final List<Attr> attrs = <Attr>[];
 
-  bool? twoFactorAuthRequired;
+  final bool? twoFactorAuthRequired;
 
-  bool? trustedDevicesEnabled;
+  final bool? trustedDevicesEnabled;
 
   AuthResponse(
       {this.authToken,

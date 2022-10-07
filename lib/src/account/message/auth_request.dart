@@ -24,35 +24,35 @@ class AuthRequest extends SoapRequest {
   /// Controls whether the auth token cookie in the response should be persisted when the browser exits.
   /// - 0: (default) the cookie will be deleted when the Web browser exits.
   /// - 1: The "Expires" attribute of the cookie will be set per rfc6265.
-  bool? persistAuthTokenCookie;
+  final bool? persistAuthTokenCookie;
 
   /// Controls whether the client supports CSRF token
   /// - 0: (default) Client does not support CSRF token
   /// - 1: The client supports CSRF token.
-  bool? csrfSupported;
+  final bool? csrfSupported;
 
   /// Specifies the account to authenticate against
-  AccountSelector? account;
+  final AccountSelector? account;
 
   /// Password to use in conjunction with an account
-  String? password;
+  final String? password;
 
   /// RecoveryCode to use in conjunction with an account in case of forgot password flow.
-  String? recoveryCode;
+  final String? recoveryCode;
 
   /// The preauth
-  PreAuth? preauth;
+  final PreAuth? preauth;
 
   /// An authToken can be passed instead of account/password/preauth to validate an existing auth token.
-  AuthToken? authToken;
+  final AuthToken? authToken;
 
   /// JWT auth token
-  String? jwtToken;
+  final String? jwtToken;
 
   /// If specified (in conjunction with by="name"),
   /// virtual-host is used to determine the domain of the account name,
   /// if it does not include a domain component.
-  String? virtualHost;
+  final String? virtualHost;
 
   /// Requested preference settings.
   final List<Pref> prefs;
@@ -62,24 +62,24 @@ class AuthRequest extends SoapRequest {
   final List<Attr> attrs;
 
   /// The requestedSkin. If specified the name of the skin requested by the client.
-  String? requestedSkin;
+  final String? requestedSkin;
 
   /// The TOTP code used for two-factor authentication
-  String? twoFactorCode;
+  final String? twoFactorCode;
 
   /// Whether the client represents a trusted device
-  bool? deviceTrusted;
+  final bool? deviceTrusted;
 
   /// Whether the client represents a trusted device
-  String? trustedDeviceToken;
+  final String? trustedDeviceToken;
 
   /// Unique device identifier; used to verify trusted mobile devices
-  String? deviceId;
+  final String? deviceId;
 
-  bool? generateDeviceId;
+  final bool? generateDeviceId;
 
   /// type of token to be returned, it can be auth or jwt
-  String? tokenType;
+  final String? tokenType;
 
   AuthRequest(
       {this.persistAuthTokenCookie,

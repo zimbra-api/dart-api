@@ -6,10 +6,10 @@ import 'package:zimbra_api/src/common/type/soap_response.dart';
 
 class ChangePasswordResponse extends SoapResponse {
   /// New authToken, as old authToken is invalidated on password change.
-  String authToken;
+  final String authToken;
 
   /// Life time associated with {new-auth-token}
-  int lifetime;
+  final int lifetime;
 
   ChangePasswordResponse({this.authToken = '', this.lifetime = 0});
 

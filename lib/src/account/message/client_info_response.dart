@@ -12,15 +12,14 @@ class ClientInfoResponse extends SoapResponse {
   ClientInfoResponse({this.attrs = const <Attr>[]});
 
   factory ClientInfoResponse.fromJson(Map<String, dynamic> json) {
-    final response = ClientInfoResponse();
-
+    final attrs = <Attr>[];
     if (json['a'] != null && json['a'] is Iterable) {
-      final attrs = json['a'] as Iterable;
-      for (final attr in attrs) {
-        response.attrs.add(Attr.fromJson(attr));
+      final elements = json['a'] as Iterable;
+      for (final attr in elements) {
+        attrs.add(Attr.fromJson(attr));
       }
     }
 
-    return response;
+    return ClientInfoResponse(attrs: attrs);
   }
 }

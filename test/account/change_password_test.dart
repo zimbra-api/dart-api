@@ -54,8 +54,12 @@ void main() {
         'Body': {
           'ChangePasswordResponse': {
             '_jsns': 'urn:zimbraAccount',
-            'authToken': authToken,
-            'lifetime': lifetime,
+            'authToken': {
+              '_content': authToken,
+            },
+            'lifetime': {
+              '_content': lifetime,
+            },
           },
         },
       };

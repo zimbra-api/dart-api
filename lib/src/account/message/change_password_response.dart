@@ -13,6 +13,7 @@ class ChangePasswordResponse extends SoapResponse {
 
   ChangePasswordResponse({this.authToken = '', this.lifetime = 0});
 
-  factory ChangePasswordResponse.fromJson(json) =>
-      ChangePasswordResponse(authToken: json['authToken'] ?? '', lifetime: json['lifetime'] ?? 0);
+  factory ChangePasswordResponse.fromJson(json) => ChangePasswordResponse(
+      authToken: json['authToken'] != null ? json['authToken']['_content'] : '',
+      lifetime: json['lifetime'] != null ? json['lifetime']['_content'] : 0);
 }

@@ -11,7 +11,7 @@ class Pref {
 
   Pref(this.name, this.value, {this.modified});
 
-  factory Pref.fromJson(Map<String, dynamic> json) => Pref(json['name'], json['_content'], modified: json['pd']);
+  factory Pref.fromJson(Map<String, dynamic> json) => Pref(json['name'], json['_content'], modified: json['modified']);
 
   Map<String, dynamic> toJson() => {
         'name': name,

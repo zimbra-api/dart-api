@@ -78,14 +78,14 @@ class AuthResponse extends SoapResponse {
         trustedDevicesEnabled:
             json['trustedDevicesEnabled'] != null ? json['trustedDevicesEnabled']['_content'] : null);
 
-    if (json['prefs'] != null && json['prefs'] is Iterable) {
+    if (json['prefs'] != null && json['prefs'] is Map<String, dynamic>) {
       final prefs = json['prefs']['pref'] as Iterable;
       for (final pref in prefs) {
         response.prefs.add(Pref.fromJson(pref));
       }
     }
 
-    if (json['attrs'] != null && json['attrs'] is Iterable) {
+    if (json['attrs'] != null && json['attrs'] is Map<String, dynamic>) {
       final attrs = json['attrs']['attr'] as Iterable;
       for (final attr in attrs) {
         response.attrs.add(Attr.fromJson(attr));

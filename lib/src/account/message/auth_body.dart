@@ -15,9 +15,9 @@ class AuthBody extends SoapBody {
       response: json['AuthResponse'] != null ? AuthResponse.fromJson(json['AuthResponse']) : null,
       fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
 
-  AuthRequest? get authRequest => request as AuthRequest;
+  AuthRequest? get authRequest => request as AuthRequest?;
 
-  AuthResponse? get authResponse => response as AuthResponse;
+  AuthResponse? get authResponse => response as AuthResponse?;
 
   @override
   Map<String, dynamic> toJson() => {

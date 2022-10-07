@@ -18,9 +18,9 @@ class AutoCompleteGalBody extends SoapBody {
           : null,
       fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
 
-  AutoCompleteGalRequest? get autoCompleteGalRequest => request as AutoCompleteGalRequest;
+  AutoCompleteGalRequest? get autoCompleteGalRequest => request as AutoCompleteGalRequest?;
 
-  AutoCompleteGalResponse? get autoCompleteGalResponse => response as AutoCompleteGalResponse;
+  AutoCompleteGalResponse? get autoCompleteGalResponse => response as AutoCompleteGalResponse?;
 
   @override
   Map<String, dynamic> toJson() => {

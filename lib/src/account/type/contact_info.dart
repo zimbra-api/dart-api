@@ -87,7 +87,7 @@ class ContactInfo {
         folder: json['l'],
         flags: json['f'],
         tags: json['t'],
-        tagNames: json['tagNames'],
+        tagNames: json['tn'],
         changeDate: json['md'],
         modifiedSequenceId: json['ms'],
         date: json['d'],
@@ -103,8 +103,8 @@ class ContactInfo {
         isOwner: json['isOwner'],
         isMember: json['isMember']);
 
-    if (json['m'] != null && json['m'] is Iterable) {
-      final metadatas = json['m'] as Iterable;
+    if (json['meta'] != null && json['meta'] is Iterable) {
+      final metadatas = json['meta'] as Iterable;
       for (final meta in metadatas) {
         contact.metadatas.add(AccountCustomMetadata.fromJson(meta));
       }
@@ -147,9 +147,9 @@ class ContactInfo {
         if (dlist != null) 'dlist': dlist,
         if (reference != null) 'ref': reference,
         if (tooManyMembers != null) 'tooManyMembers': tooManyMembers,
-        if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toJson()),
-        if (attrs.isNotEmpty) 'a': attrs.map((a) => a.toJson()),
-        if (contactGroupMembers.isNotEmpty) 'm': contactGroupMembers.map((m) => m.toJson()),
+        if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toJson()).toList(),
+        if (attrs.isNotEmpty) 'a': attrs.map((a) => a.toJson()).toList(),
+        if (contactGroupMembers.isNotEmpty) 'm': contactGroupMembers.map((m) => m.toJson()).toList(),
         if (isOwner != null) 'isOwner': isOwner,
         if (isMember != null) 'isMember': isMember,
       };

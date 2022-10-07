@@ -12,9 +12,13 @@ class CheckRightsTargetSpec {
 
   final String targetKey;
 
-  final List<String> rights = <String>[];
+  final List<String> rights;
 
-  CheckRightsTargetSpec({this.targetType = TargetType.account, this.targetBy = TargetBy.name, this.targetKey = ''});
+  CheckRightsTargetSpec(
+      {this.targetType = TargetType.account,
+      this.targetBy = TargetBy.name,
+      this.targetKey = '',
+      this.rights = const <String>[]});
 
   factory CheckRightsTargetSpec.fromJson(Map<String, dynamic> json) {
     final targetType = TargetType.values.firstWhere(
@@ -42,6 +46,6 @@ class CheckRightsTargetSpec {
         'type': targetType.name,
         'by': targetBy.name,
         'key': targetKey,
-        if (rights.isNotEmpty) 'right': rights.map((right) => {'_content': right}),
+        if (rights.isNotEmpty) 'right': rights.map((right) => {'_content': right}).toList(),
       };
 }

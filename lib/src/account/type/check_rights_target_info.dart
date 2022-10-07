@@ -35,7 +35,7 @@ class CheckRightsTargetInfo {
     final info = CheckRightsTargetInfo(
         targetType: targetType, targetBy: targetBy, targetKey: json['key'] ?? '', allow: json['allow'] ?? false);
 
-    if (json['right'] != null && json['pref'] is Iterable) {
+    if (json['right'] != null && json['right'] is Iterable) {
       final rights = json['right'] as Iterable;
       for (final right in rights) {
         info.rights.add(CheckRightsRightInfo.fromJson(right));
@@ -50,6 +50,6 @@ class CheckRightsTargetInfo {
         'by': targetBy.name,
         'key': targetKey,
         'allow': allow,
-        if (rights.isNotEmpty) 'right': rights.map((right) => right.toJson()),
+        if (rights.isNotEmpty) 'right': rights.map((right) => right.toJson()).toList(),
       };
 }

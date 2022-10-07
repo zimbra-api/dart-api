@@ -16,24 +16,24 @@ class GetAccountInfoResponse extends SoapResponse {
   final List<NamedValue> attrs;
 
   /// URL to talk to for soap service for this account.
-  String? soapURL;
+  final String? soapURL;
 
   /// Base public URL for the requested account
-  String? publicURL;
+  final String? publicURL;
 
   /// URL to talk to in order to change a password.
   /// Not returned if not configured via domain attribute zimbraChangePasswordURL
-  String? changePasswordURL;
+  final String? changePasswordURL;
 
   /// Zimbra Community URL to load in Community tab.
-  String? communityURL;
+  final String? communityURL;
 
   /// Base URL for accessing the admin console
-  String? adminURL;
+  final String? adminURL;
 
   /// Proxy URL for accessing XMPP over BOSH.
   /// Should be returned only when zimbraFeatureChatEnabled is set to TRUE for Account/COS
-  String? boshURL;
+  final String? boshURL;
 
   GetAccountInfoResponse(this.name,
       {this.attrs = const <NamedValue>[],

@@ -12,7 +12,7 @@ import 'client_info_envelope.dart';
 /// Get client info
 class ClientInfoRequest extends SoapRequest {
   /// Domain
-  DomainSelector domain;
+  final DomainSelector domain;
 
   ClientInfoRequest(this.domain);
 

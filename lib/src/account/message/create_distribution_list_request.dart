@@ -13,10 +13,10 @@ import 'create_distribution_list_envelope.dart';
 /// Notes: authed account must have the privilege to create dist lists in the domain
 class CreateDistributionListRequest extends SoapRequest {
   /// Name for distribution list
-  String name;
+  final String name;
 
   // If true then create a dynamic distribution list
-  bool? isDynamic;
+  final bool? isDynamic;
 
   /// Key value pairs
   final List<KeyValuePair> keyValuePairs;

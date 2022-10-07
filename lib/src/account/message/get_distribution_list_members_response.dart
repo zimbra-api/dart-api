@@ -6,9 +6,9 @@ import 'package:zimbra_api/src/account/type/hab_group_member.dart';
 import 'package:zimbra_api/src/common/type/soap_response.dart';
 
 class GetDistributionListMembersResponse extends SoapResponse {
-  bool? more;
+  final bool? more;
 
-  int? total;
+  final int? total;
 
   final List<String> dlMembers;
 

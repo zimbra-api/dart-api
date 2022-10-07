@@ -19,10 +19,10 @@ import 'distribution_list_action_envelope.dart';
 ///     can only modify grants on the group entry.
 class DistributionListActionRequest extends SoapRequest {
   /// Identifies the distribution list to act upon
-  DistributionListSelector dl;
+  final DistributionListSelector dl;
 
   /// Specifies the action to perform
-  DistributionListAction action;
+  final DistributionListAction action;
 
   DistributionListActionRequest(this.dl, this.action);
 

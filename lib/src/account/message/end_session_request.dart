@@ -14,16 +14,16 @@ import 'end_session_envelope.dart';
 class EndSessionRequest extends SoapRequest {
   /// flag whether the {exp} flag is needed in the response for group entries.
   /// default is false
-  bool? logoff;
+  final bool? logoff;
 
   /// flag to clear all web sessions of the user default is false
-  bool? clearAllSoapSessions;
+  final bool? clearAllSoapSessions;
 
   /// flag to decide current session will be cleared or not default is false
-  bool? excludeCurrentSession;
+  final bool? excludeCurrentSession;
 
   /// end session for given session id
-  String? sessionId;
+  final String? sessionId;
 
   EndSessionRequest({this.logoff, this.clearAllSoapSessions, this.excludeCurrentSession, this.sessionId});
 

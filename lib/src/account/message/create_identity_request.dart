@@ -13,7 +13,7 @@ import 'create_identity_envelope.dart';
 /// Notes: Allowed attributes (see objectclass zimbraIdentity in zimbra.schema)
 class CreateIdentityRequest extends SoapRequest {
   /// Details of the new identity to create
-  Identity identity;
+  final Identity identity;
 
   CreateIdentityRequest(this.identity);
 

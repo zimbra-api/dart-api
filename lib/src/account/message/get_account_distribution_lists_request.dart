@@ -16,15 +16,15 @@ import 'get_account_distribution_lists_envelope.dart';
 class GetAccountDistributionListsRequest extends SoapRequest {
   /// Set to true if the response should include groups the user is an owner of.
   /// Set to false (default) if do not need to know which groups the user is an owner of.
-  bool? ownerOf;
+  final bool? ownerOf;
 
   /// Possible values: all|directOnly|none
-  MemberOfSelector? memberOf;
+  final MemberOfSelector? memberOf;
 
   /// comma-seperated attributes to return.
   /// Note: non-owner user can see only certain attributes of a group.
   /// If a specified attribute is not visible to the user, it will not be returned.
-  String? attrs;
+  final String? attrs;
 
   GetAccountDistributionListsRequest({this.ownerOf, this.memberOf, this.attrs});
 

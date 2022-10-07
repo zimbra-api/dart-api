@@ -11,13 +11,13 @@ import 'get_distribution_list_members_envelope.dart';
 /// Get the list of members of a distribution list.
 class GetDistributionListMembersRequest extends SoapRequest {
   /// The name of the distribution list
-  String dl;
+  final String dl;
 
   /// The number of members to return (0 is default and means all)
-  int? limit;
+  final int? limit;
 
   /// The starting offset (0, 25, etc)
-  int? offset;
+  final int? offset;
 
   GetDistributionListMembersRequest(this.dl, {this.limit, this.offset});
 

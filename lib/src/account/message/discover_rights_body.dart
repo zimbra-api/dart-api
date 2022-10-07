@@ -18,9 +18,9 @@ class DiscoverRightsBody extends SoapBody {
           : null,
       fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
 
-  DiscoverRightsRequest? get discoverRightsRequest => request as DiscoverRightsRequest;
+  DiscoverRightsRequest? get discoverRightsRequest => request as DiscoverRightsRequest?;
 
-  DiscoverRightsResponse? get discoverRightsResponse => response as DiscoverRightsResponse;
+  DiscoverRightsResponse? get discoverRightsResponse => response as DiscoverRightsResponse?;
 
   @override
   Map<String, dynamic> toJson() => {

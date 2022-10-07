@@ -16,9 +16,9 @@ class SearchGalBody extends SoapBody {
       response: json['SearchGalResponse'] != null ? SearchGalResponse.fromJson(json['SearchGalResponse']) : null,
       fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
 
-  SearchGalRequest? get searchGalRequest => request as SearchGalRequest;
+  SearchGalRequest? get searchGalRequest => request as SearchGalRequest?;
 
-  SearchGalResponse? get searchGalResponse => response as SearchGalResponse;
+  SearchGalResponse? get searchGalResponse => response as SearchGalResponse?;
 
   @override
   Map<String, dynamic> toJson() => {

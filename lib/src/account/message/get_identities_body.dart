@@ -17,9 +17,9 @@ class GetIdentitiesBody extends SoapBody {
           json['GetIdentitiesResponse'] != null ? GetIdentitiesResponse.fromJson(json['GetIdentitiesResponse']) : null,
       fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
 
-  GetIdentitiesRequest? get getIdentitiesRequest => request as GetIdentitiesRequest;
+  GetIdentitiesRequest? get getIdentitiesRequest => request as GetIdentitiesRequest?;
 
-  GetIdentitiesResponse? get getIdentitiesResponse => response as GetIdentitiesResponse;
+  GetIdentitiesResponse? get getIdentitiesResponse => response as GetIdentitiesResponse?;
 
   @override
   Map<String, dynamic> toJson() => {

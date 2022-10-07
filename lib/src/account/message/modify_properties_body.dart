@@ -18,9 +18,9 @@ class ModifyPropertiesBody extends SoapBody {
           : null,
       fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
 
-  ModifyPropertiesRequest? get modifyPropertiesRequest => request as ModifyPropertiesRequest;
+  ModifyPropertiesRequest? get modifyPropertiesRequest => request as ModifyPropertiesRequest?;
 
-  ModifyPropertiesResponse? get modifyPropertiesResponse => response as ModifyPropertiesResponse;
+  ModifyPropertiesResponse? get modifyPropertiesResponse => response as ModifyPropertiesResponse?;
 
   @override
   Map<String, dynamic> toJson() => {

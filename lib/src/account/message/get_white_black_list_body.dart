@@ -18,9 +18,9 @@ class GetWhiteBlackListBody extends SoapBody {
           : null,
       fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
 
-  GetWhiteBlackListRequest? get getWhiteBlackListRequest => request as GetWhiteBlackListRequest;
+  GetWhiteBlackListRequest? get getWhiteBlackListRequest => request as GetWhiteBlackListRequest?;
 
-  GetWhiteBlackListResponse? get getWhiteBlackListResponse => response as GetWhiteBlackListResponse;
+  GetWhiteBlackListResponse? get getWhiteBlackListResponse => response as GetWhiteBlackListResponse?;
 
   @override
   Map<String, dynamic> toJson() => {

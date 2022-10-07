@@ -18,9 +18,9 @@ class ChangePasswordBody extends SoapBody {
           : null,
       fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
 
-  ChangePasswordRequest? get changePasswordRequest => request as ChangePasswordRequest;
+  ChangePasswordRequest? get changePasswordRequest => request as ChangePasswordRequest?;
 
-  ChangePasswordResponse? get changePasswordResponse => response as ChangePasswordResponse;
+  ChangePasswordResponse? get changePasswordResponse => response as ChangePasswordResponse?;
 
   @override
   Map<String, dynamic> toJson() => {

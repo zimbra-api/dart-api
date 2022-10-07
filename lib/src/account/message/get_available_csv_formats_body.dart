@@ -19,9 +19,9 @@ class GetAvailableCsvFormatsBody extends SoapBody {
           : null,
       fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
 
-  GetAvailableCsvFormatsRequest? get getAvailableCsvFormatsRequest => request as GetAvailableCsvFormatsRequest;
+  GetAvailableCsvFormatsRequest? get getAvailableCsvFormatsRequest => request as GetAvailableCsvFormatsRequest?;
 
-  GetAvailableCsvFormatsResponse? get getAvailableCsvFormatsResponse => response as GetAvailableCsvFormatsResponse;
+  GetAvailableCsvFormatsResponse? get getAvailableCsvFormatsResponse => response as GetAvailableCsvFormatsResponse?;
 
   @override
   Map<String, dynamic> toJson() => {

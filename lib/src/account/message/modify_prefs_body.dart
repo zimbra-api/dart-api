@@ -16,9 +16,9 @@ class ModifyPrefsBody extends SoapBody {
       response: json['ModifyPrefsResponse'] != null ? ModifyPrefsResponse.fromJson(json['ModifyPrefsResponse']) : null,
       fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
 
-  ModifyPrefsRequest? get modifyPrefsRequest => request as ModifyPrefsRequest;
+  ModifyPrefsRequest? get modifyPrefsRequest => request as ModifyPrefsRequest?;
 
-  ModifyPrefsResponse? get modifyPrefsResponse => response as ModifyPrefsResponse;
+  ModifyPrefsResponse? get modifyPrefsResponse => response as ModifyPrefsResponse?;
 
   @override
   Map<String, dynamic> toJson() => {

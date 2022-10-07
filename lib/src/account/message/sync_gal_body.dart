@@ -16,9 +16,9 @@ class SyncGalBody extends SoapBody {
       response: json['SyncGalResponse'] != null ? SyncGalResponse.fromJson(json['SyncGalResponse']) : null,
       fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
 
-  SyncGalRequest? get syncGalRequest => request as SyncGalRequest;
+  SyncGalRequest? get syncGalRequest => request as SyncGalRequest?;
 
-  SyncGalResponse? get syncGalResponse => response as SyncGalResponse;
+  SyncGalResponse? get syncGalResponse => response as SyncGalResponse?;
 
   @override
   Map<String, dynamic> toJson() => {

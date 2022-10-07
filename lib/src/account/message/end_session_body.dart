@@ -16,9 +16,9 @@ class EndSessionBody extends SoapBody {
       response: json['EndSessionResponse'] != null ? EndSessionResponse.fromJson(json['EndSessionResponse']) : null,
       fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
 
-  EndSessionRequest? get endSessionRequest => request as EndSessionRequest;
+  EndSessionRequest? get endSessionRequest => request as EndSessionRequest?;
 
-  EndSessionResponse? get endSessionResponse => response as EndSessionResponse;
+  EndSessionResponse? get endSessionResponse => response as EndSessionResponse?;
 
   @override
   Map<String, dynamic> toJson() => {

@@ -18,9 +18,9 @@ class ModifyZimletPrefsBody extends SoapBody {
           : null,
       fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
 
-  ModifyZimletPrefsRequest? get modifyZimletPrefsRequest => request as ModifyZimletPrefsRequest;
+  ModifyZimletPrefsRequest? get modifyZimletPrefsRequest => request as ModifyZimletPrefsRequest?;
 
-  ModifyZimletPrefsResponse? get modifyZimletPrefsResponse => response as ModifyZimletPrefsResponse;
+  ModifyZimletPrefsResponse? get modifyZimletPrefsResponse => response as ModifyZimletPrefsResponse?;
 
   @override
   Map<String, dynamic> toJson() => {

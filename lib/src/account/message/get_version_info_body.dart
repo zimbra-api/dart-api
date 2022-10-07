@@ -18,9 +18,9 @@ class GetVersionInfoBody extends SoapBody {
           : null,
       fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
 
-  GetVersionInfoRequest? get getVersionInfoRequest => request as GetVersionInfoRequest;
+  GetVersionInfoRequest? get getVersionInfoRequest => request as GetVersionInfoRequest?;
 
-  GetVersionInfoResponse? get getVersionInfoResponse => response as GetVersionInfoResponse;
+  GetVersionInfoResponse? get getVersionInfoResponse => response as GetVersionInfoResponse?;
 
   @override
   Map<String, dynamic> toJson() => {

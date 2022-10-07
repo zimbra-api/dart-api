@@ -17,9 +17,9 @@ class GetShareInfoBody extends SoapBody {
           json['GetShareInfoResponse'] != null ? GetShareInfoResponse.fromJson(json['GetShareInfoResponse']) : null,
       fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
 
-  GetShareInfoRequest? get getShareInfoRequest => request as GetShareInfoRequest;
+  GetShareInfoRequest? get getShareInfoRequest => request as GetShareInfoRequest?;
 
-  GetShareInfoResponse? get getShareInfoResponse => response as GetShareInfoResponse;
+  GetShareInfoResponse? get getShareInfoResponse => response as GetShareInfoResponse?;
 
   @override
   Map<String, dynamic> toJson() => {

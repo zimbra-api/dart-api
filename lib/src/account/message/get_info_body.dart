@@ -16,9 +16,9 @@ class GetInfoBody extends SoapBody {
       response: json['GetInfoResponse'] != null ? GetInfoResponse.fromJson(json['GetInfoResponse']) : null,
       fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
 
-  GetInfoRequest? get getInfoRequest => request as GetInfoRequest;
+  GetInfoRequest? get getInfoRequest => request as GetInfoRequest?;
 
-  GetInfoResponse? get getInfoResponse => response as GetInfoResponse;
+  GetInfoResponse? get getInfoResponse => response as GetInfoResponse?;
 
   @override
   Map<String, dynamic> toJson() => {

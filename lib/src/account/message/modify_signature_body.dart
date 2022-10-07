@@ -18,9 +18,9 @@ class ModifySignatureBody extends SoapBody {
           : null,
       fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
 
-  ModifySignatureRequest? get modifySignatureRequest => request as ModifySignatureRequest;
+  ModifySignatureRequest? get modifySignatureRequest => request as ModifySignatureRequest?;
 
-  ModifySignatureResponse? get modifySignatureResponse => response as ModifySignatureResponse;
+  ModifySignatureResponse? get modifySignatureResponse => response as ModifySignatureResponse?;
 
   @override
   Map<String, dynamic> toJson() => {

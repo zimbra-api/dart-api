@@ -17,9 +17,9 @@ class ResetPasswordBody extends SoapBody {
           json['ResetPasswordResponse'] != null ? ResetPasswordResponse.fromJson(json['ResetPasswordResponse']) : null,
       fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
 
-  ResetPasswordRequest? get resetPasswordRequest => request as ResetPasswordRequest;
+  ResetPasswordRequest? get resetPasswordRequest => request as ResetPasswordRequest?;
 
-  ResetPasswordResponse? get resetPasswordResponse => response as ResetPasswordResponse;
+  ResetPasswordResponse? get resetPasswordResponse => response as ResetPasswordResponse?;
 
   @override
   Map<String, dynamic> toJson() => {

@@ -19,9 +19,9 @@ class SearchCalendarResourcesBody extends SoapBody {
           : null,
       fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
 
-  SearchCalendarResourcesRequest? get searchCalendarResourcesRequest => request as SearchCalendarResourcesRequest;
+  SearchCalendarResourcesRequest? get searchCalendarResourcesRequest => request as SearchCalendarResourcesRequest?;
 
-  SearchCalendarResourcesResponse? get searchCalendarResourcesResponse => response as SearchCalendarResourcesResponse;
+  SearchCalendarResourcesResponse? get searchCalendarResourcesResponse => response as SearchCalendarResourcesResponse?;
 
   @override
   Map<String, dynamic> toJson() => {

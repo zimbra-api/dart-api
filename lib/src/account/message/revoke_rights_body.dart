@@ -17,9 +17,9 @@ class RevokeRightsBody extends SoapBody {
           json['RevokeRightsResponse'] != null ? RevokeRightsResponse.fromJson(json['RevokeRightsResponse']) : null,
       fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
 
-  RevokeRightsRequest? get revokeRightsRequest => request as RevokeRightsRequest;
+  RevokeRightsRequest? get revokeRightsRequest => request as RevokeRightsRequest?;
 
-  RevokeRightsResponse? get revokeRightsResponse => response as RevokeRightsResponse;
+  RevokeRightsResponse? get revokeRightsResponse => response as RevokeRightsResponse?;
 
   @override
   Map<String, dynamic> toJson() => {

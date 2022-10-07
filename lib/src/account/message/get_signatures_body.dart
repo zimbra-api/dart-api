@@ -17,9 +17,9 @@ class GetSignaturesBody extends SoapBody {
           json['GetSignaturesResponse'] != null ? GetSignaturesResponse.fromJson(json['GetSignaturesResponse']) : null,
       fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
 
-  GetSignaturesRequest? get getSignaturesRequest => request as GetSignaturesRequest;
+  GetSignaturesRequest? get getSignaturesRequest => request as GetSignaturesRequest?;
 
-  GetSignaturesResponse? get getSignaturesResponse => response as GetSignaturesResponse;
+  GetSignaturesResponse? get getSignaturesResponse => response as GetSignaturesResponse?;
 
   @override
   Map<String, dynamic> toJson() => {

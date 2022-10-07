@@ -18,9 +18,9 @@ class GetAvailableLocalesBody extends SoapBody {
           : null,
       fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
 
-  GetAvailableLocalesRequest? get getAvailableLocalesRequest => request as GetAvailableLocalesRequest;
+  GetAvailableLocalesRequest? get getAvailableLocalesRequest => request as GetAvailableLocalesRequest?;
 
-  GetAvailableLocalesResponse? get getAvailableLocalesResponse => response as GetAvailableLocalesResponse;
+  GetAvailableLocalesResponse? get getAvailableLocalesResponse => response as GetAvailableLocalesResponse?;
 
   @override
   Map<String, dynamic> toJson() => {

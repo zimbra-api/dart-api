@@ -18,9 +18,9 @@ class GetDistributionListBody extends SoapBody {
           : null,
       fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
 
-  GetDistributionListRequest? get getDistributionListRequest => request as GetDistributionListRequest;
+  GetDistributionListRequest? get getDistributionListRequest => request as GetDistributionListRequest?;
 
-  GetDistributionListResponse? get getDistributionListResponse => response as GetDistributionListResponse;
+  GetDistributionListResponse? get getDistributionListResponse => response as GetDistributionListResponse?;
 
   @override
   Map<String, dynamic> toJson() => {

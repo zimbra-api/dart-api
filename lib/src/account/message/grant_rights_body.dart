@@ -16,9 +16,9 @@ class GrantRightsBody extends SoapBody {
       response: json['GrantRightsResponse'] != null ? GrantRightsResponse.fromJson(json['GrantRightsResponse']) : null,
       fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
 
-  GrantRightsRequest? get grantRightsRequest => request as GrantRightsRequest;
+  GrantRightsRequest? get grantRightsRequest => request as GrantRightsRequest?;
 
-  GrantRightsResponse? get grantRightsResponse => response as GrantRightsResponse;
+  GrantRightsResponse? get grantRightsResponse => response as GrantRightsResponse?;
 
   @override
   Map<String, dynamic> toJson() => {

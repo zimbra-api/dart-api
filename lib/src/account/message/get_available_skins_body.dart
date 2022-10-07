@@ -18,9 +18,9 @@ class GetAvailableSkinsBody extends SoapBody {
           : null,
       fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
 
-  GetAvailableSkinsRequest? get getAvailableSkinsRequest => request as GetAvailableSkinsRequest;
+  GetAvailableSkinsRequest? get getAvailableSkinsRequest => request as GetAvailableSkinsRequest?;
 
-  GetAvailableSkinsResponse? get getAvailableSkinsResponse => response as GetAvailableSkinsResponse;
+  GetAvailableSkinsResponse? get getAvailableSkinsResponse => response as GetAvailableSkinsResponse?;
 
   @override
   Map<String, dynamic> toJson() => {

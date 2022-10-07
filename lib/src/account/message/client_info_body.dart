@@ -16,9 +16,9 @@ class ClientInfoBody extends SoapBody {
       response: json['ClientInfoResponse'] != null ? ClientInfoResponse.fromJson(json['ClientInfoResponse']) : null,
       fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
 
-  ClientInfoRequest? get clientInfoRequest => request as ClientInfoRequest;
+  ClientInfoRequest? get clientInfoRequest => request as ClientInfoRequest?;
 
-  ClientInfoResponse? get clientInfoResponse => response as ClientInfoResponse;
+  ClientInfoResponse? get clientInfoResponse => response as ClientInfoResponse?;
 
   @override
   Map<String, dynamic> toJson() => {

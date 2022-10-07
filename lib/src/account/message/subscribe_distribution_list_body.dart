@@ -19,10 +19,10 @@ class SubscribeDistributionListBody extends SoapBody {
           : null,
       fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
 
-  SubscribeDistributionListRequest? get subscribeDistributionListRequest => request as SubscribeDistributionListRequest;
+  SubscribeDistributionListRequest? get subscribeDistributionListRequest => request as SubscribeDistributionListRequest?;
 
   SubscribeDistributionListResponse? get subscribeDistributionListResponse =>
-      response as SubscribeDistributionListResponse;
+      response as SubscribeDistributionListResponse?;
 
   @override
   Map<String, dynamic> toJson() => {

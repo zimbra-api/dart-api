@@ -18,9 +18,9 @@ class ModifyIdentityBody extends SoapBody {
           : null,
       fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
 
-  ModifyIdentityRequest? get modifyIdentityRequest => request as ModifyIdentityRequest;
+  ModifyIdentityRequest? get modifyIdentityRequest => request as ModifyIdentityRequest?;
 
-  ModifyIdentityResponse? get modifyIdentityResponse => response as ModifyIdentityResponse;
+  ModifyIdentityResponse? get modifyIdentityResponse => response as ModifyIdentityResponse?;
 
   @override
   Map<String, dynamic> toJson() => {

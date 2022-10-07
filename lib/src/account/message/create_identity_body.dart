@@ -18,9 +18,9 @@ class CreateIdentityBody extends SoapBody {
           : null,
       fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
 
-  CreateIdentityRequest? get createIdentityRequest => request as CreateIdentityRequest;
+  CreateIdentityRequest? get createIdentityRequest => request as CreateIdentityRequest?;
 
-  CreateIdentityResponse? get createIdentityResponse => response as CreateIdentityResponse;
+  CreateIdentityResponse? get createIdentityResponse => response as CreateIdentityResponse?;
 
   @override
   Map<String, dynamic> toJson() => {

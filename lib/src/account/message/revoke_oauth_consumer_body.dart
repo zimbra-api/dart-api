@@ -18,9 +18,9 @@ class RevokeOAuthConsumerBody extends SoapBody {
           : null,
       fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
 
-  RevokeOAuthConsumerRequest? get revokeOAuthConsumerRequest => request as RevokeOAuthConsumerRequest;
+  RevokeOAuthConsumerRequest? get revokeOAuthConsumerRequest => request as RevokeOAuthConsumerRequest?;
 
-  RevokeOAuthConsumerResponse? get revokeOAuthConsumerResponse => response as RevokeOAuthConsumerResponse;
+  RevokeOAuthConsumerResponse? get revokeOAuthConsumerResponse => response as RevokeOAuthConsumerResponse?;
 
   @override
   Map<String, dynamic> toJson() => {

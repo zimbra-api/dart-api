@@ -18,9 +18,9 @@ class GetAccountInfoBody extends SoapBody {
           : null,
       fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
 
-  GetAccountInfoRequest? get getAccountInfoRequest => request as GetAccountInfoRequest;
+  GetAccountInfoRequest? get getAccountInfoRequest => request as GetAccountInfoRequest?;
 
-  GetAccountInfoResponse? get getAccountInfoResponse => response as GetAccountInfoResponse;
+  GetAccountInfoResponse? get getAccountInfoResponse => response as GetAccountInfoResponse?;
 
   @override
   Map<String, dynamic> toJson() => {

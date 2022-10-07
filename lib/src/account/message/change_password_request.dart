@@ -34,9 +34,9 @@ class ChangePasswordRequest extends SoapRequest {
   Map<String, dynamic> toJson() => {
         '_jsns': 'urn:zimbraAccount',
         'account': account.toJson(),
-        'oldPassword': oldPassword,
-        'password': password,
-        if (virtualHost != null) 'virtualHost': virtualHost,
-        if (dryRun != null) 'dryRun': dryRun,
+        'oldPassword': {'_content': oldPassword},
+        'password': {'_content': password},
+        if (virtualHost != null) 'virtualHost': {'_content': virtualHost},
+        if (dryRun != null) 'dryRun': {'_content': dryRun},
       };
 }

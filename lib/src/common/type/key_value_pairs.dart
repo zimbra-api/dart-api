@@ -21,6 +21,6 @@ class KeyValuePairs {
   }
 
   Map<String, dynamic> toJson() => {
-        if (keyValuePairs.isNotEmpty) 'a': keyValuePairs.map((kvp) => kvp.toJson()),
+        if (keyValuePairs.isNotEmpty) 'a': keyValuePairs.map((kvp) => kvp.toJson()).toList(),
       };
 }

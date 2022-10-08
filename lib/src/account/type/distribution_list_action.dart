@@ -27,16 +27,17 @@ class DistributionListAction extends AccountKeyValuePairs {
       this.subsReq,
       this.members = const <String>[],
       this.owners = const <DistributionListGranteeSelector>[],
-      this.rights = const <DistributionListRightSpec>[]});
+      this.rights = const <DistributionListRightSpec>[],
+      super.keyValuePairs});
 
   @override
   Map<String, dynamic> toJson() => {
         'op': op.name,
         if (newName != null) 'newName': newName,
         if (subsReq != null) 'subsReq': subsReq!.toJson(),
-        if (members.isNotEmpty) 'dlm': members.map((dlm) => {'_content': dlm}),
-        if (owners.isNotEmpty) 'owner': owners.map((owner) => owner.toJson()),
-        if (rights.isNotEmpty) 'right': rights.map((right) => right.toJson()),
-        if (keyValuePairs.isNotEmpty) 'a': keyValuePairs.map((kvp) => kvp.toJson()),
+        if (members.isNotEmpty) 'dlm': members.map((dlm) => {'_content': dlm}).toList(),
+        if (owners.isNotEmpty) 'owner': owners.map((owner) => owner.toJson()).toList(),
+        if (rights.isNotEmpty) 'right': rights.map((right) => right.toJson()).toList(),
+        if (keyValuePairs.isNotEmpty) 'a': keyValuePairs.map((kvp) => kvp.toJson()).toList(),
       };
 }

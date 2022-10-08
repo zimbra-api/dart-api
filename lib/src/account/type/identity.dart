@@ -13,21 +13,20 @@ class Identity extends Attrs {
   Identity({this.name, this.id, super.attrs});
 
   factory Identity.fromJson(Map<String, dynamic> json) {
-    final identity = Identity(name: json['name'], id: json['id']);
-
+    final attrs = <Attr>[];
     if (json['a'] != null && json['a'] is Iterable) {
-      final attrs = json['a'] as Iterable;
-      for (final attr in attrs) {
-        identity.attrs.add(Attr.fromJson(attr));
+      final elements = json['a'] as Iterable;
+      for (final attr in elements) {
+        attrs.add(Attr.fromJson(attr));
       }
     }
 
-    return identity;
+    return Identity(name: json['name'], id: json['id'], attrs: attrs);
   }
 
   Map<String, dynamic> toJson() => {
         if (name != null) 'name': name,
         if (id != null) 'id': id,
-        if (attrs.isNotEmpty) 'a': attrs.map((a) => a.toJson()),
+        if (attrs.isNotEmpty) 'a': attrs.map((a) => a.toJson()).toList(),
       };
 }

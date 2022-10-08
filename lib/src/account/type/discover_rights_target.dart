@@ -35,16 +35,15 @@ class DiscoverRightsTarget {
       orElse: () => TargetType.account,
     );
 
-    final target = DiscoverRightsTarget(type: type, id: json['id'], name: json['name'], displayName: json['d']);
-
+    final emails = <DiscoverRightsEmail>[];
     if (json['email'] != null && json['email'] is Iterable) {
-      final emails = json['email'] as Iterable;
-      for (final email in emails) {
-        target.emails.add(DiscoverRightsEmail.fromJson(email));
+      final elements = json['email'] as Iterable;
+      for (final email in elements) {
+        emails.add(DiscoverRightsEmail.fromJson(email));
       }
     }
 
-    return target;
+    return DiscoverRightsTarget(type: type, id: json['id'], name: json['name'], displayName: json['d'], emails: emails);
   }
 
   Map<String, dynamic> toJson() => {

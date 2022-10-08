@@ -32,19 +32,21 @@ class DLInfo extends ObjectInfo {
       {super.attrList, this.displayName, this.isDynamic, this.via, this.isOwner, this.isMember});
 
   factory DLInfo.fromJson(Map<String, dynamic> json) {
+    final attrList = <KeyValuePair>[];
+    if (json['a'] != null && json['a'] is Iterable) {
+      final attrs = json['a'] as Iterable;
+      for (final attr in attrs) {
+        attrList.add(KeyValuePair.fromJson(attr));
+      }
+    }
+
     final info = DLInfo(json['name'], json['id'], json['ref'],
         displayName: json['d'],
         isDynamic: json['dynamic'],
         via: json['via'],
         isOwner: json['isOwner'],
-        isMember: json['isMember']);
-
-    if (json['a'] != null && json['a'] is Iterable) {
-      final attrs = json['a'] as Iterable;
-      for (final attr in attrs) {
-        info.attrList.add(KeyValuePair.fromJson(attr));
-      }
-    }
+        isMember: json['isMember'],
+        attrList: attrList);
 
     return info;
   }
@@ -58,6 +60,6 @@ class DLInfo extends ObjectInfo {
         if (via != null) 'via': via,
         if (isOwner != null) 'isOwner': isOwner,
         if (isMember != null) 'isMember': isMember,
-        if (attrList.isNotEmpty) 'a': attrList.map((a) => a.toJson()),
+        if (attrList.isNotEmpty) 'a': attrList.map((a) => a.toJson()).toList(),
       };
 }

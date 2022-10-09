@@ -112,7 +112,15 @@ class AccountDataSource {
       orElse: () => ConnectionType.clearText,
     );
 
-    var ds = AccountDataSource(
+    final attributes = <String>[];
+    if (json['a'] != null && json['a'] is Iterable) {
+      final attrs = json['a'] as Iterable;
+      for (final a in attrs) {
+        attributes.add(a['_content']);
+      }
+    }
+
+    return AccountDataSource(
         id: json['id'],
         name: json['name'],
         folderId: json['l'],
@@ -134,17 +142,9 @@ class AccountDataSource {
         importClass: json['importClass'],
         failingSince: json['failingSince'],
         lastError: json['lastError'] != null ? json['lastError']['_content'] : null,
+        attributes: attributes,
         refreshToken: json['refreshToken'],
         refreshTokenUrl: json['refreshTokenUrl']);
-
-    if (json['a'] != null && json['a'] is Iterable) {
-      final attributes = json['a'] as Iterable;
-      for (final a in attributes) {
-        ds.attributes.add(a['_content']);
-      }
-    }
-
-    return ds;
   }
 
   Map<String, dynamic> toJson() => {

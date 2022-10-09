@@ -11,16 +11,15 @@ class AccountZimletGlobalConfigInfo {
   AccountZimletGlobalConfigInfo({this.properties = const <AccountZimletProperty>[]});
 
   factory AccountZimletGlobalConfigInfo.fromJson(Map<String, dynamic> json) {
-    final info = AccountZimletGlobalConfigInfo();
-
+    final properties = <AccountZimletProperty>[];
     if (json['property'] != null && json['property'] is Iterable) {
-      final properties = json['property'] as Iterable;
-      for (final property in properties) {
-        info.properties.add(AccountZimletProperty.fromJson(property));
+      final elements = json['property'] as Iterable;
+      for (final property in elements) {
+        properties.add(AccountZimletProperty.fromJson(property));
       }
     }
 
-    return info;
+    return AccountZimletGlobalConfigInfo(properties: properties);
   }
 
   Map<String, dynamic> toJson() => {

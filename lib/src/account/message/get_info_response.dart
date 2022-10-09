@@ -146,7 +146,71 @@ class GetInfoResponse extends SoapResponse {
       this.isTrackingIMAP});
 
   factory GetInfoResponse.fromJson(Map<String, dynamic> json) {
-    final response = GetInfoResponse(
+    final prefs = <Pref>[];
+    if (json['prefs'] != null && json['prefs'] is Map<String, dynamic>) {
+      final elements = json['prefs']['pref'] as Iterable;
+      for (final pref in elements) {
+        prefs.add(Pref.fromJson(pref));
+      }
+    }
+
+    final attrs = <Attr>[];
+    if (json['attrs'] != null && json['attrs'] is Map<String, dynamic>) {
+      final elements = json['attrs']['attr'] as Iterable;
+      for (final attr in elements) {
+        attrs.add(Attr.fromJson(attr));
+      }
+    }
+
+    final zimlets = <AccountZimletInfo>[];
+    if (json['zimlets'] != null && json['zimlets'] is Map<String, dynamic>) {
+      final elements = json['zimlets']['zimlet'] as Iterable;
+      for (final zimlet in elements) {
+        zimlets.add(AccountZimletInfo.fromJson(zimlet));
+      }
+    }
+
+    final props = <Prop>[];
+    if (json['props'] != null && json['props'] is Map<String, dynamic>) {
+      final elements = json['props']['prop'] as Iterable;
+      for (final prop in elements) {
+        props.add(Prop.fromJson(prop));
+      }
+    }
+
+    final identities = <Identity>[];
+    if (json['identities'] != null && json['identities'] is Map<String, dynamic>) {
+      final elements = json['identities']['identity'] as Iterable;
+      for (final identity in elements) {
+        identities.add(Identity.fromJson(identity));
+      }
+    }
+
+    final signatures = <Signature>[];
+    if (json['signatures'] != null && json['signatures'] is Map<String, dynamic>) {
+      final elements = json['signatures']['signature'] as Iterable;
+      for (final signature in elements) {
+        signatures.add(Signature.fromJson(signature));
+      }
+    }
+
+    final childAccounts = <ChildAccount>[];
+    if (json['childAccounts'] != null && json['childAccounts'] is Map<String, dynamic>) {
+      final elements = json['childAccounts']['childAccount'] as Iterable;
+      for (final childAccount in elements) {
+        childAccounts.add(ChildAccount.fromJson(childAccount));
+      }
+    }
+
+    final discoveredRights = <DiscoverRightsInfo>[];
+    if (json['rights'] != null && json['rights'] is Map<String, dynamic>) {
+      final rights = json['rights']['targets'] as Iterable;
+      for (final targets in rights) {
+        discoveredRights.add(DiscoverRightsInfo.fromJson(targets));
+      }
+    }
+
+    return GetInfoResponse(
         attachmentSizeLimit: json['attSizeLimit'],
         documentSizeLimit: json['docSizeLimit'],
         version: json['version'] != null ? json['version']['_content'] : null,
@@ -168,64 +232,14 @@ class GetInfoResponse extends SoapResponse {
         changePasswordURL: json['changePasswordURL'] != null ? json['changePasswordURL']['_content'] : null,
         adminURL: json['adminURL'] != null ? json['adminURL']['_content'] : null,
         boshURL: json['boshURL'] != null ? json['boshURL']['_content'] : null,
-        isTrackingIMAP: json['isTrackingIMAP'] != null ? json['isTrackingIMAP']['_content'] : null);
-
-    if (json['prefs'] != null && json['prefs'] is Iterable) {
-      final prefs = json['prefs']['pref'] as Iterable;
-      for (final pref in prefs) {
-        response.prefs.add(Pref.fromJson(pref));
-      }
-    }
-
-    if (json['attrs'] != null && json['attrs'] is Iterable) {
-      final attrs = json['attrs']['attr'] as Iterable;
-      for (final attr in attrs) {
-        response.attrs.add(Attr.fromJson(attr));
-      }
-    }
-
-    if (json['zimlets'] != null && json['zimlets'] is Iterable) {
-      final zimlets = json['zimlets']['zimlet'] as Iterable;
-      for (final zimlet in zimlets) {
-        response.zimlets.add(AccountZimletInfo.fromJson(zimlet));
-      }
-    }
-
-    if (json['props'] != null && json['props'] is Iterable) {
-      final props = json['props']['prop'] as Iterable;
-      for (final prop in props) {
-        response.props.add(Prop.fromJson(prop));
-      }
-    }
-
-    if (json['identities'] != null && json['identities'] is Iterable) {
-      final identities = json['identities']['identity'] as Iterable;
-      for (final identity in identities) {
-        response.identities.add(Identity.fromJson(identity));
-      }
-    }
-
-    if (json['signatures'] != null && json['signatures'] is Iterable) {
-      final signatures = json['signatures']['signature'] as Iterable;
-      for (final signature in signatures) {
-        response.signatures.add(Signature.fromJson(signature));
-      }
-    }
-
-    if (json['childAccounts'] != null && json['childAccounts'] is Iterable) {
-      final childAccounts = json['childAccounts']['childAccount'] as Iterable;
-      for (final childAccount in childAccounts) {
-        response.childAccounts.add(ChildAccount.fromJson(childAccount));
-      }
-    }
-
-    if (json['rights'] != null && json['rights'] is Iterable) {
-      final rights = json['rights']['targets'] as Iterable;
-      for (final targets in rights) {
-        response.discoveredRights.add(DiscoverRightsInfo.fromJson(targets));
-      }
-    }
-
-    return response;
+        isTrackingIMAP: json['isTrackingIMAP'] != null ? json['isTrackingIMAP']['_content'] : null,
+        prefs: prefs,
+        attrs: attrs,
+        zimlets: zimlets,
+        props: props,
+        identities: identities,
+        signatures: signatures,
+        childAccounts: childAccounts,
+        discoveredRights: discoveredRights);
   }
 }

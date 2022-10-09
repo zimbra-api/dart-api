@@ -39,65 +39,80 @@ class AccountDataSources {
       this.unknownDataSources = const <AccountUnknownDataSource>[]});
 
   factory AccountDataSources.fromJson(Map<String, dynamic> json) {
-    final dataSources = AccountDataSources();
-
+    final imapDataSources = <AccountImapDataSource>[];
     if (json['imap'] != null && json['imap'] is Iterable) {
-      final imapDataSources = json['imap'] as Iterable;
-      for (final imap in imapDataSources) {
-        dataSources.imapDataSources.add(AccountImapDataSource.fromJson(imap));
+      final dataSources = json['imap'] as Iterable;
+      for (final imap in dataSources) {
+        imapDataSources.add(AccountImapDataSource.fromJson(imap));
       }
     }
 
+    final pop3DataSources = <AccountPop3DataSource>[];
     if (json['pop3'] != null && json['pop3'] is Iterable) {
-      final pop3DataSources = json['pop3'] as Iterable;
-      for (final pop3 in pop3DataSources) {
-        dataSources.pop3DataSources.add(AccountPop3DataSource.fromJson(pop3));
+      final dataSources = json['pop3'] as Iterable;
+      for (final pop3 in dataSources) {
+        pop3DataSources.add(AccountPop3DataSource.fromJson(pop3));
       }
     }
 
+    final caldavDataSources = <AccountCaldavDataSource>[];
     if (json['caldav'] != null && json['caldav'] is Iterable) {
-      final caldavDataSources = json['caldav'] as Iterable;
-      for (final caldav in caldavDataSources) {
-        dataSources.caldavDataSources.add(AccountCaldavDataSource.fromJson(caldav));
+      final dataSources = json['caldav'] as Iterable;
+      for (final caldav in dataSources) {
+        caldavDataSources.add(AccountCaldavDataSource.fromJson(caldav));
       }
     }
 
+    final yabDataSources = <AccountYabDataSource>[];
     if (json['yab'] != null && json['yab'] is Iterable) {
-      final yabDataSources = json['yab'] as Iterable;
-      for (final yab in yabDataSources) {
-        dataSources.yabDataSources.add(AccountYabDataSource.fromJson(yab));
+      final dataSources = json['yab'] as Iterable;
+      for (final yab in dataSources) {
+        yabDataSources.add(AccountYabDataSource.fromJson(yab));
       }
     }
 
+    final rssDataSources = <AccountRssDataSource>[];
     if (json['rss'] != null && json['rss'] is Iterable) {
-      final rssDataSources = json['rss'] as Iterable;
-      for (final rss in rssDataSources) {
-        dataSources.rssDataSources.add(AccountRssDataSource.fromJson(rss));
+      final dataSources = json['rss'] as Iterable;
+      for (final rss in dataSources) {
+        rssDataSources.add(AccountRssDataSource.fromJson(rss));
       }
     }
 
+    final galDataSources = <AccountGalDataSource>[];
     if (json['gal'] != null && json['gal'] is Iterable) {
-      final galDataSources = json['gal'] as Iterable;
-      for (final gal in galDataSources) {
-        dataSources.galDataSources.add(AccountGalDataSource.fromJson(gal));
+      final dataSources = json['gal'] as Iterable;
+      for (final gal in dataSources) {
+        galDataSources.add(AccountGalDataSource.fromJson(gal));
       }
     }
 
+    final calDataSources = <AccountCalDataSource>[];
     if (json['cal'] != null && json['cal'] is Iterable) {
-      final calDataSources = json['cal'] as Iterable;
-      for (final cal in calDataSources) {
-        dataSources.calDataSources.add(AccountCalDataSource.fromJson(cal));
+      final dataSources = json['cal'] as Iterable;
+      for (final cal in dataSources) {
+        calDataSources.add(AccountCalDataSource.fromJson(cal));
       }
     }
 
+    final unknownDataSources = <AccountUnknownDataSource>[];
     if (json['unknown'] != null && json['unknown'] is Iterable) {
-      final unknownDataSources = json['unknown'] as Iterable;
-      for (final unknown in unknownDataSources) {
-        dataSources.unknownDataSources.add(AccountUnknownDataSource.fromJson(unknown));
+      final dataSources = json['unknown'] as Iterable;
+      for (final unknown in dataSources) {
+        unknownDataSources.add(AccountUnknownDataSource.fromJson(unknown));
       }
     }
 
-    return dataSources;
+    return AccountDataSources(
+      imapDataSources: imapDataSources,
+      pop3DataSources: pop3DataSources,
+      caldavDataSources: caldavDataSources,
+      yabDataSources: yabDataSources,
+      rssDataSources: rssDataSources,
+      galDataSources: galDataSources,
+      calDataSources: calDataSources,
+      unknownDataSources: unknownDataSources,
+    );
   }
 
   Map<String, dynamic> toJson() => {

@@ -12,15 +12,14 @@ class GetAllLocalesResponse extends SoapResponse {
   GetAllLocalesResponse({this.locales = const <LocaleInfo>[]});
 
   factory GetAllLocalesResponse.fromJson(Map<String, dynamic> json) {
-    final response = GetAllLocalesResponse();
-
+    final locales = <LocaleInfo>[];
     if (json['locale'] != null && json['locale'] is Iterable) {
-      final locales = json['locale'] as Iterable;
-      for (final locale in locales) {
-        response.locales.add(LocaleInfo.fromJson(locale));
+      final elements = json['locale'] as Iterable;
+      for (final locale in elements) {
+        locales.add(LocaleInfo.fromJson(locale));
       }
     }
 
-    return response;
+    return GetAllLocalesResponse(locales: locales);
   }
 }

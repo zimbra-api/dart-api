@@ -36,31 +36,40 @@ class DistributionListInfo extends ObjectInfo {
       this.rights = const <DistributionListRightInfo>[]});
 
   factory DistributionListInfo.fromJson(Map<String, dynamic> json) {
-    final info = DistributionListInfo(json['name'] ?? '', json['id'] ?? '',
-        isOwner: json['isOwner'], isMember: json['isMember'], isDynamic: json['dynamic']);
-
+    final members = <String>[];
     if (json['dlm'] != null && json['dlm'] is Iterable) {
       final dlms = json['dlm'] as Iterable;
       for (final dlm in dlms) {
-        info.members.add(dlm['_content']);
+        members.add(dlm['_content']);
       }
     }
 
-    if (json['owners'] != null && json['owners'] is Iterable) {
-      final owners = json['owners']['owner'] as Iterable;
-      for (final owner in owners) {
-        info.owners.add(DistributionListGranteeInfo.fromJson(owner));
+    final owners = <DistributionListGranteeInfo>[];
+    if (json['owners'] != null && json['owners'] is Map<String, dynamic>) {
+      final elemens = json['owners']['owner'] as Iterable;
+      for (final owner in elemens) {
+        owners.add(DistributionListGranteeInfo.fromJson(owner));
       }
     }
 
-    if (json['rights'] != null && json['rights'] is Iterable) {
-      final rights = json['rights']['right'] as Iterable;
-      for (final right in rights) {
-        info.rights.add(DistributionListRightInfo.fromJson(right));
+    final rights = <DistributionListRightInfo>[];
+    if (json['rights'] != null && json['rights'] is Map<String, dynamic>) {
+      final elemens = json['rights']['right'] as Iterable;
+      for (final right in elemens) {
+        rights.add(DistributionListRightInfo.fromJson(right));
       }
     }
 
-    return info;
+    return DistributionListInfo(
+      json['name'] ?? '',
+      json['id'] ?? '',
+      isOwner: json['isOwner'],
+      isMember: json['isMember'],
+      isDynamic: json['dynamic'],
+      members: members,
+      owners: owners,
+      rights: rights,
+    );
   }
 
   Map<String, dynamic> toJson() => {

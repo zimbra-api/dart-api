@@ -252,8 +252,8 @@ class AccountApi extends Api {
   }
 
   /// Get the list of members of a distribution list.
-  Future<GetDistributionListMembersResponse?> getDistributionListMembers(String name, {int? limit, int? offset}) {
-    return invoke(GetDistributionListMembersRequest(name, limit: limit, offset: offset)).then((json) =>
+  Future<GetDistributionListMembersResponse?> getDistributionListMembers(String dl, {int? limit, int? offset}) {
+    return invoke(GetDistributionListMembersRequest(dl, limit: limit, offset: offset)).then((json) =>
         GetDistributionListMembersEnvelope.fromJson(json)
             .getDistributionListMembersBody
             .getDistributionListMembersResponse);

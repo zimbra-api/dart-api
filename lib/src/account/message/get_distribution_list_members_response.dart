@@ -18,22 +18,27 @@ class GetDistributionListMembersResponse extends SoapResponse {
       {this.more, this.total, this.dlMembers = const <String>[], this.habGroupMembers = const <HABGroupMember>[]});
 
   factory GetDistributionListMembersResponse.fromJson(Map<String, dynamic> json) {
-    final response = GetDistributionListMembersResponse(more: json['more'], total: json['total']);
-
+    final dlMembers = <String>[];
     if (json['dlm'] != null && json['dlm'] is Iterable) {
       final dlms = json['dlm'] as Iterable;
       for (final dlm in dlms) {
-        response.dlMembers.add(dlm['_content']);
+        dlMembers.add(dlm['_content']);
       }
     }
 
+    final habGroupMembers = <HABGroupMember>[];
     if (json['groupMember'] != null && json['groupMember'] is Iterable) {
       final members = json['groupMember'] as Iterable;
       for (final member in members) {
-        response.habGroupMembers.add(HABGroupMember.fromJson(member));
+        habGroupMembers.add(HABGroupMember.fromJson(member));
       }
     }
 
-    return response;
+    return GetDistributionListMembersResponse(
+      more: json['more'],
+      total: json['total'],
+      dlMembers: dlMembers,
+      habGroupMembers: habGroupMembers,
+    );
   }
 }

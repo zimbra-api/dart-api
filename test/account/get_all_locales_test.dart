@@ -19,7 +19,7 @@ void main() {
       });
     }));
 
-    test('Get all locales request', (() {
+    test('Get all locales response', (() {
       final id = faker.guid.guid();
       final name = faker.lorem.word();
       final localName = faker.lorem.word();

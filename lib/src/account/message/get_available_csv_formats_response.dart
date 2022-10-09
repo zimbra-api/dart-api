@@ -12,15 +12,14 @@ class GetAvailableCsvFormatsResponse extends SoapResponse {
   GetAvailableCsvFormatsResponse({this.csvFormats = const <NamedElement>[]});
 
   factory GetAvailableCsvFormatsResponse.fromJson(Map<String, dynamic> json) {
-    final response = GetAvailableCsvFormatsResponse();
-
+    final csvFormats = <NamedElement>[];
     if (json['csv'] != null && json['csv'] is Iterable) {
       final formats = json['csv'] as Iterable;
       for (final format in formats) {
-        response.csvFormats.add(NamedElement.fromJson(format));
+        csvFormats.add(NamedElement.fromJson(format));
       }
     }
 
-    return response;
+    return GetAvailableCsvFormatsResponse(csvFormats: csvFormats);
   }
 }

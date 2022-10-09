@@ -7,20 +7,18 @@ import 'package:zimbra_api/src/common/type/soap_response.dart';
 
 class GetAvailableSkinsResponse extends SoapResponse {
   /// Information about skins
-  final List<NamedElement> csvFormats;
+  final List<NamedElement> skins;
 
-  GetAvailableSkinsResponse({this.csvFormats = const <NamedElement>[]});
+  GetAvailableSkinsResponse({this.skins = const <NamedElement>[]});
 
   factory GetAvailableSkinsResponse.fromJson(Map<String, dynamic> json) {
-    final response = GetAvailableSkinsResponse();
-
+    final skins = <NamedElement>[];
     if (json['skin'] != null && json['skin'] is Iterable) {
-      final skins = json['skin'] as Iterable;
-      for (final skin in skins) {
-        response.csvFormats.add(NamedElement.fromJson(skin));
+      final elements = json['skin'] as Iterable;
+      for (final skin in elements) {
+        skins.add(NamedElement.fromJson(skin));
       }
     }
-
-    return response;
+    return GetAvailableSkinsResponse(skins: skins);
   }
 }

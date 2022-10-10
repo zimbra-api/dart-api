@@ -55,7 +55,7 @@ class SearchGalRequest extends SoapRequest {
   final bool? needSMIMECerts;
 
   /// GAL Account ID
-  final bool? galAccountId;
+  final String? galAccountId;
 
   /// "Quick" flag.
   /// For performance reasons, the index system accumulates messages with not-indexed-yet state until a certain

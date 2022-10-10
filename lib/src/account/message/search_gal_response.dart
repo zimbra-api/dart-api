@@ -40,7 +40,7 @@ class SearchGalResponse extends SoapResponse {
 
   factory SearchGalResponse.fromJson(Map<String, dynamic> json) {
     final contacts = <ContactInfo>[];
-    if (json['cn'] != null && json['cn'] is Map<String, dynamic>) {
+    if (json['cn'] != null && json['cn'] is Iterable) {
       final elements = json['cn'] as Iterable;
       for (final cn in elements) {
         contacts.add(ContactInfo.fromJson(cn));

@@ -435,7 +435,7 @@ class AccountApi extends Api {
       bool? needIsOwner,
       MemberOfSelector? needIsMember,
       bool? needSMIMECerts,
-      bool? galAccountId,
+      String? galAccountId,
       bool? quick,
       String? sortBy,
       int? limit,

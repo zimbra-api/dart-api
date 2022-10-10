@@ -8,18 +8,17 @@ import 'package:zimbra_api/src/common/type/soap_response.dart';
 class GetShareInfoResponse extends SoapResponse {
   final List<ShareInfo> shares;
 
-  GetShareInfoResponse({this.shares = const <ShareInfo>[]});
+  GetShareInfoResponse({this.shares = const []});
 
   factory GetShareInfoResponse.fromJson(Map<String, dynamic> json) {
-    final response = GetShareInfoResponse();
-
+    final shares = <ShareInfo>[];
     if (json['share'] != null && json['share'] is Iterable) {
-      final shares = json['share'] as Iterable;
-      for (final share in shares) {
-        response.shares.add(ShareInfo.fromJson(share));
+      final elements = json['share'] as Iterable;
+      for (final share in elements) {
+        shares.add(ShareInfo.fromJson(share));
       }
     }
 
-    return response;
+    return GetShareInfoResponse(shares: shares);
   }
 }

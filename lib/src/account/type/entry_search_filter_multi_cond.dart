@@ -11,16 +11,14 @@ class EntrySearchFilterMultiCond {
   /// OR flag
   final bool? isOr;
 
-  /// The list of compound conditions
-  final List<EntrySearchFilterMultiCond> compoundConditions;
-
   /// The list of simple conditions
   final List<EntrySearchFilterSingleCond> singleConditions;
 
+  /// The list of compound conditions
+  final List<EntrySearchFilterMultiCond> compoundConditions;
+
   EntrySearchFilterMultiCond(
-      {this.isNot,
-      this.isOr,
-      this.compoundConditions = const [], this.singleConditions = const []});
+      {this.isNot, this.isOr, this.singleConditions = const [], this.compoundConditions = const []});
 
   factory EntrySearchFilterMultiCond.fromJson(Map<String, dynamic> json) {
     final compoundConditions = <EntrySearchFilterMultiCond>[];
@@ -49,7 +47,7 @@ class EntrySearchFilterMultiCond {
   Map<String, dynamic> toJson() => {
         if (isNot != null) 'not': isNot,
         if (isOr != null) 'or': isOr,
-        if (compoundConditions.isNotEmpty) 'conds': compoundConditions.map((cond) => cond.toJson()).toList(),
         if (singleConditions.isNotEmpty) 'cond': singleConditions.map((cond) => cond.toJson()).toList(),
+        if (compoundConditions.isNotEmpty) 'conds': compoundConditions.map((cond) => cond.toJson()).toList(),
       };
 }

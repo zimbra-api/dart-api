@@ -29,9 +29,9 @@ class SearchCalendarResourcesResponse extends SoapResponse {
   factory SearchCalendarResourcesResponse.fromJson(Map<String, dynamic> json) {
     final calendarResources = <CalendarResourceInfo>[];
     if (json['calresource'] != null && json['calresource'] is Iterable) {
-      final calresources = json['calresource'] as Iterable;
-      for (final calresource in calresources) {
-        calendarResources.add(CalendarResourceInfo.fromJson(calresource));
+      final resources = json['calresource'] as Iterable;
+      for (final resource in resources) {
+        calendarResources.add(CalendarResourceInfo.fromJson(resource));
       }
     }
 

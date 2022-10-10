@@ -34,8 +34,8 @@ void main() {
         },
       };
       final envelope = GetAvailableCsvFormatsEnvelope.fromJson(json);
-      final response = envelope.getAvailableCsvFormatsBody.getAvailableCsvFormatsResponse;
-      final csv = response!.csvFormats.first;
+      final response = envelope.getAvailableCsvFormatsBody.getAvailableCsvFormatsResponse!;
+      final csv = response.csvFormats.first;
 
       expect(csv.name, name);
     }));

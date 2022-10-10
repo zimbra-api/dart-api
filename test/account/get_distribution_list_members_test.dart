@@ -58,9 +58,9 @@ void main() {
         }
       };
       final envelope = GetDistributionListMembersEnvelope.fromJson(json);
-      final response = envelope.getDistributionListMembersBody.getDistributionListMembersResponse;
+      final response = envelope.getDistributionListMembersBody.getDistributionListMembersResponse!;
 
-      expect(response!.more, more);
+      expect(response.more, more);
       expect(response.total, total);
       expect(response.dlMembers.first, member);
 

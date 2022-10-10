@@ -66,9 +66,9 @@ void main() {
         },
       };
       final envelope = GetAccountDistributionListsEnvelope.fromJson(json);
-      final response = envelope.getAccountDistributionListsBody.getAccountDistributionListsResponse;
+      final response = envelope.getAccountDistributionListsBody.getAccountDistributionListsResponse!;
 
-      final dl = response!.dlList.first;
+      final dl = response.dlList.first;
       expect(dl.name, name);
       expect(dl.id, id);
       expect(dl.ref, ref);

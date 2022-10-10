@@ -39,8 +39,8 @@ void main() {
         },
       };
       final envelope = GetAllLocalesEnvelope.fromJson(json);
-      final response = envelope.getAllLocalesBody.getAllLocalesResponse;
-      final locale = response!.locales.first;
+      final response = envelope.getAllLocalesBody.getAllLocalesResponse!;
+      final locale = response.locales.first;
 
       expect(locale.id, id);
       expect(locale.name, name);

@@ -47,8 +47,8 @@ void main() {
         }
       };
       final envelope = GetIdentitiesEnvelope.fromJson(json);
-      final response = envelope.getIdentitiesBody.getIdentitiesResponse;
-      final identity = response!.identities.first;
+      final response = envelope.getIdentitiesBody.getIdentitiesResponse!;
+      final identity = response.identities.first;
 
       expect(identity.name, email);
       expect(identity.id, id);

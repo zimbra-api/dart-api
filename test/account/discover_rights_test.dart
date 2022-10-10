@@ -57,8 +57,8 @@ void main() {
         }
       };
       final envelope = DiscoverRightsEnvelope.fromJson(json);
-      final response = envelope.discoverRightsBody.discoverRightsResponse;
-      final discoveredRight = response!.discoveredRights.first;
+      final response = envelope.discoverRightsBody.discoverRightsResponse!;
+      final discoveredRight = response.discoveredRights.first;
 
       expect(discoveredRight.right, right);
 

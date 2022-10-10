@@ -50,8 +50,8 @@ void main() {
         },
       };
       final envelope = GetPrefsEnvelope.fromJson(json);
-      final response = envelope.getPrefsBody.getPrefsResponse;
-      final pref = response!.prefs.first;
+      final response = envelope.getPrefsBody.getPrefsResponse!;
+      final pref = response.prefs.first;
       expect(pref.name, name);
       expect(pref.modified, modified);
       expect(pref.value, value);

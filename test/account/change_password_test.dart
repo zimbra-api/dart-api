@@ -65,9 +65,9 @@ void main() {
       };
 
       final envelope = ChangePasswordEnvelope.fromJson(json);
-      final response = envelope.changePasswordBody.changePasswordResponse;
+      final response = envelope.changePasswordBody.changePasswordResponse!;
 
-      expect(response!.authToken, authToken);
+      expect(response.authToken, authToken);
       expect(response.lifetime, lifetime);
     }));
   }));

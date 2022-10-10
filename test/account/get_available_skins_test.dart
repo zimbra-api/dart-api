@@ -34,8 +34,8 @@ void main() {
         },
       };
       final envelope = GetAvailableSkinsEnvelope.fromJson(json);
-      final response = envelope.getAvailableSkinsBody.getAvailableSkinsResponse;
-      final skin = response!.skins.first;
+      final response = envelope.getAvailableSkinsBody.getAvailableSkinsResponse!;
+      final skin = response.skins.first;
 
       expect(skin.name, name);
     }));

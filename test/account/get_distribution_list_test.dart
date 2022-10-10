@@ -85,10 +85,10 @@ void main() {
         }
       };
       final envelope = GetDistributionListEnvelope.fromJson(json);
-      final response = envelope.getDistributionListBody.getDistributionListResponse;
-      final dl = response!.dl;
+      final response = envelope.getDistributionListBody.getDistributionListResponse!;
+      final dl = response.dl!;
 
-      expect(dl!.name, name);
+      expect(dl.name, name);
       expect(dl.id, id);
       expect(dl.isOwner, isOwner);
       expect(dl.isMember, isMember);

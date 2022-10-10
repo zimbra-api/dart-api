@@ -9,7 +9,6 @@ void main() {
   group('Get version info tests', (() {
     test(' Get version info request', (() {
       final request = GetVersionInfoRequest();
-
       expect(request.getEnvelope().toJson(), {
         'Body': {
           'GetVersionInfoRequest': {
@@ -19,7 +18,7 @@ void main() {
       });
     }));
 
-    test(' Get version info request', (() {
+    test(' Get version info resonse', (() {
       final fullVersion = faker.lorem.word();
       final release = faker.lorem.word();
       final date = faker.date.dateTime().toString();

@@ -320,9 +320,9 @@ void main() {
         }
       };
       final envelope = GetInfoEnvelope.fromJson(json);
-      final response = envelope.getInfoBody.getInfoResponse;
+      final response = envelope.getInfoBody.getInfoResponse!;
 
-      expect(response!.attachmentSizeLimit, attachmentSizeLimit);
+      expect(response.attachmentSizeLimit, attachmentSizeLimit);
       expect(response.documentSizeLimit, documentSizeLimit);
       expect(response.version, version);
       expect(response.accountId, accountId);

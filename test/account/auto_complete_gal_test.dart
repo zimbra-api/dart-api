@@ -166,8 +166,8 @@ void main() {
       };
 
       final envelope = AutoCompleteGalEnvelope.fromJson(json);
-      final response = envelope.autoCompleteGalBody.autoCompleteGalResponse;
-      final contact = response!.contacts.first;
+      final response = envelope.autoCompleteGalBody.autoCompleteGalResponse!;
+      final contact = response.contacts.first;
 
       expect(response.more, more);
       expect(response.tokenizeKey, tokenizeKey);

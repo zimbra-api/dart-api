@@ -41,8 +41,8 @@ void main() {
         }
       };
       final envelope = GetOAuthConsumersEnvelope.fromJson(json);
-      final response = envelope.getOAuthConsumersBody.getOAuthConsumersResponse;
-      final consumer = response!.consumers.first;
+      final response = envelope.getOAuthConsumersBody.getOAuthConsumersResponse!;
+      final consumer = response.consumers.first;
 
       expect(consumer.accessToken, accessToken);
       expect(consumer.approvedOn, approvedOn);

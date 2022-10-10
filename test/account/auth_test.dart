@@ -228,9 +228,9 @@ void main() {
         },
       };
       final envelope = AuthEnvelope.fromJson(json);
-      final response = envelope.authBody.authResponse;
+      final response = envelope.authBody.authResponse!;
 
-      expect(response!.authToken, authToken);
+      expect(response.authToken, authToken);
       expect(response.lifetime, lifetime);
       expect(response.trustLifetime, trustLifetime);
       expect(response.session!.id, sessionId);

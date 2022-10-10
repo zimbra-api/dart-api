@@ -47,8 +47,8 @@ void main() {
         }
       };
       final envelope = GetSignaturesEnvelope.fromJson(json);
-      final response = envelope.getSignaturesBody.getSignaturesResponse;
-      final signature = response!.signatures.first;
+      final response = envelope.getSignaturesBody.getSignaturesResponse!;
+      final signature = response.signatures.first;
 
       expect(signature.name, name);
       expect(signature.id, id);

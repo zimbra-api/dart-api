@@ -56,8 +56,8 @@ void main() {
         },
       };
       final envelope = GetRightsEnvelope.fromJson(json);
-      final response = envelope.getRightsBody.getRightsResponse;
-      final ace = response!.aces.first;
+      final response = envelope.getRightsBody.getRightsResponse!;
+      final ace = response.aces.first;
 
       expect(ace.granteeType, GranteeType.usr);
       expect(ace.right, right);

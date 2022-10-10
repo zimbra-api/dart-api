@@ -70,8 +70,8 @@ void main() {
         },
       };
       final envelope = CreateDistributionListEnvelope.fromJson(json);
-      final response = envelope.createDistributionListBody.createDistributionListResponse;
-      final dl = response!.dl;
+      final response = envelope.createDistributionListBody.createDistributionListResponse!;
+      final dl = response.dl;
 
       expect(dl!.name, name);
       expect(dl.id, id);

@@ -47,8 +47,8 @@ void main() {
       };
 
       final envelope = ClientInfoEnvelope.fromJson(json);
-      final response = envelope.clientInfoBody.clientInfoResponse;
-      final attr = response!.attrs.first;
+      final response = envelope.clientInfoBody.clientInfoResponse!;
+      final attr = response.attrs.first;
 
       expect(attr.key, key);
       expect(attr.value, value);

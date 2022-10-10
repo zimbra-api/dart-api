@@ -64,10 +64,10 @@ void main() {
         }
       };
       final envelope = CreateIdentityEnvelope.fromJson(json);
-      final response = envelope.createIdentityBody.createIdentityResponse;
-      final identity = response!.identity;
+      final response = envelope.createIdentityBody.createIdentityResponse!;
+      final identity = response.identity!;
 
-      expect(identity!.name, email);
+      expect(identity.name, email);
       expect(identity.id, id);
 
       final attr = identity.attrs.first;

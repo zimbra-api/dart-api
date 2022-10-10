@@ -59,8 +59,8 @@ void main() {
         },
       };
       final envelope = GetAccountInfoEnvelope.fromJson(json);
-      final response = envelope.getAccountInfoBody.getAccountInfoResponse;
-      final attr = response!.attrs.first;
+      final response = envelope.getAccountInfoBody.getAccountInfoResponse!;
+      final attr = response.attrs.first;
 
       expect(response.name, email);
       expect(response.soapURL, soapURL);

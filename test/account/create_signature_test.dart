@@ -65,10 +65,10 @@ void main() {
         }
       };
       final envelope = CreateSignatureEnvelope.fromJson(json);
-      final response = envelope.createSignatureBody.createSignatureResponse;
-      final signature = response!.signature;
+      final response = envelope.createSignatureBody.createSignatureResponse!;
+      final signature = response.signature!;
 
-      expect(signature!.name, name);
+      expect(signature.name, name);
       expect(signature.id, id);
       expect(signature.cid, cid);
 

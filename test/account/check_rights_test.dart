@@ -93,8 +93,8 @@ void main() {
       };
 
       final envelope = CheckRightsEnvelope.fromJson(json);
-      final response = envelope.checkRightsBody.checkRightsResponse;
-      final target = response!.targets.first;
+      final response = envelope.checkRightsBody.checkRightsResponse!;
+      final target = response.targets.first;
 
       expect(target.targetType, TargetType.account);
       expect(target.targetBy, TargetBy.name);

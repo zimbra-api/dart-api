@@ -84,8 +84,8 @@ void main() {
         },
       };
       final envelope = GetShareInfoEnvelope.fromJson(json);
-      final response = envelope.getShareInfoBody.getShareInfoResponse;
-      final share = response!.shares.first;
+      final response = envelope.getShareInfoBody.getShareInfoResponse!;
+      final share = response.shares.first;
 
       expect(share.ownerId, ownerId);
       expect(share.ownerEmail, ownerEmail);

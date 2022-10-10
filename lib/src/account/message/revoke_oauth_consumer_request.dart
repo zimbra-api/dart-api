@@ -3,6 +3,7 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_envelope.dart';
+import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'package:zimbra_api/src/common/type/soap_request.dart';
 
 import 'revoke_oauth_consumer_body.dart';
@@ -14,7 +15,8 @@ class RevokeOAuthConsumerRequest extends SoapRequest {
   RevokeOAuthConsumerRequest(this.accessToken);
 
   @override
-  SoapEnvelope getEnvelope() => RevokeOAuthConsumerEnvelope(RevokeOAuthConsumerBody(request: this));
+  SoapEnvelope getEnvelope({SoapHeader? header}) =>
+      RevokeOAuthConsumerEnvelope(RevokeOAuthConsumerBody(request: this), header: header);
 
   @override
   Map<String, dynamic> toJson() => {

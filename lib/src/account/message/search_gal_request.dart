@@ -7,6 +7,7 @@ import 'package:zimbra_api/src/common/enum/gal_search_type.dart';
 import 'package:zimbra_api/src/common/enum/member_of_selector.dart';
 import 'package:zimbra_api/src/common/type/cursor_info.dart';
 import 'package:zimbra_api/src/common/type/soap_envelope.dart';
+import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'package:zimbra_api/src/common/type/soap_request.dart';
 
 import 'search_gal_body.dart';
@@ -94,7 +95,7 @@ class SearchGalRequest extends SoapRequest {
       this.locale});
 
   @override
-  SoapEnvelope getEnvelope() => SearchGalEnvelope(SearchGalBody(request: this));
+  SoapEnvelope getEnvelope({SoapHeader? header}) => SearchGalEnvelope(SearchGalBody(request: this), header: header);
 
   @override
   Map<String, dynamic> toJson() => {

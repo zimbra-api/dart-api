@@ -8,6 +8,7 @@ import 'package:zimbra_api/src/account/type/pre_auth.dart';
 import 'package:zimbra_api/src/account/type/pref.dart';
 import 'package:zimbra_api/src/common/type/account_selector.dart';
 import 'package:zimbra_api/src/common/type/soap_envelope.dart';
+import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'package:zimbra_api/src/common/type/soap_request.dart';
 
 import 'auth_body.dart';
@@ -102,7 +103,7 @@ class AuthRequest extends SoapRequest {
       this.attrs = const <Attr>[]});
 
   @override
-  SoapEnvelope getEnvelope() => AuthEnvelope(AuthBody(request: this));
+  SoapEnvelope getEnvelope({SoapHeader? header}) => AuthEnvelope(AuthBody(request: this), header: header);
 
   @override
   Map<String, dynamic> toJson() => {

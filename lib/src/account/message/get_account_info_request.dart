@@ -4,6 +4,7 @@
 
 import 'package:zimbra_api/src/common/type/account_selector.dart';
 import 'package:zimbra_api/src/common/type/soap_envelope.dart';
+import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'package:zimbra_api/src/common/type/soap_request.dart';
 
 import 'get_account_info_body.dart';
@@ -17,7 +18,8 @@ class GetAccountInfoRequest extends SoapRequest {
   GetAccountInfoRequest(this.account);
 
   @override
-  SoapEnvelope getEnvelope() => GetAccountInfoEnvelope(GetAccountInfoBody(request: this));
+  SoapEnvelope getEnvelope({SoapHeader? header}) =>
+      GetAccountInfoEnvelope(GetAccountInfoBody(request: this), header: header);
 
   @override
   Map<String, dynamic> toJson() => {

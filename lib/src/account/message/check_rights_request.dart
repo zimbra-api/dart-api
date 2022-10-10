@@ -4,6 +4,7 @@
 
 import 'package:zimbra_api/src/account/type/check_rights_target_spec.dart';
 import 'package:zimbra_api/src/common/type/soap_envelope.dart';
+import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'package:zimbra_api/src/common/type/soap_request.dart';
 
 import 'check_rights_body.dart';
@@ -17,7 +18,7 @@ class CheckRightsRequest extends SoapRequest {
   CheckRightsRequest({this.targets = const <CheckRightsTargetSpec>[]});
 
   @override
-  SoapEnvelope getEnvelope() => CheckRightsEnvelope(CheckRightsBody(request: this));
+  SoapEnvelope getEnvelope({SoapHeader? header}) => CheckRightsEnvelope(CheckRightsBody(request: this), header: header);
 
   @override
   Map<String, dynamic> toJson() => {

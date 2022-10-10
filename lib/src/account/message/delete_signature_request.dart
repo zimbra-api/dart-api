@@ -4,6 +4,7 @@
 
 import 'package:zimbra_api/src/account/type/name_id.dart';
 import 'package:zimbra_api/src/common/type/soap_envelope.dart';
+import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'package:zimbra_api/src/common/type/soap_request.dart';
 
 import 'delete_signature_body.dart';
@@ -18,7 +19,8 @@ class DeleteSignatureRequest extends SoapRequest {
   DeleteSignatureRequest(this.signature);
 
   @override
-  SoapEnvelope getEnvelope() => DeleteSignatureEnvelope(DeleteSignatureBody(request: this));
+  SoapEnvelope getEnvelope({SoapHeader? header}) =>
+      DeleteSignatureEnvelope(DeleteSignatureBody(request: this), header: header);
 
   @override
   Map<String, dynamic> toJson() => {

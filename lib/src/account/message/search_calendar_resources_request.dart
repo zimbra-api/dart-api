@@ -5,6 +5,7 @@
 import 'package:zimbra_api/src/account/type/entry_search_filter_info.dart';
 import 'package:zimbra_api/src/common/type/cursor_info.dart';
 import 'package:zimbra_api/src/common/type/soap_envelope.dart';
+import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'package:zimbra_api/src/common/type/soap_request.dart';
 
 import 'search_calendar_resources_body.dart';
@@ -61,7 +62,8 @@ class SearchCalendarResourcesRequest extends SoapRequest {
       this.attrs});
 
   @override
-  SoapEnvelope getEnvelope() => SearchCalendarResourcesEnvelope(SearchCalendarResourcesBody(request: this));
+  SoapEnvelope getEnvelope({SoapHeader? header}) =>
+      SearchCalendarResourcesEnvelope(SearchCalendarResourcesBody(request: this), header: header);
 
   @override
   Map<String, dynamic> toJson() => {

@@ -5,12 +5,13 @@
 import 'package:zimbra_api/src/common/enum/distribution_list_subscribe_op.dart';
 import 'package:zimbra_api/src/common/type/distribution_list_selector.dart';
 import 'package:zimbra_api/src/common/type/soap_envelope.dart';
+import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'package:zimbra_api/src/common/type/soap_request.dart';
 
 import 'subscribe_distribution_list_body.dart';
 import 'subscribe_distribution_list_envelope.dart';
 
-/// Subscribe to or unsubscribe from a distribution list 
+/// Subscribe to or unsubscribe from a distribution list
 class SubscribeDistributionListRequest extends SoapRequest {
   /// Selector for the distribution list
   final DistributionListSelector dl;
@@ -21,7 +22,8 @@ class SubscribeDistributionListRequest extends SoapRequest {
   SubscribeDistributionListRequest(this.dl, {this.op = DistributionListSubscribeOp.subscribe});
 
   @override
-  SoapEnvelope getEnvelope() => SubscribeDistributionListEnvelope(SubscribeDistributionListBody(request: this));
+  SoapEnvelope getEnvelope({SoapHeader? header}) =>
+      SubscribeDistributionListEnvelope(SubscribeDistributionListBody(request: this), header: header);
 
   @override
   Map<String, dynamic> toJson() => {

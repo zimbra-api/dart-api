@@ -5,6 +5,7 @@
 import 'package:zimbra_api/src/common/type/account_selector.dart';
 import 'package:zimbra_api/src/common/type/grantee_chooser.dart';
 import 'package:zimbra_api/src/common/type/soap_envelope.dart';
+import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'package:zimbra_api/src/common/type/soap_request.dart';
 
 import 'get_share_info_body.dart';
@@ -30,7 +31,8 @@ class GetShareInfoRequest extends SoapRequest {
   GetShareInfoRequest({this.grantee, this.owner, this.internal, this.includeSelf});
 
   @override
-  SoapEnvelope getEnvelope() => GetShareInfoEnvelope(GetShareInfoBody(request: this));
+  SoapEnvelope getEnvelope({SoapHeader? header}) =>
+      GetShareInfoEnvelope(GetShareInfoBody(request: this), header: header);
 
   @override
   Map<String, dynamic> toJson() => {

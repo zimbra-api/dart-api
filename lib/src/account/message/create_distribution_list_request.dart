@@ -4,6 +4,7 @@
 
 import 'package:zimbra_api/src/common/type/key_value_pair.dart';
 import 'package:zimbra_api/src/common/type/soap_envelope.dart';
+import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'package:zimbra_api/src/common/type/soap_request.dart';
 
 import 'create_distribution_list_body.dart';
@@ -24,7 +25,8 @@ class CreateDistributionListRequest extends SoapRequest {
   CreateDistributionListRequest(this.name, {this.isDynamic, this.keyValuePairs = const <KeyValuePair>[]});
 
   @override
-  SoapEnvelope getEnvelope() => CreateDistributionListEnvelope(CreateDistributionListBody(request: this));
+  SoapEnvelope getEnvelope({SoapHeader? header}) =>
+      CreateDistributionListEnvelope(CreateDistributionListBody(request: this), header: header);
 
   @override
   Map<String, dynamic> toJson() => {

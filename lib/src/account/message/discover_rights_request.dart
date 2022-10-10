@@ -3,6 +3,7 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_envelope.dart';
+import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'package:zimbra_api/src/common/type/soap_request.dart';
 
 import 'discover_rights_body.dart';
@@ -27,7 +28,8 @@ class DiscoverRightsRequest extends SoapRequest {
   DiscoverRightsRequest({this.rights = const <String>[]});
 
   @override
-  SoapEnvelope getEnvelope() => DiscoverRightsEnvelope(DiscoverRightsBody(request: this));
+  SoapEnvelope getEnvelope({SoapHeader? header}) =>
+      DiscoverRightsEnvelope(DiscoverRightsBody(request: this), header: header);
 
   @override
   Map<String, dynamic> toJson() => {

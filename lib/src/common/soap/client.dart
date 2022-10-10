@@ -11,13 +11,27 @@ class Client {
 
   final String _serviceHost;
 
+  String? _cookie;
+
   final http.Client _httpClient = http.Client();
 
   Client(this._serviceHost);
 
   Future<http.Response> sendRequest(String soapMessage) {
-    return _httpClient.post(Uri.https(_serviceHost, _serviceUri),
-        headers: {'Content-Type': _contentType, 'User-Agent': _userAgent}, body: soapMessage);
+    return _httpClient
+        .post(Uri.https(_serviceHost, _serviceUri),
+            headers: {
+              'Content-Type': _contentType,
+              'User-Agent': _userAgent,
+              if (_cookie != null) 'Set-Cookie': _cookie!,
+            },
+            body: soapMessage)
+        .then((response) {
+      if (response.headers.containsKey('Cookie')) {
+        _cookie = response.headers['Cookie'];
+      }
+      return response;
+    });
   }
 
   void close() {

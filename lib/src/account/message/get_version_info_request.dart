@@ -3,6 +3,7 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_envelope.dart';
+import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'package:zimbra_api/src/common/type/soap_request.dart';
 
 import 'get_version_info_body.dart';
@@ -11,7 +12,8 @@ import 'get_version_info_envelope.dart';
 /// Get version information
 class GetVersionInfoRequest extends SoapRequest {
   @override
-  SoapEnvelope getEnvelope() => GetVersionInfoEnvelope(GetVersionInfoBody(request: this));
+  SoapEnvelope getEnvelope({SoapHeader? header}) =>
+      GetVersionInfoEnvelope(GetVersionInfoBody(request: this), header: header);
 
   @override
   Map<String, dynamic> toJson() => {

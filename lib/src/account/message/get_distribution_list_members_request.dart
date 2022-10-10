@@ -3,6 +3,7 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_envelope.dart';
+import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'package:zimbra_api/src/common/type/soap_request.dart';
 
 import 'get_distribution_list_members_body.dart';
@@ -22,7 +23,8 @@ class GetDistributionListMembersRequest extends SoapRequest {
   GetDistributionListMembersRequest(this.dl, {this.limit, this.offset});
 
   @override
-  SoapEnvelope getEnvelope() => GetDistributionListMembersEnvelope(GetDistributionListMembersBody(request: this));
+  SoapEnvelope getEnvelope({SoapHeader? header}) =>
+      GetDistributionListMembersEnvelope(GetDistributionListMembersBody(request: this), header: header);
 
   @override
   Map<String, dynamic> toJson() => {

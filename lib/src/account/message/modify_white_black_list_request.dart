@@ -4,6 +4,7 @@
 
 import 'package:zimbra_api/src/common/type/op_value.dart';
 import 'package:zimbra_api/src/common/type/soap_envelope.dart';
+import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'package:zimbra_api/src/common/type/soap_request.dart';
 
 import 'modify_white_black_list_body.dart';
@@ -20,7 +21,8 @@ class ModifyWhiteBlackListRequest extends SoapRequest {
   ModifyWhiteBlackListRequest({this.whiteListEntries = const <OpValue>[], this.blackListEntries = const <OpValue>[]});
 
   @override
-  SoapEnvelope getEnvelope() => ModifyWhiteBlackListEnvelope(ModifyWhiteBlackListBody(request: this));
+  SoapEnvelope getEnvelope({SoapHeader? header}) =>
+      ModifyWhiteBlackListEnvelope(ModifyWhiteBlackListBody(request: this), header: header);
 
   @override
   Map<String, dynamic> toJson() => {

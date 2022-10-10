@@ -4,6 +4,7 @@
 
 import 'package:zimbra_api/src/account/type/account_ace_info.dart';
 import 'package:zimbra_api/src/common/type/soap_envelope.dart';
+import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'package:zimbra_api/src/common/type/soap_request.dart';
 
 import 'revoke_rights_body.dart';
@@ -17,7 +18,8 @@ class RevokeRightsRequest extends SoapRequest {
   RevokeRightsRequest({this.aces = const <AccountACEInfo>[]});
 
   @override
-  SoapEnvelope getEnvelope() => RevokeRightsEnvelope(RevokeRightsBody(request: this));
+  SoapEnvelope getEnvelope({SoapHeader? header}) =>
+      RevokeRightsEnvelope(RevokeRightsBody(request: this), header: header);
 
   @override
   Map<String, dynamic> toJson() => {

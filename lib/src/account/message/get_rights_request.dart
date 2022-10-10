@@ -4,6 +4,7 @@
 
 import 'package:zimbra_api/src/account/type/right.dart';
 import 'package:zimbra_api/src/common/type/soap_envelope.dart';
+import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'package:zimbra_api/src/common/type/soap_request.dart';
 
 import 'get_rights_body.dart';
@@ -19,7 +20,7 @@ class GetRightsRequest extends SoapRequest {
   GetRightsRequest({this.aces = const <Right>[]});
 
   @override
-  SoapEnvelope getEnvelope() => GetRightsEnvelope(GetRightsBody(request: this));
+  SoapEnvelope getEnvelope({SoapHeader? header}) => GetRightsEnvelope(GetRightsBody(request: this), header: header);
 
   @override
   Map<String, dynamic> toJson() => {

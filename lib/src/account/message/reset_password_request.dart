@@ -3,6 +3,7 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_envelope.dart';
+import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'package:zimbra_api/src/common/type/soap_request.dart';
 
 import 'reset_password_body.dart';
@@ -15,7 +16,8 @@ class ResetPasswordRequest extends SoapRequest {
   ResetPasswordRequest(this.password);
 
   @override
-  SoapEnvelope getEnvelope() => ResetPasswordEnvelope(ResetPasswordBody(request: this));
+  SoapEnvelope getEnvelope({SoapHeader? header}) =>
+      ResetPasswordEnvelope(ResetPasswordBody(request: this), header: header);
 
   @override
   Map<String, dynamic> toJson() => {

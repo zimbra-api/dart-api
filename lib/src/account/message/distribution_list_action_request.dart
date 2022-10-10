@@ -5,6 +5,7 @@
 import 'package:zimbra_api/src/account/type/distribution_list_action.dart';
 import 'package:zimbra_api/src/common/type/distribution_list_selector.dart';
 import 'package:zimbra_api/src/common/type/soap_envelope.dart';
+import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'package:zimbra_api/src/common/type/soap_request.dart';
 
 import 'distribution_list_action_body.dart';
@@ -27,7 +28,8 @@ class DistributionListActionRequest extends SoapRequest {
   DistributionListActionRequest(this.dl, this.action);
 
   @override
-  SoapEnvelope getEnvelope() => DistributionListActionEnvelope(DistributionListActionBody(request: this));
+  SoapEnvelope getEnvelope({SoapHeader? header}) =>
+      DistributionListActionEnvelope(DistributionListActionBody(request: this), header: header);
 
   @override
   Map<String, dynamic> toJson() => {

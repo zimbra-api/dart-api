@@ -4,6 +4,7 @@
 
 import 'package:zimbra_api/src/account/type/identity.dart';
 import 'package:zimbra_api/src/common/type/soap_envelope.dart';
+import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'package:zimbra_api/src/common/type/soap_request.dart';
 
 import 'create_identity_body.dart';
@@ -18,7 +19,8 @@ class CreateIdentityRequest extends SoapRequest {
   CreateIdentityRequest(this.identity);
 
   @override
-  SoapEnvelope getEnvelope() => CreateIdentityEnvelope(CreateIdentityBody(request: this));
+  SoapEnvelope getEnvelope({SoapHeader? header}) =>
+      CreateIdentityEnvelope(CreateIdentityBody(request: this), header: header);
 
   @override
   Map<String, dynamic> toJson() => {

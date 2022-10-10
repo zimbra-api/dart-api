@@ -4,6 +4,7 @@
 
 import 'package:zimbra_api/src/common/enum/gal_search_type.dart';
 import 'package:zimbra_api/src/common/type/soap_envelope.dart';
+import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'package:zimbra_api/src/common/type/soap_request.dart';
 
 import 'auto_complete_gal_envelope.dart';
@@ -37,7 +38,8 @@ class AutoCompleteGalRequest extends SoapRequest {
   AutoCompleteGalRequest(this.name, {this.type, this.needCanExpand, this.galAccountId, this.limit});
 
   @override
-  SoapEnvelope getEnvelope() => AutoCompleteGalEnvelope(AutoCompleteGalBody(request: this));
+  SoapEnvelope getEnvelope({SoapHeader? header}) =>
+      AutoCompleteGalEnvelope(AutoCompleteGalBody(request: this), header: header);
 
   @override
   Map<String, dynamic> toJson() => {

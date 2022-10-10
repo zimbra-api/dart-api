@@ -3,6 +3,7 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_envelope.dart';
+import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'package:zimbra_api/src/common/type/soap_request.dart';
 
 import 'get_all_locales_body.dart';
@@ -12,7 +13,8 @@ import 'get_all_locales_envelope.dart';
 /// java.util.Locale.getAvailableLocales(), sorted by display name (name attribute).
 class GetAllLocalesRequest extends SoapRequest {
   @override
-  SoapEnvelope getEnvelope() => GetAllLocalesEnvelope(GetAllLocalesBody(request: this));
+  SoapEnvelope getEnvelope({SoapHeader? header}) =>
+      GetAllLocalesEnvelope(GetAllLocalesBody(request: this), header: header);
 
   @override
   Map<String, dynamic> toJson() => {

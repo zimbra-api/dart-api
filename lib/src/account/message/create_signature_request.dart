@@ -4,6 +4,7 @@
 
 import 'package:zimbra_api/src/account/type/signature.dart';
 import 'package:zimbra_api/src/common/type/soap_envelope.dart';
+import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'package:zimbra_api/src/common/type/soap_request.dart';
 
 import 'create_signature_body.dart';
@@ -20,7 +21,8 @@ class CreateSignatureRequest extends SoapRequest {
   CreateSignatureRequest(this.signature);
 
   @override
-  SoapEnvelope getEnvelope() => CreateSignatureEnvelope(CreateSignatureBody(request: this));
+  SoapEnvelope getEnvelope({SoapHeader? header}) =>
+      CreateSignatureEnvelope(CreateSignatureBody(request: this), header: header);
 
   @override
   Map<String, dynamic> toJson() => {

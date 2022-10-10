@@ -4,6 +4,7 @@
 
 import 'package:zimbra_api/src/common/enum/member_of_selector.dart';
 import 'package:zimbra_api/src/common/type/soap_envelope.dart';
+import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'package:zimbra_api/src/common/type/soap_request.dart';
 
 import 'get_account_distribution_lists_body.dart';
@@ -29,7 +30,8 @@ class GetAccountDistributionListsRequest extends SoapRequest {
   GetAccountDistributionListsRequest({this.ownerOf, this.memberOf, this.attrs});
 
   @override
-  SoapEnvelope getEnvelope() => GetAccountDistributionListsEnvelope(GetAccountDistributionListsBody(request: this));
+  SoapEnvelope getEnvelope({SoapHeader? header}) =>
+      GetAccountDistributionListsEnvelope(GetAccountDistributionListsBody(request: this), header: header);
 
   @override
   Map<String, dynamic> toJson() => {

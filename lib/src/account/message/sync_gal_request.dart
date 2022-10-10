@@ -3,6 +3,7 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_envelope.dart';
+import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'package:zimbra_api/src/common/type/soap_request.dart';
 
 import 'sync_gal_body.dart';
@@ -28,7 +29,7 @@ class SyncGalRequest extends SoapRequest {
   SyncGalRequest({this.token, this.galAccountId, this.idOnly, this.getCount, this.limit});
 
   @override
-  SoapEnvelope getEnvelope() => SyncGalEnvelope(SyncGalBody(request: this));
+  SoapEnvelope getEnvelope({SoapHeader? header}) => SyncGalEnvelope(SyncGalBody(request: this), header: header);
 
   @override
   Map<String, dynamic> toJson() => {

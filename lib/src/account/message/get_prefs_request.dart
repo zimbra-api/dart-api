@@ -4,6 +4,7 @@
 
 import 'package:zimbra_api/src/account/type/pref.dart';
 import 'package:zimbra_api/src/common/type/soap_envelope.dart';
+import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'package:zimbra_api/src/common/type/soap_request.dart';
 
 import 'get_prefs_body.dart';
@@ -19,7 +20,7 @@ class GetPrefsRequest extends SoapRequest {
   GetPrefsRequest({this.prefs = const <Pref>[]});
 
   @override
-  SoapEnvelope getEnvelope() => GetPrefsEnvelope(GetPrefsBody(request: this));
+  SoapEnvelope getEnvelope({SoapHeader? header}) => GetPrefsEnvelope(GetPrefsBody(request: this), header: header);
 
   @override
   Map<String, dynamic> toJson() => {

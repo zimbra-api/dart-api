@@ -4,6 +4,7 @@
 
 import 'package:zimbra_api/src/common/type/domain_selector.dart';
 import 'package:zimbra_api/src/common/type/soap_envelope.dart';
+import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'package:zimbra_api/src/common/type/soap_request.dart';
 
 import 'client_info_body.dart';
@@ -17,7 +18,7 @@ class ClientInfoRequest extends SoapRequest {
   ClientInfoRequest(this.domain);
 
   @override
-  SoapEnvelope getEnvelope() => ClientInfoEnvelope(ClientInfoBody(request: this));
+  SoapEnvelope getEnvelope({SoapHeader? header}) => ClientInfoEnvelope(ClientInfoBody(request: this), header: header);
 
   @override
   Map<String, dynamic> toJson() => {

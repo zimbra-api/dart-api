@@ -3,6 +3,7 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_envelope.dart';
+import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'package:zimbra_api/src/common/type/soap_request.dart';
 
 import 'get_available_skins_body.dart';
@@ -13,7 +14,8 @@ import 'get_available_skins_envelope.dart';
 /// The installed skin list is obtained by a directory scan of the designated location of skins on a server.
 class GetAvailableSkinsRequest extends SoapRequest {
   @override
-  SoapEnvelope getEnvelope() => GetAvailableSkinsEnvelope(GetAvailableSkinsBody(request: this));
+  SoapEnvelope getEnvelope({SoapHeader? header}) =>
+      GetAvailableSkinsEnvelope(GetAvailableSkinsBody(request: this), header: header);
 
   @override
   Map<String, dynamic> toJson() => {

@@ -3,6 +3,7 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_envelope.dart';
+import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'package:zimbra_api/src/common/type/soap_request.dart';
 
 import 'end_session_body.dart';
@@ -28,7 +29,7 @@ class EndSessionRequest extends SoapRequest {
   EndSessionRequest({this.logoff, this.clearAllSoapSessions, this.excludeCurrentSession, this.sessionId});
 
   @override
-  SoapEnvelope getEnvelope() => EndSessionEnvelope(EndSessionBody(request: this));
+  SoapEnvelope getEnvelope({SoapHeader? header}) => EndSessionEnvelope(EndSessionBody(request: this), header: header);
 
   @override
   Map<String, dynamic> toJson() => {

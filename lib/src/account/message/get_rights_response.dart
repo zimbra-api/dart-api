@@ -12,15 +12,14 @@ class GetRightsResponse extends SoapResponse {
   GetRightsResponse({this.aces = const <AccountACEInfo>[]});
 
   factory GetRightsResponse.fromJson(Map<String, dynamic> json) {
-    final response = GetRightsResponse();
-
+    final aces = <AccountACEInfo>[];
     if (json['ace'] != null && json['ace'] is Iterable) {
-      final aces = json['ace'] as Iterable;
-      for (final ace in aces) {
-        response.aces.add(AccountACEInfo.fromJson(ace));
+      final elements = json['ace'] as Iterable;
+      for (final ace in elements) {
+        aces.add(AccountACEInfo.fromJson(ace));
       }
     }
 
-    return response;
+    return GetRightsResponse(aces: aces);
   }
 }

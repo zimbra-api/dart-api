@@ -26,7 +26,7 @@ class AccountACEInfo {
 
   factory AccountACEInfo.fromJson(Map<String, dynamic> json) {
     final granteeType = GranteeType.values.firstWhere(
-      (item) => item.name == json['by'],
+      (item) => item.name == json['gt'],
       orElse: () => GranteeType.all,
     );
 
@@ -35,7 +35,8 @@ class AccountACEInfo {
         displayName: json['d'],
         accessKey: json['key'],
         password: json['pw'],
-        deny: json['deny']);
+        deny: json['deny'],
+        checkGranteeType: json['chkgt']);
   }
 
   Map<String, dynamic> toJson() => {
@@ -46,5 +47,6 @@ class AccountACEInfo {
         if (accessKey != null) 'key': accessKey,
         if (password != null) 'pw': password,
         if (deny != null) 'deny': deny,
+        if (checkGranteeType != null) 'chkgt': checkGranteeType,
       };
 }

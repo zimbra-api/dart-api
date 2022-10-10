@@ -7,18 +7,17 @@ import 'package:zimbra_api/src/common/type/soap_response.dart';
 class ModifyZimletPrefsResponse extends SoapResponse {
   final List<String> zimlets;
 
-  ModifyZimletPrefsResponse({this.zimlets = const <String>[]});
+  ModifyZimletPrefsResponse({this.zimlets = const []});
 
   factory ModifyZimletPrefsResponse.fromJson(Map<String, dynamic> json) {
-    final response = ModifyZimletPrefsResponse();
-
+    final zimlets = <String>[];
     if (json['zimlet'] != null && json['zimlet'] is Iterable) {
-      final zimlets = json['zimlet'] as Iterable;
-      for (final zimlet in zimlets) {
-        response.zimlets.add(zimlet['_content']);
+      final elements = json['zimlet'] as Iterable;
+      for (final zimlet in elements) {
+        zimlets.add(zimlet['_content']);
       }
     }
 
-    return response;
+    return ModifyZimletPrefsResponse(zimlets: zimlets);
   }
 }

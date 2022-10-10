@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_response.dart';
 class CheckRightsResponse extends SoapResponse {
   final List<CheckRightsTargetInfo> targets;
 
-  CheckRightsResponse({this.targets = const <CheckRightsTargetInfo>[]});
+  CheckRightsResponse({this.targets = const []});
 
   factory CheckRightsResponse.fromJson(json) {
     final targets = <CheckRightsTargetInfo>[];

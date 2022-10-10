@@ -9,7 +9,7 @@ class GetPrefsResponse extends SoapResponse {
   /// Preferences
   final List<Pref> prefs;
 
-  GetPrefsResponse({this.prefs = const <Pref>[]});
+  GetPrefsResponse({this.prefs = const []});
 
   factory GetPrefsResponse.fromJson(Map<String, dynamic> json) {
     final prefs = <Pref>[];

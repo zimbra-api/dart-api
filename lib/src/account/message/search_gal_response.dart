@@ -36,23 +36,23 @@ class SearchGalResponse extends SoapResponse {
       this.more,
       this.pagingSupported,
       this.tokenizeKey,
-      this.contacts = const <ContactInfo>[]});
+      this.contacts = const []});
 
   factory SearchGalResponse.fromJson(Map<String, dynamic> json) {
-    final response = SearchGalResponse(
+    final contacts = <ContactInfo>[];
+    if (json['cn'] != null && json['cn'] is Map<String, dynamic>) {
+      final elements = json['cn'] as Iterable;
+      for (final cn in elements) {
+        contacts.add(ContactInfo.fromJson(cn));
+      }
+    }
+
+    return SearchGalResponse(
         sortBy: json['sortBy'],
         offset: json['offset'],
         more: json['more'],
         pagingSupported: json['paginationSupported'],
-        tokenizeKey: json['tokenizeKey']);
-
-    if (json['cn'] != null && json['cn'] is Iterable) {
-      final contacts = json['cn'] as Iterable;
-      for (final cn in contacts) {
-        response.contacts.add(ContactInfo.fromJson(cn));
-      }
-    }
-
-    return response;
+        tokenizeKey: json['tokenizeKey'],
+        contacts: contacts);
   }
 }

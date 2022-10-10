@@ -9,7 +9,7 @@ class GetAvailableCsvFormatsResponse extends SoapResponse {
   /// Information about csvFormats
   final List<NamedElement> csvFormats;
 
-  GetAvailableCsvFormatsResponse({this.csvFormats = const <NamedElement>[]});
+  GetAvailableCsvFormatsResponse({this.csvFormats = const []});
 
   factory GetAvailableCsvFormatsResponse.fromJson(Map<String, dynamic> json) {
     final csvFormats = <NamedElement>[];

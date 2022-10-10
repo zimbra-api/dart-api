@@ -9,7 +9,7 @@ class GetOAuthConsumersResponse extends SoapResponse {
   /// Consumers
   final List<OAuthConsumer> consumers;
 
-  GetOAuthConsumersResponse({this.consumers = const <OAuthConsumer>[]});
+  GetOAuthConsumersResponse({this.consumers = const []});
 
   factory GetOAuthConsumersResponse.fromJson(Map<String, dynamic> json) {
     final consumers = <OAuthConsumer>[];

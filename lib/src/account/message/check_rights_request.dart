@@ -15,7 +15,7 @@ class CheckRightsRequest extends SoapRequest {
   /// The targets
   final List<CheckRightsTargetSpec> targets;
 
-  CheckRightsRequest({this.targets = const <CheckRightsTargetSpec>[]});
+  CheckRightsRequest({this.targets = const []});
 
   @override
   SoapEnvelope getEnvelope({SoapHeader? header}) => CheckRightsEnvelope(CheckRightsBody(request: this), header: header);

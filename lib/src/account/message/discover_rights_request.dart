@@ -25,7 +25,7 @@ class DiscoverRightsRequest extends SoapRequest {
   /// The rights
   final List<String> rights;
 
-  DiscoverRightsRequest({this.rights = const <String>[]});
+  DiscoverRightsRequest({this.rights = const []});
 
   @override
   SoapEnvelope getEnvelope({SoapHeader? header}) =>

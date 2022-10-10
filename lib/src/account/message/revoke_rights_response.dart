@@ -9,18 +9,17 @@ class RevokeRightsResponse extends SoapResponse {
   /// Access Control Entries
   final List<AccountACEInfo> aces;
 
-  RevokeRightsResponse({this.aces = const <AccountACEInfo>[]});
+  RevokeRightsResponse({this.aces = const []});
 
   factory RevokeRightsResponse.fromJson(Map<String, dynamic> json) {
-    final response = RevokeRightsResponse();
-
+    final aces = <AccountACEInfo>[];
     if (json['ace'] != null && json['ace'] is Iterable) {
-      final aces = json['ace'] as Iterable;
-      for (final ace in aces) {
-        response.aces.add(AccountACEInfo.fromJson(ace));
+      final elements = json['ace'] as Iterable;
+      for (final ace in elements) {
+        aces.add(AccountACEInfo.fromJson(ace));
       }
     }
 
-    return response;
+    return RevokeRightsResponse(aces: aces);
   }
 }

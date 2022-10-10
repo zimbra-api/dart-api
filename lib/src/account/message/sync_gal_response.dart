@@ -39,32 +39,34 @@ class SyncGalResponse extends SoapResponse {
       this.throttled,
       this.fullSyncRecommended,
       this.remain,
-      this.contacts = const <ContactInfo>[],
-      this.deleted = const <Id>[]});
+      this.contacts = const [],
+      this.deleted = const []});
 
   factory SyncGalResponse.fromJson(Map<String, dynamic> json) {
-    final response = SyncGalResponse(
+    final contacts = <ContactInfo>[];
+    if (json['cn'] != null && json['cn'] is Iterable) {
+      final elements = json['cn'] as Iterable;
+      for (final cn in elements) {
+        contacts.add(ContactInfo.fromJson(cn));
+      }
+    }
+
+    final deleted = <Id>[];
+    if (json['deleted'] != null && json['deleted'] is Iterable) {
+      final elements = json['deleted'] as Iterable;
+      for (final id in elements) {
+        deleted.add(Id.fromJson(id));
+      }
+    }
+
+    return SyncGalResponse(
         more: json['more'],
         token: json['token'],
         galDefinitionLastModified: json['galDefinitionLastModified'],
         throttled: json['throttled'],
         fullSyncRecommended: json['fullSyncRecommended'],
-        remain: json['remain']);
-
-    if (json['cn'] != null && json['cn'] is Iterable) {
-      final contacts = json['cn'] as Iterable;
-      for (final cn in contacts) {
-        response.contacts.add(ContactInfo.fromJson(cn));
-      }
-    }
-
-    if (json['deleted'] != null && json['deleted'] is Iterable) {
-      final deleted = json['deleted'] as Iterable;
-      for (final id in deleted) {
-        response.deleted.add(Id.fromJson(id));
-      }
-    }
-
-    return response;
+        remain: json['remain'],
+        contacts: contacts,
+        deleted: deleted);
   }
 }

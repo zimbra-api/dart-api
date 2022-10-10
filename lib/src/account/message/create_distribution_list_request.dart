@@ -22,7 +22,7 @@ class CreateDistributionListRequest extends SoapRequest {
   /// Key value pairs
   final List<KeyValuePair> keyValuePairs;
 
-  CreateDistributionListRequest(this.name, {this.isDynamic, this.keyValuePairs = const <KeyValuePair>[]});
+  CreateDistributionListRequest(this.name, {this.isDynamic, this.keyValuePairs = const []});
 
   @override
   SoapEnvelope getEnvelope({SoapHeader? header}) =>

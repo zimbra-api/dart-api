@@ -9,7 +9,7 @@ class GetAccountDistributionListsResponse extends SoapResponse {
   /// Information on distribution lists
   final List<DLInfo> dlList;
 
-  GetAccountDistributionListsResponse({this.dlList = const <DLInfo>[]});
+  GetAccountDistributionListsResponse({this.dlList = const []});
 
   factory GetAccountDistributionListsResponse.fromJson(Map<String, dynamic> json) {
     final dlList = <DLInfo>[];

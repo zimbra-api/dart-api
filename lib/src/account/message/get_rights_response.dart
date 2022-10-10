@@ -9,7 +9,7 @@ class GetRightsResponse extends SoapResponse {
   /// Access Control Entries
   final List<AccountACEInfo> aces;
 
-  GetRightsResponse({this.aces = const <AccountACEInfo>[]});
+  GetRightsResponse({this.aces = const []});
 
   factory GetRightsResponse.fromJson(Map<String, dynamic> json) {
     final aces = <AccountACEInfo>[];

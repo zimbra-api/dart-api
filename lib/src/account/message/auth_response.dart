@@ -40,9 +40,9 @@ class AuthResponse extends SoapResponse {
   /// indicates whether the authentication account acts as a "Proxy" to a Zimbra account on another system.
   final bool? zmgProxy;
 
-  final List<Pref> prefs = <Pref>[];
+  final List<Pref> prefs;
 
-  final List<Attr> attrs = <Attr>[];
+  final List<Attr> attrs;
 
   final bool? twoFactorAuthRequired;
 
@@ -59,11 +59,29 @@ class AuthResponse extends SoapResponse {
       this.deviceId,
       this.trustedToken,
       this.zmgProxy,
+      this.prefs = const [],
+      this.attrs = const [],
       this.twoFactorAuthRequired,
       this.trustedDevicesEnabled});
 
   factory AuthResponse.fromJson(Map<String, dynamic> json) {
-    final response = AuthResponse(
+    final prefs = <Pref>[];
+    if (json['prefs'] != null && json['prefs'] is Map<String, dynamic>) {
+      final elements = json['prefs']['pref'] as Iterable;
+      for (final pref in elements) {
+        prefs.add(Pref.fromJson(pref));
+      }
+    }
+
+    final attrs = <Attr>[];
+    if (json['attrs'] != null && json['attrs'] is Map<String, dynamic>) {
+      final elements = json['attrs']['attr'] as Iterable;
+      for (final attr in elements) {
+        attrs.add(Attr.fromJson(attr));
+      }
+    }
+
+    return AuthResponse(
         authToken: json['authToken'] != null ? json['authToken']['_content'] : null,
         lifetime: json['lifetime'] != null ? json['lifetime']['_content'] : null,
         trustLifetime: json['trustLifetime'] != null ? json['trustLifetime']['_content'] : null,
@@ -74,24 +92,10 @@ class AuthResponse extends SoapResponse {
         deviceId: json['deviceId'] != null ? json['deviceId']['_content'] : null,
         trustedToken: json['trustedToken'] != null ? json['trustedToken']['_content'] : null,
         zmgProxy: json['zmgProxy'],
+        prefs: prefs,
+        attrs: attrs,
         twoFactorAuthRequired: json['twoFactorAuthRequired'] != null ? json['twoFactorAuthRequired']['_content'] : null,
         trustedDevicesEnabled:
             json['trustedDevicesEnabled'] != null ? json['trustedDevicesEnabled']['_content'] : null);
-
-    if (json['prefs'] != null && json['prefs'] is Map<String, dynamic>) {
-      final prefs = json['prefs']['pref'] as Iterable;
-      for (final pref in prefs) {
-        response.prefs.add(Pref.fromJson(pref));
-      }
-    }
-
-    if (json['attrs'] != null && json['attrs'] is Map<String, dynamic>) {
-      final attrs = json['attrs']['attr'] as Iterable;
-      for (final attr in attrs) {
-        response.attrs.add(Attr.fromJson(attr));
-      }
-    }
-
-    return response;
   }
 }

@@ -9,7 +9,7 @@ class DiscoverRightsResponse extends SoapResponse {
   /// Information about targets for rights
   final List<DiscoverRightsInfo> discoveredRights;
 
-  DiscoverRightsResponse({this.discoveredRights = const <DiscoverRightsInfo>[]});
+  DiscoverRightsResponse({this.discoveredRights = const []});
 
   factory DiscoverRightsResponse.fromJson(Map<String, dynamic> json) {
     final discoveredRights = <DiscoverRightsInfo>[];

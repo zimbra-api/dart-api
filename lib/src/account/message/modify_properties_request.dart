@@ -15,7 +15,7 @@ class ModifyPropertiesRequest extends SoapRequest {
   /// Property to be modified
   final List<Prop> props;
 
-  ModifyPropertiesRequest({this.props = const <Prop>[]});
+  ModifyPropertiesRequest({this.props = const []});
 
   @override
   SoapEnvelope getEnvelope({SoapHeader? header}) =>
@@ -24,6 +24,6 @@ class ModifyPropertiesRequest extends SoapRequest {
   @override
   Map<String, dynamic> toJson() => {
         '_jsns': 'urn:zimbraAccount',
-        if (props.isNotEmpty) 'prop': props.map((prop) => prop.toJson()),
+        if (props.isNotEmpty) 'prop': props.map((prop) => prop.toJson()).toList(),
       };
 }

@@ -15,7 +15,7 @@ class GetDistributionListMembersResponse extends SoapResponse {
   final List<HABGroupMember> habGroupMembers;
 
   GetDistributionListMembersResponse(
-      {this.more, this.total, this.dlMembers = const <String>[], this.habGroupMembers = const <HABGroupMember>[]});
+      {this.more, this.total, this.dlMembers = const [], this.habGroupMembers = const []});
 
   factory GetDistributionListMembersResponse.fromJson(Map<String, dynamic> json) {
     final dlMembers = <String>[];

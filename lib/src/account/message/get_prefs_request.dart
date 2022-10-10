@@ -17,7 +17,7 @@ class GetPrefsRequest extends SoapRequest {
   /// If any of these are specified then only get these preferences
   final List<Pref> prefs;
 
-  GetPrefsRequest({this.prefs = const <Pref>[]});
+  GetPrefsRequest({this.prefs = const []});
 
   @override
   SoapEnvelope getEnvelope({SoapHeader? header}) => GetPrefsEnvelope(GetPrefsBody(request: this), header: header);

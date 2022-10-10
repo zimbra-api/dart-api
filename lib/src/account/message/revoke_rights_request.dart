@@ -15,7 +15,7 @@ class RevokeRightsRequest extends SoapRequest {
   /// Specify Access Control Entries
   final List<AccountACEInfo> aces;
 
-  RevokeRightsRequest({this.aces = const <AccountACEInfo>[]});
+  RevokeRightsRequest({this.aces = const []});
 
   @override
   SoapEnvelope getEnvelope({SoapHeader? header}) =>
@@ -24,6 +24,6 @@ class RevokeRightsRequest extends SoapRequest {
   @override
   Map<String, dynamic> toJson() => {
         '_jsns': 'urn:zimbraAccount',
-        if (aces.isNotEmpty) 'ace': aces.map((ace) => ace.toJson()),
+        if (aces.isNotEmpty) 'ace': aces.map((ace) => ace.toJson()).toList(),
       };
 }

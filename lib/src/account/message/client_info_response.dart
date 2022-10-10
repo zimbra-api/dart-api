@@ -9,7 +9,7 @@ class ClientInfoResponse extends SoapResponse {
   /// Attributes
   final List<Attr> attrs;
 
-  ClientInfoResponse({this.attrs = const <Attr>[]});
+  ClientInfoResponse({this.attrs = const []});
 
   factory ClientInfoResponse.fromJson(Map<String, dynamic> json) {
     final attrs = <Attr>[];

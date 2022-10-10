@@ -9,7 +9,7 @@ class GetAllLocalesResponse extends SoapResponse {
   /// Information about locales
   final List<LocaleInfo> locales;
 
-  GetAllLocalesResponse({this.locales = const <LocaleInfo>[]});
+  GetAllLocalesResponse({this.locales = const []});
 
   factory GetAllLocalesResponse.fromJson(Map<String, dynamic> json) {
     final locales = <LocaleInfo>[];

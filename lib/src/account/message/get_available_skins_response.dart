@@ -9,7 +9,7 @@ class GetAvailableSkinsResponse extends SoapResponse {
   /// Information about skins
   final List<NamedElement> skins;
 
-  GetAvailableSkinsResponse({this.skins = const <NamedElement>[]});
+  GetAvailableSkinsResponse({this.skins = const []});
 
   factory GetAvailableSkinsResponse.fromJson(Map<String, dynamic> json) {
     final skins = <NamedElement>[];

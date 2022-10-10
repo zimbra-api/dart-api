@@ -99,8 +99,8 @@ class AuthRequest extends SoapRequest {
       this.deviceId,
       this.generateDeviceId,
       this.tokenType,
-      this.prefs = const <Pref>[],
-      this.attrs = const <Attr>[]});
+      this.prefs = const [],
+      this.attrs = const []});
 
   @override
   SoapEnvelope getEnvelope({SoapHeader? header}) => AuthEnvelope(AuthBody(request: this), header: header);

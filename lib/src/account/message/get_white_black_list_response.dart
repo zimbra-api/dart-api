@@ -11,25 +11,25 @@ class GetWhiteBlackListResponse extends SoapResponse {
   /// Black list
   final List<String> blackListEntries;
 
-  GetWhiteBlackListResponse([this.whiteListEntries = const <String>[], this.blackListEntries = const <String>[]]);
+  GetWhiteBlackListResponse({this.whiteListEntries = const [], this.blackListEntries = const []});
 
   factory GetWhiteBlackListResponse.fromJson(Map<String, dynamic> json) {
-    final response = GetWhiteBlackListResponse();
-
-    if (json['whiteList'] != null && json['whiteList'] is Iterable) {
+    final whiteListEntries = <String>[];
+    if (json['whiteList'] != null && json['whiteList'] is Map<String, dynamic>) {
       final whiteList = json['whiteList']['addr'] as Iterable;
       for (final entry in whiteList) {
-        response.whiteListEntries.add(entry['_content']);
+        whiteListEntries.add(entry['_content']);
       }
     }
 
-    if (json['blackList'] != null && json['blackList'] is Iterable) {
+    final blackListEntries = <String>[];
+    if (json['blackList'] != null && json['blackList'] is Map<String, dynamic>) {
       final blackList = json['blackList']['addr'] as Iterable;
       for (final entry in blackList) {
-        response.blackListEntries.add(entry['_content']);
+        blackListEntries.add(entry['_content']);
       }
     }
 
-    return response;
+    return GetWhiteBlackListResponse(whiteListEntries: whiteListEntries, blackListEntries: blackListEntries);
   }
 }

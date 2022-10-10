@@ -17,7 +17,7 @@ class GetRightsRequest extends SoapRequest {
   /// Specify Access Control Entries to return
   final List<Right> aces;
 
-  GetRightsRequest({this.aces = const <Right>[]});
+  GetRightsRequest({this.aces = const []});
 
   @override
   SoapEnvelope getEnvelope({SoapHeader? header}) => GetRightsEnvelope(GetRightsBody(request: this), header: header);

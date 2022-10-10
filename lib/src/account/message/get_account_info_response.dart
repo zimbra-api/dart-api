@@ -36,7 +36,7 @@ class GetAccountInfoResponse extends SoapResponse {
   final String? boshURL;
 
   GetAccountInfoResponse(this.name,
-      {this.attrs = const <NamedValue>[],
+      {this.attrs = const [],
       this.soapURL,
       this.publicURL,
       this.changePasswordURL,

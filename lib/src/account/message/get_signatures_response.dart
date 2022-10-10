@@ -8,18 +8,17 @@ import 'package:zimbra_api/src/common/type/soap_response.dart';
 class GetSignaturesResponse extends SoapResponse {
   final List<Signature> signatures;
 
-  GetSignaturesResponse({this.signatures = const <Signature>[]});
+  GetSignaturesResponse({this.signatures = const []});
 
   factory GetSignaturesResponse.fromJson(Map<String, dynamic> json) {
-    final response = GetSignaturesResponse();
-
+    final signatures = <Signature>[];
     if (json['signature'] != null && json['signature'] is Iterable) {
-      final signatures = json['signature'] as Iterable;
-      for (final signature in signatures) {
-        response.signatures.add(Signature.fromJson(signature));
+      final elements = json['signature'] as Iterable;
+      for (final signature in elements) {
+        signatures.add(Signature.fromJson(signature));
       }
     }
 
-    return response;
+    return GetSignaturesResponse(signatures: signatures);
   }
 }

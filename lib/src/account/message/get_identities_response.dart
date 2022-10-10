@@ -9,7 +9,7 @@ class GetIdentitiesResponse extends SoapResponse {
   /// Identities
   final List<Identity> identities;
 
-  GetIdentitiesResponse({this.identities = const <Identity>[]});
+  GetIdentitiesResponse({this.identities = const []});
 
   factory GetIdentitiesResponse.fromJson(Map<String, dynamic> json) {
     final identities = <Identity>[];

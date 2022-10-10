@@ -18,7 +18,7 @@ class ModifyWhiteBlackListRequest extends SoapRequest {
   /// Modifications for BlackList
   final List<OpValue> blackListEntries;
 
-  ModifyWhiteBlackListRequest({this.whiteListEntries = const <OpValue>[], this.blackListEntries = const <OpValue>[]});
+  ModifyWhiteBlackListRequest({this.whiteListEntries = const [], this.blackListEntries = const []});
 
   @override
   SoapEnvelope getEnvelope({SoapHeader? header}) =>

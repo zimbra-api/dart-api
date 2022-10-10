@@ -19,7 +19,7 @@ class ModifyPrefsRequest extends SoapRequest {
   /// Specify the preferences to be modified
   final List<Pref> prefs;
 
-  ModifyPrefsRequest({this.prefs = const <Pref>[]});
+  ModifyPrefsRequest({this.prefs = const []});
 
   @override
   SoapEnvelope getEnvelope({SoapHeader? header}) => ModifyPrefsEnvelope(ModifyPrefsBody(request: this), header: header);
@@ -27,6 +27,6 @@ class ModifyPrefsRequest extends SoapRequest {
   @override
   Map<String, dynamic> toJson() => {
         '_jsns': 'urn:zimbraAccount',
-        if (prefs.isNotEmpty) 'pref': prefs.map((pref) => pref.toJson()),
+        if (prefs.isNotEmpty) 'pref': prefs.map((pref) => pref.toJson()).toList(),
       };
 }

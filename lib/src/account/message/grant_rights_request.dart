@@ -15,7 +15,7 @@ class GrantRightsRequest extends SoapRequest {
   /// Specify Access Control Entries
   final List<AccountACEInfo> aces;
 
-  GrantRightsRequest({this.aces = const <AccountACEInfo>[]});
+  GrantRightsRequest({this.aces = const []});
 
   @override
   SoapEnvelope getEnvelope({SoapHeader? header}) => GrantRightsEnvelope(GrantRightsBody(request: this), header: header);

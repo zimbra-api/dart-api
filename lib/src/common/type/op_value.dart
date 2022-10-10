@@ -12,7 +12,7 @@ class OpValue {
   factory OpValue.fromJson(Map<String, dynamic> json) => OpValue(op: json['op'] ?? '+', value: json['_content']);
 
   Map<String, dynamic> toJson() => {
-        'op': op,
+        'op': <String>['+', '-'].contains(op) ? op : '+',
         if (value != null) '_content': value,
       };
 }

@@ -24,49 +24,56 @@ class AttachmentsInfo {
   final List<DocAttachSpec> docAttachments;
 
   AttachmentsInfo(this.attachmentId,
-      {this.mpAttachments = const <MimePartAttachSpec>[],
-      this.msgAttachments = const <MsgAttachSpec>[],
-      this.cnAttachments = const <ContactAttachSpec>[],
-      this.docAttachments = const <DocAttachSpec>[]});
+      {this.mpAttachments = const [],
+      this.msgAttachments = const [],
+      this.cnAttachments = const [],
+      this.docAttachments = const []});
 
   factory AttachmentsInfo.fromJson(Map<String, dynamic> json) {
-    final info = AttachmentsInfo(json['aid'] ?? '');
-
-    if (json['mp'] != null && json['mp'] is Iterable) {
-      final mpAttachments = json['mp'] as Iterable;
-      for (final mp in mpAttachments) {
-        info.mpAttachments.add(MimePartAttachSpec.fromJson(mp));
+    final mpAttachments = <MimePartAttachSpec>[];
+    if (json['mp'] != null && json['mp'] is Map<String, dynamic>) {
+      final elements = json['mp'] as Iterable;
+      for (final mp in elements) {
+        mpAttachments.add(MimePartAttachSpec.fromJson(mp));
       }
     }
 
-    if (json['m'] != null && json['m'] is Iterable) {
-      final msgAttachments = json['m'] as Iterable;
-      for (final imap in msgAttachments) {
-        info.msgAttachments.add(MsgAttachSpec.fromJson(imap));
+    final msgAttachments = <MsgAttachSpec>[];
+    if (json['m'] != null && json['m'] is Map<String, dynamic>) {
+      final elements = json['m'] as Iterable;
+      for (final imap in elements) {
+        msgAttachments.add(MsgAttachSpec.fromJson(imap));
       }
     }
 
-    if (json['cn'] != null && json['cn'] is Iterable) {
-      final cnAttachments = json['cn'] as Iterable;
-      for (final imap in cnAttachments) {
-        info.cnAttachments.add(ContactAttachSpec.fromJson(imap));
+    final cnAttachments = <ContactAttachSpec>[];
+    if (json['cn'] != null && json['cn'] is Map<String, dynamic>) {
+      final elements = json['cn'] as Iterable;
+      for (final imap in elements) {
+        cnAttachments.add(ContactAttachSpec.fromJson(imap));
       }
     }
 
-    if (json['doc'] != null && json['doc'] is Iterable) {
-      final imapDataSources = json['doc'] as Iterable;
-      for (final doc in imapDataSources) {
-        info.docAttachments.add(DocAttachSpec.fromJson(doc));
+    final docAttachments = <DocAttachSpec>[];
+    if (json['doc'] != null && json['doc'] is Map<String, dynamic>) {
+      final elements = json['doc'] as Iterable;
+      for (final doc in elements) {
+        docAttachments.add(DocAttachSpec.fromJson(doc));
       }
     }
-    return info;
+
+    return AttachmentsInfo(json['aid'] ?? '',
+        mpAttachments: mpAttachments,
+        msgAttachments: msgAttachments,
+        cnAttachments: cnAttachments,
+        docAttachments: docAttachments);
   }
 
   Map<String, dynamic> toJson() => {
         'aid': attachmentId,
-        if (mpAttachments.isNotEmpty) 'mp': mpAttachments.map((mp) => mp.toJson()),
-        if (msgAttachments.isNotEmpty) 'm': msgAttachments.map((m) => m.toJson()),
-        if (cnAttachments.isNotEmpty) 'cn': cnAttachments.map((cn) => cn.toJson()),
-        if (docAttachments.isNotEmpty) 'doc': docAttachments.map((doc) => doc.toJson()),
+        if (mpAttachments.isNotEmpty) 'mp': mpAttachments.map((mp) => mp.toJson()).toList(),
+        if (msgAttachments.isNotEmpty) 'm': msgAttachments.map((m) => m.toJson()).toList(),
+        if (cnAttachments.isNotEmpty) 'cn': cnAttachments.map((cn) => cn.toJson()).toList(),
+        if (docAttachments.isNotEmpty) 'doc': docAttachments.map((doc) => doc.toJson()).toList(),
       };
 }

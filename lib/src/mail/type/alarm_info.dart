@@ -46,8 +46,8 @@ class AlarmInfo {
       this.description,
       this.attach,
       this.summary,
-      this.attendees = const <CalendarAttendee>[],
-      this.xProps = const <XProp>[]});
+      this.attendees = const [],
+      this.xProps = const []});
 
   factory AlarmInfo.fromJson(Map<String, dynamic> json) {
     final action = AlarmAction.values.firstWhere(
@@ -55,29 +55,31 @@ class AlarmInfo {
       orElse: () => AlarmAction.display,
     );
 
-    final info = AlarmInfo(
+    final attendees = <CalendarAttendee>[];
+    if (json['at'] != null && json['at'] is Iterable) {
+      final elements = json['at'] as Iterable;
+      for (final at in elements) {
+        attendees.add(CalendarAttendee.fromJson(at));
+      }
+    }
+
+    final xProps = <XProp>[];
+    if (json['xprop'] != null && json['xprop'] is Iterable) {
+      final elements = json['xprop'] as Iterable;
+      for (final xprop in elements) {
+        xProps.add(XProp.fromJson(xprop));
+      }
+    }
+
+    return AlarmInfo(
         action: action,
         trigger: json['trigger'] != null ? AlarmTriggerInfo.fromJson(json['trigger']) : null,
         repeat: json['repeat'] != null ? DurationInfo.fromJson(json['repeat']) : null,
         description: json['desc'] != null ? json['desc']['_content'] : null,
         attach: json['attach'] != null ? CalendarAttach.fromJson(json['attach']) : null,
-        summary: json['summary'] != null ? json['summary']['_content'] : null);
-
-    if (json['at'] != null && json['at'] is Iterable) {
-      final attendees = json['at'] as Iterable;
-      for (final at in attendees) {
-        info.attendees.add(CalendarAttendee.fromJson(at));
-      }
-    }
-
-    if (json['xprop'] != null && json['xprop'] is Iterable) {
-      final xProps = json['xprop'] as Iterable;
-      for (final xprop in xProps) {
-        info.xProps.add(XProp.fromJson(xprop));
-      }
-    }
-
-    return info;
+        summary: json['summary'] != null ? json['summary']['_content'] : null,
+        attendees: attendees,
+        xProps: xProps);
   }
 
   Map<String, dynamic> toJson() => {
@@ -87,7 +89,7 @@ class AlarmInfo {
         if (description != null) 'desc': {'_content': description},
         if (attach != null) 'attach': attach!.toJson(),
         if (summary != null) 'summary': {'_content': summary},
-        if (attendees.isNotEmpty) 'at': attendees.map((at) => at.toJson()),
-        if (xProps.isNotEmpty) 'xprop': xProps.map((xprop) => xprop.toJson()),
+        if (attendees.isNotEmpty) 'at': attendees.map((at) => at.toJson()).toList(),
+        if (xProps.isNotEmpty) 'xprop': xProps.map((xprop) => xprop.toJson()).toList(),
       };
 }

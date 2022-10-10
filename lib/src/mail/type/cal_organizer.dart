@@ -34,25 +34,25 @@ class CalOrganizer {
       this.sentBy,
       this.dir,
       this.language,
-      this.xParams = const <XParam>[]});
+      this.xParams = const []});
 
   factory CalOrganizer.fromJson(Map<String, dynamic> json) {
-    final or = CalOrganizer(
+    final xParams = <XParam>[];
+    if (json['xparam'] != null && json['xparam'] is Iterable) {
+      final elements = json['xparam'] as Iterable;
+      for (final xparam in elements) {
+        xParams.add(XParam.fromJson(xparam));
+      }
+    }
+
+    return CalOrganizer(
         address: json['a'],
         url: json['url'],
         displayName: json['d'],
         sentBy: json['sentBy'],
         dir: json['dir'],
-        language: json['lang']);
-
-    if (json['xparam'] != null && json['xparam'] is Iterable) {
-      final xParams = json['xparam'] as Iterable;
-      for (final xparam in xParams) {
-        or.xParams.add(XParam.fromJson(xparam));
-      }
-    }
-
-    return or;
+        language: json['lang'],
+        xParams: xParams);
   }
 
   Map<String, dynamic> toJson() => {
@@ -62,6 +62,6 @@ class CalOrganizer {
         if (sentBy != null) 'sentBy': sentBy,
         if (dir != null) 'dir': dir,
         if (language != null) 'lang': language,
-        if (xParams.isNotEmpty) 'xparam': xParams.map((xparam) => xparam.toJson()),
+        if (xParams.isNotEmpty) 'xparam': xParams.map((xparam) => xparam.toJson()).toList(),
       };
 }

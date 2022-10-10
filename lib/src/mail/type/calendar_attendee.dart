@@ -68,7 +68,7 @@ class CalendarAttendee {
       this.member,
       this.delegatedTo,
       this.delegatedFrom,
-      this.xParams = const <XParam>[]});
+      this.xParams = const []});
 
   factory CalendarAttendee.fromJson(Map<String, dynamic> json) {
     final partStat = ParticipationStatus.values.firstWhere(
@@ -76,7 +76,15 @@ class CalendarAttendee {
       orElse: () => ParticipationStatus.inProcess,
     );
 
-    final attendee = CalendarAttendee(
+    final xParams = <XParam>[];
+    if (json['xparam'] != null && json['xparam'] is Iterable) {
+      final elements = json['xparam'] as Iterable;
+      for (final xparam in elements) {
+        xParams.add(XParam.fromJson(xparam));
+      }
+    }
+
+    return CalendarAttendee(
         address: json['a'],
         url: json['url'],
         displayName: json['d'],
@@ -89,16 +97,8 @@ class CalendarAttendee {
         rsvp: json['rsvp'],
         member: json['member'],
         delegatedTo: json['delegatedTo'],
-        delegatedFrom: json['delegatedFrom']);
-
-    if (json['xparam'] != null && json['xparam'] is Iterable) {
-      final xParams = json['xparam'] as Iterable;
-      for (final xparam in xParams) {
-        attendee.xParams.add(XParam.fromJson(xparam));
-      }
-    }
-
-    return attendee;
+        delegatedFrom: json['delegatedFrom'],
+        xParams: xParams);
   }
 
   Map<String, dynamic> toJson() => {
@@ -115,6 +115,6 @@ class CalendarAttendee {
         if (member != null) 'member': member,
         if (delegatedTo != null) 'delegatedTo': delegatedTo,
         if (delegatedFrom != null) 'delegatedFrom': delegatedFrom,
-        if (xParams.isNotEmpty) 'xparam': xParams.map((xparam) => xparam.toJson()),
+        if (xParams.isNotEmpty) 'xparam': xParams.map((xparam) => xparam.toJson()).toList(),
       };
 }

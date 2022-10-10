@@ -14,24 +14,23 @@ class XProp {
 
   final List<XParam> xParams;
 
-  XProp(this.name, {this.value, this.xParams = const <XParam>[]});
+  XProp(this.name, {this.value, this.xParams = const []});
 
   factory XProp.fromJson(Map<String, dynamic> json) {
-    final xprop = XProp(json['name'] ?? '', value: json['_content']);
-
+    final xParams = <XParam>[];
     if (json['xparam'] != null && json['xparam'] is Iterable) {
-      final xParams = json['xparam'] as Iterable;
-      for (final xparam in xParams) {
-        xprop.xParams.add(XParam.fromJson(xparam));
+      final elements = json['xparam'] as Iterable;
+      for (final xparam in elements) {
+        xParams.add(XParam.fromJson(xparam));
       }
     }
 
-    return xprop;
+    return XProp(json['name'] ?? '', value: json['_content'], xParams: xParams);
   }
 
   Map<String, dynamic> toJson() => {
         'name': name,
         if (value != null) '_content': value,
-        if (xParams.isNotEmpty) 'xparam': xParams.map((xparam) => xparam.toJson()),
+        if (xParams.isNotEmpty) 'xparam': xParams.map((xparam) => xparam.toJson()).toList(),
       };
 }

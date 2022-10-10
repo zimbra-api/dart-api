@@ -7,7 +7,7 @@ import 'key_value_pair.dart';
 class KeyValuePairs {
   final List<KeyValuePair> keyValuePairs;
 
-  KeyValuePairs({this.keyValuePairs = const <KeyValuePair>[]});
+  KeyValuePairs({this.keyValuePairs = const []});
 
   static List<KeyValuePair> keyValuePairsFromJson(Map<String, dynamic> json) {
     final keyValuePairs = <KeyValuePair>[];

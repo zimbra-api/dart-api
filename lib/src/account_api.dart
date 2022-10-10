@@ -38,8 +38,8 @@ class AccountApi extends Api {
       AuthToken? authToken,
       String? jwtToken,
       String? virtualHost,
-      List<Pref> prefs = const <Pref>[],
-      List<Attr> attrs = const <Attr>[],
+      List<Pref> prefs = const [],
+      List<Attr> attrs = const [],
       String? requestedSkin,
       bool? persistAuthTokenCookie,
       bool? csrfSupported,
@@ -111,7 +111,7 @@ class AccountApi extends Api {
   }
 
   /// Check if the authed user has the specified right(s) on a target.
-  Future<CheckRightsResponse?> checkRights({List<CheckRightsTargetSpec> targets = const <CheckRightsTargetSpec>[]}) {
+  Future<CheckRightsResponse?> checkRights({List<CheckRightsTargetSpec> targets = const []}) {
     return invoke(CheckRightsRequest(targets: targets))
         .then((json) => CheckRightsEnvelope.fromJson(json).checkRightsBody.checkRightsResponse);
   }
@@ -125,7 +125,7 @@ class AccountApi extends Api {
   /// Create a Distribution List
   /// authed account must have the privilege to create dist lists in the domain
   Future<CreateDistributionListResponse?> createDistributionList(String name,
-      {bool? isDynamic, List<KeyValuePair> keyValuePairs = const <KeyValuePair>[]}) {
+      {bool? isDynamic, List<KeyValuePair> keyValuePairs = const []}) {
     return invoke(CreateDistributionListRequest(name, isDynamic: isDynamic, keyValuePairs: keyValuePairs)).then(
         (json) =>
             CreateDistributionListEnvelope.fromJson(json).createDistributionListBody.createDistributionListResponse);
@@ -174,7 +174,7 @@ class AccountApi extends Api {
   ///    email address will be return in the only <e a="{email-address}"/> element under the <target> element.
   /// 3. For all other rights, name attribute is always returned on <target> elements,
   ///    no <e a="{email-address}"/> will be returned. name attribute contains the entry's primary name.
-  Future<DiscoverRightsResponse?> discoverRights({List<String> rights = const <String>[]}) {
+  Future<DiscoverRightsResponse?> discoverRights({List<String> rights = const []}) {
     return invoke(DiscoverRightsRequest(rights: rights))
         .then((json) => DiscoverRightsEnvelope.fromJson(json).discoverRightsBody.discoverRightsResponse);
   }
@@ -288,7 +288,7 @@ class AccountApi extends Api {
   /// Get preferences for the authenticated account
   /// If no <pref> elements are provided, all known prefs are returned in the response.
   /// If <pref> elements are provided, only those prefs are returned in the response.
-  Future<GetPrefsResponse?> getPrefs({List<Pref> prefs = const <Pref>[]}) {
+  Future<GetPrefsResponse?> getPrefs({List<Pref> prefs = const []}) {
     return invoke(GetPrefsRequest(prefs: prefs))
         .then((json) => GetPrefsEnvelope.fromJson(json).getPrefsBody.getPrefsResponse);
   }
@@ -296,7 +296,7 @@ class AccountApi extends Api {
   /// Get account level rights.
   /// If no <ace> elements are provided, all ACEs are returned in the response.
   /// If <ace> elements are provided, only those ACEs with specified rights are returned in the response.
-  Future<GetRightsResponse?> getRights({List<Right> aces = const <Right>[]}) {
+  Future<GetRightsResponse?> getRights({List<Right> aces = const []}) {
     return invoke(GetRightsRequest(aces: aces))
         .then((json) => GetRightsEnvelope.fromJson(json).getRightsBody.getRightsResponse);
   }
@@ -327,7 +327,7 @@ class AccountApi extends Api {
   }
 
   /// Grant account level rights
-  Future<GrantRightsResponse?> grantRights({List<AccountACEInfo> aces = const <AccountACEInfo>[]}) {
+  Future<GrantRightsResponse?> grantRights({List<AccountACEInfo> aces = const []}) {
     return invoke(GrantRightsRequest(aces: aces))
         .then((json) => GrantRightsEnvelope.fromJson(json).grantRightsBody.grantRightsResponse);
   }
@@ -343,13 +343,13 @@ class AccountApi extends Api {
   /// For multi-value prefs, just add the same attribute with 'n' different values
   /// You can also add/subtract single values to/from a multi-value pref by prefixing
   /// the preference name with a '+' or '-', respectively in the same way you do when using zmprov.
-  Future<ModifyPrefsResponse?> modifyPrefs({List<Pref> prefs = const <Pref>[]}) {
+  Future<ModifyPrefsResponse?> modifyPrefs({List<Pref> prefs = const []}) {
     return invoke(ModifyPrefsRequest(prefs: prefs))
         .then((json) => ModifyPrefsEnvelope.fromJson(json).modifyPrefsBody.modifyPrefsResponse);
   }
 
   /// Modify properties related to zimlets
-  Future<ModifyPropertiesResponse?> modifyProperties({List<Prop> props = const <Prop>[]}) {
+  Future<ModifyPropertiesResponse?> modifyProperties({List<Prop> props = const []}) {
     return invoke(ModifyPropertiesRequest(props: props))
         .then((json) => ModifyPropertiesEnvelope.fromJson(json).modifyPropertiesBody.modifyPropertiesResponse);
   }
@@ -366,15 +366,14 @@ class AccountApi extends Api {
 
   /// Modify the anti-spam WhiteList and BlackList addresses
   Future<ModifyWhiteBlackListResponse?> modifyWhiteBlackList(
-      {List<OpValue> whiteListEntries = const <OpValue>[], List<OpValue> blackListEntries = const <OpValue>[]}) {
+      {List<OpValue> whiteListEntries = const [], List<OpValue> blackListEntries = const []}) {
     return invoke(ModifyWhiteBlackListRequest(whiteListEntries: whiteListEntries, blackListEntries: blackListEntries))
         .then((json) =>
             ModifyWhiteBlackListEnvelope.fromJson(json).modifyWhiteBlackListBody.modifyWhiteBlackListResponse);
   }
 
   /// Modify zimlet preferences
-  Future<ModifyZimletPrefsResponse?> modifyZimletPrefs(
-      {List<ModifyZimletPrefsSpec> zimlets = const <ModifyZimletPrefsSpec>[]}) {
+  Future<ModifyZimletPrefsResponse?> modifyZimletPrefs({List<ModifyZimletPrefsSpec> zimlets = const []}) {
     return invoke(ModifyZimletPrefsRequest(zimlets: zimlets))
         .then((json) => ModifyZimletPrefsEnvelope.fromJson(json).modifyZimletPrefsBody.modifyZimletPrefsResponse);
   }
@@ -392,7 +391,7 @@ class AccountApi extends Api {
   }
 
   /// Revoke account level rights
-  Future<RevokeRightsResponse?> revokeRights({List<AccountACEInfo> aces = const <AccountACEInfo>[]}) {
+  Future<RevokeRightsResponse?> revokeRights({List<AccountACEInfo> aces = const []}) {
     return invoke(RevokeRightsRequest(aces: aces))
         .then((json) => RevokeRightsEnvelope.fromJson(json).revokeRightsBody.revokeRightsResponse);
   }

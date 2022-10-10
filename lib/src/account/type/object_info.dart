@@ -14,5 +14,5 @@ abstract class ObjectInfo {
   /// Attributes
   final List<KeyValuePair> attrList;
 
-  ObjectInfo(this.name, this.id, {this.attrList = const <KeyValuePair>[]});
+  ObjectInfo(this.name, this.id, {this.attrList = const []});
 }

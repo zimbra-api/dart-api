@@ -46,11 +46,11 @@ class ContactInfo {
 
   final bool? tooManyMembers;
 
-  final List<AccountCustomMetadata> metadatas = <AccountCustomMetadata>[];
+  final List<AccountCustomMetadata> metadatas;
 
-  final List<ContactAttr> attrs = <ContactAttr>[];
+  final List<ContactAttr> attrs;
 
-  final List<ContactGroupMember> contactGroupMembers = <ContactGroupMember>[];
+  final List<ContactGroupMember> contactGroupMembers;
 
   final bool? isOwner;
 
@@ -76,11 +76,38 @@ class ContactInfo {
       this.dlist,
       this.reference,
       this.tooManyMembers,
+      this.metadatas = const [],
+      this.attrs = const [],
+      this.contactGroupMembers = const [],
       this.isOwner,
       this.isMember});
 
   factory ContactInfo.fromJson(Map<String, dynamic> json) {
-    final contact = ContactInfo(
+    final metadatas = <AccountCustomMetadata>[];
+    if (json['meta'] != null && json['meta'] is Iterable) {
+      final elements = json['meta'] as Iterable;
+      for (final meta in elements) {
+        metadatas.add(AccountCustomMetadata.fromJson(meta));
+      }
+    }
+
+    final attrs = <ContactAttr>[];
+    if (json['a'] != null && json['a'] is Iterable) {
+      final elements = json['a'] as Iterable;
+      for (final a in elements) {
+        attrs.add(ContactAttr.fromJson(a));
+      }
+    }
+
+    final contactGroupMembers = <ContactGroupMember>[];
+    if (json['m'] != null && json['m'] is Iterable) {
+      final elements = json['m'] as Iterable;
+      for (final m in elements) {
+        contactGroupMembers.add(ContactGroupMember.fromJson(m));
+      }
+    }
+
+    return ContactInfo(
         sortField: json['sf'],
         canExpand: json['exp'],
         id: json['id'],
@@ -100,31 +127,11 @@ class ContactInfo {
         dlist: json['dlist'],
         reference: json['ref'],
         tooManyMembers: json['tooManyMembers'],
+        metadatas: metadatas,
+        attrs: attrs,
+        contactGroupMembers: contactGroupMembers,
         isOwner: json['isOwner'],
         isMember: json['isMember']);
-
-    if (json['meta'] != null && json['meta'] is Iterable) {
-      final metadatas = json['meta'] as Iterable;
-      for (final meta in metadatas) {
-        contact.metadatas.add(AccountCustomMetadata.fromJson(meta));
-      }
-    }
-
-    if (json['a'] != null && json['a'] is Iterable) {
-      final attrs = json['a'] as Iterable;
-      for (final a in attrs) {
-        contact.attrs.add(ContactAttr.fromJson(a));
-      }
-    }
-
-    if (json['m'] != null && json['m'] is Iterable) {
-      final members = json['m'] as Iterable;
-      for (final m in members) {
-        contact.contactGroupMembers.add(ContactGroupMember.fromJson(m));
-      }
-    }
-
-    return contact;
   }
 
   Map<String, dynamic> toJson() => {

@@ -25,9 +25,9 @@ class DistributionListAction extends AccountKeyValuePairs {
   DistributionListAction(this.op,
       {this.newName,
       this.subsReq,
-      this.members = const <String>[],
-      this.owners = const <DistributionListGranteeSelector>[],
-      this.rights = const <DistributionListRightSpec>[],
+      this.members = const [],
+      this.owners = const [],
+      this.rights = const [],
       super.keyValuePairs});
 
   @override

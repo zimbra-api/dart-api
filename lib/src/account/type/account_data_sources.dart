@@ -29,14 +29,14 @@ class AccountDataSources {
   final List<AccountUnknownDataSource> unknownDataSources;
 
   AccountDataSources(
-      {this.imapDataSources = const <AccountImapDataSource>[],
-      this.pop3DataSources = const <AccountPop3DataSource>[],
-      this.caldavDataSources = const <AccountCaldavDataSource>[],
-      this.yabDataSources = const <AccountYabDataSource>[],
-      this.rssDataSources = const <AccountRssDataSource>[],
-      this.galDataSources = const <AccountGalDataSource>[],
-      this.calDataSources = const <AccountCalDataSource>[],
-      this.unknownDataSources = const <AccountUnknownDataSource>[]});
+      {this.imapDataSources = const [],
+      this.pop3DataSources = const [],
+      this.caldavDataSources = const [],
+      this.yabDataSources = const [],
+      this.rssDataSources = const [],
+      this.galDataSources = const [],
+      this.calDataSources = const [],
+      this.unknownDataSources = const []});
 
   factory AccountDataSources.fromJson(Map<String, dynamic> json) {
     final imapDataSources = <AccountImapDataSource>[];

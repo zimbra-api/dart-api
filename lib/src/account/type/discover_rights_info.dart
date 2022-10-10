@@ -11,7 +11,7 @@ class DiscoverRightsInfo {
   /// Targets
   final List<DiscoverRightsTarget> targets;
 
-  DiscoverRightsInfo(this.right, {this.targets = const <DiscoverRightsTarget>[]});
+  DiscoverRightsInfo(this.right, {this.targets = const []});
 
   factory DiscoverRightsInfo.fromJson(Map<String, dynamic> json) {
     final targets = <DiscoverRightsTarget>[];

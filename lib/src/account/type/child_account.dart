@@ -15,7 +15,7 @@ class ChildAccount {
 
   final List<Attr> attrs;
 
-  ChildAccount({this.id, this.name, this.isVisible, this.isActive, this.attrs = const <Attr>[]});
+  ChildAccount({this.id, this.name, this.isVisible, this.isActive, this.attrs = const []});
 
   factory ChildAccount.fromJson(Map<String, dynamic> json) {
     final attrs = <Attr>[];
@@ -40,6 +40,6 @@ class ChildAccount {
         if (name != null) 'name': name,
         if (isVisible != null) 'visible': isVisible,
         if (isActive != null) 'active': isActive,
-        if (attrs.isNotEmpty) 'attrs': {'attr': attrs.map((attr) => attr.toJson())},
+        if (attrs.isNotEmpty) 'attrs': {'attr': attrs.map((attr) => attr.toJson()).toList()},
       };
 }

@@ -7,5 +7,5 @@ import 'attr.dart';
 abstract class Attrs {
   final List<Attr> attrs;
 
-  Attrs({this.attrs = const <Attr>[]});
+  Attrs({this.attrs = const []});
 }

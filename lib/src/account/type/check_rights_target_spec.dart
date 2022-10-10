@@ -18,7 +18,7 @@ class CheckRightsTargetSpec {
       {this.targetType = TargetType.account,
       this.targetBy = TargetBy.name,
       this.targetKey = '',
-      this.rights = const <String>[]});
+      this.rights = const []});
 
   factory CheckRightsTargetSpec.fromJson(Map<String, dynamic> json) {
     final targetType = TargetType.values.firstWhere(
@@ -31,15 +31,16 @@ class CheckRightsTargetSpec {
       orElse: () => TargetBy.name,
     );
 
-    final spec = CheckRightsTargetSpec(targetType: targetType, targetBy: targetBy, targetKey: json['key'] ?? '');
+    final rights = <String>[];
     if (json['right'] != null && json['right'] is Iterable) {
-      final rights = json['right'] as Iterable;
-      for (final right in rights) {
-        spec.rights.add(right['_content'] ?? '');
+      final elements = json['right'] as Iterable;
+      for (final right in elements) {
+        rights.add(right['_content'] ?? '');
       }
     }
 
-    return spec;
+    return CheckRightsTargetSpec(
+        targetType: targetType, targetBy: targetBy, targetKey: json['key'] ?? '', rights: rights);
   }
 
   Map<String, dynamic> toJson() => {

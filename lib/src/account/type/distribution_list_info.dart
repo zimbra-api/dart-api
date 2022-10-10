@@ -31,9 +31,9 @@ class DistributionListInfo extends ObjectInfo {
       {this.isOwner,
       this.isMember,
       this.isDynamic,
-      this.members = const <String>[],
-      this.owners = const <DistributionListGranteeInfo>[],
-      this.rights = const <DistributionListRightInfo>[]});
+      this.members = const [],
+      this.owners = const [],
+      this.rights = const []});
 
   factory DistributionListInfo.fromJson(Map<String, dynamic> json) {
     final members = <String>[];
@@ -78,8 +78,8 @@ class DistributionListInfo extends ObjectInfo {
         if (isOwner != null) 'isOwner': isOwner,
         if (isMember != null) 'isMember': isMember,
         if (isDynamic != null) 'dynamic': isDynamic,
-        if (members.isNotEmpty) 'dlm': members.map((dlm) => {'_content': dlm}),
-        if (owners.isNotEmpty) 'owners': {'owner': owners.map((owner) => owner.toJson())},
-        if (rights.isNotEmpty) 'rights': {'right': rights.map((right) => right.toJson())},
+        if (members.isNotEmpty) 'dlm': members.map((dlm) => {'_content': dlm}).toList(),
+        if (owners.isNotEmpty) 'owners': {'owner': owners.map((owner) => owner.toJson()).toList()},
+        if (rights.isNotEmpty) 'rights': {'right': rights.map((right) => right.toJson()).toList()},
       };
 }

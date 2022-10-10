@@ -8,7 +8,7 @@ class AccountZimletGlobalConfigInfo {
   /// Global zimlet configuration property
   final List<AccountZimletProperty> properties;
 
-  AccountZimletGlobalConfigInfo({this.properties = const <AccountZimletProperty>[]});
+  AccountZimletGlobalConfigInfo({this.properties = const []});
 
   factory AccountZimletGlobalConfigInfo.fromJson(Map<String, dynamic> json) {
     final properties = <AccountZimletProperty>[];
@@ -23,6 +23,6 @@ class AccountZimletGlobalConfigInfo {
   }
 
   Map<String, dynamic> toJson() => {
-        if (properties.isNotEmpty) 'property': properties.map((property) => property.toJson()),
+        if (properties.isNotEmpty) 'property': properties.map((property) => property.toJson()).toList(),
       };
 }

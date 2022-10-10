@@ -102,7 +102,7 @@ class AccountDataSource {
       this.importClass,
       this.failingSince,
       this.lastError,
-      this.attributes = const <String>[],
+      this.attributes = const [],
       this.refreshToken,
       this.refreshTokenUrl});
 

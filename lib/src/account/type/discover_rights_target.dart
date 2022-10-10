@@ -27,7 +27,7 @@ class DiscoverRightsTarget {
       this.id,
       this.name,
       this.displayName,
-      this.emails = const <DiscoverRightsEmail>[]});
+      this.emails = const []});
 
   factory DiscoverRightsTarget.fromJson(Map<String, dynamic> json) {
     final type = TargetType.values.firstWhere(
@@ -51,6 +51,6 @@ class DiscoverRightsTarget {
         if (id != null) 'id': id,
         if (name != null) 'name': name,
         if (displayName != null) 'd': displayName,
-        if (emails.isNotEmpty) 'email': emails.map((email) => email.toJson()),
+        if (emails.isNotEmpty) 'email': emails.map((email) => email.toJson()).toList(),
       };
 }

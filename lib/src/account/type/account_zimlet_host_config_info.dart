@@ -9,7 +9,7 @@ class AccountZimletHostConfigInfo {
 
   final List<AccountZimletProperty> properties;
 
-  AccountZimletHostConfigInfo({this.name, this.properties = const <AccountZimletProperty>[]});
+  AccountZimletHostConfigInfo({this.name, this.properties = const []});
 
   factory AccountZimletHostConfigInfo.fromJson(Map<String, dynamic> json) {
     final properties = <AccountZimletProperty>[];
@@ -25,6 +25,6 @@ class AccountZimletHostConfigInfo {
 
   Map<String, dynamic> toJson() => {
         if (name != null) 'name': name,
-        if (properties.isNotEmpty) 'property': properties.map((property) => property.toJson()),
+        if (properties.isNotEmpty) 'property': properties.map((property) => property.toJson()).toList(),
       };
 }

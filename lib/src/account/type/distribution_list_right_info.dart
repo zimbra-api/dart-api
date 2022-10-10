@@ -9,7 +9,7 @@ class DistributionListRightInfo {
 
   final List<DistributionListGranteeInfo> grantees;
 
-  DistributionListRightInfo(this.right, {this.grantees = const <DistributionListGranteeInfo>[]});
+  DistributionListRightInfo(this.right, {this.grantees = const []});
 
   factory DistributionListRightInfo.fromJson(Map<String, dynamic> json) {
     final grantees = <DistributionListGranteeInfo>[];
@@ -25,6 +25,6 @@ class DistributionListRightInfo {
 
   Map<String, dynamic> toJson() => {
         'right': right,
-        if (grantees.isNotEmpty) 'grantee': grantees.map((grantee) => grantee.toJson()),
+        if (grantees.isNotEmpty) 'grantee': grantees.map((grantee) => grantee.toJson()).toList(),
       };
 }

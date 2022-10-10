@@ -29,7 +29,7 @@ class AccountUnknownDataSource extends AccountDataSource {
       super.importClass,
       super.failingSince,
       super.lastError,
-      super.attributes = const <String>[],
+      super.attributes = const [],
       super.refreshToken,
       super.refreshTokenUrl});
 

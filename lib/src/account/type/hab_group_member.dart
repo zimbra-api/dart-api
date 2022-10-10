@@ -10,7 +10,7 @@ class HABGroupMember extends HABMember {
   /// Member attributes. Currently only these attributes are returned: zimbraId, displayName
   final List<NamedValue> attrs;
 
-  HABGroupMember(super.name, {super.seniorityIndex, this.attrs = const <NamedValue>[]});
+  HABGroupMember(super.name, {super.seniorityIndex, this.attrs = const []});
 
   factory HABGroupMember.fromJson(Map<String, dynamic> json) {
     final attrs = <NamedValue>[];

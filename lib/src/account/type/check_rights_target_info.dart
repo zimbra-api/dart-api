@@ -16,10 +16,14 @@ class CheckRightsTargetInfo {
 
   final bool allow;
 
-  final List<CheckRightsRightInfo> rights = <CheckRightsRightInfo>[];
+  final List<CheckRightsRightInfo> rights;
 
   CheckRightsTargetInfo(
-      {this.targetType = TargetType.account, this.targetBy = TargetBy.name, this.targetKey = '', this.allow = false});
+      {this.targetType = TargetType.account,
+      this.targetBy = TargetBy.name,
+      this.targetKey = '',
+      this.allow = false,
+      this.rights = const []});
 
   factory CheckRightsTargetInfo.fromJson(Map<String, dynamic> json) {
     final targetType = TargetType.values.firstWhere(
@@ -32,17 +36,20 @@ class CheckRightsTargetInfo {
       orElse: () => TargetBy.name,
     );
 
-    final info = CheckRightsTargetInfo(
-        targetType: targetType, targetBy: targetBy, targetKey: json['key'] ?? '', allow: json['allow'] ?? false);
-
+    final rights = <CheckRightsRightInfo>[];
     if (json['right'] != null && json['right'] is Iterable) {
-      final rights = json['right'] as Iterable;
-      for (final right in rights) {
-        info.rights.add(CheckRightsRightInfo.fromJson(right));
+      final elements = json['right'] as Iterable;
+      for (final right in elements) {
+        rights.add(CheckRightsRightInfo.fromJson(right));
       }
     }
 
-    return info;
+    return CheckRightsTargetInfo(
+        targetType: targetType,
+        targetBy: targetBy,
+        targetKey: json['key'] ?? '',
+        allow: json['allow'] ?? false,
+        rights: rights);
   }
 
   Map<String, dynamic> toJson() => {

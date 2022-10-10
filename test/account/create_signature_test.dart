@@ -16,9 +16,8 @@ void main() {
       final cid = faker.guid.guid();
       final value = faker.lorem.word();
 
-      final signature =
-          Signature(name: name, id: id, cid: cid, contents: [SignatureContent(ContentType.textHtml, value: value)]);
-      final request = CreateSignatureRequest(signature);
+      final request = CreateSignatureRequest(
+          Signature(name: name, id: id, cid: cid, contents: [SignatureContent(ContentType.textHtml, value: value)]));
 
       expect(request.getEnvelope().toJson(), {
         'Body': {

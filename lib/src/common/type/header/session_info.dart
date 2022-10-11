@@ -13,10 +13,12 @@ class SessionInfo {
 
   SessionInfo({this.sessionProxied, this.sessionId, this.sequenceNum, this.value});
 
-  factory SessionInfo.fromJson(Map<String, dynamic> json) {
-    return SessionInfo(
-        sessionProxied: json['proxy'], sessionId: json['proxy'], sequenceNum: json['seq'], value: json['_content']);
-  }
+  factory SessionInfo.fromJson(Map<String, dynamic> json) => SessionInfo(
+        sessionProxied: json['proxy'],
+        sessionId: json['proxy'],
+        sequenceNum: json['seq'],
+        value: json['_content'],
+      );
 
   Map<String, dynamic> toJson() => {
         if (sessionProxied != null) 'proxy': sessionProxied,

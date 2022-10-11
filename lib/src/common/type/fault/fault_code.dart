@@ -7,13 +7,8 @@ class FaultCode {
 
   FaultCode(this.value);
 
-  factory FaultCode.fromJson(Map<String, dynamic> json) {
-    String value = '';
-    if (json['Value'] != null && json['Value'] is Iterable) {
-      value = json['Value']['_content'] ?? '';
-    }
-    return FaultCode(value);
-  }
+  factory FaultCode.fromJson(Map<String, dynamic> json) =>
+      FaultCode(json['Value'] != null ? json['Value']['_content'] : '');
 
   Map<String, dynamic> toJson() => {
         'Value': {'_content': value},

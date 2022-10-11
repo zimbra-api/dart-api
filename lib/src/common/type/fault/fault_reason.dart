@@ -7,13 +7,8 @@ class FaultReason {
 
   FaultReason(this.text);
 
-  factory FaultReason.fromJson(Map<String, dynamic> json) {
-    String text = '';
-    if (json['Text'] != null && json['Text'] is Iterable) {
-      text = json['Text']['_content'] ?? '';
-    }
-    return FaultReason(text);
-  }
+  factory FaultReason.fromJson(Map<String, dynamic> json) =>
+      FaultReason(json['Text'] != null ? json['Text']['_content'] : '');
 
   Map<String, dynamic> toJson() => {
         'Text': {'_content': text},

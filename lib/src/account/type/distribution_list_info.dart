@@ -46,16 +46,16 @@ class DistributionListInfo extends ObjectInfo {
 
     final owners = <DistributionListGranteeInfo>[];
     if (json['owners'] != null && json['owners'] is Map<String, dynamic>) {
-      final elemens = json['owners']['owner'] as Iterable;
-      for (final owner in elemens) {
+      final elements = json['owners']['owner'] as Iterable;
+      for (final owner in elements) {
         owners.add(DistributionListGranteeInfo.fromJson(owner));
       }
     }
 
     final rights = <DistributionListRightInfo>[];
     if (json['rights'] != null && json['rights'] is Map<String, dynamic>) {
-      final elemens = json['rights']['right'] as Iterable;
-      for (final right in elemens) {
+      final elements = json['rights']['right'] as Iterable;
+      for (final right in elements) {
         rights.add(DistributionListRightInfo.fromJson(right));
       }
     }

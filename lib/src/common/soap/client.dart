@@ -6,7 +6,7 @@ import 'package:http/http.dart' as http;
 
 class Client {
   static const _contentType = 'application/json; charset=utf-8';
-  static const _userAgent = 'Dart-Zimbra-Soap-Client';
+  static const _userAgent = 'Dart Soap Client';
   static const _serviceUri = 'service/soap';
 
   final String _serviceHost;

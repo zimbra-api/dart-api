@@ -16,16 +16,15 @@ class Signature {
 
   Signature({this.name, this.id, this.cid, this.contents = const []});
 
-  factory Signature.fromJson(Map<String, dynamic> json) {
-    final contents = <SignatureContent>[];
-    if (json['content'] != null && json['content'] is Iterable) {
-      final elements = json['content'] as Iterable;
-      for (final content in elements) {
-        contents.add(SignatureContent.fromJson(content));
-      }
-    }
-    return Signature(name: json['name'], id: json['id'], cid: json['cid'], contents: contents);
-  }
+  factory Signature.fromJson(Map<String, dynamic> json) => Signature(
+        name: json['name'],
+        id: json['id'],
+        cid: json['cid'],
+        contents: (json['content'] is Iterable)
+            ? List.from(
+                (json['content'] as Iterable).map<SignatureContent>((content) => SignatureContent.fromJson(content)))
+            : [],
+      );
 
   Map<String, dynamic> toJson() => {
         if (name != null) 'name': name,

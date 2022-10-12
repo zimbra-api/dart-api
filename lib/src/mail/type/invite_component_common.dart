@@ -132,29 +132,7 @@ class InviteComponentCommon {
       this.neverSent,
       this.changes});
 
-  factory InviteComponentCommon.fromJson(Map<String, dynamic> json) {
-    final freeBusyActual = FreeBusyStatus.values.firstWhere(
-      (item) => item.name == json['fba'],
-      orElse: () => FreeBusyStatus.free,
-    );
-    final freeBusy = FreeBusyStatus.values.firstWhere(
-      (item) => item.name == json['fb'],
-      orElse: () => FreeBusyStatus.free,
-    );
-    final transparency = Transparency.values.firstWhere(
-      (item) => item.name == json['fb'],
-      orElse: () => Transparency.opaque,
-    );
-    final status = InviteStatus.values.firstWhere(
-      (item) => item.name == json['status'],
-      orElse: () => InviteStatus.inprogress,
-    );
-    final calClass = InviteClass.values.firstWhere(
-      (item) => item.name == json['class'],
-      orElse: () => InviteClass.public,
-    );
-
-    final invite = InviteComponentCommon(
+  factory InviteComponentCommon.fromJson(Map<String, dynamic> json) => InviteComponentCommon(
         method: json['method'],
         componentNum: json['compNum'],
         rsvp: json['rsvp'],
@@ -163,9 +141,18 @@ class InviteComponentCommon {
         location: json['loc'],
         percentComplete: json['percentComplete'],
         completed: json['completed'],
-        freeBusyActual: freeBusyActual,
-        freeBusy: freeBusy,
-        transparency: transparency,
+        freeBusyActual: FreeBusyStatus.values.firstWhere(
+          (item) => item.name == json['fba'],
+          orElse: () => FreeBusyStatus.free,
+        ),
+        freeBusy: FreeBusyStatus.values.firstWhere(
+          (item) => item.name == json['fb'],
+          orElse: () => FreeBusyStatus.free,
+        ),
+        transparency: Transparency.values.firstWhere(
+          (item) => item.name == json['transp'],
+          orElse: () => Transparency.opaque,
+        ),
         isOrganizer: json['isOrg'],
         xUid: json['x_uid'],
         uid: json['uid'],
@@ -174,18 +161,22 @@ class InviteComponentCommon {
         calItemId: json['calItemId'],
         deprecatedApptId: json['apptId'],
         calItemFolder: json['ciFolder'],
-        status: status,
-        calClass: calClass,
+        status: InviteStatus.values.firstWhere(
+          (item) => item.name == json['status'],
+          orElse: () => InviteStatus.inprogress,
+        ),
+        calClass: InviteClass.values.firstWhere(
+          (item) => item.name == json['class'],
+          orElse: () => InviteClass.public,
+        ),
         url: json['url'],
         isException: json['ex'],
         recurIdZ: json['ridZ'],
         isAllDay: json['allDay'],
         isDraft: json['draft'],
         neverSent: json['neverSent'],
-        changes: json['changes']);
-
-    return invite;
-  }
+        changes: json['changes'],
+      );
 
   Map<String, dynamic> toJson() => {
         if (method != null) 'method': method,

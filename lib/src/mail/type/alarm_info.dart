@@ -49,38 +49,23 @@ class AlarmInfo {
       this.attendees = const [],
       this.xProps = const []});
 
-  factory AlarmInfo.fromJson(Map<String, dynamic> json) {
-    final action = AlarmAction.values.firstWhere(
-      (item) => item.name == json['action'],
-      orElse: () => AlarmAction.display,
-    );
-
-    final attendees = <CalendarAttendee>[];
-    if (json['at'] != null && json['at'] is Iterable) {
-      final elements = json['at'] as Iterable;
-      for (final at in elements) {
-        attendees.add(CalendarAttendee.fromJson(at));
-      }
-    }
-
-    final xProps = <XProp>[];
-    if (json['xprop'] != null && json['xprop'] is Iterable) {
-      final elements = json['xprop'] as Iterable;
-      for (final xprop in elements) {
-        xProps.add(XProp.fromJson(xprop));
-      }
-    }
-
-    return AlarmInfo(
-        action: action,
-        trigger: json['trigger'] != null ? AlarmTriggerInfo.fromJson(json['trigger']) : null,
-        repeat: json['repeat'] != null ? DurationInfo.fromJson(json['repeat']) : null,
-        description: json['desc'] != null ? json['desc']['_content'] : null,
-        attach: json['attach'] != null ? CalendarAttach.fromJson(json['attach']) : null,
-        summary: json['summary'] != null ? json['summary']['_content'] : null,
-        attendees: attendees,
-        xProps: xProps);
-  }
+  factory AlarmInfo.fromJson(Map<String, dynamic> json) => AlarmInfo(
+        action: AlarmAction.values.firstWhere(
+          (item) => item.name == json['action'],
+          orElse: () => AlarmAction.display,
+        ),
+        trigger: json['trigger'] is Map ? AlarmTriggerInfo.fromJson(json['trigger']) : null,
+        repeat: json['repeat'] is Map ? DurationInfo.fromJson(json['repeat']) : null,
+        description: json['desc'] is Map ? json['desc']['_content'] : null,
+        attach: json['attach'] is Map ? CalendarAttach.fromJson(json['attach']) : null,
+        summary: json['summary']?['_content'],
+        attendees: (json['at'] is Iterable)
+            ? List.from((json['at'] as Iterable).map<CalendarAttendee>((at) => CalendarAttendee.fromJson(at)))
+            : [],
+        xProps: (json['xprop'] is Iterable)
+            ? List.from((json['xprop'] as Iterable).map<XProp>((xprop) => XProp.fromJson(xprop)))
+            : [],
+      );
 
   Map<String, dynamic> toJson() => {
         if (action != null) 'action': action!.name,

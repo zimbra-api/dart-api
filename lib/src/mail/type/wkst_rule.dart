@@ -11,13 +11,10 @@ class WkstRule {
 
   WkstRule(this.day);
 
-  factory WkstRule.fromJson(Map<String, dynamic> json) {
-    final day = WeekDay.values.firstWhere(
-      (item) => item.name == json['day'],
-      orElse: () => WeekDay.sunday,
-    );
-    return WkstRule(day);
-  }
+  factory WkstRule.fromJson(Map<String, dynamic> json) => WkstRule(WeekDay.values.firstWhere(
+        (item) => item.name == json['day'],
+        orElse: () => WeekDay.sunday,
+      ));
 
   Map<String, dynamic> toJson() => {
         'day': day.name,

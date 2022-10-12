@@ -40,8 +40,8 @@ class AccountZimletConfigInfo {
       extension: json['extension'],
       target: json['target'],
       label: json['label'],
-      global: json['global'] != null ? AccountZimletGlobalConfigInfo.fromJson(json['global']) : null,
-      host: json['host'] != null ? AccountZimletHostConfigInfo.fromJson(json['host']) : null);
+      global: json['global'] is Map ? AccountZimletGlobalConfigInfo.fromJson(json['global']) : null,
+      host: json['host'] is Map ? AccountZimletHostConfigInfo.fromJson(json['host']) : null);
 
   Map<String, dynamic> toJson() => {
         if (name != null) 'name': name,

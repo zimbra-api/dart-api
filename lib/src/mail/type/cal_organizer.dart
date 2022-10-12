@@ -28,32 +28,19 @@ class CalOrganizer {
   final List<XParam> xParams;
 
   CalOrganizer(
-      {this.address,
-      this.url,
-      this.displayName,
-      this.sentBy,
-      this.dir,
-      this.language,
-      this.xParams = const []});
+      {this.address, this.url, this.displayName, this.sentBy, this.dir, this.language, this.xParams = const []});
 
-  factory CalOrganizer.fromJson(Map<String, dynamic> json) {
-    final xParams = <XParam>[];
-    if (json['xparam'] != null && json['xparam'] is Iterable) {
-      final elements = json['xparam'] as Iterable;
-      for (final xparam in elements) {
-        xParams.add(XParam.fromJson(xparam));
-      }
-    }
-
-    return CalOrganizer(
+  factory CalOrganizer.fromJson(Map<String, dynamic> json) => CalOrganizer(
         address: json['a'],
         url: json['url'],
         displayName: json['d'],
         sentBy: json['sentBy'],
         dir: json['dir'],
         language: json['lang'],
-        xParams: xParams);
-  }
+        xParams: (json['xparam'] is Iterable)
+            ? List.from((json['xparam'] as Iterable).map<XParam>((xparam) => XParam.fromJson(xparam)))
+            : [],
+      );
 
   Map<String, dynamic> toJson() => {
         if (address != null) 'a': address,

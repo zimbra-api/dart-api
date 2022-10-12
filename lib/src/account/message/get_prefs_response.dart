@@ -11,15 +11,8 @@ class GetPrefsResponse extends SoapResponse {
 
   GetPrefsResponse({this.prefs = const []});
 
-  factory GetPrefsResponse.fromJson(Map<String, dynamic> json) {
-    final prefs = <Pref>[];
-    if (json['pref'] != null && json['pref'] is Iterable) {
-      final elements = json['pref'] as Iterable;
-      for (final pref in elements) {
-        prefs.add(Pref.fromJson(pref));
-      }
-    }
-
-    return GetPrefsResponse(prefs: prefs);
-  }
+  factory GetPrefsResponse.fromJson(Map<String, dynamic> json) => GetPrefsResponse(
+      prefs: (json['pref'] is Iterable)
+          ? List.from((json['pref'] as Iterable).map<Pref>((pref) => Pref.fromJson(pref)))
+          : []);
 }

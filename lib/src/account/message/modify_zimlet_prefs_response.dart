@@ -9,15 +9,8 @@ class ModifyZimletPrefsResponse extends SoapResponse {
 
   ModifyZimletPrefsResponse({this.zimlets = const []});
 
-  factory ModifyZimletPrefsResponse.fromJson(Map<String, dynamic> json) {
-    final zimlets = <String>[];
-    if (json['zimlet'] != null && json['zimlet'] is Iterable) {
-      final elements = json['zimlet'] as Iterable;
-      for (final zimlet in elements) {
-        zimlets.add(zimlet['_content']);
-      }
-    }
-
-    return ModifyZimletPrefsResponse(zimlets: zimlets);
-  }
+  factory ModifyZimletPrefsResponse.fromJson(Map<String, dynamic> json) => ModifyZimletPrefsResponse(
+      zimlets: (json['zimlet'] is Iterable)
+          ? List.from((json['zimlet'] as Iterable).map<String>((zimlet) => zimlet['_content']))
+          : []);
 }

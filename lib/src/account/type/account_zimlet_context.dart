@@ -13,13 +13,14 @@ class AccountZimletContext {
 
   AccountZimletContext(this.zimletBaseUrl, {this.zimletPriority, this.zimletPresence});
 
-  factory AccountZimletContext.fromJson(Map<String, dynamic> json) {
-    final zimletPresence = ZimletPresence.values.firstWhere(
-      (item) => item.name == json['by'],
-      orElse: () => ZimletPresence.enabled,
-    );
-    return AccountZimletContext(json['baseUrl'], zimletPriority: json['priority'], zimletPresence: zimletPresence);
-  }
+  factory AccountZimletContext.fromJson(Map<String, dynamic> json) => AccountZimletContext(
+        json['baseUrl'],
+        zimletPriority: json['priority'],
+        zimletPresence: ZimletPresence.values.firstWhere(
+          (item) => item.name == json['by'],
+          orElse: () => ZimletPresence.enabled,
+        ),
+      );
 
   Map<String, dynamic> toJson() => {
         'baseUrl': zimletBaseUrl,

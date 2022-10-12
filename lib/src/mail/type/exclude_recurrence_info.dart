@@ -18,56 +18,27 @@ class ExcludeRecurrenceInfo extends RecurrenceInfo {
       super.dates = const [],
       super.simple = const []});
 
-  factory ExcludeRecurrenceInfo.fromJson(Map<String, dynamic> json) {
-    final add = <AddRecurrenceInfo>[];
-    if (json['add'] != null && json['add'] is Iterable) {
-      final rules = json['add'] as Iterable;
-      for (final rule in rules) {
-        add.add(AddRecurrenceInfo.fromJson(rule));
-      }
-    }
-
-    final exclude = <ExcludeRecurrenceInfo>[];
-    if (json['exclude'] != null && json['exclude'] is Iterable) {
-      final rules = json['exclude'] as Iterable;
-      for (final rule in rules) {
-        exclude.add(ExcludeRecurrenceInfo.fromJson(rule));
-      }
-    }
-
-    final except = <ExceptionRuleInfo>[];
-    if (json['except'] != null && json['except'] is Iterable) {
-      final rules = json['except'] as Iterable;
-      for (final rule in rules) {
-        except.add(ExceptionRuleInfo.fromJson(rule));
-      }
-    }
-
-    final cancel = <CancelRuleInfo>[];
-    if (json['cancel'] != null && json['cancel'] is Iterable) {
-      final rules = json['cancel'] as Iterable;
-      for (final rule in rules) {
-        cancel.add(CancelRuleInfo.fromJson(rule));
-      }
-    }
-
-    final dates = <SingleDates>[];
-    if (json['dates'] != null && json['dates'] is Iterable) {
-      final rules = json['dates'] as Iterable;
-      for (final rule in rules) {
-        dates.add(SingleDates.fromJson(rule));
-      }
-    }
-
-    final simple = <SimpleRepeatingRule>[];
-    if (json['rule'] != null && json['rule'] is Iterable) {
-      final rules = json['rule'] as Iterable;
-      for (final rule in rules) {
-        simple.add(SimpleRepeatingRule.fromJson(rule));
-      }
-    }
-
-    return ExcludeRecurrenceInfo(
-        add: add, exclude: exclude, except: except, cancel: cancel, dates: dates, simple: simple);
-  }
+  factory ExcludeRecurrenceInfo.fromJson(Map<String, dynamic> json) => ExcludeRecurrenceInfo(
+        add: (json['add'] is Iterable)
+            ? List.from((json['add'] as Iterable).map<AddRecurrenceInfo>((add) => AddRecurrenceInfo.fromJson(add)))
+            : [],
+        exclude: (json['exclude'] is Iterable)
+            ? List.from((json['exclude'] as Iterable)
+                .map<ExcludeRecurrenceInfo>((exclude) => ExcludeRecurrenceInfo.fromJson(exclude)))
+            : [],
+        except: (json['except'] is Iterable)
+            ? List.from(
+                (json['except'] as Iterable).map<ExceptionRuleInfo>((except) => ExceptionRuleInfo.fromJson(except)))
+            : [],
+        cancel: (json['cancel'] is Iterable)
+            ? List.from((json['cancel'] as Iterable).map<CancelRuleInfo>((cancel) => CancelRuleInfo.fromJson(cancel)))
+            : [],
+        dates: (json['dates'] is Iterable)
+            ? List.from((json['dates'] as Iterable).map<SingleDates>((dates) => SingleDates.fromJson(dates)))
+            : [],
+        simple: (json['simple'] is Iterable)
+            ? List.from(
+                (json['simple'] as Iterable).map<SimpleRepeatingRule>((simple) => SimpleRepeatingRule.fromJson(simple)))
+            : [],
+      );
 }

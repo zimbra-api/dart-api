@@ -10,14 +10,9 @@ class KeyValuePairs {
   KeyValuePairs({this.keyValuePairs = const []});
 
   static List<KeyValuePair> keyValuePairsFromJson(Map<String, dynamic> json) {
-    final keyValuePairs = <KeyValuePair>[];
-    if (json['a'] != null && json['a'] is Iterable) {
-      final attrs = json['a'] as Iterable;
-      for (final attr in attrs) {
-        keyValuePairs.add(KeyValuePair.fromJson(attr));
-      }
-    }
-    return keyValuePairs;
+    return (json['a'] is Iterable)
+        ? List.from((json['a'] as Iterable).map<KeyValuePair>((kvp) => KeyValuePair.fromJson(kvp)))
+        : [];
   }
 
   Map<String, dynamic> toJson() => {

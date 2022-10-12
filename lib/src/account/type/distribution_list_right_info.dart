@@ -11,17 +11,13 @@ class DistributionListRightInfo {
 
   DistributionListRightInfo(this.right, {this.grantees = const []});
 
-  factory DistributionListRightInfo.fromJson(Map<String, dynamic> json) {
-    final grantees = <DistributionListGranteeInfo>[];
-    if (json['grantee'] != null && json['grantee'] is Iterable) {
-      final elements = json['grantee'] as Iterable;
-      for (final grantee in elements) {
-        grantees.add(DistributionListGranteeInfo.fromJson(grantee));
-      }
-    }
-
-    return DistributionListRightInfo(json['right'] ?? '', grantees: grantees);
-  }
+  factory DistributionListRightInfo.fromJson(Map<String, dynamic> json) => DistributionListRightInfo(
+        json['right'] ?? '',
+        grantees: (json['grantee'] is Iterable)
+            ? List.from((json['grantee'] as Iterable)
+                .map<DistributionListGranteeInfo>((grantee) => DistributionListGranteeInfo.fromJson(grantee)))
+            : [],
+      );
 
   Map<String, dynamic> toJson() => {
         'right': right,

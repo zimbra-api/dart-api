@@ -11,13 +11,12 @@ class SignatureContent {
 
   SignatureContent(this.type, {this.value});
 
-  factory SignatureContent.fromJson(Map<String, dynamic> json) {
-    final type = ContentType.values.firstWhere(
-      (item) => item.name == json['type']?.toString(),
-      orElse: () => ContentType.textPlain,
-    );
-    return SignatureContent(type, value: json['_content']);
-  }
+  factory SignatureContent.fromJson(Map<String, dynamic> json) => SignatureContent(
+      ContentType.values.firstWhere(
+        (item) => item.name == json['type'],
+        orElse: () => ContentType.textPlain,
+      ),
+      value: json['_content']);
 
   Map<String, dynamic> toJson() => {
         'type': type.name,

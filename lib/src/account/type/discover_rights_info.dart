@@ -13,17 +13,13 @@ class DiscoverRightsInfo {
 
   DiscoverRightsInfo(this.right, {this.targets = const []});
 
-  factory DiscoverRightsInfo.fromJson(Map<String, dynamic> json) {
-    final targets = <DiscoverRightsTarget>[];
-    if (json['target'] != null && json['target'] is Iterable) {
-      final elements = json['target'] as Iterable;
-      for (final right in elements) {
-        targets.add(DiscoverRightsTarget.fromJson(right));
-      }
-    }
-
-    return DiscoverRightsInfo(json['right'], targets: targets);
-  }
+  factory DiscoverRightsInfo.fromJson(Map<String, dynamic> json) => DiscoverRightsInfo(
+        json['right'],
+        targets: (json['target'] is Iterable)
+            ? List.from((json['target'] as Iterable)
+                .map<DiscoverRightsTarget>((target) => DiscoverRightsTarget.fromJson(target)))
+            : [],
+      );
 
   Map<String, dynamic> toJson() => {
         'right': right,

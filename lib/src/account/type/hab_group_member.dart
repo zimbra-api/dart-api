@@ -12,18 +12,13 @@ class HABGroupMember extends HABMember {
 
   HABGroupMember(super.name, {super.seniorityIndex, this.attrs = const []});
 
-  factory HABGroupMember.fromJson(Map<String, dynamic> json) {
-    final attrs = <NamedValue>[];
-    if (json['attr'] != null && json['attr'] is Iterable) {
-      final elements = json['attr'] as Iterable;
-      for (final attr in elements) {
-        attrs.add(NamedValue.fromJson(attr));
-      }
-    }
-
-    return HABGroupMember(json['name'] != null ? json['name']['_content'] : '',
-        seniorityIndex: json['seniorityIndex'], attrs: attrs);
-  }
+  factory HABGroupMember.fromJson(Map<String, dynamic> json) => HABGroupMember(
+        json['name']?['_content'] ?? '',
+        seniorityIndex: json['seniorityIndex'],
+        attrs: (json['attr'] is Iterable)
+            ? List.from((json['attr'] as Iterable).map<NamedValue>((attr) => NamedValue.fromJson(attr)))
+            : [],
+      );
 
   Map<String, dynamic> toJson() => {
         'name': {'_content': name},

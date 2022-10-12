@@ -14,8 +14,8 @@ class AlarmTriggerInfo {
   AlarmTriggerInfo({this.absolute, this.relative});
 
   factory AlarmTriggerInfo.fromJson(Map<String, dynamic> json) => AlarmTriggerInfo(
-      absolute: json['abs'] != null ? DateAttr.fromJson(json['abs']) : null,
-      relative: json['rel'] != null ? DateAttr.fromJson(json['rel']) : null);
+      absolute: json['abs'] is Map ? DateAttr.fromJson(json['abs']) : null,
+      relative: json['rel'] is Map ? DateAttr.fromJson(json['rel']) : null);
 
   Map<String, dynamic> toJson() => {
         if (absolute != null) 'abs': absolute!.toJson(),

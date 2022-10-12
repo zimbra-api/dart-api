@@ -145,101 +145,57 @@ class GetInfoResponse extends SoapResponse {
       this.boshURL,
       this.isTrackingIMAP});
 
-  factory GetInfoResponse.fromJson(Map<String, dynamic> json) {
-    final prefs = <Pref>[];
-    if (json['prefs'] != null && json['prefs'] is Map<String, dynamic>) {
-      final elements = json['prefs']['pref'] as Iterable;
-      for (final pref in elements) {
-        prefs.add(Pref.fromJson(pref));
-      }
-    }
-
-    final attrs = <Attr>[];
-    if (json['attrs'] != null && json['attrs'] is Map<String, dynamic>) {
-      final elements = json['attrs']['attr'] as Iterable;
-      for (final attr in elements) {
-        attrs.add(Attr.fromJson(attr));
-      }
-    }
-
-    final zimlets = <AccountZimletInfo>[];
-    if (json['zimlets'] != null && json['zimlets'] is Map<String, dynamic>) {
-      final elements = json['zimlets']['zimlet'] as Iterable;
-      for (final zimlet in elements) {
-        zimlets.add(AccountZimletInfo.fromJson(zimlet));
-      }
-    }
-
-    final props = <Prop>[];
-    if (json['props'] != null && json['props'] is Map<String, dynamic>) {
-      final elements = json['props']['prop'] as Iterable;
-      for (final prop in elements) {
-        props.add(Prop.fromJson(prop));
-      }
-    }
-
-    final identities = <Identity>[];
-    if (json['identities'] != null && json['identities'] is Map<String, dynamic>) {
-      final elements = json['identities']['identity'] as Iterable;
-      for (final identity in elements) {
-        identities.add(Identity.fromJson(identity));
-      }
-    }
-
-    final signatures = <Signature>[];
-    if (json['signatures'] != null && json['signatures'] is Map<String, dynamic>) {
-      final elements = json['signatures']['signature'] as Iterable;
-      for (final signature in elements) {
-        signatures.add(Signature.fromJson(signature));
-      }
-    }
-
-    final childAccounts = <ChildAccount>[];
-    if (json['childAccounts'] != null && json['childAccounts'] is Map<String, dynamic>) {
-      final elements = json['childAccounts']['childAccount'] as Iterable;
-      for (final childAccount in elements) {
-        childAccounts.add(ChildAccount.fromJson(childAccount));
-      }
-    }
-
-    final discoveredRights = <DiscoverRightsInfo>[];
-    if (json['rights'] != null && json['rights'] is Map<String, dynamic>) {
-      final rights = json['rights']['targets'] as Iterable;
-      for (final targets in rights) {
-        discoveredRights.add(DiscoverRightsInfo.fromJson(targets));
-      }
-    }
-
-    return GetInfoResponse(
+  factory GetInfoResponse.fromJson(Map<String, dynamic> json) => GetInfoResponse(
         attachmentSizeLimit: json['attSizeLimit'],
         documentSizeLimit: json['docSizeLimit'],
-        version: json['version'] != null ? json['version']['_content'] : null,
-        accountId: json['id'] != null ? json['id']['_content'] : null,
-        profileImageId: json['profileImageId'] != null ? json['profileImageId']['_content'] : null,
-        accountName: json['name'] != null ? json['name']['_content'] : null,
-        crumb: json['crumb'] != null ? json['crumb']['_content'] : null,
-        lifetime: json['lifetime'] != null ? json['lifetime']['_content'] : null,
-        adminDelegated: json['adminDelegated'] != null ? json['adminDelegated']['_content'] : null,
-        restUrl: json['rest'] != null ? json['rest']['_content'] : null,
-        quotaUsed: json['used'] != null ? json['used']['_content'] : null,
-        previousSessionTime: json['prevSession'] != null ? json['prevSession']['_content'] : null,
-        lastWriteAccessTime: json['accessed'] != null ? json['accessed']['_content'] : null,
-        recentMessageCount: json['recent'] != null ? json['recent']['_content'] : null,
-        cos: json['cos'] != null ? Cos.fromJson(json['cos']) : null,
-        dataSources: json['dataSources'] != null ? AccountDataSources.fromJson(json['dataSources']) : null,
-        soapURL: json['soapURL'] != null ? json['soapURL']['_content'] : null,
-        publicURL: json['publicURL'] != null ? json['publicURL']['_content'] : null,
-        changePasswordURL: json['changePasswordURL'] != null ? json['changePasswordURL']['_content'] : null,
-        adminURL: json['adminURL'] != null ? json['adminURL']['_content'] : null,
-        boshURL: json['boshURL'] != null ? json['boshURL']['_content'] : null,
-        isTrackingIMAP: json['isTrackingIMAP'] != null ? json['isTrackingIMAP']['_content'] : null,
-        prefs: prefs,
-        attrs: attrs,
-        zimlets: zimlets,
-        props: props,
-        identities: identities,
-        signatures: signatures,
-        childAccounts: childAccounts,
-        discoveredRights: discoveredRights);
-  }
+        version: json['version']?['_content'],
+        accountId: json['id']?['_content'],
+        profileImageId: json['profileImageId']?['_content'],
+        accountName: json['name']?['_content'],
+        crumb: json['crumb']?['_content'],
+        lifetime: json['lifetime']?['_content'],
+        adminDelegated: json['adminDelegated']?['_content'],
+        restUrl: json['rest']?['_content'],
+        quotaUsed: json['used']?['_content'],
+        previousSessionTime: json['prevSession']?['_content'],
+        lastWriteAccessTime: json['accessed']?['_content'],
+        recentMessageCount: json['recent']?['_content'],
+        cos: json['cos'] is Map ? Cos.fromJson(json['cos']) : null,
+        dataSources: json['dataSources'] is Map ? AccountDataSources.fromJson(json['dataSources']) : null,
+        soapURL: json['soapURL']?['_content'],
+        publicURL: json['publicURL']?['_content'],
+        changePasswordURL: json['changePasswordURL']?['_content'],
+        adminURL: json['adminURL']?['_content'],
+        boshURL: json['boshURL']?['_content'],
+        isTrackingIMAP: json['isTrackingIMAP']?['_content'],
+        prefs: (json['prefs']?['pref'] is Iterable)
+            ? List.from((json['prefs']['pref'] as Iterable).map<Pref>((pref) => Pref.fromJson(pref)))
+            : [],
+        attrs: (json['attrs']?['attr'] is Iterable)
+            ? List.from((json['attrs']['attr'] as Iterable).map<Attr>((attr) => Attr.fromJson(attr)))
+            : [],
+        zimlets: (json['zimlets']?['zimlet'] is Iterable)
+            ? List.from((json['zimlets']['zimlet'] as Iterable)
+                .map<AccountZimletInfo>((zimlet) => AccountZimletInfo.fromJson(zimlet)))
+            : [],
+        props: (json['props']?['prop'] is Iterable)
+            ? List.from((json['props']['prop'] as Iterable).map<Prop>((prop) => Prop.fromJson(prop)))
+            : [],
+        identities: (json['identities']?['identity'] is Iterable)
+            ? List.from(
+                (json['identities']['identity'] as Iterable).map<Identity>((identity) => Identity.fromJson(identity)))
+            : [],
+        signatures: (json['signatures']?['signature'] is Iterable)
+            ? List.from((json['signatures']['signature'] as Iterable)
+                .map<Signature>((signature) => Signature.fromJson(signature)))
+            : [],
+        childAccounts: (json['childAccounts']?['childAccount'] is Iterable)
+            ? List.from((json['childAccounts']['childAccount'] as Iterable)
+                .map<ChildAccount>((childAccount) => ChildAccount.fromJson(childAccount)))
+            : [],
+        discoveredRights: (json['rights']?['targets'] is Iterable)
+            ? List.from((json['rights']['targets'] as Iterable)
+                .map<DiscoverRightsInfo>((targets) => DiscoverRightsInfo.fromJson(targets)))
+            : [],
+      );
 }

@@ -82,32 +82,7 @@ class ContactInfo {
       this.isOwner,
       this.isMember});
 
-  factory ContactInfo.fromJson(Map<String, dynamic> json) {
-    final metadatas = <AccountCustomMetadata>[];
-    if (json['meta'] != null && json['meta'] is Iterable) {
-      final elements = json['meta'] as Iterable;
-      for (final meta in elements) {
-        metadatas.add(AccountCustomMetadata.fromJson(meta));
-      }
-    }
-
-    final attrs = <ContactAttr>[];
-    if (json['a'] != null && json['a'] is Iterable) {
-      final elements = json['a'] as Iterable;
-      for (final a in elements) {
-        attrs.add(ContactAttr.fromJson(a));
-      }
-    }
-
-    final contactGroupMembers = <ContactGroupMember>[];
-    if (json['m'] != null && json['m'] is Iterable) {
-      final elements = json['m'] as Iterable;
-      for (final m in elements) {
-        contactGroupMembers.add(ContactGroupMember.fromJson(m));
-      }
-    }
-
-    return ContactInfo(
+  factory ContactInfo.fromJson(Map<String, dynamic> json) => ContactInfo(
         sortField: json['sf'],
         canExpand: json['exp'],
         id: json['id'],
@@ -127,12 +102,19 @@ class ContactInfo {
         dlist: json['dlist'],
         reference: json['ref'],
         tooManyMembers: json['tooManyMembers'],
-        metadatas: metadatas,
-        attrs: attrs,
-        contactGroupMembers: contactGroupMembers,
+        metadatas: (json['meta'] is Iterable)
+            ? List.from(
+                (json['meta'] as Iterable).map<AccountCustomMetadata>((meta) => AccountCustomMetadata.fromJson(meta)))
+            : [],
+        attrs: (json['a'] is Iterable)
+            ? List.from((json['a'] as Iterable).map<ContactAttr>((a) => ContactAttr.fromJson(a)))
+            : [],
+        contactGroupMembers: (json['m'] is Iterable)
+            ? List.from((json['m'] as Iterable).map<ContactGroupMember>((m) => ContactGroupMember.fromJson(m)))
+            : [],
         isOwner: json['isOwner'],
-        isMember: json['isMember']);
-  }
+        isMember: json['isMember'],
+      );
 
   Map<String, dynamic> toJson() => {
         if (sortField != null) 'sf': sortField,

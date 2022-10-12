@@ -17,28 +17,14 @@ class GetDistributionListMembersResponse extends SoapResponse {
   GetDistributionListMembersResponse(
       {this.more, this.total, this.dlMembers = const [], this.habGroupMembers = const []});
 
-  factory GetDistributionListMembersResponse.fromJson(Map<String, dynamic> json) {
-    final dlMembers = <String>[];
-    if (json['dlm'] != null && json['dlm'] is Iterable) {
-      final dlms = json['dlm'] as Iterable;
-      for (final dlm in dlms) {
-        dlMembers.add(dlm['_content']);
-      }
-    }
-
-    final habGroupMembers = <HABGroupMember>[];
-    if (json['groupMember'] != null && json['groupMember'] is Iterable) {
-      final members = json['groupMember'] as Iterable;
-      for (final member in members) {
-        habGroupMembers.add(HABGroupMember.fromJson(member));
-      }
-    }
-
-    return GetDistributionListMembersResponse(
-      more: json['more'],
-      total: json['total'],
-      dlMembers: dlMembers,
-      habGroupMembers: habGroupMembers,
-    );
-  }
+  factory GetDistributionListMembersResponse.fromJson(Map<String, dynamic> json) => GetDistributionListMembersResponse(
+        more: json['more'],
+        total: json['total'],
+        dlMembers:
+            (json['dlm'] is Iterable) ? List.from((json['dlm'] as Iterable).map<String>((dlm) => dlm['_content'])) : [],
+        habGroupMembers: (json['groupMember'] is Iterable)
+            ? List.from(
+                (json['groupMember'] as Iterable).map<HABGroupMember>((member) => HABGroupMember.fromJson(member)))
+            : [],
+      );
 }

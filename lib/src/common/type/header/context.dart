@@ -65,61 +65,25 @@ class Context {
       this.soapRequestId,
       this.csrfToken});
 
-  factory Context.fromJson(Map<String, dynamic> json) {
-    String? noSession;
-    if (json['nosession'] != null && json['nosession'] is Iterable) {
-      noSession = json['nosession']['_content'];
-    }
-
-    String? targetServer;
-    if (json['targetServer'] != null && json['targetServer'] is Iterable) {
-      targetServer = json['targetServer']['_content'];
-    }
-
-    String? noNotify;
-    if (json['nonotify'] != null && json['nonotify'] is Iterable) {
-      noNotify = json['nonotify']['_content'];
-    }
-
-    String? noQualify;
-    if (json['noqualify'] != null && json['noqualify'] is Iterable) {
-      noQualify = json['noqualify']['_content'];
-    }
-
-    String? via;
-    if (json['via'] != null && json['via'] is Iterable) {
-      via = json['via']['_content'];
-    }
-
-    String? soapRequestId;
-    if (json['soapId'] != null && json['soapId'] is Iterable) {
-      soapRequestId = json['soapId']['_content'];
-    }
-
-    String? csrfToken;
-    if (json['csrfToken'] != null && json['csrfToken'] is Iterable) {
-      csrfToken = json['csrfToken']['_content'];
-    }
-
-    return Context(
+  factory Context.fromJson(Map<String, dynamic> json) => Context(
         hopCount: json['hops'],
         authToken: json['authToken'],
-        session: json['session'] != null ? SessionInfo.fromJson(json['session']) : null,
-        legacySessionId: json['sessionId'] != null ? SessionInfo.fromJson(json['sessionId']) : null,
-        noSession: noSession,
-        account: json['account'] != null ? AccountInfo.fromJson(json['account']) : null,
-        change: json['change'] != null ? ChangeInfo.fromJson(json['change']) : null,
-        targetServer: targetServer,
-        userAgent: json['userAgent'] != null ? UserAgentInfo.fromJson(json['userAgent']) : null,
+        session: json['session'] is Map ? SessionInfo.fromJson(json['session']) : null,
+        legacySessionId: json['sessionId'] is Map ? SessionInfo.fromJson(json['sessionId']) : null,
+        noSession: json['nosession']?['_content'],
+        account: json['account'] is Map ? AccountInfo.fromJson(json['account']) : null,
+        change: json['change'] is Map ? ChangeInfo.fromJson(json['change']) : null,
+        targetServer: json['targetServer']?['_content'],
+        userAgent: json['userAgent'] is Map ? UserAgentInfo.fromJson(json['userAgent']) : null,
         authTokenControl: json['authTokenControl'] != null ? AuthTokenControl.fromJson(json['authTokenControl']) : null,
-        format: json['format'] != null ? FormatInfo.fromJson(json['format']) : null,
-        notify: json['notify'] != null ? NotifyInfo.fromJson(json['notify']) : null,
-        noNotify: noNotify,
-        noQualify: noQualify,
-        via: via,
-        soapRequestId: soapRequestId,
-        csrfToken: csrfToken);
-  }
+        format: json['format'] is Map ? FormatInfo.fromJson(json['format']) : null,
+        notify: json['notify'] is Map ? NotifyInfo.fromJson(json['notify']) : null,
+        noNotify: json['nonotify']?['_content'],
+        noQualify: json['noqualify']?['_content'],
+        via: json['via']?['_content'],
+        soapRequestId: json['soapId']?['_content'],
+        csrfToken: json['csrfToken']?['_content'],
+      );
 
   Map<String, dynamic> toJson() => {
         '_jsns': 'urn:zimbra',

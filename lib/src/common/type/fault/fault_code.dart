@@ -8,7 +8,7 @@ class FaultCode {
   FaultCode(this.value);
 
   factory FaultCode.fromJson(Map<String, dynamic> json) =>
-      FaultCode(json['Value'] != null ? json['Value']['_content'] : '');
+      FaultCode(json['Value']?['_content'] ?? '');
 
   Map<String, dynamic> toJson() => {
         'Value': {'_content': value},

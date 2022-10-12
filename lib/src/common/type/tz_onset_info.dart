@@ -26,8 +26,11 @@ class TzOnsetInfo {
 
   TzOnsetInfo(this.month, this.hour, this.minute, this.second, {this.dayOfMonth, this.week, this.dayOfWeek});
 
-  factory TzOnsetInfo.fromJson(Map<String, dynamic> json) =>
-      TzOnsetInfo(json['mon'] ?? 1, json['hour'] ?? 0, json['min'] ?? 0, json['sec'] ?? 0,
+  factory TzOnsetInfo.fromJson(Map<String, dynamic> json) => TzOnsetInfo(
+        json['mon'] ?? 1,
+        json['hour'] ?? 0,
+        json['min'] ?? 0,
+        json['sec'] ?? 0,
         dayOfMonth: json['mday'],
         week: json['week'],
         dayOfWeek: json['wkday'],

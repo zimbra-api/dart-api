@@ -11,15 +11,8 @@ class RevokeRightsResponse extends SoapResponse {
 
   RevokeRightsResponse({this.aces = const []});
 
-  factory RevokeRightsResponse.fromJson(Map<String, dynamic> json) {
-    final aces = <AccountACEInfo>[];
-    if (json['ace'] != null && json['ace'] is Iterable) {
-      final elements = json['ace'] as Iterable;
-      for (final ace in elements) {
-        aces.add(AccountACEInfo.fromJson(ace));
-      }
-    }
-
-    return RevokeRightsResponse(aces: aces);
-  }
+  factory RevokeRightsResponse.fromJson(Map<String, dynamic> json) => RevokeRightsResponse(
+      aces: (json['ace'] is Iterable)
+          ? List.from((json['ace'] as Iterable).map<AccountACEInfo>((ace) => AccountACEInfo.fromJson(ace)))
+          : []);
 }

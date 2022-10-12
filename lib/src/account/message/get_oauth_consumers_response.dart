@@ -11,15 +11,9 @@ class GetOAuthConsumersResponse extends SoapResponse {
 
   GetOAuthConsumersResponse({this.consumers = const []});
 
-  factory GetOAuthConsumersResponse.fromJson(Map<String, dynamic> json) {
-    final consumers = <OAuthConsumer>[];
-    if (json['OAuthConsumer'] != null && json['OAuthConsumer'] is Iterable) {
-      final oAuthConsumers = json['OAuthConsumer'] as Iterable;
-      for (final consumer in oAuthConsumers) {
-        consumers.add(OAuthConsumer.fromJson(consumer));
-      }
-    }
-
-    return GetOAuthConsumersResponse(consumers: consumers);
-  }
+  factory GetOAuthConsumersResponse.fromJson(Map<String, dynamic> json) => GetOAuthConsumersResponse(
+      consumers: (json['OAuthConsumer'] is Iterable)
+          ? List.from(
+              (json['OAuthConsumer'] as Iterable).map<OAuthConsumer>((consumer) => OAuthConsumer.fromJson(consumer)))
+          : []);
 }

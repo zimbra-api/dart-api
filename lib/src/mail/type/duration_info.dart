@@ -41,24 +41,19 @@ class DurationInfo {
       this.related,
       this.repeatCount});
 
-  factory DurationInfo.fromJson(Map<String, dynamic> json) {
-    final related = AlarmRelated.values.firstWhere(
-      (item) => item.name == json['related'],
-      orElse: () => AlarmRelated.start,
-    );
-
-    final info = DurationInfo(
+  factory DurationInfo.fromJson(Map<String, dynamic> json) => DurationInfo(
         durationNegative: json['neg'],
         weeks: json['w'],
         days: json['d'],
         hours: json['h'],
         minutes: json['m'],
         seconds: json['s'],
-        related: related,
-        repeatCount: json['count']);
-
-    return info;
-  }
+        related: AlarmRelated.values.firstWhere(
+          (item) => item.name == json['related'],
+          orElse: () => AlarmRelated.start,
+        ),
+        repeatCount: json['count'],
+      );
 
   Map<String, dynamic> toJson() => {
         if (durationNegative != null) 'neg': durationNegative,

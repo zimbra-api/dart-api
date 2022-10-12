@@ -20,29 +20,18 @@ class EntrySearchFilterMultiCond {
   EntrySearchFilterMultiCond(
       {this.isNot, this.isOr, this.singleConditions = const [], this.compoundConditions = const []});
 
-  factory EntrySearchFilterMultiCond.fromJson(Map<String, dynamic> json) {
-    final compoundConditions = <EntrySearchFilterMultiCond>[];
-    if (json['conds'] != null && json['conds'] is Iterable) {
-      final conds = json['conds'] as Iterable;
-      for (final cond in conds) {
-        compoundConditions.add(EntrySearchFilterMultiCond.fromJson(cond));
-      }
-    }
-
-    final singleConditions = <EntrySearchFilterSingleCond>[];
-    if (json['cond'] != null && json['cond'] is Iterable) {
-      final conds = json['cond'] as Iterable;
-      for (final cond in conds) {
-        singleConditions.add(EntrySearchFilterSingleCond.fromJson(cond));
-      }
-    }
-
-    return EntrySearchFilterMultiCond(
+  factory EntrySearchFilterMultiCond.fromJson(Map<String, dynamic> json) => EntrySearchFilterMultiCond(
         isNot: json['not'],
         isOr: json['or'],
-        compoundConditions: compoundConditions,
-        singleConditions: singleConditions);
-  }
+        singleConditions: (json['cond'] is Iterable)
+            ? List.from((json['cond'] as Iterable)
+                .map<EntrySearchFilterSingleCond>((cond) => EntrySearchFilterSingleCond.fromJson(cond)))
+            : [],
+        compoundConditions: (json['conds'] is Iterable)
+            ? List.from((json['conds'] as Iterable)
+                .map<EntrySearchFilterMultiCond>((conds) => EntrySearchFilterMultiCond.fromJson(conds)))
+            : [],
+      );
 
   Map<String, dynamic> toJson() => {
         if (isNot != null) 'not': isNot,

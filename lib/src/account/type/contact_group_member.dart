@@ -18,7 +18,7 @@ class ContactGroupMember {
   factory ContactGroupMember.fromJson(Map<String, dynamic> json) => ContactGroupMember(
       type: json['type'] ?? '',
       value: json['value'] ?? '',
-      contact: json['cn'] != null ? ContactInfo.fromJson(json['cn']) : null);
+      contact: (json['cn'] is Map) ? ContactInfo.fromJson(json['cn']) : null);
 
   Map<String, dynamic> toJson() => {
         'type': type,

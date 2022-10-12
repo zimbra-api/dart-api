@@ -10,14 +10,9 @@ class CheckRightsResponse extends SoapResponse {
 
   CheckRightsResponse({this.targets = const []});
 
-  factory CheckRightsResponse.fromJson(json) {
-    final targets = <CheckRightsTargetInfo>[];
-    if (json['target'] != null && json['target'] is Iterable) {
-      final elements = json['target'] as Iterable;
-      for (final target in elements) {
-        targets.add(CheckRightsTargetInfo.fromJson(target));
-      }
-    }
-    return CheckRightsResponse(targets: targets);
-  }
+  factory CheckRightsResponse.fromJson(json) => CheckRightsResponse(
+      targets: (json['target'] is Iterable)
+          ? List.from((json['target'] as Iterable)
+              .map<CheckRightsTargetInfo>((target) => CheckRightsTargetInfo.fromJson(target)))
+          : []);
 }

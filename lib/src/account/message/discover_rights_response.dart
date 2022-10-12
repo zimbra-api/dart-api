@@ -11,15 +11,9 @@ class DiscoverRightsResponse extends SoapResponse {
 
   DiscoverRightsResponse({this.discoveredRights = const []});
 
-  factory DiscoverRightsResponse.fromJson(Map<String, dynamic> json) {
-    final discoveredRights = <DiscoverRightsInfo>[];
-    if (json['targets'] != null && json['targets'] is Iterable) {
-      final targets = json['targets'] as Iterable;
-      for (final info in targets) {
-        discoveredRights.add(DiscoverRightsInfo.fromJson(info));
-      }
-    }
-
-    return DiscoverRightsResponse(discoveredRights: discoveredRights);
-  }
+  factory DiscoverRightsResponse.fromJson(Map<String, dynamic> json) => DiscoverRightsResponse(
+      discoveredRights: (json['targets'] is Iterable)
+          ? List.from(
+              (json['targets'] as Iterable).map<DiscoverRightsInfo>((info) => DiscoverRightsInfo.fromJson(info)))
+          : []);
 }

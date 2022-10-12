@@ -14,16 +14,11 @@ class SingleDates {
 
   SingleDates({this.timezone, this.dtVals = const []});
 
-  factory SingleDates.fromJson(Map<String, dynamic> json) {
-    final dtVals = <DtVal>[];
-    if (json['dtval'] != null && json['dtval'] is Iterable) {
-      final elements = json['dtval'] as Iterable;
-      for (final skin in elements) {
-        dtVals.add(DtVal.fromJson(skin));
-      }
-    }
-    return SingleDates(timezone: json['tz'], dtVals: dtVals);
-  }
+  factory SingleDates.fromJson(Map<String, dynamic> json) => SingleDates(
+      timezone: json['tz'],
+      dtVals: (json['dtval'] is Iterable)
+          ? List.from((json['dtval'] as Iterable).map<DtVal>((dtval) => DtVal.fromJson(dtval)))
+          : []);
 
   Map<String, dynamic> toJson() => {
         if (timezone != null) 'tz': timezone,

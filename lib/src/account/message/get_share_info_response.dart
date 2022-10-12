@@ -10,15 +10,8 @@ class GetShareInfoResponse extends SoapResponse {
 
   GetShareInfoResponse({this.shares = const []});
 
-  factory GetShareInfoResponse.fromJson(Map<String, dynamic> json) {
-    final shares = <ShareInfo>[];
-    if (json['share'] != null && json['share'] is Iterable) {
-      final elements = json['share'] as Iterable;
-      for (final share in elements) {
-        shares.add(ShareInfo.fromJson(share));
-      }
-    }
-
-    return GetShareInfoResponse(shares: shares);
-  }
+  factory GetShareInfoResponse.fromJson(Map<String, dynamic> json) => GetShareInfoResponse(
+      shares: (json['share'] is Iterable)
+          ? List.from((json['share'] as Iterable).map<ShareInfo>((share) => ShareInfo.fromJson(share)))
+          : []);
 }

@@ -70,21 +70,7 @@ class CalendarAttendee {
       this.delegatedFrom,
       this.xParams = const []});
 
-  factory CalendarAttendee.fromJson(Map<String, dynamic> json) {
-    final partStat = ParticipationStatus.values.firstWhere(
-      (item) => item.name == json['ptst'],
-      orElse: () => ParticipationStatus.inProcess,
-    );
-
-    final xParams = <XParam>[];
-    if (json['xparam'] != null && json['xparam'] is Iterable) {
-      final elements = json['xparam'] as Iterable;
-      for (final xparam in elements) {
-        xParams.add(XParam.fromJson(xparam));
-      }
-    }
-
-    return CalendarAttendee(
+  factory CalendarAttendee.fromJson(Map<String, dynamic> json) => CalendarAttendee(
         address: json['a'],
         url: json['url'],
         displayName: json['d'],
@@ -93,13 +79,18 @@ class CalendarAttendee {
         language: json['lang'],
         cuType: json['cutype'],
         role: json['role'],
-        partStat: partStat,
+        partStat: ParticipationStatus.values.firstWhere(
+          (item) => item.name == json['ptst'],
+          orElse: () => ParticipationStatus.inProcess,
+        ),
         rsvp: json['rsvp'],
         member: json['member'],
         delegatedTo: json['delegatedTo'],
         delegatedFrom: json['delegatedFrom'],
-        xParams: xParams);
-  }
+        xParams: (json['xparam'] is Iterable)
+            ? List.from((json['xparam'] as Iterable).map<XParam>((xparam) => XParam.fromJson(xparam)))
+            : [],
+      );
 
   Map<String, dynamic> toJson() => {
         if (address != null) 'a': address,

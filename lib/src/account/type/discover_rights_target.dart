@@ -22,29 +22,21 @@ class DiscoverRightsTarget {
   /// Email addresses
   final List<DiscoverRightsEmail> emails;
 
-  DiscoverRightsTarget(
-      {this.type = TargetType.account,
-      this.id,
-      this.name,
-      this.displayName,
-      this.emails = const []});
+  DiscoverRightsTarget({this.type = TargetType.account, this.id, this.name, this.displayName, this.emails = const []});
 
-  factory DiscoverRightsTarget.fromJson(Map<String, dynamic> json) {
-    final type = TargetType.values.firstWhere(
-      (item) => item.name == json['type']?.toString(),
-      orElse: () => TargetType.account,
-    );
-
-    final emails = <DiscoverRightsEmail>[];
-    if (json['email'] != null && json['email'] is Iterable) {
-      final elements = json['email'] as Iterable;
-      for (final email in elements) {
-        emails.add(DiscoverRightsEmail.fromJson(email));
-      }
-    }
-
-    return DiscoverRightsTarget(type: type, id: json['id'], name: json['name'], displayName: json['d'], emails: emails);
-  }
+  factory DiscoverRightsTarget.fromJson(Map<String, dynamic> json) => DiscoverRightsTarget(
+        type: TargetType.values.firstWhere(
+          (item) => item.name == json['type']?.toString(),
+          orElse: () => TargetType.account,
+        ),
+        id: json['id'],
+        name: json['name'],
+        displayName: json['d'],
+        emails: (json['email'] is Iterable)
+            ? List.from(
+                (json['email'] as Iterable).map<DiscoverRightsEmail>((email) => DiscoverRightsEmail.fromJson(email)))
+            : [],
+      );
 
   Map<String, dynamic> toJson() => {
         'type': type.name,

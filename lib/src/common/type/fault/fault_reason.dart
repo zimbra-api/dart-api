@@ -8,7 +8,7 @@ class FaultReason {
   FaultReason(this.text);
 
   factory FaultReason.fromJson(Map<String, dynamic> json) =>
-      FaultReason(json['Text'] != null ? json['Text']['_content'] : '');
+      FaultReason(json['Text']?['_content'] ?? '');
 
   Map<String, dynamic> toJson() => {
         'Text': {'_content': text},

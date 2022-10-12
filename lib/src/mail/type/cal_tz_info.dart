@@ -35,8 +35,8 @@ class CalTZInfo {
 
   factory CalTZInfo.fromJson(Map<String, dynamic> json) =>
       CalTZInfo(json['id'] ?? '', json['stdoff'] ?? 0, json['dayoff'] ?? 0,
-          standardTzOnset: json['standard'] != null ? TzOnsetInfo.fromJson(json['standard']) : null,
-          daylightTzOnset: json['daylight'] != null ? TzOnsetInfo.fromJson(json['daylight']) : null,
+          standardTzOnset: json['standard'] is Map ? TzOnsetInfo.fromJson(json['standard']) : null,
+          daylightTzOnset: json['daylight'] is Map ? TzOnsetInfo.fromJson(json['daylight']) : null,
           standardTZName: json['stdname'],
           daylightTZName: json['dayname']);
 

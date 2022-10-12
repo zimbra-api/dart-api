@@ -19,9 +19,9 @@ class AccountZimletInfo {
   AccountZimletInfo({this.zimletContext, this.zimlet, this.zimletConfig});
 
   factory AccountZimletInfo.fromJson(Map<String, dynamic> json) => AccountZimletInfo(
-      zimletContext: json['zimletContext'] != null ? AccountZimletContext.fromJson(json['zimletContext']) : null,
-      zimlet: json['zimlet'] != null ? AccountZimletDesc.fromJson(json['zimlet']) : null,
-      zimletConfig: json['zimletConfig'] != null ? AccountZimletConfigInfo.fromJson(json['zimletConfig']) : null);
+      zimletContext: (json['zimletContext'] is Map) ? AccountZimletContext.fromJson(json['zimletContext']) : null,
+      zimlet: (json['zimlet'] is Map) ? AccountZimletDesc.fromJson(json['zimlet']) : null,
+      zimletConfig: (json['zimletConfig'] is Map) ? AccountZimletConfigInfo.fromJson(json['zimletConfig']) : null);
 
   Map<String, dynamic> toJson() => {
         if (zimletContext != null) 'zimletContext': zimletContext!.toJson(),

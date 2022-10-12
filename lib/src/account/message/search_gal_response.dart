@@ -31,28 +31,16 @@ class SearchGalResponse extends SoapResponse {
   final List<ContactInfo> contacts;
 
   SearchGalResponse(
-      {this.sortBy,
-      this.offset,
-      this.more,
-      this.pagingSupported,
-      this.tokenizeKey,
-      this.contacts = const []});
+      {this.sortBy, this.offset, this.more, this.pagingSupported, this.tokenizeKey, this.contacts = const []});
 
-  factory SearchGalResponse.fromJson(Map<String, dynamic> json) {
-    final contacts = <ContactInfo>[];
-    if (json['cn'] != null && json['cn'] is Iterable) {
-      final elements = json['cn'] as Iterable;
-      for (final cn in elements) {
-        contacts.add(ContactInfo.fromJson(cn));
-      }
-    }
-
-    return SearchGalResponse(
+  factory SearchGalResponse.fromJson(Map<String, dynamic> json) => SearchGalResponse(
         sortBy: json['sortBy'],
         offset: json['offset'],
         more: json['more'],
         pagingSupported: json['paginationSupported'],
         tokenizeKey: json['tokenizeKey'],
-        contacts: contacts);
-  }
+        contacts: (json['cn'] is Iterable)
+            ? List.from((json['cn'] as Iterable).map<ContactInfo>((cn) => ContactInfo.fromJson(cn)))
+            : [],
+      );
 }

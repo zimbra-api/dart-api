@@ -19,9 +19,9 @@ class DtVal {
   DtVal({this.startTime, this.endTime, this.duration});
 
   factory DtVal.fromJson(Map<String, dynamic> json) => DtVal(
-      startTime: json['s'] != null ? DtTimeInfo.fromJson(json['s']) : null,
-      endTime: json['e'] != null ? DtTimeInfo.fromJson(json['e']) : null,
-      duration: json['dur'] != null ? DurationInfo.fromJson(json['dur']) : null);
+      startTime: json['s'] is Map ? DtTimeInfo.fromJson(json['s']) : null,
+      endTime: json['e'] is Map ? DtTimeInfo.fromJson(json['e']) : null,
+      duration: json['dur'] is Map ? DurationInfo.fromJson(json['dur']) : null);
 
   Map<String, dynamic> toJson() => {
         if (startTime != null) 's': startTime!.toJson(),

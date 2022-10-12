@@ -16,17 +16,13 @@ class XProp {
 
   XProp(this.name, {this.value, this.xParams = const []});
 
-  factory XProp.fromJson(Map<String, dynamic> json) {
-    final xParams = <XParam>[];
-    if (json['xparam'] != null && json['xparam'] is Iterable) {
-      final elements = json['xparam'] as Iterable;
-      for (final xparam in elements) {
-        xParams.add(XParam.fromJson(xparam));
-      }
-    }
-
-    return XProp(json['name'] ?? '', value: json['_content'], xParams: xParams);
-  }
+  factory XProp.fromJson(Map<String, dynamic> json) => XProp(
+        json['name'] ?? '',
+        value: json['_content'],
+        xParams: (json['xparam'] is Iterable)
+            ? List.from((json['xparam'] as Iterable).map<XParam>((xparam) => XParam.fromJson(xparam)))
+            : [],
+      );
 
   Map<String, dynamic> toJson() => {
         'name': name,

@@ -20,8 +20,8 @@ class ExceptionRuleInfo extends RecurIdInfo {
       ExceptionRuleInfo(json['rangeType'] ?? 1, json['recurId'] ?? '',
           timezone: json['tz'],
           recurIdZ: json['ridZ'],
-          add: json['add'] != null ? RecurrenceInfo.fromJson(json['add']) : null,
-          exclude: json['exclude'] != null ? RecurrenceInfo.fromJson(json['exclude']) : null);
+          add: json['add'] is Map ? RecurrenceInfo.fromJson(json['add']) : null,
+          exclude: json['exclude'] is Map ? RecurrenceInfo.fromJson(json['exclude']) : null);
 
   @override
   Map<String, dynamic> toJson() => {

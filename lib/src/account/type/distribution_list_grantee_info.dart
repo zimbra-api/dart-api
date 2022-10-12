@@ -16,13 +16,13 @@ class DistributionListGranteeInfo {
 
   DistributionListGranteeInfo(this.type, {this.id, this.name});
 
-  factory DistributionListGranteeInfo.fromJson(Map<String, dynamic> json) {
-    final type = GranteeType.values.firstWhere(
-      (item) => item.name == json['type']?.toString(),
-      orElse: () => GranteeType.all,
-    );
-    return DistributionListGranteeInfo(type, id: json['id'], name: json['name']);
-  }
+  factory DistributionListGranteeInfo.fromJson(Map<String, dynamic> json) => DistributionListGranteeInfo(
+      GranteeType.values.firstWhere(
+        (item) => item.name == json['type']?.toString(),
+        orElse: () => GranteeType.all,
+      ),
+      id: json['id'],
+      name: json['name']);
 
   Map<String, dynamic> toJson() => {
         'type': type.name,

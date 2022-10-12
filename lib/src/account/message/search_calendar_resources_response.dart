@@ -26,20 +26,14 @@ class SearchCalendarResourcesResponse extends SoapResponse {
   SearchCalendarResourcesResponse(
       {this.sortBy, this.offset, this.more, this.pagingSupported, this.calendarResources = const []});
 
-  factory SearchCalendarResourcesResponse.fromJson(Map<String, dynamic> json) {
-    final calendarResources = <CalendarResourceInfo>[];
-    if (json['calresource'] != null && json['calresource'] is Iterable) {
-      final resources = json['calresource'] as Iterable;
-      for (final resource in resources) {
-        calendarResources.add(CalendarResourceInfo.fromJson(resource));
-      }
-    }
-
-    return SearchCalendarResourcesResponse(
+  factory SearchCalendarResourcesResponse.fromJson(Map<String, dynamic> json) => SearchCalendarResourcesResponse(
         sortBy: json['sortBy'],
         offset: json['offset'],
         more: json['more'],
         pagingSupported: json['paginationSupported'],
-        calendarResources: calendarResources);
-  }
+        calendarResources: (json['calresource'] is Iterable)
+            ? List.from((json['calresource'] as Iterable)
+                .map<CalendarResourceInfo>((resource) => CalendarResourceInfo.fromJson(resource)))
+            : [],
+      );
 }

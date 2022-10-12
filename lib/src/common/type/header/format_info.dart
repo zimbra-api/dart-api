@@ -5,17 +5,11 @@
 import 'package:zimbra_api/src/common/enum/request_format.dart';
 
 class FormatInfo {
-  final RequestFormat format;
+  final RequestFormat format = RequestFormat.js;
 
-  FormatInfo({this.format = RequestFormat.js});
+  FormatInfo();
 
-  factory FormatInfo.fromJson(Map<String, dynamic> json) {
-    final format = RequestFormat.values.firstWhere(
-      (item) => item.name == json['type'],
-      orElse: () => RequestFormat.js,
-    );
-    return FormatInfo(format: format);
-  }
+  factory FormatInfo.fromJson(Map<String, dynamic> json) => FormatInfo();
 
   Map<String, dynamic> toJson() => {
         'type': format.name,

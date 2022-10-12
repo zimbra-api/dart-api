@@ -9,9 +9,7 @@ class Session {
 
   Session(this.id, {this.type});
 
-  factory Session.fromJson(Map<String, dynamic> json) {
-    return Session(json['id'], type: json['type']);
-  }
+  factory Session.fromJson(Map<String, dynamic> json) => Session(json['id'], type: json['type']);
 
   Map<String, dynamic> toJson() => {
         'id': id,

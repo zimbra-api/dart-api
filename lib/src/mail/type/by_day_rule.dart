@@ -11,16 +11,10 @@ class ByDayRule {
 
   ByDayRule({this.days = const []});
 
-  factory ByDayRule.fromJson(Map<String, dynamic> json) {
-    final days = <WkDay>[];
-    if (json['wkday'] != null && json['wkday'] is Iterable) {
-      final elements = json['wkday'] as Iterable;
-      for (final skin in elements) {
-        days.add(WkDay.fromJson(skin));
-      }
-    }
-    return ByDayRule(days: days);
-  }
+  factory ByDayRule.fromJson(Map<String, dynamic> json) => ByDayRule(
+      days: (json['wkday'] is Iterable)
+          ? List.from((json['wkday'] as Iterable).map<WkDay>((wkday) => WkDay.fromJson(wkday)))
+          : []);
 
   Map<String, dynamic> toJson() => {
         if (days.isNotEmpty) 'wkday': days.map((wkday) => wkday.toJson()).toList(),

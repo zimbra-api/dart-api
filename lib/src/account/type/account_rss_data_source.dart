@@ -33,21 +33,7 @@ class AccountRssDataSource extends AccountDataSource {
       super.refreshToken,
       super.refreshTokenUrl});
 
-  factory AccountRssDataSource.fromJson(Map<String, dynamic> json) {
-    final connectionType = ConnectionType.values.firstWhere(
-      (item) => item.name == json['connectionType'],
-      orElse: () => ConnectionType.clearText,
-    );
-
-    final attributes = <String>[];
-    if (json['a'] != null && json['a'] is Iterable) {
-      final attrs = json['a'] as Iterable;
-      for (final a in attrs) {
-        attributes.add(a['_content']);
-      }
-    }
-
-    return AccountRssDataSource(
+  factory AccountRssDataSource.fromJson(Map<String, dynamic> json) => AccountRssDataSource(
         id: json['id'],
         name: json['name'],
         folderId: json['l'],
@@ -55,7 +41,10 @@ class AccountRssDataSource extends AccountDataSource {
         importOnly: json['importOnly'],
         host: json['host'],
         port: json['port'],
-        connectionType: connectionType,
+        connectionType: ConnectionType.values.firstWhere(
+          (item) => item.name == json['connectionType'],
+          orElse: () => ConnectionType.clearText,
+        ),
         username: json['username'],
         password: json['password'],
         pollingInterval: json['pollingInterval'],
@@ -69,8 +58,8 @@ class AccountRssDataSource extends AccountDataSource {
         importClass: json['importClass'],
         failingSince: json['failingSince'],
         lastError: json['lastError'] != null ? json['lastError']['_content'] : null,
-        attributes: attributes,
+        attributes: (json['a'] is Iterable) ? List.from((json['a'] as Iterable).map((a) => a['_content'])) : [],
         refreshToken: json['refreshToken'],
-        refreshTokenUrl: json['refreshTokenUrl']);
-  }
+        refreshTokenUrl: json['refreshTokenUrl'],
+      );
 }

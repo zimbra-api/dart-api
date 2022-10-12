@@ -47,16 +47,18 @@ class AccountZimletDesc {
       this.zimletTarget});
 
   factory AccountZimletDesc.fromJson(Map<String, dynamic> json) => AccountZimletDesc(
-      name: json['name'],
-      version: json['version'],
-      description: json['description'],
-      extension: json['extension'],
-      target: json['target'],
-      label: json['label'],
-      serverExtension: json['serverExtension'] != null ? ZimletServerExtension.fromJson(json['serverExtension']) : null,
-      include: json['include'] != null ? AccountZimletInclude.fromJson(json['include']) : null,
-      includeCSS: json['includeCSS'] != null ? AccountZimletIncludeCSS.fromJson(json['includeCSS']) : null,
-      zimletTarget: json['zimletTarget'] != null ? AccountZimletTarget.fromJson(json['zimletTarget']) : null);
+        name: json['name'],
+        version: json['version'],
+        description: json['description'],
+        extension: json['extension'],
+        target: json['target'],
+        label: json['label'],
+        serverExtension:
+            json['serverExtension'] is Map ? ZimletServerExtension.fromJson(json['serverExtension']) : null,
+        include: json['include'] is Map ? AccountZimletInclude.fromJson(json['include']) : null,
+        includeCSS: json['includeCSS'] is Map ? AccountZimletIncludeCSS.fromJson(json['includeCSS']) : null,
+        zimletTarget: json['zimletTarget'] is Map ? AccountZimletTarget.fromJson(json['zimletTarget']) : null,
+      );
 
   Map<String, dynamic> toJson() => {
         if (name != null) 'name': name,

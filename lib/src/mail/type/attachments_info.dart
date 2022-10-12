@@ -29,45 +29,21 @@ class AttachmentsInfo {
       this.cnAttachments = const [],
       this.docAttachments = const []});
 
-  factory AttachmentsInfo.fromJson(Map<String, dynamic> json) {
-    final mpAttachments = <MimePartAttachSpec>[];
-    if (json['mp'] != null && json['mp'] is Map<String, dynamic>) {
-      final elements = json['mp'] as Iterable;
-      for (final mp in elements) {
-        mpAttachments.add(MimePartAttachSpec.fromJson(mp));
-      }
-    }
-
-    final msgAttachments = <MsgAttachSpec>[];
-    if (json['m'] != null && json['m'] is Map<String, dynamic>) {
-      final elements = json['m'] as Iterable;
-      for (final imap in elements) {
-        msgAttachments.add(MsgAttachSpec.fromJson(imap));
-      }
-    }
-
-    final cnAttachments = <ContactAttachSpec>[];
-    if (json['cn'] != null && json['cn'] is Map<String, dynamic>) {
-      final elements = json['cn'] as Iterable;
-      for (final imap in elements) {
-        cnAttachments.add(ContactAttachSpec.fromJson(imap));
-      }
-    }
-
-    final docAttachments = <DocAttachSpec>[];
-    if (json['doc'] != null && json['doc'] is Map<String, dynamic>) {
-      final elements = json['doc'] as Iterable;
-      for (final doc in elements) {
-        docAttachments.add(DocAttachSpec.fromJson(doc));
-      }
-    }
-
-    return AttachmentsInfo(json['aid'] ?? '',
-        mpAttachments: mpAttachments,
-        msgAttachments: msgAttachments,
-        cnAttachments: cnAttachments,
-        docAttachments: docAttachments);
-  }
+  factory AttachmentsInfo.fromJson(Map<String, dynamic> json) => AttachmentsInfo(
+        json['aid'] ?? '',
+        mpAttachments: (json['mp'] is Iterable)
+            ? List.from((json['mp'] as Iterable).map<MimePartAttachSpec>((mp) => MimePartAttachSpec.fromJson(mp)))
+            : [],
+        msgAttachments: (json['m'] is Iterable)
+            ? List.from((json['m'] as Iterable).map<MsgAttachSpec>((m) => MsgAttachSpec.fromJson(m)))
+            : [],
+        cnAttachments: (json['cn'] is Iterable)
+            ? List.from((json['cn'] as Iterable).map<ContactAttachSpec>((cn) => ContactAttachSpec.fromJson(cn)))
+            : [],
+        docAttachments: (json['doc'] is Iterable)
+            ? List.from((json['doc'] as Iterable).map<DocAttachSpec>((doc) => DocAttachSpec.fromJson(doc)))
+            : [],
+      );
 
   Map<String, dynamic> toJson() => {
         'aid': attachmentId,

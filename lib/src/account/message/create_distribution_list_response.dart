@@ -12,5 +12,5 @@ class CreateDistributionListResponse extends SoapResponse {
   CreateDistributionListResponse({this.dl});
 
   factory CreateDistributionListResponse.fromJson(Map<String, dynamic> json) =>
-      CreateDistributionListResponse(dl: json['dl'] != null ? DLInfo.fromJson(json['dl']) : null);
+      CreateDistributionListResponse(dl: json['dl'] is Map ? DLInfo.fromJson(json['dl']) : null);
 }

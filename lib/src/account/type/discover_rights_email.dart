@@ -8,9 +8,7 @@ class DiscoverRightsEmail {
 
   DiscoverRightsEmail(this.addr);
 
-  factory DiscoverRightsEmail.fromJson(Map<String, dynamic> json) {
-    return DiscoverRightsEmail(json['addr'] ?? '');
-  }
+  factory DiscoverRightsEmail.fromJson(Map<String, dynamic> json) => DiscoverRightsEmail(json['addr'] ?? '');
 
   Map<String, dynamic> toJson() => {
         'addr': addr,

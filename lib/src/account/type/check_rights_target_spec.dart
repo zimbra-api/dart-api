@@ -20,28 +20,20 @@ class CheckRightsTargetSpec {
       this.targetKey = '',
       this.rights = const []});
 
-  factory CheckRightsTargetSpec.fromJson(Map<String, dynamic> json) {
-    final targetType = TargetType.values.firstWhere(
-      (item) => item.name == json['type']?.toString(),
-      orElse: () => TargetType.account,
-    );
-
-    final targetBy = TargetBy.values.firstWhere(
-      (item) => item.name == json['by']?.toString(),
-      orElse: () => TargetBy.name,
-    );
-
-    final rights = <String>[];
-    if (json['right'] != null && json['right'] is Iterable) {
-      final elements = json['right'] as Iterable;
-      for (final right in elements) {
-        rights.add(right['_content'] ?? '');
-      }
-    }
-
-    return CheckRightsTargetSpec(
-        targetType: targetType, targetBy: targetBy, targetKey: json['key'] ?? '', rights: rights);
-  }
+  factory CheckRightsTargetSpec.fromJson(Map<String, dynamic> json) => CheckRightsTargetSpec(
+        targetType: TargetType.values.firstWhere(
+          (item) => item.name == json['type']?.toString(),
+          orElse: () => TargetType.account,
+        ),
+        targetBy: TargetBy.values.firstWhere(
+          (item) => item.name == json['by']?.toString(),
+          orElse: () => TargetBy.name,
+        ),
+        targetKey: json['key'] ?? '',
+        rights: (json['right'] is Iterable)
+            ? List.from((json['right'] as Iterable).map<String>((right) => right['_content']))
+            : [],
+      );
 
   Map<String, dynamic> toJson() => {
         'type': targetType.name,

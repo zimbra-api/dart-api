@@ -13,8 +13,8 @@ class SoapFault {
   SoapFault({this.code, this.reason});
 
   factory SoapFault.fromJson(Map<String, dynamic> json) => SoapFault(
-        code: json['Code'] != null ? FaultCode.fromJson(json['Code']) : null,
-        reason: json['Reason'] != null ? FaultReason.fromJson(json['Reason']) : null,
+        code: json['Code'] is Map ? FaultCode.fromJson(json['Code']) : null,
+        reason: json['Reason'] is Map ? FaultReason.fromJson(json['Reason']) : null,
       );
 
   String? faultCode() => code?.value;

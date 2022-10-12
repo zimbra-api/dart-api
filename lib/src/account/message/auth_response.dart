@@ -64,38 +64,24 @@ class AuthResponse extends SoapResponse {
       this.twoFactorAuthRequired,
       this.trustedDevicesEnabled});
 
-  factory AuthResponse.fromJson(Map<String, dynamic> json) {
-    final prefs = <Pref>[];
-    if (json['prefs'] != null && json['prefs'] is Map<String, dynamic>) {
-      final elements = json['prefs']['pref'] as Iterable;
-      for (final pref in elements) {
-        prefs.add(Pref.fromJson(pref));
-      }
-    }
-
-    final attrs = <Attr>[];
-    if (json['attrs'] != null && json['attrs'] is Map<String, dynamic>) {
-      final elements = json['attrs']['attr'] as Iterable;
-      for (final attr in elements) {
-        attrs.add(Attr.fromJson(attr));
-      }
-    }
-
-    return AuthResponse(
-        authToken: json['authToken'] != null ? json['authToken']['_content'] : null,
-        lifetime: json['lifetime'] != null ? json['lifetime']['_content'] : null,
-        trustLifetime: json['trustLifetime'] != null ? json['trustLifetime']['_content'] : null,
-        session: json['session'] != null ? Session.fromJson(json['session']) : null,
-        refer: json['refer'] != null ? json['refer']['_content'] : null,
-        skin: json['skin'] != null ? json['skin']['_content'] : null,
-        csrfToken: json['csrfToken'] != null ? json['csrfToken']['_content'] : null,
-        deviceId: json['deviceId'] != null ? json['deviceId']['_content'] : null,
-        trustedToken: json['trustedToken'] != null ? json['trustedToken']['_content'] : null,
+  factory AuthResponse.fromJson(Map<String, dynamic> json) => AuthResponse(
+        authToken: json['authToken']?['_content'],
+        lifetime: json['lifetime']?['_content'],
+        trustLifetime: json['trustLifetime']?['_content'],
+        session: json['session'] is Map ? Session.fromJson(json['session']) : null,
+        refer: json['refer']?['_content'],
+        skin: json['skin']?['_content'],
+        csrfToken: json['csrfToken']?['_content'],
+        deviceId: json['deviceId']?['_content'],
+        trustedToken: json['trustedToken']?['_content'],
         zmgProxy: json['zmgProxy'],
-        prefs: prefs,
-        attrs: attrs,
-        twoFactorAuthRequired: json['twoFactorAuthRequired'] != null ? json['twoFactorAuthRequired']['_content'] : null,
-        trustedDevicesEnabled:
-            json['trustedDevicesEnabled'] != null ? json['trustedDevicesEnabled']['_content'] : null);
-  }
+        prefs: (json['prefs']?['pref'] is Iterable)
+            ? List.from((json['prefs']['pref'] as Iterable).map<Pref>((pref) => Pref.fromJson(pref)))
+            : [],
+        attrs: (json['attrs']?['attr'] is Iterable)
+            ? List.from((json['attrs']['attr'] as Iterable).map<Attr>((attr) => Attr.fromJson(attr)))
+            : [],
+        twoFactorAuthRequired: json['twoFactorAuthRequired']?['_content'],
+        trustedDevicesEnabled: json['trustedDevicesEnabled']?['_content'],
+      );
 }

@@ -31,25 +31,19 @@ class DLInfo extends ObjectInfo {
   DLInfo(super.name, super.id, this.ref,
       {super.attrList, this.displayName, this.isDynamic, this.via, this.isOwner, this.isMember});
 
-  factory DLInfo.fromJson(Map<String, dynamic> json) {
-    final attrList = <KeyValuePair>[];
-    if (json['a'] != null && json['a'] is Iterable) {
-      final attrs = json['a'] as Iterable;
-      for (final attr in attrs) {
-        attrList.add(KeyValuePair.fromJson(attr));
-      }
-    }
-
-    final info = DLInfo(json['name'], json['id'], json['ref'],
+  factory DLInfo.fromJson(Map<String, dynamic> json) => DLInfo(
+        json['name'],
+        json['id'],
+        json['ref'],
         displayName: json['d'],
         isDynamic: json['dynamic'],
         via: json['via'],
         isOwner: json['isOwner'],
         isMember: json['isMember'],
-        attrList: attrList);
-
-    return info;
-  }
+        attrList: (json['a'] is Iterable)
+            ? List.from((json['a'] as Iterable).map<KeyValuePair>((attr) => KeyValuePair.fromJson(attr)))
+            : [],
+      );
 
   Map<String, dynamic> toJson() => {
         'name': name,

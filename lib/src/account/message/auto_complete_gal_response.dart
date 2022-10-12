@@ -24,19 +24,12 @@ class AutoCompleteGalResponse extends SoapResponse {
 
   AutoCompleteGalResponse({this.more, this.tokenizeKey, this.pagingSupported, this.contacts = const []});
 
-  factory AutoCompleteGalResponse.fromJson(json) {
-    final contacts = <ContactInfo>[];
-    if (json['cn'] != null && json['cn'] is Iterable) {
-      final elements = json['cn'] as Iterable;
-      for (final cn in elements) {
-        contacts.add(ContactInfo.fromJson(cn));
-      }
-    }
-
-    return AutoCompleteGalResponse(
+  factory AutoCompleteGalResponse.fromJson(json) => AutoCompleteGalResponse(
         more: json['more'],
         tokenizeKey: json['tokenizeKey'],
         pagingSupported: json['paginationSupported'],
-        contacts: contacts);
-  }
+        contacts: (json['cn'] is Iterable)
+            ? List.from((json['cn'] as Iterable).map<ContactInfo>((cn) => ContactInfo.fromJson(cn)))
+            : [],
+      );
 }

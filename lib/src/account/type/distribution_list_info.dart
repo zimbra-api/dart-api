@@ -35,42 +35,23 @@ class DistributionListInfo extends ObjectInfo {
       this.owners = const [],
       this.rights = const []});
 
-  factory DistributionListInfo.fromJson(Map<String, dynamic> json) {
-    final members = <String>[];
-    if (json['dlm'] != null && json['dlm'] is Iterable) {
-      final dlms = json['dlm'] as Iterable;
-      for (final dlm in dlms) {
-        members.add(dlm['_content']);
-      }
-    }
-
-    final owners = <DistributionListGranteeInfo>[];
-    if (json['owners'] != null && json['owners'] is Map<String, dynamic>) {
-      final elements = json['owners']['owner'] as Iterable;
-      for (final owner in elements) {
-        owners.add(DistributionListGranteeInfo.fromJson(owner));
-      }
-    }
-
-    final rights = <DistributionListRightInfo>[];
-    if (json['rights'] != null && json['rights'] is Map<String, dynamic>) {
-      final elements = json['rights']['right'] as Iterable;
-      for (final right in elements) {
-        rights.add(DistributionListRightInfo.fromJson(right));
-      }
-    }
-
-    return DistributionListInfo(
+  factory DistributionListInfo.fromJson(Map<String, dynamic> json) => DistributionListInfo(
       json['name'] ?? '',
       json['id'] ?? '',
       isOwner: json['isOwner'],
       isMember: json['isMember'],
       isDynamic: json['dynamic'],
-      members: members,
-      owners: owners,
-      rights: rights,
-    );
-  }
+        members:
+            (json['dlm'] is Iterable) ? List.from((json['dlm'] as Iterable).map<String>((dlm) => dlm['_content'])) : [],
+        owners: (json['owners']?['owner'] is Iterable)
+            ? List.from((json['owners']['owner'] as Iterable)
+                .map<DistributionListGranteeInfo>((owner) => DistributionListGranteeInfo.fromJson(owner)))
+            : [],
+        rights: (json['rights']?['right'] is Iterable)
+            ? List.from((json['rights']['right'] as Iterable)
+                .map<DistributionListRightInfo>((right) => DistributionListRightInfo.fromJson(right)))
+            : [],
+      );
 
   Map<String, dynamic> toJson() => {
         'name': name,

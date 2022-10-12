@@ -10,7 +10,9 @@ import 'package:zimbra_api/src/mail/type/added_comment.dart';
 import 'add_comment_body.dart';
 import 'add_comment_envelope.dart';
 
+/// Add a comment to the specified item.  Currently comments can only be added to documents
 class AddCommentRequest extends SoapRequest {
+  /// Added comment
   final AddedComment comment;
 
   AddCommentRequest(this.comment);

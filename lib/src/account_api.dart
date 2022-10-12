@@ -2,14 +2,13 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
-import 'package:zimbra_api/src/common/soap/api.dart';
-
 import 'account/message.dart';
 import 'account/type.dart';
 import 'common/enum/account_by.dart';
 import 'common/enum/distribution_list_subscribe_op.dart';
 import 'common/enum/gal_search_type.dart';
 import 'common/enum/member_of_selector.dart';
+import 'common/soap/api.dart';
 import 'common/type/account_selector.dart';
 import 'common/type/cursor_info.dart';
 import 'common/type/distribution_list_selector.dart';

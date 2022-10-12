@@ -4,6 +4,8 @@
 
 /// Exception recurrence id information
 class ExceptionRecurIdInfo {
+  static const rangeTypes = <int>[1, 2, 3];
+
   /// Date and/or time.  Format is : YYYYMMDD['T'HHMMSS[Z]]
   /// where:
   ///     YYYY - 4 digit year
@@ -35,6 +37,7 @@ class ExceptionRecurIdInfo {
   Map<String, dynamic> toJson() => {
         if (dateTime != null) 'd': dateTime,
         if (timezone != null) 'tz': timezone,
-        if (recurrenceRangeType != null) 'rangeType': recurrenceRangeType,
+        if (recurrenceRangeType != null)
+          'rangeType': rangeTypes.contains(recurrenceRangeType) ? recurrenceRangeType : 1,
       };
 }

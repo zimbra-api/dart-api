@@ -72,13 +72,13 @@ class AccountApi extends Api {
 
   /// Authenticate by account name
   Future<AuthResponse?> authByAccountName(String name, String password) {
-    final account = AccountSelector(AcccountBy.name, name);
+    final account = AccountSelector(AccountBy.name, name);
     return auth(account: account, password: password);
   }
 
   /// Authenticate by account id
   Future<AuthResponse?> authByAccountId(String id, String password) {
-    final account = AccountSelector(AcccountBy.id, id);
+    final account = AccountSelector(AccountBy.id, id);
     return auth(account: account, password: password);
   }
 
@@ -90,7 +90,7 @@ class AccountApi extends Api {
 
   /// Authenticate by preauth
   Future<AuthResponse?> authByPreauth(String name, String preauthKey) {
-    return auth(preauth: PreAuth(AccountSelector(AcccountBy.name, name), preauthKey));
+    return auth(preauth: PreAuth(AccountSelector(AccountBy.name, name), preauthKey));
   }
 
   /// Perform an autocomplete for a name against the Global Address List

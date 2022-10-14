@@ -5,16 +5,16 @@
 import 'package:zimbra_api/src/common/enum/account_by.dart';
 
 class AccountSelector {
-  final AcccountBy by;
+  final AccountBy by;
 
   final String value;
 
   AccountSelector(this.by, this.value);
 
   factory AccountSelector.fromJson(Map<String, dynamic> json) => AccountSelector(
-        AcccountBy.values.firstWhere(
+        AccountBy.values.firstWhere(
           (item) => item.name == json['by'],
-          orElse: () => AcccountBy.name,
+          orElse: () => AccountBy.name,
         ),
         json['_content'] ?? '',
       );

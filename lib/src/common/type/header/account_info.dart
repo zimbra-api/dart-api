@@ -5,7 +5,7 @@
 import 'package:zimbra_api/src/common/enum/account_by.dart';
 
 class AccountInfo {
-  final AcccountBy by;
+  final AccountBy by;
 
   final bool? mountpointTraversed;
 
@@ -14,9 +14,9 @@ class AccountInfo {
   AccountInfo(this.by, this.value, {this.mountpointTraversed});
 
   factory AccountInfo.fromJson(Map<String, dynamic> json) => AccountInfo(
-        AcccountBy.values.firstWhere(
+        AccountBy.values.firstWhere(
           (item) => item.name == json['by'],
-          orElse: () => AcccountBy.name,
+          orElse: () => AccountBy.name,
         ),
         json['_content'] ?? '',
         mountpointTraversed: json['link'],

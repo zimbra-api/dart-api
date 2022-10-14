@@ -11,15 +11,14 @@ void main() {
   group('Get account info tests', (() {
     test('Get account info request', (() {
       final name = faker.internet.email();
-      final account = AccountSelector(AcccountBy.name, name);
-      final request = GetAccountInfoRequest(account);
+      final request = GetAccountInfoRequest(AccountSelector(AccountBy.name, name));
 
       expect(request.getEnvelope().toJson(), {
         'Body': {
           'GetAccountInfoRequest': {
             '_jsns': 'urn:zimbraAccount',
             'account': {
-              'by': AcccountBy.name.name,
+              'by': AccountBy.name.name,
               '_content': name,
             },
           }

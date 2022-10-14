@@ -16,7 +16,7 @@ void main() {
       final virtualHost = faker.internet.domainName();
       final dryRun = faker.randomGenerator.boolean();
 
-      final account = AccountSelector(AcccountBy.name, email);
+      final account = AccountSelector(AccountBy.name, email);
 
       final request = ChangePasswordRequest(account, oldPassword, password, virtualHost: virtualHost, dryRun: dryRun);
 
@@ -25,7 +25,7 @@ void main() {
           'ChangePasswordRequest': {
             '_jsns': 'urn:zimbraAccount',
             'account': {
-              'by': AcccountBy.name.name,
+              'by': AccountBy.name.name,
               '_content': email,
             },
             'oldPassword': {

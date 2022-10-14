@@ -53,7 +53,7 @@ void main() {
       final modified = faker.randomGenerator.integer(100);
       final permDenied = faker.randomGenerator.boolean();
 
-      final account = AccountSelector(AcccountBy.name, email);
+      final account = AccountSelector(AccountBy.name, email);
       final preauth = PreAuth(account, preauthKey, timestamp: timestamp, expiresTimestamp: expiresTimestamp);
       final authToken = AuthToken(token, lifetime: lifetime, verifyAccount: verifyAccount);
       final prefs = <Pref>[Pref(name, value, modified: modified)];
@@ -84,7 +84,7 @@ void main() {
         'persistAuthTokenCookie': persistAuthTokenCookie,
         'csrfTokenSecured': csrfSupported,
         'account': {
-          'by': AcccountBy.name.name,
+          'by': AccountBy.name.name,
           '_content': email,
         },
         'password': password,

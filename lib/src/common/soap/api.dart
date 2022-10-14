@@ -36,7 +36,7 @@ abstract class Api {
               header: SoapHeader(
                 context: Context(
                   authToken: _authToken,
-                  account: _targetAccount != null ? AccountInfo(AcccountBy.name, _targetAccount!) : null,
+                  account: _targetAccount != null ? AccountInfo(AccountBy.name, _targetAccount!) : null,
                   session: _sessionId != null ? SessionInfo(sessionId: _sessionId, value: _sessionId) : null,
                   userAgent: (_userAgentName != null || _userAgentVersion != null)
                       ? UserAgentInfo(name: _userAgentName, version: _userAgentVersion)

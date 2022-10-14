@@ -20,7 +20,7 @@ void main() {
 
       final request = GetShareInfoRequest(
           grantee: GranteeChooser(type: type, id: id, name: name),
-          owner: AccountSelector(AcccountBy.name, name),
+          owner: AccountSelector(AccountBy.name, name),
           internal: internal,
           includeSelf: includeSelf);
       expect(request.getEnvelope().toJson(), {
@@ -33,7 +33,7 @@ void main() {
               'name': name,
             },
             'owner': {
-              'by': AcccountBy.name.name,
+              'by': AccountBy.name.name,
               '_content': name,
             },
             'internal': internal,

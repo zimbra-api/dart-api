@@ -55,9 +55,9 @@ class RecurrenceInfo {
         dates: (json['dates'] is Iterable)
             ? List.from((json['dates'] as Iterable).map<SingleDates>((dates) => SingleDates.fromJson(dates)))
             : [],
-        simple: (json['simple'] is Iterable)
+        simple: (json['rule'] is Iterable)
             ? List.from(
-                (json['simple'] as Iterable).map<SimpleRepeatingRule>((simple) => SimpleRepeatingRule.fromJson(simple)))
+                (json['rule'] as Iterable).map<SimpleRepeatingRule>((simple) => SimpleRepeatingRule.fromJson(simple)))
             : [],
       );
 

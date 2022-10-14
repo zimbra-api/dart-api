@@ -2,18 +2,15 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
-enum RangeType {
-  none,
+enum RecurrenceRange {
   thisAndFuture,
   thisAndPrior;
 
   String get name {
     switch (this) {
-      case RangeType.none:
-        return 'NONE';
-      case RangeType.thisAndFuture:
+      case RecurrenceRange.thisAndFuture:
         return 'THISANDFUTURE';
-      case RangeType.thisAndPrior:
+      case RecurrenceRange.thisAndPrior:
         return 'THISANDPRIOR';
     }
   }

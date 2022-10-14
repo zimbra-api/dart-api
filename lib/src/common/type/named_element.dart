@@ -10,6 +10,6 @@ class NamedElement {
   factory NamedElement.fromJson(Map<String, dynamic> json) => NamedElement(name: json['name']);
 
   Map<String, dynamic> toJson() => {
-        'name': name,
+        if (name != null) 'name': name,
       };
 }

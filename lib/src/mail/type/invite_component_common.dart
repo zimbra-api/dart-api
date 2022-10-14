@@ -141,6 +141,7 @@ class InviteComponentCommon {
         location: json['loc'],
         percentComplete: json['percentComplete'],
         completed: json['completed'],
+        noBlob: json['noBlob'],
         freeBusyActual: FreeBusyStatus.values.firstWhere(
           (item) => item.name == json['fba'],
           orElse: () => FreeBusyStatus.free,

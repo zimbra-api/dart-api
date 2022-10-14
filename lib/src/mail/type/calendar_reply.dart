@@ -42,7 +42,7 @@ class CalendarReply extends RecurIdInfo {
 
   @override
   Map<String, dynamic> toJson() => {
-        'rangeType': RecurIdInfo.rangeTypes.contains(recurrenceRangeType) ? recurrenceRangeType : 1,
+        'rangeType': recurrenceRangeType,
         'recurId': recurrenceId,
         'seq': seq,
         'd': date,

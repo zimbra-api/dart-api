@@ -4,9 +4,6 @@
 
 /// Recurrence ID Information
 class RecurIdInfo {
-  /// NONE, THISANDFUTURE, THISANDPRIOR
-  static const rangeTypes = <int>[1, 2, 3];
-
   /// Recurrence range type
   final int recurrenceRangeType;
 
@@ -26,7 +23,7 @@ class RecurIdInfo {
       RecurIdInfo(json['rangeType'] ?? 1, json['recurId'] ?? '', timezone: json['tz'], recurIdZ: json['ridZ']);
 
   Map<String, dynamic> toJson() => {
-        'rangeType': rangeTypes.contains(recurrenceRangeType) ? recurrenceRangeType : 1,
+        'rangeType': recurrenceRangeType,
         'recurId': recurrenceId,
         if (timezone != null) 'tz': timezone,
         if (recurIdZ != null) 'ridZ': recurIdZ,

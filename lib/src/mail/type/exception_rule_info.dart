@@ -25,7 +25,7 @@ class ExceptionRuleInfo extends RecurIdInfo {
 
   @override
   Map<String, dynamic> toJson() => {
-        'rangeType': RecurIdInfo.rangeTypes.contains(recurrenceRangeType) ? recurrenceRangeType : 1,
+        'rangeType': recurrenceRangeType,
         'recurId': recurrenceId,
         if (timezone != null) 'tz': timezone,
         if (recurIdZ != null) 'ridZ': recurIdZ,

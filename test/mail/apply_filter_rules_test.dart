@@ -52,6 +52,9 @@ void main() {
         }
       };
       final envelope = ApplyFilterRulesEnvelope.fromJson(json);
+      final response = envelope.applyFilterRulesBody.applyFilterRulesResponse!;
+      final msgIds = response.msgIds!;
+      expect(msgIds.ids, ids);
     }));
   }));
 }

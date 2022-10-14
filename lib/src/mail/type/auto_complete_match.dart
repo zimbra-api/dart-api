@@ -100,7 +100,7 @@ class AutoCompleteMatch {
         if (folder != null) 'l': folder,
         if (displayName != null) 'display': displayName,
         if (firstName != null) 'first': firstName,
-        if (middleName != null) 'middleid': middleName,
+        if (middleName != null) 'middle': middleName,
         if (lastName != null) 'last': lastName,
         if (fullName != null) 'full': fullName,
         if (nickName != null) 'nick': nickName,

@@ -57,7 +57,7 @@ class AccountYabDataSource extends AccountDataSource {
         replyToDisplay: json['replyToDisplay'],
         importClass: json['importClass'],
         failingSince: json['failingSince'],
-        lastError: json['lastError'] != null ? json['lastError']['_content'] : null,
+        lastError: json['lastError']?['_content'],
         attributes: (json['a'] is Iterable) ? List.from((json['a'] as Iterable).map((a) => a['_content'])) : [],
         refreshToken: json['refreshToken'],
         refreshTokenUrl: json['refreshTokenUrl'],

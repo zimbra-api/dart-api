@@ -13,7 +13,6 @@ class CreateContactResponse extends SoapResponse {
 
   CreateContactResponse({this.contact});
 
-  factory CreateContactResponse.fromJson(Map<String, dynamic> json) => CreateContactResponse(
-        contact: json['cn'] is Map ? ContactInfo.fromJson(json['cn']) : null,
-      );
+  factory CreateContactResponse.fromJson(Map<String, dynamic> json) =>
+      CreateContactResponse(contact: json['cn'] is Map ? ContactInfo.fromJson(json['cn']) : null);
 }

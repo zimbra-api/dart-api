@@ -17,12 +17,11 @@ class CreateAppointmentExceptionResponse extends CreateCalendarItemResponse {
       super.echo});
 
   factory CreateAppointmentExceptionResponse.fromJson(Map<String, dynamic> json) => CreateAppointmentExceptionResponse(
-        calItemId: json['calItemId'],
-        deprecatedApptId: json['apptId'],
-        calInvId: json['invId'],
-        modifiedSequence: json['ms'],
-        revision: json['rev'],
-        msg: json['m'] is Map ? Id.fromJson(json['m']) : null,
-        echo: json['echo'] is Map ? CalEcho.fromJson(json['echo']) : null,
-      );
+      calItemId: json['calItemId'],
+      deprecatedApptId: json['apptId'],
+      calInvId: json['invId'],
+      modifiedSequence: json['ms'],
+      revision: json['rev'],
+      msg: json['m'] is Map ? Id.fromJson(json['m']) : null,
+      echo: json['echo'] is Map ? CalEcho.fromJson(json['echo']) : null);
 }

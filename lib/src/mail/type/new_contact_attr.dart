@@ -10,7 +10,7 @@ class NewContactAttr {
   /// Upload ID
   final String? attachId;
 
-  /// Item ID.  Used in combination with subpart-name
+  /// Item ID. Used in combination with subpart-name
   final int? id;
 
   /// Subpart Name

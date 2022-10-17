@@ -75,7 +75,7 @@ void main() {
       final addr = faker.internet.email();
 
       final folderId = faker.guid.guid();
-      final enabled = faker.randomGenerator.boolean();
+      final isEnabled = faker.randomGenerator.boolean();
       final importOnly = faker.randomGenerator.boolean();
       final host = faker.internet.ipv4Address();
       final port = faker.randomGenerator.integer(100);
@@ -99,7 +99,7 @@ void main() {
         'id': id,
         'name': name,
         'l': folderId,
-        'isEnabled': enabled,
+        'isEnabled': isEnabled,
         'importOnly': importOnly,
         'host': host,
         'port': port,

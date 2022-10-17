@@ -15,7 +15,7 @@ class AccountDataSource {
   final String? folderId;
 
   /// Flag whether or not the data source is enabled
-  final bool? enabled;
+  final bool? isEnabled;
 
   /// indicates that this datasource is used for one way (incoming) import versus two-way sync
   final bool? importOnly;
@@ -84,7 +84,7 @@ class AccountDataSource {
       {this.id,
       this.name,
       this.folderId,
-      this.enabled,
+      this.isEnabled,
       this.importOnly,
       this.host,
       this.port,
@@ -110,7 +110,7 @@ class AccountDataSource {
         id: json['id'],
         name: json['name'],
         folderId: json['l'],
-        enabled: json['isEnabled'],
+        isEnabled: json['isEnabled'],
         importOnly: json['importOnly'],
         host: json['host'],
         port: json['port'],
@@ -140,7 +140,7 @@ class AccountDataSource {
         if (id != null) 'id': id,
         if (name != null) 'name': name,
         if (folderId != null) 'l': folderId,
-        if (enabled != null) 'isEnabled': enabled,
+        if (isEnabled != null) 'isEnabled': isEnabled,
         if (importOnly != null) 'importOnly': importOnly,
         if (host != null) 'host': host,
         if (port != null) 'port': port,

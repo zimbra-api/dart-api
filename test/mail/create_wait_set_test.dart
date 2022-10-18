@@ -27,7 +27,6 @@ void main() {
         faker.guid.guid(),
         faker.guid.guid(),
       ].join(',');
-      print(defaultInterests);
 
       final request = CreateWaitSetRequest(
         defaultInterests: defaultInterests,

@@ -13,7 +13,10 @@ void main() {
     test('Conv action request', (() {
       final ids = [faker.guid.guid(), faker.guid.guid(), faker.guid.guid()].join(',');
       final operation = faker.randomGenerator.element(ConvAction.values).name;
-      final constraint = random.amount((_) => ActionConstraint.values, 5).join(',');
+      final constraint = random
+          .amount((_) => random.element(ActionConstraint.values).name, ActionConstraint.values.length)
+          .toSet()
+          .join(',');
       final tag = faker.randomGenerator.integer(100);
       final folder = faker.guid.guid();
       final rgb = faker.randomGenerator.fromPatternToHex(['######']);

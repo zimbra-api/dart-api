@@ -30,7 +30,6 @@ void main() {
           .amount((_) => random.element(ActionGrantRight.values).name, ActionGrantRight.values.length)
           .toSet()
           .join(',');
-      ;
       final zimbraId = faker.guid.guid();
       final displayName = faker.person.name();
       final args = faker.lorem.word();

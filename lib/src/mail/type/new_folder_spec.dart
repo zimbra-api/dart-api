@@ -51,9 +51,9 @@ class NewFolderSpec {
       this.syncToUrl,
       this.grants = const []});
 
-  factory NewFolderSpec.fromJson(Map<String, dynamic> json) => NewFolderSpec(json['name'],
+  factory NewFolderSpec.fromJson(Map<String, dynamic> json) => NewFolderSpec(json['name'] ?? '',
       defaultView: ViewType.values.firstWhere(
-        (gt) => gt.name == json['view'],
+        (view) => view.name == json['view'],
         orElse: () => ViewType.conversation,
       ),
       flags: json['f'],

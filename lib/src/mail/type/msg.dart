@@ -81,32 +81,31 @@ class Msg {
   });
 
   factory Msg.fromJson(Map<String, dynamic> json) => Msg(
-        attachmentId: json['aid'],
-        origId: json['origid'],
-        replyType: ReplyType.values.firstWhere(
-          (item) => item.name == json['rt'],
-          orElse: () => ReplyType.replied,
-        ),
-        identityId: json['idnt'],
-        subject: json['su'],
-        headers: (json['header'] is Iterable)
-            ? List.from((json['header'] as Iterable).map<Header>((header) => Header.fromJson(header)))
-            : [],
-        inReplyTo: json['irt'],
-        folderId: json['l'],
-        flags: json['f'],
-        content: json['content']?['_content'],
-        mimePart: (json['mp'] is Map) ? MimePartInfo.fromJson(json['mp']) : null,
-        attachments: (json['attach'] is Map) ? AttachmentsInfo.fromJson(json['attach']) : null,
-        invite: (json['inv'] is Map) ? InvitationInfo.fromJson(json['inv']) : null,
-        emailAddresses: (json['e'] is Iterable)
-            ? List.from((json['e'] as Iterable).map<EmailAddrInfo>((e) => EmailAddrInfo.fromJson(e)))
-            : [],
-        timezones: (json['tz'] is Iterable)
-            ? List.from((json['tz'] as Iterable).map<CalTZInfo>((tz) => CalTZInfo.fromJson(tz)))
-            : [],
-        fragment: json['fr']?['_content'],
-      );
+      attachmentId: json['aid'],
+      origId: json['origid'],
+      replyType: ReplyType.values.firstWhere(
+        (item) => item.name == json['rt'],
+        orElse: () => ReplyType.replied,
+      ),
+      identityId: json['idnt'],
+      subject: json['su'],
+      headers: (json['header'] is Iterable)
+          ? List.from((json['header'] as Iterable).map<Header>((header) => Header.fromJson(header)))
+          : [],
+      inReplyTo: json['irt'],
+      folderId: json['l'],
+      flags: json['f'],
+      content: json['content']?['_content'],
+      mimePart: (json['mp'] is Map) ? MimePartInfo.fromJson(json['mp']) : null,
+      attachments: (json['attach'] is Map) ? AttachmentsInfo.fromJson(json['attach']) : null,
+      invite: (json['inv'] is Map) ? InvitationInfo.fromJson(json['inv']) : null,
+      emailAddresses: (json['e'] is Iterable)
+          ? List.from((json['e'] as Iterable).map<EmailAddrInfo>((e) => EmailAddrInfo.fromJson(e)))
+          : [],
+      timezones: (json['tz'] is Iterable)
+          ? List.from((json['tz'] as Iterable).map<CalTZInfo>((tz) => CalTZInfo.fromJson(tz)))
+          : [],
+      fragment: json['fr']?['_content']);
 
   Map<String, dynamic> toJson() => {
         if (attachmentId != null) 'aid': attachmentId,

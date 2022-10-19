@@ -44,29 +44,27 @@ class MessageSummary extends MessageCommon {
       super.modifiedSequence,
       super.metadatas = const []});
 
-  factory MessageSummary.fromJson(Map<String, dynamic> json) => MessageSummary(
-        json['id'] ?? '',
-        autoSendTime: json['autoSendTime'],
-        emails: (json['e'] is Iterable)
-            ? List.from((json['e'] as Iterable).map<EmailInfo>((e) => EmailInfo.fromJson(e)))
-            : [],
-        subject: json['su']?['_content'],
-        fragment: json['fr']?['_content'],
-        invite: json['inv'] is Map ? InviteInfo.fromJson(json['inv']) : null,
-        size: json['s'],
-        date: json['d'],
-        folder: json['l'],
-        conversationId: json['cid'],
-        flags: json['f'],
-        tags: json['t'],
-        tagNames: json['tn'],
-        revision: json['rev'],
-        changeDate: json['md'],
-        modifiedSequence: json['ms'],
-        metadatas: (json['meta'] is Iterable)
-            ? List.from((json['meta'] as Iterable).map<MailCustomMetadata>((meta) => MailCustomMetadata.fromJson(meta)))
-            : [],
-      );
+  factory MessageSummary.fromJson(Map<String, dynamic> json) => MessageSummary(json['id'] ?? '',
+      autoSendTime: json['autoSendTime'],
+      emails: (json['e'] is Iterable)
+          ? List.from((json['e'] as Iterable).map<EmailInfo>((e) => EmailInfo.fromJson(e)))
+          : [],
+      subject: json['su']?['_content'],
+      fragment: json['fr']?['_content'],
+      invite: json['inv'] is Map ? InviteInfo.fromJson(json['inv']) : null,
+      size: json['s'],
+      date: json['d'],
+      folder: json['l'],
+      conversationId: json['cid'],
+      flags: json['f'],
+      tags: json['t'],
+      tagNames: json['tn'],
+      revision: json['rev'],
+      changeDate: json['md'],
+      modifiedSequence: json['ms'],
+      metadatas: (json['meta'] is Iterable)
+          ? List.from((json['meta'] as Iterable).map<MailCustomMetadata>((meta) => MailCustomMetadata.fromJson(meta)))
+          : []);
 
   @override
   Map<String, dynamic> toJson() => {

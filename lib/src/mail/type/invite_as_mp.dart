@@ -72,42 +72,41 @@ class InviteAsMP extends MessageCommon {
       super.metadatas = const []});
 
   factory InviteAsMP.fromJson(Map<String, dynamic> json) => InviteAsMP(
-        id: json['id'],
-        part: json['part'],
-        sentDate: json['sd'],
-        emails: (json['e'] is Iterable)
-            ? List.from((json['e'] as Iterable).map<EmailInfo>((e) => EmailInfo.fromJson(e)))
-            : [],
-        subject: json['su']?['_content'],
-        messageIdHeader: json['mid']?['_content'],
-        invite: (json['inv'] is Map) ? MPInviteInfo.fromJson(json['inv']) : null,
-        headers: (json['header'] is Iterable)
-            ? List.from((json['header'] as Iterable).map<KeyValuePair>((header) => KeyValuePair.fromJson(header)))
-            : [],
-        mpContentElems: (json['mp'] is Iterable)
-            ? List.from((json['mp'] as Iterable).map<PartInfo>((mp) => PartInfo.fromJson(mp)))
-            : [],
-        shrContentElems: (json['shr'] is Iterable)
-            ? List.from((json['shr'] as Iterable).map<ShareNotification>((shr) => ShareNotification.fromJson(shr)))
-            : [],
-        dlSubsContentElems: (json['dlSubs'] is Iterable)
-            ? List.from((json['dlSubs'] as Iterable)
-                .map<DLSubscriptionNotification>((dlSubs) => DLSubscriptionNotification.fromJson(dlSubs)))
-            : [],
-        size: json['s'],
-        date: json['d'],
-        folder: json['l'],
-        conversationId: json['cid'],
-        flags: json['f'],
-        tags: json['t'],
-        tagNames: json['tn'],
-        revision: json['rev'],
-        changeDate: json['md'],
-        modifiedSequence: json['ms'],
-        metadatas: (json['meta'] is Iterable)
-            ? List.from((json['meta'] as Iterable).map<MailCustomMetadata>((meta) => MailCustomMetadata.fromJson(meta)))
-            : [],
-      );
+      id: json['id'],
+      part: json['part'],
+      sentDate: json['sd'],
+      emails: (json['e'] is Iterable)
+          ? List.from((json['e'] as Iterable).map<EmailInfo>((e) => EmailInfo.fromJson(e)))
+          : [],
+      subject: json['su']?['_content'],
+      messageIdHeader: json['mid']?['_content'],
+      invite: (json['inv'] is Map) ? MPInviteInfo.fromJson(json['inv']) : null,
+      headers: (json['header'] is Iterable)
+          ? List.from((json['header'] as Iterable).map<KeyValuePair>((header) => KeyValuePair.fromJson(header)))
+          : [],
+      mpContentElems: (json['mp'] is Iterable)
+          ? List.from((json['mp'] as Iterable).map<PartInfo>((mp) => PartInfo.fromJson(mp)))
+          : [],
+      shrContentElems: (json['shr'] is Iterable)
+          ? List.from((json['shr'] as Iterable).map<ShareNotification>((shr) => ShareNotification.fromJson(shr)))
+          : [],
+      dlSubsContentElems: (json['dlSubs'] is Iterable)
+          ? List.from((json['dlSubs'] as Iterable)
+              .map<DLSubscriptionNotification>((dlSubs) => DLSubscriptionNotification.fromJson(dlSubs)))
+          : [],
+      size: json['s'],
+      date: json['d'],
+      folder: json['l'],
+      conversationId: json['cid'],
+      flags: json['f'],
+      tags: json['t'],
+      tagNames: json['tn'],
+      revision: json['rev'],
+      changeDate: json['md'],
+      modifiedSequence: json['ms'],
+      metadatas: (json['meta'] is Iterable)
+          ? List.from((json['meta'] as Iterable).map<MailCustomMetadata>((meta) => MailCustomMetadata.fromJson(meta)))
+          : []);
 
   @override
   Map<String, dynamic> toJson() => {

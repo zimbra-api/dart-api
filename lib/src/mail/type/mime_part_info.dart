@@ -23,14 +23,13 @@ class MimePartInfo {
   MimePartInfo({this.contentType, this.content, this.contentId, this.attachments, this.mimeParts = const []});
 
   factory MimePartInfo.fromJson(Map<String, dynamic> json) => MimePartInfo(
-        contentType: json['ct'],
-        content: json['content'],
-        contentId: json['ci'],
-        attachments: json['attach'] is Map ? AttachmentsInfo.fromJson(json['attach']) : null,
-        mimeParts: (json['mp'] is Iterable)
-            ? List.from((json['mp'] as Iterable).map<MimePartInfo>((mp) => MimePartInfo.fromJson(mp)))
-            : [],
-      );
+      contentType: json['ct'],
+      content: json['content'],
+      contentId: json['ci'],
+      attachments: json['attach'] is Map ? AttachmentsInfo.fromJson(json['attach']) : null,
+      mimeParts: (json['mp'] is Iterable)
+          ? List.from((json['mp'] as Iterable).map<MimePartInfo>((mp) => MimePartInfo.fromJson(mp)))
+          : []);
 
   Map<String, dynamic> toJson() => {
         if (contentType != null) 'ct': contentType,

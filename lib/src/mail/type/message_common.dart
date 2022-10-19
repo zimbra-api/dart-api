@@ -54,20 +54,19 @@ class MessageCommon {
       this.metadatas = const []});
 
   factory MessageCommon.fromJson(Map<String, dynamic> json) => MessageCommon(
-        size: json['s'],
-        date: json['d'],
-        folder: json['l'],
-        conversationId: json['cid'],
-        flags: json['f'],
-        tags: json['t'],
-        tagNames: json['tn'],
-        revision: json['rev'],
-        changeDate: json['md'],
-        modifiedSequence: json['ms'],
-        metadatas: (json['meta'] is Iterable)
-            ? List.from((json['meta'] as Iterable).map<MailCustomMetadata>((meta) => MailCustomMetadata.fromJson(meta)))
-            : [],
-      );
+      size: json['s'],
+      date: json['d'],
+      folder: json['l'],
+      conversationId: json['cid'],
+      flags: json['f'],
+      tags: json['t'],
+      tagNames: json['tn'],
+      revision: json['rev'],
+      changeDate: json['md'],
+      modifiedSequence: json['ms'],
+      metadatas: (json['meta'] is Iterable)
+          ? List.from((json['meta'] as Iterable).map<MailCustomMetadata>((meta) => MailCustomMetadata.fromJson(meta)))
+          : []);
 
   Map<String, dynamic> toJson() => {
         if (size != null) 's': size,

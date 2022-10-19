@@ -116,79 +116,78 @@ class InviteComponent extends InviteComponentCommon {
       super.changes});
 
   factory InviteComponent.fromJson(Map<String, dynamic> json) => InviteComponent(
-        categories: (json['category'] is Iterable)
-            ? List.from((json['category'] as Iterable).map<String>((category) => category['_content']))
-            : [],
-        comments: (json['comment'] is Iterable)
-            ? List.from((json['comment'] as Iterable).map<String>((comment) => comment['_content']))
-            : [],
-        contacts: (json['contact'] is Iterable)
-            ? List.from((json['contact'] as Iterable).map<String>((contact) => contact['_content']))
-            : [],
-        geo: json['geo'] is Map ? GeoInfo.fromJson(json['geo']) : null,
-        attendees: (json['at'] is Iterable)
-            ? List.from((json['at'] as Iterable).map<CalendarAttendee>((at) => CalendarAttendee.fromJson(at)))
-            : [],
-        alarms: (json['alarm'] is Iterable)
-            ? List.from((json['alarm'] as Iterable).map<AlarmInfo>((alarm) => AlarmInfo.fromJson(alarm)))
-            : [],
-        xProps: (json['xprop'] is Iterable)
-            ? List.from((json['xprop'] as Iterable).map<XProp>((xprop) => XProp.fromJson(xprop)))
-            : [],
-        fragment: json['fr']?['_content'],
-        description: json['desc']?['_content'],
-        htmlDescription: json['descHtml']?['_content'],
-        organizer: json['or'] is Map ? CalOrganizer.fromJson(json['or']) : null,
-        recurrence: json['recur'] is Map ? RecurrenceInfo.fromJson(json['recur']) : null,
-        exceptionId: json['exceptId'] is Map ? ExceptionRecurIdInfo.fromJson(json['exceptId']) : null,
-        dtStart: json['s'] is Map ? DtTimeInfo.fromJson(json['s']) : null,
-        dtEnd: json['e'] is Map ? DtTimeInfo.fromJson(json['e']) : null,
-        duration: json['dur'] is Map ? DurationInfo.fromJson(json['dur']) : null,
-        method: json['method'],
-        componentNum: json['compNum'],
-        rsvp: json['rsvp'],
-        priority: json['priority'],
-        name: json['name'],
-        location: json['loc'],
-        percentComplete: json['percentComplete'],
-        completed: json['completed'],
-        noBlob: json['noBlob'],
-        freeBusyActual: FreeBusyStatus.values.firstWhere(
-          (item) => item.name == json['fba'],
-          orElse: () => FreeBusyStatus.free,
-        ),
-        freeBusy: FreeBusyStatus.values.firstWhere(
-          (item) => item.name == json['fb'],
-          orElse: () => FreeBusyStatus.free,
-        ),
-        transparency: Transparency.values.firstWhere(
-          (item) => item.name == json['transp'],
-          orElse: () => Transparency.opaque,
-        ),
-        isOrganizer: json['isOrg'],
-        xUid: json['x_uid'],
-        uid: json['uid'],
-        sequence: json['seq'],
-        dateTime: json['d'],
-        calItemId: json['calItemId'],
-        deprecatedApptId: json['apptId'],
-        calItemFolder: json['ciFolder'],
-        status: InviteStatus.values.firstWhere(
-          (item) => item.name == json['status'],
-          orElse: () => InviteStatus.inprogress,
-        ),
-        calClass: InviteClass.values.firstWhere(
-          (item) => item.name == json['class'],
-          orElse: () => InviteClass.public,
-        ),
-        url: json['url'],
-        isException: json['ex'],
-        recurIdZ: json['ridZ'],
-        isAllDay: json['allDay'],
-        isDraft: json['draft'],
-        neverSent: json['neverSent'],
-        changes: json['changes'],
-      );
+      categories: (json['category'] is Iterable)
+          ? List.from((json['category'] as Iterable).map<String>((category) => category['_content']))
+          : [],
+      comments: (json['comment'] is Iterable)
+          ? List.from((json['comment'] as Iterable).map<String>((comment) => comment['_content']))
+          : [],
+      contacts: (json['contact'] is Iterable)
+          ? List.from((json['contact'] as Iterable).map<String>((contact) => contact['_content']))
+          : [],
+      geo: json['geo'] is Map ? GeoInfo.fromJson(json['geo']) : null,
+      attendees: (json['at'] is Iterable)
+          ? List.from((json['at'] as Iterable).map<CalendarAttendee>((at) => CalendarAttendee.fromJson(at)))
+          : [],
+      alarms: (json['alarm'] is Iterable)
+          ? List.from((json['alarm'] as Iterable).map<AlarmInfo>((alarm) => AlarmInfo.fromJson(alarm)))
+          : [],
+      xProps: (json['xprop'] is Iterable)
+          ? List.from((json['xprop'] as Iterable).map<XProp>((xprop) => XProp.fromJson(xprop)))
+          : [],
+      fragment: json['fr']?['_content'],
+      description: json['desc']?['_content'],
+      htmlDescription: json['descHtml']?['_content'],
+      organizer: json['or'] is Map ? CalOrganizer.fromJson(json['or']) : null,
+      recurrence: json['recur'] is Map ? RecurrenceInfo.fromJson(json['recur']) : null,
+      exceptionId: json['exceptId'] is Map ? ExceptionRecurIdInfo.fromJson(json['exceptId']) : null,
+      dtStart: json['s'] is Map ? DtTimeInfo.fromJson(json['s']) : null,
+      dtEnd: json['e'] is Map ? DtTimeInfo.fromJson(json['e']) : null,
+      duration: json['dur'] is Map ? DurationInfo.fromJson(json['dur']) : null,
+      method: json['method'],
+      componentNum: json['compNum'],
+      rsvp: json['rsvp'],
+      priority: json['priority'],
+      name: json['name'],
+      location: json['loc'],
+      percentComplete: json['percentComplete'],
+      completed: json['completed'],
+      noBlob: json['noBlob'],
+      freeBusyActual: FreeBusyStatus.values.firstWhere(
+        (item) => item.name == json['fba'],
+        orElse: () => FreeBusyStatus.free,
+      ),
+      freeBusy: FreeBusyStatus.values.firstWhere(
+        (item) => item.name == json['fb'],
+        orElse: () => FreeBusyStatus.free,
+      ),
+      transparency: Transparency.values.firstWhere(
+        (item) => item.name == json['transp'],
+        orElse: () => Transparency.opaque,
+      ),
+      isOrganizer: json['isOrg'],
+      xUid: json['x_uid'],
+      uid: json['uid'],
+      sequence: json['seq'],
+      dateTime: json['d'],
+      calItemId: json['calItemId'],
+      deprecatedApptId: json['apptId'],
+      calItemFolder: json['ciFolder'],
+      status: InviteStatus.values.firstWhere(
+        (item) => item.name == json['status'],
+        orElse: () => InviteStatus.inprogress,
+      ),
+      calClass: InviteClass.values.firstWhere(
+        (item) => item.name == json['class'],
+        orElse: () => InviteClass.public,
+      ),
+      url: json['url'],
+      isException: json['ex'],
+      recurIdZ: json['ridZ'],
+      isAllDay: json['allDay'],
+      isDraft: json['draft'],
+      neverSent: json['neverSent'],
+      changes: json['changes']);
 
   @override
   Map<String, dynamic> toJson() => {

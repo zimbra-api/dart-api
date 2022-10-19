@@ -49,7 +49,7 @@ class DurationInfo {
         minutes: json['m'],
         seconds: json['s'],
         related: AlarmRelated.values.firstWhere(
-          (item) => item.name == json['related'],
+          (related) => related.name == json['related'],
           orElse: () => AlarmRelated.start,
         ),
         repeatCount: json['count'],

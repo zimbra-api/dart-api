@@ -9,4 +9,37 @@
 /// d:   include items in Drafts folder
 /// o:   include items in any other folder
 /// A leading '-' means to negate the constraint (e.g. "-t" means all messages not in Trash)
-enum ActionConstraint { t, j, s, d, o }
+enum ActionConstraint {
+  trash,
+  notTrash,
+  junk,
+  notJunk,
+  sent,
+  notSent,
+  drafts,
+  notDrafts,
+  other;
+
+  String get name {
+    switch (this) {
+      case ActionConstraint.trash:
+        return 't';
+      case ActionConstraint.notTrash:
+        return '-t';
+      case ActionConstraint.junk:
+        return 'j';
+      case ActionConstraint.notJunk:
+        return '-j';
+      case ActionConstraint.sent:
+        return 's';
+      case ActionConstraint.notSent:
+        return '-s';
+      case ActionConstraint.drafts:
+        return 'd';
+      case ActionConstraint.notDrafts:
+        return '-d';
+      case ActionConstraint.other:
+        return 'o';
+    }
+  }
+}

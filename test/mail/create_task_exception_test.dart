@@ -115,6 +115,7 @@ void main() {
       final path = faker.lorem.word();
       final version = faker.randomGenerator.integer(100);
 
+      final partStat = faker.randomGenerator.element(ParticipationStatus.values);
       final method = faker.lorem.word();
       final componentNum = faker.randomGenerator.integer(100);
       final rsvp = faker.randomGenerator.boolean();
@@ -303,7 +304,7 @@ void main() {
                 language: language,
                 cuType: cuType,
                 role: role,
-                partStat: ParticipationStatus.accept,
+                partStat: partStat,
                 rsvp: rsvp,
                 member: member,
                 delegatedTo: delegatedTo,
@@ -338,7 +339,7 @@ void main() {
                     language: language,
                     cuType: cuType,
                     role: role,
-                    partStat: ParticipationStatus.accept,
+                    partStat: partStat,
                     rsvp: rsvp,
                     member: member,
                     delegatedTo: delegatedTo,
@@ -693,7 +694,7 @@ void main() {
                     'lang': language,
                     'cutype': cuType,
                     'role': role,
-                    'ptst': ParticipationStatus.accept.name,
+                    'ptst': partStat.name,
                     'rsvp': rsvp,
                     'member': member,
                     'delegatedTo': delegatedTo,
@@ -744,7 +745,7 @@ void main() {
                         'lang': language,
                         'cutype': cuType,
                         'role': role,
-                        'ptst': ParticipationStatus.accept.name,
+                        'ptst': partStat.name,
                         'rsvp': rsvp,
                         'member': member,
                         'delegatedTo': delegatedTo,
@@ -1092,6 +1093,7 @@ void main() {
       final list = faker.randomGenerator.amount((_) => random.integer(10), 10).join(',');
       final ordWk = faker.randomGenerator.integer(100);
 
+      final partStat = faker.randomGenerator.element(ParticipationStatus.values);
       final method = faker.lorem.word();
       final componentNum = faker.randomGenerator.integer(100);
       final rsvp = faker.randomGenerator.boolean();
@@ -1185,7 +1187,7 @@ void main() {
                         'd': date,
                         'at': attendee,
                         'sentBy': sentBy,
-                        'ptst': ParticipationStatus.accept.name,
+                        'ptst': partStat.name,
                         'tz': timezone,
                         'ridZ': recurIdZ,
                       }
@@ -1216,7 +1218,7 @@ void main() {
                           'lang': language,
                           'cutype': cuType,
                           'role': role,
-                          'ptst': ParticipationStatus.accept.name,
+                          'ptst': partStat.name,
                           'rsvp': rsvp,
                           'member': member,
                           'delegatedTo': delegatedTo,
@@ -1267,7 +1269,7 @@ void main() {
                               'lang': language,
                               'cutype': cuType,
                               'role': role,
-                              'ptst': ParticipationStatus.accept.name,
+                              'ptst': partStat.name,
                               'rsvp': rsvp,
                               'member': member,
                               'delegatedTo': delegatedTo,
@@ -1669,7 +1671,7 @@ void main() {
       expect(reply.date, date);
       expect(reply.attendee, attendee);
       expect(reply.sentBy, sentBy);
-      expect(reply.partStat, ParticipationStatus.accept);
+      expect(reply.partStat, partStat);
       expect(reply.timezone, timezone);
       expect(reply.recurIdZ, recurIdZ);
 
@@ -1725,7 +1727,7 @@ void main() {
       expect(compAt.language, language);
       expect(compAt.cuType, cuType);
       expect(compAt.role, role);
-      expect(compAt.partStat, ParticipationStatus.accept);
+      expect(compAt.partStat, partStat);
       expect(compAt.rsvp, rsvp);
       expect(compAt.member, member);
       expect(compAt.delegatedTo, delegatedTo);
@@ -1750,7 +1752,7 @@ void main() {
       expect(alarmAt.language, language);
       expect(alarmAt.cuType, cuType);
       expect(alarmAt.role, role);
-      expect(alarmAt.partStat, ParticipationStatus.accept);
+      expect(alarmAt.partStat, partStat);
       expect(alarmAt.rsvp, rsvp);
       expect(alarmAt.member, member);
       expect(alarmAt.delegatedTo, delegatedTo);

@@ -150,6 +150,7 @@ void main() {
       final list = faker.randomGenerator.amount((_) => random.integer(10), 10).join(',');
       final ordWk = faker.randomGenerator.integer(100);
 
+      final partStat = faker.randomGenerator.element(ParticipationStatus.values);
       final method = faker.lorem.word();
       final componentNum = faker.randomGenerator.integer(100);
       final priority = faker.randomGenerator.integer(9).toString();
@@ -171,7 +172,7 @@ void main() {
       final changes = faker.lorem.words(3).join(',');
 
       final request = AddTaskInviteRequest(
-        partStat: ParticipationStatus.accept,
+        partStat: partStat,
         msg: Msg(
           attachmentId: attachmentId,
           origId: origId,
@@ -288,7 +289,7 @@ void main() {
                 language: language,
                 cuType: cuType,
                 role: role,
-                partStat: ParticipationStatus.accept,
+                partStat: partStat,
                 rsvp: rsvp,
                 member: member,
                 delegatedTo: delegatedTo,
@@ -323,7 +324,7 @@ void main() {
                     language: language,
                     cuType: cuType,
                     role: role,
-                    partStat: ParticipationStatus.accept,
+                    partStat: partStat,
                     rsvp: rsvp,
                     member: member,
                     delegatedTo: delegatedTo,
@@ -486,7 +487,7 @@ void main() {
         'Body': {
           'AddTaskInviteRequest': {
             '_jsns': 'urn:zimbraMail',
-            'ptst': ParticipationStatus.accept.name,
+            'ptst': partStat.name,
             'm': {
               'aid': attachmentId,
               'origid': origId,
@@ -675,7 +676,7 @@ void main() {
                     'lang': language,
                     'cutype': cuType,
                     'role': role,
-                    'ptst': ParticipationStatus.accept.name,
+                    'ptst': partStat.name,
                     'rsvp': rsvp,
                     'member': member,
                     'delegatedTo': delegatedTo,
@@ -726,7 +727,7 @@ void main() {
                         'lang': language,
                         'cutype': cuType,
                         'role': role,
-                        'ptst': ParticipationStatus.accept.name,
+                        'ptst': partStat.name,
                         'rsvp': rsvp,
                         'member': member,
                         'delegatedTo': delegatedTo,

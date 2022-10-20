@@ -58,6 +58,7 @@ void main() {
       final latitude = faker.randomGenerator.decimal().toString();
       final longitude = faker.randomGenerator.decimal().toString();
 
+      final partStat = faker.randomGenerator.element(ParticipationStatus.values);
       final xUid = faker.guid.guid();
       final uid = faker.guid.guid();
       final flags = faker.lorem.word();
@@ -145,7 +146,7 @@ void main() {
                 'rev': revision,
                 'id': id,
                 'dur': duration,
-                'ptst': ParticipationStatus.inProcess.name,
+                'ptst': partStat.name,
                 'ridZ': recurIdZ,
                 'tzo': tzOffset,
                 'fba': FreeBusyStatus.free.name,
@@ -213,7 +214,7 @@ void main() {
                         'lang': language,
                         'cutype': cuType,
                         'role': role,
-                        'ptst': ParticipationStatus.inProcess.name,
+                        'ptst': partStat.name,
                         'rsvp': rsvp,
                         'member': member,
                         'delegatedTo': delegatedTo,
@@ -267,7 +268,7 @@ void main() {
                     },
                     'fr': {'_content': fragment},
                     'd': duration,
-                    'ptst': ParticipationStatus.inProcess.name,
+                    'ptst': partStat.name,
                     'ridZ': recurIdZ,
                     'tzo': tzOffset,
                     'fba': FreeBusyStatus.free.name,
@@ -309,7 +310,7 @@ void main() {
                 'rev': revision,
                 'id': id,
                 'dur': duration,
-                'ptst': ParticipationStatus.inProcess.name,
+                'ptst': partStat.name,
                 'ridZ': recurIdZ,
                 'tzo': tzOffset,
                 'fba': FreeBusyStatus.free.name,
@@ -354,7 +355,7 @@ void main() {
       expect(appt.modifiedSequence, modifiedSequence);
       expect(appt.revision, revision);
       expect(appt.id, id);
-      expect(appt.partStat, ParticipationStatus.inProcess);
+      expect(appt.partStat, partStat);
       expect(appt.recurIdZ, recurIdZ);
       expect(appt.tzOffset, tzOffset);
       expect(appt.freeBusyActual, FreeBusyStatus.free);
@@ -399,7 +400,7 @@ void main() {
       expect(inst.fragment, fragment);
       expect(inst.isException, isException);
       expect(inst.duration, duration);
-      expect(inst.partStat, ParticipationStatus.inProcess);
+      expect(inst.partStat, partStat);
       expect(inst.recurIdZ, recurIdZ);
       expect(inst.tzOffset, tzOffset);
       expect(inst.freeBusyActual, FreeBusyStatus.free);
@@ -480,7 +481,7 @@ void main() {
       expect(at.language, language);
       expect(at.cuType, cuType);
       expect(at.role, role);
-      expect(at.partStat, ParticipationStatus.inProcess);
+      expect(at.partStat, partStat);
       expect(at.rsvp, rsvp);
       expect(at.member, member);
       expect(at.delegatedTo, delegatedTo);
@@ -507,7 +508,7 @@ void main() {
       expect(task.modifiedSequence, modifiedSequence);
       expect(task.revision, revision);
       expect(task.id, id);
-      expect(task.partStat, ParticipationStatus.inProcess);
+      expect(task.partStat, partStat);
       expect(task.recurIdZ, recurIdZ);
       expect(task.tzOffset, tzOffset);
       expect(task.freeBusyActual, FreeBusyStatus.free);

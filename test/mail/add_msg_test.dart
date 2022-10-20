@@ -147,6 +147,7 @@ void main() {
       final delegatedTo = faker.internet.email();
       final delegatedFrom = faker.internet.email();
 
+      final partStat = faker.randomGenerator.element(ParticipationStatus.values);
       final summary = faker.lorem.word();
       final description = faker.lorem.word();
       final htmlDescription = faker.lorem.word();
@@ -245,7 +246,7 @@ void main() {
                       'lang': language,
                       'cutype': cuType,
                       'role': role,
-                      'ptst': ParticipationStatus.accept.name,
+                      'ptst': partStat.name,
                       'rsvp': rsvp,
                       'member': member,
                       'delegatedTo': delegatedTo,
@@ -296,7 +297,7 @@ void main() {
                           'lang': language,
                           'cutype': cuType,
                           'role': role,
-                          'ptst': ParticipationStatus.accept.name,
+                          'ptst': partStat.name,
                           'rsvp': rsvp,
                           'member': member,
                           'delegatedTo': delegatedTo,
@@ -526,7 +527,7 @@ void main() {
                       'd': date,
                       'at': attendee,
                       'sentBy': sentBy,
-                      'ptst': ParticipationStatus.accept.name,
+                      'ptst': partStat.name,
                       'tz': timezone,
                       'ridZ': recurIdZ,
                     }
@@ -657,7 +658,7 @@ void main() {
       expect(reply.date, date);
       expect(reply.attendee, attendee);
       expect(reply.sentBy, sentBy);
-      expect(reply.partStat, ParticipationStatus.accept);
+      expect(reply.partStat, partStat);
       expect(reply.timezone, timezone);
       expect(reply.recurIdZ, recurIdZ);
 
@@ -714,7 +715,7 @@ void main() {
       expect(inviteAt.language, language);
       expect(inviteAt.cuType, cuType);
       expect(inviteAt.role, role);
-      expect(inviteAt.partStat, ParticipationStatus.accept);
+      expect(inviteAt.partStat, partStat);
       expect(inviteAt.rsvp, rsvp);
       expect(inviteAt.member, member);
       expect(inviteAt.delegatedTo, delegatedTo);
@@ -739,7 +740,7 @@ void main() {
       expect(alarmAt.language, language);
       expect(alarmAt.cuType, cuType);
       expect(alarmAt.role, role);
-      expect(alarmAt.partStat, ParticipationStatus.accept);
+      expect(alarmAt.partStat, partStat);
       expect(alarmAt.rsvp, rsvp);
       expect(alarmAt.member, member);
       expect(alarmAt.delegatedTo, delegatedTo);

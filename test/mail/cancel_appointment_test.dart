@@ -117,6 +117,7 @@ void main() {
       final path = faker.lorem.word();
       final version = faker.randomGenerator.integer(100);
 
+      final partStat = faker.randomGenerator.element(ParticipationStatus.values);
       final method = faker.lorem.word();
       final rsvp = faker.randomGenerator.boolean();
       final priority = faker.randomGenerator.integer(9).toString();
@@ -331,7 +332,7 @@ void main() {
                 language: language,
                 cuType: cuType,
                 role: role,
-                partStat: ParticipationStatus.accept,
+                partStat: partStat,
                 rsvp: rsvp,
                 member: member,
                 delegatedTo: delegatedTo,
@@ -366,7 +367,7 @@ void main() {
                     language: language,
                     cuType: cuType,
                     role: role,
-                    partStat: ParticipationStatus.accept,
+                    partStat: partStat,
                     rsvp: rsvp,
                     member: member,
                     delegatedTo: delegatedTo,
@@ -751,7 +752,7 @@ void main() {
                     'lang': language,
                     'cutype': cuType,
                     'role': role,
-                    'ptst': ParticipationStatus.accept.name,
+                    'ptst': partStat.name,
                     'rsvp': rsvp,
                     'member': member,
                     'delegatedTo': delegatedTo,
@@ -802,7 +803,7 @@ void main() {
                         'lang': language,
                         'cutype': cuType,
                         'role': role,
-                        'ptst': ParticipationStatus.accept.name,
+                        'ptst': partStat.name,
                         'rsvp': rsvp,
                         'member': member,
                         'delegatedTo': delegatedTo,

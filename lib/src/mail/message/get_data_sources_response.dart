@@ -48,31 +48,30 @@ class GetDataSourcesResponse extends SoapResponse {
       this.unknownDataSources = const []});
 
   factory GetDataSourcesResponse.fromJson(Map<String, dynamic> json) => GetDataSourcesResponse(
-        imapDataSources: (json['imap'] is Iterable)
-            ? List.from((json['imap'] as Iterable).map<MailImapDataSource>((imap) => MailImapDataSource.fromJson(imap)))
-            : [],
-        pop3DataSources: (json['pop3'] is Iterable)
-            ? List.from((json['pop3'] as Iterable).map<MailPop3DataSource>((pop3) => MailPop3DataSource.fromJson(pop3)))
-            : [],
-        caldavDataSources: (json['caldav'] is Iterable)
-            ? List.from((json['caldav'] as Iterable)
-                .map<MailCaldavDataSource>((caldav) => MailCaldavDataSource.fromJson(caldav)))
-            : [],
-        yabDataSources: (json['yab'] is Iterable)
-            ? List.from((json['yab'] as Iterable).map<MailYabDataSource>((yab) => MailYabDataSource.fromJson(yab)))
-            : [],
-        rssDataSources: (json['rss'] is Iterable)
-            ? List.from((json['rss'] as Iterable).map<MailRssDataSource>((rss) => MailRssDataSource.fromJson(rss)))
-            : [],
-        galDataSources: (json['gal'] is Iterable)
-            ? List.from((json['gal'] as Iterable).map<MailGalDataSource>((gal) => MailGalDataSource.fromJson(gal)))
-            : [],
-        calDataSources: (json['cal'] is Iterable)
-            ? List.from((json['cal'] as Iterable).map<MailCalDataSource>((cal) => MailCalDataSource.fromJson(cal)))
-            : [],
-        unknownDataSources: (json['unknown'] is Iterable)
-            ? List.from((json['unknown'] as Iterable)
-                .map<MailUnknownDataSource>((unknown) => MailUnknownDataSource.fromJson(unknown)))
-            : [],
-      );
+      imapDataSources: (json['imap'] is Iterable)
+          ? List.from((json['imap'] as Iterable).map<MailImapDataSource>((imap) => MailImapDataSource.fromJson(imap)))
+          : [],
+      pop3DataSources: (json['pop3'] is Iterable)
+          ? List.from((json['pop3'] as Iterable).map<MailPop3DataSource>((pop3) => MailPop3DataSource.fromJson(pop3)))
+          : [],
+      caldavDataSources: (json['caldav'] is Iterable)
+          ? List.from(
+              (json['caldav'] as Iterable).map<MailCaldavDataSource>((caldav) => MailCaldavDataSource.fromJson(caldav)))
+          : [],
+      yabDataSources: (json['yab'] is Iterable)
+          ? List.from((json['yab'] as Iterable).map<MailYabDataSource>((yab) => MailYabDataSource.fromJson(yab)))
+          : [],
+      rssDataSources: (json['rss'] is Iterable)
+          ? List.from((json['rss'] as Iterable).map<MailRssDataSource>((rss) => MailRssDataSource.fromJson(rss)))
+          : [],
+      galDataSources: (json['gal'] is Iterable)
+          ? List.from((json['gal'] as Iterable).map<MailGalDataSource>((gal) => MailGalDataSource.fromJson(gal)))
+          : [],
+      calDataSources: (json['cal'] is Iterable)
+          ? List.from((json['cal'] as Iterable).map<MailCalDataSource>((cal) => MailCalDataSource.fromJson(cal)))
+          : [],
+      unknownDataSources: (json['unknown'] is Iterable)
+          ? List.from((json['unknown'] as Iterable)
+              .map<MailUnknownDataSource>((unknown) => MailUnknownDataSource.fromJson(unknown)))
+          : []);
 }

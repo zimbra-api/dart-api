@@ -25,7 +25,7 @@ class MimeHeaderTest extends FilterTest {
       headers: json['header'],
       stringComparison: StringComparison.values.firstWhere(
         (comparison) => comparison.name == json['stringComparison'],
-        orElse: () => StringComparison.isA,
+        orElse: () => StringComparison.contains,
       ),
       value: json['value'],
       caseSensitive: json['caseSensitive'],

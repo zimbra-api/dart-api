@@ -27,7 +27,6 @@ class ReplaceheaderAction extends DeleteheaderAction {
         if (newName != null) 'newName': {'_content': newName},
         if (newValue != null) 'newValue': {'_content': newValue},
         if (last != null) 'last': last,
-        if (last != null) 'last': last,
         if (offset != null) 'offset': offset,
         if (test != null) 'test': test!.toJson(),
         if (index != null) 'index': index,

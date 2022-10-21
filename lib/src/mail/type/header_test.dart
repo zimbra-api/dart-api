@@ -46,7 +46,7 @@ class HeaderTest extends FilterTest {
       headers: json['header'],
       stringComparison: StringComparison.values.firstWhere(
         (comparison) => comparison.name == json['stringComparison'],
-        orElse: () => StringComparison.isA,
+        orElse: () => StringComparison.contains,
       ),
       valueComparison: ValueComparison.values.firstWhere(
         (comparison) => comparison.name == json['valueComparison'],

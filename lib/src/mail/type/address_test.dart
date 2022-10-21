@@ -54,7 +54,7 @@ class AddressTest extends FilterTest {
       ),
       stringComparison: StringComparison.values.firstWhere(
         (comparison) => comparison.name == json['stringComparison'],
-        orElse: () => StringComparison.isA,
+        orElse: () => StringComparison.contains,
       ),
       caseSensitive: json['caseSensitive'],
       value: json['value'],

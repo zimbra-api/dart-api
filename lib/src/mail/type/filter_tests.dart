@@ -162,7 +162,7 @@ class FilterTests {
                 (json['addressBookTest'] as Iterable).map<AddressBookTest>((test) => AddressBookTest.fromJson(test)))
             : [],
         addressTests: json['addressTest'] is Iterable
-            ? List.from((json['addressBookTest'] as Iterable).map<AddressTest>((test) => AddressTest.fromJson(test)))
+            ? List.from((json['addressTest'] as Iterable).map<AddressTest>((test) => AddressTest.fromJson(test)))
             : [],
         envelopeTests: json['envelopeTest'] is Iterable
             ? List.from((json['envelopeTest'] as Iterable).map<EnvelopeTest>((test) => EnvelopeTest.fromJson(test)))

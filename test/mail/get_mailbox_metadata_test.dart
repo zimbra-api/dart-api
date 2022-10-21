@@ -1,8 +1,6 @@
 import 'package:faker/faker.dart';
 import 'package:test/test.dart';
 import 'package:zimbra_api/src/common/type/section_attr.dart';
-import 'package:zimbra_api/src/mail/message/get_custom_metadata_envelope.dart';
-import 'package:zimbra_api/src/mail/message/get_custom_metadata_request.dart';
 import 'package:zimbra_api/src/mail/message/get_mailbox_metadata_envelope.dart';
 import 'package:zimbra_api/src/mail/message/get_mailbox_metadata_request.dart';
 

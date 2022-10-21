@@ -15,7 +15,9 @@ import 'package:zimbra_api/src/mail/message/add_msg_envelope.dart';
 import 'package:zimbra_api/src/mail/message/add_msg_request.dart';
 import 'package:zimbra_api/src/mail/type/add_msg_spec.dart';
 import 'package:zimbra_api/src/mail/type/add_recurrence_info.dart';
+import 'package:zimbra_api/src/mail/type/chat_summary.dart';
 import 'package:zimbra_api/src/mail/type/exclude_recurrence_info.dart';
+import 'package:zimbra_api/src/mail/type/message_summary.dart';
 import 'package:zimbra_api/src/mail/type/recurrence_info.dart';
 
 void main() {
@@ -178,7 +180,7 @@ void main() {
         'Body': {
           'AddMsgResponse': {
             '_jsns': 'urn:zimbraAccount',
-            'message': {
+            'm': {
               'id': id,
               'autoSendTime': autoSendTime,
               'e': [
@@ -580,6 +582,8 @@ void main() {
       final chatMessage = response.chatMessage!;
       final message = response.message!;
 
+      expect(chatMessage, isA<MessageSummary>());
+      expect(chatMessage, isA<ChatSummary>());
       expect(chatMessage.id, id);
       expect(chatMessage.autoSendTime, autoSendTime);
       expect(chatMessage.subject, subject);

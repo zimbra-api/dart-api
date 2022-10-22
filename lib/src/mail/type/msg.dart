@@ -84,7 +84,7 @@ class Msg {
       attachmentId: json['aid'],
       origId: json['origid'],
       replyType: ReplyType.values.firstWhere(
-        (item) => item.name == json['rt'],
+        (rt) => rt.name == json['rt'],
         orElse: () => ReplyType.replied,
       ),
       identityId: json['idnt'],

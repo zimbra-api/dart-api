@@ -24,7 +24,7 @@ class DtTimeInfo {
   /// Java timezone identifier
   final String? timezone;
 
-  /// UTC time as milliseconds since the epoch.  Set if non-all-day
+  /// UTC time as milliseconds since the epoch. Set if non-all-day
   final int? utcTime;
 
   DtTimeInfo({this.dateTime, this.timezone, this.utcTime});

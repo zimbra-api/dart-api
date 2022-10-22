@@ -13,6 +13,7 @@ import 'get_task_envelope.dart';
 /// Similar to GetAppointmentRequest/GetAppointmentResponse
 class GetTaskRequest extends GetCalendarItemRequestBase {
   GetTaskRequest({super.uid, super.id, super.sync, super.includeContent, super.includeInvites});
+
   @override
   SoapEnvelope getEnvelope({SoapHeader? header}) => GetTaskEnvelope(GetTaskBody(request: this), header: header);
 }

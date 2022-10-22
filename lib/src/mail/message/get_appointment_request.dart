@@ -11,13 +11,7 @@ import 'get_appointment_envelope.dart';
 
 /// Get Appointment. Returns the metadata info for each Invite that makes up super appointment.
 class GetAppointmentRequest extends GetCalendarItemRequestBase {
-  GetAppointmentRequest({
-    super.uid,
-    super.id,
-    super.sync,
-    super.includeContent,
-    super.includeInvites,
-  });
+  GetAppointmentRequest({super.uid, super.id, super.sync, super.includeContent, super.includeInvites});
 
   @override
   SoapEnvelope getEnvelope({SoapHeader? header}) =>

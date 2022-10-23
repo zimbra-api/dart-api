@@ -1,6 +1,5 @@
 import 'package:faker/faker.dart';
 import 'package:test/test.dart';
-import 'package:zimbra_api/src/mail/message/modify_profile_image_body.dart';
 import 'package:zimbra_api/src/mail/message/modify_profile_image_envelope.dart';
 import 'package:zimbra_api/src/mail/message/modify_profile_image_request.dart';
 

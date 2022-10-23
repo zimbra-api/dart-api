@@ -619,7 +619,6 @@ void main() {
     }));
 
     test('Modify data source response', (() {
-      final id = faker.guid.guid();
       final json = {
         'Body': {
           'ModifyDataSourceResponse': {

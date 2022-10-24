@@ -2,24 +2,24 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
-class IdEmailName {
+class IdVersionName {
   /// The id
   final String? id;
 
   /// The email
-  final String? email;
+  final int? version;
 
   /// The name
   final String? name;
 
-  IdEmailName({this.id, this.email, this.name});
+  IdVersionName({this.id, this.version, this.name});
 
-  factory IdEmailName.fromJson(Map<String, dynamic> json) =>
-      IdEmailName(id: json['id'], email: json['email'], name: json['name']);
+  factory IdVersionName.fromJson(Map<String, dynamic> json) =>
+      IdVersionName(id: json['id'], version: json['ver'], name: json['name']);
 
   Map<String, dynamic> toJson() => {
         if (id != null) 'id': id,
-        if (email != null) 'email': email,
+        if (version != null) 'ver': version,
         if (name != null) 'name': name,
       };
 }

@@ -1977,7 +1977,7 @@ void main() {
 
       final convItem = response.convItem!;
       expect(convItem.id, id);
-      expect(convItem.num, num);
+      expect(convItem.numMsg, num);
       expect(convItem.numUnread, numUnread);
       expect(convItem.totalSize, totalSize);
       expect(convItem.flags, flags);

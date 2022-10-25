@@ -2,74 +2,42 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
+import 'conversation_msg_hit_info.dart';
+import 'conversation_summary.dart';
 import 'email_info.dart';
 import 'mail_custom_metadata.dart';
 
 /// Conversation search result information
-class ConversationSummary {
-  /// Conversation ID
-  final String? id;
+class ConversationHitInfo extends ConversationSummary {
+  /// Sort field value
+  final String? sortField;
 
-  /// Number of messages in conversation without IMAP \Deleted flag set
-  final int? numMsg;
+  final List<ConversationMsgHitInfo> messageHits;
 
-  /// Number of unread messages in conversation
-  final int? numUnread;
+  ConversationHitInfo(
+      {this.sortField,
+      this.messageHits = const [],
+      super.id,
+      super.numMsg,
+      super.numUnread,
+      super.totalSize,
+      super.flags,
+      super.tags,
+      super.tagNames,
+      super.date,
+      super.elided,
+      super.changeDate,
+      super.modifiedSequence,
+      super.metadatas = const [],
+      super.subject,
+      super.fragment,
+      super.emails = const []});
 
-  /// Total number of messages in conversation including those with the IMAP \Deleted flag set
-  final int? totalSize;
-
-  /// Same flags as on <m> ("sarwfdxnu!?"), aggregated from all the conversation's messages
-  final String? flags;
-
-  /// Tags - Comma separated list of ints.  DEPRECATED - use "tn" instead
-  final String? tags;
-
-  /// Comma-separated list of tag names
-  final String? tagNames;
-
-  /// Date (secs since epoch) of most recent message in the converstation
-  final int? date;
-
-  /// If elided is set, some participants are missing before the first returned <e> element
-  final bool? elided;
-
-  /// Modified date in seconds
-  final int? changeDate;
-
-  /// Modified sequence
-  final int? modifiedSequence;
-
-  /// Custom metadata
-  final List<MailCustomMetadata> metadatas;
-
-  /// Subject of conversation
-  final String? subject;
-
-  /// First few bytes of the message (probably between 40 and 100 bytes)
-  final String? fragment;
-
-  /// Email addresses
-  final List<EmailInfo> emails;
-
-  ConversationSummary(
-      {this.id,
-      this.numMsg,
-      this.numUnread,
-      this.totalSize,
-      this.flags,
-      this.tags,
-      this.tagNames,
-      this.date,
-      this.elided,
-      this.changeDate,
-      this.modifiedSequence,
-      this.metadatas = const [],
-      this.subject,
-      this.fragment,
-      this.emails = const []});
-
-  factory ConversationSummary.fromJson(Map<String, dynamic> json) => ConversationSummary(
+  factory ConversationHitInfo.fromJson(Map<String, dynamic> json) => ConversationHitInfo(
+      sortField: json['sf'],
+      messageHits: (json['m'] is Iterable)
+          ? List.from((json['m'] as Iterable).map<ConversationMsgHitInfo>((m) => ConversationMsgHitInfo.fromJson(m)))
+          : [],
       id: json['id'],
       numMsg: json['n'],
       numUnread: json['u'],
@@ -90,7 +58,10 @@ class ConversationSummary {
           ? List.from((json['e'] as Iterable).map<EmailInfo>((e) => EmailInfo.fromJson(e)))
           : []);
 
+  @override
   Map<String, dynamic> toJson() => {
+        if (sortField != null) 'sf': sortField,
+        if (messageHits.isNotEmpty) 'm': messageHits.map((m) => m.toJson()).toList(),
         if (id != null) 'id': id,
         if (numMsg != null) 'n': numMsg,
         if (numUnread != null) 'u': numUnread,

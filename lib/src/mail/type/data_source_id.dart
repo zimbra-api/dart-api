@@ -4,8 +4,8 @@
 
 import 'package:zimbra_api/src/common/type/id.dart';
 
-class RssDataSourceId extends Id {
-  RssDataSourceId({super.id});
+class DataSourceId extends Id {
+  DataSourceId({super.id});
 
-  factory RssDataSourceId.fromJson(Map<String, dynamic> json) => RssDataSourceId(id: json['id']);
+  factory DataSourceId.fromJson(Map<String, dynamic> json) => DataSourceId(id: json['id']);
 }

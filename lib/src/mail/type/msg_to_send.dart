@@ -10,76 +10,44 @@ import 'email_addr_info.dart';
 import 'header.dart';
 import 'invitation_info.dart';
 import 'mime_part_info.dart';
+import 'msg.dart';
 
-/// A message
-class Msg {
-  /// Uploaded MIME body ID
-  final String? attachmentId;
+/// Message to send input.
+class MsgToSend extends Msg {
+  /// Saved draft ID
+  final String? draftId;
 
-  /// Original ID
-  final String? origId;
+  /// If set, message gets constructed based on the "did" (id of the draft).
+  final bool? sendFromDraft;
 
-  /// Reply type - r|w.  (r)eplied or for(w)arded.
-  final ReplyType? replyType;
+  /// Id of the data source in case SMTP settings of that data source must be used for sending the message.
+  final String? dataSourceId;
 
-  /// Identity ID.  The identity referenced by {identity-id} specifies the folder where the sent message is saved.
-  final String? identityId;
+  MsgToSend(
+      {this.draftId,
+      this.sendFromDraft,
+      this.dataSourceId,
+      super.attachmentId,
+      super.origId,
+      super.replyType,
+      super.identityId,
+      super.subject,
+      super.headers = const [],
+      super.inReplyTo,
+      super.folderId,
+      super.flags,
+      super.content,
+      super.mimePart,
+      super.attachments,
+      super.invite,
+      super.emailAddresses = const [],
+      super.timezones = const [],
+      super.fragment});
 
-  /// Subject
-  final String? subject;
-
-  /// Headers
-  final List<Header> headers;
-
-  /// Message-ID header for message being replied to
-  final String? inReplyTo;
-
-  /// Folder ID
-  final String? folderId;
-
-  /// Flags
-  final String? flags;
-
-  /// Content
-  final String? content;
-
-  /// Mime part information
-  final MimePartInfo? mimePart;
-
-  /// Attachments information
-  final AttachmentsInfo? attachments;
-
-  /// Invite information
-  final InvitationInfo? invite;
-
-  /// Email address information
-  final List<EmailAddrInfo> emailAddresses;
-
-  /// Timezones
-  final List<CalTZInfo> timezones;
-
-  /// First few bytes of the message (probably between 40 and 100 bytes)
-  final String? fragment;
-
-  Msg(
-      {this.attachmentId,
-      this.origId,
-      this.replyType,
-      this.identityId,
-      this.subject,
-      this.headers = const [],
-      this.inReplyTo,
-      this.folderId,
-      this.flags,
-      this.content,
-      this.mimePart,
-      this.attachments,
-      this.invite,
-      this.emailAddresses = const [],
-      this.timezones = const [],
-      this.fragment});
-
-  factory Msg.fromJson(Map<String, dynamic> json) => Msg(
+  factory MsgToSend.fromJson(Map<String, dynamic> json) => MsgToSend(
+      draftId: json['did'],
+      sendFromDraft: json['sfd'],
+      dataSourceId: json['dsId'],
       attachmentId: json['aid'],
       origId: json['origid'],
       replyType: ReplyType.values.firstWhere(
@@ -106,7 +74,11 @@ class Msg {
           : [],
       fragment: json['fr']?['_content']);
 
+  @override
   Map<String, dynamic> toJson() => {
+        if (draftId != null) 'did': draftId,
+        if (sendFromDraft != null) 'sfd': sendFromDraft,
+        if (dataSourceId != null) 'dsId': dataSourceId,
         if (attachmentId != null) 'aid': attachmentId,
         if (origId != null) 'origid': origId,
         if (replyType != null) 'rt': replyType!.name,

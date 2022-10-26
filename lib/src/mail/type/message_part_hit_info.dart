@@ -60,7 +60,7 @@ class MessagePartHitInfo {
       contentName: json['name'],
       part: json['part'],
       email: json['e'] is Map ? EmailInfo.fromJson(json['e']) : null,
-      subject: json['su']?['_contemt']);
+      subject: json['su']?['_content']);
 
   Map<String, dynamic> toJson() => {
         if (id != null) 'id': id,

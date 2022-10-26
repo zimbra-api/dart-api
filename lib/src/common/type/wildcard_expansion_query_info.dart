@@ -4,7 +4,7 @@
 
 class WildcardExpansionQueryInfo {
   /// Wildcard expansion string
-  final String str;
+  final String wildcardString;
 
   /// If value is 1 (true), then the wildcard was expanded and the matches are included in the search.
   /// If value is <b>0 (false)</b> then the wildcard was not specific enough and
@@ -14,13 +14,13 @@ class WildcardExpansionQueryInfo {
   /// Number expanded
   final int? numExpanded;
 
-  WildcardExpansionQueryInfo(this.str, {this.expanded, this.numExpanded});
+  WildcardExpansionQueryInfo(this.wildcardString, {this.expanded, this.numExpanded});
 
   factory WildcardExpansionQueryInfo.fromJson(Map<String, dynamic> json) =>
       WildcardExpansionQueryInfo(json['str'] ?? '', expanded: json['expanded'], numExpanded: json['numExpanded']);
 
   Map<String, dynamic> toJson() => {
-        'str': str,
+        'str': wildcardString,
         if (expanded != null) 'expanded': expanded,
         if (numExpanded != null) 'numExpanded': numExpanded,
       };

@@ -2,19 +2,19 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
-class DismissAlarm {
+class SnoozeAlarm {
   /// Calendar item ID
   final String id;
 
-  /// Time alarm was dismissed, in millis
-  final int dismissedAt;
+  /// When to show the alarm again in milliseconds since the epoch
+  final int snoozeUntil;
 
-  DismissAlarm(this.id, this.dismissedAt);
+  SnoozeAlarm(this.id, this.snoozeUntil);
 
-  factory DismissAlarm.fromJson(Map<String, dynamic> json) => DismissAlarm(json['id'] ?? '', json['dismissedAt'] ?? 0);
+  factory SnoozeAlarm.fromJson(Map<String, dynamic> json) => SnoozeAlarm(json['id'] ?? '', json['until'] ?? 0);
 
   Map<String, dynamic> toJson() => {
         'id': id,
-        'dismissedAt': dismissedAt,
+        'until': snoozeUntil,
       };
 }

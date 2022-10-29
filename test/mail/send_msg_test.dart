@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:faker/faker.dart';
 import 'package:test/test.dart';
 import 'package:zimbra_api/src/common/enum/address_type.dart';
@@ -13,8 +15,8 @@ import 'package:zimbra_api/src/common/enum/reply_type.dart';
 import 'package:zimbra_api/src/common/enum/transparency.dart';
 import 'package:zimbra_api/src/common/enum/week_day.dart';
 import 'package:zimbra_api/src/common/type/tz_onset_info.dart';
-import 'package:zimbra_api/src/mail/message/create_appointment_envelope.dart';
-import 'package:zimbra_api/src/mail/message/create_appointment_request.dart';
+import 'package:zimbra_api/src/mail/message/send_msg_envelope.dart';
+import 'package:zimbra_api/src/mail/message/send_msg_request.dart';
 import 'package:zimbra_api/src/mail/type/add_recurrence_info.dart';
 import 'package:zimbra_api/src/mail/type/alarm_info.dart';
 import 'package:zimbra_api/src/mail/type/alarm_trigger_info.dart';
@@ -51,8 +53,8 @@ import 'package:zimbra_api/src/mail/type/invitation_info.dart';
 import 'package:zimbra_api/src/mail/type/invite_component.dart';
 import 'package:zimbra_api/src/mail/type/mime_part_attach_spec.dart';
 import 'package:zimbra_api/src/mail/type/mime_part_info.dart';
-import 'package:zimbra_api/src/mail/type/msg.dart';
 import 'package:zimbra_api/src/mail/type/msg_attach_spec.dart';
+import 'package:zimbra_api/src/mail/type/msg_to_send.dart';
 import 'package:zimbra_api/src/mail/type/num_attr.dart';
 import 'package:zimbra_api/src/mail/type/raw_invite.dart';
 import 'package:zimbra_api/src/mail/type/recurrence_info.dart';
@@ -67,13 +69,26 @@ import 'package:zimbra_api/src/mail/type/xprop.dart';
 void main() {
   final faker = Faker();
 
-  group('Create appointment tests', (() {
-    test('Create appointment request', (() {
-      final echo = faker.randomGenerator.boolean();
-      final maxSize = faker.randomGenerator.integer(100);
-      final wantHtml = faker.randomGenerator.boolean();
-      final neuter = faker.randomGenerator.boolean();
-      final forceSend = faker.randomGenerator.boolean();
+  group('Send msg tests', (() {
+    test('Send msg request', (() {
+      final needCalendarSentByFixup = faker.randomGenerator.boolean();
+      final isCalendarForward = faker.randomGenerator.boolean();
+      final noSaveToSent = faker.randomGenerator.boolean();
+      final fetchSavedMsg = faker.randomGenerator.boolean();
+      final sendUid = faker.guid.guid();
+      final deliveryReport = faker.randomGenerator.boolean();
+
+      final draftId = faker.guid.guid();
+      final sendFromDraft = faker.randomGenerator.boolean();
+      final dataSourceId = faker.guid.guid();
+
+      final id = faker.guid.guid();
+      final componentNum = faker.randomGenerator.integer(100);
+      final identityId = faker.guid.guid();
+
+      final dateString = faker.date.dateTime().toString();
+      final timezone = faker.lorem.word();
+      final utcTime = faker.date.dateTime().millisecondsSinceEpoch;
 
       final tzStdOffset = faker.randomGenerator.integer(100);
       final tzDayOffset = faker.randomGenerator.integer(100);
@@ -88,37 +103,73 @@ void main() {
       final week = faker.randomGenerator.integer(4, min: 1);
       final dayOfWeek = faker.randomGenerator.integer(7, min: 1);
 
-      final id = faker.guid.guid();
-      final uid = faker.guid.guid();
-      final name = faker.lorem.word();
-      final value = faker.lorem.word();
-
       final attachmentId = faker.guid.guid();
       final origId = faker.guid.guid();
-      final identityId = faker.guid.guid();
       final subject = faker.lorem.word();
       final inReplyTo = faker.internet.email();
       final folderId = faker.guid.guid();
       final flags = faker.lorem.word();
-      final summary = faker.lorem.word();
       final content = faker.lorem.word();
-      final contentType = faker.lorem.word();
-      final contentId = faker.guid.guid();
       final fragment = faker.lorem.word();
       final description = faker.lorem.word();
       final htmlDescription = faker.lorem.word();
-      final binaryB64Data = faker.lorem.word();
+
+      final name = faker.lorem.word();
+      final value = faker.lorem.word();
+
+      final contentType = faker.lorem.word();
+      final contentId = faker.guid.guid();
 
       final messageId = faker.guid.guid();
       final part = faker.lorem.word();
-      final optional = faker.randomGenerator.boolean();
       final path = faker.lorem.word();
       final version = faker.randomGenerator.integer(100);
+      final optional = faker.randomGenerator.boolean();
+      final uid = faker.guid.guid();
+      final summary = faker.lorem.word();
+
+      final address = faker.internet.email();
+      final personal = faker.person.name();
+
+      final category = faker.lorem.word();
+      final comment = faker.lorem.word();
+      final contact = faker.lorem.word();
+      final latitude = faker.randomGenerator.decimal().toString();
+      final longitude = faker.randomGenerator.decimal().toString();
+
+      final url = faker.internet.httpsUrl();
+      final displayName = faker.person.name();
+      final sentBy = faker.internet.email();
+      final dir = faker.lorem.word();
+      final language = faker.address.countryCode();
+      final cuType = faker.lorem.word();
+      final role = faker.lorem.word();
+      final rsvp = faker.randomGenerator.boolean();
+      final member = faker.internet.email();
+      final delegatedTo = faker.internet.email();
+      final delegatedFrom = faker.internet.email();
+
+      final durationNegative = faker.randomGenerator.boolean();
+      final weeks = faker.randomGenerator.integer(100);
+      final days = faker.randomGenerator.integer(100);
+      final hours = faker.randomGenerator.integer(100);
+      final minutes = faker.randomGenerator.integer(100);
+      final seconds = faker.randomGenerator.integer(100);
+      final repeatCount = faker.randomGenerator.integer(100);
+
+      final uri = faker.internet.uri('http');
+      final binaryB64Data = faker.lorem.word();
+
+      final recurrenceRangeType = faker.randomGenerator.integer(3, min: 1);
+      final recurrenceId = faker.guid.guid();
+      final recurIdZ = faker.date.dateTime().toString();
+      final num = faker.randomGenerator.integer(100);
+      final ival = faker.randomGenerator.integer(100);
+      final list = faker.randomGenerator.amount((_) => random.integer(10), 10).join(',');
+      final ordWk = faker.randomGenerator.integer(100);
 
       final partStat = faker.randomGenerator.element(ParticipationStatus.values);
       final method = faker.lorem.word();
-      final componentNum = faker.randomGenerator.integer(100);
-      final rsvp = faker.randomGenerator.boolean();
       final priority = faker.randomGenerator.integer(9).toString();
       final location = faker.address.streetAddress();
       final percentComplete = faker.randomGenerator.integer(100).toString();
@@ -131,58 +182,17 @@ void main() {
       final calItemId = faker.guid.guid();
       final deprecatedApptId = faker.guid.guid();
       final calItemFolder = faker.lorem.word();
-      final url = faker.internet.httpsUrl();
-      final uri = faker.internet.uri('http');
       final isException = faker.randomGenerator.boolean();
-      final recurIdZ = faker.date.dateTime().toString();
       final isAllDay = faker.randomGenerator.boolean();
       final isDraft = faker.randomGenerator.boolean();
       final neverSent = faker.randomGenerator.boolean();
       final changes = faker.lorem.words(3).join(',');
 
-      final category = faker.lorem.word();
-      final comment = faker.lorem.word();
-      final contact = faker.lorem.word();
-      final latitude = faker.randomGenerator.decimal().toString();
-      final longitude = faker.randomGenerator.decimal().toString();
-
-      final address = faker.internet.email();
-      final personal = faker.person.name();
-      final displayName = faker.person.name();
-      final sentBy = faker.internet.email();
-      final dir = faker.lorem.word();
-      final language = faker.address.countryCode();
-      final cuType = faker.lorem.word();
-      final role = faker.lorem.word();
-      final member = faker.internet.email();
-      final delegatedTo = faker.internet.email();
-      final delegatedFrom = faker.internet.email();
-      final utcTime = faker.date.dateTime().millisecond;
-
-      final durationNegative = faker.randomGenerator.boolean();
-      final weeks = faker.randomGenerator.integer(100);
-      final days = faker.randomGenerator.integer(100);
-      final hours = faker.randomGenerator.integer(100);
-      final minutes = faker.randomGenerator.integer(100);
-      final seconds = faker.randomGenerator.integer(100);
-      final repeatCount = faker.randomGenerator.integer(100);
-
-      final recurrenceRangeType = faker.randomGenerator.integer(3, min: 1);
-      final recurrenceId = faker.guid.guid();
-      final dateTimeString = faker.date.dateTime().toString();
-      final timezone = faker.lorem.word();
-      final num = faker.randomGenerator.integer(100);
-      final ival = faker.randomGenerator.integer(100);
-      final list = faker.randomGenerator.amount((_) => random.integer(10), 10).join(',');
-      final ordWk = faker.randomGenerator.integer(100);
-
-      final request = CreateAppointmentRequest(
-        echo: echo,
-        maxSize: maxSize,
-        wantHtml: wantHtml,
-        neuter: neuter,
-        forceSend: forceSend,
-        msg: Msg(
+      final request = SendMsgRequest(
+        MsgToSend(
+          draftId: draftId,
+          sendFromDraft: sendFromDraft,
+          dataSourceId: dataSourceId,
           attachmentId: attachmentId,
           origId: origId,
           replyType: ReplyType.replied,
@@ -204,13 +214,7 @@ void main() {
               cnAttachments: [ContactAttachSpec(id, optional: optional)],
               docAttachments: [DocAttachSpec(path: path, id: id, version: version, optional: optional)],
             ),
-            mimeParts: [
-              MimePartInfo(
-                contentType: contentType,
-                content: content,
-                contentId: contentId,
-              )
-            ],
+            mimeParts: [MimePartInfo(contentType: contentType, content: content, contentId: contentId)],
           ),
           attachments: AttachmentsInfo(
             attachmentId,
@@ -315,7 +319,7 @@ void main() {
             alarms: [
               AlarmInfo(
                 action: AlarmAction.display,
-                trigger: AlarmTriggerInfo(absolute: DateAttr(dateTimeString), relative: DateAttr(dateTimeString)),
+                trigger: AlarmTriggerInfo(absolute: DateAttr(dateString), relative: DateAttr(dateString)),
                 repeat: DurationInfo(
                   durationNegative: durationNegative,
                   weeks: weeks,
@@ -384,8 +388,8 @@ void main() {
               dates: [
                 SingleDates(timezone: timezone, dtVals: [
                   DtVal(
-                    startTime: DtTimeInfo(dateTime: dateTimeString, timezone: timezone, utcTime: utcTime),
-                    endTime: DtTimeInfo(dateTime: dateTimeString, timezone: timezone, utcTime: utcTime),
+                    startTime: DtTimeInfo(dateTime: dateString, timezone: timezone, utcTime: utcTime),
+                    endTime: DtTimeInfo(dateTime: dateString, timezone: timezone, utcTime: utcTime),
                     duration: DurationInfo(
                       durationNegative: durationNegative,
                       weeks: weeks,
@@ -402,7 +406,7 @@ void main() {
               simple: [
                 SimpleRepeatingRule(
                   frequency: Frequency.second,
-                  until: DateTimeStringAttr(dateTimeString),
+                  until: DateTimeStringAttr(dateString),
                   count: NumAttr(num),
                   interval: IntervalRule(ival),
                   bySecond: BySecondRule(list),
@@ -420,12 +424,12 @@ void main() {
               ],
             ),
             exceptionId: ExceptionRecurIdInfo(
-              dateTime: dateTimeString,
+              dateTime: dateString,
               timezone: timezone,
               recurrenceRangeType: recurrenceRangeType,
             ),
-            dtStart: DtTimeInfo(dateTime: dateTimeString, timezone: timezone, utcTime: utcTime),
-            dtEnd: DtTimeInfo(dateTime: dateTimeString, timezone: timezone, utcTime: utcTime),
+            dtStart: DtTimeInfo(dateTime: dateString, timezone: timezone, utcTime: utcTime),
+            dtEnd: DtTimeInfo(dateTime: dateString, timezone: timezone, utcTime: utcTime),
             duration: DurationInfo(
               durationNegative: durationNegative,
               weeks: weeks,
@@ -496,17 +500,21 @@ void main() {
           ],
           fragment: fragment,
         ),
+        needCalendarSentByFixup: needCalendarSentByFixup,
+        isCalendarForward: isCalendarForward,
+        noSaveToSent: noSaveToSent,
+        fetchSavedMsg: fetchSavedMsg,
+        sendUid: sendUid,
+        deliveryReport: deliveryReport,
       );
       expect(request.getEnvelope().toJson(), {
         'Body': {
-          'CreateAppointmentRequest': {
+          'SendMsgRequest': {
             '_jsns': 'urn:zimbraMail',
-            'echo': echo,
-            'max': maxSize,
-            'want': wantHtml,
-            'neuter': neuter,
-            'forcesend': forceSend,
             'm': {
+              'did': draftId,
+              'sfd': sendFromDraft,
+              'dsId': dataSourceId,
               'aid': attachmentId,
               'origid': origId,
               'rt': ReplyType.replied.name,
@@ -712,10 +720,10 @@ void main() {
                     'action': AlarmAction.display.name,
                     'trigger': {
                       'abs': {
-                        'd': dateTimeString,
+                        'd': dateString,
                       },
                       'rel': {
-                        'd': dateTimeString,
+                        'd': dateString,
                       },
                     },
                     'repeat': {
@@ -828,12 +836,12 @@ void main() {
                       'dtval': [
                         {
                           's': {
-                            'd': dateTimeString,
+                            'd': dateString,
                             'tz': timezone,
                             'u': utcTime,
                           },
                           'e': {
-                            'd': dateTimeString,
+                            'd': dateString,
                             'tz': timezone,
                             'u': utcTime,
                           },
@@ -855,7 +863,7 @@ void main() {
                     {
                       'freq': Frequency.second.name,
                       'until': {
-                        'd': dateTimeString,
+                        'd': dateString,
                       },
                       'count': {
                         'num': num,
@@ -908,17 +916,17 @@ void main() {
                   ],
                 },
                 'exceptId': {
-                  'd': dateTimeString,
+                  'd': dateString,
                   'tz': timezone,
                   'rangeType': recurrenceRangeType,
                 },
                 's': {
-                  'd': dateTimeString,
+                  'd': dateString,
                   'tz': timezone,
                   'u': utcTime,
                 },
                 'e': {
-                  'd': dateTimeString,
+                  'd': dateString,
                   'tz': timezone,
                   'u': utcTime,
                 },
@@ -998,34 +1006,72 @@ void main() {
               ],
               'fr': {'_content': fragment},
             },
+            'needCalendarSentByFixup': needCalendarSentByFixup,
+            'isCalendarForward': isCalendarForward,
+            'noSave': noSaveToSent,
+            'fetchSavedMsg': fetchSavedMsg,
+            'suid': sendUid,
+            'deliveryReport': deliveryReport,
           }
         },
       });
     }));
 
-    test('Create appointment response', (() {
+    test('Send msg response', (() {
       final id = faker.guid.guid();
-      final uid = faker.guid.guid();
-      final name = faker.lorem.word();
-      final key = faker.lorem.word();
-      final value = faker.lorem.word();
-      final calItemId = faker.guid.guid();
-      final deprecatedApptId = faker.guid.guid();
-      final calInvId = faker.guid.guid();
-      final modifiedSequence = faker.randomGenerator.integer(100);
-      final changeDate = faker.date.dateTime().millisecondsSinceEpoch;
-      final revision = faker.randomGenerator.integer(100);
-
-      final part = faker.lorem.word();
+      final imapUid = faker.randomGenerator.integer(100);
+      final calendarIntendedFor = faker.lorem.word();
+      final origId = faker.guid.guid();
+      final identityId = faker.guid.guid();
+      final draftAccountId = faker.guid.guid();
+      final draftAutoSendTime = faker.randomGenerator.integer(100);
       final sentDate = faker.date.dateTime().millisecondsSinceEpoch;
+      final resentDate = faker.date.dateTime().millisecondsSinceEpoch;
+      final part = faker.lorem.word();
+      final fragment = faker.lorem.word();
       final subject = faker.lorem.word();
       final messageIdHeader = faker.guid.guid();
+      final inReplyTo = faker.internet.email();
+      final size = faker.randomGenerator.integer(100);
+      final date = faker.date.dateTime().millisecondsSinceEpoch;
+      final folder = faker.guid.guid();
+      final conversationId = faker.guid.guid();
+      final flags = faker.lorem.word();
+      final tags = faker.lorem.word();
+      final tagNames = faker.lorem.word();
+      final revision = faker.randomGenerator.integer(100);
+      final changeDate = faker.date.dateTime().millisecondsSinceEpoch;
+      final modifiedSequence = faker.randomGenerator.integer(100);
+      final calItemType = faker.randomGenerator.element(InviteType.values);
+      final dateTimeString = faker.date.dateTime().toString();
 
       final address = faker.internet.email();
       final display = faker.person.name();
       final personal = faker.person.name();
+      final addressType = faker.randomGenerator.element(AddressType.values);
       final isGroup = faker.randomGenerator.boolean();
       final canExpandGroupMembers = faker.randomGenerator.boolean();
+
+      final section = faker.lorem.word();
+      final name = faker.lorem.word();
+      final key = faker.lorem.word();
+      final value = faker.lorem.word();
+      final description = faker.lorem.word();
+      final htmlDescription = faker.lorem.word();
+      final summary = faker.lorem.word();
+      final binaryB64Data = faker.lorem.word();
+
+      final content = faker.lorem.word();
+      final contentType = faker.lorem.word();
+      final contentId = faker.guid.guid();
+      final attachmentId = faker.guid.guid();
+      final messageId = faker.guid.guid();
+      final optional = faker.randomGenerator.boolean();
+      final path = faker.lorem.word();
+      final version = faker.randomGenerator.integer(100);
+      final truncatedContent = faker.randomGenerator.boolean();
+      final url = faker.internet.httpsUrl();
+      final uri = faker.lorem.word();
 
       final tzStdOffset = faker.randomGenerator.integer(100);
       final tzDayOffset = faker.randomGenerator.integer(100);
@@ -1043,28 +1089,10 @@ void main() {
       final recurrenceRangeType = faker.randomGenerator.integer(3, min: 1);
       final recurrenceId = faker.guid.guid();
       final seq = faker.randomGenerator.integer(100);
-      final date = faker.date.dateTime().millisecond;
       final attendee = faker.internet.email();
-      final sentBy = faker.internet.email();
       final timezone = faker.lorem.word();
+      final utcTime = faker.date.dateTime().millisecondsSinceEpoch;
       final recurIdZ = faker.date.dateTime().toString();
-
-      final category = faker.lorem.word();
-      final comment = faker.lorem.word();
-      final contact = faker.lorem.word();
-      final latitude = faker.randomGenerator.decimal().toString();
-      final longitude = faker.randomGenerator.decimal().toString();
-
-      final displayName = faker.person.name();
-      final dir = faker.lorem.word();
-      final language = faker.address.countryCode();
-      final cuType = faker.lorem.word();
-      final role = faker.lorem.word();
-      final member = faker.internet.email();
-      final delegatedTo = faker.internet.email();
-      final delegatedFrom = faker.internet.email();
-      final utcTime = faker.date.dateTime().millisecond;
-      final dateTimeString = faker.date.dateTime().toString();
 
       final durationNegative = faker.randomGenerator.boolean();
       final weeks = faker.randomGenerator.integer(100);
@@ -1072,26 +1100,30 @@ void main() {
       final hours = faker.randomGenerator.integer(100);
       final minutes = faker.randomGenerator.integer(100);
       final seconds = faker.randomGenerator.integer(100);
+      final related = faker.randomGenerator.element(AlarmRelated.values);
       final repeatCount = faker.randomGenerator.integer(100);
 
-      final content = faker.lorem.word();
-      final contentType = faker.lorem.word();
-      final contentDisposition = faker.lorem.word();
-      final contentFilename = faker.lorem.word();
-      final contentId = faker.guid.guid();
-      final summary = faker.guid.guid();
-      final fragment = faker.lorem.word();
-      final description = faker.lorem.word();
-      final htmlDescription = faker.lorem.word();
-      final binaryB64Data = faker.lorem.word();
+      final displayName = faker.person.name();
+      final sentBy = faker.internet.email();
+      final dir = faker.lorem.word();
+      final language = faker.address.countryCode();
+      final cuType = faker.lorem.word();
+      final role = faker.lorem.word();
+      final member = faker.internet.email();
+      final delegatedTo = faker.internet.email();
+      final delegatedFrom = faker.internet.email();
 
-      final body = faker.randomGenerator.boolean();
-      final truncatedContent = faker.randomGenerator.boolean();
-      final size = faker.randomGenerator.integer(100);
-      final num = faker.randomGenerator.integer(100);
-      final ival = faker.randomGenerator.integer(100);
+      final category = faker.lorem.word();
+      final comment = faker.lorem.word();
+      final contact = faker.lorem.word();
+      final latitude = faker.randomGenerator.decimal().toString();
+      final longitude = faker.randomGenerator.decimal().toString();
+
+      final alarmAction = faker.randomGenerator.element(AlarmAction.values);
       final list = faker.randomGenerator.amount((_) => random.integer(10), 10).join(',');
       final ordWk = faker.randomGenerator.integer(100);
+      final ival = faker.randomGenerator.integer(100);
+      final num = faker.randomGenerator.integer(100);
 
       final partStat = faker.randomGenerator.element(ParticipationStatus.values);
       final method = faker.lorem.word();
@@ -1104,626 +1136,632 @@ void main() {
       final noBlob = faker.randomGenerator.boolean();
       final isOrganizer = faker.randomGenerator.boolean();
       final xUid = faker.guid.guid();
+      final uid = faker.guid.guid();
+      final calItemId = faker.guid.guid();
+      final deprecatedApptId = faker.guid.guid();
       final sequence = faker.randomGenerator.integer(100);
       final dateTime = faker.randomGenerator.integer(100);
       final calItemFolder = faker.lorem.word();
-      final url = faker.internet.httpsUrl();
-      final uri = faker.internet.uri('http');
       final isException = faker.randomGenerator.boolean();
       final isAllDay = faker.randomGenerator.boolean();
       final isDraft = faker.randomGenerator.boolean();
       final neverSent = faker.randomGenerator.boolean();
       final changes = faker.lorem.words(3).join(',');
 
-      final folder = faker.guid.guid();
-      final conversationId = faker.guid.guid();
-      final flags = faker.lorem.word();
-      final tags = faker.lorem.word();
-      final tagNames = faker.lorem.word();
-      final section = faker.lorem.word();
-
       final json = {
         'Body': {
-          'CreateAppointmentResponse': {
+          'SendMsgResponse': {
             '_jsns': 'urn:zimbraMail',
-            'calItemId': calItemId,
-            'apptId': deprecatedApptId,
-            'invId': calInvId,
-            'ms': modifiedSequence,
-            'rev': revision,
-            'm': {'id': id},
-            'echo': {
-              'm': {
-                'id': id,
-                'part': part,
-                'sd': sentDate,
-                'e': [
+            'm': {
+              'id': id,
+              'i4uid': imapUid,
+              'cif': calendarIntendedFor,
+              'origid': origId,
+              'rt': ReplyType.replied.name,
+              'idnt': identityId,
+              'forAcct': draftAccountId,
+              'autoSendTime': draftAutoSendTime,
+              'sd': sentDate,
+              'rd': resentDate,
+              'part': part,
+              'fr': {'_content': fragment},
+              'e': [
+                {
+                  'a': address,
+                  'd': display,
+                  'p': personal,
+                  't': addressType.name,
+                  'isGroup': isGroup,
+                  'exp': canExpandGroupMembers,
+                }
+              ],
+              'su': {'_content': subject},
+              'mid': {'_content': messageIdHeader},
+              'irt': {'_content': inReplyTo},
+              'inv': {
+                'type': calItemType.name,
+                'tz': [
                   {
-                    'a': address,
-                    'd': display,
-                    'p': personal,
-                    't': AddressType.from.name,
-                    'isGroup': isGroup,
-                    'exp': canExpandGroupMembers,
+                    'id': id,
+                    'stdoff': tzStdOffset,
+                    'dayoff': tzDayOffset,
+                    'standard': {
+                      'mon': month,
+                      'hour': hour,
+                      'min': minute,
+                      'sec': second,
+                      'mday': dayOfMonth,
+                      'week': week,
+                      'wkday': dayOfWeek,
+                    },
+                    'daylight': {
+                      'mon': month,
+                      'hour': hour,
+                      'min': minute,
+                      'sec': second,
+                      'mday': dayOfMonth,
+                      'week': week,
+                      'wkday': dayOfWeek,
+                    },
+                    'stdname': standardTZName,
+                    'dayname': daylightTZName,
                   }
                 ],
-                'su': {'_content': subject},
-                'mid': {'_content': messageIdHeader},
-                'inv': {
-                  'type': InviteType.appt.name,
-                  'tz': [
-                    {
-                      'id': id,
-                      'stdoff': tzStdOffset,
-                      'dayoff': tzDayOffset,
-                      'standard': {
-                        'mon': month,
-                        'hour': hour,
-                        'min': minute,
-                        'sec': second,
-                        'mday': dayOfMonth,
-                        'week': week,
-                        'wkday': dayOfWeek,
-                      },
-                      'daylight': {
-                        'mon': month,
-                        'hour': hour,
-                        'min': minute,
-                        'sec': second,
-                        'mday': dayOfMonth,
-                        'week': week,
-                        'wkday': dayOfWeek,
-                      },
-                      'stdname': standardTZName,
-                      'dayname': daylightTZName,
-                    }
-                  ],
-                  'replies': {
-                    'reply': [
-                      {
-                        'rangeType': recurrenceRangeType,
-                        'recurId': recurrenceId,
-                        'seq': seq,
-                        'd': date,
-                        'at': attendee,
-                        'sentBy': sentBy,
-                        'ptst': partStat.name,
-                        'tz': timezone,
-                        'ridZ': recurIdZ,
-                      }
+                'comp': [
+                  {
+                    'category': [
+                      {'_content': category}
                     ],
-                  },
-                  'comp': [
-                    {
-                      'category': [
-                        {'_content': category}
-                      ],
-                      'comment': [
-                        {'_content': comment}
-                      ],
-                      'contact': [
-                        {'_content': contact}
-                      ],
-                      'geo': {
-                        'lat': latitude,
-                        'lon': longitude,
-                      },
-                      'at': [
-                        {
-                          'a': address,
-                          'url': url,
-                          'd': displayName,
-                          'sentBy': sentBy,
-                          'dir': dir,
-                          'lang': language,
-                          'cutype': cuType,
-                          'role': role,
-                          'ptst': partStat.name,
-                          'rsvp': rsvp,
-                          'member': member,
-                          'delegatedTo': delegatedTo,
-                          'delegatedFrom': delegatedFrom,
-                          'xparam': [
-                            {
-                              'name': name,
-                              '_content': value,
-                            }
-                          ],
-                        }
-                      ],
-                      'alarm': [
-                        {
-                          'action': AlarmAction.display.name,
-                          'trigger': {
-                            'abs': {
-                              'd': dateTimeString,
-                            },
-                            'rel': {
-                              'd': dateTimeString,
-                            },
-                          },
-                          'repeat': {
-                            'neg': durationNegative,
-                            'w': weeks,
-                            'd': days,
-                            'h': hours,
-                            'm': minutes,
-                            's': seconds,
-                            'related': AlarmRelated.start.name,
-                            'count': repeatCount,
-                          },
-                          'desc': {'_content': description},
-                          'attach': {
-                            'uri': uri,
-                            'ct': contentType,
-                            '_content': binaryB64Data,
-                          },
-                          'summary': {'_content': summary},
-                          'at': [
-                            {
-                              'a': address,
-                              'url': url,
-                              'd': displayName,
-                              'sentBy': sentBy,
-                              'dir': dir,
-                              'lang': language,
-                              'cutype': cuType,
-                              'role': role,
-                              'ptst': partStat.name,
-                              'rsvp': rsvp,
-                              'member': member,
-                              'delegatedTo': delegatedTo,
-                              'delegatedFrom': delegatedFrom,
-                              'xparam': [
-                                {
-                                  'name': name,
-                                  '_content': value,
-                                }
-                              ],
-                            }
-                          ],
-                          'xprop': [
-                            {
-                              'name': name,
-                              '_content': value,
-                              'xparam': [
-                                {
-                                  'name': name,
-                                  '_content': value,
-                                }
-                              ],
-                            }
-                          ],
-                        }
-                      ],
-                      'xprop': [
-                        {
-                          'name': name,
-                          '_content': value,
-                          'xparam': [
-                            {
-                              'name': name,
-                              '_content': value,
-                            }
-                          ],
-                        }
-                      ],
-                      'fr': {'_content': fragment},
-                      'desc': {'_content': description},
-                      'descHtml': {'_content': htmlDescription},
-                      'or': {
+                    'comment': [
+                      {'_content': comment}
+                    ],
+                    'contact': [
+                      {'_content': contact}
+                    ],
+                    'geo': {
+                      'lat': latitude,
+                      'lon': longitude,
+                    },
+                    'at': [
+                      {
                         'a': address,
                         'url': url,
                         'd': displayName,
                         'sentBy': sentBy,
                         'dir': dir,
                         'lang': language,
+                        'cutype': cuType,
+                        'role': role,
+                        'ptst': partStat.name,
+                        'rsvp': rsvp,
+                        'member': member,
+                        'delegatedTo': delegatedTo,
+                        'delegatedFrom': delegatedFrom,
                         'xparam': [
                           {
                             'name': name,
                             '_content': value,
                           }
                         ],
-                      },
-                      'recur': {
-                        'add': [
-                          {'add': {}}
-                        ],
-                        'exclude': [
-                          {'exclude': {}}
-                        ],
-                        'except': [
+                      }
+                    ],
+                    'alarm': [
+                      {
+                        'action': alarmAction.name,
+                        'trigger': {
+                          'abs': {
+                            'd': dateTimeString,
+                          },
+                          'rel': {
+                            'd': dateTimeString,
+                          },
+                        },
+                        'repeat': {
+                          'neg': durationNegative,
+                          'w': weeks,
+                          'd': days,
+                          'h': hours,
+                          'm': minutes,
+                          's': seconds,
+                          'related': related.name,
+                          'count': repeatCount,
+                        },
+                        'desc': {'_content': description},
+                        'attach': {
+                          'uri': uri,
+                          'ct': contentType,
+                          '_content': binaryB64Data,
+                        },
+                        'summary': {'_content': summary},
+                        'at': [
                           {
-                            'rangeType': recurrenceRangeType,
-                            'recurId': recurrenceId,
-                            'tz': timezone,
-                            'ridZ': recurIdZ,
-                            'add': {'add': []},
-                            'exclude': {'exclude': []},
-                          }
-                        ],
-                        'cancel': [
-                          {
-                            'rangeType': recurrenceRangeType,
-                            'recurId': recurrenceId,
-                            'tz': timezone,
-                            'ridZ': recurIdZ,
-                          }
-                        ],
-                        'dates': [
-                          {
-                            'tz': timezone,
-                            'dtval': [
-                              {
-                                's': {
-                                  'd': dateTimeString,
-                                  'tz': timezone,
-                                  'u': utcTime,
-                                },
-                                'e': {
-                                  'd': dateTimeString,
-                                  'tz': timezone,
-                                  'u': utcTime,
-                                },
-                                'dur': {
-                                  'neg': durationNegative,
-                                  'w': weeks,
-                                  'd': days,
-                                  'h': hours,
-                                  'm': minutes,
-                                  's': seconds,
-                                  'related': AlarmRelated.start.name,
-                                  'count': repeatCount,
-                                },
-                              }
-                            ],
-                          }
-                        ],
-                        'rule': [
-                          {
-                            'freq': Frequency.second.name,
-                            'until': {
-                              'd': dateTimeString,
-                            },
-                            'count': {
-                              'num': num,
-                            },
-                            'interval': {
-                              'ival': ival,
-                            },
-                            'bysecond': {
-                              'seclist': list,
-                            },
-                            'byminute': {
-                              'minlist': list,
-                            },
-                            'byhour': {
-                              'hrlist': list,
-                            },
-                            'byday': {
-                              'wkday': [
-                                {
-                                  'day': WeekDay.sunday.name,
-                                  'ordWk': ordWk,
-                                }
-                              ],
-                            },
-                            'bymonthday': {
-                              'modaylist': list,
-                            },
-                            'byyearday': {
-                              'yrdaylist': list,
-                            },
-                            'byweekno': {
-                              'wklist': list,
-                            },
-                            'bymonth': {
-                              'molist': list,
-                            },
-                            'bysetpos': {
-                              'poslist': list,
-                            },
-                            'wkst': {
-                              'day': WeekDay.sunday.name,
-                            },
-                            'rule-x-name': [
+                            'a': address,
+                            'url': url,
+                            'd': displayName,
+                            'sentBy': sentBy,
+                            'dir': dir,
+                            'lang': language,
+                            'cutype': cuType,
+                            'role': role,
+                            'ptst': partStat.name,
+                            'rsvp': rsvp,
+                            'member': member,
+                            'delegatedTo': delegatedTo,
+                            'delegatedFrom': delegatedFrom,
+                            'xparam': [
                               {
                                 'name': name,
-                                'value': value,
+                                '_content': value,
                               }
                             ],
                           }
                         ],
-                      },
-                      'exceptId': {
-                        'd': dateTimeString,
-                        'tz': timezone,
-                        'rangeType': recurrenceRangeType,
-                      },
-                      's': {
-                        'd': dateTimeString,
-                        'tz': timezone,
-                        'u': utcTime,
-                      },
-                      'e': {
-                        'd': dateTimeString,
-                        'tz': timezone,
-                        'u': utcTime,
-                      },
-                      'dur': {
-                        'neg': durationNegative,
-                        'w': weeks,
-                        'd': days,
-                        'h': hours,
-                        'm': minutes,
-                        's': seconds,
-                        'related': AlarmRelated.start.name,
-                        'count': repeatCount,
-                      },
-                      'method': method,
-                      'compNum': componentNum,
-                      'rsvp': rsvp,
-                      'priority': priority,
-                      'name': name,
-                      'loc': location,
-                      'percentComplete': percentComplete,
-                      'completed': completed,
-                      'noBlob': noBlob,
-                      'fba': FreeBusyStatus.free.name,
-                      'fb': FreeBusyStatus.free.name,
-                      'transp': Transparency.opaque.name,
-                      'isOrg': isOrganizer,
-                      'x_uid': xUid,
-                      'uid': uid,
-                      'seq': sequence,
-                      'd': dateTime,
-                      'calItemId': calItemId,
-                      'apptId': deprecatedApptId,
-                      'ciFolder': calItemFolder,
-                      'status': InviteStatus.completed.name,
-                      'class': InviteClass.public.name,
+                        'xprop': [
+                          {
+                            'name': name,
+                            '_content': value,
+                            'xparam': [
+                              {
+                                'name': name,
+                                '_content': value,
+                              }
+                            ],
+                          }
+                        ],
+                      }
+                    ],
+                    'xprop': [
+                      {
+                        'name': name,
+                        '_content': value,
+                        'xparam': [
+                          {
+                            'name': name,
+                            '_content': value,
+                          }
+                        ],
+                      }
+                    ],
+                    'fr': {'_content': fragment},
+                    'desc': {'_content': description},
+                    'descHtml': {'_content': htmlDescription},
+                    'or': {
+                      'a': address,
                       'url': url,
-                      'ex': isException,
+                      'd': displayName,
+                      'sentBy': sentBy,
+                      'dir': dir,
+                      'lang': language,
+                      'xparam': [
+                        {
+                          'name': name,
+                          '_content': value,
+                        }
+                      ],
+                    },
+                    'recur': {
+                      'add': [
+                        {'add': {}}
+                      ],
+                      'exclude': [
+                        {'exclude': {}}
+                      ],
+                      'except': [
+                        {
+                          'rangeType': recurrenceRangeType,
+                          'recurId': recurrenceId,
+                          'tz': timezone,
+                          'ridZ': recurIdZ,
+                          'add': {'add': []},
+                          'exclude': {'exclude': []},
+                        }
+                      ],
+                      'cancel': [
+                        {
+                          'rangeType': recurrenceRangeType,
+                          'recurId': recurrenceId,
+                          'tz': timezone,
+                          'ridZ': recurIdZ,
+                        }
+                      ],
+                      'dates': [
+                        {
+                          'tz': timezone,
+                          'dtval': [
+                            {
+                              's': {
+                                'd': dateTimeString,
+                                'tz': timezone,
+                                'u': utcTime,
+                              },
+                              'e': {
+                                'd': dateTimeString,
+                                'tz': timezone,
+                                'u': utcTime,
+                              },
+                              'dur': {
+                                'neg': durationNegative,
+                                'w': weeks,
+                                'd': days,
+                                'h': hours,
+                                'm': minutes,
+                                's': seconds,
+                                'related': AlarmRelated.start.name,
+                                'count': repeatCount,
+                              },
+                            }
+                          ],
+                        }
+                      ],
+                      'rule': [
+                        {
+                          'freq': Frequency.second.name,
+                          'until': {
+                            'd': dateTimeString,
+                          },
+                          'count': {
+                            'num': num,
+                          },
+                          'interval': {
+                            'ival': ival,
+                          },
+                          'bysecond': {
+                            'seclist': list,
+                          },
+                          'byminute': {
+                            'minlist': list,
+                          },
+                          'byhour': {
+                            'hrlist': list,
+                          },
+                          'byday': {
+                            'wkday': [
+                              {
+                                'day': WeekDay.sunday.name,
+                                'ordWk': ordWk,
+                              }
+                            ],
+                          },
+                          'bymonthday': {
+                            'modaylist': list,
+                          },
+                          'byyearday': {
+                            'yrdaylist': list,
+                          },
+                          'byweekno': {
+                            'wklist': list,
+                          },
+                          'bymonth': {
+                            'molist': list,
+                          },
+                          'bysetpos': {
+                            'poslist': list,
+                          },
+                          'wkst': {
+                            'day': WeekDay.sunday.name,
+                          },
+                          'rule-x-name': [
+                            {
+                              'name': name,
+                              'value': value,
+                            }
+                          ],
+                        }
+                      ],
+                    },
+                    'exceptId': {
+                      'd': dateTimeString,
+                      'tz': timezone,
+                      'rangeType': recurrenceRangeType,
+                    },
+                    's': {
+                      'd': dateTimeString,
+                      'tz': timezone,
+                      'u': utcTime,
+                    },
+                    'e': {
+                      'd': dateTimeString,
+                      'tz': timezone,
+                      'u': utcTime,
+                    },
+                    'dur': {
+                      'neg': durationNegative,
+                      'w': weeks,
+                      'd': days,
+                      'h': hours,
+                      'm': minutes,
+                      's': seconds,
+                      'related': AlarmRelated.start.name,
+                      'count': repeatCount,
+                    },
+                    'method': method,
+                    'compNum': componentNum,
+                    'rsvp': rsvp,
+                    'priority': priority,
+                    'name': name,
+                    'loc': location,
+                    'percentComplete': percentComplete,
+                    'completed': completed,
+                    'noBlob': noBlob,
+                    'fba': FreeBusyStatus.free.name,
+                    'fb': FreeBusyStatus.free.name,
+                    'transp': Transparency.opaque.name,
+                    'isOrg': isOrganizer,
+                    'x_uid': xUid,
+                    'uid': uid,
+                    'seq': sequence,
+                    'd': dateTime,
+                    'calItemId': calItemId,
+                    'apptId': deprecatedApptId,
+                    'ciFolder': calItemFolder,
+                    'status': InviteStatus.completed.name,
+                    'class': InviteClass.public.name,
+                    'url': url,
+                    'ex': isException,
+                    'ridZ': recurIdZ,
+                    'allDay': isAllDay,
+                    'draft': isDraft,
+                    'neverSent': neverSent,
+                    'changes': changes,
+                  }
+                ],
+                'replies': {
+                  'reply': [
+                    {
+                      'rangeType': recurrenceRangeType,
+                      'recurId': recurrenceId,
+                      'seq': seq,
+                      'd': date,
+                      'at': attendee,
+                      'sentBy': sentBy,
+                      'ptst': partStat.name,
+                      'tz': timezone,
                       'ridZ': recurIdZ,
-                      'allDay': isAllDay,
-                      'draft': isDraft,
-                      'neverSent': neverSent,
-                      'changes': changes,
+                    }
+                  ]
+                },
+              },
+              'header': [
+                {
+                  'n': key,
+                  '_content': value,
+                }
+              ],
+              'mp': {
+                'ct': contentType,
+                'content': content,
+                'ci': contentId,
+                'attach': {
+                  'aid': attachmentId,
+                  'mp': [
+                    {
+                      'mid': messageId,
+                      'part': part,
+                      'optional': optional,
+                    }
+                  ],
+                  'm': [
+                    {
+                      'id': id,
+                      'optional': optional,
+                    }
+                  ],
+                  'cn': [
+                    {
+                      'id': id,
+                      'optional': optional,
+                    }
+                  ],
+                  'doc': [
+                    {
+                      'path': path,
+                      'id': id,
+                      'ver': version,
+                      'optional': optional,
                     }
                   ],
                 },
-                'header': [
-                  {
-                    'n': key,
-                    '_content': value,
-                  }
-                ],
                 'mp': [
                   {
-                    'part': part,
                     'ct': contentType,
-                    's': size,
-                    'cd': contentDisposition,
-                    'filename': contentFilename,
+                    'content': content,
                     'ci': contentId,
-                    'cl': location,
-                    'body': body,
-                    'truncated': truncatedContent,
-                    'content': {'_content': content},
-                    'mp': [
-                      {
-                        'part': part,
-                        'ct': contentType,
-                        's': size,
-                        'cd': contentDisposition,
-                        'filename': contentFilename,
-                        'ci': contentId,
-                        'cl': location,
-                        'body': body,
-                        'truncated': truncatedContent,
-                        'content': {'_content': content},
-                      }
-                    ],
-                  }
-                ],
-                'shr': [
-                  {
-                    'truncated': truncatedContent,
-                    'content': {'_content': content},
-                  }
-                ],
-                'dlSubs': [
-                  {
-                    'truncated': truncatedContent,
-                    'content': {'_content': content},
-                  }
-                ],
-                's': size,
-                'd': date,
-                'l': folder,
-                'cid': conversationId,
-                'f': flags,
-                't': tags,
-                'tn': tagNames,
-                'rev': revision,
-                'md': changeDate,
-                'ms': modifiedSequence,
-                'meta': [
-                  {
-                    'section': section,
-                    'a': [
-                      {
-                        'n': key,
-                        '_content': value,
-                      }
-                    ]
                   }
                 ],
               },
+              'shr': {
+                'truncated': truncatedContent,
+                'content': {'_content': content},
+              },
+              'dlSubs': {
+                'truncated': truncatedContent,
+                'content': {'_content': content},
+              },
+              'content': {
+                'url': url,
+                '_content': value,
+              },
+              's': size,
+              'd': date,
+              'l': folder,
+              'cid': conversationId,
+              'f': flags,
+              't': tags,
+              'tn': tagNames,
+              'rev': revision,
+              'md': changeDate,
+              'ms': modifiedSequence,
+              'meta': [
+                {
+                  'section': section,
+                  'a': [
+                    {
+                      'n': key,
+                      '_content': value,
+                    }
+                  ]
+                }
+              ],
             },
           }
         }
       };
-      final envelope = CreateAppointmentEnvelope.fromJson(json);
-      final response = envelope.createAppointmentBody.createAppointmentResponse!;
+      final envelope = SendMsgEnvelope.fromJson(json);
+      final response = envelope.sendMsgBody.sendMsgResponse!;
+      final msg = response.msg!;
 
-      expect(response.calItemId, calItemId);
-      expect(response.deprecatedApptId, deprecatedApptId);
-      expect(response.calInvId, calInvId);
-      expect(response.modifiedSequence, modifiedSequence);
-      expect(response.msg!.id, id);
+      expect(msg.id, id);
+      expect(msg.imapUid, imapUid);
+      expect(msg.calendarIntendedFor, calendarIntendedFor);
+      expect(msg.origId, origId);
+      expect(msg.draftReplyType, ReplyType.replied);
+      expect(msg.identityId, identityId);
+      expect(msg.draftAccountId, draftAccountId);
+      expect(msg.draftAutoSendTime, draftAutoSendTime);
+      expect(msg.sentDate, sentDate);
+      expect(msg.resentDate, resentDate);
+      expect(msg.part, part);
+      expect(msg.fragment, fragment);
+      expect(msg.subject, subject);
+      expect(msg.messageIdHeader, messageIdHeader);
+      expect(msg.inReplyTo, inReplyTo);
+      expect(msg.size, size);
+      expect(msg.date, date);
+      expect(msg.folder, folder);
+      expect(msg.conversationId, conversationId);
+      expect(msg.flags, flags);
+      expect(msg.tags, tags);
+      expect(msg.tagNames, tagNames);
+      expect(msg.revision, revision);
+      expect(msg.changeDate, changeDate);
+      expect(msg.modifiedSequence, modifiedSequence);
 
-      final echo = response.echo!;
-      final invite = echo.invite!;
+      final msgEmail = msg.emails.first;
+      expect(msgEmail.address, address);
+      expect(msgEmail.display, display);
+      expect(msgEmail.personal, personal);
+      expect(msgEmail.addressType, addressType);
+      expect(msgEmail.isGroup, isGroup);
+      expect(msgEmail.canExpandGroupMembers, canExpandGroupMembers);
 
-      expect(invite.id, id);
-      expect(invite.part, part);
-      expect(invite.sentDate, sentDate);
-      expect(invite.subject, subject);
-      expect(invite.messageIdHeader, messageIdHeader);
-      expect(invite.size, size);
-      expect(invite.date, date);
-      expect(invite.folder, folder);
-      expect(invite.conversationId, conversationId);
-      expect(invite.flags, flags);
-      expect(invite.tags, tags);
-      expect(invite.tagNames, tagNames);
-      expect(invite.revision, revision);
-      expect(invite.changeDate, changeDate);
-      expect(invite.modifiedSequence, modifiedSequence);
+      final msgHeader = msg.headers.first;
+      expect(msgHeader.key, key);
+      expect(msgHeader.value, value);
 
-      final email = invite.emails.first;
-      expect(email.address, address);
-      expect(email.display, display);
-      expect(email.personal, personal);
-      expect(email.addressType, AddressType.from);
-      expect(email.isGroup, isGroup);
-      expect(email.canExpandGroupMembers, canExpandGroupMembers);
+      final msgMimePart = msg.mimePart!;
+      expect(msgMimePart.contentType, contentType);
+      expect(msgMimePart.content, content);
+      expect(msgMimePart.contentId, contentId);
 
-      final header = invite.headers.first;
-      expect(header.key, key);
-      expect(header.value, value);
+      final msgAttach = msgMimePart.attachments!;
+      expect(msgAttach.attachmentId, attachmentId);
 
-      final mpContent = invite.mpContentElems.first;
-      expect(mpContent.part, part);
-      expect(mpContent.contentType, contentType);
-      expect(mpContent.size, size);
-      expect(mpContent.contentDisposition, contentDisposition);
-      expect(mpContent.contentFilename, contentFilename);
-      expect(mpContent.contentId, contentId);
-      expect(mpContent.location, location);
-      expect(mpContent.body, body);
-      expect(mpContent.truncatedContent, truncatedContent);
-      expect(mpContent.content, content);
+      final mpAttach = msgAttach.mpAttachments.first;
+      expect(mpAttach.messageId, messageId);
+      expect(mpAttach.part, part);
+      expect(mpAttach.optional, optional);
 
-      final mimePart = mpContent.mimeParts.first;
-      expect(mimePart.part, part);
-      expect(mimePart.contentType, contentType);
-      expect(mimePart.size, size);
-      expect(mimePart.contentDisposition, contentDisposition);
-      expect(mimePart.contentFilename, contentFilename);
-      expect(mimePart.contentId, contentId);
-      expect(mimePart.location, location);
-      expect(mimePart.body, body);
-      expect(mimePart.truncatedContent, truncatedContent);
-      expect(mimePart.content, content);
+      final mAttach = msgAttach.msgAttachments.first;
+      expect(mAttach.id, id);
+      expect(mAttach.optional, optional);
 
-      final shr = invite.shrContentElems.first;
-      expect(shr.truncatedContent, truncatedContent);
-      expect(shr.content, content);
+      final cnAttach = msgAttach.cnAttachments.first;
+      expect(cnAttach.id, id);
+      expect(cnAttach.optional, optional);
 
-      final dlSubs = invite.dlSubsContentElems.first;
-      expect(dlSubs.truncatedContent, truncatedContent);
-      expect(dlSubs.content, content);
+      final doc = msgAttach.docAttachments.first;
+      expect(doc.path, path);
+      expect(doc.id, id);
+      expect(doc.version, version);
+      expect(doc.optional, optional);
 
-      final inviteMeta = invite.metadatas.first;
-      expect(inviteMeta.section, section);
-      expect(inviteMeta.keyValuePairs.first.key, key);
-      expect(inviteMeta.keyValuePairs.first.value, value);
+      final msgShr = msg.shrNotification!;
+      expect(msgShr.truncatedContent, truncatedContent);
+      expect(msgShr.content, content);
 
-      final inv = invite.invite!;
-      expect(inv.calItemType, InviteType.appt);
+      final msgDlSubs = msg.dlSubsNotification!;
+      expect(msgDlSubs.truncatedContent, truncatedContent);
+      expect(msgDlSubs.content, content);
 
-      final tz = inv.timezones.first;
-      expect(tz.id, id);
-      expect(tz.tzStdOffset, tzStdOffset);
-      expect(tz.tzDayOffset, tzDayOffset);
-      expect(tz.standardTZName, standardTZName);
-      expect(tz.daylightTZName, daylightTZName);
+      final msgContent = msg.content!;
+      expect(msgContent.url, url);
+      expect(msgContent.value, value);
 
-      final standard = tz.standardTzOnset!;
-      expect(standard.month, month);
-      expect(standard.hour, hour);
-      expect(standard.minute, minute);
-      expect(standard.second, second);
-      expect(standard.dayOfMonth, dayOfMonth);
-      expect(standard.week, week);
-      expect(standard.dayOfWeek, dayOfWeek);
+      final msgMeta = msg.metadatas.first;
+      expect(msgMeta.section, section);
+      expect(msgMeta.keyValuePairs.first.key, key);
+      expect(msgMeta.keyValuePairs.first.value, value);
 
-      final daylight = tz.daylightTzOnset!;
-      expect(daylight.month, month);
-      expect(daylight.hour, hour);
-      expect(daylight.minute, minute);
-      expect(daylight.second, second);
-      expect(daylight.dayOfMonth, dayOfMonth);
-      expect(daylight.week, week);
-      expect(daylight.dayOfWeek, dayOfWeek);
+      final invite = msg.invite!;
+      expect(invite.calItemType, calItemType);
 
-      final reply = inv.calendarReplies.first;
-      expect(reply.recurrenceRangeType, recurrenceRangeType);
-      expect(reply.recurrenceId, recurrenceId);
-      expect(reply.seq, seq);
-      expect(reply.date, date);
-      expect(reply.attendee, attendee);
-      expect(reply.sentBy, sentBy);
-      expect(reply.partStat, partStat);
-      expect(reply.timezone, timezone);
-      expect(reply.recurIdZ, recurIdZ);
+      final inviteTz = invite.timezones.first;
+      expect(inviteTz.id, id);
+      expect(inviteTz.tzStdOffset, tzStdOffset);
+      expect(inviteTz.tzDayOffset, tzDayOffset);
+      expect(inviteTz.standardTZName, standardTZName);
+      expect(inviteTz.daylightTZName, daylightTZName);
 
-      final comp = inv.inviteComponents.first;
-      expect(comp.method, method);
-      expect(comp.componentNum, componentNum);
-      expect(comp.rsvp, rsvp);
-      expect(comp.priority, priority);
-      expect(comp.name, name);
-      expect(comp.location, location);
-      expect(comp.percentComplete, percentComplete);
-      expect(comp.completed, completed);
-      expect(comp.noBlob, noBlob);
-      expect(comp.freeBusyActual, FreeBusyStatus.free);
-      expect(comp.freeBusy, FreeBusyStatus.free);
-      expect(comp.transparency, Transparency.opaque);
-      expect(comp.isOrganizer, isOrganizer);
-      expect(comp.xUid, xUid);
-      expect(comp.uid, uid);
-      expect(comp.sequence, sequence);
-      expect(comp.dateTime, dateTime);
-      expect(comp.calItemId, calItemId);
-      expect(comp.deprecatedApptId, deprecatedApptId);
-      expect(comp.calItemFolder, calItemFolder);
-      expect(comp.status, InviteStatus.completed);
-      expect(comp.calClass, InviteClass.public);
-      expect(comp.url, url);
-      expect(comp.isException, isException);
-      expect(comp.recurIdZ, recurIdZ);
-      expect(comp.isAllDay, isAllDay);
-      expect(comp.isDraft, isDraft);
-      expect(comp.neverSent, neverSent);
-      expect(comp.changes, changes);
+      final inviteTzStandard = inviteTz.standardTzOnset!;
+      expect(inviteTzStandard.month, month);
+      expect(inviteTzStandard.hour, hour);
+      expect(inviteTzStandard.minute, minute);
+      expect(inviteTzStandard.second, second);
+      expect(inviteTzStandard.dayOfMonth, dayOfMonth);
+      expect(inviteTzStandard.week, week);
+      expect(inviteTzStandard.dayOfWeek, dayOfWeek);
 
-      expect(comp.fragment, fragment);
-      expect(comp.description, description);
-      expect(comp.htmlDescription, htmlDescription);
+      final inviteTzDaylight = inviteTz.daylightTzOnset!;
+      expect(inviteTzDaylight.month, month);
+      expect(inviteTzDaylight.hour, hour);
+      expect(inviteTzDaylight.minute, minute);
+      expect(inviteTzDaylight.second, second);
+      expect(inviteTzDaylight.dayOfMonth, dayOfMonth);
+      expect(inviteTzDaylight.week, week);
+      expect(inviteTzDaylight.dayOfWeek, dayOfWeek);
 
-      expect(comp.categories.first, category);
-      expect(comp.comments.first, comment);
-      expect(comp.contacts.first, contact);
+      final inviteComp = invite.inviteComponents.first;
+      expect(inviteComp.categories.first, category);
+      expect(inviteComp.comments.first, comment);
+      expect(inviteComp.contacts.first, contact);
+      expect(inviteComp.fragment, fragment);
+      expect(inviteComp.description, description);
+      expect(inviteComp.htmlDescription, htmlDescription);
+      expect(inviteComp.method, method);
+      expect(inviteComp.componentNum, componentNum);
+      expect(inviteComp.rsvp, rsvp);
+      expect(inviteComp.priority, priority);
+      expect(inviteComp.name, name);
+      expect(inviteComp.location, location);
+      expect(inviteComp.percentComplete, percentComplete);
+      expect(inviteComp.completed, completed);
+      expect(inviteComp.noBlob, noBlob);
+      expect(inviteComp.freeBusyActual, FreeBusyStatus.free);
+      expect(inviteComp.freeBusy, FreeBusyStatus.free);
+      expect(inviteComp.transparency, Transparency.opaque);
+      expect(inviteComp.isOrganizer, isOrganizer);
+      expect(inviteComp.xUid, xUid);
+      expect(inviteComp.uid, uid);
+      expect(inviteComp.sequence, sequence);
+      expect(inviteComp.dateTime, dateTime);
+      expect(inviteComp.calItemId, calItemId);
+      expect(inviteComp.deprecatedApptId, deprecatedApptId);
+      expect(inviteComp.calItemFolder, calItemFolder);
+      expect(inviteComp.status, InviteStatus.completed);
+      expect(inviteComp.calClass, InviteClass.public);
+      expect(inviteComp.url, url);
+      expect(inviteComp.isException, isException);
+      expect(inviteComp.recurIdZ, recurIdZ);
+      expect(inviteComp.isAllDay, isAllDay);
+      expect(inviteComp.isDraft, isDraft);
+      expect(inviteComp.neverSent, neverSent);
+      expect(inviteComp.changes, changes);
 
-      final geo = comp.geo!;
-      expect(geo.latitude, latitude);
-      expect(geo.longitude, longitude);
+      final compGeo = inviteComp.geo!;
+      expect(compGeo.latitude, latitude);
+      expect(compGeo.longitude, longitude);
 
-      final compAt = comp.attendees.first;
+      final compAt = inviteComp.attendees.first;
       expect(compAt.address, address);
       expect(compAt.url, url);
       expect(compAt.displayName, displayName);
@@ -1740,8 +1778,8 @@ void main() {
       expect(compAt.xParams.first.name, name);
       expect(compAt.xParams.first.value, value);
 
-      final alarm = comp.alarms.first;
-      expect(alarm.action, AlarmAction.display);
+      final alarm = inviteComp.alarms.first;
+      expect(alarm.action, alarmAction);
       expect(alarm.description, description);
       expect(alarm.summary, summary);
       expect(alarm.attach!.uri, uri);
@@ -1771,13 +1809,13 @@ void main() {
       expect(alarmXProp.xParams.first.name, name);
       expect(alarmXProp.xParams.first.value, value);
 
-      final compXProp = comp.xProps.first;
+      final compXProp = inviteComp.xProps.first;
       expect(compXProp.name, name);
       expect(compXProp.value, value);
       expect(compXProp.xParams.first.name, name);
       expect(compXProp.xParams.first.value, value);
 
-      final organizer = comp.organizer!;
+      final organizer = inviteComp.organizer!;
       expect(organizer.address, address);
       expect(organizer.url, url);
       expect(organizer.displayName, displayName);
@@ -1787,7 +1825,7 @@ void main() {
       expect(organizer.xParams.first.name, name);
       expect(organizer.xParams.first.value, value);
 
-      final recurrence = comp.recurrence!;
+      final recurrence = inviteComp.recurrence!;
       expect(recurrence.add.first, isA<AddRecurrenceInfo>());
       expect(recurrence.exclude.first, isA<ExcludeRecurrenceInfo>());
 
@@ -1846,22 +1884,22 @@ void main() {
       expect(simple.xNames.first.name, name);
       expect(simple.xNames.first.value, value);
 
-      final exceptionId = comp.exceptionId!;
+      final exceptionId = inviteComp.exceptionId!;
       expect(exceptionId.dateTime, dateTimeString);
       expect(exceptionId.timezone, timezone);
       expect(exceptionId.recurrenceRangeType, recurrenceRangeType);
 
-      final dtStart = comp.dtStart!;
+      final dtStart = inviteComp.dtStart!;
       expect(dtStart.dateTime, dateTimeString);
       expect(dtStart.timezone, timezone);
       expect(dtStart.utcTime, utcTime);
 
-      final dtEnd = comp.dtEnd!;
+      final dtEnd = inviteComp.dtEnd!;
       expect(dtEnd.dateTime, dateTimeString);
       expect(dtEnd.timezone, timezone);
       expect(dtEnd.utcTime, utcTime);
 
-      final inviteDuration = comp.duration!;
+      final inviteDuration = inviteComp.duration!;
       expect(inviteDuration.durationNegative, durationNegative);
       expect(inviteDuration.weeks, weeks);
       expect(inviteDuration.days, days);

@@ -22,11 +22,7 @@ void main() {
           .amount((_) => random.element(InterestType.values).name, InterestType.values.length)
           .toSet()
           .join(',');
-      final folderInterests = [
-        faker.guid.guid(),
-        faker.guid.guid(),
-        faker.guid.guid(),
-      ].join(',');
+      final folderInterests = [faker.guid.guid(), faker.guid.guid(), faker.guid.guid()].join(',');
 
       final request = CreateWaitSetRequest(
         defaultInterests: defaultInterests,

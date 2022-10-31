@@ -44,8 +44,8 @@ void main() {
 
     test('Snooze calendar item alarm response', (() {
       final calItemId = faker.guid.guid();
-      final nextAlarm = faker.date.dateTime().millisecondsSinceEpoch;
-      final alarmInstanceStart = faker.randomGenerator.boolean();
+      final nextAlarm = faker.randomGenerator.integer(100);
+      final alarmInstanceStart = faker.randomGenerator.integer(100);
       final invId = faker.randomGenerator.integer(100);
       final componentNum = faker.randomGenerator.integer(100);
       final name = faker.lorem.word();
@@ -104,59 +104,59 @@ void main() {
                         'd': dateString,
                       },
                     },
+                    'repeat': {
+                      'neg': durationNegative,
+                      'w': weeks,
+                      'd': days,
+                      'h': hours,
+                      'm': minutes,
+                      's': seconds,
+                      'related': AlarmRelated.start.name,
+                      'count': repeatCount,
+                    },
+                    'desc': {'_content': description},
+                    'attach': {
+                      'uri': uri,
+                      'ct': contentType,
+                      '_content': binaryB64Data,
+                    },
+                    'summary': {'_content': summary},
+                    'at': [
+                      {
+                        'a': address,
+                        'url': url,
+                        'd': displayName,
+                        'sentBy': sentBy,
+                        'dir': dir,
+                        'lang': language,
+                        'cutype': cuType,
+                        'role': role,
+                        'ptst': ParticipationStatus.accept.name,
+                        'rsvp': rsvp,
+                        'member': member,
+                        'delegatedTo': delegatedTo,
+                        'delegatedFrom': delegatedFrom,
+                        'xparam': [
+                          {
+                            'name': name,
+                            '_content': value,
+                          }
+                        ],
+                      }
+                    ],
+                    'xprop': [
+                      {
+                        'name': name,
+                        '_content': value,
+                        'xparam': [
+                          {
+                            'name': name,
+                            '_content': value,
+                          }
+                        ],
+                      }
+                    ],
                   },
-                  'repeat': {
-                    'neg': durationNegative,
-                    'w': weeks,
-                    'd': days,
-                    'h': hours,
-                    'm': minutes,
-                    's': seconds,
-                    'related': AlarmRelated.start.name,
-                    'count': repeatCount,
-                  },
-                  'desc': {'_content': description},
-                  'attach': {
-                    'uri': uri,
-                    'ct': contentType,
-                    '_content': binaryB64Data,
-                  },
-                  'summary': {'_content': summary},
-                  'at': [
-                    {
-                      'a': address,
-                      'url': url,
-                      'd': displayName,
-                      'sentBy': sentBy,
-                      'dir': dir,
-                      'lang': language,
-                      'cutype': cuType,
-                      'role': role,
-                      'ptst': ParticipationStatus.accept.name,
-                      'rsvp': rsvp,
-                      'member': member,
-                      'delegatedTo': delegatedTo,
-                      'delegatedFrom': delegatedFrom,
-                      'xparam': [
-                        {
-                          'name': name,
-                          '_content': value,
-                        }
-                      ],
-                    }
-                  ],
-                  'xprop': [
-                    {
-                      'name': name,
-                      '_content': value,
-                      'xparam': [
-                        {
-                          'name': name,
-                          '_content': value,
-                        }
-                      ],
-                    }
-                  ],
                 },
               }
             ],

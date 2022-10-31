@@ -14,7 +14,7 @@ void main() {
       final request = SendVerificationCodeRequest(address);
       expect(request.getEnvelope().toJson(), {
         'Body': {
-          'SendShareNotificationRequest': {
+          'SendVerificationCodeRequest': {
             '_jsns': 'urn:zimbraMail',
             'a': address,
           }

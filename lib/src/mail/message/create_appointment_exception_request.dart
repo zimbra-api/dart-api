@@ -11,10 +11,46 @@ import 'create_appointment_exception_envelope.dart';
 
 /// Create appointment exception.
 class CreateAppointmentExceptionRequest extends CalItemRequestBase {
-  CreateAppointmentExceptionRequest(
-      {super.echo, super.maxSize, super.wantHtml, super.neuter, super.forceSend, super.msg});
+  /// ID of default invite
+  final String? id;
+
+  /// Component of default invite
+  final int? numComponents;
+
+  /// Change sequence of fetched series
+  final int? modifiedSequence;
+
+  /// Revision of fetched series
+  final int? revision;
+
+  CreateAppointmentExceptionRequest( 
+      {this.id,
+      this.numComponents,
+      this.modifiedSequence,
+      this.revision,
+      super.echo,
+      super.maxSize,
+      super.wantHtml,
+      super.neuter,
+      super.forceSend,
+      super.msg});
 
   @override
   SoapEnvelope getEnvelope({SoapHeader? header}) =>
       CreateAppointmentExceptionEnvelope(CreateAppointmentExceptionBody(request: this), header: header);
+
+  @override
+  Map<String, dynamic> toJson() => {
+        '_jsns': 'urn:zimbraMail',
+        if (id != null) 'id': id,
+        if (numComponents != null) 'comp': numComponents,
+        if (modifiedSequence != null) 'ms': modifiedSequence,
+        if (revision != null) 'rev': revision,
+        if (echo != null) 'echo': echo,
+        if (maxSize != null) 'max': maxSize,
+        if (wantHtml != null) 'want': wantHtml,
+        if (neuter != null) 'neuter': neuter,
+        if (forceSend != null) 'forcesend': forceSend,
+        if (msg != null) 'm': msg!.toJson(),
+      };
 }

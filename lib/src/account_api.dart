@@ -48,26 +48,26 @@ class AccountApi extends Api {
       String? deviceId,
       bool? generateDeviceId,
       String? tokenType}) {
-    final request = AuthRequest(
-        account: account,
-        password: password,
-        recoveryCode: recoveryCode,
-        preauth: preauth,
-        authToken: authToken,
-        jwtToken: jwtToken,
-        virtualHost: virtualHost,
-        requestedSkin: requestedSkin,
-        persistAuthTokenCookie: persistAuthTokenCookie,
-        csrfSupported: csrfSupported,
-        twoFactorCode: twoFactorCode,
-        deviceTrusted: deviceTrusted,
-        trustedDeviceToken: trustedDeviceToken,
-        deviceId: deviceId,
-        generateDeviceId: generateDeviceId,
-        tokenType: tokenType,
-        prefs: prefs,
-        attrs: attrs);
-    return invoke(request).then((json) => AuthEnvelope.fromJson(json).authBody.authResponse);
+    return invoke(AuthRequest(
+      account: account,
+      password: password,
+      recoveryCode: recoveryCode,
+      preauth: preauth,
+      authToken: authToken,
+      jwtToken: jwtToken,
+      virtualHost: virtualHost,
+      requestedSkin: requestedSkin,
+      persistAuthTokenCookie: persistAuthTokenCookie,
+      csrfSupported: csrfSupported,
+      twoFactorCode: twoFactorCode,
+      deviceTrusted: deviceTrusted,
+      trustedDeviceToken: trustedDeviceToken,
+      deviceId: deviceId,
+      generateDeviceId: generateDeviceId,
+      tokenType: tokenType,
+      prefs: prefs,
+      attrs: attrs,
+    )).then((json) => AuthEnvelope.fromJson(json).authBody.authResponse);
   }
 
   /// Authenticate by account name
@@ -409,18 +409,18 @@ class AccountApi extends Api {
       String? name,
       String? attrs}) {
     return invoke(SearchCalendarResourcesRequest(
-            cursor: cursor,
-            searchFilter: searchFilter,
-            quick: quick,
-            sortBy: sortBy,
-            limit: limit,
-            offset: offset,
-            locale: locale,
-            galAccountId: galAccountId,
-            name: name,
-            attrs: attrs))
-        .then((json) =>
-            SearchCalendarResourcesEnvelope.fromJson(json).searchCalendarResourcesBody.searchCalendarResourcesResponse);
+      cursor: cursor,
+      searchFilter: searchFilter,
+      quick: quick,
+      sortBy: sortBy,
+      limit: limit,
+      offset: offset,
+      locale: locale,
+      galAccountId: galAccountId,
+      name: name,
+      attrs: attrs,
+    )).then((json) =>
+        SearchCalendarResourcesEnvelope.fromJson(json).searchCalendarResourcesBody.searchCalendarResourcesResponse);
   }
 
   /// Search Global Address List (GAL)
@@ -441,22 +441,22 @@ class AccountApi extends Api {
       int? offset,
       String? locale}) {
     return invoke(SearchGalRequest(
-            cursor: cursor,
-            searchFilter: searchFilter,
-            ref: ref,
-            name: name,
-            type: type,
-            needCanExpand: needCanExpand,
-            needIsOwner: needIsOwner,
-            needIsMember: needIsMember,
-            needSMIMECerts: needSMIMECerts,
-            galAccountId: galAccountId,
-            quick: quick,
-            sortBy: sortBy,
-            limit: limit,
-            offset: offset,
-            locale: locale))
-        .then((json) => SearchGalEnvelope.fromJson(json).searchGalBody.searchGalResponse);
+      cursor: cursor,
+      searchFilter: searchFilter,
+      ref: ref,
+      name: name,
+      type: type,
+      needCanExpand: needCanExpand,
+      needIsOwner: needIsOwner,
+      needIsMember: needIsMember,
+      needSMIMECerts: needSMIMECerts,
+      galAccountId: galAccountId,
+      quick: quick,
+      sortBy: sortBy,
+      limit: limit,
+      offset: offset,
+      locale: locale,
+    )).then((json) => SearchGalEnvelope.fromJson(json).searchGalBody.searchGalResponse);
   }
 
   /// Subscribe to or unsubscribe from a distribution list

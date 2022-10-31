@@ -69,6 +69,9 @@ void main() {
 
   group('Create task exception tests', (() {
     test('Create task exception request', (() {
+      final numComponents = faker.randomGenerator.integer(100);
+      final modifiedSequence = faker.randomGenerator.integer(100);
+      final revision = faker.randomGenerator.integer(100);
       final echo = faker.randomGenerator.boolean();
       final maxSize = faker.randomGenerator.integer(100);
       final wantHtml = faker.randomGenerator.boolean();
@@ -177,6 +180,10 @@ void main() {
       final ordWk = faker.randomGenerator.integer(100);
 
       final request = CreateTaskExceptionRequest(
+        id: id,
+        numComponents: numComponents,
+        modifiedSequence: modifiedSequence,
+        revision: revision,
         echo: echo,
         maxSize: maxSize,
         wantHtml: wantHtml,
@@ -501,6 +508,10 @@ void main() {
         'Body': {
           'CreateTaskExceptionRequest': {
             '_jsns': 'urn:zimbraMail',
+            'id': id,
+            'comp': numComponents,
+            'ms': modifiedSequence,
+            'rev': revision,
             'echo': echo,
             'max': maxSize,
             'want': wantHtml,

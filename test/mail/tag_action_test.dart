@@ -56,7 +56,7 @@ void main() {
       );
       expect(request.getEnvelope().toJson(), {
         'Body': {
-          'SendDeliveryReportRequest': {
+          'TagActionRequest': {
             '_jsns': 'urn:zimbraMail',
             'action': {
               'id': ids,

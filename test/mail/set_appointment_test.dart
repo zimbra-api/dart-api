@@ -1,5 +1,4 @@
 import 'package:faker/faker.dart';
-import 'package:http/http.dart';
 import 'package:test/test.dart';
 import 'package:zimbra_api/src/common/enum/address_type.dart';
 import 'package:zimbra_api/src/common/enum/alarm_action.dart';
@@ -15,7 +14,6 @@ import 'package:zimbra_api/src/common/enum/week_day.dart';
 import 'package:zimbra_api/src/common/type/tz_onset_info.dart';
 import 'package:zimbra_api/src/mail/message/set_appointment_envelope.dart';
 import 'package:zimbra_api/src/mail/message/set_appointment_request.dart';
-import 'package:zimbra_api/src/mail/message/set_appointment_response.dart';
 import 'package:zimbra_api/src/mail/type/add_recurrence_info.dart';
 import 'package:zimbra_api/src/mail/type/alarm_info.dart';
 import 'package:zimbra_api/src/mail/type/alarm_trigger_info.dart';

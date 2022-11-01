@@ -15,8 +15,8 @@ import 'get_conv_envelope.dart';
 /// GetConvRequest gets information about the 1 conversation named by id's value.
 /// It will return exactly 1 conversation element.
 ///
-/// If fetch="1|all" is included, the full expanded message structure is inlined for the first (or for all) messages
-/// in the conversation.  If fetch="{item-id}", only the message with the given {item-id} is expanded inline.
+/// If fetch="1|all" is included, the full expanded message structure is inlined for the first (or for all) messages in the conversation.
+/// If fetch="{item-id}", only the message with the given {item-id} is expanded inline.
 ///
 /// if headers are requested, any matching headers are inlined into the response (not available when raw="1")
 class GetConvRequest extends SoapRequest {

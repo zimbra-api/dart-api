@@ -18,7 +18,7 @@ class AccountWithModifications {
 
   factory AccountWithModifications.fromJson(Map<String, dynamic> json) => AccountWithModifications(
       id: json['id'],
-      modifications: (json['modTags'] is Iterable)
+      modifications: (json['mods'] is Iterable)
           ? List.from((json['mods'] as Iterable)
               .map<PendingFolderModifications>((mods) => PendingFolderModifications.fromJson(mods)))
           : [],

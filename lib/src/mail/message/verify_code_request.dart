@@ -9,8 +9,9 @@ import 'package:zimbra_api/src/common/type/soap_request.dart';
 import 'verify_code_body.dart';
 import 'verify_code_envelope.dart';
 
-/// Validate the verification code sent to a device. After successful validation the
-/// server sets the device email address as the value of zimbraCalendarReminderDeviceEmail account attribute.
+/// Validate the verification code sent to a device.
+/// After successful validation the server sets the device email address as
+/// the value of zimbraCalendarReminderDeviceEmail account attribute.
 class VerifyCodeRequest extends SoapRequest {
   /// Device email address
   final String address;

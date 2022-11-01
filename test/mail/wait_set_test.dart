@@ -101,14 +101,14 @@ void main() {
     }));
 
     test('WaitSet response', (() {
-      final id = faker.guid.guid();
+      final id = faker.randomGenerator.integer(100);
       final name = faker.lorem.word();
       final waitSetId = faker.guid.guid();
       final canceled = faker.randomGenerator.boolean();
       final seqNo = faker.randomGenerator.integer(100);
       final lastChangeId = faker.randomGenerator.integer(100);
 
-      final folderId = faker.guid.guid();
+      final folderId = faker.randomGenerator.integer(100);
       final imapUid = faker.randomGenerator.integer(100);
       final type = faker.lorem.word();
       final flags = faker.lorem.word();
@@ -179,7 +179,7 @@ void main() {
             ],
             'error': [
               {
-                'id': id,
+                'id': id.toString(),
                 'type': type,
               }
             ],
@@ -228,7 +228,7 @@ void main() {
       expect(modFolder.changeBitmask, changeBitmask);
 
       final error = response.errors.first;
-      expect(error.id, id);
+      expect(error.id, id.toString());
       expect(error.type, type);
     }));
   }));

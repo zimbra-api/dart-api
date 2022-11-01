@@ -11,7 +11,7 @@ import 'list_document_revisions_body.dart';
 import 'list_document_revisions_envelope.dart';
 
 /// Returns {num} number of revisions starting from {version} of the requested document.
-/// {num} defaults to 1.  {version} defaults to the current version.
+/// {num} defaults to 1. {version} defaults to the current version.
 /// Documents that have multiple revisions have the flag "/", which indicates that the document is versioned.
 class ListDocumentRevisionsRequest extends SoapRequest {
   /// Specification for the list of document revisions

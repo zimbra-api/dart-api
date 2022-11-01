@@ -11,7 +11,7 @@ import 'package:zimbra_api/src/common/type/soap_request.dart';
 import 'recover_account_body.dart';
 import 'recover_account_envelope.dart';
 
-/// Recover account request
+/// Recover account
 class RecoverAccountRequest extends SoapRequest {
   /// Email
   final String email;

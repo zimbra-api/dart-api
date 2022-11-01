@@ -41,9 +41,9 @@ class Client {
     return [];
   }
 
-  static Iterable bodyToJson(String body) {
-    final exp = RegExp(r'/\[\{(.*)\}\]/');
+  static List<dynamic> bodyToJson(String body) {
+    final exp = RegExp(r'\[\{(.*)\}\]');
     final match = exp.firstMatch(body);
-    return jsonDecode(match![0]!).cast<Iterable>();
+    return jsonDecode(match?.group(0) ?? '[]');
   }
 }

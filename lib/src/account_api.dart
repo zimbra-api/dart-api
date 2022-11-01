@@ -18,8 +18,6 @@ import 'common/type/key_value_pair.dart';
 import 'common/type/op_value.dart';
 
 class AccountApi extends Api {
-  bool get isAwesome => true;
-
   AccountApi(super.serviceHost);
 
   /// Authenticate for an account

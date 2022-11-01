@@ -21,14 +21,14 @@ class Client {
     return _httpClient
         .post(Uri.https(_serviceHost, _serviceUri),
             headers: {
-              'Content-Type': _contentType,
-              'User-Agent': _userAgent,
-              if (_cookie != null) 'Set-Cookie': _cookie!,
+              'content-type': _contentType,
+              'user-agent': _userAgent,
+              if (_cookie != null) 'cookie': _cookie!,
             },
             body: soapMessage)
         .then((response) {
-      if (response.headers.containsKey('Cookie')) {
-        _cookie = response.headers['Cookie'];
+      if (response.headers.containsKey('set-cookie')) {
+        _cookie = response.headers['set-cookie'];
       }
       return response;
     });

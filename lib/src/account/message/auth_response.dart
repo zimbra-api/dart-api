@@ -65,15 +65,15 @@ class AuthResponse extends SoapResponse {
       this.trustedDevicesEnabled});
 
   factory AuthResponse.fromJson(Map<String, dynamic> json) => AuthResponse(
-        authToken: json['authToken']?['_content'],
-        lifetime: json['lifetime']?['_content'],
-        trustLifetime: json['trustLifetime']?['_content'],
+        authToken: json['authToken']?[0]['_content'],
+        lifetime: json['lifetime'],
+        trustLifetime: json['trustLifetime'],
         session: json['session'] is Map ? Session.fromJson(json['session']) : null,
-        refer: json['refer']?['_content'],
-        skin: json['skin']?['_content'],
-        csrfToken: json['csrfToken']?['_content'],
-        deviceId: json['deviceId']?['_content'],
-        trustedToken: json['trustedToken']?['_content'],
+        refer: json['refer']?[0]['_content'],
+        skin: json['skin']?[0]['_content'],
+        csrfToken: json['csrfToken']?[0]['_content'],
+        deviceId: json['deviceId']?[0]['_content'],
+        trustedToken: json['trustedToken']?[0]['_content'],
         zmgProxy: json['zmgProxy'],
         prefs: (json['prefs']?['pref'] is Iterable)
             ? List.from((json['prefs']['pref'] as Iterable).map<Pref>((pref) => Pref.fromJson(pref)))
@@ -81,7 +81,7 @@ class AuthResponse extends SoapResponse {
         attrs: (json['attrs']?['attr'] is Iterable)
             ? List.from((json['attrs']['attr'] as Iterable).map<Attr>((attr) => Attr.fromJson(attr)))
             : [],
-        twoFactorAuthRequired: json['twoFactorAuthRequired']?['_content'],
-        trustedDevicesEnabled: json['trustedDevicesEnabled']?['_content'],
+        twoFactorAuthRequired: json['twoFactorAuthRequired'],
+        trustedDevicesEnabled: json['trustedDevicesEnabled'],
       );
 }

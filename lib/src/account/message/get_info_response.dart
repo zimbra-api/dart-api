@@ -148,31 +148,31 @@ class GetInfoResponse extends SoapResponse {
   factory GetInfoResponse.fromJson(Map<String, dynamic> json) => GetInfoResponse(
         attachmentSizeLimit: json['attSizeLimit'],
         documentSizeLimit: json['docSizeLimit'],
-        version: json['version']?['_content'],
-        accountId: json['id']?['_content'],
-        profileImageId: json['profileImageId']?['_content'],
-        accountName: json['name']?['_content'],
-        crumb: json['crumb']?['_content'],
-        lifetime: json['lifetime']?['_content'],
-        adminDelegated: json['adminDelegated']?['_content'],
-        restUrl: json['rest']?['_content'],
-        quotaUsed: json['used']?['_content'],
-        previousSessionTime: json['prevSession']?['_content'],
-        lastWriteAccessTime: json['accessed']?['_content'],
-        recentMessageCount: json['recent']?['_content'],
+        version: json['version'],
+        accountId: json['id'],
+        profileImageId: json['profileImageId'],
+        accountName: json['name'],
+        crumb: json['crumb'],
+        lifetime: json['lifetime'],
+        adminDelegated: json['adminDelegated'],
+        restUrl: json['rest'],
+        quotaUsed: json['used'],
+        previousSessionTime: json['prevSession'],
+        lastWriteAccessTime: json['accessed'],
+        recentMessageCount: json['recent'],
         cos: json['cos'] is Map ? Cos.fromJson(json['cos']) : null,
         dataSources: json['dataSources'] is Map ? AccountDataSources.fromJson(json['dataSources']) : null,
-        soapURL: json['soapURL']?['_content'],
-        publicURL: json['publicURL']?['_content'],
-        changePasswordURL: json['changePasswordURL']?['_content'],
-        adminURL: json['adminURL']?['_content'],
-        boshURL: json['boshURL']?['_content'],
-        isTrackingIMAP: json['isTrackingIMAP']?['_content'],
-        prefs: (json['prefs']?['pref'] is Iterable)
-            ? List.from((json['prefs']['pref'] as Iterable).map<Pref>((pref) => Pref.fromJson(pref)))
+        soapURL: json['soapURL'],
+        publicURL: json['publicURL'],
+        changePasswordURL: json['changePasswordURL'],
+        adminURL: json['adminURL'],
+        boshURL: json['boshURL'],
+        isTrackingIMAP: json['isTrackingIMAP'],
+        prefs: (json['prefs']?['_attrs'] is Map)
+            ? List.from(_prefsFromJson(json['prefs']['_attrs'] as Map<String, dynamic>))
             : [],
-        attrs: (json['attrs']?['attr'] is Iterable)
-            ? List.from((json['attrs']['attr'] as Iterable).map<Attr>((attr) => Attr.fromJson(attr)))
+        attrs: (json['attrs']?['_attrs'] is Map)
+            ? List.from(_attrsFromJson(json['attrs']['_attrs'] as Map<String, dynamic>))
             : [],
         zimlets: (json['zimlets']?['zimlet'] is Iterable)
             ? List.from((json['zimlets']['zimlet'] as Iterable)
@@ -198,4 +198,28 @@ class GetInfoResponse extends SoapResponse {
                 .map<DiscoverRightsInfo>((targets) => DiscoverRightsInfo.fromJson(targets)))
             : [],
       );
+
+  static List<Attr> _attrsFromJson(Map<String, dynamic> json) {
+    final attrs = <Attr>[];
+    for (final entry in json.entries) {
+      if (entry.value is Iterable) {
+        attrs.addAll((entry.value as Iterable).map<Attr>((value) => Attr(entry.key, value)));
+      } else {
+        attrs.add(Attr(entry.key, entry.value));
+      }
+    }
+    return attrs;
+  }
+
+  static List<Pref> _prefsFromJson(Map<String, dynamic> json) {
+    final prefs = <Pref>[];
+    for (final entry in json.entries) {
+      if (entry.value is Iterable) {
+        prefs.addAll((entry.value as Iterable).map<Pref>((value) => Pref(entry.key, value)));
+      } else {
+        prefs.add(Pref(entry.key, entry.value));
+      }
+    }
+    return prefs;
+  }
 }

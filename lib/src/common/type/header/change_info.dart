@@ -3,14 +3,14 @@
 // file that was distributed with this source code.
 
 class ChangeInfo {
-  final String? changeId;
+  final int? changeId;
 
   final String? changeType;
 
   ChangeInfo({this.changeId, this.changeType});
 
   factory ChangeInfo.fromJson(Map<String, dynamic> json) =>
-      ChangeInfo(changeId: json['token'], changeType: json['token']);
+      ChangeInfo(changeId: json['token'], changeType: json['type']);
 
   Map<String, dynamic> toJson() => {
         if (changeId != null) 'token': changeId,

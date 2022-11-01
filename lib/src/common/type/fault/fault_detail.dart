@@ -2,15 +2,14 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
-class FaultCode {
-  final String value;
+class FaultDetail {
+  final Map<String, dynamic> error;
 
-  FaultCode(this.value);
+  FaultDetail(this.error);
 
-  factory FaultCode.fromJson(Map<String, dynamic> json) =>
-      FaultCode(json['Value'] ?? '');
+  factory FaultDetail.fromJson(Map<String, dynamic> json) => FaultDetail(json['Error'] ?? {});
 
   Map<String, dynamic> toJson() => {
-        'Value': value,
+        'Error': error,
       };
 }

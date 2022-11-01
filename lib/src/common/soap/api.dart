@@ -46,7 +46,7 @@ abstract class Api {
               ),
             )
             .toJson()))
-        .then((response) => jsonDecode(response.body).cast<Map<String, dynamic>>());
+        .then((response) => jsonDecode(response.body));
   }
 
   void setAuthToken(String authToken) {

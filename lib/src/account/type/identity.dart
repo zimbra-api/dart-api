@@ -15,7 +15,10 @@ class Identity extends Attrs {
   factory Identity.fromJson(Map<String, dynamic> json) => Identity(
         name: json['name'],
         id: json['id'],
-        attrs: (json['a'] is Iterable) ? List.from((json['a'] as Iterable).map<Attr>((a) => Attr.fromJson(a))) : [],
+        attrs: (json['_attrs'] is Map)
+            ? List.from(
+                (json['_attrs'] as Map<String, dynamic>).entries.map<Attr>((attr) => Attr(attr.key, attr.value)))
+            : [],
       );
 
   Map<String, dynamic> toJson() => {

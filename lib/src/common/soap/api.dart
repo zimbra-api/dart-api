@@ -11,11 +11,14 @@ import 'package:zimbra_api/src/common/type/header/context.dart';
 import 'package:zimbra_api/src/common/type/header/format_info.dart';
 import 'package:zimbra_api/src/common/type/header/session_info.dart';
 import 'package:zimbra_api/src/common/type/header/user_agent_info.dart';
+import 'package:zimbra_api/src/common/type/soap_envelope.dart';
 import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'package:zimbra_api/src/common/type/soap_request.dart';
 
 abstract class Api {
   final Client _soapClient;
+
+  SoapEnvelope? _responseEnvelope;
 
   String? _authToken;
 
@@ -49,6 +52,12 @@ abstract class Api {
         .then((response) => jsonDecode(response.body));
   }
 
+  SoapEnvelope? get responseEnvelope => _responseEnvelope;
+
+  void setResponseEnvelope(SoapEnvelope responseEnvelope) {
+    _responseEnvelope = responseEnvelope;
+  }
+
   void setAuthToken(String authToken) {
     _authToken = authToken;
   }
@@ -64,5 +73,9 @@ abstract class Api {
   void setUserAgent(String name, {String? version}) {
     _userAgentName = name;
     _userAgentVersion = version;
+  }
+
+  void close() {
+    _soapClient.close();
   }
 }

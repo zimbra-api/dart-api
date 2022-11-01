@@ -5,6 +5,7 @@
 import 'package:zimbra_api/src/account/type/attr.dart';
 import 'package:zimbra_api/src/account/type/pref.dart';
 import 'package:zimbra_api/src/account/type/session.dart';
+import 'package:zimbra_api/src/account/utils.dart';
 import 'package:zimbra_api/src/common/type/soap_response.dart';
 
 class AuthResponse extends SoapResponse {
@@ -71,15 +72,15 @@ class AuthResponse extends SoapResponse {
         session: json['session'] is Map ? Session.fromJson(json['session']) : null,
         refer: json['refer']?[0]['_content'],
         skin: json['skin']?[0]['_content'],
-        csrfToken: json['csrfToken']?[0]['_content'],
-        deviceId: json['deviceId']?[0]['_content'],
-        trustedToken: json['trustedToken']?[0]['_content'],
+        csrfToken: json['csrfToken']?['_content'],
+        deviceId: json['deviceId']?['_content'],
+        trustedToken: json['trustedToken']?['_content'],
         zmgProxy: json['zmgProxy'],
-        prefs: (json['prefs']?['pref'] is Iterable)
-            ? List.from((json['prefs']['pref'] as Iterable).map<Pref>((pref) => Pref.fromJson(pref)))
+        prefs: (json['prefs']?['_attrs'] is Map)
+            ? List.from(Utils.prefsFromJson(json['prefs']['_attrs'] as Map<String, dynamic>))
             : [],
-        attrs: (json['attrs']?['attr'] is Iterable)
-            ? List.from((json['attrs']['attr'] as Iterable).map<Attr>((attr) => Attr.fromJson(attr)))
+        attrs: (json['attrs']?['_attrs'] is Map)
+            ? List.from(Utils.attrsFromJson(json['attrs']['_attrs'] as Map<String, dynamic>))
             : [],
         twoFactorAuthRequired: json['twoFactorAuthRequired'],
         trustedDevicesEnabled: json['trustedDevicesEnabled'],

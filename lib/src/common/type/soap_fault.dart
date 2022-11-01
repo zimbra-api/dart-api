@@ -7,7 +7,7 @@ import 'package:zimbra_api/src/common/type/fault/fault_detail.dart';
 import 'fault/fault_code.dart';
 import 'fault/fault_reason.dart';
 
-class SoapFault {
+class SoapFault implements Exception {
   final FaultCode? code;
 
   final FaultReason? reason;

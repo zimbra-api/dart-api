@@ -13,7 +13,7 @@ class AutoCompleteMatch {
   final AutoCompleteMatchType? matchType;
 
   /// Ranking
-  final int? ranking;
+  final String? ranking;
 
   /// Set if the entry is a group
   final bool? isGroup;

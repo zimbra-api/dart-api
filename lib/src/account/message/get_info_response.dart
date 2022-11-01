@@ -12,6 +12,7 @@ import 'package:zimbra_api/src/account/type/identity.dart';
 import 'package:zimbra_api/src/account/type/pref.dart';
 import 'package:zimbra_api/src/account/type/prop.dart';
 import 'package:zimbra_api/src/account/type/signature.dart';
+import 'package:zimbra_api/src/account/utils.dart';
 import 'package:zimbra_api/src/common/type/soap_response.dart';
 
 class GetInfoResponse extends SoapResponse {
@@ -169,10 +170,10 @@ class GetInfoResponse extends SoapResponse {
         boshURL: json['boshURL'],
         isTrackingIMAP: json['isTrackingIMAP'],
         prefs: (json['prefs']?['_attrs'] is Map)
-            ? List.from(_prefsFromJson(json['prefs']['_attrs'] as Map<String, dynamic>))
+            ? List.from(Utils.prefsFromJson(json['prefs']['_attrs'] as Map<String, dynamic>))
             : [],
         attrs: (json['attrs']?['_attrs'] is Map)
-            ? List.from(_attrsFromJson(json['attrs']['_attrs'] as Map<String, dynamic>))
+            ? List.from(Utils.attrsFromJson(json['attrs']['_attrs'] as Map<String, dynamic>))
             : [],
         zimlets: (json['zimlets']?['zimlet'] is Iterable)
             ? List.from((json['zimlets']['zimlet'] as Iterable)
@@ -198,28 +199,4 @@ class GetInfoResponse extends SoapResponse {
                 .map<DiscoverRightsInfo>((targets) => DiscoverRightsInfo.fromJson(targets)))
             : [],
       );
-
-  static List<Attr> _attrsFromJson(Map<String, dynamic> json) {
-    final attrs = <Attr>[];
-    for (final entry in json.entries) {
-      if (entry.value is Iterable) {
-        attrs.addAll((entry.value as Iterable).map<Attr>((value) => Attr(entry.key, value)));
-      } else {
-        attrs.add(Attr(entry.key, entry.value));
-      }
-    }
-    return attrs;
-  }
-
-  static List<Pref> _prefsFromJson(Map<String, dynamic> json) {
-    final prefs = <Pref>[];
-    for (final entry in json.entries) {
-      if (entry.value is Iterable) {
-        prefs.addAll((entry.value as Iterable).map<Pref>((value) => Pref(entry.key, value)));
-      } else {
-        prefs.add(Pref(entry.key, entry.value));
-      }
-    }
-    return prefs;
-  }
 }

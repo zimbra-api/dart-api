@@ -2,6 +2,7 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
+import 'package:zimbra_api/src/account/utils.dart';
 import 'package:zimbra_api/src/common/type/contact_attr.dart';
 
 import 'account_custom_metadata.dart';
@@ -106,8 +107,7 @@ class ContactInfo {
             ? List.from(
                 (json['meta'] as Iterable).map<AccountCustomMetadata>((meta) => AccountCustomMetadata.fromJson(meta)))
             : [],
-        attrs: (json['a'] is Iterable)
-            ? List.from((json['a'] as Iterable).map<ContactAttr>((a) => ContactAttr.fromJson(a)))
+        attrs: (json['_attrs'] is Map) ? List.from(Utils.attrsFromJson(json['_attrs'] as Map<String, dynamic>))
             : [],
         contactGroupMembers: (json['m'] is Iterable)
             ? List.from((json['m'] as Iterable).map<ContactGroupMember>((m) => ContactGroupMember.fromJson(m)))

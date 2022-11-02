@@ -61,13 +61,13 @@ class CreateDataSourceRequest extends SoapRequest {
   @override
   Map<String, dynamic> toJson() => {
         '_jsns': 'urn:zimbraMail',
-        if (imapDataSource != null) 'imap': imapDataSource!.toJson(),
-        if (pop3DataSource != null) 'pop3': pop3DataSource!.toJson(),
-        if (caldavDataSource != null) 'caldav': caldavDataSource!.toJson(),
-        if (yabDataSource != null) 'yab': yabDataSource!.toJson(),
-        if (rssDataSource != null) 'rss': rssDataSource!.toJson(),
-        if (galDataSource != null) 'gal': galDataSource!.toJson(),
-        if (calDataSource != null) 'cal': calDataSource!.toJson(),
-        if (unknownDataSource != null) 'unknown': unknownDataSource!.toJson(),
+        if (imapDataSource != null) 'imap': [imapDataSource!.toJson()],
+        if (pop3DataSource != null) 'pop3': [pop3DataSource!.toJson()],
+        if (caldavDataSource != null) 'caldav': [caldavDataSource!.toJson()],
+        if (yabDataSource != null) 'yab': [yabDataSource!.toJson()],
+        if (rssDataSource != null) 'rss': [rssDataSource!.toJson()],
+        if (galDataSource != null) 'gal': [galDataSource!.toJson()],
+        if (calDataSource != null) 'cal': [calDataSource!.toJson()],
+        if (unknownDataSource != null) 'unknown': [unknownDataSource!.toJson()],
       };
 }

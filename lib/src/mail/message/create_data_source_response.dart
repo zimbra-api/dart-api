@@ -41,12 +41,12 @@ class CreateDataSourceResponse extends SoapResponse {
       this.unknownDataSource});
 
   factory CreateDataSourceResponse.fromJson(Map<String, dynamic> json) => CreateDataSourceResponse(
-      imapDataSource: json['imap'] is Map ? DataSourceId.fromJson(json['imap']) : null,
-      pop3DataSource: json['pop3'] is Map ? DataSourceId.fromJson(json['pop3']) : null,
-      caldavDataSource: json['caldav'] is Map ? DataSourceId.fromJson(json['caldav']) : null,
-      yabDataSource: json['yab'] is Map ? DataSourceId.fromJson(json['yab']) : null,
-      rssDataSource: json['rss'] is Map ? DataSourceId.fromJson(json['rss']) : null,
-      galDataSource: json['gal'] is Map ? DataSourceId.fromJson(json['gal']) : null,
-      calDataSource: json['cal'] is Map ? DataSourceId.fromJson(json['cal']) : null,
-      unknownDataSource: json['unknown'] is Map ? DataSourceId.fromJson(json['unknown']) : null);
+      imapDataSource: json['imap']?[0] is Map ? DataSourceId.fromJson(json['imap'][0]) : null,
+      pop3DataSource: json['pop3']?[0] is Map ? DataSourceId.fromJson(json['pop3'][0]) : null,
+      caldavDataSource: json['caldav']?[0] is Map ? DataSourceId.fromJson(json['caldav'][0]) : null,
+      yabDataSource: json['yab']?[0] is Map ? DataSourceId.fromJson(json['yab'][0]) : null,
+      rssDataSource: json['rss']?[0] is Map ? DataSourceId.fromJson(json['rss'][0]) : null,
+      galDataSource: json['gal']?[0] is Map ? DataSourceId.fromJson(json['gal'][0]) : null,
+      calDataSource: json['cal']?[0] is Map ? DataSourceId.fromJson(json['cal'][0]) : null,
+      unknownDataSource: json['unknown']?[0] is Map ? DataSourceId.fromJson(json['unknown'][0]) : null);
 }

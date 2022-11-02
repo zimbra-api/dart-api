@@ -133,9 +133,7 @@ class ContactInfo {
       metadatas: (json['meta'] is Iterable)
           ? List.from((json['meta'] as Iterable).map<MailCustomMetadata>((meta) => MailCustomMetadata.fromJson(meta)))
           : [],
-      attrs: (json['a'] is Iterable)
-          ? List.from((json['a'] as Iterable).map<ContactAttr>((a) => ContactAttr.fromJson(a)))
-          : [],
+      attrs: (json['_attrs'] is Map) ? List.from(_attrsFromJson(json['_attrs'] as Map<String, dynamic>)) : [],
       contactGroupMembers: (json['m'] is Iterable)
           ? List.from((json['m'] as Iterable).map<ContactGroupMember>((m) => ContactGroupMember.fromJson(m)))
           : [],
@@ -167,4 +165,16 @@ class ContactInfo {
         if (contactGroupMembers.isNotEmpty) 'm': contactGroupMembers.map((m) => m.toJson()).toList(),
         if (memberOf != null) 'memberOf': {'_content': memberOf},
       };
+
+  static List<ContactAttr> _attrsFromJson(Map<String, dynamic> json) {
+    final attrs = <ContactAttr>[];
+    for (final entry in json.entries) {
+      if (entry.value is Iterable) {
+        attrs.addAll((entry.value as Iterable).map<ContactAttr>((value) => ContactAttr(entry.key, value: value)));
+      } else {
+        attrs.add(ContactAttr(entry.key, value: entry.value));
+      }
+    }
+    return attrs;
+  }
 }

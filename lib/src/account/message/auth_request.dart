@@ -82,6 +82,9 @@ class AuthRequest extends SoapRequest {
   /// type of token to be returned, it can be auth or jwt
   final String? tokenType;
 
+  /// if true SameSite=Strict cookie will not be added in AuthToken
+  final bool? ignoreSameSite;
+
   AuthRequest(
       {this.persistAuthTokenCookie,
       this.csrfSupported,
@@ -99,6 +102,7 @@ class AuthRequest extends SoapRequest {
       this.deviceId,
       this.generateDeviceId,
       this.tokenType,
+      this.ignoreSameSite,
       this.prefs = const [],
       this.attrs = const []});
 
@@ -111,20 +115,21 @@ class AuthRequest extends SoapRequest {
         if (persistAuthTokenCookie != null) 'persistAuthTokenCookie': persistAuthTokenCookie,
         if (csrfSupported != null) 'csrfTokenSecured': csrfSupported,
         if (account != null) 'account': account!.toJson(),
-        if (password != null) 'password': password,
-        if (recoveryCode != null) 'recoveryCode': recoveryCode,
+        if (password != null) 'password': {'_content': password},
+        if (recoveryCode != null) 'recoveryCode': {'_content': recoveryCode},
         if (preauth != null) 'preauth': preauth!.toJson(),
         if (authToken != null) 'authToken': authToken!.toJson(),
-        if (jwtToken != null) 'jwtToken': jwtToken,
-        if (virtualHost != null) 'virtualHost': virtualHost,
+        if (jwtToken != null) 'jwtToken': {'_content': jwtToken},
+        if (virtualHost != null) 'virtualHost': {'_content': virtualHost},
         if (prefs.isNotEmpty) 'prefs': {'pref': prefs.map((pref) => pref.toJson()).toList()},
         if (attrs.isNotEmpty) 'attrs': {'attr': attrs.map((attr) => attr.toJson()).toList()},
-        if (requestedSkin != null) 'requestedSkin': requestedSkin,
-        if (twoFactorCode != null) 'twoFactorCode': twoFactorCode,
+        if (requestedSkin != null) 'requestedSkin': {'_content': requestedSkin},
+        if (twoFactorCode != null) 'twoFactorCode': {'_content': twoFactorCode},
         if (deviceTrusted != null) 'deviceTrusted': deviceTrusted,
-        if (trustedDeviceToken != null) 'trustedToken': trustedDeviceToken,
-        if (deviceId != null) 'deviceId': deviceId,
+        if (trustedDeviceToken != null) 'trustedToken': {'_content': trustedDeviceToken},
+        if (deviceId != null) 'deviceId': {'_content': deviceId},
         if (generateDeviceId != null) 'generateDeviceId': generateDeviceId,
         if (tokenType != null) 'tokenType': tokenType,
+        if (ignoreSameSite != null) 'ignoreSameSite': ignoreSameSite,
       };
 }

@@ -13,7 +13,7 @@ class AccountSelector {
 
   factory AccountSelector.fromJson(Map<String, dynamic> json) => AccountSelector(
         AccountBy.values.firstWhere(
-          (item) => item.name == json['by'],
+          (by) => by.name == json['by'],
           orElse: () => AccountBy.name,
         ),
         json['_content'] ?? '',

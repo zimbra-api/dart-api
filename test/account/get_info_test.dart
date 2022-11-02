@@ -132,24 +132,24 @@ void main() {
             '_jsns': 'urn:zimbraAccount',
             'attSizeLimit': attachmentSizeLimit,
             'docSizeLimit': documentSizeLimit,
-            'version': {'_content': version},
-            'id': {'_content': accountId},
-            'profileImageId': {'_content': profileImageId},
-            'name': {'_content': accountName},
-            'crumb': {'_content': crumb},
-            'lifetime': {'_content': lifetime},
-            'adminDelegated': {'_content': adminDelegated},
-            'rest': {'_content': restUrl},
-            'used': {'_content': quotaUsed},
-            'prevSession': {'_content': previousSessionTime},
-            'accessed': {'_content': lastWriteAccessTime},
-            'recent': {'_content': recentMessageCount},
+            'version': version,
+            'id': accountId,
+            'profileImageId': profileImageId,
+            'name': accountName,
+            'crumb': crumb,
+            'lifetime': lifetime,
+            'adminDelegated': adminDelegated,
+            'rest': restUrl,
+            'used': quotaUsed,
+            'prevSession': previousSessionTime,
+            'accessed': lastWriteAccessTime,
+            'recent': recentMessageCount,
             'cos': {
               'id': id,
               'name': name,
             },
             'prefs': {
-              'pref': [
+              '_attrs': [
                 {
                   'name': name,
                   'modified': modified,
@@ -158,7 +158,7 @@ void main() {
               ]
             },
             'attrs': {
-              'attr': [
+              '_attrs': [
                 {
                   'name': name,
                   'pd': permDenied,
@@ -310,12 +310,12 @@ void main() {
                 }
               ],
             },
-            'soapURL': {'_content': soapURL},
-            'publicURL': {'_content': publicURL},
-            'changePasswordURL': {'_content': changePasswordURL},
-            'adminURL': {'_content': adminURL},
-            'boshURL': {'_content': boshURL},
-            'isTrackingIMAP': {'_content': isTrackingIMAP},
+            'soapURL': soapURL,
+            'publicURL': publicURL,
+            'changePasswordURL': changePasswordURL,
+            'adminURL': adminURL,
+            'boshURL': boshURL,
+            'isTrackingIMAP': isTrackingIMAP,
           }
         }
       };

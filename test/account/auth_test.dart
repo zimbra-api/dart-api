@@ -47,6 +47,7 @@ void main() {
       final deviceId = faker.guid.guid();
       final generateDeviceId = faker.randomGenerator.boolean();
       final tokenType = faker.lorem.word();
+      final ignoreSameSite = faker.randomGenerator.boolean();
 
       final name = faker.lorem.word();
       final value = faker.lorem.word();
@@ -56,8 +57,8 @@ void main() {
       final account = AccountSelector(AccountBy.name, email);
       final preauth = PreAuth(account, preauthKey, timestamp: timestamp, expiresTimestamp: expiresTimestamp);
       final authToken = AuthToken(token, lifetime: lifetime, verifyAccount: verifyAccount);
-      final prefs = <Pref>[Pref(name, value, modified: modified)];
-      final attrs = <Attr>[Attr(name, value, permDenied: permDenied)];
+      final prefs = <Pref>[Pref(name, value: value, modified: modified)];
+      final attrs = <Attr>[Attr(name, value: value, permDenied: permDenied)];
 
       final request = AuthRequest(
           account: account,
@@ -76,6 +77,7 @@ void main() {
           deviceId: deviceId,
           generateDeviceId: generateDeviceId,
           tokenType: tokenType,
+          ignoreSameSite: ignoreSameSite,
           prefs: prefs,
           attrs: attrs);
 
@@ -87,8 +89,8 @@ void main() {
           'by': AccountBy.name.name,
           '_content': email,
         },
-        'password': password,
-        'recoveryCode': recoveryCode,
+        'password': {'_content': password},
+        'recoveryCode': {'_content': recoveryCode},
         'preauth': {
           'timestamp': timestamp,
           'expires': expiresTimestamp,
@@ -100,8 +102,8 @@ void main() {
           'lifetime': lifetime,
           'verifyAccount': verifyAccount,
         },
-        'jwtToken': jwtToken,
-        'virtualHost': virtualHost,
+        'jwtToken': {'_content': jwtToken},
+        'virtualHost': {'_content': virtualHost},
         'prefs': {
           'pref': [
             {
@@ -120,13 +122,14 @@ void main() {
             }
           ]
         },
-        'requestedSkin': requestedSkin,
-        'twoFactorCode': twoFactorCode,
+        'requestedSkin': {'_content': requestedSkin},
+        'twoFactorCode': {'_content': twoFactorCode},
         'deviceTrusted': deviceTrusted,
-        'trustedToken': trustedDeviceToken,
-        'deviceId': deviceId,
+        'trustedToken': {'_content': trustedDeviceToken},
+        'deviceId': {'_content': deviceId},
         'generateDeviceId': generateDeviceId,
         'tokenType': tokenType,
+        'ignoreSameSite': ignoreSameSite,
       });
     });
   });
@@ -207,7 +210,7 @@ void main() {
               '_content': trustedDevicesEnabled,
             },
             'prefs': {
-              'pref': [
+              '_attrs': [
                 {
                   'name': name,
                   'modified': modified,
@@ -216,7 +219,7 @@ void main() {
               ]
             },
             'attrs': {
-              'attr': [
+              '_attrs': [
                 {
                   'name': name,
                   'pd': permDenied,

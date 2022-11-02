@@ -3,6 +3,7 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/account/type/pref.dart';
+import 'package:zimbra_api/src/account/utils.dart';
 import 'package:zimbra_api/src/common/type/soap_response.dart';
 
 class GetPrefsResponse extends SoapResponse {
@@ -12,7 +13,6 @@ class GetPrefsResponse extends SoapResponse {
   GetPrefsResponse({this.prefs = const []});
 
   factory GetPrefsResponse.fromJson(Map<String, dynamic> json) => GetPrefsResponse(
-      prefs: (json['pref'] is Iterable)
-          ? List.from((json['pref'] as Iterable).map<Pref>((pref) => Pref.fromJson(pref)))
+      prefs: (json['_attrs'] is Map) ? List.from(Utils.prefsFromJson(json['_attrs'] as Map<String, dynamic>))
           : []);
 }

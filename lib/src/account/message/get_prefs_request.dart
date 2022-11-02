@@ -25,6 +25,6 @@ class GetPrefsRequest extends SoapRequest {
   @override
   Map<String, dynamic> toJson() => {
         '_jsns': 'urn:zimbraAccount',
-        if (prefs.isNotEmpty) 'pref': prefs.map((pref) => pref.toJson()),
+        if (prefs.isNotEmpty) 'pref': prefs.map((pref) => pref.toJson()).toList(),
       };
 }

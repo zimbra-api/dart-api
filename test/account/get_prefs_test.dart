@@ -12,7 +12,7 @@ void main() {
       final name = faker.lorem.word();
       final value = faker.lorem.word();
       final modified = faker.randomGenerator.integer(100);
-      final request = GetPrefsRequest(prefs: [Pref(name, value, modified: modified)]);
+      final request = GetPrefsRequest(prefs: [Pref(name, value: value, modified: modified)]);
 
       expect(request.getEnvelope().toJson(), {
         'Body': {

@@ -17,7 +17,7 @@ void main() {
       final value = faker.lorem.word();
       final permDenied = faker.randomGenerator.boolean();
 
-      final identity = Identity(name: email, id: id, attrs: [Attr(name, value, permDenied: permDenied)]);
+      final identity = Identity(name: email, id: id, attrs: [Attr(name, value: value, permDenied: permDenied)]);
       final request = ModifyIdentityRequest(identity);
       expect(request.getEnvelope().toJson(), {
         'Body': {

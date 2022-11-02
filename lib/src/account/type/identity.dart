@@ -17,7 +17,7 @@ class Identity extends Attrs {
         id: json['id'],
         attrs: (json['_attrs'] is Map)
             ? List.from(
-                (json['_attrs'] as Map<String, dynamic>).entries.map<Attr>((attr) => Attr(attr.key, attr.value)))
+                (json['_attrs'] as Map<String, dynamic>).entries.map<Attr>((attr) => Attr(attr.key, value: attr.value)))
             : [],
       );
 

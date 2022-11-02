@@ -30,6 +30,7 @@ class Client {
       if (response.headers.containsKey('set-cookie')) {
         _cookie = response.headers['set-cookie'];
       }
+      print(response.body);
       return response;
     });
   }

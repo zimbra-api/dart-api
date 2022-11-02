@@ -9,6 +9,7 @@ import 'package:zimbra_api/src/account/type/child_account.dart';
 import 'package:zimbra_api/src/account/type/cos.dart';
 import 'package:zimbra_api/src/account/type/discover_rights_info.dart';
 import 'package:zimbra_api/src/account/type/identity.dart';
+import 'package:zimbra_api/src/account/type/license_info.dart';
 import 'package:zimbra_api/src/account/type/pref.dart';
 import 'package:zimbra_api/src/account/type/prop.dart';
 import 'package:zimbra_api/src/account/type/signature.dart';
@@ -111,6 +112,9 @@ class GetInfoResponse extends SoapResponse {
   /// Should be returned only when zimbraFeatureChatEnabled is set to TRUE for Account/COS
   final String? boshURL;
 
+  /// License information. Only present for Network Edition
+  final LicenseInfo? license;
+
   /// Boolean value denoting if this account has logged in over IMAP.
   final bool? isTrackingIMAP;
 
@@ -144,6 +148,7 @@ class GetInfoResponse extends SoapResponse {
       this.changePasswordURL,
       this.adminURL,
       this.boshURL,
+      this.license,
       this.isTrackingIMAP});
 
   factory GetInfoResponse.fromJson(Map<String, dynamic> json) => GetInfoResponse(
@@ -168,6 +173,7 @@ class GetInfoResponse extends SoapResponse {
         changePasswordURL: json['changePasswordURL'],
         adminURL: json['adminURL'],
         boshURL: json['boshURL'],
+        license: json['license'] is Map ? LicenseInfo.fromJson(json['license']) : null,
         isTrackingIMAP: json['isTrackingIMAP'],
         prefs: (json['prefs']?['_attrs'] is Map)
             ? List.from(Utils.prefsFromJson(json['prefs']['_attrs'] as Map<String, dynamic>))

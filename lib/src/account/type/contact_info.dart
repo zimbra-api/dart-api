@@ -107,7 +107,8 @@ class ContactInfo {
             ? List.from(
                 (json['meta'] as Iterable).map<AccountCustomMetadata>((meta) => AccountCustomMetadata.fromJson(meta)))
             : [],
-        attrs: (json['_attrs'] is Map) ? List.from(Utils.attrsFromJson(json['_attrs'] as Map<String, dynamic>))
+        attrs: (json['_attrs'] is Map)
+            ? List.from(Utils.contactAttrsFromJson(json['_attrs'] as Map<String, dynamic>))
             : [],
         contactGroupMembers: (json['m'] is Iterable)
             ? List.from((json['m'] as Iterable).map<ContactGroupMember>((m) => ContactGroupMember.fromJson(m)))

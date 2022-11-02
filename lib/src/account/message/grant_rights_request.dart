@@ -23,6 +23,6 @@ class GrantRightsRequest extends SoapRequest {
   @override
   Map<String, dynamic> toJson() => {
         '_jsns': 'urn:zimbraAccount',
-        if (aces.isNotEmpty) 'ace': aces.map((ace) => ace.toJson()),
+        if (aces.isNotEmpty) 'ace': aces.map((ace) => ace.toJson()).toList(),
       };
 }

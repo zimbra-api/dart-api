@@ -12,9 +12,9 @@ class Utils {
     final attrs = <Attr>[];
     for (final entry in json.entries) {
       if (entry.value is Iterable) {
-        attrs.addAll((entry.value as Iterable).map<Attr>((value) => Attr(entry.key, value)));
+        attrs.addAll((entry.value as Iterable).map<Attr>((value) => Attr(entry.key, value: value)));
       } else {
-        attrs.add(Attr(entry.key, entry.value));
+        attrs.add(Attr(entry.key, value: entry.value));
       }
     }
     return attrs;
@@ -24,9 +24,9 @@ class Utils {
     final prefs = <Pref>[];
     for (final entry in json.entries) {
       if (entry.value is Iterable) {
-        prefs.addAll((entry.value as Iterable).map<Pref>((value) => Pref(entry.key, value)));
+        prefs.addAll((entry.value as Iterable).map<Pref>((value) => Pref(entry.key, value: value)));
       } else {
-        prefs.add(Pref(entry.key, entry.value));
+        prefs.add(Pref(entry.key, value: entry.value));
       }
     }
     return prefs;

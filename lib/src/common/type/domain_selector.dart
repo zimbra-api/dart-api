@@ -13,7 +13,7 @@ class DomainSelector {
 
   factory DomainSelector.fromJson(Map<String, dynamic> json) => DomainSelector(
         DomainBy.values.firstWhere(
-          (item) => item.name == json['by'],
+          (by) => by.name == json['by'],
           orElse: () => DomainBy.name,
         ),
         json['_content'] ?? '',

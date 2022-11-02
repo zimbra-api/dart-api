@@ -2,8 +2,6 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
-import 'dart:convert';
-
 import 'package:zimbra_api/src/common/enum/account_by.dart';
 import 'package:zimbra_api/src/common/soap/client.dart';
 import 'package:zimbra_api/src/common/type/header/account_info.dart';
@@ -34,7 +32,7 @@ abstract class Api {
 
   Future<Map<String, dynamic>> invoke(SoapRequest request) {
     return _soapClient
-        .sendRequest(jsonEncode(request
+        .sendRequest(request
             .getEnvelope(
               header: SoapHeader(
                 context: Context(
@@ -48,8 +46,8 @@ abstract class Api {
                 ),
               ),
             )
-            .toJson()))
-        .then((response) => jsonDecode(response.body));
+            .jsonContent)
+        .then((response) => response.jsonBoby);
   }
 
   SoapEnvelope? get responseEnvelope => _responseEnvelope;

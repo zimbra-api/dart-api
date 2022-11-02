@@ -2,6 +2,7 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
+import 'dart:convert' as convert;
 import 'package:http/http.dart' as http;
 
 class Client {
@@ -37,4 +38,12 @@ class Client {
   void close() {
     _httpClient.close();
   }
+}
+
+extension ResponseExtension on http.Response {
+  bool get hasError => (400 <= statusCode) && (statusCode < 600);
+
+  bool get success => !hasError;
+
+  dynamic get jsonBoby => convert.jsonDecode(body);
 }

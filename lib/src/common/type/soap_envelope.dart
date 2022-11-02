@@ -2,6 +2,8 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
+import 'dart:convert' as convert;
+
 import 'soap_body.dart';
 import 'soap_header.dart';
 
@@ -16,4 +18,6 @@ abstract class SoapEnvelope {
         'Body': body.toJson(),
         if (header != null) 'Header': header!.toJson(),
       };
+
+  String get jsonContent => convert.jsonEncode(toJson());
 }

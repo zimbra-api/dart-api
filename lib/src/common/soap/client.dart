@@ -4,6 +4,7 @@
 
 import 'dart:convert' as convert;
 import 'package:http/http.dart' as http;
+import 'client_exception.dart';
 
 class Client {
   static const _contentType = 'application/json; charset=utf-8';
@@ -28,6 +29,9 @@ class Client {
             },
             body: soapMessage)
         .then((response) {
+      if (response.hasError) {
+        throw ClientException(response, 'An error is encountered with response status code ${response.statusCode}');
+      }
       if (response.headers.containsKey('set-cookie')) {
         _cookie = response.headers['set-cookie'];
       }

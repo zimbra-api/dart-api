@@ -46,8 +46,8 @@ abstract class Api {
                 ),
               ),
             )
-            .jsonContent)
-        .then((response) => response.jsonBoby);
+            .toJson())
+        .then((response) => response.json);
   }
 
   SoapEnvelope? get responseEnvelope => _responseEnvelope;

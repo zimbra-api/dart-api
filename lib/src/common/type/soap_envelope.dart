@@ -19,5 +19,5 @@ abstract class SoapEnvelope {
         if (header != null) 'Header': header!.toMap(),
       };
 
-  String get jsonContent => convert.jsonEncode(toMap());
+  String toJson() => convert.jsonEncode(toMap());
 }

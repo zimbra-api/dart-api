@@ -45,5 +45,5 @@ extension ResponseExtension on http.Response {
 
   bool get success => !hasError;
 
-  dynamic get jsonBoby => convert.jsonDecode(body);
+  dynamic get json => convert.jsonDecode(body);
 }

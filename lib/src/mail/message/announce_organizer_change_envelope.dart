@@ -14,6 +14,4 @@ class AnnounceOrganizerChangeEnvelope extends SoapEnvelope {
   factory AnnounceOrganizerChangeEnvelope.fromMap(Map<String, dynamic> data) =>
       AnnounceOrganizerChangeEnvelope(AnnounceOrganizerChangeBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  AnnounceOrganizerChangeBody get announceOrganizerChangeBody => body as AnnounceOrganizerChangeBody;
 }

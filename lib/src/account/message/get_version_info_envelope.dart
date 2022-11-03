@@ -13,6 +13,4 @@ class GetVersionInfoEnvelope extends SoapEnvelope {
   factory GetVersionInfoEnvelope.fromMap(Map<String, dynamic> data) =>
       GetVersionInfoEnvelope(GetVersionInfoBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  GetVersionInfoBody get getVersionInfoBody => body as GetVersionInfoBody;
 }

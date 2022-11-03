@@ -13,6 +13,4 @@ class DiffDocumentEnvelope extends SoapEnvelope {
   factory DiffDocumentEnvelope.fromMap(Map<String, dynamic> data) =>
       DiffDocumentEnvelope(DiffDocumentBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  DiffDocumentBody get diffDocumentBody => body as DiffDocumentBody;
 }

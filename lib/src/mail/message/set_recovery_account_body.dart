@@ -18,10 +18,6 @@ class SetRecoveryAccountBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  SetRecoveryAccountRequest? get setRecoveryAccountRequest => request as SetRecoveryAccountRequest?;
-
-  SetRecoveryAccountResponse? get setRecoveryAccountResponse => response as SetRecoveryAccountResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'SetRecoveryAccountRequest': request!.toMap(),

@@ -4,6 +4,7 @@ import 'package:zimbra_api/src/common/enum/interest_type.dart';
 import 'package:zimbra_api/src/common/type/wait_set_add_spec.dart';
 import 'package:zimbra_api/src/mail/message/create_wait_set_envelope.dart';
 import 'package:zimbra_api/src/mail/message/create_wait_set_request.dart';
+import 'package:zimbra_api/src/mail/message/create_wait_set_response.dart';
 
 void main() {
   final faker = Faker();
@@ -86,7 +87,7 @@ void main() {
         }
       };
       final envelope = CreateWaitSetEnvelope.fromMap(data);
-      final response = envelope.createWaitSetBody.createWaitSetResponse!;
+      final response = envelope.body.response as CreateWaitSetResponse;
 
       expect(response.waitSetId, waitSetId);
       expect(response.defaultInterests, defaultInterests);

@@ -18,10 +18,6 @@ class GetContactBackupListBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  GetContactBackupListRequest? get getContactBackupListRequest => request as GetContactBackupListRequest?;
-
-  GetContactBackupListResponse? get getContactBackupListResponse => response as GetContactBackupListResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'GetContactBackupListRequest': request!.toMap(),

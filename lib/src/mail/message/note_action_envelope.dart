@@ -13,6 +13,4 @@ class NoteActionEnvelope extends SoapEnvelope {
   factory NoteActionEnvelope.fromMap(Map<String, dynamic> data) =>
       NoteActionEnvelope(NoteActionBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  NoteActionBody get noteActionBody => body as NoteActionBody;
 }

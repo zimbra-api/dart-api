@@ -2,6 +2,7 @@ import 'package:faker/faker.dart';
 import 'package:test/test.dart';
 import 'package:zimbra_api/src/account/message/get_signatures_envelope.dart';
 import 'package:zimbra_api/src/account/message/get_signatures_request.dart';
+import 'package:zimbra_api/src/account/message/get_signatures_response.dart';
 import 'package:zimbra_api/src/common/enum/content_type.dart';
 
 void main() {
@@ -47,7 +48,7 @@ void main() {
         }
       };
       final envelope = GetSignaturesEnvelope.fromMap(data);
-      final response = envelope.getSignaturesBody.getSignaturesResponse!;
+      final response = envelope.body.response as GetSignaturesResponse;
       final signature = response.signatures.first;
 
       expect(signature.name, name);

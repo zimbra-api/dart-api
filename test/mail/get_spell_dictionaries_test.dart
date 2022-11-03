@@ -2,6 +2,7 @@ import 'package:faker/faker.dart';
 import 'package:test/test.dart';
 import 'package:zimbra_api/src/mail/message/get_spell_dictionaries_envelope.dart';
 import 'package:zimbra_api/src/mail/message/get_spell_dictionaries_request.dart';
+import 'package:zimbra_api/src/mail/message/get_spell_dictionaries_response.dart';
 
 void main() {
   final faker = Faker();
@@ -34,7 +35,7 @@ void main() {
         }
       };
       final envelope = GetSpellDictionariesEnvelope.fromMap(data);
-      final response = envelope.getSpellDictionariesBody.getSpellDictionariesResponse!;
+      final response = envelope.body.response as GetSpellDictionariesResponse;
       expect(response.dictionaries.first, dictionary1);
       expect(response.dictionaries.last, dictionary2);
     }));

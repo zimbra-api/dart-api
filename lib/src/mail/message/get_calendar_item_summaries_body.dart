@@ -19,11 +19,6 @@ class GetCalendarItemSummariesBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  GetCalendarItemSummariesRequest? get getCalendarItemSummariesRequest => request as GetCalendarItemSummariesRequest?;
-
-  GetCalendarItemSummariesResponse? get getCalendarItemSummariesResponse =>
-      response as GetCalendarItemSummariesResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'GetCalendarItemSummariesRequest': request!.toMap(),

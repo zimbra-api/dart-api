@@ -25,8 +25,8 @@ void main() {
         }
       };
       final envelope = BeginTrackingIMAPEnvelope.fromMap(data);
-      expect(envelope.beginTrackingIMAPBody.beginTrackingIMAPResponse, isNotNull);
-      expect(envelope.beginTrackingIMAPBody.beginTrackingIMAPResponse, isA<BeginTrackingIMAPResponse>());
+      expect(envelope.body.response, isNotNull);
+      expect(envelope.body.response, isA<BeginTrackingIMAPResponse>());
     }));
   }));
 }

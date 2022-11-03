@@ -14,6 +14,4 @@ class SubscribeDistributionListEnvelope extends SoapEnvelope {
   factory SubscribeDistributionListEnvelope.fromMap(Map<String, dynamic> data) =>
       SubscribeDistributionListEnvelope(SubscribeDistributionListBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  SubscribeDistributionListBody get subscribeDistributionListBody => body as SubscribeDistributionListBody;
 }

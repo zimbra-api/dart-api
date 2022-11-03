@@ -13,6 +13,4 @@ class GetDataSourceUsageEnvelope extends SoapEnvelope {
   factory GetDataSourceUsageEnvelope.fromMap(Map<String, dynamic> data) =>
       GetDataSourceUsageEnvelope(GetDataSourceUsageBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  GetDataSourceUsageBody get getDataSourceUsageBody => body as GetDataSourceUsageBody;
 }

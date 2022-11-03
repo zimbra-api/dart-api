@@ -13,6 +13,4 @@ class TestDataSourceEnvelope extends SoapEnvelope {
   factory TestDataSourceEnvelope.fromMap(Map<String, dynamic> data) =>
       TestDataSourceEnvelope(TestDataSourceBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  TestDataSourceBody get testDataSourceBody => body as TestDataSourceBody;
 }

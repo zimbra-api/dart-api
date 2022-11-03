@@ -89,9 +89,8 @@ void main() {
         }
       };
       final envelope = ImportDataEnvelope.fromMap(data);
-      final response = envelope.importDataBody.importDataResponse;
-      expect(response, isNotNull);
-      expect(response, isA<ImportDataResponse>());
+      expect(envelope.body.response, isNotNull);
+      expect(envelope.body.response, isA<ImportDataResponse>());
     }));
   }));
 }

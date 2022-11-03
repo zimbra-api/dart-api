@@ -13,6 +13,4 @@ class GetImportStatusEnvelope extends SoapEnvelope {
   factory GetImportStatusEnvelope.fromMap(Map<String, dynamic> data) =>
       GetImportStatusEnvelope(GetImportStatusBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  GetImportStatusBody get getImportStatusBody => body as GetImportStatusBody;
 }

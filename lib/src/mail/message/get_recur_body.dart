@@ -16,10 +16,6 @@ class GetRecurBody extends SoapBody {
       response: data['GetRecurResponse'] != null ? GetRecurResponse.fromMap(data['GetRecurResponse']) : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  GetRecurRequest? get getRecurRequest => request as GetRecurRequest?;
-
-  GetRecurResponse? get getRecurResponse => response as GetRecurResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'GetRecurRequest': request!.toMap(),

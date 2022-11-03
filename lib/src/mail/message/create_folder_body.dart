@@ -17,10 +17,6 @@ class CreateFolderBody extends SoapBody {
           data['CreateFolderResponse'] != null ? CreateFolderResponse.fromMap(data['CreateFolderResponse']) : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  CreateFolderRequest? get createFolderRequest => request as CreateFolderRequest?;
-
-  CreateFolderResponse? get createFolderResponse => response as CreateFolderResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'CreateFolderRequest': request!.toMap(),

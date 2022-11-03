@@ -19,10 +19,6 @@ class ListIMAPSubscriptionsBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  ListIMAPSubscriptionsRequest? get listIMAPSubscriptionsRequest => request as ListIMAPSubscriptionsRequest?;
-
-  ListIMAPSubscriptionsResponse? get listIMAPSubscriptionsResponse => response as ListIMAPSubscriptionsResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'ListIMAPSubscriptionsRequest': request!.toMap(),

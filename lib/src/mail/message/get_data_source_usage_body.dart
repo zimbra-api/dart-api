@@ -18,10 +18,6 @@ class GetDataSourceUsageBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  GetDataSourceUsageRequest? get getDataSourceUsageRequest => request as GetDataSourceUsageRequest?;
-
-  GetDataSourceUsageResponse? get getDataSourceUsageResponse => response as GetDataSourceUsageResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'GetDataSourceUsageRequest': request!.toMap(),

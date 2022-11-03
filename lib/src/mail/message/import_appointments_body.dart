@@ -18,10 +18,6 @@ class ImportAppointmentsBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  ImportAppointmentsRequest? get importAppointmentsRequest => request as ImportAppointmentsRequest?;
-
-  ImportAppointmentsResponse? get importAppointmentsResponse => response as ImportAppointmentsResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'ImportAppointmentsRequest': request!.toMap(),

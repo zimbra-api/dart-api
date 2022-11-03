@@ -2,6 +2,7 @@ import 'package:faker/faker.dart';
 import 'package:test/test.dart';
 import 'package:zimbra_api/src/account/message/discover_rights_envelope.dart';
 import 'package:zimbra_api/src/account/message/discover_rights_request.dart';
+import 'package:zimbra_api/src/account/message/discover_rights_response.dart';
 import 'package:zimbra_api/src/common/enum/target_type.dart';
 
 void main() {
@@ -57,7 +58,7 @@ void main() {
         }
       };
       final envelope = DiscoverRightsEnvelope.fromMap(data);
-      final response = envelope.discoverRightsBody.discoverRightsResponse!;
+      final response = envelope.body.response as DiscoverRightsResponse;
       final discoveredRight = response.discoveredRights.first;
 
       expect(discoveredRight.right, right);

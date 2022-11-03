@@ -14,6 +14,4 @@ class DeclineCounterAppointmentEnvelope extends SoapEnvelope {
   factory DeclineCounterAppointmentEnvelope.fromMap(Map<String, dynamic> data) =>
       DeclineCounterAppointmentEnvelope(DeclineCounterAppointmentBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  DeclineCounterAppointmentBody get declineCounterAppointmentBody => body as DeclineCounterAppointmentBody;
 }

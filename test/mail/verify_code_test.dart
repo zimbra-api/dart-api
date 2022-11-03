@@ -2,6 +2,7 @@ import 'package:faker/faker.dart';
 import 'package:test/test.dart';
 import 'package:zimbra_api/src/mail/message/verify_code_envelope.dart';
 import 'package:zimbra_api/src/mail/message/verify_code_request.dart';
+import 'package:zimbra_api/src/mail/message/verify_code_response.dart';
 
 void main() {
   final faker = Faker();
@@ -34,7 +35,7 @@ void main() {
         }
       };
       final envelope = VerifyCodeEnvelope.fromMap(data);
-      final response = envelope.verifyCodeBody.verifyCodeResponse!;
+      final response = envelope.body.response as VerifyCodeResponse;
       expect(response.success, success);
     }));
   }));

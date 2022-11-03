@@ -16,10 +16,6 @@ class EndSessionBody extends SoapBody {
       response: data['EndSessionResponse'] != null ? EndSessionResponse.fromMap(data['EndSessionResponse']) : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  EndSessionRequest? get endSessionRequest => request as EndSessionRequest?;
-
-  EndSessionResponse? get endSessionResponse => response as EndSessionResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'EndSessionRequest': request!.toMap(),

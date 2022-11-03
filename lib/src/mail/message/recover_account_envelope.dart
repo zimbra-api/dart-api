@@ -13,6 +13,4 @@ class RecoverAccountEnvelope extends SoapEnvelope {
   factory RecoverAccountEnvelope.fromMap(Map<String, dynamic> data) =>
       RecoverAccountEnvelope(RecoverAccountBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  RecoverAccountBody get recoverAccountBody => body as RecoverAccountBody;
 }

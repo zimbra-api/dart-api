@@ -16,10 +16,6 @@ class NoteActionBody extends SoapBody {
       response: data['NoteActionResponse'] != null ? NoteActionResponse.fromMap(data['NoteActionResponse']) : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  NoteActionRequest? get noteActionRequest => request as NoteActionRequest?;
-
-  NoteActionResponse? get noteActionResponse => response as NoteActionResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'NoteActionRequest': request!.toMap(),

@@ -13,6 +13,4 @@ class CreateMountpointEnvelope extends SoapEnvelope {
   factory CreateMountpointEnvelope.fromMap(Map<String, dynamic> data) =>
       CreateMountpointEnvelope(CreateMountpointBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  CreateMountpointBody get createMountpointBody => body as CreateMountpointBody;
 }

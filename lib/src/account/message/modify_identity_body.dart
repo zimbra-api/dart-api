@@ -18,10 +18,6 @@ class ModifyIdentityBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  ModifyIdentityRequest? get modifyIdentityRequest => request as ModifyIdentityRequest?;
-
-  ModifyIdentityResponse? get modifyIdentityResponse => response as ModifyIdentityResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'ModifyIdentityRequest': request!.toMap(),

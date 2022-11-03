@@ -13,6 +13,4 @@ class CheckPermissionEnvelope extends SoapEnvelope {
   factory CheckPermissionEnvelope.fromMap(Map<String, dynamic> data) =>
       CheckPermissionEnvelope(CheckPermissionBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  CheckPermissionBody get checkPermissionBody => body as CheckPermissionBody;
 }

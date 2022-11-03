@@ -2,6 +2,7 @@ import 'package:faker/faker.dart';
 import 'package:test/test.dart';
 import 'package:zimbra_api/src/mail/message/get_data_source_usage_envelope.dart';
 import 'package:zimbra_api/src/mail/message/get_data_source_usage_request.dart';
+import 'package:zimbra_api/src/mail/message/get_data_source_usage_response.dart';
 
 void main() {
   final faker = Faker();
@@ -40,7 +41,7 @@ void main() {
         }
       };
       final envelope = GetDataSourceUsageEnvelope.fromMap(data);
-      final response = envelope.getDataSourceUsageBody.getDataSourceUsageResponse!;
+      final response = envelope.body.response as GetDataSourceUsageResponse;
 
       expect(response.dataSourceQuota, dataSourceQuota);
       expect(response.totalQuota, totalQuota);

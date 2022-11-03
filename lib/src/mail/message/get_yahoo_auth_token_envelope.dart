@@ -13,6 +13,4 @@ class GetYahooAuthTokenEnvelope extends SoapEnvelope {
   factory GetYahooAuthTokenEnvelope.fromMap(Map<String, dynamic> data) =>
       GetYahooAuthTokenEnvelope(GetYahooAuthTokenBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  GetYahooAuthTokenBody get getYahooAuthTokenBody => body as GetYahooAuthTokenBody;
 }

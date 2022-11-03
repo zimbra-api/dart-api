@@ -19,10 +19,6 @@ class GetLastItemIdInMailboxBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  GetLastItemIdInMailboxRequest? get getLastItemIdInMailboxRequest => request as GetLastItemIdInMailboxRequest?;
-
-  GetLastItemIdInMailboxResponse? get getLastItemIdInMailboxResponse => response as GetLastItemIdInMailboxResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'GetLastItemIdInMailboxRequest': request!.toMap(),

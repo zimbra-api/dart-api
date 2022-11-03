@@ -2,6 +2,7 @@ import 'package:faker/faker.dart';
 import 'package:test/test.dart';
 import 'package:zimbra_api/src/account/message/get_account_info_envelope.dart';
 import 'package:zimbra_api/src/account/message/get_account_info_request.dart';
+import 'package:zimbra_api/src/account/message/get_account_info_response.dart';
 import 'package:zimbra_api/src/common/enum/account_by.dart';
 import 'package:zimbra_api/src/common/type/account_selector.dart';
 
@@ -58,7 +59,7 @@ void main() {
         },
       };
       final envelope = GetAccountInfoEnvelope.fromMap(data);
-      final response = envelope.getAccountInfoBody.getAccountInfoResponse!;
+      final response = envelope.body.response as GetAccountInfoResponse;
       final attr = response.attrs.first;
 
       expect(response.name, email);

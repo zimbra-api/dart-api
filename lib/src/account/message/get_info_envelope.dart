@@ -12,6 +12,4 @@ class GetInfoEnvelope extends SoapEnvelope {
 
   factory GetInfoEnvelope.fromMap(Map<String, dynamic> data) => GetInfoEnvelope(GetInfoBody.fromMap(data['Body']),
       header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  GetInfoBody get getInfoBody => body as GetInfoBody;
 }

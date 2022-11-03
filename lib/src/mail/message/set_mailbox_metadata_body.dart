@@ -18,10 +18,6 @@ class SetMailboxMetadataBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  SetMailboxMetadataRequest? get setMailboxMetadataRequest => request as SetMailboxMetadataRequest?;
-
-  SetMailboxMetadataResponse? get setMailboxMetadataResponse => response as SetMailboxMetadataResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'SetMailboxMetadataRequest': request!.toMap(),

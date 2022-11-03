@@ -13,6 +13,4 @@ class CreateContactEnvelope extends SoapEnvelope {
   factory CreateContactEnvelope.fromMap(Map<String, dynamic> data) =>
       CreateContactEnvelope(CreateContactBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  CreateContactBody get createContactBody => body as CreateContactBody;
 }

@@ -12,6 +12,4 @@ class WaitSetEnvelope extends SoapEnvelope {
 
   factory WaitSetEnvelope.fromMap(Map<String, dynamic> data) => WaitSetEnvelope(WaitSetBody.fromMap(data['Body']),
       header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  WaitSetBody get waitSetBody => body as WaitSetBody;
 }

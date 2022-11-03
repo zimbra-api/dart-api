@@ -30,8 +30,8 @@ void main() {
         }
       };
       final envelope = RevokeOAuthConsumerEnvelope.fromMap(data);
-      expect(envelope.revokeOAuthConsumerBody.revokeOAuthConsumerResponse, isNotNull);
-      expect(envelope.revokeOAuthConsumerBody.revokeOAuthConsumerResponse, isA<RevokeOAuthConsumerResponse>());
+      expect(envelope.body.response, isNotNull);
+      expect(envelope.body.response, isA<RevokeOAuthConsumerResponse>());
     }));
   }));
 }

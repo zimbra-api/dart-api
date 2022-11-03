@@ -16,10 +16,6 @@ class GetCommentsBody extends SoapBody {
       response: data['GetCommentsResponse'] != null ? GetCommentsResponse.fromMap(data['GetCommentsResponse']) : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  GetCommentsRequest? get getCommentsRequest => request as GetCommentsRequest?;
-
-  GetCommentsResponse? get getCommentsResponse => response as GetCommentsResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'GetCommentsRequest': request!.toMap(),

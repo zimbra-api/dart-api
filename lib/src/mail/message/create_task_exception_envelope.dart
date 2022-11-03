@@ -13,6 +13,4 @@ class CreateTaskExceptionEnvelope extends SoapEnvelope {
   factory CreateTaskExceptionEnvelope.fromMap(Map<String, dynamic> data) =>
       CreateTaskExceptionEnvelope(CreateTaskExceptionBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  CreateTaskExceptionBody get createTaskExceptionBody => body as CreateTaskExceptionBody;
 }

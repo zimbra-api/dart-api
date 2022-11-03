@@ -13,6 +13,7 @@ import 'package:zimbra_api/src/common/enum/transparency.dart';
 import 'package:zimbra_api/src/common/enum/week_day.dart';
 import 'package:zimbra_api/src/mail/message/get_msg_metadata_envelope.dart';
 import 'package:zimbra_api/src/mail/message/get_msg_metadata_request.dart';
+import 'package:zimbra_api/src/mail/message/get_msg_metadata_response.dart';
 import 'package:zimbra_api/src/mail/type/add_recurrence_info.dart';
 import 'package:zimbra_api/src/mail/type/chat_summary.dart';
 import 'package:zimbra_api/src/mail/type/exclude_recurrence_info.dart';
@@ -552,7 +553,7 @@ void main() {
         }
       };
       final envelope = GetMsgMetadataEnvelope.fromMap(data);
-      final response = envelope.getMsgMetadataBody.getMsgMetadataResponse!;
+      final response = envelope.body.response as GetMsgMetadataResponse;
       final chatMessage = response.chatMessage!;
       final message = response.message!;
 

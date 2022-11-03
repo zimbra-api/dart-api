@@ -13,6 +13,4 @@ class RevokeOAuthConsumerEnvelope extends SoapEnvelope {
   factory RevokeOAuthConsumerEnvelope.fromMap(Map<String, dynamic> data) =>
       RevokeOAuthConsumerEnvelope(RevokeOAuthConsumerBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  RevokeOAuthConsumerBody get revokeOAuthConsumerBody => body as RevokeOAuthConsumerBody;
 }

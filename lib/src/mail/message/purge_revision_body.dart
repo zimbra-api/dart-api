@@ -17,10 +17,6 @@ class PurgeRevisionBody extends SoapBody {
           data['PurgeRevisionResponse'] != null ? PurgeRevisionResponse.fromMap(data['PurgeRevisionResponse']) : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  PurgeRevisionRequest? get purgeRevisionRequest => request as PurgeRevisionRequest?;
-
-  PurgeRevisionResponse? get purgeRevisionResponse => response as PurgeRevisionResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'PurgeRevisionRequest': request!.toMap(),

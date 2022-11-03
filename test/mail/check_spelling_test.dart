@@ -2,6 +2,7 @@ import 'package:faker/faker.dart';
 import 'package:test/test.dart';
 import 'package:zimbra_api/src/mail/message/check_spelling_envelope.dart';
 import 'package:zimbra_api/src/mail/message/check_spelling_request.dart';
+import 'package:zimbra_api/src/mail/message/check_spelling_response.dart';
 
 void main() {
   final faker = Faker();
@@ -48,7 +49,7 @@ void main() {
         }
       };
       final envelope = CheckSpellingEnvelope.fromMap(data);
-      final response = envelope.checkSpellingBody.checkSpellingResponse!;
+      final response = envelope.body.response as CheckSpellingResponse;
       final misspelled = response.misspelledWords.first;
 
       expect(response.available, available);

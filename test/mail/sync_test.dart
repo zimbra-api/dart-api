@@ -18,6 +18,7 @@ import 'package:zimbra_api/src/common/enum/view_type.dart';
 import 'package:zimbra_api/src/common/enum/week_day.dart';
 import 'package:zimbra_api/src/mail/message/sync_envelope.dart';
 import 'package:zimbra_api/src/mail/message/sync_request.dart';
+import 'package:zimbra_api/src/mail/message/sync_response.dart';
 import 'package:zimbra_api/src/mail/type/add_recurrence_info.dart';
 import 'package:zimbra_api/src/mail/type/calendar_item_info.dart';
 import 'package:zimbra_api/src/mail/type/chat_summary.dart';
@@ -1626,7 +1627,7 @@ void main() {
         }
       };
       final envelope = SyncEnvelope.fromMap(data);
-      final response = envelope.syncBody.syncResponse!;
+      final response = envelope.body.response as SyncResponse;
 
       expect(response.changeDate, changeDate);
       expect(response.token, token);

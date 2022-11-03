@@ -14,6 +14,4 @@ class GetAvailableCsvFormatsEnvelope extends SoapEnvelope {
   factory GetAvailableCsvFormatsEnvelope.fromMap(Map<String, dynamic> data) =>
       GetAvailableCsvFormatsEnvelope(GetAvailableCsvFormatsBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  GetAvailableCsvFormatsBody get getAvailableCsvFormatsBody => body as GetAvailableCsvFormatsBody;
 }

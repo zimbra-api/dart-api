@@ -18,10 +18,6 @@ class OpenIMAPFolderBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  OpenIMAPFolderRequest? get openIMAPFolderRequest => request as OpenIMAPFolderRequest?;
-
-  OpenIMAPFolderResponse? get openIMAPFolderResponse => response as OpenIMAPFolderResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'OpenIMAPFolderRequest': request!.toMap(),

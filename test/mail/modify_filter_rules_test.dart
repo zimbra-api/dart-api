@@ -743,9 +743,8 @@ void main() {
         }
       };
       final envelope = ModifyFilterRulesEnvelope.fromMap(data);
-      final response = envelope.modifyFilterRulesBody.modifyFilterRulesResponse;
-      expect(response, isNotNull);
-      expect(response, isA<ModifyFilterRulesResponse>());
+      expect(envelope.body.response, isNotNull);
+      expect(envelope.body.response, isA<ModifyFilterRulesResponse>());
     }));
   }));
 }

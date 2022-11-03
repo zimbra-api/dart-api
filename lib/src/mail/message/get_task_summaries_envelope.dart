@@ -13,6 +13,4 @@ class GetTaskSummariesEnvelope extends SoapEnvelope {
   factory GetTaskSummariesEnvelope.fromMap(Map<String, dynamic> data) =>
       GetTaskSummariesEnvelope(GetTaskSummariesBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  GetTaskSummariesBody get getTaskSummariesBody => body as GetTaskSummariesBody;
 }

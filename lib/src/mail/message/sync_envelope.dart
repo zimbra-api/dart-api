@@ -12,6 +12,4 @@ class SyncEnvelope extends SoapEnvelope {
 
   factory SyncEnvelope.fromMap(Map<String, dynamic> data) => SyncEnvelope(SyncBody.fromMap(data['Body']),
       header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  SyncBody get syncBody => body as SyncBody;
 }

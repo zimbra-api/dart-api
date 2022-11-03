@@ -17,10 +17,6 @@ class CreateContactBody extends SoapBody {
           data['CreateContactResponse'] != null ? CreateContactResponse.fromMap(data['CreateContactResponse']) : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  CreateContactRequest? get createContactRequest => request as CreateContactRequest?;
-
-  CreateContactResponse? get createContactResponse => response as CreateContactResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'CreateContactRequest': request!.toMap(),

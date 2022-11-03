@@ -2,6 +2,7 @@ import 'package:faker/faker.dart';
 import 'package:test/test.dart';
 import 'package:zimbra_api/src/mail/message/destroy_wait_set_envelope.dart';
 import 'package:zimbra_api/src/mail/message/destroy_wait_set_request.dart';
+import 'package:zimbra_api/src/mail/message/destroy_wait_set_response.dart';
 
 void main() {
   final faker = Faker();
@@ -31,7 +32,7 @@ void main() {
         }
       };
       final envelope = DestroyWaitSetEnvelope.fromMap(data);
-      final response = envelope.destroyWaitSetBody.destroyWaitSetResponse!;
+      final response = envelope.body.response as DestroyWaitSetResponse;
 
       expect(response.waitSetId, waitSetId);
     }));

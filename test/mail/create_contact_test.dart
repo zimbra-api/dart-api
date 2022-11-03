@@ -3,6 +3,7 @@ import 'package:test/test.dart';
 import 'package:zimbra_api/src/common/enum/member_type.dart';
 import 'package:zimbra_api/src/mail/message/create_contact_envelope.dart';
 import 'package:zimbra_api/src/mail/message/create_contact_request.dart';
+import 'package:zimbra_api/src/mail/message/create_contact_response.dart';
 import 'package:zimbra_api/src/mail/type/contact_spec.dart';
 import 'package:zimbra_api/src/mail/type/new_contact_attr.dart';
 import 'package:zimbra_api/src/mail/type/new_contact_group_member.dart';
@@ -212,7 +213,7 @@ void main() {
         }
       };
       final envelope = CreateContactEnvelope.fromMap(data);
-      final response = envelope.createContactBody.createContactResponse!;
+      final response = envelope.body.response as CreateContactResponse;
       final contact = response.contact!;
 
       expect(contact.sortField, sortField);

@@ -13,6 +13,4 @@ class DeleteSignatureEnvelope extends SoapEnvelope {
   factory DeleteSignatureEnvelope.fromMap(Map<String, dynamic> data) =>
       DeleteSignatureEnvelope(DeleteSignatureBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  DeleteSignatureBody get deleteSignatureBody => body as DeleteSignatureBody;
 }

@@ -3,6 +3,7 @@ import 'package:test/test.dart';
 import 'package:zimbra_api/src/common/enum/connection_type.dart';
 import 'package:zimbra_api/src/mail/message/get_data_sources_envelope.dart';
 import 'package:zimbra_api/src/mail/message/get_data_sources_request.dart';
+import 'package:zimbra_api/src/mail/message/get_data_sources_response.dart';
 
 void main() {
   final faker = Faker();
@@ -364,7 +365,7 @@ void main() {
         }
       };
       final envelope = GetDataSourcesEnvelope.fromMap(data);
-      final response = envelope.getDataSourcesBody.getDataSourcesResponse!;
+      final response = envelope.body.response as GetDataSourcesResponse;
 
       final imap = response.imapDataSources.first;
       expect(imap.id, id);

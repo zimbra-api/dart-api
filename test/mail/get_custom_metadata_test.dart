@@ -3,6 +3,7 @@ import 'package:test/test.dart';
 import 'package:zimbra_api/src/common/type/section_attr.dart';
 import 'package:zimbra_api/src/mail/message/get_custom_metadata_envelope.dart';
 import 'package:zimbra_api/src/mail/message/get_custom_metadata_request.dart';
+import 'package:zimbra_api/src/mail/message/get_custom_metadata_response.dart';
 
 void main() {
   final faker = Faker();
@@ -50,7 +51,7 @@ void main() {
         }
       };
       final envelope = GetCustomMetadataEnvelope.fromMap(data);
-      final response = envelope.getCustomMetadataBody.getCustomMetadataResponse!;
+      final response = envelope.body.response as GetCustomMetadataResponse;
 
       expect(response.id, id);
 

@@ -1,7 +1,6 @@
 import 'package:faker/faker.dart';
 import 'package:test/test.dart';
-import 'package:zimbra_api/src/account/message/auto_complete_gal_envelope.dart';
-import 'package:zimbra_api/src/account/message/auto_complete_gal_request.dart';
+import 'package:zimbra_api/src/account/message.dart';
 import 'package:zimbra_api/src/common/enum/gal_search_type.dart';
 
 void main() {
@@ -61,9 +60,9 @@ void main() {
       };
       final envelope = AutoCompleteGalEnvelope.fromMap(data);
 
-      expect(envelope.autoCompleteGalBody, isNotNull);
-      expect(envelope.autoCompleteGalBody.autoCompleteGalRequest, isNull);
-      expect(envelope.autoCompleteGalBody.autoCompleteGalResponse, isNotNull);
+      expect(envelope.body, isNotNull);
+      expect(envelope.body.request, isNull);
+      expect(envelope.body.response, isNotNull);
     }));
 
     test('From data test', (() {
@@ -166,7 +165,7 @@ void main() {
       };
 
       final envelope = AutoCompleteGalEnvelope.fromMap(data);
-      final response = envelope.autoCompleteGalBody.autoCompleteGalResponse!;
+      final response = envelope.body.response as AutoCompleteGalResponse;
       final contact = response.contacts.first;
 
       expect(response.more, more);

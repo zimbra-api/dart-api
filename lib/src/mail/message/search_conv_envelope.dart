@@ -13,6 +13,4 @@ class SearchConvEnvelope extends SoapEnvelope {
   factory SearchConvEnvelope.fromMap(Map<String, dynamic> data) =>
       SearchConvEnvelope(SearchConvBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  SearchConvBody get searchConvBody => body as SearchConvBody;
 }

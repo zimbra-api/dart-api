@@ -16,10 +16,6 @@ class GetInfoBody extends SoapBody {
       response: data['GetInfoResponse'] != null ? GetInfoResponse.fromMap(data['GetInfoResponse']) : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  GetInfoRequest? get getInfoRequest => request as GetInfoRequest?;
-
-  GetInfoResponse? get getInfoResponse => response as GetInfoResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'GetInfoRequest': request!.toMap(),

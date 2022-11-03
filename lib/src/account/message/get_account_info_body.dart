@@ -18,10 +18,6 @@ class GetAccountInfoBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  GetAccountInfoRequest? get getAccountInfoRequest => request as GetAccountInfoRequest?;
-
-  GetAccountInfoResponse? get getAccountInfoResponse => response as GetAccountInfoResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'GetAccountInfoRequest': request!.toMap(),

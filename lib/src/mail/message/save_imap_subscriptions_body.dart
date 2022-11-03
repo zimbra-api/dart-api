@@ -19,10 +19,6 @@ class SaveIMAPSubscriptionsBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  SaveIMAPSubscriptionsRequest? get saveIMAPSubscriptionsRequest => request as SaveIMAPSubscriptionsRequest?;
-
-  SaveIMAPSubscriptionsResponse? get saveIMAPSubscriptionsResponse => response as SaveIMAPSubscriptionsResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'SaveIMAPSubscriptionsRequest': request!.toMap(),

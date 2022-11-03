@@ -17,10 +17,6 @@ class RankingActionBody extends SoapBody {
           data['RankingActionResponse'] != null ? RankingActionResponse.fromMap(data['RankingActionResponse']) : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  RankingActionRequest? get purgeRevisionRequest => request as RankingActionRequest?;
-
-  RankingActionResponse? get purgeRevisionResponse => response as RankingActionResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'RankingActionRequest': request!.toMap(),

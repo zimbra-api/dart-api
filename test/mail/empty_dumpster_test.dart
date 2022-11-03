@@ -25,8 +25,8 @@ void main() {
         }
       };
       final envelope = EmptyDumpsterEnvelope.fromMap(data);
-      expect(envelope.emptyDumpsterBody.emptyDumpsterResponse, isNotNull);
-      expect(envelope.emptyDumpsterBody.emptyDumpsterResponse, isA<EmptyDumpsterResponse>());
+      expect(envelope.body.response, isNotNull);
+      expect(envelope.body.response, isA<EmptyDumpsterResponse>());
     }));
   }));
 }

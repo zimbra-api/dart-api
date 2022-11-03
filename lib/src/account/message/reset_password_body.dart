@@ -17,10 +17,6 @@ class ResetPasswordBody extends SoapBody {
           data['ResetPasswordResponse'] != null ? ResetPasswordResponse.fromMap(data['ResetPasswordResponse']) : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  ResetPasswordRequest? get resetPasswordRequest => request as ResetPasswordRequest?;
-
-  ResetPasswordResponse? get resetPasswordResponse => response as ResetPasswordResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'ResetPasswordRequest': request!.toMap(),

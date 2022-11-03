@@ -13,6 +13,4 @@ class GrantRightsEnvelope extends SoapEnvelope {
   factory GrantRightsEnvelope.fromMap(Map<String, dynamic> data) =>
       GrantRightsEnvelope(GrantRightsBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  GrantRightsBody get grantRightsBody => body as GrantRightsBody;
 }

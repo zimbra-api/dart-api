@@ -14,6 +14,7 @@ import 'package:zimbra_api/src/common/enum/transparency.dart';
 import 'package:zimbra_api/src/common/enum/week_day.dart';
 import 'package:zimbra_api/src/mail/message/remove_attachments_envelope.dart';
 import 'package:zimbra_api/src/mail/message/remove_attachments_request.dart';
+import 'package:zimbra_api/src/mail/message/remove_attachments_response.dart';
 import 'package:zimbra_api/src/mail/type/add_recurrence_info.dart';
 import 'package:zimbra_api/src/mail/type/exclude_recurrence_info.dart';
 import 'package:zimbra_api/src/mail/type/message_info.dart';
@@ -646,7 +647,7 @@ void main() {
         }
       };
       final envelope = RemoveAttachmentsEnvelope.fromMap(data);
-      final response = envelope.removeAttachmentsBody.removeAttachmentsResponse!;
+      final response = envelope.body.response as RemoveAttachmentsResponse;
 
       final msg = response.msgMessage!;
       expect(msg.id, id);

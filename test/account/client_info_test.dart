@@ -2,6 +2,7 @@ import 'package:faker/faker.dart';
 import 'package:test/test.dart';
 import 'package:zimbra_api/src/account/message/client_info_envelope.dart';
 import 'package:zimbra_api/src/account/message/client_info_request.dart';
+import 'package:zimbra_api/src/account/message/client_info_response.dart';
 import 'package:zimbra_api/src/common/enum/domain_by.dart';
 import 'package:zimbra_api/src/common/type/domain_selector.dart';
 
@@ -47,7 +48,7 @@ void main() {
       };
 
       final envelope = ClientInfoEnvelope.fromMap(data);
-      final response = envelope.clientInfoBody.clientInfoResponse!;
+      final response = envelope.body.response as ClientInfoResponse;
       final attr = response.attrs.first;
 
       expect(attr.key, key);

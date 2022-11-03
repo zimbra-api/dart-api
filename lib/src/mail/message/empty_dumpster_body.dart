@@ -17,10 +17,6 @@ class EmptyDumpsterBody extends SoapBody {
           data['EmptyDumpsterResponse'] != null ? EmptyDumpsterResponse.fromMap(data['EmptyDumpsterResponse']) : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  EmptyDumpsterRequest? get emptyDumpsterRequest => request as EmptyDumpsterRequest?;
-
-  EmptyDumpsterResponse? get emptyDumpsterResponse => response as EmptyDumpsterResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'EmptyDumpsterRequest': request!.toMap(),

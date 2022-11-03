@@ -12,6 +12,7 @@ import 'package:zimbra_api/src/common/enum/transparency.dart';
 import 'package:zimbra_api/src/common/enum/week_day.dart';
 import 'package:zimbra_api/src/mail/message/get_appointment_envelope.dart';
 import 'package:zimbra_api/src/mail/message/get_appointment_request.dart';
+import 'package:zimbra_api/src/mail/message/get_appointment_response.dart';
 import 'package:zimbra_api/src/mail/type/add_recurrence_info.dart';
 import 'package:zimbra_api/src/mail/type/calendar_item_info.dart';
 import 'package:zimbra_api/src/mail/type/exclude_recurrence_info.dart';
@@ -597,7 +598,7 @@ void main() {
         }
       };
       final envelope = GetAppointmentEnvelope.fromMap(data);
-      final response = envelope.getAppointmentBody.getAppointmentResponse!;
+      final response = envelope.body.response as GetAppointmentResponse;
       final appt = response.appt!;
 
       expect(appt.flags, flags);

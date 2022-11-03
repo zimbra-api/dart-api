@@ -12,7 +12,5 @@ class GetRightsEnvelope extends SoapEnvelope {
 
   factory GetRightsEnvelope.fromMap(Map<String, dynamic> data) =>
       GetRightsEnvelope(GetRightsBody.fromMap(data['Body']),
-          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  GetRightsBody get getRightsBody => body as GetRightsBody;
+      header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 }

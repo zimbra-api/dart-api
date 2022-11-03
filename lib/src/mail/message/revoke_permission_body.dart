@@ -18,10 +18,6 @@ class RevokePermissionBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  RevokePermissionRequest? get revokePermissionRequest => request as RevokePermissionRequest?;
-
-  RevokePermissionResponse? get revokePermissionResponse => response as RevokePermissionResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'RevokePermissionRequest': request!.toMap(),

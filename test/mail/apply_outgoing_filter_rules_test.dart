@@ -3,6 +3,7 @@ import 'package:test/test.dart';
 import 'package:zimbra_api/src/common/type/named_element.dart';
 import 'package:zimbra_api/src/mail/message/apply_outgoing_filter_rules_envelope.dart';
 import 'package:zimbra_api/src/mail/message/apply_outgoing_filter_rules_request.dart';
+import 'package:zimbra_api/src/mail/message/apply_outgoing_filter_rules_response.dart';
 import 'package:zimbra_api/src/mail/type/ids_attr.dart';
 
 void main() {
@@ -52,7 +53,7 @@ void main() {
         }
       };
       final envelope = ApplyOutgoingFilterRulesEnvelope.fromMap(data);
-      final response = envelope.applyOutgoingFilterRulesBody.applyOutgoingFilterRulesResponse!;
+      final response = envelope.body.response as ApplyOutgoingFilterRulesResponse;
       final msgIds = response.msgIds!;
       expect(msgIds.ids, ids);
     }));

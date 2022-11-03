@@ -18,10 +18,6 @@ class CreateIdentityBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  CreateIdentityRequest? get createIdentityRequest => request as CreateIdentityRequest?;
-
-  CreateIdentityResponse? get createIdentityResponse => response as CreateIdentityResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'CreateIdentityRequest': request!.toMap(),

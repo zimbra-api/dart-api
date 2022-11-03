@@ -14,6 +14,4 @@ class ApplyOutgoingFilterRulesEnvelope extends SoapEnvelope {
   factory ApplyOutgoingFilterRulesEnvelope.fromMap(Map<String, dynamic> data) =>
       ApplyOutgoingFilterRulesEnvelope(ApplyOutgoingFilterRulesBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  ApplyOutgoingFilterRulesBody get applyOutgoingFilterRulesBody => body as ApplyOutgoingFilterRulesBody;
 }

@@ -15,6 +15,7 @@ import 'package:zimbra_api/src/common/enum/week_day.dart';
 import 'package:zimbra_api/src/common/type/attribute_name.dart';
 import 'package:zimbra_api/src/mail/message/get_conv_envelope.dart';
 import 'package:zimbra_api/src/mail/message/get_conv_request.dart';
+import 'package:zimbra_api/src/mail/message/get_conv_response.dart';
 import 'package:zimbra_api/src/mail/type/add_recurrence_info.dart';
 import 'package:zimbra_api/src/mail/type/conversation_spec.dart';
 import 'package:zimbra_api/src/mail/type/exclude_recurrence_info.dart';
@@ -683,7 +684,7 @@ void main() {
         }
       };
       final envelope = GetConvEnvelope.fromMap(data);
-      final response = envelope.getConvBody.getConvResponse!;
+      final response = envelope.body.response as GetConvResponse;
       final conv = response.conversation!;
 
       expect(conv.id, id);

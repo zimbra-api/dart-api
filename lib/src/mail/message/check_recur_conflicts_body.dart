@@ -18,10 +18,6 @@ class CheckRecurConflictsBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  CheckRecurConflictsRequest? get checkRecurConflictsRequest => request as CheckRecurConflictsRequest?;
-
-  CheckRecurConflictsResponse? get checkRecurConflictsResponse => response as CheckRecurConflictsResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'CheckRecurConflictsRequest': request!.toMap(),

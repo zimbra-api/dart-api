@@ -13,6 +13,4 @@ class GetAllLocalesEnvelope extends SoapEnvelope {
   factory GetAllLocalesEnvelope.fromMap(Map<String, dynamic> data) =>
       GetAllLocalesEnvelope(GetAllLocalesBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  GetAllLocalesBody get getAllLocalesBody => body as GetAllLocalesBody;
 }

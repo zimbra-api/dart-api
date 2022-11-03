@@ -16,10 +16,6 @@ class ExpandRecurBody extends SoapBody {
       response: data['ExpandRecurResponse'] != null ? ExpandRecurResponse.fromMap(data['ExpandRecurResponse']) : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  ExpandRecurRequest? get expandRecurRequest => request as ExpandRecurRequest?;
-
-  ExpandRecurResponse? get expandRecurResponse => response as ExpandRecurResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'ExpandRecurRequest': request!.toMap(),

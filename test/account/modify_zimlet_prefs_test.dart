@@ -2,6 +2,7 @@ import 'package:faker/faker.dart';
 import 'package:test/test.dart';
 import 'package:zimbra_api/src/account/message/modify_zimlet_prefs_envelope.dart';
 import 'package:zimbra_api/src/account/message/modify_zimlet_prefs_request.dart';
+import 'package:zimbra_api/src/account/message/modify_zimlet_prefs_response.dart';
 import 'package:zimbra_api/src/account/type/modify_zimlet_prefs_spec.dart';
 import 'package:zimbra_api/src/common/enum/zimlet_status.dart';
 
@@ -42,7 +43,7 @@ void main() {
         }
       };
       final envelope = ModifyZimletPrefsEnvelope.fromMap(data);
-      final response = envelope.modifyZimletPrefsBody.modifyZimletPrefsResponse!;
+      final response = envelope.body.response as ModifyZimletPrefsResponse;
       expect(response.zimlets, [zimlet1, zimlet2]);
     }));
   }));

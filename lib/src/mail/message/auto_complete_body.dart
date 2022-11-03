@@ -17,10 +17,6 @@ class AutoCompleteBody extends SoapBody {
           data['AutoCompleteResponse'] != null ? AutoCompleteResponse.fromMap(data['AutoCompleteResponse']) : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  AutoCompleteRequest? get autoCompleteRequest => request as AutoCompleteRequest?;
-
-  AutoCompleteResponse? get autoCompleteResponse => response as AutoCompleteResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'AutoCompleteRequest': request!.toMap(),

@@ -13,6 +13,4 @@ class ModifyContactEnvelope extends SoapEnvelope {
   factory ModifyContactEnvelope.fromMap(Map<String, dynamic> data) =>
       ModifyContactEnvelope(ModifyContactBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  ModifyContactBody get modifyContactBody => body as ModifyContactBody;
 }

@@ -13,6 +13,4 @@ class ModifyWhiteBlackListEnvelope extends SoapEnvelope {
   factory ModifyWhiteBlackListEnvelope.fromMap(Map<String, dynamic> data) =>
       ModifyWhiteBlackListEnvelope(ModifyWhiteBlackListBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  ModifyWhiteBlackListBody get modifyWhiteBlackListBody => body as ModifyWhiteBlackListBody;
 }

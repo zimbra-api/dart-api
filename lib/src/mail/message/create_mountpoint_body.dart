@@ -18,10 +18,6 @@ class CreateMountpointBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  CreateMountpointRequest? get createMountpointRequest => request as CreateMountpointRequest?;
-
-  CreateMountpointResponse? get createMountpointResponse => response as CreateMountpointResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'CreateMountpointRequest': request!.toMap(),

@@ -16,10 +16,6 @@ class GetPrefsBody extends SoapBody {
       response: data['GetPrefsResponse'] != null ? GetPrefsResponse.fromMap(data['GetPrefsResponse']) : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  GetPrefsRequest? get getPrefsRequest => request as GetPrefsRequest?;
-
-  GetPrefsResponse? get getPrefsResponse => response as GetPrefsResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'GetPrefsRequest': request!.toMap(),

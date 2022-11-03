@@ -16,10 +16,6 @@ class BounceMsgBody extends SoapBody {
       response: data['BounceMsgResponse'] != null ? BounceMsgResponse.fromMap(data['BounceMsgResponse']) : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  BounceMsgRequest? get bounceMsgRequest => request as BounceMsgRequest?;
-
-  BounceMsgResponse? get bounceMsgResponse => response as BounceMsgResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'BounceMsgRequest': request!.toMap(),

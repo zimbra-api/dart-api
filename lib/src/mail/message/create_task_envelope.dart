@@ -13,6 +13,4 @@ class CreateTaskEnvelope extends SoapEnvelope {
   factory CreateTaskEnvelope.fromMap(Map<String, dynamic> data) =>
       CreateTaskEnvelope(CreateTaskBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  CreateTaskBody get createTaskBody => body as CreateTaskBody;
 }

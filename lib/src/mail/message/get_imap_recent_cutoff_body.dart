@@ -18,10 +18,6 @@ class GetIMAPRecentCutoffBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  GetIMAPRecentCutoffRequest? get getIMAPRecentCutoffRequest => request as GetIMAPRecentCutoffRequest?;
-
-  GetIMAPRecentCutoffResponse? get getIMAPRecentCutoffResponse => response as GetIMAPRecentCutoffResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'GetIMAPRecentCutoffRequest': request!.toMap(),

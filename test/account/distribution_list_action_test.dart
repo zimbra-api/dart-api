@@ -124,8 +124,8 @@ void main() {
         }
       };
       final envelope = DistributionListActionEnvelope.fromMap(data);
-      expect(envelope.distributionListActionBody.distributionListActionResponse, isNotNull);
-      expect(envelope.distributionListActionBody.distributionListActionResponse, isA<DistributionListActionResponse>());
+      expect(envelope.body.response, isNotNull);
+      expect(envelope.body.response, isA<DistributionListActionResponse>());
     }));
   }));
 }

@@ -5,6 +5,7 @@ import 'package:zimbra_api/src/common/enum/frequency.dart';
 import 'package:zimbra_api/src/common/enum/week_day.dart';
 import 'package:zimbra_api/src/mail/message/get_recur_envelope.dart';
 import 'package:zimbra_api/src/mail/message/get_recur_request.dart';
+import 'package:zimbra_api/src/mail/message/get_recur_response.dart';
 import 'package:zimbra_api/src/mail/type/add_recurrence_info.dart';
 import 'package:zimbra_api/src/mail/type/exclude_recurrence_info.dart';
 import 'package:zimbra_api/src/mail/type/recurrence_info.dart';
@@ -258,7 +259,7 @@ void main() {
         }
       };
       final envelope = GetRecurEnvelope.fromMap(data);
-      final response = envelope.getRecurBody.getRecurResponse!;
+      final response = envelope.body.response as GetRecurResponse;
 
       final tz = response.timezone!;
       expect(tz.id, id);

@@ -18,10 +18,6 @@ class RemoveAttachmentsBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  RemoveAttachmentsRequest? get removeAttachmentsRequest => request as RemoveAttachmentsRequest?;
-
-  RemoveAttachmentsResponse? get removeAttachmentsResponse => response as RemoveAttachmentsResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'RemoveAttachmentsRequest': request!.toMap(),

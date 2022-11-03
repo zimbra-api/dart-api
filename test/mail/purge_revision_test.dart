@@ -44,9 +44,8 @@ void main() {
         }
       };
       final envelope = PurgeRevisionEnvelope.fromMap(data);
-      final response = envelope.purgeRevisionBody.purgeRevisionResponse;
-      expect(response, isNotNull);
-      expect(response, isA<PurgeRevisionResponse>());
+      expect(envelope.body.response, isNotNull);
+      expect(envelope.body.response, isA<PurgeRevisionResponse>());
     }));
   }));
 }

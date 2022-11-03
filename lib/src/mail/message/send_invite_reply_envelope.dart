@@ -13,6 +13,4 @@ class SendInviteReplyEnvelope extends SoapEnvelope {
   factory SendInviteReplyEnvelope.fromMap(Map<String, dynamic> data) =>
       SendInviteReplyEnvelope(SendInviteReplyBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  SendInviteReplyBody get sendInviteReplyBody => body as SendInviteReplyBody;
 }

@@ -16,10 +16,6 @@ class SetTaskBody extends SoapBody {
       response: data['SetTaskResponse'] != null ? SetTaskResponse.fromMap(data['SetTaskResponse']) : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  SetTaskRequest? get setTaskRequest => request as SetTaskRequest?;
-
-  SetTaskResponse? get setTaskResponse => response as SetTaskResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'SetTaskRequest': request!.toMap(),

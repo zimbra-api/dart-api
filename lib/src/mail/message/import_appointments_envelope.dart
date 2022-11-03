@@ -13,6 +13,4 @@ class ImportAppointmentsEnvelope extends SoapEnvelope {
   factory ImportAppointmentsEnvelope.fromMap(Map<String, dynamic> data) =>
       ImportAppointmentsEnvelope(ImportAppointmentsBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  ImportAppointmentsBody get importAppointmentsBody => body as ImportAppointmentsBody;
 }

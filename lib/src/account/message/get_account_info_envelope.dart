@@ -13,6 +13,4 @@ class GetAccountInfoEnvelope extends SoapEnvelope {
   factory GetAccountInfoEnvelope.fromMap(Map<String, dynamic> data) =>
       GetAccountInfoEnvelope(GetAccountInfoBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  GetAccountInfoBody get getAccountInfoBody => body as GetAccountInfoBody;
 }

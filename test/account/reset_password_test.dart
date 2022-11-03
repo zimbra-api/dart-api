@@ -30,8 +30,8 @@ void main() {
         }
       };
       final envelope = ResetPasswordEnvelope.fromMap(data);
-      expect(envelope.resetPasswordBody.resetPasswordResponse, isNotNull);
-      expect(envelope.resetPasswordBody.resetPasswordResponse, isA<ResetPasswordResponse>());
+      expect(envelope.body.response, isNotNull);
+      expect(envelope.body.response, isA<ResetPasswordResponse>());
     }));
   }));
 }

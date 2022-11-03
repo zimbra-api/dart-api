@@ -2,6 +2,7 @@ import 'package:faker/faker.dart';
 import 'package:test/test.dart';
 import 'package:zimbra_api/src/account/message/check_rights_envelope.dart';
 import 'package:zimbra_api/src/account/message/check_rights_request.dart';
+import 'package:zimbra_api/src/account/message/check_rights_response.dart';
 import 'package:zimbra_api/src/account/type/check_rights_target_spec.dart';
 import 'package:zimbra_api/src/common/enum/target_by.dart';
 import 'package:zimbra_api/src/common/enum/target_type.dart';
@@ -61,9 +62,9 @@ void main() {
       };
       final envelope = CheckRightsEnvelope.fromMap(data);
 
-      expect(envelope.checkRightsBody, isNotNull);
-      expect(envelope.checkRightsBody.checkRightsRequest, isNull);
-      expect(envelope.checkRightsBody.checkRightsResponse, isNotNull);
+      expect(envelope.body, isNotNull);
+      expect(envelope.body.request, isNull);
+      expect(envelope.body.request, isNotNull);
     });
 
     test('From data test', (() {
@@ -93,7 +94,7 @@ void main() {
       };
 
       final envelope = CheckRightsEnvelope.fromMap(data);
-      final response = envelope.checkRightsBody.checkRightsResponse!;
+      final response = envelope.body.response as CheckRightsResponse;
       final target = response.targets.first;
 
       expect(target.targetType, TargetType.account);

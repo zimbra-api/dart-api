@@ -39,9 +39,8 @@ void main() {
         }
       };
       final envelope = RankingActionEnvelope.fromMap(data);
-      final response = envelope.rankingActionBody.purgeRevisionResponse;
-      expect(response, isNotNull);
-      expect(response, isA<RankingActionResponse>());
+      expect(envelope.body.response, isNotNull);
+      expect(envelope.body.response, isA<RankingActionResponse>());
     }));
   }));
 }

@@ -17,10 +17,6 @@ class GetShareInfoBody extends SoapBody {
           data['GetShareInfoResponse'] != null ? GetShareInfoResponse.fromMap(data['GetShareInfoResponse']) : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  GetShareInfoRequest? get getShareInfoRequest => request as GetShareInfoRequest?;
-
-  GetShareInfoResponse? get getShareInfoResponse => response as GetShareInfoResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'GetShareInfoRequest': request!.toMap(),

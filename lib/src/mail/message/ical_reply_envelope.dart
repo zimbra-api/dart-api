@@ -12,7 +12,5 @@ class ICalReplyEnvelope extends SoapEnvelope {
 
   factory ICalReplyEnvelope.fromMap(Map<String, dynamic> data) =>
       ICalReplyEnvelope(ICalReplyBody.fromMap(data['Body']),
-          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  ICalReplyBody get iCalReplyBody => body as ICalReplyBody;
+      header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 }

@@ -33,9 +33,8 @@ void main() {
         }
       };
       final envelope = RestoreContactsEnvelope.fromMap(data);
-      final response = envelope.restoreContactsBody.restoreContactsResponse;
-      expect(response, isNotNull);
-      expect(response, isA<RestoreContactsResponse>());
+      expect(envelope.body.response, isNotNull);
+      expect(envelope.body.response, isA<RestoreContactsResponse>());
     }));
   }));
 }

@@ -2,6 +2,7 @@ import 'package:faker/faker.dart';
 import 'package:test/test.dart';
 import 'package:zimbra_api/src/mail/message/export_contacts_envelope.dart';
 import 'package:zimbra_api/src/mail/message/export_contacts_request.dart';
+import 'package:zimbra_api/src/mail/message/export_contacts_response.dart';
 
 void main() {
   final faker = Faker();
@@ -46,7 +47,7 @@ void main() {
         }
       };
       final envelope = ExportContactsEnvelope.fromMap(data);
-      final response = envelope.exportContactsBody.exportContactsResponse!;
+      final response = envelope.body.response as ExportContactsResponse;
       expect(response.content, content);
     }));
   }));

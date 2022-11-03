@@ -18,10 +18,6 @@ class AutoCompleteGalBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  AutoCompleteGalRequest? get autoCompleteGalRequest => request as AutoCompleteGalRequest?;
-
-  AutoCompleteGalResponse? get autoCompleteGalResponse => response as AutoCompleteGalResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'AutoCompleteGalRequest': request!.toMap(),

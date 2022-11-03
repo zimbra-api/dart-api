@@ -31,9 +31,8 @@ void main() {
         }
       };
       final envelope = AnnounceOrganizerChangeEnvelope.fromMap(data);
-      expect(envelope.announceOrganizerChangeBody.announceOrganizerChangeResponse, isNotNull);
-      expect(
-          envelope.announceOrganizerChangeBody.announceOrganizerChangeResponse, isA<AnnounceOrganizerChangeResponse>());
+      expect(envelope.body.response, isNotNull);
+      expect(envelope.body.response, isA<AnnounceOrganizerChangeResponse>());
     }));
   }));
 }

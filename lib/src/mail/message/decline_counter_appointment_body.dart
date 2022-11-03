@@ -19,12 +19,6 @@ class DeclineCounterAppointmentBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  DeclineCounterAppointmentRequest? get declineCounterAppointmentRequest =>
-      request as DeclineCounterAppointmentRequest?;
-
-  DeclineCounterAppointmentResponse? get declineCounterAppointmentResponse =>
-      response as DeclineCounterAppointmentResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'DeclineCounterAppointmentRequest': request!.toMap(),

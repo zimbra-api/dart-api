@@ -14,6 +14,4 @@ class InvalidateReminderDeviceEnvelope extends SoapEnvelope {
   factory InvalidateReminderDeviceEnvelope.fromMap(Map<String, dynamic> data) =>
       InvalidateReminderDeviceEnvelope(InvalidateReminderDeviceBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  InvalidateReminderDeviceBody get invalidateReminderDeviceBody => body as InvalidateReminderDeviceBody;
 }

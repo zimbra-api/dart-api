@@ -18,10 +18,6 @@ class DeleteIdentityBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  DeleteIdentityRequest? get deleteIdentityRequest => request as DeleteIdentityRequest?;
-
-  DeleteIdentityResponse? get deleteIdentityResponse => response as DeleteIdentityResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'DeleteIdentityRequest': request!.toMap(),

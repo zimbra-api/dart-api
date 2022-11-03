@@ -4,6 +4,7 @@ import 'package:zimbra_api/src/common/enum/action_constraint.dart';
 import 'package:zimbra_api/src/common/enum/msg_action.dart';
 import 'package:zimbra_api/src/mail/message/msg_action_envelope.dart';
 import 'package:zimbra_api/src/mail/message/msg_action_request.dart';
+import 'package:zimbra_api/src/mail/message/msg_action_response.dart';
 import 'package:zimbra_api/src/mail/type/action_selector.dart';
 
 void main() {
@@ -86,7 +87,7 @@ void main() {
         }
       };
       final envelope = MsgActionEnvelope.fromMap(data);
-      final response = envelope.msgActionBody.msgActionResponse!;
+      final response = envelope.body.response as MsgActionResponse;
       final action = response.action!;
 
       expect(action.id, id);

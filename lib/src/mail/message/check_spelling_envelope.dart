@@ -13,6 +13,4 @@ class CheckSpellingEnvelope extends SoapEnvelope {
   factory CheckSpellingEnvelope.fromMap(Map<String, dynamic> data) =>
       CheckSpellingEnvelope(CheckSpellingBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  CheckSpellingBody get checkSpellingBody => body as CheckSpellingBody;
 }

@@ -2,6 +2,7 @@ import 'package:faker/faker.dart';
 import 'package:test/test.dart';
 import 'package:zimbra_api/src/mail/message/list_imap_subscriptions_envelope.dart';
 import 'package:zimbra_api/src/mail/message/list_imap_subscriptions_request.dart';
+import 'package:zimbra_api/src/mail/message/list_imap_subscriptions_response.dart';
 
 void main() {
   final faker = Faker();
@@ -33,7 +34,7 @@ void main() {
         }
       };
       final envelope = ListIMAPSubscriptionsEnvelope.fromMap(data);
-      final response = envelope.listIMAPSubscriptionsBody.listIMAPSubscriptionsResponse!;
+      final response = envelope.body.response as ListIMAPSubscriptionsResponse;
 
       expect(response.subscriptions.first, sub1);
       expect(response.subscriptions.last, sub2);

@@ -12,6 +12,4 @@ class GetConvEnvelope extends SoapEnvelope {
 
   factory GetConvEnvelope.fromMap(Map<String, dynamic> data) => GetConvEnvelope(GetConvBody.fromMap(data['Body']),
       header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  GetConvBody get getConvBody => body as GetConvBody;
 }

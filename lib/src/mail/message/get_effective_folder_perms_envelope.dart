@@ -14,6 +14,4 @@ class GetEffectiveFolderPermsEnvelope extends SoapEnvelope {
   factory GetEffectiveFolderPermsEnvelope.fromMap(Map<String, dynamic> data) =>
       GetEffectiveFolderPermsEnvelope(GetEffectiveFolderPermsBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  GetEffectiveFolderPermsBody get getEffectiveFolderPermsBody => body as GetEffectiveFolderPermsBody;
 }

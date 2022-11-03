@@ -2,6 +2,7 @@ import 'package:faker/faker.dart';
 import 'package:test/test.dart';
 import 'package:zimbra_api/src/account/message/get_distribution_list_members_envelope.dart';
 import 'package:zimbra_api/src/account/message/get_distribution_list_members_request.dart';
+import 'package:zimbra_api/src/account/message/get_distribution_list_members_response.dart';
 
 void main() {
   final faker = Faker();
@@ -58,7 +59,7 @@ void main() {
         }
       };
       final envelope = GetDistributionListMembersEnvelope.fromMap(data);
-      final response = envelope.getDistributionListMembersBody.getDistributionListMembersResponse!;
+      final response = envelope.body.response as GetDistributionListMembersResponse;
 
       expect(response.more, more);
       expect(response.total, total);

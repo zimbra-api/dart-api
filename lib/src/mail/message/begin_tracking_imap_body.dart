@@ -18,10 +18,6 @@ class BeginTrackingIMAPBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  BeginTrackingIMAPRequest? get beginTrackingIMAPRequest => request as BeginTrackingIMAPRequest?;
-
-  BeginTrackingIMAPResponse? get beginTrackingIMAPResponse => response as BeginTrackingIMAPResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'BeginTrackingIMAPRequest': request!.toMap(),

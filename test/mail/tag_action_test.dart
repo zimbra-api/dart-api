@@ -5,6 +5,7 @@ import 'package:zimbra_api/src/common/enum/policy_type.dart';
 import 'package:zimbra_api/src/common/enum/tag_action.dart';
 import 'package:zimbra_api/src/mail/message/tag_action_envelope.dart';
 import 'package:zimbra_api/src/mail/message/tag_action_request.dart';
+import 'package:zimbra_api/src/mail/message/tag_action_response.dart';
 import 'package:zimbra_api/src/mail/type/policy.dart';
 import 'package:zimbra_api/src/mail/type/retention_policy.dart';
 import 'package:zimbra_api/src/mail/type/tag_action_selector.dart';
@@ -117,7 +118,7 @@ void main() {
         }
       };
       final envelope = TagActionEnvelope.fromMap(data);
-      final response = envelope.tagActionBody.tagActionResponse!;
+      final response = envelope.body.response as TagActionResponse;
       final action = response.action!;
       expect(action.successes, successes);
       expect(action.successNames, successNames);

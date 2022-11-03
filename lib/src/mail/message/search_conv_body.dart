@@ -16,10 +16,6 @@ class SearchConvBody extends SoapBody {
       response: data['SearchConvResponse'] != null ? SearchConvResponse.fromMap(data['SearchConvResponse']) : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  SearchConvRequest? get searchConvRequest => request as SearchConvRequest?;
-
-  SearchConvResponse? get searchConvResponse => response as SearchConvResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'SearchConvRequest': request!.toMap(),

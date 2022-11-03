@@ -2,6 +2,7 @@ import 'package:faker/faker.dart';
 import 'package:test/test.dart';
 import 'package:zimbra_api/src/mail/message/get_working_hours_envelope.dart';
 import 'package:zimbra_api/src/mail/message/get_working_hours_request.dart';
+import 'package:zimbra_api/src/mail/message/get_working_hours_response.dart';
 
 void main() {
   final faker = Faker();
@@ -134,7 +135,7 @@ void main() {
         }
       };
       final envelope = GetWorkingHoursEnvelope.fromMap(data);
-      final response = envelope.getWorkingHoursBody.getWorkingHoursResponse!;
+      final response = envelope.body.response as GetWorkingHoursResponse;
       final usr = response.freebusyUsers.first;
 
       expect(usr.id, id);

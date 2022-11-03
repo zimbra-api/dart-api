@@ -42,8 +42,8 @@ void main() {
         }
       };
       final envelope = EndSessionEnvelope.fromMap(data);
-      expect(envelope.endSessionBody.endSessionResponse, isNotNull);
-      expect(envelope.endSessionBody.endSessionResponse, isA<EndSessionResponse>());
+      expect(envelope.body.response, isNotNull);
+      expect(envelope.body.response, isA<EndSessionResponse>());
     }));
   }));
 }

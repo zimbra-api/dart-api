@@ -16,10 +16,6 @@ class SaveDraftBody extends SoapBody {
       response: data['SaveDraftResponse'] != null ? SaveDraftResponse.fromMap(data['SaveDraftResponse']) : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  SaveDraftRequest? get saveDraftRequest => request as SaveDraftRequest?;
-
-  SaveDraftResponse? get saveDraftResponse => response as SaveDraftResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'SaveDraftRequest': request!.toMap(),

@@ -19,11 +19,6 @@ class ForwardAppointmentInviteBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  ForwardAppointmentInviteRequest? get forwardAppointmentInviteRequest => request as ForwardAppointmentInviteRequest?;
-
-  ForwardAppointmentInviteResponse? get forwardAppointmentInviteResponse =>
-      response as ForwardAppointmentInviteResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'ForwardAppointmentInviteRequest': request!.toMap(),

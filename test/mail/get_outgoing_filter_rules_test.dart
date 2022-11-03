@@ -16,6 +16,7 @@ import 'package:zimbra_api/src/common/enum/value_comparison.dart';
 import 'package:zimbra_api/src/common/enum/where_setting.dart';
 import 'package:zimbra_api/src/mail/message/get_outgoing_filter_rules_envelope.dart';
 import 'package:zimbra_api/src/mail/message/get_outgoing_filter_rules_request.dart';
+import 'package:zimbra_api/src/mail/message/get_outgoing_filter_rules_response.dart';
 import 'package:zimbra_api/src/mail/type/nested_rule.dart';
 
 void main() {
@@ -478,7 +479,7 @@ void main() {
         }
       };
       final envelope = GetOutgoingFilterRulesEnvelope.fromMap(data);
-      final response = envelope.getOutgoingFilterRulesBody.getOutgoingFilterRulesResponse!;
+      final response = envelope.body.response as GetOutgoingFilterRulesResponse;
       final filterRule = response.filterRules.first;
 
       expect(filterRule.name, name);

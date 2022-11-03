@@ -16,10 +16,6 @@ class SearchGalBody extends SoapBody {
       response: data['SearchGalResponse'] != null ? SearchGalResponse.fromMap(data['SearchGalResponse']) : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  SearchGalRequest? get searchGalRequest => request as SearchGalRequest?;
-
-  SearchGalResponse? get searchGalResponse => response as SearchGalResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'SearchGalRequest': request!.toMap(),

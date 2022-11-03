@@ -13,6 +13,4 @@ class CreateNoteEnvelope extends SoapEnvelope {
   factory CreateNoteEnvelope.fromMap(Map<String, dynamic> data) =>
       CreateNoteEnvelope(CreateNoteBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  CreateNoteBody get createNoteBody => body as CreateNoteBody;
 }

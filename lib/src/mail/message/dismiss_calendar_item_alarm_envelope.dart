@@ -14,6 +14,4 @@ class DismissCalendarItemAlarmEnvelope extends SoapEnvelope {
   factory DismissCalendarItemAlarmEnvelope.fromMap(Map<String, dynamic> data) =>
       DismissCalendarItemAlarmEnvelope(DismissCalendarItemAlarmBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  DismissCalendarItemAlarmBody get dismissCalendarItemAlarmBody => body as DismissCalendarItemAlarmBody;
 }

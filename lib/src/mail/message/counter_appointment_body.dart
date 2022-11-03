@@ -18,10 +18,6 @@ class CounterAppointmentBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  CounterAppointmentRequest? get counterAppointmentRequest => request as CounterAppointmentRequest?;
-
-  CounterAppointmentResponse? get counterAppointmentResponse => response as CounterAppointmentResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'CounterAppointmentRequest': request!.toMap(),

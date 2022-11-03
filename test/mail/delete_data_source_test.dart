@@ -89,8 +89,8 @@ void main() {
         }
       };
       final envelope = DeleteDataSourceEnvelope.fromMap(data);
-      expect(envelope.deleteDataSourceBody.deleteDataSourceResponse, isNotNull);
-      expect(envelope.deleteDataSourceBody.deleteDataSourceResponse, isA<DeleteDataSourceResponse>());
+      expect(envelope.body.response, isNotNull);
+      expect(envelope.body.response, isA<DeleteDataSourceResponse>());
     }));
   }));
 }

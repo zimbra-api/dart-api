@@ -11,6 +11,4 @@ class NoOpEnvelope extends SoapEnvelope {
 
   factory NoOpEnvelope.fromMap(Map<String, dynamic> data) => NoOpEnvelope(NoOpBody.fromMap(data['Body']),
       header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  NoOpBody get noOpBody => body as NoOpBody;
 }

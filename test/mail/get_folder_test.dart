@@ -6,6 +6,7 @@ import 'package:zimbra_api/src/common/enum/search_sort_by.dart';
 import 'package:zimbra_api/src/common/enum/view_type.dart';
 import 'package:zimbra_api/src/mail/message/get_folder_envelope.dart';
 import 'package:zimbra_api/src/mail/message/get_folder_request.dart';
+import 'package:zimbra_api/src/mail/message/get_folder_response.dart';
 import 'package:zimbra_api/src/mail/type/folder.dart';
 import 'package:zimbra_api/src/mail/type/get_folder_spec.dart';
 
@@ -236,7 +237,7 @@ void main() {
         }
       };
       final envelope = GetFolderEnvelope.fromMap(data);
-      final response = envelope.getFolderBody.getFolderResponse!;
+      final response = envelope.body.response as GetFolderResponse;
 
       final folder = response.folder!;
       expect(folder.id, id);

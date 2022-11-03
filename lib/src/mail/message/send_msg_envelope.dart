@@ -12,6 +12,4 @@ class SendMsgEnvelope extends SoapEnvelope {
 
   factory SendMsgEnvelope.fromMap(Map<String, dynamic> data) => SendMsgEnvelope(SendMsgBody.fromMap(data['Body']),
       header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  SendMsgBody get sendMsgBody => body as SendMsgBody;
 }

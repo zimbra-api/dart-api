@@ -3,6 +3,7 @@ import 'package:test/test.dart';
 import 'package:zimbra_api/src/common/enum/policy_type.dart';
 import 'package:zimbra_api/src/mail/message/create_tag_envelope.dart';
 import 'package:zimbra_api/src/mail/message/create_tag_request.dart';
+import 'package:zimbra_api/src/mail/message/create_tag_response.dart';
 import 'package:zimbra_api/src/mail/type/tag_spec.dart';
 
 void main() {
@@ -99,7 +100,7 @@ void main() {
         }
       };
       final envelope = CreateTagEnvelope.fromMap(data);
-      final response = envelope.createTagBody.createTagResponse!;
+      final response = envelope.body.response as CreateTagResponse;
 
       final tag = response.tag!;
       expect(tag.id, id);

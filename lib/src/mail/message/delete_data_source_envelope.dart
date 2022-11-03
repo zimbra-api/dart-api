@@ -13,6 +13,4 @@ class DeleteDataSourceEnvelope extends SoapEnvelope {
   factory DeleteDataSourceEnvelope.fromMap(Map<String, dynamic> data) =>
       DeleteDataSourceEnvelope(DeleteDataSourceBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  DeleteDataSourceBody get deleteDataSourceBody => body as DeleteDataSourceBody;
 }

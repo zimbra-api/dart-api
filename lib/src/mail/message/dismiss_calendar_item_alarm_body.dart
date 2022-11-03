@@ -19,11 +19,6 @@ class DismissCalendarItemAlarmBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  DismissCalendarItemAlarmRequest? get dismissCalendarItemAlarmRequest => request as DismissCalendarItemAlarmRequest?;
-
-  DismissCalendarItemAlarmResponse? get dismissCalendarItemAlarmResponse =>
-      response as DismissCalendarItemAlarmResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'DismissCalendarItemAlarmRequest': request!.toMap(),

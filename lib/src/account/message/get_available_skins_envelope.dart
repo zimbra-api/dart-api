@@ -13,6 +13,4 @@ class GetAvailableSkinsEnvelope extends SoapEnvelope {
   factory GetAvailableSkinsEnvelope.fromMap(Map<String, dynamic> data) =>
       GetAvailableSkinsEnvelope(GetAvailableSkinsBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  GetAvailableSkinsBody get getAvailableSkinsBody => body as GetAvailableSkinsBody;
 }

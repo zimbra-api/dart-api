@@ -18,10 +18,6 @@ class DestroyWaitSetBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  DestroyWaitSetRequest? get destroyWaitSetRequest => request as DestroyWaitSetRequest?;
-
-  DestroyWaitSetResponse? get destroyWaitSetResponse => response as DestroyWaitSetResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'DestroyWaitSetRequest': request!.toMap(),

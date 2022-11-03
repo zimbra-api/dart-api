@@ -18,10 +18,6 @@ class CreateTaskExceptionBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  CreateTaskExceptionRequest? get createTaskExceptionRequest => request as CreateTaskExceptionRequest?;
-
-  CreateTaskExceptionResponse? get createTaskExceptionResponse => response as CreateTaskExceptionResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'CreateTaskExceptionRequest': request!.toMap(),

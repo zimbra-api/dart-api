@@ -16,10 +16,6 @@ class VerifyCodeBody extends SoapBody {
       response: data['VerifyCodeResponse'] != null ? VerifyCodeResponse.fromMap(data['VerifyCodeResponse']) : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  VerifyCodeRequest? get verifyCodeRequest => request as VerifyCodeRequest?;
-
-  VerifyCodeResponse? get verifyCodeResponse => response as VerifyCodeResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'VerifyCodeRequest': request!.toMap(),

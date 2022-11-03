@@ -13,6 +13,4 @@ class CounterAppointmentEnvelope extends SoapEnvelope {
   factory CounterAppointmentEnvelope.fromMap(Map<String, dynamic> data) =>
       CounterAppointmentEnvelope(CounterAppointmentBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  CounterAppointmentBody get counterAppointmentBody => body as CounterAppointmentBody;
 }

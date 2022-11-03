@@ -17,10 +17,6 @@ class GetIMAPRecentBody extends SoapBody {
           data['GetIMAPRecentResponse'] != null ? GetIMAPRecentResponse.fromMap(data['GetIMAPRecentResponse']) : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  GetIMAPRecentRequest? get getIMAPRecentRequest => request as GetIMAPRecentRequest?;
-
-  GetIMAPRecentResponse? get getIMAPRecentResponse => response as GetIMAPRecentResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'GetIMAPRecentRequest': request!.toMap(),

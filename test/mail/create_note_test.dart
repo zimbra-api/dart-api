@@ -2,6 +2,7 @@ import 'package:faker/faker.dart';
 import 'package:test/test.dart';
 import 'package:zimbra_api/src/mail/message/create_note_envelope.dart';
 import 'package:zimbra_api/src/mail/message/create_note_request.dart';
+import 'package:zimbra_api/src/mail/message/create_note_response.dart';
 import 'package:zimbra_api/src/mail/type/new_note_spec.dart';
 
 void main() {
@@ -88,7 +89,7 @@ void main() {
         }
       };
       final envelope = CreateNoteEnvelope.fromMap(data);
-      final response = envelope.createNoteBody.createNoteResponse!;
+      final response = envelope.body.response as CreateNoteResponse;
       final note = response.note!;
 
       expect(note.id, id);

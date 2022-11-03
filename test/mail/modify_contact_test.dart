@@ -5,6 +5,7 @@ import 'package:zimbra_api/src/common/enum/modify_attribute_operation.dart';
 import 'package:zimbra_api/src/common/enum/modify_member_operation.dart';
 import 'package:zimbra_api/src/mail/message/modify_contact_envelope.dart';
 import 'package:zimbra_api/src/mail/message/modify_contact_request.dart';
+import 'package:zimbra_api/src/mail/message/modify_contact_response.dart';
 import 'package:zimbra_api/src/mail/type/modify_contact_attr.dart';
 import 'package:zimbra_api/src/mail/type/modify_contact_group_member.dart';
 import 'package:zimbra_api/src/mail/type/modify_contact_spec.dart';
@@ -200,7 +201,7 @@ void main() {
         }
       };
       final envelope = ModifyContactEnvelope.fromMap(data);
-      final response = envelope.modifyContactBody.modifyContactResponse!;
+      final response = envelope.body.response as ModifyContactResponse;
       final contact = response.contact!;
 
       expect(contact.sortField, sortField);

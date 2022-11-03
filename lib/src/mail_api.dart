@@ -37,33 +37,33 @@ class MailApi extends AccountApi {
   /// if the invite is not outdated, according to the iCalendar sequencing rule
   /// (based on SEQUENCE, RECURRENCE-ID and DTSTAMP).
   Future<AddAppointmentInviteResponse?> addAppointmentInvite(ParticipationStatus? partStat, Msg? msg) {
-    return invoke(AddAppointmentInviteRequest(partStat: partStat, msg: msg)).then(
-        (data) => AddAppointmentInviteEnvelope.fromMap(data).addAppointmentInviteBody.addAppointmentInviteResponse);
+    return invoke(AddAppointmentInviteRequest(partStat: partStat, msg: msg))
+        .then((data) => AddAppointmentInviteEnvelope.fromMap(data).body.response as AddAppointmentInviteResponse?);
   }
 
   /// Add a comment to the specified item.
   /// Currently comments can only be added to documents
   Future<AddCommentResponse?> addComment(AddedComment comment) {
     return invoke(AddCommentRequest(comment))
-        .then((data) => AddCommentEnvelope.fromMap(data).addCommentBody.addCommentResponse);
+        .then((data) => AddCommentEnvelope.fromMap(data).body.response as AddCommentResponse?);
   }
 
   /// Add a message
   Future<AddMsgResponse?> addMsg(AddMsgSpec msg, {bool? filterSent}) {
     return invoke(AddMsgRequest(msg, filterSent: filterSent))
-        .then((data) => AddMsgEnvelope.fromMap(data).addMsgBody.addMsgResponse);
+        .then((data) => AddMsgEnvelope.fromMap(data).body.response as AddMsgResponse?);
   }
 
   /// Add a task invite
   Future<AddTaskInviteResponse?> addTaskInvite(ParticipationStatus? partStat, Msg? msg) {
     return invoke(AddTaskInviteRequest(partStat: partStat, msg: msg))
-        .then((data) => AddTaskInviteEnvelope.fromMap(data).addTaskInviteBody.addTaskInviteResponse);
+        .then((data) => AddTaskInviteEnvelope.fromMap(data).body.response as AddTaskInviteResponse?);
   }
 
   /// Announce change of organizer
   Future<AnnounceOrganizerChangeResponse?> announceOrganizerChange(String id) {
-    return invoke(AnnounceOrganizerChangeRequest(id)).then((data) =>
-        AnnounceOrganizerChangeEnvelope.fromMap(data).announceOrganizerChangeBody.announceOrganizerChangeResponse);
+    return invoke(AnnounceOrganizerChangeRequest(id)).then(
+        (data) => AnnounceOrganizerChangeEnvelope.fromMap(data).body.response as AnnounceOrganizerChangeResponse?);
   }
 
   /// Applies one or more filter rules to messages specified by a comma-separated ID list,  or returned by a search query.
@@ -73,7 +73,7 @@ class MailApi extends AccountApi {
   Future<ApplyFilterRulesResponse?> applyFilterRules(
       {List<NamedElement> filterRules = const [], IdsAttr? msgIds, String? query}) {
     return invoke(ApplyFilterRulesRequest(filterRules: filterRules, msgIds: msgIds, query: query))
-        .then((data) => ApplyFilterRulesEnvelope.fromMap(data).applyFilterRulesBody.applyFilterRulesResponse);
+        .then((data) => ApplyFilterRulesEnvelope.fromMap(data).body.response as ApplyFilterRulesResponse?);
   }
 
   /// Applies one or more filter rules to messages specified by a comma-separated ID list,  or returned by a search query.
@@ -83,9 +83,7 @@ class MailApi extends AccountApi {
   Future<ApplyOutgoingFilterRulesResponse?> applyOutgoingFilterRules(
       {List<NamedElement> filterRules = const [], IdsAttr? msgIds, String? query}) {
     return invoke(ApplyOutgoingFilterRulesRequest(filterRules: filterRules, msgIds: msgIds, query: query)).then(
-        (data) => ApplyOutgoingFilterRulesEnvelope.fromMap(data)
-            .applyOutgoingFilterRulesBody
-            .applyOutgoingFilterRulesResponse);
+        (data) => ApplyOutgoingFilterRulesEnvelope.fromMap(data).body.response as ApplyOutgoingFilterRulesResponse?);
   }
 
   /// Auto complete
@@ -93,13 +91,13 @@ class MailApi extends AccountApi {
       {GalSearchType? type, bool? needCanExpand, String? folderList, bool? includeGal}) {
     return invoke(AutoCompleteRequest(name,
             type: type, needCanExpand: needCanExpand, folderList: folderList, includeGal: includeGal))
-        .then((data) => AutoCompleteEnvelope.fromMap(data).autoCompleteBody.autoCompleteResponse);
+        .then((data) => AutoCompleteEnvelope.fromMap(data).body.response as AutoCompleteResponse?);
   }
 
   /// Begin tracking IMAP
   Future<BeginTrackingIMAPResponse?> beginTrackingIMAP() {
     return invoke(BeginTrackingIMAPRequest())
-        .then((data) => BeginTrackingIMAPEnvelope.fromMap(data).beginTrackingIMAPBody.beginTrackingIMAPResponse);
+        .then((data) => BeginTrackingIMAPEnvelope.fromMap(data).body.response as BeginTrackingIMAPResponse?);
   }
 
   /// Resend a message
@@ -109,13 +107,13 @@ class MailApi extends AccountApi {
   /// Aside from these prepended headers, message is reinjected verbatim
   Future<BounceMsgResponse?> bounceMsg(BounceMsgSpec msg) {
     return invoke(BounceMsgRequest(msg))
-        .then((data) => BounceMsgEnvelope.fromMap(data).bounceMsgBody.bounceMsgResponse);
+        .then((data) => BounceMsgEnvelope.fromMap(data).body.response as BounceMsgResponse?);
   }
 
   /// Browse
   Future<BrowseResponse?> browse(BrowseBy browseBy, {String? regex, int? max}) {
     return invoke(BrowseRequest(browseBy, regex: regex, max: max))
-        .then((data) => BrowseEnvelope.fromMap(data).browseBody.browseResponse);
+        .then((data) => BrowseEnvelope.fromMap(data).body.response as BrowseResponse?);
   }
 
   /// Cancel appointment
@@ -137,7 +135,7 @@ class MailApi extends AccountApi {
       instance: instance,
       timezone: timezone,
       msg: msg,
-    )).then((data) => CancelAppointmentEnvelope.fromMap(data).cancelAppointmentBody.cancelAppointmentResponse);
+    )).then((data) => CancelAppointmentEnvelope.fromMap(data).body.response as CancelAppointmentResponse?);
   }
 
   /// Cancel task request
@@ -157,14 +155,14 @@ class MailApi extends AccountApi {
       instance: instance,
       timezone: timezone,
       msg: msg,
-    )).then((data) => CancelTaskEnvelope.fromMap(data).cancelTaskBody.cancelTaskResponse);
+    )).then((data) => CancelTaskEnvelope.fromMap(data).body.response as CancelTaskResponse?);
   }
 
   /// Check if the authed user has the specified right(s) on a target.
   /// Note: to be deprecated in Zimbra 9.  Use zimbraAccount CheckRights instead.
   Future<CheckPermissionResponse?> checkPermission(TargetSpec target, {List<String> rights = const []}) {
     return invoke(CheckPermissionRequest(target, rights: rights))
-        .then((data) => CheckPermissionEnvelope.fromMap(data).checkPermissionBody.checkPermissionResponse);
+        .then((data) => CheckPermissionEnvelope.fromMap(data).body.response as CheckPermissionResponse?);
   }
 
   /// Check conflicts in recurrence against list of users.
@@ -190,7 +188,7 @@ class MailApi extends AccountApi {
       inviteComponents: inviteComponents,
       exceptComponents: exceptComponents,
       freebusyUsers: freebusyUsers,
-    )).then((data) => CheckRecurConflictsEnvelope.fromMap(data).checkRecurConflictsBody.checkRecurConflictsResponse);
+    )).then((data) => CheckRecurConflictsEnvelope.fromMap(data).body.response as CheckRecurConflictsResponse?);
   }
 
   /// Check spelling.
@@ -198,25 +196,25 @@ class MailApi extends AccountApi {
   /// The "available" attribute specifies whether the server-side spell checking interface is available or not.
   Future<CheckSpellingResponse?> checkSpelling({String? dictionary, String? ignoreList, String? text}) {
     return invoke(CheckSpellingRequest(dictionary: dictionary, ignoreList: ignoreList, text: text))
-        .then((data) => CheckSpellingEnvelope.fromMap(data).checkSpellingBody.checkSpellingResponse);
+        .then((data) => CheckSpellingEnvelope.fromMap(data).body.response as CheckSpellingResponse?);
   }
 
   /// Complete a task instance
   Future<CompleteTaskInstanceResponse?> completeTaskInstance(String id, DtTimeInfo exceptionId, CalTZInfo? timezone) {
-    return invoke(CompleteTaskInstanceRequest(id, exceptionId, timezone: timezone)).then(
-        (data) => CompleteTaskInstanceEnvelope.fromMap(data).completeTaskInstanceBody.completeTaskInstanceResponse);
+    return invoke(CompleteTaskInstanceRequest(id, exceptionId, timezone: timezone))
+        .then((data) => CompleteTaskInstanceEnvelope.fromMap(data).body.response as CompleteTaskInstanceResponse?);
   }
 
   /// Contact action
   Future<ContactActionResponse?> contactAction(ContactActionSelector action) {
     return invoke(ContactActionRequest(action))
-        .then((data) => ContactActionEnvelope.fromMap(data).contactActionBody.contactActionResponse);
+        .then((data) => ContactActionEnvelope.fromMap(data).body.response as ContactActionResponse?);
   }
 
   /// Conv action
   Future<ConvActionResponse?> convAction(ConvActionSelector action) {
     return invoke(ConvActionRequest(action))
-        .then((data) => ConvActionEnvelope.fromMap(data).convActionBody.convActionResponse);
+        .then((data) => ConvActionEnvelope.fromMap(data).body.response as ConvActionResponse?);
   }
 
   /// Propose a new time/location.
@@ -231,7 +229,7 @@ class MailApi extends AccountApi {
       modifiedSequence: modifiedSequence,
       revision: revision,
       msg: msg,
-    )).then((data) => CounterAppointmentEnvelope.fromMap(data).counterAppointmentBody.counterAppointmentResponse);
+    )).then((data) => CounterAppointmentEnvelope.fromMap(data).body.response as CounterAppointmentResponse?);
   }
 
   /// Create appointment exception.
@@ -257,9 +255,8 @@ class MailApi extends AccountApi {
       neuter: neuter,
       forceSend: forceSend,
       msg: msg,
-    )).then((data) => CreateAppointmentExceptionEnvelope.fromMap(data)
-        .createAppointmentExceptionBody
-        .createAppointmentExceptionResponse);
+    )).then((data) =>
+        CreateAppointmentExceptionEnvelope.fromMap(data).body.response as CreateAppointmentExceptionResponse?);
   }
 
   /// This is the API to create a new appointment, optionally sending out meeting onvitations to other people.
@@ -272,7 +269,7 @@ class MailApi extends AccountApi {
       neuter: neuter,
       forceSend: forceSend,
       msg: msg,
-    )).then((data) => CreateAppointmentEnvelope.fromMap(data).createAppointmentBody.createAppointmentResponse);
+    )).then((data) => CreateAppointmentEnvelope.fromMap(data).body.response as CreateAppointmentResponse?);
   }
 
   /// Create a contact
@@ -283,7 +280,7 @@ class MailApi extends AccountApi {
       verbose: verbose,
       wantImapUid: wantImapUid,
       wantModifiedSequence: wantModifiedSequence,
-    )).then((data) => CreateContactEnvelope.fromMap(data).createContactBody.createContactResponse);
+    )).then((data) => CreateContactEnvelope.fromMap(data).body.response as CreateContactResponse?);
   }
 
   /// Creates a data source that imports mail items into the specified folder,
@@ -307,31 +304,31 @@ class MailApi extends AccountApi {
       galDataSource: galDataSource,
       calDataSource: calDataSource,
       unknownDataSource: unknownDataSource,
-    )).then((data) => CreateDataSourceEnvelope.fromMap(data).createDataSourceBody.createDataSourceResponse);
+    )).then((data) => CreateDataSourceEnvelope.fromMap(data).body.response as CreateDataSourceResponse?);
   }
 
   /// Create folder
   Future<CreateFolderResponse?> createFolder(NewFolderSpec folder) {
     return invoke(CreateFolderRequest(folder))
-        .then((data) => CreateFolderEnvelope.fromMap(data).createFolderBody.createFolderResponse);
+        .then((data) => CreateFolderEnvelope.fromMap(data).body.response as CreateFolderResponse?);
   }
 
   /// Create mountpoint
   Future<CreateMountpointResponse?> createMountpoint(NewMountpointSpec mountpoint) {
     return invoke(CreateMountpointRequest(mountpoint))
-        .then((data) => CreateMountpointEnvelope.fromMap(data).createMountpointBody.createMountpointResponse);
+        .then((data) => CreateMountpointEnvelope.fromMap(data).body.response as CreateMountpointResponse?);
   }
 
   /// Create a note
   Future<CreateNoteResponse?> createNote(NewNoteSpec note) {
     return invoke(CreateNoteRequest(note))
-        .then((data) => CreateNoteEnvelope.fromMap(data).createNoteBody.createNoteResponse);
+        .then((data) => CreateNoteEnvelope.fromMap(data).body.response as CreateNoteResponse?);
   }
 
   /// Create a search folder
   Future<CreateSearchFolderResponse?> createSearchFolder(NewSearchFolderSpec searchFolder) {
     return invoke(CreateSearchFolderRequest(searchFolder))
-        .then((data) => CreateSearchFolderEnvelope.fromMap(data).createSearchFolderBody.createSearchFolderResponse);
+        .then((data) => CreateSearchFolderEnvelope.fromMap(data).body.response as CreateSearchFolderResponse?);
   }
 
   /// Create task exception.
@@ -357,7 +354,7 @@ class MailApi extends AccountApi {
       neuter: neuter,
       forceSend: forceSend,
       msg: msg,
-    )).then((data) => CreateTaskExceptionEnvelope.fromMap(data).createTaskExceptionBody.createTaskExceptionResponse);
+    )).then((data) => CreateTaskExceptionEnvelope.fromMap(data).body.response as CreateTaskExceptionResponse?);
   }
 
   /// This is the API to create a new task
@@ -370,7 +367,7 @@ class MailApi extends AccountApi {
       neuter: neuter,
       forceSend: forceSend,
       msg: msg,
-    )).then((data) => CreateTaskEnvelope.fromMap(data).createTaskBody.createTaskResponse);
+    )).then((data) => CreateTaskEnvelope.fromMap(data).body.response as CreateTaskResponse?);
   }
 
   /// Create a waitset to listen for changes on one or more accounts
@@ -382,17 +379,15 @@ class MailApi extends AccountApi {
       defaultInterests: defaultInterests,
       allAccounts: allAccounts,
       accounts: accounts,
-    )).then((data) => CreateWaitSetEnvelope.fromMap(data).createWaitSetBody.createWaitSetResponse);
+    )).then((data) => CreateWaitSetEnvelope.fromMap(data).body.response as CreateWaitSetResponse?);
   }
 
   /// Decline a change proposal from an attendee.
   /// Sent by organizer to an attendee who has previously sent a COUNTER message.
   /// The syntax of the request is very similar to CreateAppointmentRequest.
   Future<DeclineCounterAppointmentResponse?> declineCounterAppointment({Msg? msg}) {
-    return invoke(DeclineCounterAppointmentRequest(msg: msg)).then((data) =>
-        DeclineCounterAppointmentEnvelope.fromMap(data)
-            .declineCounterAppointmentBody
-            .declineCounterAppointmentResponse);
+    return invoke(DeclineCounterAppointmentRequest(msg: msg)).then(
+        (data) => DeclineCounterAppointmentEnvelope.fromMap(data).body.response as DeclineCounterAppointmentResponse?);
   }
 
   /// Deletes the given data sources.
@@ -415,7 +410,7 @@ class MailApi extends AccountApi {
       galDataSources: galDataSources,
       calDataSources: caldavDataSources,
       unknownDataSources: unknownDataSources,
-    )).then((data) => DeleteDataSourceEnvelope.fromMap(data).deleteDataSourceBody.deleteDataSourceResponse);
+    )).then((data) => DeleteDataSourceEnvelope.fromMap(data).body.response as DeleteDataSourceResponse?);
   }
 
   /// Use this to close out the waitset.
@@ -424,7 +419,7 @@ class MailApi extends AccountApi {
   /// WaitSet: scalable mechanism for listening for changes to one or more accounts
   Future<DestroyWaitSetResponse?> destroyWaitSet(String waitSetId) {
     return invoke(DestroyWaitSetRequest(waitSetId))
-        .then((data) => DestroyWaitSetEnvelope.fromMap(data).destroyWaitSetBody.destroyWaitSetResponse);
+        .then((data) => DestroyWaitSetEnvelope.fromMap(data).body.response as DestroyWaitSetResponse?);
   }
 
   /// Performs line by line diff of two revisions of a document then returns a list of <chunk> containing the result.
@@ -432,26 +427,26 @@ class MailApi extends AccountApi {
   /// For each conflict the chunk will show disp="first", disp="second" or both.
   Future<DiffDocumentResponse?> diffDocument(DiffDocumentVersionSpec doc) {
     return invoke(DiffDocumentRequest(doc))
-        .then((data) => DiffDocumentEnvelope.fromMap(data).diffDocumentBody.diffDocumentResponse);
+        .then((data) => DiffDocumentEnvelope.fromMap(data).body.response as DiffDocumentResponse?);
   }
 
   /// Dismiss calendar item alarm
   Future<DismissCalendarItemAlarmResponse?> dismissCalendarItemAlarm(
       {List<DismissAlarm> apptAlarms = const [], List<DismissAlarm> taskAlarms = const []}) {
-    return invoke(DismissCalendarItemAlarmRequest(apptAlarms: apptAlarms, taskAlarms: taskAlarms)).then((data) =>
-        DismissCalendarItemAlarmEnvelope.fromMap(data).dismissCalendarItemAlarmBody.dismissCalendarItemAlarmResponse);
+    return invoke(DismissCalendarItemAlarmRequest(apptAlarms: apptAlarms, taskAlarms: taskAlarms)).then(
+        (data) => DismissCalendarItemAlarmEnvelope.fromMap(data).body.response as DismissCalendarItemAlarmResponse?);
   }
 
   /// Empty dumpster
   Future<EmptyDumpsterResponse?> emptyDumpster() {
     return invoke(EmptyDumpsterRequest())
-        .then((data) => EmptyDumpsterEnvelope.fromMap(data).emptyDumpsterBody.emptyDumpsterResponse);
+        .then((data) => EmptyDumpsterEnvelope.fromMap(data).body.response as EmptyDumpsterResponse?);
   }
 
   /// Enable/disable reminders for shared appointments/tasks on a mountpoint
   Future<EnableSharedReminderResponse?> enableSharedReminder(SharedReminderMount mount) {
-    return invoke(EnableSharedReminderRequest(mount)).then(
-        (data) => EnableSharedReminderEnvelope.fromMap(data).enableSharedReminderBody.enableSharedReminderResponse);
+    return invoke(EnableSharedReminderRequest(mount))
+        .then((data) => EnableSharedReminderEnvelope.fromMap(data).body.response as EnableSharedReminderResponse?);
   }
 
   /// Expand recurrences
@@ -467,7 +462,7 @@ class MailApi extends AccountApi {
       inviteComponents: inviteComponents,
       exceptComponents: exceptComponents,
       cancelComponents: cancelComponents,
-    )).then((data) => ExpandRecurEnvelope.fromMap(data).expandRecurBody.expandRecurResponse);
+    )).then((data) => ExpandRecurEnvelope.fromMap(data).body.response as ExpandRecurResponse?);
   }
 
   /// Export contacts
@@ -479,7 +474,7 @@ class MailApi extends AccountApi {
       csvFormat: csvFormat,
       csvLocale: csvLocale,
       csvDelimiter: csvDelimiter,
-    )).then((data) => ExportContactsEnvelope.fromMap(data).exportContactsBody.exportContactsResponse);
+    )).then((data) => ExportContactsEnvelope.fromMap(data).body.response as ExportContactsResponse?);
   }
 
   /// Perform an action on a folder
@@ -573,13 +568,13 @@ class MailApi extends AccountApi {
   /// note that "delete", "empty", "rename", "move", "color", "update" can be used on search folders as well as standard folders
   Future<FolderActionResponse?> folderAction(FolderActionSelector action) {
     return invoke(FolderActionRequest(action))
-        .then((data) => FolderActionEnvelope.fromMap(data).folderActionBody.folderActionResponse);
+        .then((data) => FolderActionEnvelope.fromMap(data).body.response as FolderActionResponse?);
   }
 
   /// Ajax client can use this request to ask the server for help in generating a proper, globally unique UUID.
   Future<GenerateUUIDResponse?> generateUUID() {
     return invoke(GenerateUUIDRequest())
-        .then((data) => GenerateUUIDEnvelope.fromMap(data).generateUUIDBody.generateUUIDResponse);
+        .then((data) => GenerateUUIDEnvelope.fromMap(data).body.response as GenerateUUIDResponse?);
   }
 
   /// Get appointment.
@@ -592,7 +587,7 @@ class MailApi extends AccountApi {
       sync: sync,
       includeContent: includeContent,
       includeInvites: includeInvites,
-    )).then((data) => GetAppointmentEnvelope.fromMap(data).getAppointmentBody.getAppointmentResponse);
+    )).then((data) => GetAppointmentEnvelope.fromMap(data).body.response as GetAppointmentResponse?);
   }
 
   /// Get appointment summaries
@@ -601,29 +596,25 @@ class MailApi extends AccountApi {
       startTime,
       endTime,
       folderId: folderId,
-    )).then((data) => GetApptSummariesEnvelope.fromMap(data).getApptSummariesBody.getApptSummariesResponse);
+    )).then((data) => GetApptSummariesEnvelope.fromMap(data).body.response as GetApptSummariesResponse?);
   }
 
   /// Get calendar item summaries
   Future<GetCalendarItemSummariesResponse?> getCalendarItemSummaries(int startTime, int endTime, {String? folderId}) {
-    return invoke(GetCalendarItemSummariesRequest(
-      startTime,
-      endTime,
-      folderId: folderId,
-    )).then((data) =>
-        GetCalendarItemSummariesEnvelope.fromMap(data).getCalendarItemSummariesBody.getCalendarItemSummariesResponse);
+    return invoke(GetCalendarItemSummariesRequest(startTime, endTime, folderId: folderId)).then(
+        (data) => GetCalendarItemSummariesEnvelope.fromMap(data).body.response as GetCalendarItemSummariesResponse?);
   }
 
   /// Get comments
   Future<GetCommentsResponse?> getComments(ParentId comment) {
     return invoke(GetCommentsRequest(comment))
-        .then((data) => GetCommentsEnvelope.fromMap(data).getCommentsBody.getCommentsResponse);
+        .then((data) => GetCommentsEnvelope.fromMap(data).body.response as GetCommentsResponse?);
   }
 
   /// Get list of available contact backups
   Future<GetContactBackupListResponse?> getContactBackupList() {
     return invoke(GetContactBackupListRequest()).then(
-        (data) => GetContactBackupListEnvelope.fromMap(data).getContactBackupListBody.getContactBackupListResponse);
+        (data) => GetContactBackupListEnvelope.fromMap(data).body.response as GetContactBackupListResponse?);
   }
 
   /// Get contacts
@@ -663,7 +654,7 @@ class MailApi extends AccountApi {
       attributes: attributes,
       memberAttributes: memberAttributes,
       contacts: contacts,
-    )).then((data) => GetContactsEnvelope.fromMap(data).getContactsBody.getContactsResponse);
+    )).then((data) => GetContactsEnvelope.fromMap(data).body.response as GetContactsResponse?);
   }
 
   /// Get conversation
@@ -677,38 +668,38 @@ class MailApi extends AccountApi {
   /// if headers are requested, any matching headers are inlined into the response (not available when raw="1")
   Future<GetConvResponse?> getConv(ConversationSpec conversation) {
     return invoke(GetConvRequest(conversation))
-        .then((data) => GetConvEnvelope.fromMap(data).getConvBody.getConvResponse);
+        .then((data) => GetConvEnvelope.fromMap(data).body.response as GetConvResponse?);
   }
 
   /// Get custom metadata
   Future<GetCustomMetadataResponse?> getCustomMetadata(SectionAttr metadata, {String? id}) {
     return invoke(GetCustomMetadataRequest(metadata, id: id))
-        .then((data) => GetCustomMetadataEnvelope.fromMap(data).getCustomMetadataBody.getCustomMetadataResponse);
+        .then((data) => GetCustomMetadataEnvelope.fromMap(data).body.response as GetCustomMetadataResponse?);
   }
 
   /// Returns all data sources defined for the given mailbox.
   /// For each data source, every attribute value is returned except password.
   Future<GetDataSourcesResponse?> getDataSources() {
     return invoke(GetDataSourcesRequest())
-        .then((data) => GetDataSourcesEnvelope.fromMap(data).getDataSourcesBody.getDataSourcesResponse);
+        .then((data) => GetDataSourcesEnvelope.fromMap(data).body.response as GetDataSourcesResponse?);
   }
 
   /// Get data source usage
   Future<GetDataSourceUsageResponse?> getDataSourceUsage() {
     return invoke(GetDataSourceUsageRequest())
-        .then((data) => GetDataSourceUsageEnvelope.fromMap(data).getDataSourceUsageBody.getDataSourceUsageResponse);
+        .then((data) => GetDataSourceUsageEnvelope.fromMap(data).body.response as GetDataSourceUsageResponse?);
   }
 
   /// Returns the effective permissions of the specified folder
   Future<GetEffectiveFolderPermsResponse?> getEffectiveFolderPerms(FolderSpec folder) {
     return invoke(GetEffectiveFolderPermsRequest(folder)).then((data) =>
-        GetEffectiveFolderPermsEnvelope.fromMap(data).getEffectiveFolderPermsBody.getEffectiveFolderPermsResponse);
+        GetEffectiveFolderPermsEnvelope.fromMap(data).body.response as GetEffectiveFolderPermsResponse?);
   }
 
   /// Get filter rules
   Future<GetFilterRulesResponse?> getFilterRules() {
     return invoke(GetFilterRulesRequest())
-        .then((data) => GetFilterRulesEnvelope.fromMap(data).getFilterRulesBody.getFilterRulesResponse);
+        .then((data) => GetFilterRulesEnvelope.fromMap(data).body.response as GetFilterRulesResponse?);
   }
 
   /// Get folder
@@ -728,7 +719,7 @@ class MailApi extends AccountApi {
       viewConstraint: viewConstraint,
       treeDepth: treeDepth,
       traverseMountpoints: traverseMountpoints,
-    )).then((data) => GetFolderEnvelope.fromMap(data).getFolderBody.getFolderResponse);
+    )).then((data) => GetFolderEnvelope.fromMap(data).body.response as GetFolderResponse?);
   }
 
   /// Get Free/Busy information.
@@ -744,7 +735,7 @@ class MailApi extends AccountApi {
       name: name,
       excludeUid: excludeUid,
       freebusyUsers: freebusyUsers,
-    )).then((data) => GetFreeBusyEnvelope.fromMap(data).getFreeBusyBody.getFreeBusyResponse);
+    )).then((data) => GetFreeBusyEnvelope.fromMap(data).body.response as GetFreeBusyResponse?);
   }
 
   /// Retrieve the unparsed (but XML-encoded) iCalendar data for an Invite
@@ -753,19 +744,19 @@ class MailApi extends AccountApi {
   /// If <id> attribute is not specified, then start/end MUST be, Calendar data is returned for entire specified range
   Future<GetICalResponse?> getICal({String? id, int? startTime, int? endTime}) {
     return invoke(GetICalRequest(id: id, startTime: startTime, endTime: endTime))
-        .then((data) => GetICalEnvelope.fromMap(data).getICalBody.getICalResponse);
+        .then((data) => GetICalEnvelope.fromMap(data).body.response as GetICalResponse?);
   }
 
   /// Return the count of recent items in the specified folder
   Future<GetIMAPRecentCutoffResponse?> getIMAPRecentCutoff(String id) {
     return invoke(GetIMAPRecentCutoffRequest(id))
-        .then((data) => GetIMAPRecentCutoffEnvelope.fromMap(data).getIMAPRecentCutoffBody.getIMAPRecentCutoffResponse);
+        .then((data) => GetIMAPRecentCutoffEnvelope.fromMap(data).body.response as GetIMAPRecentCutoffResponse?);
   }
 
   /// Return the count of recent items in the specified folder
   Future<GetIMAPRecentResponse?> getIMAPRecent(String id) {
     return invoke(GetIMAPRecentRequest(id))
-        .then((data) => GetIMAPRecentEnvelope.fromMap(data).getIMAPRecentBody.getIMAPRecentResponse);
+        .then((data) => GetIMAPRecentEnvelope.fromMap(data).body.response as GetIMAPRecentResponse?);
   }
 
   /// Returns current import status for all data sources.  Status values for a data source
@@ -774,26 +765,26 @@ class MailApi extends AccountApi {
   /// If import has not run yet, the success and error attributes are not specified in the response.
   Future<GetImportStatusResponse?> getImportStatus() {
     return invoke(GetImportStatusRequest())
-        .then((data) => GetImportStatusEnvelope.fromMap(data).getImportStatusBody.getImportStatusResponse);
+        .then((data) => GetImportStatusEnvelope.fromMap(data).body.response as GetImportStatusResponse?);
   }
 
   /// Get item
   /// A successful GetItemResponse will contain a single element appropriate for the type of the requested item
   /// if there is no matching item, a fault containing the code mail.NO_SUCH_ITEM is returned
   Future<GetItemResponse?> getItem(ItemSpec item) {
-    return invoke(GetItemRequest(item)).then((data) => GetItemEnvelope.fromMap(data).getItemBody.getItemResponse);
+    return invoke(GetItemRequest(item)).then((data) => GetItemEnvelope.fromMap(data).body.response as GetItemResponse?);
   }
 
   /// Returns the last ID assigned to an item successfully created in the mailbox
   Future<GetLastItemIdInMailboxResponse?> getLastItemIdInMailbox() {
     return invoke(GetLastItemIdInMailboxRequest()).then((data) =>
-        GetLastItemIdInMailboxEnvelope.fromMap(data).getLastItemIdInMailboxBody.getLastItemIdInMailboxResponse);
+        GetLastItemIdInMailboxEnvelope.fromMap(data).body.response as GetLastItemIdInMailboxResponse?);
   }
 
   /// Get mailbox metadata
   Future<GetMailboxMetadataResponse?> getMailboxMetadata(SectionAttr metadata) {
     return invoke(GetMailboxMetadataRequest(metadata))
-        .then((data) => GetMailboxMetadataEnvelope.fromMap(data).getMailboxMetadataBody.getMailboxMetadataResponse);
+        .then((data) => GetMailboxMetadataEnvelope.fromMap(data).body.response as GetMailboxMetadataResponse?);
   }
 
   /// Get information needed for Mini Calendar.
@@ -807,35 +798,35 @@ class MailApi extends AccountApi {
       endTime,
       folders: folders,
       timezone: timezone,
-    )).then((data) => GetMiniCalEnvelope.fromMap(data).getMiniCalBody.getMiniCalResponse);
+    )).then((data) => GetMiniCalEnvelope.fromMap(data).body.response as GetMiniCalResponse?);
   }
 
   /// Returns the IDs of all items modified since a given change number
   Future<GetModifiedItemsIDsResponse?> getModifiedItemsIDs(int folderId, int modSeq) {
     return invoke(GetModifiedItemsIDsRequest(folderId, modSeq))
-        .then((data) => GetModifiedItemsIDsEnvelope.fromMap(data).getModifiedItemsIDsBody.getModifiedItemsIDsResponse);
+        .then((data) => GetModifiedItemsIDsEnvelope.fromMap(data).body.response as GetModifiedItemsIDsResponse?);
   }
 
   /// Get message metadata
   Future<GetMsgMetadataResponse?> getMsgMetadata(IdsAttr msgIds) {
     return invoke(GetMsgMetadataRequest(msgIds))
-        .then((data) => GetMsgMetadataEnvelope.fromMap(data).getMsgMetadataBody.getMsgMetadataResponse);
+        .then((data) => GetMsgMetadataEnvelope.fromMap(data).body.response as GetMsgMetadataResponse?);
   }
 
   /// Get message
   Future<GetMsgResponse?> getMsg(MsgSpec msg) {
-    return invoke(GetMsgRequest(msg)).then((data) => GetMsgEnvelope.fromMap(data).getMsgBody.getMsgResponse);
+    return invoke(GetMsgRequest(msg)).then((data) => GetMsgEnvelope.fromMap(data).body.response as GetMsgResponse?);
   }
 
   /// Get note
   Future<GetNoteResponse?> getNote(Id note) {
-    return invoke(GetNoteRequest(note)).then((data) => GetNoteEnvelope.fromMap(data).getNoteBody.getNoteResponse);
+    return invoke(GetNoteRequest(note)).then((data) => GetNoteEnvelope.fromMap(data).body.response as GetNoteResponse?);
   }
 
   /// Get outgoing filter rules
   Future<GetOutgoingFilterRulesResponse?> getOutgoingFilterRules() {
     return invoke(GetOutgoingFilterRulesRequest()).then((data) =>
-        GetOutgoingFilterRulesEnvelope.fromMap(data).getOutgoingFilterRulesBody.getOutgoingFilterRulesResponse);
+        GetOutgoingFilterRulesEnvelope.fromMap(data).body.response as GetOutgoingFilterRulesResponse?);
   }
 
   /// If no <ace> elements are provided, all ACEs are returned in the response.
@@ -843,41 +834,42 @@ class MailApi extends AccountApi {
   /// Note: to be deprecated in Zimbra 9.  Use zimbraAccount GetRights instead.
   Future<GetPermissionResponse?> getPermission({List<Right> aces = const []}) {
     return invoke(GetPermissionRequest(aces: aces))
-        .then((data) => GetPermissionEnvelope.fromMap(data).getPermissionBody.getPermissionResponse);
+        .then((data) => GetPermissionEnvelope.fromMap(data).body.response as GetPermissionResponse?);
   }
 
   /// Retrieve the recurrence definition of an appointment
   Future<GetRecurResponse?> getRecur(String id) {
-    return invoke(GetRecurRequest(id)).then((data) => GetRecurEnvelope.fromMap(data).getRecurBody.getRecurResponse);
+    return invoke(GetRecurRequest(id))
+        .then((data) => GetRecurEnvelope.fromMap(data).body.response as GetRecurResponse?);
   }
 
   /// Get all search folders
   Future<GetSearchFolderResponse?> getSearchFolder() {
     return invoke(GetSearchFolderRequest())
-        .then((data) => GetSearchFolderEnvelope.fromMap(data).getSearchFolderBody.getSearchFolderResponse);
+        .then((data) => GetSearchFolderEnvelope.fromMap(data).body.response as GetSearchFolderResponse?);
   }
 
   /// Get share notifications
   Future<GetShareNotificationsResponse?> getShareNotifications() {
     return invoke(GetShareNotificationsRequest()).then(
-        (data) => GetShareNotificationsEnvelope.fromMap(data).getShareNotificationsBody.getShareNotificationsResponse);
+        (data) => GetShareNotificationsEnvelope.fromMap(data).body.response as GetShareNotificationsResponse?);
   }
 
   /// Returns the list of dictionaries that can be used for spell checking.
   Future<GetSpellDictionariesResponse?> getSpellDictionaries() {
     return invoke(GetSpellDictionariesRequest()).then(
-        (data) => GetSpellDictionariesEnvelope.fromMap(data).getSpellDictionariesBody.getSpellDictionariesResponse);
+        (data) => GetSpellDictionariesEnvelope.fromMap(data).body.response as GetSpellDictionariesResponse?);
   }
 
   /// Get system retention policy
   Future<GetSystemRetentionPolicyResponse?> getSystemRetentionPolicy() {
     return invoke(GetSystemRetentionPolicyRequest()).then((data) =>
-        GetSystemRetentionPolicyEnvelope.fromMap(data).getSystemRetentionPolicyBody.getSystemRetentionPolicyResponse);
+        GetSystemRetentionPolicyEnvelope.fromMap(data).body.response as GetSystemRetentionPolicyResponse?);
   }
 
   /// Get information about tags
   Future<GetTagResponse?> getTag() {
-    return invoke(GetTagRequest()).then((data) => GetTagEnvelope.fromMap(data).getTagBody.getTagResponse);
+    return invoke(GetTagRequest()).then((data) => GetTagEnvelope.fromMap(data).body.response as GetTagResponse?);
   }
 
   /// Get task
@@ -889,13 +881,13 @@ class MailApi extends AccountApi {
       sync: sync,
       includeContent: includeContent,
       includeInvites: includeInvites,
-    )).then((data) => GetTaskEnvelope.fromMap(data).getTaskBody.getTaskResponse);
+    )).then((data) => GetTaskEnvelope.fromMap(data).body.response as GetTaskResponse?);
   }
 
   /// Get task summaries
   Future<GetTaskSummariesResponse?> getTaskSummaries(int startTime, int endTime, {String? folderId}) {
     return invoke(GetTaskSummariesRequest(startTime, endTime, folderId: folderId))
-        .then((data) => GetTaskSummariesEnvelope.fromMap(data).getTaskSummariesBody.getTaskSummariesResponse);
+        .then((data) => GetTaskSummariesEnvelope.fromMap(data).body.response as GetTaskSummariesResponse?);
   }
 
   /// User's working hours within the given time range are expressed in a similar format to the format used for GetFreeBusy.
@@ -903,19 +895,19 @@ class MailApi extends AccountApi {
   /// The entire time range is marked as unknown if there was an error determining the working hours,
   Future<GetWorkingHoursResponse?> getWorkingHours(int startTime, int endTime, {String? id, String? name}) {
     return invoke(GetWorkingHoursRequest(startTime, endTime, id: id, name: name))
-        .then((data) => GetWorkingHoursEnvelope.fromMap(data).getWorkingHoursBody.getWorkingHoursResponse);
+        .then((data) => GetWorkingHoursEnvelope.fromMap(data).body.response as GetWorkingHoursResponse?);
   }
 
   /// Get Yahoo Auth Token
   Future<GetYahooAuthTokenResponse?> getYahooAuthToken(String user, String password) {
     return invoke(GetYahooAuthTokenRequest(user, password))
-        .then((data) => GetYahooAuthTokenEnvelope.fromMap(data).getYahooAuthTokenBody.getYahooAuthTokenResponse);
+        .then((data) => GetYahooAuthTokenEnvelope.fromMap(data).body.response as GetYahooAuthTokenResponse?);
   }
 
   /// Get Yahoo cookie
   Future<GetYahooCookieResponse?> getYahooCookie(String user) {
     return invoke(GetYahooCookieRequest(user))
-        .then((data) => GetYahooCookieEnvelope.fromMap(data).getYahooCookieBody.getYahooCookieResponse);
+        .then((data) => GetYahooCookieEnvelope.fromMap(data).body.response as GetYahooCookieResponse?);
   }
 
   /// Grant account level permissions
@@ -923,19 +915,19 @@ class MailApi extends AccountApi {
   /// Note: to be deprecated in Zimbra 9.  Use zimbraAccount GrantRights instead.
   Future<GrantPermissionResponse?> grantPermission(List<AccountACEinfo> aces) {
     return invoke(GrantPermissionRequest(aces))
-        .then((data) => GrantPermissionEnvelope.fromMap(data).grantPermissionBody.grantPermissionResponse);
+        .then((data) => GrantPermissionEnvelope.fromMap(data).body.response as GrantPermissionResponse?);
   }
 
   /// Do an iCalendar reply
   Future<ICalReplyResponse?> iCalReply(String ical) {
     return invoke(ICalReplyRequest(ical))
-        .then((data) => ICalReplyEnvelope.fromMap(data).iCalReplyBody.iCalReplyResponse);
+        .then((data) => ICalReplyEnvelope.fromMap(data).body.response as ICalReplyResponse?);
   }
 
   /// Return the count of recent items in the specified folder
   Future<IMAPCopyResponse?> imapCopy(String ids, MailItemType type, int folder) {
     return invoke(IMAPCopyRequest(ids, type, folder))
-        .then((data) => IMAPCopyEnvelope.fromMap(data).imapCopyBody.imapCopyResponse);
+        .then((data) => IMAPCopyEnvelope.fromMap(data).body.response as IMAPCopyResponse?);
   }
 
   /// Import appointments
@@ -945,7 +937,7 @@ class MailApi extends AccountApi {
       content,
       contentType: contentType,
       folderId: folderId,
-    )).then((data) => ImportAppointmentsEnvelope.fromMap(data).importAppointmentsBody.importAppointmentsResponse);
+    )).then((data) => ImportAppointmentsEnvelope.fromMap(data).body.response as ImportAppointmentsResponse?);
   }
 
   /// Import contacts
@@ -957,7 +949,7 @@ class MailApi extends AccountApi {
       folderId: folderId,
       csvFormat: csvFormat,
       csvLocale: csvLocale,
-    )).then((data) => ImportContactsEnvelope.fromMap(data).importContactsBody.importContactsResponse);
+    )).then((data) => ImportContactsEnvelope.fromMap(data).body.response as ImportContactsResponse?);
   }
 
   /// Triggers the specified data sources to kick off their import processes.
@@ -983,19 +975,19 @@ class MailApi extends AccountApi {
       galDataSources: galDataSources,
       calDataSources: calDataSources,
       unknownDataSources: unknownDataSources,
-    )).then((data) => ImportDataEnvelope.fromMap(data).importDataBody.importDataResponse);
+    )).then((data) => ImportDataEnvelope.fromMap(data).body.response as ImportDataResponse?);
   }
 
   /// Invalidate reminder device
   Future<InvalidateReminderDeviceResponse?> invalidateReminderDevice(String address) {
     return invoke(InvalidateReminderDeviceRequest(address)).then((data) =>
-        InvalidateReminderDeviceEnvelope.fromMap(data).invalidateReminderDeviceBody.invalidateReminderDeviceResponse);
+        InvalidateReminderDeviceEnvelope.fromMap(data).body.response as InvalidateReminderDeviceResponse?);
   }
 
   /// Perform an action on an item
   Future<ItemActionResponse?> itemAction(ActionSelector action) {
     return invoke(ItemActionRequest(action))
-        .then((data) => ItemActionEnvelope.fromMap(data).itemActionBody.itemActionResponse);
+        .then((data) => ItemActionEnvelope.fromMap(data).body.response as ItemActionResponse?);
   }
 
   /// Returns {num} number of revisions starting from {version} of the requested document.
@@ -1003,13 +995,13 @@ class MailApi extends AccountApi {
   /// Documents that have multiple revisions have the flag "/", which indicates that the document is versioned.
   Future<ListDocumentRevisionsResponse?> listDocumentRevisions(ListDocumentRevisionsSpec doc) {
     return invoke(ListDocumentRevisionsRequest(doc)).then(
-        (data) => ListDocumentRevisionsEnvelope.fromMap(data).listDocumentRevisionsBody.listDocumentRevisionsResponse);
+        (data) => ListDocumentRevisionsEnvelope.fromMap(data).body.response as ListDocumentRevisionsResponse?);
   }
 
   /// Return a list of subscribed folder names
   Future<ListIMAPSubscriptionsResponse?> listIMAPSubscriptions() {
     return invoke(ListIMAPSubscriptionsRequest()).then(
-        (data) => ListIMAPSubscriptionsEnvelope.fromMap(data).listIMAPSubscriptionsBody.listIMAPSubscriptionsResponse);
+        (data) => ListIMAPSubscriptionsEnvelope.fromMap(data).body.response as ListIMAPSubscriptionsResponse?);
   }
 
   /// Changed sequence of fetched version.
@@ -1039,7 +1031,7 @@ class MailApi extends AccountApi {
       neuter: neuter,
       forceSend: forceSend,
       msg: msg,
-    )).then((data) => ModifyAppointmentEnvelope.fromMap(data).modifyAppointmentBody.modifyAppointmentResponse);
+    )).then((data) => ModifyAppointmentEnvelope.fromMap(data).body.response as ModifyAppointmentResponse?);
   }
 
   /// Modify contact
@@ -1053,7 +1045,7 @@ class MailApi extends AccountApi {
       verbose: verbose,
       wantImapUid: wantImapUid,
       wantModifiedSequence: wantModifiedSequence,
-    )).then((data) => ModifyContactEnvelope.fromMap(data).modifyContactBody.modifyContactResponse);
+    )).then((data) => ModifyContactEnvelope.fromMap(data).body.response as ModifyContactResponse?);
   }
 
   /// Changes attributes of the given data source.
@@ -1078,13 +1070,13 @@ class MailApi extends AccountApi {
       galDataSource: galDataSource,
       calDataSource: calDataSource,
       unknownDataSource: unknownDataSource,
-    )).then((data) => ModifyDataSourceEnvelope.fromMap(data).modifyDataSourceBody.modifyDataSourceResponse);
+    )).then((data) => ModifyDataSourceEnvelope.fromMap(data).body.response as ModifyDataSourceResponse?);
   }
 
   /// Modify filter rules
   Future<ModifyFilterRulesResponse?> modifyFilterRules({List<FilterRule> filterRules = const []}) {
     return invoke(ModifyFilterRulesRequest(filterRules))
-        .then((data) => ModifyFilterRulesEnvelope.fromMap(data).modifyFilterRulesBody.modifyFilterRulesResponse);
+        .then((data) => ModifyFilterRulesEnvelope.fromMap(data).body.response as ModifyFilterRulesResponse?);
   }
 
   /// Modify mailbox metadata
@@ -1094,27 +1086,26 @@ class MailApi extends AccountApi {
   /// - New keys can be added
   Future<ModifyMailboxMetadataResponse?> modifyMailboxMetadata(MailCustomMetadata metadata) {
     return invoke(ModifyMailboxMetadataRequest(metadata)).then(
-        (data) => ModifyMailboxMetadataEnvelope.fromMap(data).modifyMailboxMetadataBody.modifyMailboxMetadataResponse);
+        (data) => ModifyMailboxMetadataEnvelope.fromMap(data).body.response as ModifyMailboxMetadataResponse?);
   }
 
   /// Modify outgoing filter rules
   Future<ModifyOutgoingFilterRulesResponse?> modifyOutgoingFilterRules({List<FilterRule> filterRules = const []}) {
     return invoke(ModifyOutgoingFilterRulesRequest(filterRules)).then((data) =>
         ModifyOutgoingFilterRulesEnvelope.fromMap(data)
-            .modifyOutgoingFilterRulesBody
-            .modifyOutgoingFilterRulesResponse);
+            .body.response as ModifyOutgoingFilterRulesResponse?);
   }
 
   /// Modify profile image
   Future<ModifyProfileImageResponse?> modifyProfileImage({String? uploadId, String? imageB64Data}) {
     return invoke(ModifyProfileImageRequest(uploadId: uploadId, imageB64Data: imageB64Data))
-        .then((data) => ModifyProfileImageEnvelope.fromMap(data).modifyProfileImageBody.modifyProfileImageResponse);
+        .then((data) => ModifyProfileImageEnvelope.fromMap(data).body.response as ModifyProfileImageResponse?);
   }
 
   /// Modify search folder
   Future<ModifySearchFolderResponse?> modifySearchFolder(ModifySearchFolderSpec searchFolder) {
     return invoke(ModifySearchFolderRequest(searchFolder))
-        .then((data) => ModifySearchFolderEnvelope.fromMap(data).modifySearchFolderBody.modifySearchFolderResponse);
+        .then((data) => ModifySearchFolderEnvelope.fromMap(data).body.response as ModifySearchFolderResponse?);
   }
 
   Future<ModifyTaskResponse?> modifyTask(
@@ -1139,7 +1130,7 @@ class MailApi extends AccountApi {
       neuter: neuter,
       forceSend: forceSend,
       msg: msg,
-    )).then((data) => ModifyTaskEnvelope.fromMap(data).modifyTaskBody.modifyTaskResponse);
+    )).then((data) => ModifyTaskEnvelope.fromMap(data).body.response as ModifyTaskResponse?);
   }
 
   /// Perform an action on a message
@@ -1148,7 +1139,7 @@ class MailApi extends AccountApi {
   /// For op="!spam", can optionally specify a destination folder
   Future<MsgActionResponse?> msgAction(ActionSelector action) {
     return invoke(MsgActionRequest(action))
-        .then((data) => MsgActionEnvelope.fromMap(data).msgActionBody.msgActionResponse);
+        .then((data) => MsgActionEnvelope.fromMap(data).body.response as MsgActionResponse?);
   }
 
   /// A request that does nothing and always returns nothing. Used to keep a session alive,
@@ -1181,13 +1172,13 @@ class MailApi extends AccountApi {
       includeDelegates: includeDelegates,
       enforceLimit: enforceLimit,
       timeout: timeout,
-    )).then((data) => NoOpEnvelope.fromMap(data).noOpBody.noOpResponse);
+    )).then((data) => NoOpEnvelope.fromMap(data).body.response as NoOpResponse?);
   }
 
   /// Perform an action on an note
   Future<NoteActionResponse?> noteAction(NoteActionSelector action) {
     return invoke(NoteActionRequest(action))
-        .then((data) => NoteActionEnvelope.fromMap(data).noteActionBody.noteActionResponse);
+        .then((data) => NoteActionEnvelope.fromMap(data).body.response as NoteActionResponse?);
   }
 
   /// Open IMAP folder
@@ -1196,19 +1187,19 @@ class MailApi extends AccountApi {
       folderId,
       limit,
       cursor: cursor,
-    )).then((data) => OpenIMAPFolderEnvelope.fromMap(data).openIMAPFolderBody.openIMAPFolderResponse);
+    )).then((data) => OpenIMAPFolderEnvelope.fromMap(data).body.response as OpenIMAPFolderResponse?);
   }
 
   /// Purge revision
   Future<PurgeRevisionResponse?> purgeRevision(PurgeRevisionSpec revision) {
     return invoke(PurgeRevisionRequest(revision))
-        .then((data) => PurgeRevisionEnvelope.fromMap(data).purgeRevisionBody.purgeRevisionResponse);
+        .then((data) => PurgeRevisionEnvelope.fromMap(data).body.response as PurgeRevisionResponse?);
   }
 
   /// Perform an action on the contact ranking table
   Future<RankingActionResponse?> rankingAction(RankingActionSpec action) {
     return invoke(RankingActionRequest(action))
-        .then((data) => RankingActionEnvelope.fromMap(data).rankingActionBody.purgeRevisionResponse);
+        .then((data) => RankingActionEnvelope.fromMap(data).body.response as RankingActionResponse?);
   }
 
   /// Record that an IMAP client has seen all the messages in this folder as they are at this time.
@@ -1216,20 +1207,20 @@ class MailApi extends AccountApi {
   /// This is achieved by invoking Mailbox::recordImapSession for the specified folder
   Future<RecordIMAPSessionResponse?> recordIMAPSession(String folderId) {
     return invoke(RecordIMAPSessionRequest(folderId))
-        .then((data) => RecordIMAPSessionEnvelope.fromMap(data).recordIMAPSessionBody.recordIMAPSessionResponse);
+        .then((data) => RecordIMAPSessionEnvelope.fromMap(data).body.response as RecordIMAPSessionResponse?);
   }
 
   /// Recover account
   Future<RecoverAccountResponse?> recoverAccount(String email, RecoverAccountOperation operation, {Channel? channel}) {
     return invoke(RecoverAccountRequest(email, operation, channel: channel))
-        .then((data) => RecoverAccountEnvelope.fromMap(data).recoverAccountBody.recoverAccountResponse);
+        .then((data) => RecoverAccountEnvelope.fromMap(data).body.response as RecoverAccountResponse?);
   }
 
   /// Remove attachments from a message body
   /// NOTE: that this operation is effectively a create and a delete, and thus the message's item ID will change
   Future<RemoveAttachmentsResponse?> removeAttachments(MsgPartIds msg) {
     return invoke(RemoveAttachmentsRequest(msg))
-        .then((data) => RemoveAttachmentsEnvelope.fromMap(data).removeAttachmentsBody.removeAttachmentsResponse);
+        .then((data) => RemoveAttachmentsEnvelope.fromMap(data).body.response as RemoveAttachmentsResponse?);
   }
 
   /// Resets the mailbox's "recent message count" to 0.
@@ -1238,13 +1229,13 @@ class MailApi extends AccountApi {
   /// - (b) it was added since the last write operation associated with any SOAP session.
   Future<ResetRecentMessageCountResponse?> resetRecentMessageCount() {
     return invoke(ResetRecentMessageCountRequest()).then((data) =>
-        ResetRecentMessageCountEnvelope.fromMap(data).resetRecentMessageCountBody.resetRecentMessageCountResponse);
+        ResetRecentMessageCountEnvelope.fromMap(data).body.response as ResetRecentMessageCountResponse?);
   }
 
   /// Restore contacts
   Future<RestoreContactsResponse?> restoreContacts(String fileName, {RestoreResolve? resolve}) {
     return invoke(RestoreContactsRequest(fileName, resolve: resolve))
-        .then((data) => RestoreContactsEnvelope.fromMap(data).restoreContactsBody.restoreContactsResponse);
+        .then((data) => RestoreContactsEnvelope.fromMap(data).body.response as RestoreContactsResponse?);
   }
 
   /// Revoke account level permissions
@@ -1252,7 +1243,7 @@ class MailApi extends AccountApi {
   /// Note: to be deprecated in Zimbra 9. Use zimbraAccount RevokeRights instead.
   Future<RevokePermissionResponse?> revokePermission({List<AccountACEinfo> aces = const []}) {
     return invoke(RevokePermissionRequest(aces))
-        .then((data) => RevokePermissionEnvelope.fromMap(data).revokePermissionBody.revokePermissionResponse);
+        .then((data) => RevokePermissionEnvelope.fromMap(data).body.response as RevokePermissionResponse?);
   }
 
   /// Save document
@@ -1284,7 +1275,7 @@ class MailApi extends AccountApi {
   /// The content can come from another document / revision specified in the <doc> sub element.
   Future<SaveDocumentResponse?> saveDocument(DocumentSpec doc) {
     return invoke(SaveDocumentRequest(doc))
-        .then((data) => SaveDocumentEnvelope.fromMap(data).saveDocumentBody.saveDocumentResponse);
+        .then((data) => SaveDocumentEnvelope.fromMap(data).body.response as SaveDocumentResponse?);
   }
 
   /// Save draft
@@ -1301,19 +1292,19 @@ class MailApi extends AccountApi {
   /// - The ID referenced in the response's "idnt" attribute specifies the folder where the sent message is saved.
   Future<SaveDraftResponse?> saveDraft(SaveDraftMsg msg, {bool? wantImapUid, bool? wantModifiedSequence}) {
     return invoke(SaveDraftRequest(msg, wantImapUid: wantImapUid, wantModifiedSequence: wantModifiedSequence))
-        .then((data) => SaveDraftEnvelope.fromMap(data).saveDraftBody.saveDraftResponse);
+        .then((data) => SaveDraftEnvelope.fromMap(data).body.response as SaveDraftResponse?);
   }
 
   /// Save a list of folder names subscribed to via IMAP
   Future<SaveIMAPSubscriptionsResponse?> saveIMAPSubscriptions(List<String> subscriptions) {
     return invoke(SaveIMAPSubscriptionsRequest(subscriptions)).then(
-        (data) => SaveIMAPSubscriptionsEnvelope.fromMap(data).saveIMAPSubscriptionsBody.saveIMAPSubscriptionsResponse);
+        (data) => SaveIMAPSubscriptionsEnvelope.fromMap(data).body.response as SaveIMAPSubscriptionsResponse?);
   }
 
   /// Search action
   Future<SearchActionResponse?> searchAction(SearchRequest searchRequest, BulkAction bulkAction) {
     return invoke(SearchActionRequest(searchRequest, bulkAction))
-        .then((data) => SearchActionEnvelope.fromMap(data).searchActionBody.searchActionResponse);
+        .then((data) => SearchActionEnvelope.fromMap(data).body.response as SearchActionResponse?);
   }
 
   /// Search a conversation
@@ -1382,7 +1373,7 @@ class MailApi extends AccountApi {
       cursor: cursor,
       wantContent: wantContent,
       includeMemberOf: includeMemberOf,
-    )).then((data) => SearchConvEnvelope.fromMap(data).searchConvBody.searchConvResponse);
+    )).then((data) => SearchConvEnvelope.fromMap(data).body.response as SearchConvResponse?);
   }
 
   /// Search
@@ -1452,13 +1443,13 @@ class MailApi extends AccountApi {
       cursor: cursor,
       wantContent: wantContent,
       includeMemberOf: includeMemberOf,
-    )).then((data) => SearchEnvelope.fromMap(data).searchBody.searchResponse);
+    )).then((data) => SearchEnvelope.fromMap(data).body.response as SearchResponse?);
   }
 
   /// Send a delivery report
   Future<SendDeliveryReportResponse?> sendDeliveryReport(String messageId) {
     return invoke(SendDeliveryReportRequest(messageId))
-        .then((data) => SendDeliveryReportEnvelope.fromMap(data).sendDeliveryReportBody.sendDeliveryReportResponse);
+        .then((data) => SendDeliveryReportEnvelope.fromMap(data).body.response as SendDeliveryReportResponse?);
   }
 
   /// Send a reply to an invite
@@ -1478,7 +1469,7 @@ class MailApi extends AccountApi {
       exceptionId: exceptionId,
       timezone: timezone,
       msg: msg,
-    )).then((data) => SendInviteReplyEnvelope.fromMap(data).sendInviteReplyBody.sendInviteReplyResponse);
+    )).then((data) => SendInviteReplyEnvelope.fromMap(data).body.response as SendInviteReplyResponse?);
   }
 
   /// Send message
@@ -1517,7 +1508,7 @@ class MailApi extends AccountApi {
       fetchSavedMsg: fetchSavedMsg,
       sendUid: sendUid,
       deliveryReport: deliveryReport,
-    )).then((data) => SendMsgEnvelope.fromMap(data).sendMsgBody.sendMsgResponse);
+    )).then((data) => SendMsgEnvelope.fromMap(data).body.response as SendMsgResponse?);
   }
 
   /// Send share notification
@@ -1526,13 +1517,13 @@ class MailApi extends AccountApi {
       {List<EmailAddrInfo> emailAddresses = const [], ShareAction? action, String? notes}) {
     return invoke(SendShareNotificationRequest(item, emailAddresses: emailAddresses, action: action, notes: notes))
         .then((data) =>
-            SendShareNotificationEnvelope.fromMap(data).sendShareNotificationBody.sendShareNotificationResponse);
+            SendShareNotificationEnvelope.fromMap(data).body.response as SendShareNotificationResponse?);
   }
 
   /// SendVerificationCodeRequest results in a random verification code being generated and sent to a device.
   Future<SendVerificationCodeResponse?> sendVerificationCode(String address) {
     return invoke(SendVerificationCodeRequest(address)).then(
-        (data) => SendVerificationCodeEnvelope.fromMap(data).sendVerificationCodeBody.sendVerificationCodeResponse);
+        (data) => SendVerificationCodeEnvelope.fromMap(data).body.response as SendVerificationCodeResponse?);
   }
 
   /// Directly set status of an entire appointment. This API is intended for mailbox
@@ -1562,14 +1553,14 @@ class MailApi extends AccountApi {
       exceptions: exceptions,
       cancellations: cancellations,
       replies: replies,
-    )).then((data) => SetAppointmentEnvelope.fromMap(data).setAppointmentBody.setAppointmentResponse);
+    )).then((data) => SetAppointmentEnvelope.fromMap(data).body.response as SetAppointmentResponse?);
   }
 
   /// Set custom metadata
   /// Setting a custom metadata section but providing no key/value pairs will remove the sction from the item
   Future<SetCustomMetadataResponse?> setCustomMetadata(MailCustomMetadata metadata, {String? id}) {
     return invoke(SetCustomMetadataRequest(metadata, id: id))
-        .then((data) => SetCustomMetadataEnvelope.fromMap(data).setCustomMetadataBody.setCustomMetadataResponse);
+        .then((data) => SetCustomMetadataEnvelope.fromMap(data).body.response as SetCustomMetadataResponse?);
   }
 
   /// Set mailbox metadata
@@ -1580,7 +1571,7 @@ class MailApi extends AccountApi {
   ///   currently the only valid namespace is "zwc".
   Future<SetMailboxMetadataResponse?> setMailboxMetadata(MailCustomMetadata metadata) {
     return invoke(SetMailboxMetadataRequest(metadata))
-        .then((data) => SetMailboxMetadataEnvelope.fromMap(data).setMailboxMetadataBody.setMailboxMetadataResponse);
+        .then((data) => SetMailboxMetadataEnvelope.fromMap(data).body.response as SetMailboxMetadataResponse?);
   }
 
   /// Set recover account
@@ -1592,9 +1583,11 @@ class MailApi extends AccountApi {
       recoveryAccount,
       verificationCode,
       channel: channel,
-    )).then((data) => SetRecoveryAccountEnvelope.fromMap(data).setRecoveryAccountBody.setRecoveryAccountResponse);
+    )).then((data) => SetRecoveryAccountEnvelope.fromMap(data).body.response as SetRecoveryAccountResponse?);
   }
 
+  /// Directly set status of an entire task.
+  /// See SetAppointment for more information.
   Future<SetTaskResponse?> setTask(
       {String? flags,
       String? tags,
@@ -1617,14 +1610,14 @@ class MailApi extends AccountApi {
       exceptions: exceptions,
       cancellations: cancellations,
       replies: replies,
-    )).then((data) => SetTaskEnvelope.fromMap(data).setTaskBody.setTaskResponse);
+    )).then((data) => SetTaskEnvelope.fromMap(data).body.response as SetTaskResponse?);
   }
 
   /// Snooze alarm(s) for appointments or tasks
   Future<SnoozeCalendarItemAlarmResponse?> snoozeCalendarItemAlarm(
       {List<SnoozeAlarm> apptAlarms = const [], List<SnoozeAlarm> taskAlarms = const []}) {
     return invoke(SnoozeCalendarItemAlarmRequest(apptAlarms: apptAlarms, taskAlarms: taskAlarms)).then((data) =>
-        SnoozeCalendarItemAlarmEnvelope.fromMap(data).snoozeCalendarItemAlarmBody.snoozeCalendarItemAlarmResponse);
+        SnoozeCalendarItemAlarmEnvelope.fromMap(data).body.response as SnoozeCalendarItemAlarmResponse?);
   }
 
   /// Sync on other mailbox is done via specifying target account in SOAP header
@@ -1650,13 +1643,13 @@ class MailApi extends AccountApi {
       typedDeletes: typedDeletes,
       deleteLimit: deleteLimit,
       changeLimit: changeLimit,
-    )).then((data) => SyncEnvelope.fromMap(data).syncBody.syncResponse);
+    )).then((data) => SyncEnvelope.fromMap(data).body.response as SyncResponse?);
   }
 
   /// Perform an action on a tag
   Future<TagActionResponse?> tagAction(TagActionSelector action) {
     return invoke(TagActionRequest(action))
-        .then((data) => TagActionEnvelope.fromMap(data).tagActionBody.tagActionResponse);
+        .then((data) => TagActionEnvelope.fromMap(data).body.response as TagActionResponse?);
   }
 
   /// Tests the connection to the specified data source.
@@ -1681,7 +1674,7 @@ class MailApi extends AccountApi {
       galDataSource: galDataSource,
       calDataSource: calDataSource,
       unknownDataSource: unknownDataSource,
-    )).then((data) => TestDataSourceEnvelope.fromMap(data).testDataSourceBody.testDataSourceResponse);
+    )).then((data) => TestDataSourceEnvelope.fromMap(data).body.response as TestDataSourceResponse?);
   }
 
   /// Validate the verification code sent to a device.
@@ -1689,7 +1682,7 @@ class MailApi extends AccountApi {
   /// the value of zimbraCalendarReminderDeviceEmail account attribute.
   Future<VerifyCodeResponse?> verifyCode(String address, String verificationCode) {
     return invoke(VerifyCodeRequest(address, verificationCode))
-        .then((data) => VerifyCodeEnvelope.fromMap(data).verifyCodeBody.verifyCodeResponse);
+        .then((data) => VerifyCodeEnvelope.fromMap(data).body.response as VerifyCodeResponse?);
   }
 
   /// WaitSetRequest optionally modifies the wait set and checks for any notifications.
@@ -1733,6 +1726,6 @@ class MailApi extends AccountApi {
       addAccounts: addAccounts,
       updateAccounts: updateAccounts,
       removeAccounts: removeAccounts,
-    )).then((data) => WaitSetEnvelope.fromMap(data).waitSetBody.waitSetResponse);
+    )).then((data) => WaitSetEnvelope.fromMap(data).body.response as WaitSetResponse?);
   }
 }

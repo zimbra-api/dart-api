@@ -18,10 +18,6 @@ class GetFilterRulesBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  GetFilterRulesRequest? get getFilterRulesRequest => request as GetFilterRulesRequest?;
-
-  GetFilterRulesResponse? get getFilterRulesResponse => response as GetFilterRulesResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'GetFilterRulesRequest': request!.toMap(),

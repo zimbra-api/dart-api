@@ -30,9 +30,8 @@ void main() {
         }
       };
       final envelope = ICalReplyEnvelope.fromMap(data);
-      final response = envelope.iCalReplyBody.iCalReplyResponse;
-      expect(response, isNotNull);
-      expect(response, isA<ICalReplyResponse>());
+      expect(envelope.body.response, isNotNull);
+      expect(envelope.body.response, isA<ICalReplyResponse>());
     }));
   }));
 }

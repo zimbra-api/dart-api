@@ -1070,8 +1070,8 @@ void main() {
         }
       };
       final envelope = CancelTaskEnvelope.fromMap(data);
-      expect(envelope.cancelTaskBody.cancelTaskResponse, isNotNull);
-      expect(envelope.cancelTaskBody.cancelTaskResponse, isA<CancelTaskResponse>());
+      expect(envelope.body.response, isNotNull);
+      expect(envelope.body.response, isA<CancelTaskResponse>());
     }));
   }));
 }

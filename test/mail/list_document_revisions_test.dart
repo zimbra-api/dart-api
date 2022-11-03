@@ -3,6 +3,7 @@ import 'package:test/test.dart';
 import 'package:zimbra_api/src/common/enum/grant_grantee_type.dart';
 import 'package:zimbra_api/src/mail/message/list_document_revisions_envelope.dart';
 import 'package:zimbra_api/src/mail/message/list_document_revisions_request.dart';
+import 'package:zimbra_api/src/mail/message/list_document_revisions_response.dart';
 import 'package:zimbra_api/src/mail/type/list_document_revisions_spec.dart';
 
 void main() {
@@ -147,7 +148,7 @@ void main() {
         }
       };
       final envelope = ListDocumentRevisionsEnvelope.fromMap(data);
-      final response = envelope.listDocumentRevisionsBody.listDocumentRevisionsResponse!;
+      final response = envelope.body.response as ListDocumentRevisionsResponse;
 
       final user = response.users.first;
       expect(user.id, id);

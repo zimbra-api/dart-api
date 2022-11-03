@@ -12,7 +12,5 @@ class BounceMsgEnvelope extends SoapEnvelope {
 
   factory BounceMsgEnvelope.fromMap(Map<String, dynamic> data) =>
       BounceMsgEnvelope(BounceMsgBody.fromMap(data['Body']),
-          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  BounceMsgBody get bounceMsgBody => body as BounceMsgBody;
+      header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 }

@@ -13,6 +13,4 @@ class GetAppointmentEnvelope extends SoapEnvelope {
   factory GetAppointmentEnvelope.fromMap(Map<String, dynamic> data) =>
       GetAppointmentEnvelope(GetAppointmentBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  GetAppointmentBody get getAppointmentBody => body as GetAppointmentBody;
 }

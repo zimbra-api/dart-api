@@ -18,10 +18,6 @@ class TestDataSourceBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  TestDataSourceRequest? get testDataSourceRequest => request as TestDataSourceRequest?;
-
-  TestDataSourceResponse? get testDataSourceResponse => response as TestDataSourceResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'TestDataSourceRequest': request!.toMap(),

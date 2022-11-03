@@ -18,10 +18,6 @@ class GetAvailableLocalesBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  GetAvailableLocalesRequest? get getAvailableLocalesRequest => request as GetAvailableLocalesRequest?;
-
-  GetAvailableLocalesResponse? get getAvailableLocalesResponse => response as GetAvailableLocalesResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'GetAvailableLocalesRequest': request!.toMap(),

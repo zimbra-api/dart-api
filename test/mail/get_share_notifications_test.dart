@@ -2,6 +2,7 @@ import 'package:faker/faker.dart';
 import 'package:test/test.dart';
 import 'package:zimbra_api/src/mail/message/get_share_notifications_envelope.dart';
 import 'package:zimbra_api/src/mail/message/get_share_notifications_request.dart';
+import 'package:zimbra_api/src/mail/message/get_share_notifications_response.dart';
 
 void main() {
   final faker = Faker();
@@ -55,7 +56,7 @@ void main() {
         }
       };
       final envelope = GetShareNotificationsEnvelope.fromMap(data);
-      final respnse = envelope.getShareNotificationsBody.getShareNotificationsResponse!;
+      final respnse = envelope.body.response as GetShareNotificationsResponse;
       final share = respnse.shares.first;
 
       expect(share.status, status);

@@ -16,10 +16,6 @@ class GetItemBody extends SoapBody {
       response: data['GetItemResponse'] != null ? GetItemResponse.fromMap(data['GetItemResponse']) : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  GetItemRequest? get getItemRequest => request as GetItemRequest?;
-
-  GetItemResponse? get getItemResponse => response as GetItemResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'GetItemRequest': request!.toMap(),

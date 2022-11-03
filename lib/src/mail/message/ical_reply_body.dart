@@ -16,10 +16,6 @@ class ICalReplyBody extends SoapBody {
       response: data['ICalReplyResponse'] != null ? ICalReplyResponse.fromMap(data['ICalReplyResponse']) : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  ICalReplyRequest? get iCalReplyRequest => request as ICalReplyRequest?;
-
-  ICalReplyResponse? get iCalReplyResponse => response as ICalReplyResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'ICalReplyRequest': request!.toMap(),

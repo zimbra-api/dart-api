@@ -18,10 +18,6 @@ class SendVerificationCodeBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  SendVerificationCodeRequest? get sendVerificationCodeRequest => request as SendVerificationCodeRequest?;
-
-  SendVerificationCodeResponse? get sendVerificationCodeResponse => response as SendVerificationCodeResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'SendVerificationCodeRequest': request!.toMap(),

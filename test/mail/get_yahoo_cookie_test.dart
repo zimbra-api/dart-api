@@ -2,6 +2,7 @@ import 'package:faker/faker.dart';
 import 'package:test/test.dart';
 import 'package:zimbra_api/src/mail/message/get_yahoo_cookie_envelope.dart';
 import 'package:zimbra_api/src/mail/message/get_yahoo_cookie_request.dart';
+import 'package:zimbra_api/src/mail/message/get_yahoo_cookie_response.dart';
 
 void main() {
   final faker = Faker();
@@ -38,7 +39,7 @@ void main() {
         }
       };
       final envelope = GetYahooCookieEnvelope.fromMap(data);
-      final response = envelope.getYahooCookieBody.getYahooCookieResponse!;
+      final response = envelope.body.response as GetYahooCookieResponse;
       expect(response.error, error);
       expect(response.crumb, crumb);
       expect(response.y, y);

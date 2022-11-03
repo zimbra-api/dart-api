@@ -2,6 +2,7 @@ import 'package:faker/faker.dart';
 import 'package:test/test.dart';
 import 'package:zimbra_api/src/account/message/search_gal_envelope.dart';
 import 'package:zimbra_api/src/account/message/search_gal_request.dart';
+import 'package:zimbra_api/src/account/message/search_gal_response.dart';
 import 'package:zimbra_api/src/account/type/entry_search_filter_info.dart';
 import 'package:zimbra_api/src/account/type/entry_search_filter_multi_cond.dart';
 import 'package:zimbra_api/src/account/type/entry_search_filter_single_cond.dart';
@@ -235,7 +236,7 @@ void main() {
         }
       };
       final envelope = SearchGalEnvelope.fromMap(data);
-      final response = envelope.searchGalBody.searchGalResponse!;
+      final response = envelope.body.response as SearchGalResponse;
       final contact = response.contacts.first;
 
       expect(response.sortBy, sortBy);

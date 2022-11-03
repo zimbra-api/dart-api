@@ -2,6 +2,7 @@ import 'package:faker/faker.dart';
 import 'package:test/test.dart';
 import 'package:zimbra_api/src/account/message/create_distribution_list_envelope.dart';
 import 'package:zimbra_api/src/account/message/create_distribution_list_request.dart';
+import 'package:zimbra_api/src/account/message/create_distribution_list_response.dart';
 import 'package:zimbra_api/src/common/type/key_value_pair.dart';
 
 void main() {
@@ -70,7 +71,7 @@ void main() {
         },
       };
       final envelope = CreateDistributionListEnvelope.fromMap(data);
-      final response = envelope.createDistributionListBody.createDistributionListResponse!;
+      final response = envelope.body.response as CreateDistributionListResponse;
       final dl = response.dl;
 
       expect(dl!.name, name);

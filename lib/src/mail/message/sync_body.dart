@@ -15,10 +15,6 @@ class SyncBody extends SoapBody {
       response: data['SyncResponse'] != null ? SyncResponse.fromMap(data['SyncResponse']) : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  SyncRequest? get syncRequest => request as SyncRequest?;
-
-  SyncResponse? get syncResponse => response as SyncResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'SyncRequest': request!.toMap(),

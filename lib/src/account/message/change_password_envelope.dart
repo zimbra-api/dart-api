@@ -13,6 +13,4 @@ class ChangePasswordEnvelope extends SoapEnvelope {
   factory ChangePasswordEnvelope.fromMap(Map<String, dynamic> data) =>
       ChangePasswordEnvelope(ChangePasswordBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  ChangePasswordBody get changePasswordBody => body as ChangePasswordBody;
 }

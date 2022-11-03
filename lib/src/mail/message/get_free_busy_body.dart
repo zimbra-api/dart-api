@@ -16,10 +16,6 @@ class GetFreeBusyBody extends SoapBody {
       response: data['GetFreeBusyResponse'] != null ? GetFreeBusyResponse.fromMap(data['GetFreeBusyResponse']) : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  GetFreeBusyRequest? get getFreeBusyRequest => request as GetFreeBusyRequest?;
-
-  GetFreeBusyResponse? get getFreeBusyResponse => response as GetFreeBusyResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'GetFreeBusyRequest': request!.toMap(),

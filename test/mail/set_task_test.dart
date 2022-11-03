@@ -14,6 +14,7 @@ import 'package:zimbra_api/src/common/enum/week_day.dart';
 import 'package:zimbra_api/src/common/type/tz_onset_info.dart';
 import 'package:zimbra_api/src/mail/message/set_task_envelope.dart';
 import 'package:zimbra_api/src/mail/message/set_task_request.dart';
+import 'package:zimbra_api/src/mail/message/set_task_response.dart';
 import 'package:zimbra_api/src/mail/type/add_recurrence_info.dart';
 import 'package:zimbra_api/src/mail/type/alarm_info.dart';
 import 'package:zimbra_api/src/mail/type/alarm_trigger_info.dart';
@@ -1131,7 +1132,7 @@ void main() {
         }
       };
       final envelope = SetTaskEnvelope.fromMap(data);
-      final response = envelope.setTaskBody.setTaskResponse!;
+      final response = envelope.body.response as SetTaskResponse;
 
       expect(response.calItemId, calItemId);
       expect(response.deprecatedApptId, deprecatedApptId);

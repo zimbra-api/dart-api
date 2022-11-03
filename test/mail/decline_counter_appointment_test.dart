@@ -996,9 +996,8 @@ void main() {
         }
       };
       final envelope = DeclineCounterAppointmentEnvelope.fromMap(data);
-      expect(envelope.declineCounterAppointmentBody.declineCounterAppointmentResponse, isNotNull);
-      expect(envelope.declineCounterAppointmentBody.declineCounterAppointmentResponse,
-          isA<DeclineCounterAppointmentResponse>());
+      expect(envelope.body.response, isNotNull);
+      expect(envelope.body.response, isA<DeclineCounterAppointmentResponse>());
     }));
   }));
 }

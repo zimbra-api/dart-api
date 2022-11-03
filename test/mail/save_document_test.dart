@@ -3,6 +3,7 @@ import 'package:test/test.dart';
 import 'package:zimbra_api/src/common/type/id.dart';
 import 'package:zimbra_api/src/mail/message/save_document_envelope.dart';
 import 'package:zimbra_api/src/mail/message/save_document_request.dart';
+import 'package:zimbra_api/src/mail/message/save_document_response.dart';
 import 'package:zimbra_api/src/mail/type/document_spec.dart';
 import 'package:zimbra_api/src/mail/type/id_version.dart';
 import 'package:zimbra_api/src/mail/type/message_part_spec.dart';
@@ -85,7 +86,7 @@ void main() {
         }
       };
       final envelope = SaveDocumentEnvelope.fromMap(data);
-      final response = envelope.saveDocumentBody.saveDocumentResponse!;
+      final response = envelope.body.response as SaveDocumentResponse;
       final doc = response.doc!;
       expect(doc.id, id);
       expect(doc.version, version);

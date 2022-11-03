@@ -30,9 +30,8 @@ void main() {
         }
       };
       final envelope = InvalidateReminderDeviceEnvelope.fromMap(data);
-      final response = envelope.invalidateReminderDeviceBody.invalidateReminderDeviceResponse;
-      expect(response, isNotNull);
-      expect(response, isA<InvalidateReminderDeviceResponse>());
+      expect(envelope.body.response, isNotNull);
+      expect(envelope.body.response, isA<InvalidateReminderDeviceResponse>());
     }));
   }));
 }

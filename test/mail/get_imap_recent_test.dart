@@ -2,6 +2,7 @@ import 'package:faker/faker.dart';
 import 'package:test/test.dart';
 import 'package:zimbra_api/src/mail/message/get_imap_recent_envelope.dart';
 import 'package:zimbra_api/src/mail/message/get_imap_recent_request.dart';
+import 'package:zimbra_api/src/mail/message/get_imap_recent_response.dart';
 
 void main() {
   final faker = Faker();
@@ -31,7 +32,7 @@ void main() {
         }
       };
       final envelope = GetIMAPRecentEnvelope.fromMap(data);
-      final response = envelope.getIMAPRecentBody.getIMAPRecentResponse!;
+      final response = envelope.body.response as GetIMAPRecentResponse;
       expect(response.num, num);
     }));
   }));

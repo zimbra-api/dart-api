@@ -18,10 +18,6 @@ class DeleteSignatureBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  DeleteSignatureRequest? get deleteSignatureRequest => request as DeleteSignatureRequest?;
-
-  DeleteSignatureResponse? get deleteSignatureResponse => response as DeleteSignatureResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'DeleteSignatureRequest': request!.toMap(),

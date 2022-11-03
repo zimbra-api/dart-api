@@ -15,10 +15,6 @@ class NoOpBody extends SoapBody {
       response: data['NoOpResponse'] != null ? NoOpResponse.fromMap(data['NoOpResponse']) : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  NoOpRequest? get noOpRequest => request as NoOpRequest?;
-
-  NoOpResponse? get noOpResponse => response as NoOpResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'NoOpRequest': request!.toMap(),

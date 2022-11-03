@@ -31,9 +31,8 @@ void main() {
         }
       };
       final envelope = SendVerificationCodeEnvelope.fromMap(data);
-      final response = envelope.sendVerificationCodeBody.sendVerificationCodeResponse;
-      expect(response, isNotNull);
-      expect(response, isA<SendVerificationCodeResponse>());
+      expect(envelope.body.response, isNotNull);
+      expect(envelope.body.response, isA<SendVerificationCodeResponse>());
     }));
   }));
 }

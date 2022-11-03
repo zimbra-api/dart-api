@@ -2,6 +2,7 @@ import 'package:faker/faker.dart';
 import 'package:test/test.dart';
 import 'package:zimbra_api/src/account/message/auth_envelope.dart';
 import 'package:zimbra_api/src/account/message/auth_request.dart';
+import 'package:zimbra_api/src/account/message/auth_response.dart';
 import 'package:zimbra_api/src/account/type/attr.dart';
 import 'package:zimbra_api/src/account/type/auth_token.dart';
 import 'package:zimbra_api/src/account/type/pre_auth.dart';
@@ -145,9 +146,9 @@ void main() {
       };
       final envelope = AuthEnvelope.fromMap(data);
 
-      expect(envelope.authBody, isNotNull);
-      expect(envelope.authBody.authRequest, isNull);
-      expect(envelope.authBody.authResponse, isNotNull);
+      expect(envelope.body, isNotNull);
+      expect(envelope.body.request, isNull);
+      expect(envelope.body.response, isNotNull);
     });
 
     test('From data test', (() {
@@ -231,7 +232,7 @@ void main() {
         },
       };
       final envelope = AuthEnvelope.fromMap(data);
-      final response = envelope.authBody.authResponse!;
+      final response = envelope.body.response as AuthResponse;
 
       expect(response.authToken, authToken);
       expect(response.lifetime, lifetime);

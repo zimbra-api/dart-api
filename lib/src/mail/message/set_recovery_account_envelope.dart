@@ -13,6 +13,4 @@ class SetRecoveryAccountEnvelope extends SoapEnvelope {
   factory SetRecoveryAccountEnvelope.fromMap(Map<String, dynamic> data) =>
       SetRecoveryAccountEnvelope(SetRecoveryAccountBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  SetRecoveryAccountBody get setRecoveryAccountBody => body as SetRecoveryAccountBody;
 }

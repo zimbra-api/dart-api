@@ -12,7 +12,5 @@ class GetFolderEnvelope extends SoapEnvelope {
 
   factory GetFolderEnvelope.fromMap(Map<String, dynamic> data) =>
       GetFolderEnvelope(GetFolderBody.fromMap(data['Body']),
-          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  GetFolderBody get getFolderBody => body as GetFolderBody;
+      header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 }

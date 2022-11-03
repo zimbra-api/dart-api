@@ -18,10 +18,6 @@ class EnableSharedReminderBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  EnableSharedReminderRequest? get enableSharedReminderRequest => request as EnableSharedReminderRequest?;
-
-  EnableSharedReminderResponse? get enableSharedReminderResponse => response as EnableSharedReminderResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'EnableSharedReminderRequest': request!.toMap(),

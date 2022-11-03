@@ -13,6 +13,4 @@ class CompleteTaskInstanceEnvelope extends SoapEnvelope {
   factory CompleteTaskInstanceEnvelope.fromMap(Map<String, dynamic> data) =>
       CompleteTaskInstanceEnvelope(CompleteTaskInstanceBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  CompleteTaskInstanceBody get completeTaskInstanceBody => body as CompleteTaskInstanceBody;
 }

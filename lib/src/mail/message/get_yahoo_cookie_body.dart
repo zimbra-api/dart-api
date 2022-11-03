@@ -18,10 +18,6 @@ class GetYahooCookieBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  GetYahooCookieRequest? get getYahooCookieRequest => request as GetYahooCookieRequest?;
-
-  GetYahooCookieResponse? get getYahooCookieResponse => response as GetYahooCookieResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'GetYahooCookieRequest': request!.toMap(),

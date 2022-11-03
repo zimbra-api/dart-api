@@ -627,9 +627,8 @@ void main() {
         }
       };
       final envelope = ModifyDataSourceEnvelope.fromMap(data);
-      final response = envelope.modifyDataSourceBody.modifyDataSourceResponse;
-      expect(response, isNotNull);
-      expect(response, isA<ModifyDataSourceResponse>());
+      expect(envelope.body.response, isNotNull);
+      expect(envelope.body.response, isA<ModifyDataSourceResponse>());
     }));
   }));
 }

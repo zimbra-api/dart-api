@@ -18,10 +18,6 @@ class SendDeliveryReportBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  SendDeliveryReportRequest? get sendDeliveryReportRequest => request as SendDeliveryReportRequest?;
-
-  SendDeliveryReportResponse? get sendDeliveryReportResponse => response as SendDeliveryReportResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'SendDeliveryReportRequest': request!.toMap(),

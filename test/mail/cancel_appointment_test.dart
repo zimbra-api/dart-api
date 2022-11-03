@@ -1070,8 +1070,8 @@ void main() {
         }
       };
       final envelope = CancelAppointmentEnvelope.fromMap(data);
-      expect(envelope.cancelAppointmentBody.cancelAppointmentResponse, isNotNull);
-      expect(envelope.cancelAppointmentBody.cancelAppointmentResponse, isA<CancelAppointmentResponse>());
+      expect(envelope.body.response, isNotNull);
+      expect(envelope.body.response, isA<CancelAppointmentResponse>());
     }));
   }));
 }

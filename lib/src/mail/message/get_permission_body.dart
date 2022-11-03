@@ -17,10 +17,6 @@ class GetPermissionBody extends SoapBody {
           data['GetPermissionResponse'] != null ? GetPermissionResponse.fromMap(data['GetPermissionResponse']) : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  GetPermissionRequest? get getPermissionRequest => request as GetPermissionRequest?;
-
-  GetPermissionResponse? get getPermissionResponse => response as GetPermissionResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'GetPermissionRequest': request!.toMap(),

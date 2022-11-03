@@ -4,6 +4,7 @@ import 'package:zimbra_api/src/common/enum/channel.dart';
 import 'package:zimbra_api/src/common/enum/recover_account_operation.dart';
 import 'package:zimbra_api/src/mail/message/recover_account_envelope.dart';
 import 'package:zimbra_api/src/mail/message/recover_account_request.dart';
+import 'package:zimbra_api/src/mail/message/recover_account_response.dart';
 
 void main() {
   final faker = Faker();
@@ -42,7 +43,7 @@ void main() {
         }
       };
       final envelope = RecoverAccountEnvelope.fromMap(data);
-      final response = envelope.recoverAccountBody.recoverAccountResponse!;
+      final response = envelope.body.response as RecoverAccountResponse;
       expect(response.recoveryAccount, recoveryAccount);
       expect(response.recoveryAttemptsLeft, recoveryAttemptsLeft);
     }));

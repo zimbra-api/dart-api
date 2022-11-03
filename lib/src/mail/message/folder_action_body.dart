@@ -17,10 +17,6 @@ class FolderActionBody extends SoapBody {
           data['FolderActionResponse'] != null ? FolderActionResponse.fromMap(data['FolderActionResponse']) : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  FolderActionRequest? get folderActionRequest => request as FolderActionRequest?;
-
-  FolderActionResponse? get folderActionResponse => response as FolderActionResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'FolderActionRequest': request!.toMap(),

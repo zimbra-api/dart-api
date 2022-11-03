@@ -2,6 +2,7 @@ import 'package:faker/faker.dart';
 import 'package:test/test.dart';
 import 'package:zimbra_api/src/mail/message/get_imap_recent_cutoff_envelope.dart';
 import 'package:zimbra_api/src/mail/message/get_imap_recent_cutoff_request.dart';
+import 'package:zimbra_api/src/mail/message/get_imap_recent_cutoff_response.dart';
 
 void main() {
   final faker = Faker();
@@ -31,7 +32,7 @@ void main() {
         }
       };
       final envelope = GetIMAPRecentCutoffEnvelope.fromMap(data);
-      final response = envelope.getIMAPRecentCutoffBody.getIMAPRecentCutoffResponse!;
+      final response = envelope.body.response as GetIMAPRecentCutoffResponse;
       expect(response.cutoff, cutoff);
     }));
   }));

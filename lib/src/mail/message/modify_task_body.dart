@@ -16,10 +16,6 @@ class ModifyTaskBody extends SoapBody {
       response: data['ModifyTaskResponse'] != null ? ModifyTaskResponse.fromMap(data['ModifyTaskResponse']) : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  ModifyTaskRequest? get modifyTaskRequest => request as ModifyTaskRequest?;
-
-  ModifyTaskResponse? get modifyTaskResponse => response as ModifyTaskResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'ModifyTaskRequest': request!.toMap(),

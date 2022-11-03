@@ -1059,8 +1059,8 @@ void main() {
         }
       };
       final envelope = ForwardAppointmentEnvelope.fromMap(data);
-      expect(envelope.forwardAppointmentBody.forwardAppointmentResponse, isNotNull);
-      expect(envelope.forwardAppointmentBody.forwardAppointmentResponse, isA<ForwardAppointmentResponse>());
+      expect(envelope.body.response, isNotNull);
+      expect(envelope.body.response, isA<ForwardAppointmentResponse>());
     }));
   }));
 }

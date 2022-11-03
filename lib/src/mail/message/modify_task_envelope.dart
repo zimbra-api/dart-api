@@ -13,6 +13,4 @@ class ModifyTaskEnvelope extends SoapEnvelope {
   factory ModifyTaskEnvelope.fromMap(Map<String, dynamic> data) =>
       ModifyTaskEnvelope(ModifyTaskBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  ModifyTaskBody get modifyTaskBody => body as ModifyTaskBody;
 }

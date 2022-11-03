@@ -5,6 +5,7 @@ import 'package:zimbra_api/src/common/enum/alarm_related.dart';
 import 'package:zimbra_api/src/common/enum/participation_status.dart';
 import 'package:zimbra_api/src/mail/message/snooze_calendar_item_alarm_envelope.dart';
 import 'package:zimbra_api/src/mail/message/snooze_calendar_item_alarm_request.dart';
+import 'package:zimbra_api/src/mail/message/snooze_calendar_item_alarm_response.dart';
 import 'package:zimbra_api/src/mail/type/snooze_alarm.dart';
 import 'package:zimbra_api/src/mail/type/updated_alarm_info.dart';
 
@@ -169,7 +170,7 @@ void main() {
         }
       };
       final envelope = SnoozeCalendarItemAlarmEnvelope.fromMap(data);
-      final response = envelope.snoozeCalendarItemAlarmBody.snoozeCalendarItemAlarmResponse!;
+      final response = envelope.body.response as SnoozeCalendarItemAlarmResponse;
 
       final appt = response.apptUpdatedAlarms.first;
       expect(appt.calItemId, calItemId);

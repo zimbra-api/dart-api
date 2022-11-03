@@ -18,10 +18,6 @@ class GetYahooAuthTokenBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  GetYahooAuthTokenRequest? get getYahooAuthTokenRequest => request as GetYahooAuthTokenRequest?;
-
-  GetYahooAuthTokenResponse? get getYahooAuthTokenResponse => response as GetYahooAuthTokenResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'GetYahooAuthTokenRequest': request!.toMap(),

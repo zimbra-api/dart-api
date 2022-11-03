@@ -13,6 +13,4 @@ class RestoreContactsEnvelope extends SoapEnvelope {
   factory RestoreContactsEnvelope.fromMap(Map<String, dynamic> data) =>
       RestoreContactsEnvelope(RestoreContactsBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  RestoreContactsBody get restoreContactsBody => body as RestoreContactsBody;
 }

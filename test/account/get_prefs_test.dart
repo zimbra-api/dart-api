@@ -2,6 +2,7 @@ import 'package:faker/faker.dart';
 import 'package:test/test.dart';
 import 'package:zimbra_api/src/account/message/get_prefs_envelope.dart';
 import 'package:zimbra_api/src/account/message/get_prefs_request.dart';
+import 'package:zimbra_api/src/account/message/get_prefs_response.dart';
 import 'package:zimbra_api/src/account/type/pref.dart';
 
 void main() {
@@ -50,7 +51,7 @@ void main() {
         },
       };
       final envelope = GetPrefsEnvelope.fromMap(data);
-      final response = envelope.getPrefsBody.getPrefsResponse!;
+      final response = envelope.body.response as GetPrefsResponse;
       final pref = response.prefs.first;
       expect(pref.name, name);
       expect(pref.modified, modified);

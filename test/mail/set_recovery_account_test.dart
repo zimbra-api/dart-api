@@ -42,8 +42,8 @@ void main() {
         }
       };
       final envelope = SetRecoveryAccountEnvelope.fromMap(data);
-      expect(envelope.setRecoveryAccountBody.setRecoveryAccountResponse, isNotNull);
-      expect(envelope.setRecoveryAccountBody.setRecoveryAccountResponse, isA<SetRecoveryAccountResponse>());
+      expect(envelope.body.response, isNotNull);
+      expect(envelope.body.response, isA<SetRecoveryAccountResponse>());
     }));
   }));
 }

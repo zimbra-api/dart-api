@@ -14,6 +14,4 @@ class SnoozeCalendarItemAlarmEnvelope extends SoapEnvelope {
   factory SnoozeCalendarItemAlarmEnvelope.fromMap(Map<String, dynamic> data) =>
       SnoozeCalendarItemAlarmEnvelope(SnoozeCalendarItemAlarmBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  SnoozeCalendarItemAlarmBody get snoozeCalendarItemAlarmBody => body as SnoozeCalendarItemAlarmBody;
 }

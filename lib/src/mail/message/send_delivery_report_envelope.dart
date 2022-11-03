@@ -13,6 +13,4 @@ class SendDeliveryReportEnvelope extends SoapEnvelope {
   factory SendDeliveryReportEnvelope.fromMap(Map<String, dynamic> data) =>
       SendDeliveryReportEnvelope(SendDeliveryReportBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  SendDeliveryReportBody get sendDeliveryReportBody => body as SendDeliveryReportBody;
 }

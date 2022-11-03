@@ -2,6 +2,7 @@ import 'package:faker/faker.dart';
 import 'package:test/test.dart';
 import 'package:zimbra_api/src/mail/message/get_free_busy_envelope.dart';
 import 'package:zimbra_api/src/mail/message/get_free_busy_request.dart';
+import 'package:zimbra_api/src/mail/message/get_free_busy_response.dart';
 import 'package:zimbra_api/src/mail/type/free_busy_user_spec.dart';
 
 void main() {
@@ -150,7 +151,7 @@ void main() {
         }
       };
       final envelope = GetFreeBusyEnvelope.fromMap(data);
-      final response = envelope.getFreeBusyBody.getFreeBusyResponse!;
+      final response = envelope.body.response as GetFreeBusyResponse;
       final usr = response.freebusyUsers.first;
 
       expect(usr.id, id);

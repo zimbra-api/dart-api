@@ -13,6 +13,4 @@ class DestroyWaitSetEnvelope extends SoapEnvelope {
   factory DestroyWaitSetEnvelope.fromMap(Map<String, dynamic> data) =>
       DestroyWaitSetEnvelope(DestroyWaitSetBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  DestroyWaitSetBody get destroyWaitSetBody => body as DestroyWaitSetBody;
 }

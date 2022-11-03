@@ -16,10 +16,6 @@ class SyncGalBody extends SoapBody {
       response: data['SyncGalResponse'] != null ? SyncGalResponse.fromMap(data['SyncGalResponse']) : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  SyncGalRequest? get syncGalRequest => request as SyncGalRequest?;
-
-  SyncGalResponse? get syncGalResponse => response as SyncGalResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'SyncGalRequest': request!.toMap(),

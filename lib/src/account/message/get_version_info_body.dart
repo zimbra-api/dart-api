@@ -18,10 +18,6 @@ class GetVersionInfoBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  GetVersionInfoRequest? get getVersionInfoRequest => request as GetVersionInfoRequest?;
-
-  GetVersionInfoResponse? get getVersionInfoResponse => response as GetVersionInfoResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'GetVersionInfoRequest': request!.toMap(),

@@ -14,6 +14,4 @@ class GetShareNotificationsEnvelope extends SoapEnvelope {
   factory GetShareNotificationsEnvelope.fromMap(Map<String, dynamic> data) =>
       GetShareNotificationsEnvelope(GetShareNotificationsBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  GetShareNotificationsBody get getShareNotificationsBody => body as GetShareNotificationsBody;
 }

@@ -13,6 +13,4 @@ class ImportContactsEnvelope extends SoapEnvelope {
   factory ImportContactsEnvelope.fromMap(Map<String, dynamic> data) =>
       ImportContactsEnvelope(ImportContactsBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  ImportContactsBody get importContactsBody => body as ImportContactsBody;
 }

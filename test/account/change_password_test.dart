@@ -2,6 +2,7 @@ import 'package:faker/faker.dart';
 import 'package:test/test.dart';
 import 'package:zimbra_api/src/account/message/change_password_envelope.dart';
 import 'package:zimbra_api/src/account/message/change_password_request.dart';
+import 'package:zimbra_api/src/account/message/change_password_response.dart';
 import 'package:zimbra_api/src/common/enum/account_by.dart';
 import 'package:zimbra_api/src/common/type/account_selector.dart';
 
@@ -65,7 +66,7 @@ void main() {
       };
 
       final envelope = ChangePasswordEnvelope.fromMap(data);
-      final response = envelope.changePasswordBody.changePasswordResponse!;
+      final response = envelope.body.response as ChangePasswordResponse;
 
       expect(response.authToken, authToken);
       expect(response.lifetime, lifetime);

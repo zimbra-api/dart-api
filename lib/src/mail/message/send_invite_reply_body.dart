@@ -18,10 +18,6 @@ class SendInviteReplyBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  SendInviteReplyRequest? get sendInviteReplyRequest => request as SendInviteReplyRequest?;
-
-  SendInviteReplyResponse? get sendInviteReplyResponse => response as SendInviteReplyResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'SendInviteReplyRequest': request!.toMap(),

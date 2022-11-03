@@ -2,6 +2,7 @@ import 'package:faker/faker.dart';
 import 'package:test/test.dart';
 import 'package:zimbra_api/src/account/message/subscribe_distribution_list_envelope.dart';
 import 'package:zimbra_api/src/account/message/subscribe_distribution_list_request.dart';
+import 'package:zimbra_api/src/account/message/subscribe_distribution_list_response.dart';
 import 'package:zimbra_api/src/common/enum/distribution_list_by.dart';
 import 'package:zimbra_api/src/common/enum/distribution_list_subscribe_op.dart';
 import 'package:zimbra_api/src/common/enum/distribution_list_subscribe_status.dart';
@@ -39,7 +40,7 @@ void main() {
         }
       };
       final envelope = SubscribeDistributionListEnvelope.fromMap(data);
-      final response = envelope.subscribeDistributionListBody.subscribeDistributionListResponse!;
+      final response = envelope.body.response as SubscribeDistributionListResponse;
       expect(response.status, DistributionListSubscribeStatus.subscribed);
     }));
   }));

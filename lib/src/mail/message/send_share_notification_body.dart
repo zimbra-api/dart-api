@@ -19,10 +19,6 @@ class SendShareNotificationBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  SendShareNotificationRequest? get sendShareNotificationRequest => request as SendShareNotificationRequest?;
-
-  SendShareNotificationResponse? get sendShareNotificationResponse => response as SendShareNotificationResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'SendShareNotificationRequest': request!.toMap(),

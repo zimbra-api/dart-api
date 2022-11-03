@@ -12,7 +12,5 @@ class SearchGalEnvelope extends SoapEnvelope {
 
   factory SearchGalEnvelope.fromMap(Map<String, dynamic> data) =>
       SearchGalEnvelope(SearchGalBody.fromMap(data['Body']),
-          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  SearchGalBody get searchGalBody => body as SearchGalBody;
+      header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 }

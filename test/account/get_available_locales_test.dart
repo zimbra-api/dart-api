@@ -2,6 +2,7 @@ import 'package:faker/faker.dart';
 import 'package:test/test.dart';
 import 'package:zimbra_api/src/account/message/get_available_locales_envelope.dart';
 import 'package:zimbra_api/src/account/message/get_available_locales_request.dart';
+import 'package:zimbra_api/src/account/message/get_available_locales_response.dart';
 
 void main() {
   final faker = Faker();
@@ -39,7 +40,7 @@ void main() {
         },
       };
       final envelope = GetAvailableLocalesEnvelope.fromMap(data);
-      final response = envelope.getAvailableLocalesBody.getAvailableLocalesResponse!;
+      final response = envelope.body.response as GetAvailableLocalesResponse;
       final locale = response.locales.first;
 
       expect(locale.id, id);

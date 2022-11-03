@@ -18,10 +18,6 @@ class GetAvailableSkinsBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  GetAvailableSkinsRequest? get getAvailableSkinsRequest => request as GetAvailableSkinsRequest?;
-
-  GetAvailableSkinsResponse? get getAvailableSkinsResponse => response as GetAvailableSkinsResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'GetAvailableSkinsRequest': request!.toMap(),

@@ -14,6 +14,4 @@ class ForwardAppointmentInviteEnvelope extends SoapEnvelope {
   factory ForwardAppointmentInviteEnvelope.fromMap(Map<String, dynamic> data) =>
       ForwardAppointmentInviteEnvelope(ForwardAppointmentInviteBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  ForwardAppointmentInviteBody get forwardAppointmentInviteBody => body as ForwardAppointmentInviteBody;
 }

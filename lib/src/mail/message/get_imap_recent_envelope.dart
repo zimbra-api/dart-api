@@ -13,6 +13,4 @@ class GetIMAPRecentEnvelope extends SoapEnvelope {
   factory GetIMAPRecentEnvelope.fromMap(Map<String, dynamic> data) =>
       GetIMAPRecentEnvelope(GetIMAPRecentBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  GetIMAPRecentBody get getIMAPRecentBody => body as GetIMAPRecentBody;
 }

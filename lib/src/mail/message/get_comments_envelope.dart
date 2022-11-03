@@ -13,6 +13,4 @@ class GetCommentsEnvelope extends SoapEnvelope {
   factory GetCommentsEnvelope.fromMap(Map<String, dynamic> data) =>
       GetCommentsEnvelope(GetCommentsBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  GetCommentsBody get getCommentsBody => body as GetCommentsBody;
 }

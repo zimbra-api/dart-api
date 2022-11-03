@@ -16,6 +16,7 @@ import 'package:zimbra_api/src/common/enum/week_day.dart';
 import 'package:zimbra_api/src/common/type/tz_onset_info.dart';
 import 'package:zimbra_api/src/mail/message/send_invite_reply_envelope.dart';
 import 'package:zimbra_api/src/mail/message/send_invite_reply_request.dart';
+import 'package:zimbra_api/src/mail/message/send_invite_reply_response.dart';
 import 'package:zimbra_api/src/mail/type/add_recurrence_info.dart';
 import 'package:zimbra_api/src/mail/type/alarm_info.dart';
 import 'package:zimbra_api/src/mail/type/alarm_trigger_info.dart';
@@ -1623,7 +1624,7 @@ void main() {
         }
       };
       final envelope = SendInviteReplyEnvelope.fromMap(data);
-      final response = envelope.sendInviteReplyBody.sendInviteReplyResponse!;
+      final response = envelope.body.response as SendInviteReplyResponse;
 
       expect(response.calItemId, calItemId);
       expect(response.deprecatedApptId, deprecatedApptId);

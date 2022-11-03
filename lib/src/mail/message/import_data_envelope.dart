@@ -13,6 +13,4 @@ class ImportDataEnvelope extends SoapEnvelope {
   factory ImportDataEnvelope.fromMap(Map<String, dynamic> data) =>
       ImportDataEnvelope(ImportDataBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  ImportDataBody get importDataBody => body as ImportDataBody;
 }

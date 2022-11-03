@@ -13,6 +13,4 @@ class GetModifiedItemsIDsEnvelope extends SoapEnvelope {
   factory GetModifiedItemsIDsEnvelope.fromMap(Map<String, dynamic> data) =>
       GetModifiedItemsIDsEnvelope(GetModifiedItemsIDsBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  GetModifiedItemsIDsBody get getModifiedItemsIDsBody => body as GetModifiedItemsIDsBody;
 }

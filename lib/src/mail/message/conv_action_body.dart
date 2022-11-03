@@ -16,10 +16,6 @@ class ConvActionBody extends SoapBody {
       response: data['ConvActionResponse'] != null ? ConvActionResponse.fromMap(data['ConvActionResponse']) : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  ConvActionRequest? get convActionRequest => request as ConvActionRequest?;
-
-  ConvActionResponse? get convActionResponse => response as ConvActionResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'ConvActionRequest': request!.toMap(),

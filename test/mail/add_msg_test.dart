@@ -13,6 +13,7 @@ import 'package:zimbra_api/src/common/enum/transparency.dart';
 import 'package:zimbra_api/src/common/enum/week_day.dart';
 import 'package:zimbra_api/src/mail/message/add_msg_envelope.dart';
 import 'package:zimbra_api/src/mail/message/add_msg_request.dart';
+import 'package:zimbra_api/src/mail/message/add_msg_response.dart';
 import 'package:zimbra_api/src/mail/type/add_msg_spec.dart';
 import 'package:zimbra_api/src/mail/type/add_recurrence_info.dart';
 import 'package:zimbra_api/src/mail/type/chat_summary.dart';
@@ -578,7 +579,7 @@ void main() {
         }
       };
       final envelope = AddMsgEnvelope.fromMap(data);
-      final response = envelope.addMsgBody.addMsgResponse!;
+      final response = envelope.body.response as AddMsgResponse;
       final chatMessage = response.chatMessage!;
       final message = response.message!;
 

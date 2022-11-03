@@ -51,8 +51,8 @@ void main() {
         }
       };
       final envelope = ModifyWhiteBlackListEnvelope.fromMap(data);
-      expect(envelope.modifyWhiteBlackListBody.modifyWhiteBlackListResponse, isNotNull);
-      expect(envelope.modifyWhiteBlackListBody.modifyWhiteBlackListResponse, isA<ModifyWhiteBlackListResponse>());
+      expect(envelope.body.response, isNotNull);
+      expect(envelope.body.response, isA<ModifyWhiteBlackListResponse>());
     }));
   }));
 }

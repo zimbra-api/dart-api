@@ -19,10 +19,6 @@ class ResetRecentMessageCountBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  ResetRecentMessageCountRequest? get resetRecentMessageCountRequest => request as ResetRecentMessageCountRequest?;
-
-  ResetRecentMessageCountResponse? get resetRecentMessageCountResponse => response as ResetRecentMessageCountResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'ResetRecentMessageCountRequest': request!.toMap(),

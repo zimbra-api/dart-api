@@ -13,6 +13,4 @@ class RankingActionEnvelope extends SoapEnvelope {
   factory RankingActionEnvelope.fromMap(Map<String, dynamic> data) =>
       RankingActionEnvelope(RankingActionBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  RankingActionBody get rankingActionBody => body as RankingActionBody;
 }

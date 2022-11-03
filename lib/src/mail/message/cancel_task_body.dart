@@ -16,10 +16,6 @@ class CancelTaskBody extends SoapBody {
       response: data['CancelTaskResponse'] != null ? CancelTaskResponse.fromMap(data['CancelTaskResponse']) : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  CancelTaskRequest? get cancelTaskRequest => request as CancelTaskRequest?;
-
-  CancelTaskResponse? get cancelTaskResponse => response as CancelTaskResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'CancelTaskRequest': request!.toMap(),

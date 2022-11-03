@@ -17,10 +17,6 @@ class GetIdentitiesBody extends SoapBody {
           data['GetIdentitiesResponse'] != null ? GetIdentitiesResponse.fromMap(data['GetIdentitiesResponse']) : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  GetIdentitiesRequest? get getIdentitiesRequest => request as GetIdentitiesRequest?;
-
-  GetIdentitiesResponse? get getIdentitiesResponse => response as GetIdentitiesResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'GetIdentitiesRequest': request!.toMap(),

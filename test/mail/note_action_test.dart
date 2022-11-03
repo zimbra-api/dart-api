@@ -4,6 +4,7 @@ import 'package:zimbra_api/src/common/enum/action_constraint.dart';
 import 'package:zimbra_api/src/common/enum/item_action.dart';
 import 'package:zimbra_api/src/mail/message/note_action_envelope.dart';
 import 'package:zimbra_api/src/mail/message/note_action_request.dart';
+import 'package:zimbra_api/src/mail/message/note_action_response.dart';
 import 'package:zimbra_api/src/mail/type/note_action_selector.dart';
 
 void main() {
@@ -91,7 +92,7 @@ void main() {
         }
       };
       final envelope = NoteActionEnvelope.fromMap(data);
-      final response = envelope.noteActionBody.noteActionResponse!;
+      final response = envelope.body.response as NoteActionResponse;
       final action = response.action!;
 
       expect(action.id, id);

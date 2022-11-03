@@ -18,10 +18,6 @@ class SetAppointmentBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  SetAppointmentRequest? get setAppointmentRequest => request as SetAppointmentRequest?;
-
-  SetAppointmentResponse? get setAppointmentResponse => response as SetAppointmentResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'SetAppointmentRequest': request!.toMap(),

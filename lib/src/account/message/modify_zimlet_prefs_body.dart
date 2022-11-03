@@ -18,10 +18,6 @@ class ModifyZimletPrefsBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  ModifyZimletPrefsRequest? get modifyZimletPrefsRequest => request as ModifyZimletPrefsRequest?;
-
-  ModifyZimletPrefsResponse? get modifyZimletPrefsResponse => response as ModifyZimletPrefsResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'ModifyZimletPrefsRequest': request!.toMap(),

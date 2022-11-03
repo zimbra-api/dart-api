@@ -31,9 +31,8 @@ void main() {
         }
       };
       final envelope = SendDeliveryReportEnvelope.fromMap(data);
-      final response = envelope.sendDeliveryReportBody.sendDeliveryReportResponse;
-      expect(response, isNotNull);
-      expect(response, isA<SendDeliveryReportResponse>());
+      expect(envelope.body.response, isNotNull);
+      expect(envelope.body.response, isA<SendDeliveryReportResponse>());
     }));
   }));
 }

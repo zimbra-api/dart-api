@@ -13,6 +13,4 @@ class GetIMAPRecentCutoffEnvelope extends SoapEnvelope {
   factory GetIMAPRecentCutoffEnvelope.fromMap(Map<String, dynamic> data) =>
       GetIMAPRecentCutoffEnvelope(GetIMAPRecentCutoffBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  GetIMAPRecentCutoffBody get getIMAPRecentCutoffBody => body as GetIMAPRecentCutoffBody;
 }

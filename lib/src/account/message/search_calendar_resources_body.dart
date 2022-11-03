@@ -19,10 +19,6 @@ class SearchCalendarResourcesBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  SearchCalendarResourcesRequest? get searchCalendarResourcesRequest => request as SearchCalendarResourcesRequest?;
-
-  SearchCalendarResourcesResponse? get searchCalendarResourcesResponse => response as SearchCalendarResourcesResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'SearchCalendarResourcesRequest': request!.toMap(),

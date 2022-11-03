@@ -13,6 +13,4 @@ class GetDistributionListEnvelope extends SoapEnvelope {
   factory GetDistributionListEnvelope.fromMap(Map<String, dynamic> data) =>
       GetDistributionListEnvelope(GetDistributionListBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  GetDistributionListBody get getDistributionListBody => body as GetDistributionListBody;
 }

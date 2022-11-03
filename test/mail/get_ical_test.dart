@@ -2,6 +2,7 @@ import 'package:faker/faker.dart';
 import 'package:test/test.dart';
 import 'package:zimbra_api/src/mail/message/get_ical_envelope.dart';
 import 'package:zimbra_api/src/mail/message/get_ical_request.dart';
+import 'package:zimbra_api/src/mail/message/get_ical_response.dart';
 
 void main() {
   final faker = Faker();
@@ -40,7 +41,7 @@ void main() {
         }
       };
       final envelope = GetICalEnvelope.fromMap(data);
-      final response = envelope.getICalBody.getICalResponse!;
+      final response = envelope.body.response as GetICalResponse;
       final content = response.content!;
 
       expect(content.id, id);

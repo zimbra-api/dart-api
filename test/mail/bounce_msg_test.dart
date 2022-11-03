@@ -51,8 +51,8 @@ void main() {
         }
       };
       final envelope = BounceMsgEnvelope.fromMap(data);
-      expect(envelope.bounceMsgBody.bounceMsgResponse, isNotNull);
-      expect(envelope.bounceMsgBody.bounceMsgResponse, isA<BounceMsgResponse>());
+      expect(envelope.body.response, isNotNull);
+      expect(envelope.body.response, isA<BounceMsgResponse>());
     }));
   }));
 }

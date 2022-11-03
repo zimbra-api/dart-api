@@ -18,10 +18,6 @@ class DeleteDataSourceBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  DeleteDataSourceRequest? get deleteDataSourceRequest => request as DeleteDataSourceRequest?;
-
-  DeleteDataSourceResponse? get deleteDataSourceResponse => response as DeleteDataSourceResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'DeleteDataSourceRequest': request!.toMap(),

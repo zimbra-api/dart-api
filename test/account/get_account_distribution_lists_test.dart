@@ -2,6 +2,7 @@ import 'package:faker/faker.dart';
 import 'package:test/test.dart';
 import 'package:zimbra_api/src/account/message/get_account_distribution_lists_envelope.dart';
 import 'package:zimbra_api/src/account/message/get_account_distribution_lists_request.dart';
+import 'package:zimbra_api/src/account/message/get_account_distribution_lists_response.dart';
 import 'package:zimbra_api/src/common/enum/member_of_selector.dart';
 
 void main() {
@@ -66,7 +67,7 @@ void main() {
         },
       };
       final envelope = GetAccountDistributionListsEnvelope.fromMap(data);
-      final response = envelope.getAccountDistributionListsBody.getAccountDistributionListsResponse!;
+      final response = envelope.body.response as GetAccountDistributionListsResponse;
 
       final dl = response.dlList.first;
       expect(dl.name, name);

@@ -19,10 +19,6 @@ class GetEffectiveFolderPermsBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  GetEffectiveFolderPermsRequest? get getEffectiveFolderPermsRequest => request as GetEffectiveFolderPermsRequest?;
-
-  GetEffectiveFolderPermsResponse? get getEffectiveFolderPermsResponse => response as GetEffectiveFolderPermsResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'GetEffectiveFolderPermsRequest': request!.toMap(),

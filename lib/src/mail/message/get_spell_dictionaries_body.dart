@@ -18,10 +18,6 @@ class GetSpellDictionariesBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  GetSpellDictionariesRequest? get getSpellDictionariesRequest => request as GetSpellDictionariesRequest?;
-
-  GetSpellDictionariesResponse? get getSpellDictionariesResponse => response as GetSpellDictionariesResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'GetSpellDictionariesRequest': request!.toMap(),

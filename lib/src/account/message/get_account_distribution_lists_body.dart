@@ -19,12 +19,6 @@ class GetAccountDistributionListsBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  GetAccountDistributionListsRequest? get getAccountDistributionListsRequest =>
-      request as GetAccountDistributionListsRequest?;
-
-  GetAccountDistributionListsResponse? get getAccountDistributionListsResponse =>
-      response as GetAccountDistributionListsResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'GetAccountDistributionListsRequest': request!.toMap(),

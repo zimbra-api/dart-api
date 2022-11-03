@@ -13,6 +13,4 @@ class ContactActionEnvelope extends SoapEnvelope {
   factory ContactActionEnvelope.fromMap(Map<String, dynamic> data) =>
       ContactActionEnvelope(ContactActionBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  ContactActionBody get contactActionBody => body as ContactActionBody;
 }

@@ -2,6 +2,7 @@ import 'package:faker/faker.dart';
 import 'package:test/test.dart';
 import 'package:zimbra_api/src/mail/message/open_imap_folder_envelope.dart';
 import 'package:zimbra_api/src/mail/message/open_imap_folder_request.dart';
+import 'package:zimbra_api/src/mail/message/open_imap_folder_response.dart';
 import 'package:zimbra_api/src/mail/type/imap_cursor_info.dart';
 
 void main() {
@@ -55,7 +56,7 @@ void main() {
         }
       };
       final envelope = OpenIMAPFolderEnvelope.fromMap(data);
-      final response = envelope.openIMAPFolderBody.openIMAPFolderResponse!;
+      final response = envelope.body.response as OpenIMAPFolderResponse;
 
       expect(response.hasMore, hasMore);
 

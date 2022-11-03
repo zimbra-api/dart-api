@@ -2,6 +2,7 @@ import 'package:faker/faker.dart';
 import 'package:test/test.dart';
 import 'package:zimbra_api/src/mail/message/no_op_envelope.dart';
 import 'package:zimbra_api/src/mail/message/no_op_request.dart';
+import 'package:zimbra_api/src/mail/message/no_op_response.dart';
 
 void main() {
   final faker = Faker();
@@ -43,7 +44,7 @@ void main() {
         }
       };
       final envelope = NoOpEnvelope.fromMap(data);
-      final response = envelope.noOpBody.noOpResponse!;
+      final response = envelope.body.response as NoOpResponse;
       expect(response.waitDisallowed, waitDisallowed);
     }));
   }));

@@ -3,6 +3,7 @@ import 'package:test/test.dart';
 import 'package:zimbra_api/src/common/enum/policy_type.dart';
 import 'package:zimbra_api/src/mail/message/get_system_retention_policy_envelope.dart';
 import 'package:zimbra_api/src/mail/message/get_system_retention_policy_request.dart';
+import 'package:zimbra_api/src/mail/message/get_system_retention_policy_response.dart';
 
 void main() {
   final faker = Faker();
@@ -54,7 +55,7 @@ void main() {
         }
       };
       final envelope = GetSystemRetentionPolicyEnvelope.fromMap(data);
-      final response = envelope.getSystemRetentionPolicyBody.getSystemRetentionPolicyResponse!;
+      final response = envelope.body.response as GetSystemRetentionPolicyResponse;
       final retentionPolicy = response.retentionPolicy!;
 
       final keep = retentionPolicy.keep.first;

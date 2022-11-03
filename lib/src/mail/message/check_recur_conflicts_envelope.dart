@@ -13,6 +13,4 @@ class CheckRecurConflictsEnvelope extends SoapEnvelope {
   factory CheckRecurConflictsEnvelope.fromMap(Map<String, dynamic> data) =>
       CheckRecurConflictsEnvelope(CheckRecurConflictsBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  CheckRecurConflictsBody get checkRecurConflictsBody => body as CheckRecurConflictsBody;
 }

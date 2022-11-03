@@ -13,6 +13,4 @@ class ModifyProfileImageEnvelope extends SoapEnvelope {
   factory ModifyProfileImageEnvelope.fromMap(Map<String, dynamic> data) =>
       ModifyProfileImageEnvelope(ModifyProfileImageBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  ModifyProfileImageBody get modifyProfileImageBody => body as ModifyProfileImageBody;
 }

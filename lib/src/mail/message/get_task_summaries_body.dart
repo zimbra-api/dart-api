@@ -18,10 +18,6 @@ class GetTaskSummariesBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  GetTaskSummariesRequest? get getTaskSummariesRequest => request as GetTaskSummariesRequest?;
-
-  GetTaskSummariesResponse? get getTaskSummariesResponse => response as GetTaskSummariesResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'GetTaskSummariesRequest': request!.toMap(),

@@ -18,10 +18,6 @@ class CheckPermissionBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  CheckPermissionRequest? get checkPermissionRequest => request as CheckPermissionRequest?;
-
-  CheckPermissionResponse? get checkPermissionResponse => response as CheckPermissionResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'CheckPermissionRequest': request!.toMap(),

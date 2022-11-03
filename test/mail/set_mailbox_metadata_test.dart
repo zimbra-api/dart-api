@@ -48,8 +48,8 @@ void main() {
         }
       };
       final envelope = SetMailboxMetadataEnvelope.fromMap(data);
-      expect(envelope.setMailboxMetadataBody.setMailboxMetadataResponse, isNotNull);
-      expect(envelope.setMailboxMetadataBody.setMailboxMetadataResponse, isA<SetMailboxMetadataResponse>());
+      expect(envelope.body.response, isNotNull);
+      expect(envelope.body.response, isA<SetMailboxMetadataResponse>());
     }));
   }));
 }

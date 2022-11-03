@@ -38,8 +38,8 @@ void main() {
         }
       };
       final envelope = DeleteSignatureEnvelope.fromMap(data);
-      expect(envelope.deleteSignatureBody.deleteSignatureResponse, isNotNull);
-      expect(envelope.deleteSignatureBody.deleteSignatureResponse, isA<DeleteSignatureResponse>());
+      expect(envelope.body.response, isNotNull);
+      expect(envelope.body.response, isA<DeleteSignatureResponse>());
     }));
   }));
 }

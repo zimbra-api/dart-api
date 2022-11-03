@@ -13,6 +13,4 @@ class DiscoverRightsEnvelope extends SoapEnvelope {
   factory DiscoverRightsEnvelope.fromMap(Map<String, dynamic> data) =>
       DiscoverRightsEnvelope(DiscoverRightsBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  DiscoverRightsBody get discoverRightsBody => body as DiscoverRightsBody;
 }

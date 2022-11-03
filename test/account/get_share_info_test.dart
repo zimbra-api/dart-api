@@ -2,6 +2,7 @@
 import 'package:faker/faker.dart';
 import 'package:test/test.dart';
 import 'package:zimbra_api/src/account/message/get_share_info_envelope.dart';
+import 'package:zimbra_api/src/account/message/get_share_info_response.dart';
 import 'package:zimbra_api/src/common/enum/account_by.dart';
 import 'package:zimbra_api/src/common/type/account_selector.dart';
 import 'package:zimbra_api/src/common/type/grantee_chooser.dart';
@@ -83,7 +84,7 @@ void main() {
         },
       };
       final envelope = GetShareInfoEnvelope.fromMap(data);
-      final response = envelope.getShareInfoBody.getShareInfoResponse!;
+      final response = envelope.body.response as GetShareInfoResponse;
       final share = response.shares.first;
 
       expect(share.ownerId, ownerId);

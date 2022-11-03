@@ -18,10 +18,6 @@ class RestoreContactsBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  RestoreContactsRequest? get restoreContactsRequest => request as RestoreContactsRequest?;
-
-  RestoreContactsResponse? get restoreContactsResponse => response as RestoreContactsResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'RestoreContactsRequest': request!.toMap(),

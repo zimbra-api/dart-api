@@ -13,6 +13,4 @@ class CreateIdentityEnvelope extends SoapEnvelope {
   factory CreateIdentityEnvelope.fromMap(Map<String, dynamic> data) =>
       CreateIdentityEnvelope(CreateIdentityBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  CreateIdentityBody get createIdentityBody => body as CreateIdentityBody;
 }

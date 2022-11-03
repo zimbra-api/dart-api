@@ -16,10 +16,6 @@ class SendMsgBody extends SoapBody {
       response: data['SendMsgResponse'] != null ? SendMsgResponse.fromMap(data['SendMsgResponse']) : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  SendMsgRequest? get sendMsgRequest => request as SendMsgRequest?;
-
-  SendMsgResponse? get sendMsgResponse => response as SendMsgResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'SendMsgRequest': request!.toMap(),

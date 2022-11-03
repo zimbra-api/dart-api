@@ -4,6 +4,7 @@ import 'package:zimbra_api/src/common/type/id.dart';
 import 'package:zimbra_api/src/common/type/tz_onset_info.dart';
 import 'package:zimbra_api/src/mail/message/get_mini_cal_envelope.dart';
 import 'package:zimbra_api/src/mail/message/get_mini_cal_request.dart';
+import 'package:zimbra_api/src/mail/message/get_mini_cal_response.dart';
 import 'package:zimbra_api/src/mail/type/cal_tz_info.dart';
 
 void main() {
@@ -123,7 +124,7 @@ void main() {
         }
       };
       final envelope = GetMiniCalEnvelope.fromMap(data);
-      final response = envelope.getMiniCalBody.getMiniCalResponse!;
+      final response = envelope.body.response as GetMiniCalResponse;
       expect(response.busyDates.first, busyDate);
 
       final error = response.errors.first;

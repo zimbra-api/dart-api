@@ -18,10 +18,6 @@ class GetWhiteBlackListBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  GetWhiteBlackListRequest? get getWhiteBlackListRequest => request as GetWhiteBlackListRequest?;
-
-  GetWhiteBlackListResponse? get getWhiteBlackListResponse => response as GetWhiteBlackListResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'GetWhiteBlackListRequest': request!.toMap(),

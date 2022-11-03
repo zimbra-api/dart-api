@@ -38,8 +38,8 @@ void main() {
         }
       };
       final envelope = DeleteIdentityEnvelope.fromMap(data);
-      expect(envelope.deleteIdentityBody.deleteIdentityResponse, isNotNull);
-      expect(envelope.deleteIdentityBody.deleteIdentityResponse, isA<DeleteIdentityResponse>());
+      expect(envelope.body.response, isNotNull);
+      expect(envelope.body.response, isA<DeleteIdentityResponse>());
     }));
   }));
 }

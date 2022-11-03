@@ -18,10 +18,6 @@ class GetMsgMetadataBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  GetMsgMetadataRequest? get getMsgMetadataRequest => request as GetMsgMetadataRequest?;
-
-  GetMsgMetadataResponse? get getMsgMetadataResponse => response as GetMsgMetadataResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'GetMsgMetadataRequest': request!.toMap(),

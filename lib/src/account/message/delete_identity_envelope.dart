@@ -13,6 +13,4 @@ class DeleteIdentityEnvelope extends SoapEnvelope {
   factory DeleteIdentityEnvelope.fromMap(Map<String, dynamic> data) =>
       DeleteIdentityEnvelope(DeleteIdentityBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  DeleteIdentityBody get deleteIdentityBody => body as DeleteIdentityBody;
 }

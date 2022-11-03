@@ -19,10 +19,6 @@ class SnoozeCalendarItemAlarmBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  SnoozeCalendarItemAlarmRequest? get snoozeCalendarItemAlarmRequest => request as SnoozeCalendarItemAlarmRequest?;
-
-  SnoozeCalendarItemAlarmResponse? get snoozeCalendarItemAlarmResponse => response as SnoozeCalendarItemAlarmResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'SnoozeCalendarItemAlarmRequest': request!.toMap(),

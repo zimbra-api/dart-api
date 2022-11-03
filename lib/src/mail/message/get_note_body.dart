@@ -16,10 +16,6 @@ class GetNoteBody extends SoapBody {
       response: data['GetNoteResponse'] != null ? GetNoteResponse.fromMap(data['GetNoteResponse']) : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  GetNoteRequest? get getNoteRequest => request as GetNoteRequest?;
-
-  GetNoteResponse? get getNoteResponse => response as GetNoteResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'GetNoteRequest': request!.toMap(),

@@ -15,10 +15,6 @@ class AuthBody extends SoapBody {
       response: data['AuthResponse'] != null ? AuthResponse.fromMap(data['AuthResponse']) : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  AuthRequest? get authRequest => request as AuthRequest?;
-
-  AuthResponse? get authResponse => response as AuthResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'AuthRequest': request!.toMap(),

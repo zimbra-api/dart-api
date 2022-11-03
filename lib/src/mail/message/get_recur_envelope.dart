@@ -12,6 +12,4 @@ class GetRecurEnvelope extends SoapEnvelope {
 
   factory GetRecurEnvelope.fromMap(Map<String, dynamic> data) => GetRecurEnvelope(GetRecurBody.fromMap(data['Body']),
       header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  GetRecurBody get getRecurBody => body as GetRecurBody;
 }

@@ -2,6 +2,7 @@ import 'package:faker/faker.dart';
 import 'package:test/test.dart';
 import 'package:zimbra_api/src/mail/message/import_appointments_envelope.dart';
 import 'package:zimbra_api/src/mail/message/import_appointments_request.dart';
+import 'package:zimbra_api/src/mail/message/import_appointments_response.dart';
 import 'package:zimbra_api/src/mail/type/content_spec.dart';
 
 void main() {
@@ -60,7 +61,7 @@ void main() {
         }
       };
       final envelope = ImportAppointmentsEnvelope.fromMap(data);
-      final response = envelope.importAppointmentsBody.importAppointmentsResponse!;
+      final response = envelope.body.response as ImportAppointmentsResponse;
       expect(response.ids, ids);
       expect(response.num, num);
     }));

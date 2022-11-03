@@ -18,10 +18,6 @@ class CreateDataSourceBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  CreateDataSourceRequest? get createDataSourceRequest => request as CreateDataSourceRequest?;
-
-  CreateDataSourceResponse? get createDataSourceResponse => response as CreateDataSourceResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'CreateDataSourceRequest': request!.toMap(),

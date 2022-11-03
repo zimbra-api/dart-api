@@ -13,6 +13,4 @@ class EmptyDumpsterEnvelope extends SoapEnvelope {
   factory EmptyDumpsterEnvelope.fromMap(Map<String, dynamic> data) =>
       EmptyDumpsterEnvelope(EmptyDumpsterBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  EmptyDumpsterBody get emptyDumpsterBody => body as EmptyDumpsterBody;
 }

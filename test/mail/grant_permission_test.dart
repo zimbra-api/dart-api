@@ -2,6 +2,7 @@ import 'package:faker/faker.dart';
 import 'package:test/test.dart';
 import 'package:zimbra_api/src/common/enum/grantee_type.dart';
 import 'package:zimbra_api/src/mail/message/grant_permission_envelope.dart';
+import 'package:zimbra_api/src/mail/message/grant_permission_response.dart';
 import 'package:zimbra_api/src/mail/type/account_ace_info.dart';
 import 'package:zimbra_api/src/mail/message/grant_permission_request.dart';
 
@@ -75,7 +76,7 @@ void main() {
         }
       };
       final envelope = GrantPermissionEnvelope.fromMap(data);
-      final response = envelope.grantPermissionBody.grantPermissionResponse!;
+      final response = envelope.body.response as GrantPermissionResponse;
       final ace = response.aces.first;
 
       expect(ace.granteeType, GranteeType.all);

@@ -2,6 +2,7 @@ import 'package:faker/faker.dart';
 import 'package:test/test.dart';
 import 'package:zimbra_api/src/account/message/sync_gal_envelope.dart';
 import 'package:zimbra_api/src/account/message/sync_gal_request.dart';
+import 'package:zimbra_api/src/account/message/sync_gal_response.dart';
 
 void main() {
   final faker = Faker();
@@ -145,7 +146,7 @@ void main() {
         }
       };
       final envelope = SyncGalEnvelope.fromMap(data);
-      final response = envelope.syncGalBody.syncGalResponse!;
+      final response = envelope.body.response as SyncGalResponse;
       final deleted = response.deleted.first;
       final contact = response.contacts.first;
 

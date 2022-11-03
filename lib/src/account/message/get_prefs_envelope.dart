@@ -12,6 +12,4 @@ class GetPrefsEnvelope extends SoapEnvelope {
 
   factory GetPrefsEnvelope.fromMap(Map<String, dynamic> data) => GetPrefsEnvelope(GetPrefsBody.fromMap(data['Body']),
       header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  GetPrefsBody get getPrefsBody => body as GetPrefsBody;
 }

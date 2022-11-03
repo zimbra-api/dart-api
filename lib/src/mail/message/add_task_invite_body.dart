@@ -17,10 +17,6 @@ class AddTaskInviteBody extends SoapBody {
           data['AddTaskInviteResponse'] != null ? AddTaskInviteResponse.fromMap(data['AddTaskInviteResponse']) : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  AddTaskInviteRequest? get addTaskInviteRequest => request as AddTaskInviteRequest?;
-
-  AddTaskInviteResponse? get addTaskInviteResponse => response as AddTaskInviteResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'AddTaskInviteRequest': request!.toMap(),

@@ -18,10 +18,6 @@ class CompleteTaskInstanceBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  CompleteTaskInstanceRequest? get completeTaskInstanceRequest => request as CompleteTaskInstanceRequest?;
-
-  CompleteTaskInstanceResponse? get completeTaskInstanceResponse => response as CompleteTaskInstanceResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'CompleteTaskInstanceRequest': request!.toMap(),

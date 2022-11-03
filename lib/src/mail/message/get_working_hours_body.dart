@@ -18,10 +18,6 @@ class GetWorkingHoursBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  GetWorkingHoursRequest? get getWorkingHoursRequest => request as GetWorkingHoursRequest?;
-
-  GetWorkingHoursResponse? get getWorkingHoursResponse => response as GetWorkingHoursResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'GetWorkingHoursRequest': request!.toMap(),

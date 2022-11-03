@@ -19,10 +19,6 @@ class DistributionListActionBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  DistributionListActionRequest? get distributionListActionRequest => request as DistributionListActionRequest?;
-
-  DistributionListActionResponse? get distributionListActionResponse => response as DistributionListActionResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'DistributionListActionRequest': request!.toMap(),

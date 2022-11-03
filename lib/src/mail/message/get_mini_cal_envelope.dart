@@ -13,6 +13,4 @@ class GetMiniCalEnvelope extends SoapEnvelope {
   factory GetMiniCalEnvelope.fromMap(Map<String, dynamic> data) =>
       GetMiniCalEnvelope(GetMiniCalBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  GetMiniCalBody get getMiniCalBody => body as GetMiniCalBody;
 }

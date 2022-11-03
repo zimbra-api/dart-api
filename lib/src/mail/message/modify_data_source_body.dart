@@ -18,10 +18,6 @@ class ModifyDataSourceBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  ModifyDataSourceRequest? get modifyDataSourceRequest => request as ModifyDataSourceRequest?;
-
-  ModifyDataSourceResponse? get modifyDataSourceResponse => response as ModifyDataSourceResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'ModifyDataSourceRequest': request!.toMap(),

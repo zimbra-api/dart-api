@@ -19,10 +19,6 @@ class AnnounceOrganizerChangeBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  AnnounceOrganizerChangeRequest? get announceOrganizerChangeRequest => request as AnnounceOrganizerChangeRequest?;
-
-  AnnounceOrganizerChangeResponse? get announceOrganizerChangeResponse => response as AnnounceOrganizerChangeResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'AnnounceOrganizerChangeRequest': request!.toMap(),

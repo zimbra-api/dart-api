@@ -3,6 +3,7 @@ import 'package:test/test.dart';
 import 'package:zimbra_api/src/common/enum/policy_type.dart';
 import 'package:zimbra_api/src/mail/message/get_tag_envelope.dart';
 import 'package:zimbra_api/src/mail/message/get_tag_request.dart';
+import 'package:zimbra_api/src/mail/message/get_tag_response.dart';
 
 void main() {
   final faker = Faker();
@@ -91,7 +92,7 @@ void main() {
         }
       };
       final envelope = GetTagEnvelope.fromMap(data);
-      final response = envelope.getTagBody.getTagResponse!;
+      final response = envelope.body.response as GetTagResponse;
       final tag = response.tags.first;
 
       expect(tag.id, id);

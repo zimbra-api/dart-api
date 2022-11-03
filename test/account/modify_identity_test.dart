@@ -48,8 +48,8 @@ void main() {
         }
       };
       final envelope = ModifyIdentityEnvelope.fromMap(data);
-      expect(envelope.modifyIdentityBody.modifyIdentityResponse, isNotNull);
-      expect(envelope.modifyIdentityBody.modifyIdentityResponse, isA<ModifyIdentityResponse>());
+      expect(envelope.body.response, isNotNull);
+      expect(envelope.body.response, isA<ModifyIdentityResponse>());
     }));
   }));
 }

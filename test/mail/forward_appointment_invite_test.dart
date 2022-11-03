@@ -999,9 +999,8 @@ void main() {
         }
       };
       final envelope = ForwardAppointmentInviteEnvelope.fromMap(data);
-      expect(envelope.forwardAppointmentInviteBody.forwardAppointmentInviteResponse, isNotNull);
-      expect(envelope.forwardAppointmentInviteBody.forwardAppointmentInviteResponse,
-          isA<ForwardAppointmentInviteResponse>());
+      expect(envelope.body.response, isNotNull);
+      expect(envelope.body.response, isA<ForwardAppointmentInviteResponse>());
     }));
   }));
 }

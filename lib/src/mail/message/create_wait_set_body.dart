@@ -17,10 +17,6 @@ class CreateWaitSetBody extends SoapBody {
           data['CreateWaitSetResponse'] != null ? CreateWaitSetResponse.fromMap(data['CreateWaitSetResponse']) : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  CreateWaitSetRequest? get createWaitSetRequest => request as CreateWaitSetRequest?;
-
-  CreateWaitSetResponse? get createWaitSetResponse => response as CreateWaitSetResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'CreateWaitSetRequest': request!.toMap(),

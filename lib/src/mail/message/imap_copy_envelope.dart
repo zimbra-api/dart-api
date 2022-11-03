@@ -12,6 +12,4 @@ class IMAPCopyEnvelope extends SoapEnvelope {
 
   factory IMAPCopyEnvelope.fromMap(Map<String, dynamic> data) => IMAPCopyEnvelope(IMAPCopyBody.fromMap(data['Body']),
       header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  IMAPCopyBody get imapCopyBody => body as IMAPCopyBody;
 }

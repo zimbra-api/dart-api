@@ -13,6 +13,4 @@ class GetApptSummariesEnvelope extends SoapEnvelope {
   factory GetApptSummariesEnvelope.fromMap(Map<String, dynamic> data) =>
       GetApptSummariesEnvelope(GetApptSummariesBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  GetApptSummariesBody get getApptSummariesBody => body as GetApptSummariesBody;
 }

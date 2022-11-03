@@ -25,7 +25,7 @@ void main() {
         }
       };
       final envelope = ResetRecentMessageCountEnvelope.fromMap(data);
-      final response = envelope.resetRecentMessageCountBody.resetRecentMessageCountResponse;
+      final response = envelope.body.response;
       expect(response, isNotNull);
       expect(response, isA<ResetRecentMessageCountResponse>());
     }));

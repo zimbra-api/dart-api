@@ -48,9 +48,8 @@ void main() {
         }
       };
       final envelope = ModifyMailboxMetadataEnvelope.fromMap(data);
-      final response = envelope.modifyMailboxMetadataBody.modifyMailboxMetadataResponse;
-      expect(response, isNotNull);
-      expect(response, isA<ModifyMailboxMetadataResponse>());
+      expect(envelope.body.response, isNotNull);
+      expect(envelope.body.response, isA<ModifyMailboxMetadataResponse>());
     }));
   }));
 }

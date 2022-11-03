@@ -14,6 +14,4 @@ class GetLastItemIdInMailboxEnvelope extends SoapEnvelope {
   factory GetLastItemIdInMailboxEnvelope.fromMap(Map<String, dynamic> data) =>
       GetLastItemIdInMailboxEnvelope(GetLastItemIdInMailboxBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  GetLastItemIdInMailboxBody get getLastItemIdInMailboxBody => body as GetLastItemIdInMailboxBody;
 }

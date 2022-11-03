@@ -12,6 +12,4 @@ class SetTaskEnvelope extends SoapEnvelope {
 
   factory SetTaskEnvelope.fromMap(Map<String, dynamic> data) => SetTaskEnvelope(SetTaskBody.fromMap(data['Body']),
       header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  SetTaskBody get setTaskBody => body as SetTaskBody;
 }

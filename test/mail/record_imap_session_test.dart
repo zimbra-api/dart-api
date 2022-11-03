@@ -2,6 +2,7 @@ import 'package:faker/faker.dart';
 import 'package:test/test.dart';
 import 'package:zimbra_api/src/mail/message/record_imap_session_envelope.dart';
 import 'package:zimbra_api/src/mail/message/record_imap_session_request.dart';
+import 'package:zimbra_api/src/mail/message/record_imap_session_response.dart';
 
 void main() {
   final faker = Faker();
@@ -34,7 +35,7 @@ void main() {
         }
       };
       final envelope = RecordIMAPSessionEnvelope.fromMap(data);
-      final response = envelope.recordIMAPSessionBody.recordIMAPSessionResponse!;
+      final response = envelope.body.response as RecordIMAPSessionResponse;
       expect(response.lastItemId, lastItemId);
       expect(response.folderUuid, folderUuid);
     }));

@@ -19,11 +19,6 @@ class GetSystemRetentionPolicyBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  GetSystemRetentionPolicyRequest? get getSystemRetentionPolicyRequest => request as GetSystemRetentionPolicyRequest?;
-
-  GetSystemRetentionPolicyResponse? get getSystemRetentionPolicyResponse =>
-      response as GetSystemRetentionPolicyResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'GetSystemRetentionPolicyRequest': request!.toMap(),

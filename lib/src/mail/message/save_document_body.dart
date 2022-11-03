@@ -17,10 +17,6 @@ class SaveDocumentBody extends SoapBody {
           data['SaveDocumentResponse'] != null ? SaveDocumentResponse.fromMap(data['SaveDocumentResponse']) : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  SaveDocumentRequest? get saveDocumentRequest => request as SaveDocumentRequest?;
-
-  SaveDocumentResponse? get saveDocumentResponse => response as SaveDocumentResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'SaveDocumentRequest': request!.toMap(),

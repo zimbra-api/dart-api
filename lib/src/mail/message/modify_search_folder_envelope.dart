@@ -13,6 +13,4 @@ class ModifySearchFolderEnvelope extends SoapEnvelope {
   factory ModifySearchFolderEnvelope.fromMap(Map<String, dynamic> data) =>
       ModifySearchFolderEnvelope(ModifySearchFolderBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  ModifySearchFolderBody get modifySearchFolderBody => body as ModifySearchFolderBody;
 }

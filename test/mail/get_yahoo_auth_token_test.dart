@@ -2,6 +2,7 @@ import 'package:faker/faker.dart';
 import 'package:test/test.dart';
 import 'package:zimbra_api/src/mail/message/get_yahoo_auth_token_envelope.dart';
 import 'package:zimbra_api/src/mail/message/get_yahoo_auth_token_request.dart';
+import 'package:zimbra_api/src/mail/message/get_yahoo_auth_token_response.dart';
 
 void main() {
   final faker = Faker();
@@ -33,7 +34,7 @@ void main() {
         }
       };
       final envelope = GetYahooAuthTokenEnvelope.fromMap(data);
-      final response = envelope.getYahooAuthTokenBody.getYahooAuthTokenResponse!;
+      final response = envelope.body.response as GetYahooAuthTokenResponse;
       expect(response.failed, failed);
     }));
   }));

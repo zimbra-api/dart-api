@@ -2,6 +2,7 @@ import 'package:faker/faker.dart';
 import 'package:test/test.dart';
 import 'package:zimbra_api/src/account/message/get_version_info_envelope.dart';
 import 'package:zimbra_api/src/account/message/get_version_info_request.dart';
+import 'package:zimbra_api/src/account/message/get_version_info_response.dart';
 
 void main() {
   final faker = Faker();
@@ -38,8 +39,8 @@ void main() {
         }
       };
       final envelope = GetVersionInfoEnvelope.fromMap(data);
-      final response = envelope.getVersionInfoBody.getVersionInfoResponse;
-      final versionInfo = response!.versionInfo!;
+      final response = envelope.body.response as GetVersionInfoResponse;
+      final versionInfo = response.versionInfo!;
 
       expect(versionInfo.fullVersion, fullVersion);
       expect(versionInfo.release, release);

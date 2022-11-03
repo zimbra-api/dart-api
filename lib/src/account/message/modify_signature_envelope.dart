@@ -13,6 +13,4 @@ class ModifySignatureEnvelope extends SoapEnvelope {
   factory ModifySignatureEnvelope.fromMap(Map<String, dynamic> data) =>
       ModifySignatureEnvelope(ModifySignatureBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  ModifySignatureBody get modifySignatureBody => body as ModifySignatureBody;
 }

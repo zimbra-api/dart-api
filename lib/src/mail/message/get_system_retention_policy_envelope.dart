@@ -14,6 +14,4 @@ class GetSystemRetentionPolicyEnvelope extends SoapEnvelope {
   factory GetSystemRetentionPolicyEnvelope.fromMap(Map<String, dynamic> data) =>
       GetSystemRetentionPolicyEnvelope(GetSystemRetentionPolicyBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  GetSystemRetentionPolicyBody get getSystemRetentionPolicyBody => body as GetSystemRetentionPolicyBody;
 }

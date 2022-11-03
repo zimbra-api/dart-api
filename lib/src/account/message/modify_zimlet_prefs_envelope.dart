@@ -13,6 +13,4 @@ class ModifyZimletPrefsEnvelope extends SoapEnvelope {
   factory ModifyZimletPrefsEnvelope.fromMap(Map<String, dynamic> data) =>
       ModifyZimletPrefsEnvelope(ModifyZimletPrefsBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  ModifyZimletPrefsBody get modifyZimletPrefsBody => body as ModifyZimletPrefsBody;
 }

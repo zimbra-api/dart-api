@@ -3,6 +3,7 @@ import 'package:test/test.dart';
 import 'package:zimbra_api/src/common/enum/mail_item_type.dart';
 import 'package:zimbra_api/src/mail/message/imap_copy_envelope.dart';
 import 'package:zimbra_api/src/mail/message/imap_copy_request.dart';
+import 'package:zimbra_api/src/mail/message/imap_copy_response.dart';
 
 void main() {
   final faker = Faker();
@@ -46,7 +47,7 @@ void main() {
         }
       };
       final envelope = IMAPCopyEnvelope.fromMap(data);
-      final response = envelope.imapCopyBody.imapCopyResponse!;
+      final response = envelope.body.response as IMAPCopyResponse;
       final item = response.items.first;
 
       expect(item.id, id);

@@ -2,6 +2,7 @@ import 'package:faker/faker.dart';
 import 'package:test/test.dart';
 import 'package:zimbra_api/src/mail/message/diff_document_envelope.dart';
 import 'package:zimbra_api/src/mail/message/diff_document_request.dart';
+import 'package:zimbra_api/src/mail/message/diff_document_response.dart';
 import 'package:zimbra_api/src/mail/type/diff_document_version_spec.dart';
 
 void main() {
@@ -50,7 +51,7 @@ void main() {
         }
       };
       final envelope = DiffDocumentEnvelope.fromMap(data);
-      final response = envelope.diffDocumentBody.diffDocumentResponse!;
+      final response = envelope.body.response as DiffDocumentResponse;
       final chunk = response.chunks.first;
 
       expect(chunk.disposition, disposition);

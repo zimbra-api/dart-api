@@ -18,10 +18,6 @@ class RecordIMAPSessionBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  RecordIMAPSessionRequest? get recordIMAPSessionRequest => request as RecordIMAPSessionRequest?;
-
-  RecordIMAPSessionResponse? get recordIMAPSessionResponse => response as RecordIMAPSessionResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'RecordIMAPSessionRequest': request!.toMap(),

@@ -2,6 +2,7 @@ import 'package:faker/faker.dart';
 import 'package:test/test.dart';
 import 'package:zimbra_api/src/account/message/get_rights_envelope.dart';
 import 'package:zimbra_api/src/account/message/get_rights_request.dart';
+import 'package:zimbra_api/src/account/message/get_rights_response.dart';
 import 'package:zimbra_api/src/account/type/right.dart';
 import 'package:zimbra_api/src/common/enum/grantee_type.dart';
 
@@ -56,7 +57,7 @@ void main() {
         },
       };
       final envelope = GetRightsEnvelope.fromMap(data);
-      final response = envelope.getRightsBody.getRightsResponse!;
+      final response = envelope.body.response as GetRightsResponse;
       final ace = response.aces.first;
 
       expect(ace.granteeType, GranteeType.usr);

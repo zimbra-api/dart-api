@@ -7,6 +7,7 @@ import 'package:zimbra_api/src/common/enum/grantee_type.dart';
 import 'package:zimbra_api/src/common/enum/policy_type.dart';
 import 'package:zimbra_api/src/mail/message/folder_action_envelope.dart';
 import 'package:zimbra_api/src/mail/message/folder_action_request.dart';
+import 'package:zimbra_api/src/mail/message/folder_action_response.dart';
 import 'package:zimbra_api/src/mail/type/action_grant_selector.dart';
 import 'package:zimbra_api/src/mail/type/folder_action_selector.dart';
 import 'package:zimbra_api/src/mail/type/policy.dart';
@@ -214,7 +215,7 @@ void main() {
         }
       };
       final envelope = FolderActionEnvelope.fromMap(data);
-      final response = envelope.folderActionBody.folderActionResponse!;
+      final response = envelope.body.response as FolderActionResponse;
       final action = response.action!;
 
       expect(action.id, id);

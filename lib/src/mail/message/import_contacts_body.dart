@@ -18,10 +18,6 @@ class ImportContactsBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  ImportContactsRequest? get importContactsRequest => request as ImportContactsRequest?;
-
-  ImportContactsResponse? get importContactsResponse => response as ImportContactsResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'ImportContactsRequest': request!.toMap(),

@@ -8,6 +8,7 @@ import 'package:zimbra_api/src/common/enum/search_sort_by.dart';
 import 'package:zimbra_api/src/common/enum/view_type.dart';
 import 'package:zimbra_api/src/mail/message/create_folder_envelope.dart';
 import 'package:zimbra_api/src/mail/message/create_folder_request.dart';
+import 'package:zimbra_api/src/mail/message/create_folder_response.dart';
 import 'package:zimbra_api/src/mail/type/action_grant_selector.dart';
 import 'package:zimbra_api/src/mail/type/folder.dart';
 import 'package:zimbra_api/src/mail/type/new_folder_spec.dart';
@@ -278,7 +279,7 @@ void main() {
         }
       };
       final envelope = CreateFolderEnvelope.fromMap(data);
-      final response = envelope.createFolderBody.createFolderResponse!;
+      final response = envelope.body.response as CreateFolderResponse;
 
       final folder = response.folder!;
       expect(folder.id, id);

@@ -18,10 +18,6 @@ class AddAppointmentInviteBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  AddAppointmentInviteRequest? get addAppointmentInviteRequest => request as AddAppointmentInviteRequest?;
-
-  AddAppointmentInviteResponse? get addAppointmentInviteResponse => response as AddAppointmentInviteResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'AddAppointmentInviteRequest': request!.toMap(),

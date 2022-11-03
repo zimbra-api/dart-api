@@ -13,6 +13,4 @@ class VerifyCodeEnvelope extends SoapEnvelope {
   factory VerifyCodeEnvelope.fromMap(Map<String, dynamic> data) =>
       VerifyCodeEnvelope(VerifyCodeBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  VerifyCodeBody get verifyCodeBody => body as VerifyCodeBody;
 }

@@ -2,6 +2,7 @@ import 'package:faker/faker.dart';
 import 'package:test/test.dart';
 import 'package:zimbra_api/src/mail/message/get_comments_envelope.dart';
 import 'package:zimbra_api/src/mail/message/get_comments_request.dart';
+import 'package:zimbra_api/src/mail/message/get_comments_response.dart';
 import 'package:zimbra_api/src/mail/type/parent_id.dart';
 
 void main() {
@@ -82,7 +83,7 @@ void main() {
         }
       };
       final envelope = GetCommentsEnvelope.fromMap(data);
-      final response = envelope.getCommentsBody.getCommentsResponse!;
+      final response = envelope.body.response as GetCommentsResponse;
 
       final user = response.users.first;
       expect(user.id, id);

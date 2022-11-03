@@ -14,6 +14,4 @@ class ModifyMailboxMetadataEnvelope extends SoapEnvelope {
   factory ModifyMailboxMetadataEnvelope.fromMap(Map<String, dynamic> data) =>
       ModifyMailboxMetadataEnvelope(ModifyMailboxMetadataBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  ModifyMailboxMetadataBody get modifyMailboxMetadataBody => body as ModifyMailboxMetadataBody;
 }

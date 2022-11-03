@@ -14,6 +14,4 @@ class ListIMAPSubscriptionsEnvelope extends SoapEnvelope {
   factory ListIMAPSubscriptionsEnvelope.fromMap(Map<String, dynamic> data) =>
       ListIMAPSubscriptionsEnvelope(ListIMAPSubscriptionsBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  ListIMAPSubscriptionsBody get listIMAPSubscriptionsBody => body as ListIMAPSubscriptionsBody;
 }

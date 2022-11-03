@@ -16,10 +16,6 @@ class TagActionBody extends SoapBody {
       response: data['TagActionResponse'] != null ? TagActionResponse.fromMap(data['TagActionResponse']) : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  TagActionRequest? get tagActionRequest => request as TagActionRequest?;
-
-  TagActionResponse? get tagActionResponse => response as TagActionResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'TagActionRequest': request!.toMap(),

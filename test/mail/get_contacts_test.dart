@@ -5,6 +5,7 @@ import 'package:zimbra_api/src/common/type/attribute_name.dart';
 import 'package:zimbra_api/src/common/type/id.dart';
 import 'package:zimbra_api/src/mail/message/get_contacts_envelope.dart';
 import 'package:zimbra_api/src/mail/message/get_contacts_request.dart';
+import 'package:zimbra_api/src/mail/message/get_contacts_response.dart';
 
 void main() {
   final faker = Faker();
@@ -185,7 +186,7 @@ void main() {
         }
       };
       final envelope = GetContactsEnvelope.fromMap(data);
-      final response = envelope.getContactsBody.getContactsResponse!;
+      final response = envelope.body.response as GetContactsResponse;
       final contact = response.contacts.first;
 
       expect(contact.sortField, sortField);

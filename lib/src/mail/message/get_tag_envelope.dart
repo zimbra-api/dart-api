@@ -12,6 +12,4 @@ class GetTagEnvelope extends SoapEnvelope {
 
   factory GetTagEnvelope.fromMap(Map<String, dynamic> data) => GetTagEnvelope(GetTagBody.fromMap(data['Body']),
       header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  GetTagBody get getTagBody => body as GetTagBody;
 }

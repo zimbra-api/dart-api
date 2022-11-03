@@ -16,10 +16,6 @@ class ImportDataBody extends SoapBody {
       response: data['ImportDataResponse'] != null ? ImportDataResponse.fromMap(data['ImportDataResponse']) : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  ImportDataRequest? get importDataRequest => request as ImportDataRequest?;
-
-  ImportDataResponse? get importDataResponse => response as ImportDataResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'ImportDataRequest': request!.toMap(),

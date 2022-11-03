@@ -18,10 +18,6 @@ class ForwardAppointmentBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  ForwardAppointmentRequest? get forwardAppointmentRequest => request as ForwardAppointmentRequest?;
-
-  ForwardAppointmentResponse? get forwardAppointmentResponse => response as ForwardAppointmentResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'ForwardAppointmentRequest': request!.toMap(),

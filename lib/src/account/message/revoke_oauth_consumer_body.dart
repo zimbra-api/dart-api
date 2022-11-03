@@ -18,10 +18,6 @@ class RevokeOAuthConsumerBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  RevokeOAuthConsumerRequest? get revokeOAuthConsumerRequest => request as RevokeOAuthConsumerRequest?;
-
-  RevokeOAuthConsumerResponse? get revokeOAuthConsumerResponse => response as RevokeOAuthConsumerResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'RevokeOAuthConsumerRequest': request!.toMap(),

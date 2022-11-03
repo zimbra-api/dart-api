@@ -2,6 +2,7 @@ import 'package:faker/faker.dart';
 import 'package:test/test.dart';
 import 'package:zimbra_api/src/mail/message/get_last_item_id_in_mailbox_envelope.dart';
 import 'package:zimbra_api/src/mail/message/get_last_item_id_in_mailbox_request.dart';
+import 'package:zimbra_api/src/mail/message/get_last_item_id_in_mailbox_response.dart';
 
 void main() {
   final faker = Faker();
@@ -29,7 +30,7 @@ void main() {
         }
       };
       final envelope = GetLastItemIdInMailboxEnvelope.fromMap(data);
-      final response = envelope.getLastItemIdInMailboxBody.getLastItemIdInMailboxResponse!;
+      final response = envelope.body.response as GetLastItemIdInMailboxResponse;
       expect(response.id, id);
     }));
   }));

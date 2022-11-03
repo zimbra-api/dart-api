@@ -14,6 +14,4 @@ class ListDocumentRevisionsEnvelope extends SoapEnvelope {
   factory ListDocumentRevisionsEnvelope.fromMap(Map<String, dynamic> data) =>
       ListDocumentRevisionsEnvelope(ListDocumentRevisionsBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  ListDocumentRevisionsBody get listDocumentRevisionsBody => body as ListDocumentRevisionsBody;
 }

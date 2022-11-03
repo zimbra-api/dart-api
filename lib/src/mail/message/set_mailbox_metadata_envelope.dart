@@ -13,6 +13,4 @@ class SetMailboxMetadataEnvelope extends SoapEnvelope {
   factory SetMailboxMetadataEnvelope.fromMap(Map<String, dynamic> data) =>
       SetMailboxMetadataEnvelope(SetMailboxMetadataBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  SetMailboxMetadataBody get setMailboxMetadataBody => body as SetMailboxMetadataBody;
 }

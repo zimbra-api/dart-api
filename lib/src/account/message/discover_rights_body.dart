@@ -18,10 +18,6 @@ class DiscoverRightsBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  DiscoverRightsRequest? get discoverRightsRequest => request as DiscoverRightsRequest?;
-
-  DiscoverRightsResponse? get discoverRightsResponse => response as DiscoverRightsResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'DiscoverRightsRequest': request!.toMap(),

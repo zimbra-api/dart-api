@@ -2,6 +2,7 @@ import 'package:faker/faker.dart';
 import 'package:test/test.dart';
 import 'package:zimbra_api/src/mail/message/generate_uuid_envelope.dart';
 import 'package:zimbra_api/src/mail/message/generate_uuid_request.dart';
+import 'package:zimbra_api/src/mail/message/generate_uuid_response.dart';
 
 void main() {
   final faker = Faker();
@@ -29,7 +30,8 @@ void main() {
         }
       };
       final envelope = GenerateUUIDEnvelope.fromMap(data);
-      expect(envelope.generateUUIDBody.generateUUIDResponse!.uuid, uuid);
+      final response = envelope.body.response as GenerateUUIDResponse;
+      expect(response.uuid, uuid);
     }));
   }));
 }

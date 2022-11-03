@@ -18,10 +18,6 @@ class ModifyPropertiesBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  ModifyPropertiesRequest? get modifyPropertiesRequest => request as ModifyPropertiesRequest?;
-
-  ModifyPropertiesResponse? get modifyPropertiesResponse => response as ModifyPropertiesResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'ModifyPropertiesRequest': request!.toMap(),

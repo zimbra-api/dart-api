@@ -18,10 +18,6 @@ class GetModifiedItemsIDsBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  GetModifiedItemsIDsRequest? get getModifiedItemsIDsRequest => request as GetModifiedItemsIDsRequest?;
-
-  GetModifiedItemsIDsResponse? get getModifiedItemsIDsResponse => response as GetModifiedItemsIDsResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'GetModifiedItemsIDsRequest': request!.toMap(),

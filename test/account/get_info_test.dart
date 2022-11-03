@@ -2,6 +2,7 @@ import 'package:faker/faker.dart';
 import 'package:test/test.dart';
 import 'package:zimbra_api/src/account/message/get_info_envelope.dart';
 import 'package:zimbra_api/src/account/message/get_info_request.dart';
+import 'package:zimbra_api/src/account/message/get_info_response.dart';
 import 'package:zimbra_api/src/common/enum/connection_type.dart';
 import 'package:zimbra_api/src/common/enum/content_type.dart';
 import 'package:zimbra_api/src/common/enum/target_type.dart';
@@ -320,7 +321,7 @@ void main() {
         }
       };
       final envelope = GetInfoEnvelope.fromMap(data);
-      final response = envelope.getInfoBody.getInfoResponse!;
+      final response = envelope.body.response as GetInfoResponse;
 
       expect(response.attachmentSizeLimit, attachmentSizeLimit);
       expect(response.documentSizeLimit, documentSizeLimit);

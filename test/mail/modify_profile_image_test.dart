@@ -2,6 +2,7 @@ import 'package:faker/faker.dart';
 import 'package:test/test.dart';
 import 'package:zimbra_api/src/mail/message/modify_profile_image_envelope.dart';
 import 'package:zimbra_api/src/mail/message/modify_profile_image_request.dart';
+import 'package:zimbra_api/src/mail/message/modify_profile_image_response.dart';
 
 void main() {
   final faker = Faker();
@@ -34,7 +35,7 @@ void main() {
         }
       };
       final envelope = ModifyProfileImageEnvelope.fromMap(data);
-      final response = envelope.modifyProfileImageBody.modifyProfileImageResponse!;
+      final response = envelope.body.response as ModifyProfileImageResponse;
       expect(response.itemId, itemId);
     }));
   }));

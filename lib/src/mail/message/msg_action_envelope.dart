@@ -12,7 +12,5 @@ class MsgActionEnvelope extends SoapEnvelope {
 
   factory MsgActionEnvelope.fromMap(Map<String, dynamic> data) =>
       MsgActionEnvelope(MsgActionBody.fromMap(data['Body']),
-          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  MsgActionBody get msgActionBody => body as MsgActionBody;
+      header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 }

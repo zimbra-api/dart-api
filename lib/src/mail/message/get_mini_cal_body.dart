@@ -16,10 +16,6 @@ class GetMiniCalBody extends SoapBody {
       response: data['GetMiniCalResponse'] != null ? GetMiniCalResponse.fromMap(data['GetMiniCalResponse']) : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  GetMiniCalRequest? get getMiniCalRequest => request as GetMiniCalRequest?;
-
-  GetMiniCalResponse? get getMiniCalResponse => response as GetMiniCalResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'GetMiniCalRequest': request!.toMap(),

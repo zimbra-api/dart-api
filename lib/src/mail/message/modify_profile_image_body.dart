@@ -18,10 +18,6 @@ class ModifyProfileImageBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  ModifyProfileImageRequest? get modifyProfileImageRequest => request as ModifyProfileImageRequest?;
-
-  ModifyProfileImageResponse? get modifyProfileImageResponse => response as ModifyProfileImageResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'ModifyProfileImageRequest': request!.toMap(),

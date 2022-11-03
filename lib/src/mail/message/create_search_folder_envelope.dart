@@ -13,6 +13,4 @@ class CreateSearchFolderEnvelope extends SoapEnvelope {
   factory CreateSearchFolderEnvelope.fromMap(Map<String, dynamic> data) =>
       CreateSearchFolderEnvelope(CreateSearchFolderBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  CreateSearchFolderBody get createSearchFolderBody => body as CreateSearchFolderBody;
 }

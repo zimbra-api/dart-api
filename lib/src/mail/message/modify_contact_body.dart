@@ -17,10 +17,6 @@ class ModifyContactBody extends SoapBody {
           data['ModifyContactResponse'] != null ? ModifyContactResponse.fromMap(data['ModifyContactResponse']) : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  ModifyContactRequest? get modifyContactRequest => request as ModifyContactRequest?;
-
-  ModifyContactResponse? get modifyContactResponse => response as ModifyContactResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'ModifyContactRequest': request!.toMap(),

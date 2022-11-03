@@ -16,10 +16,6 @@ class GetFolderBody extends SoapBody {
       response: data['GetFolderResponse'] != null ? GetFolderResponse.fromMap(data['GetFolderResponse']) : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  GetFolderRequest? get getFolderRequest => request as GetFolderRequest?;
-
-  GetFolderResponse? get getFolderResponse => response as GetFolderResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'GetFolderRequest': request!.toMap(),

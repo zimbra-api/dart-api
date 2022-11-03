@@ -2,6 +2,7 @@ import 'package:faker/faker.dart';
 import 'package:test/test.dart';
 import 'package:zimbra_api/src/account/message/get_oauth_consumers_envelope.dart';
 import 'package:zimbra_api/src/account/message/get_oauth_consumers_request.dart';
+import 'package:zimbra_api/src/account/message/get_oauth_consumers_response.dart';
 
 void main() {
   final faker = Faker();
@@ -41,7 +42,7 @@ void main() {
         }
       };
       final envelope = GetOAuthConsumersEnvelope.fromMap(data);
-      final response = envelope.getOAuthConsumersBody.getOAuthConsumersResponse!;
+      final response = envelope.body.response as GetOAuthConsumersResponse;
       final consumer = response.consumers.first;
 
       expect(consumer.accessToken, accessToken);

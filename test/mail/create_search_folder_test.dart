@@ -7,6 +7,7 @@ import 'package:zimbra_api/src/common/enum/search_sort_by.dart';
 import 'package:zimbra_api/src/common/enum/view_type.dart';
 import 'package:zimbra_api/src/mail/message/create_search_folder_envelope.dart';
 import 'package:zimbra_api/src/mail/message/create_search_folder_request.dart';
+import 'package:zimbra_api/src/mail/message/create_search_folder_response.dart';
 import 'package:zimbra_api/src/mail/type/folder.dart';
 import 'package:zimbra_api/src/mail/type/new_search_folder_spec.dart';
 
@@ -224,7 +225,7 @@ void main() {
         }
       };
       final envelope = CreateSearchFolderEnvelope.fromMap(data);
-      final response = envelope.createSearchFolderBody.createSearchFolderResponse!;
+      final response = envelope.body.response as CreateSearchFolderResponse;
 
       final searchFolder = response.searchFolder!;
       expect(searchFolder.id, id);

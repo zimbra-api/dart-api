@@ -35,9 +35,8 @@ void main() {
         }
       };
       final envelope = SaveIMAPSubscriptionsEnvelope.fromMap(data);
-      final response = envelope.saveIMAPSubscriptionsBody.saveIMAPSubscriptionsResponse;
-      expect(response, isNotNull);
-      expect(response, isA<SaveIMAPSubscriptionsResponse>());
+      expect(envelope.body.response, isNotNull);
+      expect(envelope.body.response, isA<SaveIMAPSubscriptionsResponse>());
     }));
   }));
 }

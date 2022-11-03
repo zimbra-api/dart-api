@@ -16,10 +16,6 @@ class CheckRightsBody extends SoapBody {
       response: data['CheckRightsResponse'] != null ? CheckRightsResponse.fromMap(data['CheckRightsResponse']) : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  CheckRightsRequest? get checkRightsRequest => request as CheckRightsRequest?;
-
-  CheckRightsResponse? get checkRightsResponse => response as CheckRightsResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'CheckRightsRequest': request!.toMap(),

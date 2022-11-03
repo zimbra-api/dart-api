@@ -2,6 +2,7 @@ import 'package:faker/faker.dart';
 import 'package:test/test.dart';
 import 'package:zimbra_api/src/mail/message/get_import_status_envelope.dart';
 import 'package:zimbra_api/src/mail/message/get_import_status_request.dart';
+import 'package:zimbra_api/src/mail/message/get_import_status_response.dart';
 
 void main() {
   final faker = Faker();
@@ -96,7 +97,7 @@ void main() {
         }
       };
       final envelope = GetImportStatusEnvelope.fromMap(data);
-      final response = envelope.getImportStatusBody.getImportStatusResponse!;
+      final response = envelope.body.response as GetImportStatusResponse;
 
       final imap = response.imapStatuses.first;
       expect(imap.id, id);

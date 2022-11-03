@@ -14,6 +14,4 @@ class ResetRecentMessageCountEnvelope extends SoapEnvelope {
   factory ResetRecentMessageCountEnvelope.fromMap(Map<String, dynamic> data) =>
       ResetRecentMessageCountEnvelope(ResetRecentMessageCountBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  ResetRecentMessageCountBody get resetRecentMessageCountBody => body as ResetRecentMessageCountBody;
 }

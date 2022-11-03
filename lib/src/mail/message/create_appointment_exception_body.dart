@@ -19,12 +19,6 @@ class CreateAppointmentExceptionBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  CreateAppointmentExceptionRequest? get createAppointmentExceptionRequest =>
-      request as CreateAppointmentExceptionRequest?;
-
-  CreateAppointmentExceptionResponse? get createAppointmentExceptionResponse =>
-      response as CreateAppointmentExceptionResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'CreateAppointmentExceptionRequest': request!.toMap(),

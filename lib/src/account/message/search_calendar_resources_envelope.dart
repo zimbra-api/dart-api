@@ -14,6 +14,4 @@ class SearchCalendarResourcesEnvelope extends SoapEnvelope {
   factory SearchCalendarResourcesEnvelope.fromMap(Map<String, dynamic> data) =>
       SearchCalendarResourcesEnvelope(SearchCalendarResourcesBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  SearchCalendarResourcesBody get searchCalendarResourcesBody => body as SearchCalendarResourcesBody;
 }

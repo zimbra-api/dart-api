@@ -3,6 +3,7 @@ import 'package:test/test.dart';
 import 'package:zimbra_api/src/common/enum/connection_type.dart';
 import 'package:zimbra_api/src/mail/message/test_data_source_envelope.dart';
 import 'package:zimbra_api/src/mail/message/test_data_source_request.dart';
+import 'package:zimbra_api/src/mail/message/test_data_source_response.dart';
 import 'package:zimbra_api/src/mail/type/mail_cal_data_source.dart';
 import 'package:zimbra_api/src/mail/type/mail_caldav_data_source.dart';
 import 'package:zimbra_api/src/mail/type/mail_gal_data_source.dart';
@@ -676,7 +677,7 @@ void main() {
         }
       };
       final envelope = TestDataSourceEnvelope.fromMap(data);
-      final response = envelope.testDataSourceBody.testDataSourceResponse!;
+      final response = envelope.body.response as TestDataSourceResponse;
 
       final imap = response.imapDataSources.first;
       expect(imap.success, success);

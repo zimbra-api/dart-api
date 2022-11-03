@@ -4,6 +4,7 @@ import 'package:zimbra_api/src/common/enum/account_by.dart';
 import 'package:zimbra_api/src/common/enum/target_type.dart';
 import 'package:zimbra_api/src/mail/message/check_permission_envelope.dart';
 import 'package:zimbra_api/src/mail/message/check_permission_request.dart';
+import 'package:zimbra_api/src/mail/message/check_permission_response.dart';
 import 'package:zimbra_api/src/mail/type/target_spec.dart';
 
 void main() {
@@ -57,7 +58,7 @@ void main() {
         }
       };
       final envelope = CheckPermissionEnvelope.fromMap(data);
-      final response = envelope.checkPermissionBody.checkPermissionResponse!;
+      final response = envelope.body.response as CheckPermissionResponse;
 
       expect(response.allow, allow);
       expect(response.rights.first.allow, allow);

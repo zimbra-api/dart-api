@@ -13,6 +13,4 @@ class EndSessionEnvelope extends SoapEnvelope {
   factory EndSessionEnvelope.fromMap(Map<String, dynamic> data) =>
       EndSessionEnvelope(EndSessionBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  EndSessionBody get endSessionBody => body as EndSessionBody;
 }

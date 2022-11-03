@@ -2,6 +2,7 @@ import 'package:faker/faker.dart';
 import 'package:test/test.dart';
 import 'package:zimbra_api/src/account/message/get_identities_envelope.dart';
 import 'package:zimbra_api/src/account/message/get_identities_request.dart';
+import 'package:zimbra_api/src/account/message/get_identities_response.dart';
 
 void main() {
   final faker = Faker();
@@ -47,7 +48,7 @@ void main() {
         }
       };
       final envelope = GetIdentitiesEnvelope.fromMap(data);
-      final response = envelope.getIdentitiesBody.getIdentitiesResponse!;
+      final response = envelope.body.response as GetIdentitiesResponse;
       final identity = response.identities.first;
 
       expect(identity.name, email);

@@ -13,6 +13,4 @@ class AddCommentEnvelope extends SoapEnvelope {
   factory AddCommentEnvelope.fromMap(Map<String, dynamic> data) =>
       AddCommentEnvelope(AddCommentBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  AddCommentBody get addCommentBody => body as AddCommentBody;
 }

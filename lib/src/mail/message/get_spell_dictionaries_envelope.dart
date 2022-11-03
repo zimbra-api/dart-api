@@ -13,6 +13,4 @@ class GetSpellDictionariesEnvelope extends SoapEnvelope {
   factory GetSpellDictionariesEnvelope.fromMap(Map<String, dynamic> data) =>
       GetSpellDictionariesEnvelope(GetSpellDictionariesBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  GetSpellDictionariesBody get getSpellDictionariesBody => body as GetSpellDictionariesBody;
 }

@@ -18,10 +18,6 @@ class GetCustomMetadataBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  GetCustomMetadataRequest? get getCustomMetadataRequest => request as GetCustomMetadataRequest?;
-
-  GetCustomMetadataResponse? get getCustomMetadataResponse => response as GetCustomMetadataResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'GetCustomMetadataRequest': request!.toMap(),

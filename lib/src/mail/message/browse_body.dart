@@ -16,10 +16,6 @@ class BrowseBody extends SoapBody {
       response: data['BrowseResponse'] != null ? BrowseResponse.fromMap(data['BrowseResponse']) : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  BrowseRequest? get browseRequest => request as BrowseRequest?;
-
-  BrowseResponse? get browseResponse => response as BrowseResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'BrowseRequest': request!.toMap(),

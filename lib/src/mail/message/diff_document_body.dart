@@ -17,10 +17,6 @@ class DiffDocumentBody extends SoapBody {
           data['DiffDocumentResponse'] != null ? DiffDocumentResponse.fromMap(data['DiffDocumentResponse']) : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  DiffDocumentRequest? get diffDocumentRequest => request as DiffDocumentRequest?;
-
-  DiffDocumentResponse? get diffDocumentResponse => response as DiffDocumentResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'DiffDocumentRequest': request!.toMap(),

@@ -17,10 +17,6 @@ class GetAllLocalesBody extends SoapBody {
           data['GetAllLocalesResponse'] != null ? GetAllLocalesResponse.fromMap(data['GetAllLocalesResponse']) : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  GetAllLocalesRequest? get getAllLocalesRequest => request as GetAllLocalesRequest?;
-
-  GetAllLocalesResponse? get getAllLocalesResponse => response as GetAllLocalesResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'GetAllLocalesRequest': request!.toMap(),

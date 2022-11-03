@@ -13,6 +13,4 @@ class RevokeRightsEnvelope extends SoapEnvelope {
   factory RevokeRightsEnvelope.fromMap(Map<String, dynamic> data) =>
       RevokeRightsEnvelope(RevokeRightsBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  RevokeRightsBody get revokeRightsBody => body as RevokeRightsBody;
 }

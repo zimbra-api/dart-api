@@ -3,6 +3,7 @@ import 'package:test/test.dart';
 import 'package:zimbra_api/src/common/enum/grantee_type.dart';
 import 'package:zimbra_api/src/mail/message/revoke_permission_envelope.dart';
 import 'package:zimbra_api/src/mail/message/revoke_permission_request.dart';
+import 'package:zimbra_api/src/mail/message/revoke_permission_response.dart';
 import 'package:zimbra_api/src/mail/type/account_ace_info.dart';
 
 void main() {
@@ -75,7 +76,7 @@ void main() {
         }
       };
       final envelope = RevokePermissionEnvelope.fromMap(data);
-      final response = envelope.revokePermissionBody.revokePermissionResponse!;
+      final response = envelope.body.response as RevokePermissionResponse;
       final ace = response.aces.first;
 
       expect(ace.granteeType, GranteeType.all);

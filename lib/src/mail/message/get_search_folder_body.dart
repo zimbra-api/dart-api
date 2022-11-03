@@ -18,10 +18,6 @@ class GetSearchFolderBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  GetSearchFolderRequest? get getSearchFolderRequest => request as GetSearchFolderRequest?;
-
-  GetSearchFolderResponse? get getSearchFolderResponse => response as GetSearchFolderResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'GetSearchFolderRequest': request!.toMap(),

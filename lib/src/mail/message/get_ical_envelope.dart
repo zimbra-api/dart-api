@@ -12,6 +12,4 @@ class GetICalEnvelope extends SoapEnvelope {
 
   factory GetICalEnvelope.fromMap(Map<String, dynamic> data) => GetICalEnvelope(GetICalBody.fromMap(data['Body']),
       header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  GetICalBody get getICalBody => body as GetICalBody;
 }

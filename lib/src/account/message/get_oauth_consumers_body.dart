@@ -18,10 +18,6 @@ class GetOAuthConsumersBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  GetOAuthConsumersRequest? get getOAuthConsumersRequest => request as GetOAuthConsumersRequest?;
-
-  GetOAuthConsumersResponse? get getOAuthConsumersResponse => response as GetOAuthConsumersResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'GetOAuthConsumersRequest': request!.toMap(),

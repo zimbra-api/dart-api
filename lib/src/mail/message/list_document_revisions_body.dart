@@ -19,10 +19,6 @@ class ListDocumentRevisionsBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  ListDocumentRevisionsRequest? get listDocumentRevisionsRequest => request as ListDocumentRevisionsRequest?;
-
-  ListDocumentRevisionsResponse? get listDocumentRevisionsResponse => response as ListDocumentRevisionsResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'ListDocumentRevisionsRequest': request!.toMap(),

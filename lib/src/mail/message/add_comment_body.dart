@@ -16,10 +16,6 @@ class AddCommentBody extends SoapBody {
       response: data['AddCommentResponse'] != null ? AddCommentResponse.fromMap(data['AddCommentResponse']) : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  AddCommentRequest? get addCommentRequest => request as AddCommentRequest?;
-
-  AddCommentResponse? get addCommentResponse => response as AddCommentResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'AddCommentRequest': request!.toMap(),

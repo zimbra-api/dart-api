@@ -16,10 +16,6 @@ class GetICalBody extends SoapBody {
       response: data['GetICalResponse'] != null ? GetICalResponse.fromMap(data['GetICalResponse']) : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  GetICalRequest? get getICalRequest => request as GetICalRequest?;
-
-  GetICalResponse? get getICalResponse => response as GetICalResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'GetICalRequest': request!.toMap(),

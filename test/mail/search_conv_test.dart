@@ -23,6 +23,7 @@ import 'package:zimbra_api/src/common/type/cursor_info.dart';
 import 'package:zimbra_api/src/common/type/tz_onset_info.dart';
 import 'package:zimbra_api/src/mail/message/search_conv_envelope.dart';
 import 'package:zimbra_api/src/mail/message/search_conv_request.dart';
+import 'package:zimbra_api/src/mail/message/search_conv_response.dart';
 import 'package:zimbra_api/src/mail/type/add_recurrence_info.dart';
 import 'package:zimbra_api/src/mail/type/cal_tz_info.dart';
 import 'package:zimbra_api/src/mail/type/exclude_recurrence_info.dart';
@@ -1292,7 +1293,7 @@ void main() {
         }
       };
       final envelope = SearchConvEnvelope.fromMap(data);
-      final response = envelope.searchConvBody.searchConvResponse!;
+      final response = envelope.body.response as SearchConvResponse;
 
       expect(response.sortBy, sortBy);
       expect(response.queryOffset, queryOffset);

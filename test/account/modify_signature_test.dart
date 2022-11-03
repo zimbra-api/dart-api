@@ -49,8 +49,8 @@ void main() {
         }
       };
       final envelope = ModifySignatureEnvelope.fromMap(data);
-      expect(envelope.modifySignatureBody.modifySignatureResponse, isNotNull);
-      expect(envelope.modifySignatureBody.modifySignatureResponse, isA<ModifySignatureResponse>());
+      expect(envelope.body.response, isNotNull);
+      expect(envelope.body.response, isA<ModifySignatureResponse>());
     }));
   }));
 }

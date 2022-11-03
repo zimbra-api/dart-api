@@ -56,9 +56,8 @@ void main() {
         }
       };
       final envelope = SendShareNotificationEnvelope.fromMap(data);
-      final response = envelope.sendShareNotificationBody.sendShareNotificationResponse;
-      expect(response, isNotNull);
-      expect(response, isA<SendShareNotificationResponse>());
+      expect(envelope.body.response, isNotNull);
+      expect(envelope.body.response, isA<SendShareNotificationResponse>());
     }));
   }));
 }

@@ -18,10 +18,6 @@ class CancelAppointmentBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  CancelAppointmentRequest? get cancelAppointmentRequest => request as CancelAppointmentRequest?;
-
-  CancelAppointmentResponse? get cancelAppointmentResponse => response as CancelAppointmentResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'CancelAppointmentRequest': request!.toMap(),

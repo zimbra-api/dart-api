@@ -13,6 +13,4 @@ class GenerateUUIDEnvelope extends SoapEnvelope {
   factory GenerateUUIDEnvelope.fromMap(Map<String, dynamic> data) =>
       GenerateUUIDEnvelope(GenerateUUIDBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  GenerateUUIDBody get generateUUIDBody => body as GenerateUUIDBody;
 }

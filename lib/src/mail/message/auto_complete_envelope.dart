@@ -13,6 +13,4 @@ class AutoCompleteEnvelope extends SoapEnvelope {
   factory AutoCompleteEnvelope.fromMap(Map<String, dynamic> data) =>
       AutoCompleteEnvelope(AutoCompleteBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  AutoCompleteBody get autoCompleteBody => body as AutoCompleteBody;
 }

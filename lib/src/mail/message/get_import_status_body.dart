@@ -18,10 +18,6 @@ class GetImportStatusBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  GetImportStatusRequest? get getImportStatusRequest => request as GetImportStatusRequest?;
-
-  GetImportStatusResponse? get getImportStatusResponse => response as GetImportStatusResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'GetImportStatusRequest': request!.toMap(),

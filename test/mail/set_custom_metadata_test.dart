@@ -3,6 +3,7 @@ import 'package:test/test.dart';
 import 'package:zimbra_api/src/common/type/key_value_pair.dart';
 import 'package:zimbra_api/src/mail/message/set_custom_metadata_envelope.dart';
 import 'package:zimbra_api/src/mail/message/set_custom_metadata_request.dart';
+import 'package:zimbra_api/src/mail/message/set_custom_metadata_response.dart';
 import 'package:zimbra_api/src/mail/type/mail_custom_metadata.dart';
 
 void main() {
@@ -52,7 +53,7 @@ void main() {
         }
       };
       final envelope = SetCustomMetadataEnvelope.fromMap(data);
-      final response = envelope.setCustomMetadataBody.setCustomMetadataResponse!;
+      final response = envelope.body.response as SetCustomMetadataResponse;
       expect(response.id, id);
     }));
   }));

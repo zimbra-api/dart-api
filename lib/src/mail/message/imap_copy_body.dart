@@ -16,10 +16,6 @@ class IMAPCopyBody extends SoapBody {
       response: data['IMAPCopyResponse'] != null ? IMAPCopyResponse.fromMap(data['IMAPCopyResponse']) : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  IMAPCopyRequest? get imapCopyRequest => request as IMAPCopyRequest?;
-
-  IMAPCopyResponse? get imapCopyResponse => response as IMAPCopyResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'IMAPCopyRequest': request!.toMap(),

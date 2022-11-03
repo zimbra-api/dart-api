@@ -13,6 +13,4 @@ class GetAvailableLocalesEnvelope extends SoapEnvelope {
   factory GetAvailableLocalesEnvelope.fromMap(Map<String, dynamic> data) =>
       GetAvailableLocalesEnvelope(GetAvailableLocalesBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  GetAvailableLocalesBody get getAvailableLocalesBody => body as GetAvailableLocalesBody;
 }

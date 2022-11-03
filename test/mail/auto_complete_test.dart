@@ -2,6 +2,7 @@ import 'package:faker/faker.dart';
 import 'package:test/test.dart';
 import 'package:zimbra_api/src/common/enum/auto_complete_match_type.dart';
 import 'package:zimbra_api/src/common/enum/gal_search_type.dart';
+import 'package:zimbra_api/src/mail/message.dart';
 import 'package:zimbra_api/src/mail/message/auto_complete_envelope.dart';
 import 'package:zimbra_api/src/mail/message/auto_complete_request.dart';
 
@@ -81,7 +82,7 @@ void main() {
         }
       };
       final envelope = AutoCompleteEnvelope.fromMap(data);
-      final response = envelope.autoCompleteBody.autoCompleteResponse!;
+      final response = envelope.body.response as AutoCompleteResponse;
 
       expect(response.canBeCached, canBeCached);
 

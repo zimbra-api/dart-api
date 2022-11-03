@@ -19,10 +19,6 @@ class GetOutgoingFilterRulesBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  GetOutgoingFilterRulesRequest? get getOutgoingFilterRulesRequest => request as GetOutgoingFilterRulesRequest?;
-
-  GetOutgoingFilterRulesResponse? get getOutgoingFilterRulesResponse => response as GetOutgoingFilterRulesResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'GetOutgoingFilterRulesRequest': request!.toMap(),

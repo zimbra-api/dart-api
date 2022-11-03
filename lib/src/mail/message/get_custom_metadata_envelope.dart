@@ -13,6 +13,4 @@ class GetCustomMetadataEnvelope extends SoapEnvelope {
   factory GetCustomMetadataEnvelope.fromMap(Map<String, dynamic> data) =>
       GetCustomMetadataEnvelope(GetCustomMetadataBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  GetCustomMetadataBody get getCustomMetadataBody => body as GetCustomMetadataBody;
 }

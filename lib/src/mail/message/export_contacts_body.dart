@@ -18,10 +18,6 @@ class ExportContactsBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  ExportContactsRequest? get exportContactsRequest => request as ExportContactsRequest?;
-
-  ExportContactsResponse? get exportContactsResponse => response as ExportContactsResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'ExportContactsRequest': request!.toMap(),

@@ -17,10 +17,6 @@ class SearchActionBody extends SoapBody {
           data['SearchActionResponse'] != null ? SearchActionResponse.fromMap(data['SearchActionResponse']) : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  SearchActionRequest? get searchActionRequest => request as SearchActionRequest?;
-
-  SearchActionResponse? get searchActionResponse => response as SearchActionResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'SearchActionRequest': request!.toMap(),

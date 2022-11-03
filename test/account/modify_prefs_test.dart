@@ -40,8 +40,8 @@ void main() {
         }
       };
       final envelope = ModifyPrefsEnvelope.fromMap(data);
-      expect(envelope.modifyPrefsBody.modifyPrefsResponse, isNotNull);
-      expect(envelope.modifyPrefsBody.modifyPrefsResponse, isA<ModifyPrefsResponse>());
+      expect(envelope.body.response, isNotNull);
+      expect(envelope.body.response, isA<ModifyPrefsResponse>());
     }));
   }));
 }

@@ -222,9 +222,8 @@ void main() {
         }
       };
       final envelope = SearchActionEnvelope.fromMap(data);
-      final response = envelope.searchActionBody.searchActionResponse;
-      expect(response, isNotNull);
-      expect(response, isA<SearchActionResponse>());
+      expect(envelope.body.response, isNotNull);
+      expect(envelope.body.response, isA<SearchActionResponse>());
     }));
   }));
 }

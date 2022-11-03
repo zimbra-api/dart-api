@@ -13,6 +13,4 @@ class SaveDocumentEnvelope extends SoapEnvelope {
   factory SaveDocumentEnvelope.fromMap(Map<String, dynamic> data) =>
       SaveDocumentEnvelope(SaveDocumentBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  SaveDocumentBody get saveDocumentBody => body as SaveDocumentBody;
 }

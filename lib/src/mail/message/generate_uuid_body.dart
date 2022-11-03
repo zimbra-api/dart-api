@@ -17,10 +17,6 @@ class GenerateUUIDBody extends SoapBody {
           data['GenerateUUIDResponse'] != null ? GenerateUUIDResponse.fromMap(data['GenerateUUIDResponse']) : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  GenerateUUIDRequest? get generateUUIDRequest => request as GenerateUUIDRequest?;
-
-  GenerateUUIDResponse? get generateUUIDResponse => response as GenerateUUIDResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'GenerateUUIDRequest': request!.toMap(),

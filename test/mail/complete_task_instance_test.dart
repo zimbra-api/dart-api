@@ -111,8 +111,8 @@ void main() {
         }
       };
       final envelope = CompleteTaskInstanceEnvelope.fromMap(data);
-      expect(envelope.completeTaskInstanceBody.completeTaskInstanceResponse, isNotNull);
-      expect(envelope.completeTaskInstanceBody.completeTaskInstanceResponse, isA<CompleteTaskInstanceResponse>());
+      expect(envelope.body.response, isNotNull);
+      expect(envelope.body.response, isA<CompleteTaskInstanceResponse>());
     }));
   }));
 }

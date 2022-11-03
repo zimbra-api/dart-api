@@ -6,6 +6,7 @@ import 'package:zimbra_api/src/common/enum/search_sort_by.dart';
 import 'package:zimbra_api/src/common/enum/view_type.dart';
 import 'package:zimbra_api/src/mail/message/create_mountpoint_envelope.dart';
 import 'package:zimbra_api/src/mail/message/create_mountpoint_request.dart';
+import 'package:zimbra_api/src/mail/message/create_mountpoint_response.dart';
 import 'package:zimbra_api/src/mail/type/folder.dart';
 import 'package:zimbra_api/src/mail/type/new_mountpoint_spec.dart';
 
@@ -238,7 +239,7 @@ void main() {
         }
       };
       final envelope = CreateMountpointEnvelope.fromMap(data);
-      final response = envelope.createMountpointBody.createMountpointResponse!;
+      final response = envelope.body.response as CreateMountpointResponse;
 
       final mountpoint = response.mountpoint!;
       expect(mountpoint.id, id);

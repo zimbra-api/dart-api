@@ -1007,8 +1007,8 @@ void main() {
         }
       };
       final envelope = CounterAppointmentEnvelope.fromMap(data);
-      expect(envelope.counterAppointmentBody.counterAppointmentResponse, isNotNull);
-      expect(envelope.counterAppointmentBody.counterAppointmentResponse, isA<CounterAppointmentResponse>());
+      expect(envelope.body.response, isNotNull);
+      expect(envelope.body.response, isA<CounterAppointmentResponse>());
     }));
   }));
 }

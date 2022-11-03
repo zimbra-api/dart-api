@@ -14,6 +14,4 @@ class SaveIMAPSubscriptionsEnvelope extends SoapEnvelope {
   factory SaveIMAPSubscriptionsEnvelope.fromMap(Map<String, dynamic> data) =>
       SaveIMAPSubscriptionsEnvelope(SaveIMAPSubscriptionsBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  SaveIMAPSubscriptionsBody get saveIMAPSubscriptionsBody => body as SaveIMAPSubscriptionsBody;
 }

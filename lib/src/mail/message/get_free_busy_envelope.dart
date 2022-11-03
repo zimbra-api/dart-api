@@ -13,6 +13,4 @@ class GetFreeBusyEnvelope extends SoapEnvelope {
   factory GetFreeBusyEnvelope.fromMap(Map<String, dynamic> data) =>
       GetFreeBusyEnvelope(GetFreeBusyBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  GetFreeBusyBody get getFreeBusyBody => body as GetFreeBusyBody;
 }

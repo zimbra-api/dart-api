@@ -18,10 +18,6 @@ class ModifySignatureBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  ModifySignatureRequest? get modifySignatureRequest => request as ModifySignatureRequest?;
-
-  ModifySignatureResponse? get modifySignatureResponse => response as ModifySignatureResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'ModifySignatureRequest': request!.toMap(),

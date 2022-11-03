@@ -18,10 +18,6 @@ class ModifySearchFolderBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  ModifySearchFolderRequest? get modifySearchFolderRequest => request as ModifySearchFolderRequest?;
-
-  ModifySearchFolderResponse? get modifySearchFolderResponse => response as ModifySearchFolderResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'ModifySearchFolderRequest': request!.toMap(),

@@ -13,6 +13,4 @@ class CreateSignatureEnvelope extends SoapEnvelope {
   factory CreateSignatureEnvelope.fromMap(Map<String, dynamic> data) =>
       CreateSignatureEnvelope(CreateSignatureBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  CreateSignatureBody get createSignatureBody => body as CreateSignatureBody;
 }

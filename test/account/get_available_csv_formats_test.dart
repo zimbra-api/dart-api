@@ -2,6 +2,7 @@ import 'package:faker/faker.dart';
 import 'package:test/test.dart';
 import 'package:zimbra_api/src/account/message/get_available_csv_formats_envelope.dart';
 import 'package:zimbra_api/src/account/message/get_available_csv_formats_request.dart';
+import 'package:zimbra_api/src/account/message/get_available_csv_formats_response.dart';
 
 void main() {
   final faker = Faker();
@@ -34,7 +35,7 @@ void main() {
         },
       };
       final envelope = GetAvailableCsvFormatsEnvelope.fromMap(data);
-      final response = envelope.getAvailableCsvFormatsBody.getAvailableCsvFormatsResponse!;
+      final response = envelope.body.response as GetAvailableCsvFormatsResponse;
       final csv = response.csvFormats.first;
 
       expect(csv.name, name);

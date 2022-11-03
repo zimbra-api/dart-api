@@ -9,6 +9,7 @@ import 'package:zimbra_api/src/common/enum/participation_status.dart';
 import 'package:zimbra_api/src/common/enum/transparency.dart';
 import 'package:zimbra_api/src/mail/message/get_calendar_item_summaries_envelope.dart';
 import 'package:zimbra_api/src/mail/message/get_calendar_item_summaries_request.dart';
+import 'package:zimbra_api/src/mail/message/get_calendar_item_summaries_response.dart';
 import 'package:zimbra_api/src/mail/type/legacy_calendaring_data.dart';
 
 void main() {
@@ -340,7 +341,7 @@ void main() {
         }
       };
       final envelope = GetCalendarItemSummariesEnvelope.fromMap(data);
-      final response = envelope.getCalendarItemSummariesBody.getCalendarItemSummariesResponse!;
+      final response = envelope.body.response as GetCalendarItemSummariesResponse;
 
       final appt = response.apptEntries.first;
       expect(appt.fragment, fragment);

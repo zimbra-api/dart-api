@@ -18,10 +18,6 @@ class ChangePasswordBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  ChangePasswordRequest? get changePasswordRequest => request as ChangePasswordRequest?;
-
-  ChangePasswordResponse? get changePasswordResponse => response as ChangePasswordResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'ChangePasswordRequest': request!.toMap(),

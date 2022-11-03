@@ -13,6 +13,4 @@ class FolderActionEnvelope extends SoapEnvelope {
   factory FolderActionEnvelope.fromMap(Map<String, dynamic> data) =>
       FolderActionEnvelope(FolderActionBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  FolderActionBody get folderActionBody => body as FolderActionBody;
 }

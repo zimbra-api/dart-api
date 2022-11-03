@@ -13,6 +13,4 @@ class OpenIMAPFolderEnvelope extends SoapEnvelope {
   factory OpenIMAPFolderEnvelope.fromMap(Map<String, dynamic> data) =>
       OpenIMAPFolderEnvelope(OpenIMAPFolderBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  OpenIMAPFolderBody get openIMAPFolderBody => body as OpenIMAPFolderBody;
 }

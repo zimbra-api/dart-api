@@ -3,6 +3,7 @@ import 'package:test/test.dart';
 import 'package:zimbra_api/src/common/enum/browse_by.dart';
 import 'package:zimbra_api/src/mail/message/browse_envelope.dart';
 import 'package:zimbra_api/src/mail/message/browse_request.dart';
+import 'package:zimbra_api/src/mail/message/browse_response.dart';
 
 void main() {
   final faker = Faker();
@@ -45,7 +46,7 @@ void main() {
         }
       };
       final envelope = BrowseEnvelope.fromMap(data);
-      final response = envelope.browseBody.browseResponse!;
+      final response = envelope.body.response as BrowseResponse;
       final bd = response.browseDatas.first;
 
       expect(bd.browseDomainHeader, browseDomainHeader);

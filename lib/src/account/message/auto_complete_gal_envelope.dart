@@ -13,6 +13,4 @@ class AutoCompleteGalEnvelope extends SoapEnvelope {
   factory AutoCompleteGalEnvelope.fromMap(Map<String, dynamic> data) =>
       AutoCompleteGalEnvelope(AutoCompleteGalBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  AutoCompleteGalBody get autoCompleteGalBody => body as AutoCompleteGalBody;
 }

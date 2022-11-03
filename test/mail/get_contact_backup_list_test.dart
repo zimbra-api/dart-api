@@ -2,6 +2,7 @@ import 'package:faker/faker.dart';
 import 'package:test/test.dart';
 import 'package:zimbra_api/src/mail/message/get_contact_backup_list_envelope.dart';
 import 'package:zimbra_api/src/mail/message/get_contact_backup_list_request.dart';
+import 'package:zimbra_api/src/mail/message/get_contact_backup_list_response.dart';
 
 void main() {
   final faker = Faker();
@@ -39,7 +40,7 @@ void main() {
         }
       };
       final envelope = GetContactBackupListEnvelope.fromMap(data);
-      final response = envelope.getContactBackupListBody.getContactBackupListResponse!;
+      final response = envelope.body.response as GetContactBackupListResponse;
       expect(response.backups.first, backup1);
       expect(response.backups.last, backup2);
     }));

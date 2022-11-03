@@ -35,8 +35,8 @@ void main() {
         }
       };
       final envelope = EnableSharedReminderEnvelope.fromMap(data);
-      expect(envelope.enableSharedReminderBody.enableSharedReminderResponse, isNotNull);
-      expect(envelope.enableSharedReminderBody.enableSharedReminderResponse, isA<EnableSharedReminderResponse>());
+      expect(envelope.body.response, isNotNull);
+      expect(envelope.body.response, isA<EnableSharedReminderResponse>());
     }));
   }));
 }

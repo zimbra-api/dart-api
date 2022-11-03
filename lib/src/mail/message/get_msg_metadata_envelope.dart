@@ -13,6 +13,4 @@ class GetMsgMetadataEnvelope extends SoapEnvelope {
   factory GetMsgMetadataEnvelope.fromMap(Map<String, dynamic> data) =>
       GetMsgMetadataEnvelope(GetMsgMetadataBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  GetMsgMetadataBody get getMsgMetadataBody => body as GetMsgMetadataBody;
 }

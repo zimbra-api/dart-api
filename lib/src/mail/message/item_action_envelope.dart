@@ -13,6 +13,4 @@ class ItemActionEnvelope extends SoapEnvelope {
   factory ItemActionEnvelope.fromMap(Map<String, dynamic> data) =>
       ItemActionEnvelope(ItemActionBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  ItemActionBody get itemActionBody => body as ItemActionBody;
 }

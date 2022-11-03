@@ -18,10 +18,6 @@ class CreateSignatureBody extends SoapBody {
           : null,
       fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
-  CreateSignatureRequest? get createSignatureRequest => request as CreateSignatureRequest?;
-
-  CreateSignatureResponse? get createSignatureResponse => response as CreateSignatureResponse?;
-
   @override
   Map<String, dynamic> toMap() => {
         if (request != null) 'CreateSignatureRequest': request!.toMap(),

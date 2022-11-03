@@ -5,6 +5,7 @@ import 'package:zimbra_api/src/common/enum/alarm_related.dart';
 import 'package:zimbra_api/src/common/enum/participation_status.dart';
 import 'package:zimbra_api/src/mail/message/dismiss_calendar_item_alarm_envelope.dart';
 import 'package:zimbra_api/src/mail/message/dismiss_calendar_item_alarm_request.dart';
+import 'package:zimbra_api/src/mail/message/dismiss_calendar_item_alarm_response.dart';
 import 'package:zimbra_api/src/mail/type/dismiss_alarm.dart';
 import 'package:zimbra_api/src/mail/type/updated_alarm_info.dart';
 
@@ -168,7 +169,7 @@ void main() {
         }
       };
       final envelope = DismissCalendarItemAlarmEnvelope.fromMap(data);
-      final response = envelope.dismissCalendarItemAlarmBody.dismissCalendarItemAlarmResponse!;
+      final response = envelope.body.response as DismissCalendarItemAlarmResponse;
 
       final appt = response.apptUpdatedAlarms.first;
       expect(appt.calItemId, calItemId);

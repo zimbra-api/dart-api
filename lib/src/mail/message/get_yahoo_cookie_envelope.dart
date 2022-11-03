@@ -13,6 +13,4 @@ class GetYahooCookieEnvelope extends SoapEnvelope {
   factory GetYahooCookieEnvelope.fromMap(Map<String, dynamic> data) =>
       GetYahooCookieEnvelope(GetYahooCookieBody.fromMap(data['Body']),
           header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
-
-  GetYahooCookieBody get getYahooCookieBody => body as GetYahooCookieBody;
 }

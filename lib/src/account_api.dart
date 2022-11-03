@@ -65,7 +65,7 @@ class AccountApi extends Api {
       tokenType: tokenType,
       prefs: prefs,
       attrs: attrs,
-    )).then((json) => AuthEnvelope.fromMap(json).authBody.authResponse);
+    )).then((data) => AuthEnvelope.fromMap(data).authBody.authResponse);
   }
 
   /// Authenticate by account name
@@ -97,26 +97,26 @@ class AccountApi extends Api {
   Future<AutoCompleteGalResponse?> autoCompleteGal(String name,
       {GalSearchType? type, bool? needCanExpand, String? galAccountId, int? limit}) {
     return invoke(AutoCompleteGalRequest(name, needCanExpand: needCanExpand, galAccountId: galAccountId, limit: limit))
-        .then((json) => AutoCompleteGalEnvelope.fromMap(json).autoCompleteGalBody.autoCompleteGalResponse);
+        .then((data) => AutoCompleteGalEnvelope.fromMap(data).autoCompleteGalBody.autoCompleteGalResponse);
   }
 
   /// Change password
   Future<ChangePasswordResponse?> changePassword(AccountSelector account, String oldPassword, String newPassword,
       {String? virtualHost, bool? dryRun}) {
     return invoke(ChangePasswordRequest(account, oldPassword, newPassword, virtualHost: virtualHost, dryRun: dryRun))
-        .then((json) => ChangePasswordEnvelope.fromMap(json).changePasswordBody.changePasswordResponse);
+        .then((data) => ChangePasswordEnvelope.fromMap(data).changePasswordBody.changePasswordResponse);
   }
 
   /// Check if the authed user has the specified right(s) on a target.
   Future<CheckRightsResponse?> checkRights({List<CheckRightsTargetSpec> targets = const []}) {
     return invoke(CheckRightsRequest(targets: targets))
-        .then((json) => CheckRightsEnvelope.fromMap(json).checkRightsBody.checkRightsResponse);
+        .then((data) => CheckRightsEnvelope.fromMap(data).checkRightsBody.checkRightsResponse);
   }
 
   /// Get client info
   Future<ClientInfoResponse?> clientInfo(DomainSelector domain) {
     return invoke(ClientInfoRequest(domain))
-        .then((json) => ClientInfoEnvelope.fromMap(json).clientInfoBody.clientInfoResponse);
+        .then((data) => ClientInfoEnvelope.fromMap(data).clientInfoBody.clientInfoResponse);
   }
 
   /// Create a Distribution List
@@ -124,15 +124,15 @@ class AccountApi extends Api {
   Future<CreateDistributionListResponse?> createDistributionList(String name,
       {bool? isDynamic, List<KeyValuePair> keyValuePairs = const []}) {
     return invoke(CreateDistributionListRequest(name, isDynamic: isDynamic, keyValuePairs: keyValuePairs)).then(
-        (json) =>
-            CreateDistributionListEnvelope.fromMap(json).createDistributionListBody.createDistributionListResponse);
+        (data) =>
+            CreateDistributionListEnvelope.fromMap(data).createDistributionListBody.createDistributionListResponse);
   }
 
   /// Create an Identity
   /// Notes: Allowed attributes (see objectclass zimbraIdentity in zimbra.schema)
   Future<CreateIdentityResponse?> createIdentity(Identity identity) {
     return invoke(CreateIdentityRequest(identity))
-        .then((json) => CreateIdentityEnvelope.fromMap(json).createIdentityBody.createIdentityResponse);
+        .then((data) => CreateIdentityEnvelope.fromMap(data).createIdentityBody.createIdentityResponse);
   }
 
   /// Create a signature.
@@ -142,21 +142,21 @@ class AccountApi extends Api {
   /// There can be at most one text/plain signatue and one text/html signature.
   Future<CreateSignatureResponse?> createSignature(Signature signature) {
     return invoke(CreateSignatureRequest(signature))
-        .then((json) => CreateSignatureEnvelope.fromMap(json).createSignatureBody.createSignatureResponse);
+        .then((data) => CreateSignatureEnvelope.fromMap(data).createSignatureBody.createSignatureResponse);
   }
 
   /// Delete an Identity
   /// must specify either {name} or {id} attribute to identity
   Future<DeleteIdentityResponse?> deleteIdentity(NameId identity) {
     return invoke(DeleteIdentityRequest(identity))
-        .then((json) => DeleteIdentityEnvelope.fromMap(json).deleteIdentityBody.deleteIdentityResponse);
+        .then((data) => DeleteIdentityEnvelope.fromMap(data).deleteIdentityBody.deleteIdentityResponse);
   }
 
   /// Delete a signature
   /// must specify either {name} or {id} attribute to signature
   Future<DeleteSignatureResponse?> deleteSignature(NameId signature) {
     return invoke(DeleteSignatureRequest(signature))
-        .then((json) => DeleteSignatureEnvelope.fromMap(json).deleteSignatureBody.deleteSignatureResponse);
+        .then((data) => DeleteSignatureEnvelope.fromMap(data).deleteSignatureBody.deleteSignatureResponse);
   }
 
   /// Return all targets of the specified rights applicable to the requested account.
@@ -173,7 +173,7 @@ class AccountApi extends Api {
   ///    no <e a="{email-address}"/> will be returned. name attribute contains the entry's primary name.
   Future<DiscoverRightsResponse?> discoverRights({List<String> rights = const []}) {
     return invoke(DiscoverRightsRequest(rights: rights))
-        .then((json) => DiscoverRightsEnvelope.fromMap(json).discoverRightsBody.discoverRightsResponse);
+        .then((data) => DiscoverRightsEnvelope.fromMap(data).discoverRightsBody.discoverRightsResponse);
   }
 
   /// Perform an action on a Distribution List
@@ -185,8 +185,8 @@ class AccountApi extends Api {
   ///     can only modify grants on the group entry.
   Future<DistributionListActionResponse?> distributionListAction(
       DistributionListSelector dl, DistributionListAction action) {
-    return invoke(DistributionListActionRequest(dl, action)).then((json) =>
-        DistributionListActionEnvelope.fromMap(json).distributionListActionBody.distributionListActionResponse);
+    return invoke(DistributionListActionRequest(dl, action)).then((data) =>
+        DistributionListActionEnvelope.fromMap(data).distributionListActionBody.distributionListActionResponse);
   }
 
   /// End the current session, removing it from all caches.
@@ -199,7 +199,7 @@ class AccountApi extends Api {
             clearAllSoapSessions: clearAllSoapSessions,
             excludeCurrentSession: excludeCurrentSession,
             sessionId: sessionId))
-        .then((json) => EndSessionEnvelope.fromMap(json).endSessionBody.endSessionResponse);
+        .then((data) => EndSessionEnvelope.fromMap(data).endSessionBody.endSessionResponse);
   }
 
   /// Returns groups the user is either a member or an owner of.
@@ -208,8 +208,8 @@ class AccountApi extends Api {
   ///   - isMember is returned only if memberOf on the request is not "none".
   Future<GetAccountDistributionListsResponse?> getAccountDistributionLists(
       {bool? ownerOf, MemberOfSelector? memberOf, String? attrs}) {
-    return invoke(GetAccountDistributionListsRequest(ownerOf: ownerOf, memberOf: memberOf, attrs: attrs)).then((json) =>
-        GetAccountDistributionListsEnvelope.fromMap(json)
+    return invoke(GetAccountDistributionListsRequest(ownerOf: ownerOf, memberOf: memberOf, attrs: attrs)).then((data) =>
+        GetAccountDistributionListsEnvelope.fromMap(data)
             .getAccountDistributionListsBody
             .getAccountDistributionListsResponse);
   }
@@ -217,27 +217,27 @@ class AccountApi extends Api {
   /// Get information about an account
   Future<GetAccountInfoResponse?> getAccountInfo(AccountSelector account) {
     return invoke(GetAccountInfoRequest(account))
-        .then((json) => GetAccountInfoEnvelope.fromMap(json).getAccountInfoBody.getAccountInfoResponse);
+        .then((data) => GetAccountInfoEnvelope.fromMap(data).getAccountInfoBody.getAccountInfoResponse);
   }
 
   /// Returns all locales defined in the system.  This is the same list returned by
   /// java.util.Locale.getAvailableLocales(), sorted by display name (name attribute).
   Future<GetAllLocalesResponse?> getAllLocales() {
     return invoke(GetAllLocalesRequest())
-        .then((json) => GetAllLocalesEnvelope.fromMap(json).getAllLocalesBody.getAllLocalesResponse);
+        .then((data) => GetAllLocalesEnvelope.fromMap(data).getAllLocalesBody.getAllLocalesResponse);
   }
 
   /// Returns the known CSV formats that can be used for import and export of addressbook.
   Future<GetAvailableCsvFormatsResponse?> getAvailableCsvFormats() {
-    return invoke(GetAvailableCsvFormatsRequest()).then((json) =>
-        GetAvailableCsvFormatsEnvelope.fromMap(json).getAvailableCsvFormatsBody.getAvailableCsvFormatsResponse);
+    return invoke(GetAvailableCsvFormatsRequest()).then((data) =>
+        GetAvailableCsvFormatsEnvelope.fromMap(data).getAvailableCsvFormatsBody.getAvailableCsvFormatsResponse);
   }
 
   /// Get the intersection of all translated locales installed on the server and the list specified in zimbraAvailableLocale.
   /// The locale list in the response is sorted by display name (name attribute).
   Future<GetAvailableLocalesResponse?> getAvailableLocales() {
     return invoke(GetAvailableLocalesRequest())
-        .then((json) => GetAvailableLocalesEnvelope.fromMap(json).getAvailableLocalesBody.getAvailableLocalesResponse);
+        .then((data) => GetAvailableLocalesEnvelope.fromMap(data).getAvailableLocalesBody.getAvailableLocalesResponse);
   }
 
   /// Get the intersection of installed skins on the server and the list specified in the zimbraAvailableSkin on an account (or its CoS).
@@ -245,13 +245,13 @@ class AccountApi extends Api {
   /// The installed skin list is obtained by a directory scan of the designated location of skins on a server.
   Future<GetAvailableSkinsResponse?> getAvailableSkins() {
     return invoke(GetAvailableSkinsRequest())
-        .then((json) => GetAvailableSkinsEnvelope.fromMap(json).getAvailableSkinsBody.getAvailableSkinsResponse);
+        .then((data) => GetAvailableSkinsEnvelope.fromMap(data).getAvailableSkinsBody.getAvailableSkinsResponse);
   }
 
   /// Get the list of members of a distribution list.
   Future<GetDistributionListMembersResponse?> getDistributionListMembers(String dl, {int? limit, int? offset}) {
-    return invoke(GetDistributionListMembersRequest(dl, limit: limit, offset: offset)).then((json) =>
-        GetDistributionListMembersEnvelope.fromMap(json)
+    return invoke(GetDistributionListMembersRequest(dl, limit: limit, offset: offset)).then((data) =>
+        GetDistributionListMembersEnvelope.fromMap(data)
             .getDistributionListMembersBody
             .getDistributionListMembersResponse);
   }
@@ -260,26 +260,26 @@ class AccountApi extends Api {
   Future<GetDistributionListResponse?> getDistributionList(DistributionListSelector dl,
       {bool? needOwners, bool? needRights}) {
     return invoke(GetDistributionListRequest(dl, needOwners: needOwners, needRights: needRights))
-        .then((json) => GetDistributionListEnvelope.fromMap(json).getDistributionListBody.getDistributionListResponse);
+        .then((data) => GetDistributionListEnvelope.fromMap(data).getDistributionListBody.getDistributionListResponse);
   }
 
   /// Get the identities for the authed account.
   Future<GetIdentitiesResponse?> getIdentities() {
     return invoke(GetIdentitiesRequest())
-        .then((json) => GetIdentitiesEnvelope.fromMap(json).getIdentitiesBody.getIdentitiesResponse);
+        .then((data) => GetIdentitiesEnvelope.fromMap(data).getIdentitiesBody.getIdentitiesResponse);
   }
 
   /// Get information about an account.
   /// By default, GetInfo returns all data; to limit the returned data, specify only the sections you want in the "sections" attr.
   Future<GetInfoResponse?> getInfo({String? sections, String? rights}) {
     return invoke(GetInfoRequest(sections: sections, rights: rights))
-        .then((json) => GetInfoEnvelope.fromMap(json).getInfoBody.getInfoResponse);
+        .then((data) => GetInfoEnvelope.fromMap(data).getInfoBody.getInfoResponse);
   }
 
   /// Get OAuth consumers.
   Future<GetOAuthConsumersResponse?> getOAuthConsumers() {
     return invoke(GetOAuthConsumersRequest())
-        .then((json) => GetOAuthConsumersEnvelope.fromMap(json).getOAuthConsumersBody.getOAuthConsumersResponse);
+        .then((data) => GetOAuthConsumersEnvelope.fromMap(data).getOAuthConsumersBody.getOAuthConsumersResponse);
   }
 
   /// Get preferences for the authenticated account
@@ -287,7 +287,7 @@ class AccountApi extends Api {
   /// If <pref> elements are provided, only those prefs are returned in the response.
   Future<GetPrefsResponse?> getPrefs({List<Pref> prefs = const []}) {
     return invoke(GetPrefsRequest(prefs: prefs))
-        .then((json) => GetPrefsEnvelope.fromMap(json).getPrefsBody.getPrefsResponse);
+        .then((data) => GetPrefsEnvelope.fromMap(data).getPrefsBody.getPrefsResponse);
   }
 
   /// Get account level rights.
@@ -295,44 +295,44 @@ class AccountApi extends Api {
   /// If <ace> elements are provided, only those ACEs with specified rights are returned in the response.
   Future<GetRightsResponse?> getRights({List<Right> aces = const []}) {
     return invoke(GetRightsRequest(aces: aces))
-        .then((json) => GetRightsEnvelope.fromMap(json).getRightsBody.getRightsResponse);
+        .then((data) => GetRightsEnvelope.fromMap(data).getRightsBody.getRightsResponse);
   }
 
   /// Get information about published shares
   Future<GetShareInfoResponse?> getShareInfo(
       {GranteeChooser? grantee, AccountSelector? owner, bool? internal, bool? includeSelf}) {
     return invoke(GetShareInfoRequest(grantee: grantee, owner: owner, internal: internal, includeSelf: includeSelf))
-        .then((json) => GetShareInfoEnvelope.fromMap(json).getShareInfoBody.getShareInfoResponse);
+        .then((data) => GetShareInfoEnvelope.fromMap(data).getShareInfoBody.getShareInfoResponse);
   }
 
   /// Get signatures associated with an account
   Future<GetSignaturesResponse?> getSignatures() {
     return invoke(GetSignaturesRequest())
-        .then((json) => GetSignaturesEnvelope.fromMap(json).getSignaturesBody.getSignaturesResponse);
+        .then((data) => GetSignaturesEnvelope.fromMap(data).getSignaturesBody.getSignaturesResponse);
   }
 
   /// Get version information
   Future<GetVersionInfoResponse?> getVersionInfo() {
     return invoke(GetVersionInfoRequest())
-        .then((json) => GetVersionInfoEnvelope.fromMap(json).getVersionInfoBody.getVersionInfoResponse);
+        .then((data) => GetVersionInfoEnvelope.fromMap(data).getVersionInfoBody.getVersionInfoResponse);
   }
 
   /// Get the anti-spam WhiteList and BlackList addresses
   Future<GetWhiteBlackListResponse?> getWhiteBlackList() {
     return invoke(GetWhiteBlackListRequest())
-        .then((json) => GetWhiteBlackListEnvelope.fromMap(json).getWhiteBlackListBody.getWhiteBlackListResponse);
+        .then((data) => GetWhiteBlackListEnvelope.fromMap(data).getWhiteBlackListBody.getWhiteBlackListResponse);
   }
 
   /// Grant account level rights
   Future<GrantRightsResponse?> grantRights({List<AccountACEInfo> aces = const []}) {
     return invoke(GrantRightsRequest(aces: aces))
-        .then((json) => GrantRightsEnvelope.fromMap(json).grantRightsBody.grantRightsResponse);
+        .then((data) => GrantRightsEnvelope.fromMap(data).grantRightsBody.grantRightsResponse);
   }
 
   /// Modify an identity
   Future<ModifyIdentityResponse?> modifyIdentity(Identity identity) {
     return invoke(ModifyIdentityRequest(identity))
-        .then((json) => ModifyIdentityEnvelope.fromMap(json).modifyIdentityBody.modifyIdentityResponse);
+        .then((data) => ModifyIdentityEnvelope.fromMap(data).modifyIdentityBody.modifyIdentityResponse);
   }
 
   /// Modify Preferences
@@ -342,13 +342,13 @@ class AccountApi extends Api {
   /// the preference name with a '+' or '-', respectively in the same way you do when using zmprov.
   Future<ModifyPrefsResponse?> modifyPrefs({List<Pref> prefs = const []}) {
     return invoke(ModifyPrefsRequest(prefs: prefs))
-        .then((json) => ModifyPrefsEnvelope.fromMap(json).modifyPrefsBody.modifyPrefsResponse);
+        .then((data) => ModifyPrefsEnvelope.fromMap(data).modifyPrefsBody.modifyPrefsResponse);
   }
 
   /// Modify properties related to zimlets
   Future<ModifyPropertiesResponse?> modifyProperties({List<Prop> props = const []}) {
     return invoke(ModifyPropertiesRequest(props: props))
-        .then((json) => ModifyPropertiesEnvelope.fromMap(json).modifyPropertiesBody.modifyPropertiesResponse);
+        .then((data) => ModifyPropertiesEnvelope.fromMap(data).modifyPropertiesBody.modifyPropertiesResponse);
   }
 
   /// Change attributes of the given signature.
@@ -358,39 +358,39 @@ class AccountApi extends Api {
   /// and is different from the current name of the signature, the signature will be renamed.
   Future<ModifySignatureResponse?> modifySignature(Signature signature) {
     return invoke(ModifySignatureRequest(signature))
-        .then((json) => ModifySignatureEnvelope.fromMap(json).modifySignatureBody.modifySignatureResponse);
+        .then((data) => ModifySignatureEnvelope.fromMap(data).modifySignatureBody.modifySignatureResponse);
   }
 
   /// Modify the anti-spam WhiteList and BlackList addresses
   Future<ModifyWhiteBlackListResponse?> modifyWhiteBlackList(
       {List<OpValue> whiteListEntries = const [], List<OpValue> blackListEntries = const []}) {
     return invoke(ModifyWhiteBlackListRequest(whiteListEntries: whiteListEntries, blackListEntries: blackListEntries))
-        .then((json) =>
-            ModifyWhiteBlackListEnvelope.fromMap(json).modifyWhiteBlackListBody.modifyWhiteBlackListResponse);
+        .then((data) =>
+            ModifyWhiteBlackListEnvelope.fromMap(data).modifyWhiteBlackListBody.modifyWhiteBlackListResponse);
   }
 
   /// Modify zimlet preferences
   Future<ModifyZimletPrefsResponse?> modifyZimletPrefs({List<ModifyZimletPrefsSpec> zimlets = const []}) {
     return invoke(ModifyZimletPrefsRequest(zimlets: zimlets))
-        .then((json) => ModifyZimletPrefsEnvelope.fromMap(json).modifyZimletPrefsBody.modifyZimletPrefsResponse);
+        .then((data) => ModifyZimletPrefsEnvelope.fromMap(data).modifyZimletPrefsBody.modifyZimletPrefsResponse);
   }
 
   /// Reset password
   Future<ResetPasswordResponse?> resetPassword(String password) {
     return invoke(ResetPasswordRequest(password))
-        .then((json) => ResetPasswordEnvelope.fromMap(json).resetPasswordBody.resetPasswordResponse);
+        .then((data) => ResetPasswordEnvelope.fromMap(data).resetPasswordBody.resetPasswordResponse);
   }
 
   /// Revoke OAuth consumer
   Future<RevokeOAuthConsumerResponse?> revokeOAuthConsumer(String accessToken) {
     return invoke(RevokeOAuthConsumerRequest(accessToken))
-        .then((json) => RevokeOAuthConsumerEnvelope.fromMap(json).revokeOAuthConsumerBody.revokeOAuthConsumerResponse);
+        .then((data) => RevokeOAuthConsumerEnvelope.fromMap(data).revokeOAuthConsumerBody.revokeOAuthConsumerResponse);
   }
 
   /// Revoke account level rights
   Future<RevokeRightsResponse?> revokeRights({List<AccountACEInfo> aces = const []}) {
     return invoke(RevokeRightsRequest(aces: aces))
-        .then((json) => RevokeRightsEnvelope.fromMap(json).revokeRightsBody.revokeRightsResponse);
+        .then((data) => RevokeRightsEnvelope.fromMap(data).revokeRightsBody.revokeRightsResponse);
   }
 
   /// Search Global Address List (GAL) for calendar resources
@@ -417,8 +417,8 @@ class AccountApi extends Api {
       galAccountId: galAccountId,
       name: name,
       attrs: attrs,
-    )).then((json) =>
-        SearchCalendarResourcesEnvelope.fromMap(json).searchCalendarResourcesBody.searchCalendarResourcesResponse);
+    )).then((data) =>
+        SearchCalendarResourcesEnvelope.fromMap(data).searchCalendarResourcesBody.searchCalendarResourcesResponse);
   }
 
   /// Search Global Address List (GAL)
@@ -454,14 +454,14 @@ class AccountApi extends Api {
       limit: limit,
       offset: offset,
       locale: locale,
-    )).then((json) => SearchGalEnvelope.fromMap(json).searchGalBody.searchGalResponse);
+    )).then((data) => SearchGalEnvelope.fromMap(data).searchGalBody.searchGalResponse);
   }
 
   /// Subscribe to or unsubscribe from a distribution list
   Future<SubscribeDistributionListResponse?> subscribeDistributionList(DistributionListSelector dl,
       {DistributionListSubscribeOp op = DistributionListSubscribeOp.subscribe}) {
-    return invoke(SubscribeDistributionListRequest(dl, op: op)).then((json) =>
-        SubscribeDistributionListEnvelope.fromMap(json)
+    return invoke(SubscribeDistributionListRequest(dl, op: op)).then((data) =>
+        SubscribeDistributionListEnvelope.fromMap(data)
             .subscribeDistributionListBody
             .subscribeDistributionListResponse);
   }
@@ -470,6 +470,6 @@ class AccountApi extends Api {
   Future<SyncGalResponse?> syncGal({String? token, String? galAccountId, bool? idOnly, bool? getCount, int? limit}) {
     return invoke(
             SyncGalRequest(token: token, galAccountId: galAccountId, idOnly: idOnly, getCount: getCount, limit: limit))
-        .then((json) => SyncGalEnvelope.fromMap(json).syncGalBody.syncGalResponse);
+        .then((data) => SyncGalEnvelope.fromMap(data).syncGalBody.syncGalResponse);
   }
 }

@@ -9,8 +9,11 @@ import 'package:zimbra_api/src/common/type/header/context.dart';
 import 'package:zimbra_api/src/common/type/header/format_info.dart';
 import 'package:zimbra_api/src/common/type/header/session_info.dart';
 import 'package:zimbra_api/src/common/type/header/user_agent_info.dart';
+import 'package:zimbra_api/src/common/type/soap_fault.dart';
 import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'package:zimbra_api/src/common/type/soap_request.dart';
+
+import 'client_exception.dart';
 
 abstract class Api {
   final Client _soapClient;
@@ -44,6 +47,7 @@ abstract class Api {
               ),
             )
             .toJson())
+        .onError<ClientException>((e, _) => throw SoapFault.fromMap(e.response.json['Body']?['Fault'] ?? {}))
         .then((response) => response.json);
   }
 

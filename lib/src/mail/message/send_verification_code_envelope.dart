@@ -11,7 +11,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'send_verification_code_body.dart';
 
 class SendVerificationCodeEnvelope extends SoapEnvelope {
-  SendVerificationCodeEnvelope(SendVerificationCodeBody body, {super.header}) : super(body);
+  SendVerificationCodeEnvelope(SendVerificationCodeBody body, {super.header}) : super(body..response?.header = header);
 
   factory SendVerificationCodeEnvelope.fromMap(Map<String, dynamic> data) =>
       SendVerificationCodeEnvelope(SendVerificationCodeBody.fromMap(data['Body']),

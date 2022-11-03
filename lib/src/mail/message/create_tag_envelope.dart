@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'create_tag_body.dart';
 
 class CreateTagEnvelope extends SoapEnvelope {
-  CreateTagEnvelope(CreateTagBody body, {super.header}) : super(body);
+  CreateTagEnvelope(CreateTagBody body, {super.header}) : super(body..response?.header = header);
 
   factory CreateTagEnvelope.fromMap(Map<String, dynamic> data) =>
       CreateTagEnvelope(CreateTagBody.fromMap(data['Body']),

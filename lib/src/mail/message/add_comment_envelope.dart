@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'add_comment_body.dart';
 
 class AddCommentEnvelope extends SoapEnvelope {
-  AddCommentEnvelope(AddCommentBody body, {super.header}) : super(body);
+  AddCommentEnvelope(AddCommentBody body, {super.header}) : super(body..response?.header = header);
 
   factory AddCommentEnvelope.fromMap(Map<String, dynamic> data) =>
       AddCommentEnvelope(AddCommentBody.fromMap(data['Body']),

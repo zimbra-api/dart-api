@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'modify_filter_rules_body.dart';
 
 class ModifyFilterRulesEnvelope extends SoapEnvelope {
-  ModifyFilterRulesEnvelope(ModifyFilterRulesBody body, {super.header}) : super(body);
+  ModifyFilterRulesEnvelope(ModifyFilterRulesBody body, {super.header}) : super(body..response?.header = header);
 
   factory ModifyFilterRulesEnvelope.fromMap(Map<String, dynamic> data) =>
       ModifyFilterRulesEnvelope(ModifyFilterRulesBody.fromMap(data['Body']),

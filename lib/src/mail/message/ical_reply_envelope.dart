@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'ical_reply_body.dart';
 
 class ICalReplyEnvelope extends SoapEnvelope {
-  ICalReplyEnvelope(ICalReplyBody body, {super.header}) : super(body);
+  ICalReplyEnvelope(ICalReplyBody body, {super.header}) : super(body..response?.header = header);
 
   factory ICalReplyEnvelope.fromMap(Map<String, dynamic> data) =>
       ICalReplyEnvelope(ICalReplyBody.fromMap(data['Body']),

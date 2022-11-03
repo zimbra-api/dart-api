@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'enable_shared_reminder_body.dart';
 
 class EnableSharedReminderEnvelope extends SoapEnvelope {
-  EnableSharedReminderEnvelope(EnableSharedReminderBody body, {super.header}) : super(body);
+  EnableSharedReminderEnvelope(EnableSharedReminderBody body, {super.header}) : super(body..response?.header = header);
 
   factory EnableSharedReminderEnvelope.fromMap(Map<String, dynamic> data) =>
       EnableSharedReminderEnvelope(EnableSharedReminderBody.fromMap(data['Body']),

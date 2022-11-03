@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'get_data_sources_body.dart';
 
 class GetDataSourcesEnvelope extends SoapEnvelope {
-  GetDataSourcesEnvelope(GetDataSourcesBody body, {super.header}) : super(body);
+  GetDataSourcesEnvelope(GetDataSourcesBody body, {super.header}) : super(body..response?.header = header);
 
   factory GetDataSourcesEnvelope.fromMap(Map<String, dynamic> data) =>
       GetDataSourcesEnvelope(GetDataSourcesBody.fromMap(data['Body']),

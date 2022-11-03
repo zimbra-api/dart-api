@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'get_identities_body.dart';
 
 class GetIdentitiesEnvelope extends SoapEnvelope {
-  GetIdentitiesEnvelope(GetIdentitiesBody body, {super.header}) : super(body);
+  GetIdentitiesEnvelope(GetIdentitiesBody body, {super.header}) : super(body..response?.header = header);
 
   factory GetIdentitiesEnvelope.fromMap(Map<String, dynamic> data) =>
       GetIdentitiesEnvelope(GetIdentitiesBody.fromMap(data['Body']),

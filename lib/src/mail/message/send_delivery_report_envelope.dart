@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'send_delivery_report_body.dart';
 
 class SendDeliveryReportEnvelope extends SoapEnvelope {
-  SendDeliveryReportEnvelope(SendDeliveryReportBody body, {super.header}) : super(body);
+  SendDeliveryReportEnvelope(SendDeliveryReportBody body, {super.header}) : super(body..response?.header = header);
 
   factory SendDeliveryReportEnvelope.fromMap(Map<String, dynamic> data) =>
       SendDeliveryReportEnvelope(SendDeliveryReportBody.fromMap(data['Body']),

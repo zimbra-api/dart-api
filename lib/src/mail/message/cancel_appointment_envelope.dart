@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'cancel_appointment_body.dart';
 
 class CancelAppointmentEnvelope extends SoapEnvelope {
-  CancelAppointmentEnvelope(CancelAppointmentBody body, {super.header}) : super(body);
+  CancelAppointmentEnvelope(CancelAppointmentBody body, {super.header}) : super(body..response?.header = header);
 
   factory CancelAppointmentEnvelope.fromMap(Map<String, dynamic> data) =>
       CancelAppointmentEnvelope(CancelAppointmentBody.fromMap(data['Body']),

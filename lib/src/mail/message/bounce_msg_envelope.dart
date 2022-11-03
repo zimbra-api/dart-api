@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'bounce_msg_body.dart';
 
 class BounceMsgEnvelope extends SoapEnvelope {
-  BounceMsgEnvelope(BounceMsgBody body, {super.header}) : super(body);
+  BounceMsgEnvelope(BounceMsgBody body, {super.header}) : super(body..response?.header = header);
 
   factory BounceMsgEnvelope.fromMap(Map<String, dynamic> data) =>
       BounceMsgEnvelope(BounceMsgBody.fromMap(data['Body']),

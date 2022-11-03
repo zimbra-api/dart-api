@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'delete_data_source_body.dart';
 
 class DeleteDataSourceEnvelope extends SoapEnvelope {
-  DeleteDataSourceEnvelope(DeleteDataSourceBody body, {super.header}) : super(body);
+  DeleteDataSourceEnvelope(DeleteDataSourceBody body, {super.header}) : super(body..response?.header = header);
 
   factory DeleteDataSourceEnvelope.fromMap(Map<String, dynamic> data) =>
       DeleteDataSourceEnvelope(DeleteDataSourceBody.fromMap(data['Body']),

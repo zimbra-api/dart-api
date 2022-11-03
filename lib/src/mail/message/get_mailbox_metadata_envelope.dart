@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'get_mailbox_metadata_body.dart';
 
 class GetMailboxMetadataEnvelope extends SoapEnvelope {
-  GetMailboxMetadataEnvelope(GetMailboxMetadataBody body, {super.header}) : super(body);
+  GetMailboxMetadataEnvelope(GetMailboxMetadataBody body, {super.header}) : super(body..response?.header = header);
 
   factory GetMailboxMetadataEnvelope.fromMap(Map<String, dynamic> data) =>
       GetMailboxMetadataEnvelope(GetMailboxMetadataBody.fromMap(data['Body']),

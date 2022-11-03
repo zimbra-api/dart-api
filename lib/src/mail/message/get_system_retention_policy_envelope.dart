@@ -8,7 +8,8 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'get_system_retention_policy_body.dart';
 
 class GetSystemRetentionPolicyEnvelope extends SoapEnvelope {
-  GetSystemRetentionPolicyEnvelope(GetSystemRetentionPolicyBody body, {super.header}) : super(body);
+  GetSystemRetentionPolicyEnvelope(GetSystemRetentionPolicyBody body, {super.header})
+      : super(body..response?.header = header);
 
   factory GetSystemRetentionPolicyEnvelope.fromMap(Map<String, dynamic> data) =>
       GetSystemRetentionPolicyEnvelope(GetSystemRetentionPolicyBody.fromMap(data['Body']),

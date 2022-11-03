@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'get_folder_body.dart';
 
 class GetFolderEnvelope extends SoapEnvelope {
-  GetFolderEnvelope(GetFolderBody body, {super.header}) : super(body);
+  GetFolderEnvelope(GetFolderBody body, {super.header}) : super(body..response?.header = header);
 
   factory GetFolderEnvelope.fromMap(Map<String, dynamic> data) =>
       GetFolderEnvelope(GetFolderBody.fromMap(data['Body']),

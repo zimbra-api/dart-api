@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'begin_tracking_imap_body.dart';
 
 class BeginTrackingIMAPEnvelope extends SoapEnvelope {
-  BeginTrackingIMAPEnvelope(BeginTrackingIMAPBody body, {super.header}) : super(body);
+  BeginTrackingIMAPEnvelope(BeginTrackingIMAPBody body, {super.header}) : super(body..response?.header = header);
 
   factory BeginTrackingIMAPEnvelope.fromMap(Map<String, dynamic> data) =>
       BeginTrackingIMAPEnvelope(BeginTrackingIMAPBody.fromMap(data['Body']),

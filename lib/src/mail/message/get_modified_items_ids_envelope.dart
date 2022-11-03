@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'get_modified_items_ids_body.dart';
 
 class GetModifiedItemsIDsEnvelope extends SoapEnvelope {
-  GetModifiedItemsIDsEnvelope(GetModifiedItemsIDsBody body, {super.header}) : super(body);
+  GetModifiedItemsIDsEnvelope(GetModifiedItemsIDsBody body, {super.header}) : super(body..response?.header = header);
 
   factory GetModifiedItemsIDsEnvelope.fromMap(Map<String, dynamic> data) =>
       GetModifiedItemsIDsEnvelope(GetModifiedItemsIDsBody.fromMap(data['Body']),

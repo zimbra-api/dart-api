@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'modify_signature_body.dart';
 
 class ModifySignatureEnvelope extends SoapEnvelope {
-  ModifySignatureEnvelope(ModifySignatureBody body, {super.header}) : super(body);
+  ModifySignatureEnvelope(ModifySignatureBody body, {super.header}) : super(body..response?.header = header);
 
   factory ModifySignatureEnvelope.fromMap(Map<String, dynamic> data) =>
       ModifySignatureEnvelope(ModifySignatureBody.fromMap(data['Body']),

@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'modify_white_black_list_body.dart';
 
 class ModifyWhiteBlackListEnvelope extends SoapEnvelope {
-  ModifyWhiteBlackListEnvelope(ModifyWhiteBlackListBody body, {super.header}) : super(body);
+  ModifyWhiteBlackListEnvelope(ModifyWhiteBlackListBody body, {super.header}) : super(body..response?.header = header);
 
   factory ModifyWhiteBlackListEnvelope.fromMap(Map<String, dynamic> data) =>
       ModifyWhiteBlackListEnvelope(ModifyWhiteBlackListBody.fromMap(data['Body']),

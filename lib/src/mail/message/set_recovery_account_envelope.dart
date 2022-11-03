@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'set_recovery_account_body.dart';
 
 class SetRecoveryAccountEnvelope extends SoapEnvelope {
-  SetRecoveryAccountEnvelope(SetRecoveryAccountBody body, {super.header}) : super(body);
+  SetRecoveryAccountEnvelope(SetRecoveryAccountBody body, {super.header}) : super(body..response?.header = header);
 
   factory SetRecoveryAccountEnvelope.fromMap(Map<String, dynamic> data) =>
       SetRecoveryAccountEnvelope(SetRecoveryAccountBody.fromMap(data['Body']),

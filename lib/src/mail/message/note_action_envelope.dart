@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'note_action_body.dart';
 
 class NoteActionEnvelope extends SoapEnvelope {
-  NoteActionEnvelope(NoteActionBody body, {super.header}) : super(body);
+  NoteActionEnvelope(NoteActionBody body, {super.header}) : super(body..response?.header = header);
 
   factory NoteActionEnvelope.fromMap(Map<String, dynamic> data) =>
       NoteActionEnvelope(NoteActionBody.fromMap(data['Body']),

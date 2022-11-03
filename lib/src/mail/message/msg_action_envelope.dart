@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'msg_action_body.dart';
 
 class MsgActionEnvelope extends SoapEnvelope {
-  MsgActionEnvelope(MsgActionBody body, {super.header}) : super(body);
+  MsgActionEnvelope(MsgActionBody body, {super.header}) : super(body..response?.header = header);
 
   factory MsgActionEnvelope.fromMap(Map<String, dynamic> data) =>
       MsgActionEnvelope(MsgActionBody.fromMap(data['Body']),

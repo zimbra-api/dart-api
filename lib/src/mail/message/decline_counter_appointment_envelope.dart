@@ -8,7 +8,8 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'decline_counter_appointment_body.dart';
 
 class DeclineCounterAppointmentEnvelope extends SoapEnvelope {
-  DeclineCounterAppointmentEnvelope(DeclineCounterAppointmentBody body, {super.header}) : super(body);
+  DeclineCounterAppointmentEnvelope(DeclineCounterAppointmentBody body, {super.header})
+      : super(body..response?.header = header);
 
   factory DeclineCounterAppointmentEnvelope.fromMap(Map<String, dynamic> data) =>
       DeclineCounterAppointmentEnvelope(DeclineCounterAppointmentBody.fromMap(data['Body']),

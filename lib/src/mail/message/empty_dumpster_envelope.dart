@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'empty_dumpster_body.dart';
 
 class EmptyDumpsterEnvelope extends SoapEnvelope {
-  EmptyDumpsterEnvelope(EmptyDumpsterBody body, {super.header}) : super(body);
+  EmptyDumpsterEnvelope(EmptyDumpsterBody body, {super.header}) : super(body..response?.header = header);
 
   factory EmptyDumpsterEnvelope.fromMap(Map<String, dynamic> data) =>
       EmptyDumpsterEnvelope(EmptyDumpsterBody.fromMap(data['Body']),

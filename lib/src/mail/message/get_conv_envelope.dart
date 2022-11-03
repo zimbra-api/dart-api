@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'get_conv_body.dart';
 
 class GetConvEnvelope extends SoapEnvelope {
-  GetConvEnvelope(GetConvBody body, {super.header}) : super(body);
+  GetConvEnvelope(GetConvBody body, {super.header}) : super(body..response?.header = header);
 
   factory GetConvEnvelope.fromMap(Map<String, dynamic> data) => GetConvEnvelope(GetConvBody.fromMap(data['Body']),
       header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);

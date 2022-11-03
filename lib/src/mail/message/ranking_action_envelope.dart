@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'ranking_action_body.dart';
 
 class RankingActionEnvelope extends SoapEnvelope {
-  RankingActionEnvelope(RankingActionBody body, {super.header}) : super(body);
+  RankingActionEnvelope(RankingActionBody body, {super.header}) : super(body..response?.header = header);
 
   factory RankingActionEnvelope.fromMap(Map<String, dynamic> data) =>
       RankingActionEnvelope(RankingActionBody.fromMap(data['Body']),

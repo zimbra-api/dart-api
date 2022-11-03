@@ -7,7 +7,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'package:zimbra_api/src/mail/message/cancel_task_body.dart';
 
 class CancelTaskEnvelope extends SoapEnvelope {
-  CancelTaskEnvelope(CancelTaskBody body, {super.header}) : super(body);
+  CancelTaskEnvelope(CancelTaskBody body, {super.header}) : super(body..response?.header = header);
 
   factory CancelTaskEnvelope.fromMap(Map<String, dynamic> data) =>
       CancelTaskEnvelope(CancelTaskBody.fromMap(data['Body']),

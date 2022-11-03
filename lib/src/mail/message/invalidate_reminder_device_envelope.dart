@@ -8,7 +8,8 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'invalidate_reminder_device_body.dart';
 
 class InvalidateReminderDeviceEnvelope extends SoapEnvelope {
-  InvalidateReminderDeviceEnvelope(InvalidateReminderDeviceBody body, {super.header}) : super(body);
+  InvalidateReminderDeviceEnvelope(InvalidateReminderDeviceBody body, {super.header})
+      : super(body..response?.header = header);
 
   factory InvalidateReminderDeviceEnvelope.fromMap(Map<String, dynamic> data) =>
       InvalidateReminderDeviceEnvelope(InvalidateReminderDeviceBody.fromMap(data['Body']),

@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'get_note_body.dart';
 
 class GetNoteEnvelope extends SoapEnvelope {
-  GetNoteEnvelope(GetNoteBody body, {super.header}) : super(body);
+  GetNoteEnvelope(GetNoteBody body, {super.header}) : super(body..response?.header = header);
 
   factory GetNoteEnvelope.fromMap(Map<String, dynamic> data) => GetNoteEnvelope(GetNoteBody.fromMap(data['Body']),
       header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);

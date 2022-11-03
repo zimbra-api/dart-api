@@ -8,7 +8,8 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'create_appointment_exception_body.dart';
 
 class CreateAppointmentExceptionEnvelope extends SoapEnvelope {
-  CreateAppointmentExceptionEnvelope(CreateAppointmentExceptionBody body, {super.header}) : super(body);
+  CreateAppointmentExceptionEnvelope(CreateAppointmentExceptionBody body, {super.header})
+      : super(body..response?.header = header);
 
   factory CreateAppointmentExceptionEnvelope.fromMap(Map<String, dynamic> data) =>
       CreateAppointmentExceptionEnvelope(CreateAppointmentExceptionBody.fromMap(data['Body']),

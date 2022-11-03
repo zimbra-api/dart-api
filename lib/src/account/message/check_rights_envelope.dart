@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'check_rights_body.dart';
 
 class CheckRightsEnvelope extends SoapEnvelope {
-  CheckRightsEnvelope(CheckRightsBody body, {super.header}) : super(body);
+  CheckRightsEnvelope(CheckRightsBody body, {super.header}) : super(body..response?.header = header);
 
   factory CheckRightsEnvelope.fromMap(Map<String, dynamic> data) =>
       CheckRightsEnvelope(CheckRightsBody.fromMap(data['Body']),

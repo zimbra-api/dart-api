@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'purge_revision_body.dart';
 
 class PurgeRevisionEnvelope extends SoapEnvelope {
-  PurgeRevisionEnvelope(PurgeRevisionBody body, {super.header}) : super(body);
+  PurgeRevisionEnvelope(PurgeRevisionBody body, {super.header}) : super(body..response?.header = header);
 
   factory PurgeRevisionEnvelope.fromMap(Map<String, dynamic> data) =>
       PurgeRevisionEnvelope(PurgeRevisionBody.fromMap(data['Body']),

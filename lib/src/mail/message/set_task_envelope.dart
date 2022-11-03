@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'set_task_body.dart';
 
 class SetTaskEnvelope extends SoapEnvelope {
-  SetTaskEnvelope(SetTaskBody body, {super.header}) : super(body);
+  SetTaskEnvelope(SetTaskBody body, {super.header}) : super(body..response?.header = header);
 
   factory SetTaskEnvelope.fromMap(Map<String, dynamic> data) => SetTaskEnvelope(SetTaskBody.fromMap(data['Body']),
       header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);

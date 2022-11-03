@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'import_contacts_body.dart';
 
 class ImportContactsEnvelope extends SoapEnvelope {
-  ImportContactsEnvelope(ImportContactsBody body, {super.header}) : super(body);
+  ImportContactsEnvelope(ImportContactsBody body, {super.header}) : super(body..response?.header = header);
 
   factory ImportContactsEnvelope.fromMap(Map<String, dynamic> data) =>
       ImportContactsEnvelope(ImportContactsBody.fromMap(data['Body']),

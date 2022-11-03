@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'diff_document_body.dart';
 
 class DiffDocumentEnvelope extends SoapEnvelope {
-  DiffDocumentEnvelope(DiffDocumentBody body, {super.header}) : super(body);
+  DiffDocumentEnvelope(DiffDocumentBody body, {super.header}) : super(body..response?.header = header);
 
   factory DiffDocumentEnvelope.fromMap(Map<String, dynamic> data) =>
       DiffDocumentEnvelope(DiffDocumentBody.fromMap(data['Body']),

@@ -8,7 +8,8 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'save_imap_subscriptions_body.dart';
 
 class SaveIMAPSubscriptionsEnvelope extends SoapEnvelope {
-  SaveIMAPSubscriptionsEnvelope(SaveIMAPSubscriptionsBody body, {super.header}) : super(body);
+  SaveIMAPSubscriptionsEnvelope(SaveIMAPSubscriptionsBody body, {super.header})
+      : super(body..response?.header = header);
 
   factory SaveIMAPSubscriptionsEnvelope.fromMap(Map<String, dynamic> data) =>
       SaveIMAPSubscriptionsEnvelope(SaveIMAPSubscriptionsBody.fromMap(data['Body']),

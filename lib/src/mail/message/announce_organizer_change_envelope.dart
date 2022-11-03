@@ -8,7 +8,8 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'announce_organizer_change_body.dart';
 
 class AnnounceOrganizerChangeEnvelope extends SoapEnvelope {
-  AnnounceOrganizerChangeEnvelope(AnnounceOrganizerChangeBody body, {super.header}) : super(body);
+  AnnounceOrganizerChangeEnvelope(AnnounceOrganizerChangeBody body, {super.header})
+      : super(body..response?.header = header);
 
   factory AnnounceOrganizerChangeEnvelope.fromMap(Map<String, dynamic> data) =>
       AnnounceOrganizerChangeEnvelope(AnnounceOrganizerChangeBody.fromMap(data['Body']),

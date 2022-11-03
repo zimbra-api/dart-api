@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'complete_task_instance_body.dart';
 
 class CompleteTaskInstanceEnvelope extends SoapEnvelope {
-  CompleteTaskInstanceEnvelope(CompleteTaskInstanceBody body, {super.header}) : super(body);
+  CompleteTaskInstanceEnvelope(CompleteTaskInstanceBody body, {super.header}) : super(body..response?.header = header);
 
   factory CompleteTaskInstanceEnvelope.fromMap(Map<String, dynamic> data) =>
       CompleteTaskInstanceEnvelope(CompleteTaskInstanceBody.fromMap(data['Body']),

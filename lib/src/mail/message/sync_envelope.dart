@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'sync_body.dart';
 
 class SyncEnvelope extends SoapEnvelope {
-  SyncEnvelope(SyncBody body, {super.header}) : super(body);
+  SyncEnvelope(SyncBody body, {super.header}) : super(body..response?.header = header);
 
   factory SyncEnvelope.fromMap(Map<String, dynamic> data) => SyncEnvelope(SyncBody.fromMap(data['Body']),
       header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);

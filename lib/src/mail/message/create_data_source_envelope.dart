@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'create_data_source_body.dart';
 
 class CreateDataSourceEnvelope extends SoapEnvelope {
-  CreateDataSourceEnvelope(CreateDataSourceBody body, {super.header}) : super(body);
+  CreateDataSourceEnvelope(CreateDataSourceBody body, {super.header}) : super(body..response?.header = header);
 
   factory CreateDataSourceEnvelope.fromMap(Map<String, dynamic> data) =>
       CreateDataSourceEnvelope(CreateDataSourceBody.fromMap(data['Body']),

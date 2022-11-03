@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'get_permission_body.dart';
 
 class GetPermissionEnvelope extends SoapEnvelope {
-  GetPermissionEnvelope(GetPermissionBody body, {super.header}) : super(body);
+  GetPermissionEnvelope(GetPermissionBody body, {super.header}) : super(body..response?.header = header);
 
   factory GetPermissionEnvelope.fromMap(Map<String, dynamic> data) =>
       GetPermissionEnvelope(GetPermissionBody.fromMap(data['Body']),

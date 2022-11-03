@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'modify_appointment_body.dart';
 
 class ModifyAppointmentEnvelope extends SoapEnvelope {
-  ModifyAppointmentEnvelope(ModifyAppointmentBody body, {super.header}) : super(body);
+  ModifyAppointmentEnvelope(ModifyAppointmentBody body, {super.header}) : super(body..response?.header = header);
 
   factory ModifyAppointmentEnvelope.fromMap(Map<String, dynamic> data) =>
       ModifyAppointmentEnvelope(ModifyAppointmentBody.fromMap(data['Body']),

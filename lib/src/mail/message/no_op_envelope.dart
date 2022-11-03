@@ -7,7 +7,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'package:zimbra_api/src/mail/message/no_op_body.dart';
 
 class NoOpEnvelope extends SoapEnvelope {
-  NoOpEnvelope(NoOpBody body, {super.header}) : super(body);
+  NoOpEnvelope(NoOpBody body, {super.header}) : super(body..response?.header = header);
 
   factory NoOpEnvelope.fromMap(Map<String, dynamic> data) => NoOpEnvelope(NoOpBody.fromMap(data['Body']),
       header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);

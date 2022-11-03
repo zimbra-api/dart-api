@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'tag_action_body.dart';
 
 class TagActionEnvelope extends SoapEnvelope {
-  TagActionEnvelope(TagActionBody body, {super.header}) : super(body);
+  TagActionEnvelope(TagActionBody body, {super.header}) : super(body..response?.header = header);
 
   factory TagActionEnvelope.fromMap(Map<String, dynamic> data) =>
       TagActionEnvelope(TagActionBody.fromMap(data['Body']),

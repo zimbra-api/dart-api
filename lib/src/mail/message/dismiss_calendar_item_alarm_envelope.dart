@@ -8,7 +8,8 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'dismiss_calendar_item_alarm_body.dart';
 
 class DismissCalendarItemAlarmEnvelope extends SoapEnvelope {
-  DismissCalendarItemAlarmEnvelope(DismissCalendarItemAlarmBody body, {super.header}) : super(body);
+  DismissCalendarItemAlarmEnvelope(DismissCalendarItemAlarmBody body, {super.header})
+      : super(body..response?.header = header);
 
   factory DismissCalendarItemAlarmEnvelope.fromMap(Map<String, dynamic> data) =>
       DismissCalendarItemAlarmEnvelope(DismissCalendarItemAlarmBody.fromMap(data['Body']),

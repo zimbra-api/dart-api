@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'get_imap_recent_cutoff_body.dart';
 
 class GetIMAPRecentCutoffEnvelope extends SoapEnvelope {
-  GetIMAPRecentCutoffEnvelope(GetIMAPRecentCutoffBody body, {super.header}) : super(body);
+  GetIMAPRecentCutoffEnvelope(GetIMAPRecentCutoffBody body, {super.header}) : super(body..response?.header = header);
 
   factory GetIMAPRecentCutoffEnvelope.fromMap(Map<String, dynamic> data) =>
       GetIMAPRecentCutoffEnvelope(GetIMAPRecentCutoffBody.fromMap(data['Body']),

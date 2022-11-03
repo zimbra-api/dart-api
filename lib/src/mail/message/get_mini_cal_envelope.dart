@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'get_mini_cal_body.dart';
 
 class GetMiniCalEnvelope extends SoapEnvelope {
-  GetMiniCalEnvelope(GetMiniCalBody body, {super.header}) : super(body);
+  GetMiniCalEnvelope(GetMiniCalBody body, {super.header}) : super(body..response?.header = header);
 
   factory GetMiniCalEnvelope.fromMap(Map<String, dynamic> data) =>
       GetMiniCalEnvelope(GetMiniCalBody.fromMap(data['Body']),

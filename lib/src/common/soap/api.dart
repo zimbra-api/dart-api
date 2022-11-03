@@ -3,7 +3,6 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/enum/account_by.dart';
-import 'package:zimbra_api/src/common/soap/client.dart';
 import 'package:zimbra_api/src/common/type/header/account_info.dart';
 import 'package:zimbra_api/src/common/type/header/context.dart';
 import 'package:zimbra_api/src/common/type/header/format_info.dart';
@@ -13,6 +12,7 @@ import 'package:zimbra_api/src/common/type/soap_fault.dart';
 import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'package:zimbra_api/src/common/type/soap_request.dart';
 
+import 'client.dart';
 import 'client_exception.dart';
 
 abstract class Api {

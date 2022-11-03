@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'remove_attachments_body.dart';
 
 class RemoveAttachmentsEnvelope extends SoapEnvelope {
-  RemoveAttachmentsEnvelope(RemoveAttachmentsBody body, {super.header}) : super(body);
+  RemoveAttachmentsEnvelope(RemoveAttachmentsBody body, {super.header}) : super(body..response?.header = header);
 
   factory RemoveAttachmentsEnvelope.fromMap(Map<String, dynamic> data) =>
       RemoveAttachmentsEnvelope(RemoveAttachmentsBody.fromMap(data['Body']),

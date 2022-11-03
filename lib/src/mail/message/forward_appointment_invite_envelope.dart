@@ -8,7 +8,8 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'forward_appointment_invite_body.dart';
 
 class ForwardAppointmentInviteEnvelope extends SoapEnvelope {
-  ForwardAppointmentInviteEnvelope(ForwardAppointmentInviteBody body, {super.header}) : super(body);
+  ForwardAppointmentInviteEnvelope(ForwardAppointmentInviteBody body, {super.header})
+      : super(body..response?.header = header);
 
   factory ForwardAppointmentInviteEnvelope.fromMap(Map<String, dynamic> data) =>
       ForwardAppointmentInviteEnvelope(ForwardAppointmentInviteBody.fromMap(data['Body']),

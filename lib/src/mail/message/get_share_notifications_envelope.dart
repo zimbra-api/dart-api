@@ -8,7 +8,8 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'get_share_notifications_body.dart';
 
 class GetShareNotificationsEnvelope extends SoapEnvelope {
-  GetShareNotificationsEnvelope(GetShareNotificationsBody body, {super.header}) : super(body);
+  GetShareNotificationsEnvelope(GetShareNotificationsBody body, {super.header})
+      : super(body..response?.header = header);
 
   factory GetShareNotificationsEnvelope.fromMap(Map<String, dynamic> data) =>
       GetShareNotificationsEnvelope(GetShareNotificationsBody.fromMap(data['Body']),

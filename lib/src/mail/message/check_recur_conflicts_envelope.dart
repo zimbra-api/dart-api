@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'check_recur_conflicts_body.dart';
 
 class CheckRecurConflictsEnvelope extends SoapEnvelope {
-  CheckRecurConflictsEnvelope(CheckRecurConflictsBody body, {super.header}) : super(body);
+  CheckRecurConflictsEnvelope(CheckRecurConflictsBody body, {super.header}) : super(body..response?.header = header);
 
   factory CheckRecurConflictsEnvelope.fromMap(Map<String, dynamic> data) =>
       CheckRecurConflictsEnvelope(CheckRecurConflictsBody.fromMap(data['Body']),

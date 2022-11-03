@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'create_wait_set_body.dart';
 
 class CreateWaitSetEnvelope extends SoapEnvelope {
-  CreateWaitSetEnvelope(CreateWaitSetBody body, {super.header}) : super(body);
+  CreateWaitSetEnvelope(CreateWaitSetBody body, {super.header}) : super(body..response?.header = header);
 
   factory CreateWaitSetEnvelope.fromMap(Map<String, dynamic> data) =>
       CreateWaitSetEnvelope(CreateWaitSetBody.fromMap(data['Body']),

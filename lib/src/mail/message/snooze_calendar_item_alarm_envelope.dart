@@ -8,7 +8,8 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'snooze_calendar_item_alarm_body.dart';
 
 class SnoozeCalendarItemAlarmEnvelope extends SoapEnvelope {
-  SnoozeCalendarItemAlarmEnvelope(SnoozeCalendarItemAlarmBody body, {super.header}) : super(body);
+  SnoozeCalendarItemAlarmEnvelope(SnoozeCalendarItemAlarmBody body, {super.header})
+      : super(body..response?.header = header);
 
   factory SnoozeCalendarItemAlarmEnvelope.fromMap(Map<String, dynamic> data) =>
       SnoozeCalendarItemAlarmEnvelope(SnoozeCalendarItemAlarmBody.fromMap(data['Body']),

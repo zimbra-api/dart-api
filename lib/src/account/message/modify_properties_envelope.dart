@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'modify_properties_body.dart';
 
 class ModifyPropertiesEnvelope extends SoapEnvelope {
-  ModifyPropertiesEnvelope(ModifyPropertiesBody body, {super.header}) : super(body);
+  ModifyPropertiesEnvelope(ModifyPropertiesBody body, {super.header}) : super(body..response?.header = header);
 
   factory ModifyPropertiesEnvelope.fromMap(Map<String, dynamic> data) =>
       ModifyPropertiesEnvelope(ModifyPropertiesBody.fromMap(data['Body']),

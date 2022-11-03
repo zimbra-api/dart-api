@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'auto_complete_body.dart';
 
 class AutoCompleteEnvelope extends SoapEnvelope {
-  AutoCompleteEnvelope(AutoCompleteBody body, {super.header}) : super(body);
+  AutoCompleteEnvelope(AutoCompleteBody body, {super.header}) : super(body..response?.header = header);
 
   factory AutoCompleteEnvelope.fromMap(Map<String, dynamic> data) =>
       AutoCompleteEnvelope(AutoCompleteBody.fromMap(data['Body']),

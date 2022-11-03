@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'modify_task_body.dart';
 
 class ModifyTaskEnvelope extends SoapEnvelope {
-  ModifyTaskEnvelope(ModifyTaskBody body, {super.header}) : super(body);
+  ModifyTaskEnvelope(ModifyTaskBody body, {super.header}) : super(body..response?.header = header);
 
   factory ModifyTaskEnvelope.fromMap(Map<String, dynamic> data) =>
       ModifyTaskEnvelope(ModifyTaskBody.fromMap(data['Body']),

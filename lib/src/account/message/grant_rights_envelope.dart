@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'grant_rights_body.dart';
 
 class GrantRightsEnvelope extends SoapEnvelope {
-  GrantRightsEnvelope(GrantRightsBody body, {super.header}) : super(body);
+  GrantRightsEnvelope(GrantRightsBody body, {super.header}) : super(body..response?.header = header);
 
   factory GrantRightsEnvelope.fromMap(Map<String, dynamic> data) =>
       GrantRightsEnvelope(GrantRightsBody.fromMap(data['Body']),

@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'get_spell_dictionaries_body.dart';
 
 class GetSpellDictionariesEnvelope extends SoapEnvelope {
-  GetSpellDictionariesEnvelope(GetSpellDictionariesBody body, {super.header}) : super(body);
+  GetSpellDictionariesEnvelope(GetSpellDictionariesBody body, {super.header}) : super(body..response?.header = header);
 
   factory GetSpellDictionariesEnvelope.fromMap(Map<String, dynamic> data) =>
       GetSpellDictionariesEnvelope(GetSpellDictionariesBody.fromMap(data['Body']),

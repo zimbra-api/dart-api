@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'get_signatures_body.dart';
 
 class GetSignaturesEnvelope extends SoapEnvelope {
-  GetSignaturesEnvelope(GetSignaturesBody body, {super.header}) : super(body);
+  GetSignaturesEnvelope(GetSignaturesBody body, {super.header}) : super(body..response?.header = header);
 
   factory GetSignaturesEnvelope.fromMap(Map<String, dynamic> data) =>
       GetSignaturesEnvelope(GetSignaturesBody.fromMap(data['Body']),

@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'import_appointments_body.dart';
 
 class ImportAppointmentsEnvelope extends SoapEnvelope {
-  ImportAppointmentsEnvelope(ImportAppointmentsBody body, {super.header}) : super(body);
+  ImportAppointmentsEnvelope(ImportAppointmentsBody body, {super.header}) : super(body..response?.header = header);
 
   factory ImportAppointmentsEnvelope.fromMap(Map<String, dynamic> data) =>
       ImportAppointmentsEnvelope(ImportAppointmentsBody.fromMap(data['Body']),

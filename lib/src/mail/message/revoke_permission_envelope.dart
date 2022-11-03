@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'revoke_permission_body.dart';
 
 class RevokePermissionEnvelope extends SoapEnvelope {
-  RevokePermissionEnvelope(RevokePermissionBody body, {super.header}) : super(body);
+  RevokePermissionEnvelope(RevokePermissionBody body, {super.header}) : super(body..response?.header = header);
 
   factory RevokePermissionEnvelope.fromMap(Map<String, dynamic> data) =>
       RevokePermissionEnvelope(RevokePermissionBody.fromMap(data['Body']),

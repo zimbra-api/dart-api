@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'check_spelling_body.dart';
 
 class CheckSpellingEnvelope extends SoapEnvelope {
-  CheckSpellingEnvelope(CheckSpellingBody body, {super.header}) : super(body);
+  CheckSpellingEnvelope(CheckSpellingBody body, {super.header}) : super(body..response?.header = header);
 
   factory CheckSpellingEnvelope.fromMap(Map<String, dynamic> data) =>
       CheckSpellingEnvelope(CheckSpellingBody.fromMap(data['Body']),

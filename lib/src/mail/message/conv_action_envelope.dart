@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'conv_action_body.dart';
 
 class ConvActionEnvelope extends SoapEnvelope {
-  ConvActionEnvelope(ConvActionBody body, {super.header}) : super(body);
+  ConvActionEnvelope(ConvActionBody body, {super.header}) : super(body..response?.header = header);
 
   factory ConvActionEnvelope.fromMap(Map<String, dynamic> data) =>
       ConvActionEnvelope(ConvActionBody.fromMap(data['Body']),

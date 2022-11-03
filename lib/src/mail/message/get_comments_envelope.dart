@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'get_comments_body.dart';
 
 class GetCommentsEnvelope extends SoapEnvelope {
-  GetCommentsEnvelope(GetCommentsBody body, {super.header}) : super(body);
+  GetCommentsEnvelope(GetCommentsBody body, {super.header}) : super(body..response?.header = header);
 
   factory GetCommentsEnvelope.fromMap(Map<String, dynamic> data) =>
       GetCommentsEnvelope(GetCommentsBody.fromMap(data['Body']),

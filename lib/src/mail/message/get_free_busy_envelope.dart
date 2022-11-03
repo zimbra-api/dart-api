@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'get_free_busy_body.dart';
 
 class GetFreeBusyEnvelope extends SoapEnvelope {
-  GetFreeBusyEnvelope(GetFreeBusyBody body, {super.header}) : super(body);
+  GetFreeBusyEnvelope(GetFreeBusyBody body, {super.header}) : super(body..response?.header = header);
 
   factory GetFreeBusyEnvelope.fromMap(Map<String, dynamic> data) =>
       GetFreeBusyEnvelope(GetFreeBusyBody.fromMap(data['Body']),

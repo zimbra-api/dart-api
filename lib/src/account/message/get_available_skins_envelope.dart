@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'get_available_skins_body.dart';
 
 class GetAvailableSkinsEnvelope extends SoapEnvelope {
-  GetAvailableSkinsEnvelope(GetAvailableSkinsBody body, {super.header}) : super(body);
+  GetAvailableSkinsEnvelope(GetAvailableSkinsBody body, {super.header}) : super(body..response?.header = header);
 
   factory GetAvailableSkinsEnvelope.fromMap(Map<String, dynamic> data) =>
       GetAvailableSkinsEnvelope(GetAvailableSkinsBody.fromMap(data['Body']),

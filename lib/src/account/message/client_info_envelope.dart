@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'client_info_body.dart';
 
 class ClientInfoEnvelope extends SoapEnvelope {
-  ClientInfoEnvelope(ClientInfoBody body, {super.header}) : super(body);
+  ClientInfoEnvelope(ClientInfoBody body, {super.header}) : super(body..response?.header = header);
 
   factory ClientInfoEnvelope.fromMap(Map<String, dynamic> data) =>
       ClientInfoEnvelope(ClientInfoBody.fromMap(data['Body']),

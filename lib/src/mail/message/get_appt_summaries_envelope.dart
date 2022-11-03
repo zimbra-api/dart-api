@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'get_appt_summaries_body.dart';
 
 class GetApptSummariesEnvelope extends SoapEnvelope {
-  GetApptSummariesEnvelope(GetApptSummariesBody body, {super.header}) : super(body);
+  GetApptSummariesEnvelope(GetApptSummariesBody body, {super.header}) : super(body..response?.header = header);
 
   factory GetApptSummariesEnvelope.fromMap(Map<String, dynamic> data) =>
       GetApptSummariesEnvelope(GetApptSummariesBody.fromMap(data['Body']),

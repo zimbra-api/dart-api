@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'get_custom_metadata_body.dart';
 
 class GetCustomMetadataEnvelope extends SoapEnvelope {
-  GetCustomMetadataEnvelope(GetCustomMetadataBody body, {super.header}) : super(body);
+  GetCustomMetadataEnvelope(GetCustomMetadataBody body, {super.header}) : super(body..response?.header = header);
 
   factory GetCustomMetadataEnvelope.fromMap(Map<String, dynamic> data) =>
       GetCustomMetadataEnvelope(GetCustomMetadataBody.fromMap(data['Body']),

@@ -8,7 +8,8 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'get_effective_folder_perms_body.dart';
 
 class GetEffectiveFolderPermsEnvelope extends SoapEnvelope {
-  GetEffectiveFolderPermsEnvelope(GetEffectiveFolderPermsBody body, {super.header}) : super(body);
+  GetEffectiveFolderPermsEnvelope(GetEffectiveFolderPermsBody body, {super.header})
+      : super(body..response?.header = header);
 
   factory GetEffectiveFolderPermsEnvelope.fromMap(Map<String, dynamic> data) =>
       GetEffectiveFolderPermsEnvelope(GetEffectiveFolderPermsBody.fromMap(data['Body']),

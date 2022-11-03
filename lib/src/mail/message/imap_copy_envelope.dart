@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'imap_copy_body.dart';
 
 class IMAPCopyEnvelope extends SoapEnvelope {
-  IMAPCopyEnvelope(IMAPCopyBody body, {super.header}) : super(body);
+  IMAPCopyEnvelope(IMAPCopyBody body, {super.header}) : super(body..response?.header = header);
 
   factory IMAPCopyEnvelope.fromMap(Map<String, dynamic> data) => IMAPCopyEnvelope(IMAPCopyBody.fromMap(data['Body']),
       header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);

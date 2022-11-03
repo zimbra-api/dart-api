@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'get_import_status_body.dart';
 
 class GetImportStatusEnvelope extends SoapEnvelope {
-  GetImportStatusEnvelope(GetImportStatusBody body, {super.header}) : super(body);
+  GetImportStatusEnvelope(GetImportStatusBody body, {super.header}) : super(body..response?.header = header);
 
   factory GetImportStatusEnvelope.fromMap(Map<String, dynamic> data) =>
       GetImportStatusEnvelope(GetImportStatusBody.fromMap(data['Body']),

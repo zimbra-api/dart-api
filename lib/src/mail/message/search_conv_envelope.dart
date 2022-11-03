@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'search_conv_body.dart';
 
 class SearchConvEnvelope extends SoapEnvelope {
-  SearchConvEnvelope(SearchConvBody body, {super.header}) : super(body);
+  SearchConvEnvelope(SearchConvBody body, {super.header}) : super(body..response?.header = header);
 
   factory SearchConvEnvelope.fromMap(Map<String, dynamic> data) =>
       SearchConvEnvelope(SearchConvBody.fromMap(data['Body']),

@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'get_contact_backup_list_body.dart';
 
 class GetContactBackupListEnvelope extends SoapEnvelope {
-  GetContactBackupListEnvelope(GetContactBackupListBody body, {super.header}) : super(body);
+  GetContactBackupListEnvelope(GetContactBackupListBody body, {super.header}) : super(body..response?.header = header);
 
   factory GetContactBackupListEnvelope.fromMap(Map<String, dynamic> data) =>
       GetContactBackupListEnvelope(GetContactBackupListBody.fromMap(data['Body']),

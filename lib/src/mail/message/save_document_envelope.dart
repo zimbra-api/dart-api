@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'save_document_body.dart';
 
 class SaveDocumentEnvelope extends SoapEnvelope {
-  SaveDocumentEnvelope(SaveDocumentBody body, {super.header}) : super(body);
+  SaveDocumentEnvelope(SaveDocumentBody body, {super.header}) : super(body..response?.header = header);
 
   factory SaveDocumentEnvelope.fromMap(Map<String, dynamic> data) =>
       SaveDocumentEnvelope(SaveDocumentBody.fromMap(data['Body']),

@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'generate_uuid_body.dart';
 
 class GenerateUUIDEnvelope extends SoapEnvelope {
-  GenerateUUIDEnvelope(GenerateUUIDBody body, {super.header}) : super(body);
+  GenerateUUIDEnvelope(GenerateUUIDBody body, {super.header}) : super(body..response?.header = header);
 
   factory GenerateUUIDEnvelope.fromMap(Map<String, dynamic> data) =>
       GenerateUUIDEnvelope(GenerateUUIDBody.fromMap(data['Body']),

@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'verify_code_body.dart';
 
 class VerifyCodeEnvelope extends SoapEnvelope {
-  VerifyCodeEnvelope(VerifyCodeBody body, {super.header}) : super(body);
+  VerifyCodeEnvelope(VerifyCodeBody body, {super.header}) : super(body..response?.header = header);
 
   factory VerifyCodeEnvelope.fromMap(Map<String, dynamic> data) =>
       VerifyCodeEnvelope(VerifyCodeBody.fromMap(data['Body']),

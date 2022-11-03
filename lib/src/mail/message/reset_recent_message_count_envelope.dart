@@ -8,7 +8,8 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'reset_recent_message_count_body.dart';
 
 class ResetRecentMessageCountEnvelope extends SoapEnvelope {
-  ResetRecentMessageCountEnvelope(ResetRecentMessageCountBody body, {super.header}) : super(body);
+  ResetRecentMessageCountEnvelope(ResetRecentMessageCountBody body, {super.header})
+      : super(body..response?.header = header);
 
   factory ResetRecentMessageCountEnvelope.fromMap(Map<String, dynamic> data) =>
       ResetRecentMessageCountEnvelope(ResetRecentMessageCountBody.fromMap(data['Body']),

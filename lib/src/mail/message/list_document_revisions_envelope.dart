@@ -8,7 +8,8 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'list_document_revisions_body.dart';
 
 class ListDocumentRevisionsEnvelope extends SoapEnvelope {
-  ListDocumentRevisionsEnvelope(ListDocumentRevisionsBody body, {super.header}) : super(body);
+  ListDocumentRevisionsEnvelope(ListDocumentRevisionsBody body, {super.header})
+      : super(body..response?.header = header);
 
   factory ListDocumentRevisionsEnvelope.fromMap(Map<String, dynamic> data) =>
       ListDocumentRevisionsEnvelope(ListDocumentRevisionsBody.fromMap(data['Body']),

@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'get_imap_recent_body.dart';
 
 class GetIMAPRecentEnvelope extends SoapEnvelope {
-  GetIMAPRecentEnvelope(GetIMAPRecentBody body, {super.header}) : super(body);
+  GetIMAPRecentEnvelope(GetIMAPRecentBody body, {super.header}) : super(body..response?.header = header);
 
   factory GetIMAPRecentEnvelope.fromMap(Map<String, dynamic> data) =>
       GetIMAPRecentEnvelope(GetIMAPRecentBody.fromMap(data['Body']),

@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'expand_recur_body.dart';
 
 class ExpandRecurEnvelope extends SoapEnvelope {
-  ExpandRecurEnvelope(ExpandRecurBody body, {super.header}) : super(body);
+  ExpandRecurEnvelope(ExpandRecurBody body, {super.header}) : super(body..response?.header = header);
 
   factory ExpandRecurEnvelope.fromMap(Map<String, dynamic> data) =>
       ExpandRecurEnvelope(ExpandRecurBody.fromMap(data['Body']),

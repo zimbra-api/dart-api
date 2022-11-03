@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'open_imap_folder_body.dart';
 
 class OpenIMAPFolderEnvelope extends SoapEnvelope {
-  OpenIMAPFolderEnvelope(OpenIMAPFolderBody body, {super.header}) : super(body);
+  OpenIMAPFolderEnvelope(OpenIMAPFolderBody body, {super.header}) : super(body..response?.header = header);
 
   factory OpenIMAPFolderEnvelope.fromMap(Map<String, dynamic> data) =>
       OpenIMAPFolderEnvelope(OpenIMAPFolderBody.fromMap(data['Body']),

@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'restore_contacts_body.dart';
 
 class RestoreContactsEnvelope extends SoapEnvelope {
-  RestoreContactsEnvelope(RestoreContactsBody body, {super.header}) : super(body);
+  RestoreContactsEnvelope(RestoreContactsBody body, {super.header}) : super(body..response?.header = header);
 
   factory RestoreContactsEnvelope.fromMap(Map<String, dynamic> data) =>
       RestoreContactsEnvelope(RestoreContactsBody.fromMap(data['Body']),

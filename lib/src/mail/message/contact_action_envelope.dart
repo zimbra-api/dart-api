@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'contact_action_body.dart';
 
 class ContactActionEnvelope extends SoapEnvelope {
-  ContactActionEnvelope(ContactActionBody body, {super.header}) : super(body);
+  ContactActionEnvelope(ContactActionBody body, {super.header}) : super(body..response?.header = header);
 
   factory ContactActionEnvelope.fromMap(Map<String, dynamic> data) =>
       ContactActionEnvelope(ContactActionBody.fromMap(data['Body']),

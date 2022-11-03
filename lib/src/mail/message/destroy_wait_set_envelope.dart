@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'destroy_wait_set_body.dart';
 
 class DestroyWaitSetEnvelope extends SoapEnvelope {
-  DestroyWaitSetEnvelope(DestroyWaitSetBody body, {super.header}) : super(body);
+  DestroyWaitSetEnvelope(DestroyWaitSetBody body, {super.header}) : super(body..response?.header = header);
 
   factory DestroyWaitSetEnvelope.fromMap(Map<String, dynamic> data) =>
       DestroyWaitSetEnvelope(DestroyWaitSetBody.fromMap(data['Body']),

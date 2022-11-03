@@ -8,7 +8,7 @@ import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'create_mountpoint_body.dart';
 
 class CreateMountpointEnvelope extends SoapEnvelope {
-  CreateMountpointEnvelope(CreateMountpointBody body, {super.header}) : super(body);
+  CreateMountpointEnvelope(CreateMountpointBody body, {super.header}) : super(body..response?.header = header);
 
   factory CreateMountpointEnvelope.fromMap(Map<String, dynamic> data) =>
       CreateMountpointEnvelope(CreateMountpointBody.fromMap(data['Body']),

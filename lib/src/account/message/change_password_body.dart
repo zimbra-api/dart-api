@@ -3,20 +3,18 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_body.dart';
-import 'package:zimbra_api/src/common/type/soap_fault.dart';
 
 import 'change_password_request.dart';
 import 'change_password_response.dart';
 
 class ChangePasswordBody extends SoapBody {
-  ChangePasswordBody({ChangePasswordRequest? request, ChangePasswordResponse? response, super.fault})
+  ChangePasswordBody({ChangePasswordRequest? request, ChangePasswordResponse? response})
       : super(request: request, response: response);
 
   factory ChangePasswordBody.fromMap(Map<String, dynamic> data) => ChangePasswordBody(
       response: data['ChangePasswordResponse'] != null
           ? ChangePasswordResponse.fromMap(data['ChangePasswordResponse'])
-          : null,
-      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
+          : null);
 
   @override
   Map<String, dynamic> toMap() => {

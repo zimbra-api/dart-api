@@ -3,18 +3,16 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_body.dart';
-import 'package:zimbra_api/src/common/type/soap_fault.dart';
 
 import 'search_gal_request.dart';
 import 'search_gal_response.dart';
 
 class SearchGalBody extends SoapBody {
-  SearchGalBody({SearchGalRequest? request, SearchGalResponse? response, super.fault})
+  SearchGalBody({SearchGalRequest? request, SearchGalResponse? response})
       : super(request: request, response: response);
 
   factory SearchGalBody.fromMap(Map<String, dynamic> data) => SearchGalBody(
-      response: data['SearchGalResponse'] != null ? SearchGalResponse.fromMap(data['SearchGalResponse']) : null,
-      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
+      response: data['SearchGalResponse'] != null ? SearchGalResponse.fromMap(data['SearchGalResponse']) : null);
 
   @override
   Map<String, dynamic> toMap() => {

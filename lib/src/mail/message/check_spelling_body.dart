@@ -3,19 +3,17 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_body.dart';
-import 'package:zimbra_api/src/common/type/soap_fault.dart';
 
 import 'check_spelling_request.dart';
 import 'check_spelling_response.dart';
 
 class CheckSpellingBody extends SoapBody {
-  CheckSpellingBody({CheckSpellingRequest? request, CheckSpellingResponse? response, super.fault})
+  CheckSpellingBody({CheckSpellingRequest? request, CheckSpellingResponse? response})
       : super(request: request, response: response);
 
   factory CheckSpellingBody.fromMap(Map<String, dynamic> data) => CheckSpellingBody(
       response:
-          data['CheckSpellingResponse'] != null ? CheckSpellingResponse.fromMap(data['CheckSpellingResponse']) : null,
-      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
+          data['CheckSpellingResponse'] != null ? CheckSpellingResponse.fromMap(data['CheckSpellingResponse']) : null);
 
   @override
   Map<String, dynamic> toMap() => {

@@ -3,21 +3,19 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_body.dart';
-import 'package:zimbra_api/src/common/type/soap_fault.dart';
 
 import 'get_available_csv_formats_request.dart';
 import 'get_available_csv_formats_response.dart';
 
 class GetAvailableCsvFormatsBody extends SoapBody {
   GetAvailableCsvFormatsBody(
-      {GetAvailableCsvFormatsRequest? request, GetAvailableCsvFormatsResponse? response, super.fault})
+      {GetAvailableCsvFormatsRequest? request, GetAvailableCsvFormatsResponse? response})
       : super(request: request, response: response);
 
   factory GetAvailableCsvFormatsBody.fromMap(Map<String, dynamic> data) => GetAvailableCsvFormatsBody(
       response: data['GetAvailableCsvFormatsResponse'] != null
           ? GetAvailableCsvFormatsResponse.fromMap(data['GetAvailableCsvFormatsResponse'])
-          : null,
-      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
+          : null);
 
   @override
   Map<String, dynamic> toMap() => {

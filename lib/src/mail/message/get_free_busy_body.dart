@@ -3,18 +3,16 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_body.dart';
-import 'package:zimbra_api/src/common/type/soap_fault.dart';
 
 import 'get_free_busy_request.dart';
 import 'get_free_busy_response.dart';
 
 class GetFreeBusyBody extends SoapBody {
-  GetFreeBusyBody({GetFreeBusyRequest? request, GetFreeBusyResponse? response, super.fault})
+  GetFreeBusyBody({GetFreeBusyRequest? request, GetFreeBusyResponse? response})
       : super(request: request, response: response);
 
   factory GetFreeBusyBody.fromMap(Map<String, dynamic> data) => GetFreeBusyBody(
-      response: data['GetFreeBusyResponse'] != null ? GetFreeBusyResponse.fromMap(data['GetFreeBusyResponse']) : null,
-      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
+      response: data['GetFreeBusyResponse'] != null ? GetFreeBusyResponse.fromMap(data['GetFreeBusyResponse']) : null);
 
   @override
   Map<String, dynamic> toMap() => {

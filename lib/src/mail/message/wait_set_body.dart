@@ -3,18 +3,16 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_body.dart';
-import 'package:zimbra_api/src/common/type/soap_fault.dart';
 
 import 'wait_set_request.dart';
 import 'wait_set_response.dart';
 
 class WaitSetBody extends SoapBody {
-  WaitSetBody({WaitSetRequest? request, WaitSetResponse? response, super.fault})
+  WaitSetBody({WaitSetRequest? request, WaitSetResponse? response})
       : super(request: request, response: response);
 
   factory WaitSetBody.fromMap(Map<String, dynamic> data) => WaitSetBody(
-      response: data['WaitSetResponse'] != null ? WaitSetResponse.fromMap(data['WaitSetResponse']) : null,
-      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
+      response: data['WaitSetResponse'] != null ? WaitSetResponse.fromMap(data['WaitSetResponse']) : null);
 
   @override
   Map<String, dynamic> toMap() => {

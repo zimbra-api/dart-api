@@ -3,20 +3,18 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_body.dart';
-import 'package:zimbra_api/src/common/type/soap_fault.dart';
 
 import 'get_filter_rules_request.dart';
 import 'get_filter_rules_response.dart';
 
 class GetFilterRulesBody extends SoapBody {
-  GetFilterRulesBody({GetFilterRulesRequest? request, GetFilterRulesResponse? response, super.fault})
+  GetFilterRulesBody({GetFilterRulesRequest? request, GetFilterRulesResponse? response})
       : super(request: request, response: response);
 
   factory GetFilterRulesBody.fromMap(Map<String, dynamic> data) => GetFilterRulesBody(
       response: data['GetFilterRulesResponse'] != null
           ? GetFilterRulesResponse.fromMap(data['GetFilterRulesResponse'])
-          : null,
-      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
+          : null);
 
   @override
   Map<String, dynamic> toMap() => {

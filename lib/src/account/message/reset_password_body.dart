@@ -3,19 +3,17 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_body.dart';
-import 'package:zimbra_api/src/common/type/soap_fault.dart';
 
 import 'reset_password_request.dart';
 import 'reset_password_response.dart';
 
 class ResetPasswordBody extends SoapBody {
-  ResetPasswordBody({ResetPasswordRequest? request, ResetPasswordResponse? response, super.fault})
+  ResetPasswordBody({ResetPasswordRequest? request, ResetPasswordResponse? response})
       : super(request: request, response: response);
 
   factory ResetPasswordBody.fromMap(Map<String, dynamic> data) => ResetPasswordBody(
       response:
-          data['ResetPasswordResponse'] != null ? ResetPasswordResponse.fromMap(data['ResetPasswordResponse']) : null,
-      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
+          data['ResetPasswordResponse'] != null ? ResetPasswordResponse.fromMap(data['ResetPasswordResponse']) : null);
 
   @override
   Map<String, dynamic> toMap() => {

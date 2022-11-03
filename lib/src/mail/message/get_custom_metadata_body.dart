@@ -3,20 +3,18 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_body.dart';
-import 'package:zimbra_api/src/common/type/soap_fault.dart';
 
 import 'get_custom_metadata_request.dart';
 import 'get_custom_metadata_response.dart';
 
 class GetCustomMetadataBody extends SoapBody {
-  GetCustomMetadataBody({GetCustomMetadataRequest? request, GetCustomMetadataResponse? response, super.fault})
+  GetCustomMetadataBody({GetCustomMetadataRequest? request, GetCustomMetadataResponse? response})
       : super(request: request, response: response);
 
   factory GetCustomMetadataBody.fromMap(Map<String, dynamic> data) => GetCustomMetadataBody(
       response: data['GetCustomMetadataResponse'] != null
           ? GetCustomMetadataResponse.fromMap(data['GetCustomMetadataResponse'])
-          : null,
-      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
+          : null);
 
   @override
   Map<String, dynamic> toMap() => {

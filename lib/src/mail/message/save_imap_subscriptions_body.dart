@@ -3,21 +3,19 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_body.dart';
-import 'package:zimbra_api/src/common/type/soap_fault.dart';
 
 import 'save_imap_subscriptions_request.dart';
 import 'save_imap_subscriptions_response.dart';
 
 class SaveIMAPSubscriptionsBody extends SoapBody {
   SaveIMAPSubscriptionsBody(
-      {SaveIMAPSubscriptionsRequest? request, SaveIMAPSubscriptionsResponse? response, super.fault})
+      {SaveIMAPSubscriptionsRequest? request, SaveIMAPSubscriptionsResponse? response})
       : super(request: request, response: response);
 
   factory SaveIMAPSubscriptionsBody.fromMap(Map<String, dynamic> data) => SaveIMAPSubscriptionsBody(
       response: data['SaveIMAPSubscriptionsResponse'] != null
           ? SaveIMAPSubscriptionsResponse.fromMap(data['SaveIMAPSubscriptionsResponse'])
-          : null,
-      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
+          : null);
 
   @override
   Map<String, dynamic> toMap() => {

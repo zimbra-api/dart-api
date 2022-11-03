@@ -3,20 +3,18 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_body.dart';
-import 'package:zimbra_api/src/common/type/soap_fault.dart';
 
 import 'create_mountpoint_request.dart';
 import 'create_mountpoint_response.dart';
 
 class CreateMountpointBody extends SoapBody {
-  CreateMountpointBody({CreateMountpointRequest? request, CreateMountpointResponse? response, super.fault})
+  CreateMountpointBody({CreateMountpointRequest? request, CreateMountpointResponse? response})
       : super(request: request, response: response);
 
   factory CreateMountpointBody.fromMap(Map<String, dynamic> data) => CreateMountpointBody(
       response: data['CreateMountpointResponse'] != null
           ? CreateMountpointResponse.fromMap(data['CreateMountpointResponse'])
-          : null,
-      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
+          : null);
 
   @override
   Map<String, dynamic> toMap() => {

@@ -3,18 +3,16 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_body.dart';
-import 'package:zimbra_api/src/common/type/soap_fault.dart';
 
 import 'get_rights_request.dart';
 import 'get_rights_response.dart';
 
 class GetRightsBody extends SoapBody {
-  GetRightsBody({GetRightsRequest? request, GetRightsResponse? response, super.fault})
+  GetRightsBody({GetRightsRequest? request, GetRightsResponse? response})
       : super(request: request, response: response);
 
   factory GetRightsBody.fromMap(Map<String, dynamic> data) => GetRightsBody(
-      response: data['GetRightsResponse'] != null ? GetRightsResponse.fromMap(data['GetRightsResponse']) : null,
-      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
+      response: data['GetRightsResponse'] != null ? GetRightsResponse.fromMap(data['GetRightsResponse']) : null);
 
   @override
   Map<String, dynamic> toMap() => {

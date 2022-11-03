@@ -3,19 +3,17 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_body.dart';
-import 'package:zimbra_api/src/common/type/soap_fault.dart';
 
 import 'get_signatures_request.dart';
 import 'get_signatures_response.dart';
 
 class GetSignaturesBody extends SoapBody {
-  GetSignaturesBody({GetSignaturesRequest? request, GetSignaturesResponse? response, super.fault})
+  GetSignaturesBody({GetSignaturesRequest? request, GetSignaturesResponse? response})
       : super(request: request, response: response);
 
   factory GetSignaturesBody.fromMap(Map<String, dynamic> data) => GetSignaturesBody(
       response:
-          data['GetSignaturesResponse'] != null ? GetSignaturesResponse.fromMap(data['GetSignaturesResponse']) : null,
-      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
+          data['GetSignaturesResponse'] != null ? GetSignaturesResponse.fromMap(data['GetSignaturesResponse']) : null);
 
   @override
   Map<String, dynamic> toMap() => {

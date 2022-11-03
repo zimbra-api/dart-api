@@ -3,20 +3,18 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_body.dart';
-import 'package:zimbra_api/src/common/type/soap_fault.dart';
 
 import 'delete_signature_request.dart';
 import 'delete_signature_response.dart';
 
 class DeleteSignatureBody extends SoapBody {
-  DeleteSignatureBody({DeleteSignatureRequest? request, DeleteSignatureResponse? response, super.fault})
+  DeleteSignatureBody({DeleteSignatureRequest? request, DeleteSignatureResponse? response})
       : super(request: request, response: response);
 
   factory DeleteSignatureBody.fromMap(Map<String, dynamic> data) => DeleteSignatureBody(
       response: data['DeleteSignatureResponse'] != null
           ? DeleteSignatureResponse.fromMap(data['DeleteSignatureResponse'])
-          : null,
-      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
+          : null);
 
   @override
   Map<String, dynamic> toMap() => {

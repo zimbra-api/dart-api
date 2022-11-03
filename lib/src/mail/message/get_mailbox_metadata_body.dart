@@ -3,20 +3,18 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_body.dart';
-import 'package:zimbra_api/src/common/type/soap_fault.dart';
 
 import 'get_mailbox_metadata_request.dart';
 import 'get_mailbox_metadata_response.dart';
 
 class GetMailboxMetadataBody extends SoapBody {
-  GetMailboxMetadataBody({GetMailboxMetadataRequest? request, GetMailboxMetadataResponse? response, super.fault})
+  GetMailboxMetadataBody({GetMailboxMetadataRequest? request, GetMailboxMetadataResponse? response})
       : super(request: request, response: response);
 
   factory GetMailboxMetadataBody.fromMap(Map<String, dynamic> data) => GetMailboxMetadataBody(
       response: data['GetMailboxMetadataResponse'] != null
           ? GetMailboxMetadataResponse.fromMap(data['GetMailboxMetadataResponse'])
-          : null,
-      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
+          : null);
 
   @override
   Map<String, dynamic> toMap() => {

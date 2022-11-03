@@ -3,20 +3,18 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_body.dart';
-import 'package:zimbra_api/src/common/type/soap_fault.dart';
 
 import 'get_distribution_list_request.dart';
 import 'get_distribution_list_response.dart';
 
 class GetDistributionListBody extends SoapBody {
-  GetDistributionListBody({GetDistributionListRequest? request, GetDistributionListResponse? response, super.fault})
+  GetDistributionListBody({GetDistributionListRequest? request, GetDistributionListResponse? response})
       : super(request: request, response: response);
 
   factory GetDistributionListBody.fromMap(Map<String, dynamic> data) => GetDistributionListBody(
       response: data['GetDistributionListResponse'] != null
           ? GetDistributionListResponse.fromMap(data['GetDistributionListResponse'])
-          : null,
-      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
+          : null);
 
   @override
   Map<String, dynamic> toMap() => {

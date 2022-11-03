@@ -3,19 +3,17 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_body.dart';
-import 'package:zimbra_api/src/common/type/soap_fault.dart';
 
 import 'auto_complete_request.dart';
 import 'auto_complete_response.dart';
 
 class AutoCompleteBody extends SoapBody {
-  AutoCompleteBody({AutoCompleteRequest? request, AutoCompleteResponse? response, super.fault})
+  AutoCompleteBody({AutoCompleteRequest? request, AutoCompleteResponse? response})
       : super(request: request, response: response);
 
   factory AutoCompleteBody.fromMap(Map<String, dynamic> data) => AutoCompleteBody(
       response:
-          data['AutoCompleteResponse'] != null ? AutoCompleteResponse.fromMap(data['AutoCompleteResponse']) : null,
-      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
+          data['AutoCompleteResponse'] != null ? AutoCompleteResponse.fromMap(data['AutoCompleteResponse']) : null);
 
   @override
   Map<String, dynamic> toMap() => {

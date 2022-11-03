@@ -3,18 +3,16 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_body.dart';
-import 'package:zimbra_api/src/common/type/soap_fault.dart';
 
 import 'get_comments_request.dart';
 import 'get_comments_response.dart';
 
 class GetCommentsBody extends SoapBody {
-  GetCommentsBody({GetCommentsRequest? request, GetCommentsResponse? response, super.fault})
+  GetCommentsBody({GetCommentsRequest? request, GetCommentsResponse? response})
       : super(request: request, response: response);
 
   factory GetCommentsBody.fromMap(Map<String, dynamic> data) => GetCommentsBody(
-      response: data['GetCommentsResponse'] != null ? GetCommentsResponse.fromMap(data['GetCommentsResponse']) : null,
-      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
+      response: data['GetCommentsResponse'] != null ? GetCommentsResponse.fromMap(data['GetCommentsResponse']) : null);
 
   @override
   Map<String, dynamic> toMap() => {

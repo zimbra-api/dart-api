@@ -3,20 +3,18 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_body.dart';
-import 'package:zimbra_api/src/common/type/soap_fault.dart';
 
 import 'remove_attachments_request.dart';
 import 'remove_attachments_response.dart';
 
 class RemoveAttachmentsBody extends SoapBody {
-  RemoveAttachmentsBody({RemoveAttachmentsRequest? request, RemoveAttachmentsResponse? response, super.fault})
+  RemoveAttachmentsBody({RemoveAttachmentsRequest? request, RemoveAttachmentsResponse? response})
       : super(request: request, response: response);
 
   factory RemoveAttachmentsBody.fromMap(Map<String, dynamic> data) => RemoveAttachmentsBody(
       response: data['RemoveAttachmentsResponse'] != null
           ? RemoveAttachmentsResponse.fromMap(data['RemoveAttachmentsResponse'])
-          : null,
-      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
+          : null);
 
   @override
   Map<String, dynamic> toMap() => {

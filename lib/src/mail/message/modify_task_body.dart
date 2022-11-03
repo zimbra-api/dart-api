@@ -3,18 +3,16 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_body.dart';
-import 'package:zimbra_api/src/common/type/soap_fault.dart';
 
 import 'modify_task_request.dart';
 import 'modify_task_response.dart';
 
 class ModifyTaskBody extends SoapBody {
-  ModifyTaskBody({ModifyTaskRequest? request, ModifyTaskResponse? response, super.fault})
+  ModifyTaskBody({ModifyTaskRequest? request, ModifyTaskResponse? response})
       : super(request: request, response: response);
 
   factory ModifyTaskBody.fromMap(Map<String, dynamic> data) => ModifyTaskBody(
-      response: data['ModifyTaskResponse'] != null ? ModifyTaskResponse.fromMap(data['ModifyTaskResponse']) : null,
-      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
+      response: data['ModifyTaskResponse'] != null ? ModifyTaskResponse.fromMap(data['ModifyTaskResponse']) : null);
 
   @override
   Map<String, dynamic> toMap() => {

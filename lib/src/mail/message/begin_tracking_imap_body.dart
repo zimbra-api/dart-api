@@ -3,20 +3,18 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_body.dart';
-import 'package:zimbra_api/src/common/type/soap_fault.dart';
 
 import 'begin_tracking_imap_request.dart';
 import 'begin_tracking_imap_response.dart';
 
 class BeginTrackingIMAPBody extends SoapBody {
-  BeginTrackingIMAPBody({BeginTrackingIMAPRequest? request, BeginTrackingIMAPResponse? response, super.fault})
+  BeginTrackingIMAPBody({BeginTrackingIMAPRequest? request, BeginTrackingIMAPResponse? response})
       : super(request: request, response: response);
 
   factory BeginTrackingIMAPBody.fromMap(Map<String, dynamic> data) => BeginTrackingIMAPBody(
       response: data['BeginTrackingIMAPResponse'] != null
           ? BeginTrackingIMAPResponse.fromMap(data['BeginTrackingIMAPResponse'])
-          : null,
-      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
+          : null);
 
   @override
   Map<String, dynamic> toMap() => {

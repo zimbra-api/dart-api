@@ -3,19 +3,17 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_body.dart';
-import 'package:zimbra_api/src/common/type/soap_fault.dart';
 
 import 'ranking_action_request.dart';
 import 'ranking_action_response.dart';
 
 class RankingActionBody extends SoapBody {
-  RankingActionBody({RankingActionRequest? request, RankingActionResponse? response, super.fault})
+  RankingActionBody({RankingActionRequest? request, RankingActionResponse? response})
       : super(request: request, response: response);
 
   factory RankingActionBody.fromMap(Map<String, dynamic> data) => RankingActionBody(
       response:
-          data['RankingActionResponse'] != null ? RankingActionResponse.fromMap(data['RankingActionResponse']) : null,
-      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
+          data['RankingActionResponse'] != null ? RankingActionResponse.fromMap(data['RankingActionResponse']) : null);
 
   @override
   Map<String, dynamic> toMap() => {

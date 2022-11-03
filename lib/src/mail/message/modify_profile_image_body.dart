@@ -3,20 +3,18 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_body.dart';
-import 'package:zimbra_api/src/common/type/soap_fault.dart';
 
 import 'modify_profile_image_request.dart';
 import 'modify_profile_image_response.dart';
 
 class ModifyProfileImageBody extends SoapBody {
-  ModifyProfileImageBody({ModifyProfileImageRequest? request, ModifyProfileImageResponse? response, super.fault})
+  ModifyProfileImageBody({ModifyProfileImageRequest? request, ModifyProfileImageResponse? response})
       : super(request: request, response: response);
 
   factory ModifyProfileImageBody.fromMap(Map<String, dynamic> data) => ModifyProfileImageBody(
       response: data['ModifyProfileImageResponse'] != null
           ? ModifyProfileImageResponse.fromMap(data['ModifyProfileImageResponse'])
-          : null,
-      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
+          : null);
 
   @override
   Map<String, dynamic> toMap() => {

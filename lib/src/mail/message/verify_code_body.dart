@@ -3,18 +3,16 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_body.dart';
-import 'package:zimbra_api/src/common/type/soap_fault.dart';
 
 import 'verify_code_request.dart';
 import 'verify_code_response.dart';
 
 class VerifyCodeBody extends SoapBody {
-  VerifyCodeBody({VerifyCodeRequest? request, VerifyCodeResponse? response, super.fault})
+  VerifyCodeBody({VerifyCodeRequest? request, VerifyCodeResponse? response})
       : super(request: request, response: response);
 
   factory VerifyCodeBody.fromMap(Map<String, dynamic> data) => VerifyCodeBody(
-      response: data['VerifyCodeResponse'] != null ? VerifyCodeResponse.fromMap(data['VerifyCodeResponse']) : null,
-      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
+      response: data['VerifyCodeResponse'] != null ? VerifyCodeResponse.fromMap(data['VerifyCodeResponse']) : null);
 
   @override
   Map<String, dynamic> toMap() => {

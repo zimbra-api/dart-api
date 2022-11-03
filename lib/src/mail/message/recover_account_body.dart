@@ -3,20 +3,18 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_body.dart';
-import 'package:zimbra_api/src/common/type/soap_fault.dart';
 
 import 'recover_account_request.dart';
 import 'recover_account_response.dart';
 
 class RecoverAccountBody extends SoapBody {
-  RecoverAccountBody({RecoverAccountRequest? request, RecoverAccountResponse? response, super.fault})
+  RecoverAccountBody({RecoverAccountRequest? request, RecoverAccountResponse? response})
       : super(request: request, response: response);
 
   factory RecoverAccountBody.fromMap(Map<String, dynamic> data) => RecoverAccountBody(
       response: data['RecoverAccountResponse'] != null
           ? RecoverAccountResponse.fromMap(data['RecoverAccountResponse'])
-          : null,
-      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
+          : null);
 
   @override
   Map<String, dynamic> toMap() => {

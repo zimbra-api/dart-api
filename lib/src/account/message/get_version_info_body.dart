@@ -3,20 +3,18 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_body.dart';
-import 'package:zimbra_api/src/common/type/soap_fault.dart';
 
 import 'get_version_info_request.dart';
 import 'get_version_info_response.dart';
 
 class GetVersionInfoBody extends SoapBody {
-  GetVersionInfoBody({GetVersionInfoRequest? request, GetVersionInfoResponse? response, super.fault})
+  GetVersionInfoBody({GetVersionInfoRequest? request, GetVersionInfoResponse? response})
       : super(request: request, response: response);
 
   factory GetVersionInfoBody.fromMap(Map<String, dynamic> data) => GetVersionInfoBody(
       response: data['GetVersionInfoResponse'] != null
           ? GetVersionInfoResponse.fromMap(data['GetVersionInfoResponse'])
-          : null,
-      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
+          : null);
 
   @override
   Map<String, dynamic> toMap() => {

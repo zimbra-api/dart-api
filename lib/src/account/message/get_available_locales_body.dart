@@ -3,20 +3,18 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_body.dart';
-import 'package:zimbra_api/src/common/type/soap_fault.dart';
 
 import 'get_available_locales_request.dart';
 import 'get_available_locales_response.dart';
 
 class GetAvailableLocalesBody extends SoapBody {
-  GetAvailableLocalesBody({GetAvailableLocalesRequest? request, GetAvailableLocalesResponse? response, super.fault})
+  GetAvailableLocalesBody({GetAvailableLocalesRequest? request, GetAvailableLocalesResponse? response})
       : super(request: request, response: response);
 
   factory GetAvailableLocalesBody.fromMap(Map<String, dynamic> data) => GetAvailableLocalesBody(
       response: data['GetAvailableLocalesResponse'] != null
           ? GetAvailableLocalesResponse.fromMap(data['GetAvailableLocalesResponse'])
-          : null,
-      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
+          : null);
 
   @override
   Map<String, dynamic> toMap() => {

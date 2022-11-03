@@ -3,21 +3,19 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_body.dart';
-import 'package:zimbra_api/src/common/type/soap_fault.dart';
 
 import 'reset_recent_message_count_request.dart';
 import 'reset_recent_message_count_response.dart';
 
 class ResetRecentMessageCountBody extends SoapBody {
   ResetRecentMessageCountBody(
-      {ResetRecentMessageCountRequest? request, ResetRecentMessageCountResponse? response, super.fault})
+      {ResetRecentMessageCountRequest? request, ResetRecentMessageCountResponse? response})
       : super(request: request, response: response);
 
   factory ResetRecentMessageCountBody.fromMap(Map<String, dynamic> data) => ResetRecentMessageCountBody(
       response: data['ResetRecentMessageCountResponse'] != null
           ? ResetRecentMessageCountResponse.fromMap(data['ResetRecentMessageCountResponse'])
-          : null,
-      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
+          : null);
 
   @override
   Map<String, dynamic> toMap() => {

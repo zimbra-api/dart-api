@@ -3,20 +3,18 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_body.dart';
-import 'package:zimbra_api/src/common/type/soap_fault.dart';
 
 import 'delete_data_source_request.dart';
 import 'delete_data_source_response.dart';
 
 class DeleteDataSourceBody extends SoapBody {
-  DeleteDataSourceBody({DeleteDataSourceRequest? request, DeleteDataSourceResponse? response, super.fault})
+  DeleteDataSourceBody({DeleteDataSourceRequest? request, DeleteDataSourceResponse? response})
       : super(request: request, response: response);
 
   factory DeleteDataSourceBody.fromMap(Map<String, dynamic> data) => DeleteDataSourceBody(
       response: data['DeleteDataSourceResponse'] != null
           ? DeleteDataSourceResponse.fromMap(data['DeleteDataSourceResponse'])
-          : null,
-      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
+          : null);
 
   @override
   Map<String, dynamic> toMap() => {

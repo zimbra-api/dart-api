@@ -3,20 +3,18 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_body.dart';
-import 'package:zimbra_api/src/common/type/soap_fault.dart';
 
 import 'modify_zimlet_prefs_request.dart';
 import 'modify_zimlet_prefs_response.dart';
 
 class ModifyZimletPrefsBody extends SoapBody {
-  ModifyZimletPrefsBody({ModifyZimletPrefsRequest? request, ModifyZimletPrefsResponse? response, super.fault})
+  ModifyZimletPrefsBody({ModifyZimletPrefsRequest? request, ModifyZimletPrefsResponse? response})
       : super(request: request, response: response);
 
   factory ModifyZimletPrefsBody.fromMap(Map<String, dynamic> data) => ModifyZimletPrefsBody(
       response: data['ModifyZimletPrefsResponse'] != null
           ? ModifyZimletPrefsResponse.fromMap(data['ModifyZimletPrefsResponse'])
-          : null,
-      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
+          : null);
 
   @override
   Map<String, dynamic> toMap() => {

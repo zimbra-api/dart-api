@@ -3,20 +3,18 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_body.dart';
-import 'package:zimbra_api/src/common/type/soap_fault.dart';
 
 import 'get_yahoo_auth_token_request.dart';
 import 'get_yahoo_auth_token_response.dart';
 
 class GetYahooAuthTokenBody extends SoapBody {
-  GetYahooAuthTokenBody({GetYahooAuthTokenRequest? request, GetYahooAuthTokenResponse? response, super.fault})
+  GetYahooAuthTokenBody({GetYahooAuthTokenRequest? request, GetYahooAuthTokenResponse? response})
       : super(request: request, response: response);
 
   factory GetYahooAuthTokenBody.fromMap(Map<String, dynamic> data) => GetYahooAuthTokenBody(
       response: data['GetYahooAuthTokenResponse'] != null
           ? GetYahooAuthTokenResponse.fromMap(data['GetYahooAuthTokenResponse'])
-          : null,
-      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
+          : null);
 
   @override
   Map<String, dynamic> toMap() => {

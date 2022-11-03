@@ -3,21 +3,19 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_body.dart';
-import 'package:zimbra_api/src/common/type/soap_fault.dart';
 
 import 'dismiss_calendar_item_alarm_request.dart';
 import 'dismiss_calendar_item_alarm_response.dart';
 
 class DismissCalendarItemAlarmBody extends SoapBody {
   DismissCalendarItemAlarmBody(
-      {DismissCalendarItemAlarmRequest? request, DismissCalendarItemAlarmResponse? response, super.fault})
+      {DismissCalendarItemAlarmRequest? request, DismissCalendarItemAlarmResponse? response})
       : super(request: request, response: response);
 
   factory DismissCalendarItemAlarmBody.fromMap(Map<String, dynamic> data) => DismissCalendarItemAlarmBody(
       response: data['DismissCalendarItemAlarmResponse'] != null
           ? DismissCalendarItemAlarmResponse.fromMap(data['DismissCalendarItemAlarmResponse'])
-          : null,
-      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
+          : null);
 
   @override
   Map<String, dynamic> toMap() => {

@@ -3,18 +3,16 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_body.dart';
-import 'package:zimbra_api/src/common/type/soap_fault.dart';
 
 import 'sync_gal_request.dart';
 import 'sync_gal_response.dart';
 
 class SyncGalBody extends SoapBody {
-  SyncGalBody({SyncGalRequest? request, SyncGalResponse? response, super.fault})
+  SyncGalBody({SyncGalRequest? request, SyncGalResponse? response})
       : super(request: request, response: response);
 
   factory SyncGalBody.fromMap(Map<String, dynamic> data) => SyncGalBody(
-      response: data['SyncGalResponse'] != null ? SyncGalResponse.fromMap(data['SyncGalResponse']) : null,
-      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
+      response: data['SyncGalResponse'] != null ? SyncGalResponse.fromMap(data['SyncGalResponse']) : null);
 
   @override
   Map<String, dynamic> toMap() => {

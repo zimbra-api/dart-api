@@ -3,20 +3,18 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_body.dart';
-import 'package:zimbra_api/src/common/type/soap_fault.dart';
 
 import 'restore_contacts_request.dart';
 import 'restore_contacts_response.dart';
 
 class RestoreContactsBody extends SoapBody {
-  RestoreContactsBody({RestoreContactsRequest? request, RestoreContactsResponse? response, super.fault})
+  RestoreContactsBody({RestoreContactsRequest? request, RestoreContactsResponse? response})
       : super(request: request, response: response);
 
   factory RestoreContactsBody.fromMap(Map<String, dynamic> data) => RestoreContactsBody(
       response: data['RestoreContactsResponse'] != null
           ? RestoreContactsResponse.fromMap(data['RestoreContactsResponse'])
-          : null,
-      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
+          : null);
 
   @override
   Map<String, dynamic> toMap() => {

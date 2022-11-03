@@ -3,21 +3,19 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_body.dart';
-import 'package:zimbra_api/src/common/type/soap_fault.dart';
 
 import 'get_system_retention_policy_request.dart';
 import 'get_system_retention_policy_response.dart';
 
 class GetSystemRetentionPolicyBody extends SoapBody {
   GetSystemRetentionPolicyBody(
-      {GetSystemRetentionPolicyRequest? request, GetSystemRetentionPolicyResponse? response, super.fault})
+      {GetSystemRetentionPolicyRequest? request, GetSystemRetentionPolicyResponse? response})
       : super(request: request, response: response);
 
   factory GetSystemRetentionPolicyBody.fromMap(Map<String, dynamic> data) => GetSystemRetentionPolicyBody(
       response: data['GetSystemRetentionPolicyResponse'] != null
           ? GetSystemRetentionPolicyResponse.fromMap(data['GetSystemRetentionPolicyResponse'])
-          : null,
-      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
+          : null);
 
   @override
   Map<String, dynamic> toMap() => {

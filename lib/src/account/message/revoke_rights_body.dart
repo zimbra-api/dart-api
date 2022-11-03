@@ -3,19 +3,17 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_body.dart';
-import 'package:zimbra_api/src/common/type/soap_fault.dart';
 
 import 'revoke_rights_request.dart';
 import 'revoke_rights_response.dart';
 
 class RevokeRightsBody extends SoapBody {
-  RevokeRightsBody({RevokeRightsRequest? request, RevokeRightsResponse? response, super.fault})
+  RevokeRightsBody({RevokeRightsRequest? request, RevokeRightsResponse? response})
       : super(request: request, response: response);
 
   factory RevokeRightsBody.fromMap(Map<String, dynamic> data) => RevokeRightsBody(
       response:
-          data['RevokeRightsResponse'] != null ? RevokeRightsResponse.fromMap(data['RevokeRightsResponse']) : null,
-      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
+          data['RevokeRightsResponse'] != null ? RevokeRightsResponse.fromMap(data['RevokeRightsResponse']) : null);
 
   @override
   Map<String, dynamic> toMap() => {

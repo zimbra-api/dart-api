@@ -3,20 +3,18 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_body.dart';
-import 'package:zimbra_api/src/common/type/soap_fault.dart';
 
 import 'set_appointment_request.dart';
 import 'set_appointment_response.dart';
 
 class SetAppointmentBody extends SoapBody {
-  SetAppointmentBody({SetAppointmentRequest? request, SetAppointmentResponse? response, super.fault})
+  SetAppointmentBody({SetAppointmentRequest? request, SetAppointmentResponse? response})
       : super(request: request, response: response);
 
   factory SetAppointmentBody.fromMap(Map<String, dynamic> data) => SetAppointmentBody(
       response: data['SetAppointmentResponse'] != null
           ? SetAppointmentResponse.fromMap(data['SetAppointmentResponse'])
-          : null,
-      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
+          : null);
 
   @override
   Map<String, dynamic> toMap() => {

@@ -3,18 +3,16 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_body.dart';
-import 'package:zimbra_api/src/common/type/soap_fault.dart';
 
 import 'end_session_request.dart';
 import 'end_session_response.dart';
 
 class EndSessionBody extends SoapBody {
-  EndSessionBody({EndSessionRequest? request, EndSessionResponse? response, super.fault})
+  EndSessionBody({EndSessionRequest? request, EndSessionResponse? response})
       : super(request: request, response: response);
 
   factory EndSessionBody.fromMap(Map<String, dynamic> data) => EndSessionBody(
-      response: data['EndSessionResponse'] != null ? EndSessionResponse.fromMap(data['EndSessionResponse']) : null,
-      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
+      response: data['EndSessionResponse'] != null ? EndSessionResponse.fromMap(data['EndSessionResponse']) : null);
 
   @override
   Map<String, dynamic> toMap() => {

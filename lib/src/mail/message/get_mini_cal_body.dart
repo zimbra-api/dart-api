@@ -3,18 +3,16 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_body.dart';
-import 'package:zimbra_api/src/common/type/soap_fault.dart';
 
 import 'get_mini_cal_request.dart';
 import 'get_mini_cal_response.dart';
 
 class GetMiniCalBody extends SoapBody {
-  GetMiniCalBody({GetMiniCalRequest? request, GetMiniCalResponse? response, super.fault})
+  GetMiniCalBody({GetMiniCalRequest? request, GetMiniCalResponse? response})
       : super(request: request, response: response);
 
   factory GetMiniCalBody.fromMap(Map<String, dynamic> data) => GetMiniCalBody(
-      response: data['GetMiniCalResponse'] != null ? GetMiniCalResponse.fromMap(data['GetMiniCalResponse']) : null,
-      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
+      response: data['GetMiniCalResponse'] != null ? GetMiniCalResponse.fromMap(data['GetMiniCalResponse']) : null);
 
   @override
   Map<String, dynamic> toMap() => {

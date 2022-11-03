@@ -3,19 +3,17 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_body.dart';
-import 'package:zimbra_api/src/common/type/soap_fault.dart';
 
 import 'empty_dumpster_request.dart';
 import 'empty_dumpster_response.dart';
 
 class EmptyDumpsterBody extends SoapBody {
-  EmptyDumpsterBody({EmptyDumpsterRequest? request, EmptyDumpsterResponse? response, super.fault})
+  EmptyDumpsterBody({EmptyDumpsterRequest? request, EmptyDumpsterResponse? response})
       : super(request: request, response: response);
 
   factory EmptyDumpsterBody.fromMap(Map<String, dynamic> data) => EmptyDumpsterBody(
       response:
-          data['EmptyDumpsterResponse'] != null ? EmptyDumpsterResponse.fromMap(data['EmptyDumpsterResponse']) : null,
-      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
+          data['EmptyDumpsterResponse'] != null ? EmptyDumpsterResponse.fromMap(data['EmptyDumpsterResponse']) : null);
 
   @override
   Map<String, dynamic> toMap() => {

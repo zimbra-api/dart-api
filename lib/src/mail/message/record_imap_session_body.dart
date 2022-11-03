@@ -3,20 +3,18 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_body.dart';
-import 'package:zimbra_api/src/common/type/soap_fault.dart';
 
 import 'record_imap_session_request.dart';
 import 'record_imap_session_response.dart';
 
 class RecordIMAPSessionBody extends SoapBody {
-  RecordIMAPSessionBody({RecordIMAPSessionRequest? request, RecordIMAPSessionResponse? response, super.fault})
+  RecordIMAPSessionBody({RecordIMAPSessionRequest? request, RecordIMAPSessionResponse? response})
       : super(request: request, response: response);
 
   factory RecordIMAPSessionBody.fromMap(Map<String, dynamic> data) => RecordIMAPSessionBody(
       response: data['RecordIMAPSessionResponse'] != null
           ? RecordIMAPSessionResponse.fromMap(data['RecordIMAPSessionResponse'])
-          : null,
-      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
+          : null);
 
   @override
   Map<String, dynamic> toMap() => {

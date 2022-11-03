@@ -3,20 +3,18 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_body.dart';
-import 'package:zimbra_api/src/common/type/soap_fault.dart';
 
 import 'get_working_hours_request.dart';
 import 'get_working_hours_response.dart';
 
 class GetWorkingHoursBody extends SoapBody {
-  GetWorkingHoursBody({GetWorkingHoursRequest? request, GetWorkingHoursResponse? response, super.fault})
+  GetWorkingHoursBody({GetWorkingHoursRequest? request, GetWorkingHoursResponse? response})
       : super(request: request, response: response);
 
   factory GetWorkingHoursBody.fromMap(Map<String, dynamic> data) => GetWorkingHoursBody(
       response: data['GetWorkingHoursResponse'] != null
           ? GetWorkingHoursResponse.fromMap(data['GetWorkingHoursResponse'])
-          : null,
-      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
+          : null);
 
   @override
   Map<String, dynamic> toMap() => {

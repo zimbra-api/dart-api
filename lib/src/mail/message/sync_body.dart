@@ -3,17 +3,15 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_body.dart';
-import 'package:zimbra_api/src/common/type/soap_fault.dart';
 
 import 'sync_request.dart';
 import 'sync_response.dart';
 
 class SyncBody extends SoapBody {
-  SyncBody({SyncRequest? request, SyncResponse? response, super.fault}) : super(request: request, response: response);
+  SyncBody({SyncRequest? request, SyncResponse? response}) : super(request: request, response: response);
 
   factory SyncBody.fromMap(Map<String, dynamic> data) => SyncBody(
-      response: data['SyncResponse'] != null ? SyncResponse.fromMap(data['SyncResponse']) : null,
-      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
+      response: data['SyncResponse'] != null ? SyncResponse.fromMap(data['SyncResponse']) : null);
 
   @override
   Map<String, dynamic> toMap() => {

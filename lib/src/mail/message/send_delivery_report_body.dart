@@ -3,20 +3,18 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_body.dart';
-import 'package:zimbra_api/src/common/type/soap_fault.dart';
 
 import 'send_delivery_report_request.dart';
 import 'send_delivery_report_response.dart';
 
 class SendDeliveryReportBody extends SoapBody {
-  SendDeliveryReportBody({SendDeliveryReportRequest? request, SendDeliveryReportResponse? response, super.fault})
+  SendDeliveryReportBody({SendDeliveryReportRequest? request, SendDeliveryReportResponse? response})
       : super(request: request, response: response);
 
   factory SendDeliveryReportBody.fromMap(Map<String, dynamic> data) => SendDeliveryReportBody(
       response: data['SendDeliveryReportResponse'] != null
           ? SendDeliveryReportResponse.fromMap(data['SendDeliveryReportResponse'])
-          : null,
-      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
+          : null);
 
   @override
   Map<String, dynamic> toMap() => {

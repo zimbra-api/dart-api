@@ -3,20 +3,18 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_body.dart';
-import 'package:zimbra_api/src/common/type/soap_fault.dart';
 
 import 'discover_rights_request.dart';
 import 'discover_rights_response.dart';
 
 class DiscoverRightsBody extends SoapBody {
-  DiscoverRightsBody({DiscoverRightsRequest? request, DiscoverRightsResponse? response, super.fault})
+  DiscoverRightsBody({DiscoverRightsRequest? request, DiscoverRightsResponse? response})
       : super(request: request, response: response);
 
   factory DiscoverRightsBody.fromMap(Map<String, dynamic> data) => DiscoverRightsBody(
       response: data['DiscoverRightsResponse'] != null
           ? DiscoverRightsResponse.fromMap(data['DiscoverRightsResponse'])
-          : null,
-      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
+          : null);
 
   @override
   Map<String, dynamic> toMap() => {

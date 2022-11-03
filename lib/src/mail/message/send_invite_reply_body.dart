@@ -3,20 +3,18 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_body.dart';
-import 'package:zimbra_api/src/common/type/soap_fault.dart';
 
 import 'send_invite_reply_request.dart';
 import 'send_invite_reply_response.dart';
 
 class SendInviteReplyBody extends SoapBody {
-  SendInviteReplyBody({SendInviteReplyRequest? request, SendInviteReplyResponse? response, super.fault})
+  SendInviteReplyBody({SendInviteReplyRequest? request, SendInviteReplyResponse? response})
       : super(request: request, response: response);
 
   factory SendInviteReplyBody.fromMap(Map<String, dynamic> data) => SendInviteReplyBody(
       response: data['SendInviteReplyResponse'] != null
           ? SendInviteReplyResponse.fromMap(data['SendInviteReplyResponse'])
-          : null,
-      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
+          : null);
 
   @override
   Map<String, dynamic> toMap() => {

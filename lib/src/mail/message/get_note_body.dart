@@ -3,18 +3,16 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_body.dart';
-import 'package:zimbra_api/src/common/type/soap_fault.dart';
 
 import 'get_note_request.dart';
 import 'get_note_response.dart';
 
 class GetNoteBody extends SoapBody {
-  GetNoteBody({GetNoteRequest? request, GetNoteResponse? response, super.fault})
+  GetNoteBody({GetNoteRequest? request, GetNoteResponse? response})
       : super(request: request, response: response);
 
   factory GetNoteBody.fromMap(Map<String, dynamic> data) => GetNoteBody(
-      response: data['GetNoteResponse'] != null ? GetNoteResponse.fromMap(data['GetNoteResponse']) : null,
-      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
+      response: data['GetNoteResponse'] != null ? GetNoteResponse.fromMap(data['GetNoteResponse']) : null);
 
   @override
   Map<String, dynamic> toMap() => {

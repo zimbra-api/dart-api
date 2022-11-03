@@ -3,19 +3,17 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_body.dart';
-import 'package:zimbra_api/src/common/type/soap_fault.dart';
 
 import 'get_imap_recent_request.dart';
 import 'get_imap_recent_response.dart';
 
 class GetIMAPRecentBody extends SoapBody {
-  GetIMAPRecentBody({GetIMAPRecentRequest? request, GetIMAPRecentResponse? response, super.fault})
+  GetIMAPRecentBody({GetIMAPRecentRequest? request, GetIMAPRecentResponse? response})
       : super(request: request, response: response);
 
   factory GetIMAPRecentBody.fromMap(Map<String, dynamic> data) => GetIMAPRecentBody(
       response:
-          data['GetIMAPRecentResponse'] != null ? GetIMAPRecentResponse.fromMap(data['GetIMAPRecentResponse']) : null,
-      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
+          data['GetIMAPRecentResponse'] != null ? GetIMAPRecentResponse.fromMap(data['GetIMAPRecentResponse']) : null);
 
   @override
   Map<String, dynamic> toMap() => {

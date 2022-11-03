@@ -3,18 +3,16 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_body.dart';
-import 'package:zimbra_api/src/common/type/soap_fault.dart';
 
 import 'import_data_request.dart';
 import 'import_data_response.dart';
 
 class ImportDataBody extends SoapBody {
-  ImportDataBody({ImportDataRequest? request, ImportDataResponse? response, super.fault})
+  ImportDataBody({ImportDataRequest? request, ImportDataResponse? response})
       : super(request: request, response: response);
 
   factory ImportDataBody.fromMap(Map<String, dynamic> data) => ImportDataBody(
-      response: data['ImportDataResponse'] != null ? ImportDataResponse.fromMap(data['ImportDataResponse']) : null,
-      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
+      response: data['ImportDataResponse'] != null ? ImportDataResponse.fromMap(data['ImportDataResponse']) : null);
 
   @override
   Map<String, dynamic> toMap() => {

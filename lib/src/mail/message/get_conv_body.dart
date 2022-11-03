@@ -3,18 +3,16 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_body.dart';
-import 'package:zimbra_api/src/common/type/soap_fault.dart';
 
 import 'get_conv_request.dart';
 import 'get_conv_response.dart';
 
 class GetConvBody extends SoapBody {
-  GetConvBody({GetConvRequest? request, GetConvResponse? response, super.fault})
+  GetConvBody({GetConvRequest? request, GetConvResponse? response})
       : super(request: request, response: response);
 
   factory GetConvBody.fromMap(Map<String, dynamic> data) => GetConvBody(
-      response: data['GetConvResponse'] != null ? GetConvResponse.fromMap(data['GetConvResponse']) : null,
-      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
+      response: data['GetConvResponse'] != null ? GetConvResponse.fromMap(data['GetConvResponse']) : null);
 
   @override
   Map<String, dynamic> toMap() => {

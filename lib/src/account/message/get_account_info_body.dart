@@ -3,20 +3,18 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_body.dart';
-import 'package:zimbra_api/src/common/type/soap_fault.dart';
 
 import 'get_account_info_request.dart';
 import 'get_account_info_response.dart';
 
 class GetAccountInfoBody extends SoapBody {
-  GetAccountInfoBody({GetAccountInfoRequest? request, GetAccountInfoResponse? response, super.fault})
+  GetAccountInfoBody({GetAccountInfoRequest? request, GetAccountInfoResponse? response})
       : super(request: request, response: response);
 
   factory GetAccountInfoBody.fromMap(Map<String, dynamic> data) => GetAccountInfoBody(
       response: data['GetAccountInfoResponse'] != null
           ? GetAccountInfoResponse.fromMap(data['GetAccountInfoResponse'])
-          : null,
-      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
+          : null);
 
   @override
   Map<String, dynamic> toMap() => {

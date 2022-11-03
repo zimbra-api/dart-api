@@ -3,21 +3,19 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_body.dart';
-import 'package:zimbra_api/src/common/type/soap_fault.dart';
 
 import 'get_effective_folder_perms_request.dart';
 import 'get_effective_folder_perms_response.dart';
 
 class GetEffectiveFolderPermsBody extends SoapBody {
   GetEffectiveFolderPermsBody(
-      {GetEffectiveFolderPermsRequest? request, GetEffectiveFolderPermsResponse? response, super.fault})
+      {GetEffectiveFolderPermsRequest? request, GetEffectiveFolderPermsResponse? response})
       : super(request: request, response: response);
 
   factory GetEffectiveFolderPermsBody.fromMap(Map<String, dynamic> data) => GetEffectiveFolderPermsBody(
       response: data['GetEffectiveFolderPermsResponse'] != null
           ? GetEffectiveFolderPermsResponse.fromMap(data['GetEffectiveFolderPermsResponse'])
-          : null,
-      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
+          : null);
 
   @override
   Map<String, dynamic> toMap() => {

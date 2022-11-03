@@ -3,20 +3,18 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_body.dart';
-import 'package:zimbra_api/src/common/type/soap_fault.dart';
 
 import 'get_oauth_consumers_request.dart';
 import 'get_oauth_consumers_response.dart';
 
 class GetOAuthConsumersBody extends SoapBody {
-  GetOAuthConsumersBody({GetOAuthConsumersRequest? request, GetOAuthConsumersResponse? response, super.fault})
+  GetOAuthConsumersBody({GetOAuthConsumersRequest? request, GetOAuthConsumersResponse? response})
       : super(request: request, response: response);
 
   factory GetOAuthConsumersBody.fromMap(Map<String, dynamic> data) => GetOAuthConsumersBody(
       response: data['GetOAuthConsumersResponse'] != null
           ? GetOAuthConsumersResponse.fromMap(data['GetOAuthConsumersResponse'])
-          : null,
-      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
+          : null);
 
   @override
   Map<String, dynamic> toMap() => {

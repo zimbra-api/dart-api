@@ -3,20 +3,18 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_body.dart';
-import 'package:zimbra_api/src/common/type/soap_fault.dart';
 
 import 'get_white_black_list_request.dart';
 import 'get_white_black_list_response.dart';
 
 class GetWhiteBlackListBody extends SoapBody {
-  GetWhiteBlackListBody({GetWhiteBlackListRequest? request, GetWhiteBlackListResponse? response, super.fault})
+  GetWhiteBlackListBody({GetWhiteBlackListRequest? request, GetWhiteBlackListResponse? response})
       : super(request: request, response: response);
 
   factory GetWhiteBlackListBody.fromMap(Map<String, dynamic> data) => GetWhiteBlackListBody(
       response: data['GetWhiteBlackListResponse'] != null
           ? GetWhiteBlackListResponse.fromMap(data['GetWhiteBlackListResponse'])
-          : null,
-      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
+          : null);
 
   @override
   Map<String, dynamic> toMap() => {

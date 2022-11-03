@@ -3,20 +3,18 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_body.dart';
-import 'package:zimbra_api/src/common/type/soap_fault.dart';
 
 import 'get_appt_summaries_request.dart';
 import 'get_appt_summaries_response.dart';
 
 class GetApptSummariesBody extends SoapBody {
-  GetApptSummariesBody({GetApptSummariesRequest? request, GetApptSummariesResponse? response, super.fault})
+  GetApptSummariesBody({GetApptSummariesRequest? request, GetApptSummariesResponse? response})
       : super(request: request, response: response);
 
   factory GetApptSummariesBody.fromMap(Map<String, dynamic> data) => GetApptSummariesBody(
       response: data['GetApptSummariesResponse'] != null
           ? GetApptSummariesResponse.fromMap(data['GetApptSummariesResponse'])
-          : null,
-      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
+          : null);
 
   @override
   Map<String, dynamic> toMap() => {

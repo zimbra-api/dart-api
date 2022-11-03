@@ -3,20 +3,18 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_body.dart';
-import 'package:zimbra_api/src/common/type/soap_fault.dart';
 
 import 'get_import_status_request.dart';
 import 'get_import_status_response.dart';
 
 class GetImportStatusBody extends SoapBody {
-  GetImportStatusBody({GetImportStatusRequest? request, GetImportStatusResponse? response, super.fault})
+  GetImportStatusBody({GetImportStatusRequest? request, GetImportStatusResponse? response})
       : super(request: request, response: response);
 
   factory GetImportStatusBody.fromMap(Map<String, dynamic> data) => GetImportStatusBody(
       response: data['GetImportStatusResponse'] != null
           ? GetImportStatusResponse.fromMap(data['GetImportStatusResponse'])
-          : null,
-      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
+          : null);
 
   @override
   Map<String, dynamic> toMap() => {

@@ -3,20 +3,18 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_body.dart';
-import 'package:zimbra_api/src/common/type/soap_fault.dart';
 
 import 'get_imap_recent_cutoff_request.dart';
 import 'get_imap_recent_cutoff_response.dart';
 
 class GetIMAPRecentCutoffBody extends SoapBody {
-  GetIMAPRecentCutoffBody({GetIMAPRecentCutoffRequest? request, GetIMAPRecentCutoffResponse? response, super.fault})
+  GetIMAPRecentCutoffBody({GetIMAPRecentCutoffRequest? request, GetIMAPRecentCutoffResponse? response})
       : super(request: request, response: response);
 
   factory GetIMAPRecentCutoffBody.fromMap(Map<String, dynamic> data) => GetIMAPRecentCutoffBody(
       response: data['GetIMAPRecentCutoffResponse'] != null
           ? GetIMAPRecentCutoffResponse.fromMap(data['GetIMAPRecentCutoffResponse'])
-          : null,
-      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
+          : null);
 
   @override
   Map<String, dynamic> toMap() => {

@@ -3,18 +3,16 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_body.dart';
-import 'package:zimbra_api/src/common/type/soap_fault.dart';
 
 import 'imap_copy_request.dart';
 import 'imap_copy_response.dart';
 
 class IMAPCopyBody extends SoapBody {
-  IMAPCopyBody({IMAPCopyRequest? request, IMAPCopyResponse? response, super.fault})
+  IMAPCopyBody({IMAPCopyRequest? request, IMAPCopyResponse? response})
       : super(request: request, response: response);
 
   factory IMAPCopyBody.fromMap(Map<String, dynamic> data) => IMAPCopyBody(
-      response: data['IMAPCopyResponse'] != null ? IMAPCopyResponse.fromMap(data['IMAPCopyResponse']) : null,
-      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
+      response: data['IMAPCopyResponse'] != null ? IMAPCopyResponse.fromMap(data['IMAPCopyResponse']) : null);
 
   @override
   Map<String, dynamic> toMap() => {

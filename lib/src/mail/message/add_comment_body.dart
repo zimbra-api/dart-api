@@ -3,18 +3,16 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_body.dart';
-import 'package:zimbra_api/src/common/type/soap_fault.dart';
 
 import 'add_comment_request.dart';
 import 'add_comment_response.dart';
 
 class AddCommentBody extends SoapBody {
-  AddCommentBody({AddCommentRequest? request, AddCommentResponse? response, super.fault})
+  AddCommentBody({AddCommentRequest? request, AddCommentResponse? response})
       : super(request: request, response: response);
 
   factory AddCommentBody.fromMap(Map<String, dynamic> data) => AddCommentBody(
-      response: data['AddCommentResponse'] != null ? AddCommentResponse.fromMap(data['AddCommentResponse']) : null,
-      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
+      response: data['AddCommentResponse'] != null ? AddCommentResponse.fromMap(data['AddCommentResponse']) : null);
 
   @override
   Map<String, dynamic> toMap() => {

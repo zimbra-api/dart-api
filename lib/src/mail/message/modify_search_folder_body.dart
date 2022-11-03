@@ -3,20 +3,18 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_body.dart';
-import 'package:zimbra_api/src/common/type/soap_fault.dart';
 
 import 'modify_search_folder_request.dart';
 import 'modify_search_folder_response.dart';
 
 class ModifySearchFolderBody extends SoapBody {
-  ModifySearchFolderBody({ModifySearchFolderRequest? request, ModifySearchFolderResponse? response, super.fault})
+  ModifySearchFolderBody({ModifySearchFolderRequest? request, ModifySearchFolderResponse? response})
       : super(request: request, response: response);
 
   factory ModifySearchFolderBody.fromMap(Map<String, dynamic> data) => ModifySearchFolderBody(
       response: data['ModifySearchFolderResponse'] != null
           ? ModifySearchFolderResponse.fromMap(data['ModifySearchFolderResponse'])
-          : null,
-      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
+          : null);
 
   @override
   Map<String, dynamic> toMap() => {

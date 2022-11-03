@@ -3,18 +3,16 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_body.dart';
-import 'package:zimbra_api/src/common/type/soap_fault.dart';
 
 import 'create_tag_request.dart';
 import 'create_tag_response.dart';
 
 class CreateTagBody extends SoapBody {
-  CreateTagBody({CreateTagRequest? request, CreateTagResponse? response, super.fault})
+  CreateTagBody({CreateTagRequest? request, CreateTagResponse? response})
       : super(request: request, response: response);
 
   factory CreateTagBody.fromMap(Map<String, dynamic> data) => CreateTagBody(
-      response: data['CreateTagResponse'] != null ? CreateTagResponse.fromMap(data['CreateTagResponse']) : null,
-      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
+      response: data['CreateTagResponse'] != null ? CreateTagResponse.fromMap(data['CreateTagResponse']) : null);
 
   @override
   Map<String, dynamic> toMap() => {

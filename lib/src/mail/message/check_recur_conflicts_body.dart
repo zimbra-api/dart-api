@@ -3,20 +3,18 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_body.dart';
-import 'package:zimbra_api/src/common/type/soap_fault.dart';
 
 import 'check_recur_conflicts_request.dart';
 import 'check_recur_conflicts_response.dart';
 
 class CheckRecurConflictsBody extends SoapBody {
-  CheckRecurConflictsBody({CheckRecurConflictsRequest? request, CheckRecurConflictsResponse? response, super.fault})
+  CheckRecurConflictsBody({CheckRecurConflictsRequest? request, CheckRecurConflictsResponse? response})
       : super(request: request, response: response);
 
   factory CheckRecurConflictsBody.fromMap(Map<String, dynamic> data) => CheckRecurConflictsBody(
       response: data['CheckRecurConflictsResponse'] != null
           ? CheckRecurConflictsResponse.fromMap(data['CheckRecurConflictsResponse'])
-          : null,
-      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
+          : null);
 
   @override
   Map<String, dynamic> toMap() => {

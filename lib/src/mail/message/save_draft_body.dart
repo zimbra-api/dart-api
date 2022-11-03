@@ -3,18 +3,16 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/soap_body.dart';
-import 'package:zimbra_api/src/common/type/soap_fault.dart';
 
 import 'save_draft_request.dart';
 import 'save_draft_response.dart';
 
 class SaveDraftBody extends SoapBody {
-  SaveDraftBody({SaveDraftRequest? request, SaveDraftResponse? response, super.fault})
+  SaveDraftBody({SaveDraftRequest? request, SaveDraftResponse? response})
       : super(request: request, response: response);
 
   factory SaveDraftBody.fromMap(Map<String, dynamic> data) => SaveDraftBody(
-      response: data['SaveDraftResponse'] != null ? SaveDraftResponse.fromMap(data['SaveDraftResponse']) : null,
-      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
+      response: data['SaveDraftResponse'] != null ? SaveDraftResponse.fromMap(data['SaveDraftResponse']) : null);
 
   @override
   Map<String, dynamic> toMap() => {

@@ -7,6 +7,6 @@ import 'filter_test.dart';
 class SocialcastTest extends FilterTest {
   SocialcastTest({super.index, super.negative});
 
-  factory SocialcastTest.fromJson(Map<String, dynamic> json) =>
-      SocialcastTest(index: json['index'], negative: json['negative']);
+  factory SocialcastTest.fromMap(Map<String, dynamic> data) =>
+      SocialcastTest(index: data['index'], negative: data['negative']);
 }

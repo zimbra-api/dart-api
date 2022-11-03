@@ -12,16 +12,16 @@ class ImportanceTest extends FilterTest {
 
   ImportanceTest({this.importance, super.index, super.negative});
 
-  factory ImportanceTest.fromJson(Map<String, dynamic> json) => ImportanceTest(
+  factory ImportanceTest.fromMap(Map<String, dynamic> data) => ImportanceTest(
       importance: Importance.values.firstWhere(
-        (imp) => imp.name == json['imp'],
+        (imp) => imp.name == data['imp'],
         orElse: () => Importance.normal,
       ),
-      index: json['index'],
-      negative: json['negative']);
+      index: data['index'],
+      negative: data['negative']);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (importance != null) 'imp': importance!.name,
         if (index != null) 'index': index,
         if (negative != null) 'negative': negative,

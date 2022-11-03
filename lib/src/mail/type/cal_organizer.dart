@@ -30,24 +30,24 @@ class CalOrganizer {
   CalOrganizer(
       {this.address, this.url, this.displayName, this.sentBy, this.dir, this.language, this.xParams = const []});
 
-  factory CalOrganizer.fromJson(Map<String, dynamic> json) => CalOrganizer(
-      address: json['a'],
-      url: json['url'],
-      displayName: json['d'],
-      sentBy: json['sentBy'],
-      dir: json['dir'],
-      language: json['lang'],
-      xParams: (json['xparam'] is Iterable)
-          ? List.from((json['xparam'] as Iterable).map<XParam>((xparam) => XParam.fromJson(xparam)))
+  factory CalOrganizer.fromMap(Map<String, dynamic> data) => CalOrganizer(
+      address: data['a'],
+      url: data['url'],
+      displayName: data['d'],
+      sentBy: data['sentBy'],
+      dir: data['dir'],
+      language: data['lang'],
+      xParams: (data['xparam'] is Iterable)
+          ? List.from((data['xparam'] as Iterable).map<XParam>((xparam) => XParam.fromMap(xparam)))
           : []);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (address != null) 'a': address,
         if (url != null) 'url': url,
         if (displayName != null) 'd': displayName,
         if (sentBy != null) 'sentBy': sentBy,
         if (dir != null) 'dir': dir,
         if (language != null) 'lang': language,
-        if (xParams.isNotEmpty) 'xparam': xParams.map((xparam) => xparam.toJson()).toList(),
+        if (xParams.isNotEmpty) 'xparam': xParams.map((xparam) => xparam.toMap()).toList(),
       };
 }

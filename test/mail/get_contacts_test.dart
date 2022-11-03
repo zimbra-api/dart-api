@@ -37,7 +37,7 @@ void main() {
         memberAttributes: [AttributeName(name: name)],
         contacts: [Id(id: id)],
       );
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'GetContactsRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -102,7 +102,7 @@ void main() {
       final size = faker.randomGenerator.integer(100);
       final contentFilename = faker.lorem.word();
 
-      final json = {
+      final data = {
         'Body': {
           'GetContactsResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -184,7 +184,7 @@ void main() {
           }
         }
       };
-      final envelope = GetContactsEnvelope.fromJson(json);
+      final envelope = GetContactsEnvelope.fromMap(data);
       final response = envelope.getContactsBody.getContactsResponse!;
       final contact = response.contacts.first;
 

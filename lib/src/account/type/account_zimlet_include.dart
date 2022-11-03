@@ -7,9 +7,9 @@ class AccountZimletInclude {
 
   AccountZimletInclude({this.value});
 
-  factory AccountZimletInclude.fromJson(Map<String, dynamic> json) => AccountZimletInclude(value: json['_content']);
+  factory AccountZimletInclude.fromMap(Map<String, dynamic> data) => AccountZimletInclude(value: data['_content']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (value != null) '_content': value,
       };
 }

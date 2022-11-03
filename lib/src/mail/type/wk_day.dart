@@ -13,14 +13,14 @@ class WkDay {
 
   WkDay(this.day, {this.ordWk});
 
-  factory WkDay.fromJson(Map<String, dynamic> json) => WkDay(
+  factory WkDay.fromMap(Map<String, dynamic> data) => WkDay(
       WeekDay.values.firstWhere(
-        (item) => item.name == json['day'],
+        (item) => item.name == data['day'],
         orElse: () => WeekDay.sunday,
       ),
-      ordWk: json['ordWk']);
+      ordWk: data['ordWk']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'day': day.name,
         if (ordWk != null) 'ordWk': ordWk,
       };

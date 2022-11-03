@@ -13,23 +13,23 @@ class ConflictRecurrenceInstance extends ExpandedRecurrenceInstance {
   ConflictRecurrenceInstance(
       {super.startTime, super.duration, super.allDay, super.tzOffset, super.recurIdZ, this.freebusyUsers = const []});
 
-  factory ConflictRecurrenceInstance.fromJson(Map<String, dynamic> json) => ConflictRecurrenceInstance(
-      startTime: json['s'],
-      duration: json['dur'],
-      allDay: json['allDay'],
-      tzOffset: json['tzo'],
-      recurIdZ: json['ridZ'],
-      freebusyUsers: (json['usr'] is Iterable)
-          ? List.from((json['usr'] as Iterable).map<FreeBusyUserStatus>((usr) => FreeBusyUserStatus.fromJson(usr)))
+  factory ConflictRecurrenceInstance.fromMap(Map<String, dynamic> data) => ConflictRecurrenceInstance(
+      startTime: data['s'],
+      duration: data['dur'],
+      allDay: data['allDay'],
+      tzOffset: data['tzo'],
+      recurIdZ: data['ridZ'],
+      freebusyUsers: (data['usr'] is Iterable)
+          ? List.from((data['usr'] as Iterable).map<FreeBusyUserStatus>((usr) => FreeBusyUserStatus.fromMap(usr)))
           : []);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (startTime != null) 's': startTime,
         if (duration != null) 'dur': duration,
         if (allDay != null) 'allDay': allDay,
         if (tzOffset != null) 'tzo': tzOffset,
         if (recurIdZ != null) 'ridZ': recurIdZ,
-        if (freebusyUsers.isNotEmpty) 'usr': freebusyUsers.map((usr) => usr.toJson()).toList(),
+        if (freebusyUsers.isNotEmpty) 'usr': freebusyUsers.map((usr) => usr.toMap()).toList(),
       };
 }

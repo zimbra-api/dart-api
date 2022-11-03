@@ -12,16 +12,16 @@ class BrowseBody extends SoapBody {
   BrowseBody({BrowseRequest? request, BrowseResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory BrowseBody.fromJson(Map<String, dynamic> json) => BrowseBody(
-      response: json['BrowseResponse'] != null ? BrowseResponse.fromJson(json['BrowseResponse']) : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+  factory BrowseBody.fromMap(Map<String, dynamic> data) => BrowseBody(
+      response: data['BrowseResponse'] != null ? BrowseResponse.fromMap(data['BrowseResponse']) : null,
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   BrowseRequest? get browseRequest => request as BrowseRequest?;
 
   BrowseResponse? get browseResponse => response as BrowseResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'BrowseRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'BrowseRequest': request!.toMap(),
       };
 }

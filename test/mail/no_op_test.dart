@@ -19,7 +19,7 @@ void main() {
         enforceLimit: enforceLimit,
         timeout: timeout,
       );
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'NoOpRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -34,7 +34,7 @@ void main() {
 
     test('No op response', (() {
       final waitDisallowed = faker.randomGenerator.boolean();
-      final json = {
+      final data = {
         'Body': {
           'NoOpResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -42,7 +42,7 @@ void main() {
           }
         }
       };
-      final envelope = NoOpEnvelope.fromJson(json);
+      final envelope = NoOpEnvelope.fromMap(data);
       final response = envelope.noOpBody.noOpResponse!;
       expect(response.waitDisallowed, waitDisallowed);
     }));

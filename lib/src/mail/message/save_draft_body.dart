@@ -12,16 +12,16 @@ class SaveDraftBody extends SoapBody {
   SaveDraftBody({SaveDraftRequest? request, SaveDraftResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory SaveDraftBody.fromJson(Map<String, dynamic> json) => SaveDraftBody(
-      response: json['SaveDraftResponse'] != null ? SaveDraftResponse.fromJson(json['SaveDraftResponse']) : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+  factory SaveDraftBody.fromMap(Map<String, dynamic> data) => SaveDraftBody(
+      response: data['SaveDraftResponse'] != null ? SaveDraftResponse.fromMap(data['SaveDraftResponse']) : null,
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   SaveDraftRequest? get saveDraftRequest => request as SaveDraftRequest?;
 
   SaveDraftResponse? get saveDraftResponse => response as SaveDraftResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'SaveDraftRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'SaveDraftRequest': request!.toMap(),
       };
 }

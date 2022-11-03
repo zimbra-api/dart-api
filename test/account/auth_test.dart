@@ -13,11 +13,11 @@ void main() {
   final faker = Faker();
 
   group('Auth request tests', () {
-    test('Default to json test', () {
+    test('Default to data test', () {
       final request = AuthRequest();
 
-      expect(request.toJson(), {'_jsns': 'urn:zimbraAccount'});
-      expect(request.getEnvelope().toJson(), {
+      expect(request.toMap(), {'_jsns': 'urn:zimbraAccount'});
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'AuthRequest': {
             '_jsns': 'urn:zimbraAccount',
@@ -26,7 +26,7 @@ void main() {
       });
     });
 
-    test('To json test', () {
+    test('To data test', () {
       final email = faker.internet.email();
       final password = faker.lorem.word();
       final persistAuthTokenCookie = faker.randomGenerator.boolean();
@@ -81,7 +81,7 @@ void main() {
           prefs: prefs,
           attrs: attrs);
 
-      expect(request.toJson(), {
+      expect(request.toMap(), {
         '_jsns': 'urn:zimbraAccount',
         'persistAuthTokenCookie': persistAuthTokenCookie,
         'csrfTokenSecured': csrfSupported,
@@ -135,22 +135,22 @@ void main() {
   });
 
   group('Auth response tests', () {
-    test('Default from json test', () {
-      final json = {
+    test('Default from data test', () {
+      final data = {
         'Body': {
           'AuthResponse': {
             '_jsns': 'urn:zimbraAccount',
           },
         },
       };
-      final envelope = AuthEnvelope.fromJson(json);
+      final envelope = AuthEnvelope.fromMap(data);
 
       expect(envelope.authBody, isNotNull);
       expect(envelope.authBody.authRequest, isNull);
       expect(envelope.authBody.authResponse, isNotNull);
     });
 
-    test('From json test', (() {
+    test('From data test', (() {
       final authToken = faker.guid.guid();
       final lifetime = faker.randomGenerator.integer(100);
       final trustLifetime = faker.randomGenerator.integer(100);
@@ -170,7 +170,7 @@ void main() {
       final modified = faker.randomGenerator.integer(100);
       final permDenied = faker.randomGenerator.boolean();
 
-      final json = {
+      final data = {
         'Body': {
           'AuthResponse': {
             '_jsns': 'urn:zimbraAccount',
@@ -230,7 +230,7 @@ void main() {
           },
         },
       };
-      final envelope = AuthEnvelope.fromJson(json);
+      final envelope = AuthEnvelope.fromMap(data);
       final response = envelope.authBody.authResponse!;
 
       expect(response.authToken, authToken);

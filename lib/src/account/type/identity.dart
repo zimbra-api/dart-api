@@ -12,18 +12,18 @@ class Identity extends Attrs {
 
   Identity({this.name, this.id, super.attrs});
 
-  factory Identity.fromJson(Map<String, dynamic> json) => Identity(
-        name: json['name'],
-        id: json['id'],
-        attrs: (json['_attrs'] is Map)
+  factory Identity.fromMap(Map<String, dynamic> data) => Identity(
+        name: data['name'],
+        id: data['id'],
+        attrs: (data['_attrs'] is Map)
             ? List.from(
-                (json['_attrs'] as Map<String, dynamic>).entries.map<Attr>((attr) => Attr(attr.key, value: attr.value)))
+                (data['_attrs'] as Map<String, dynamic>).entries.map<Attr>((attr) => Attr(attr.key, value: attr.value)))
             : [],
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (name != null) 'name': name,
         if (id != null) 'id': id,
-        if (attrs.isNotEmpty) 'a': attrs.map((a) => a.toJson()).toList(),
+        if (attrs.isNotEmpty) 'a': attrs.map((a) => a.toMap()).toList(),
       };
 }

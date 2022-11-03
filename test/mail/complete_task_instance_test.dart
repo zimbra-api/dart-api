@@ -62,7 +62,7 @@ void main() {
           daylightTZName: daylightTZName,
         ),
       );
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'CompleteTaskInstanceRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -103,14 +103,14 @@ void main() {
     }));
 
     test('Complete task instance response', (() {
-      final json = {
+      final data = {
         'Body': {
           'CompleteTaskInstanceResponse': {
             '_jsns': 'urn:zimbraMail',
           }
         }
       };
-      final envelope = CompleteTaskInstanceEnvelope.fromJson(json);
+      final envelope = CompleteTaskInstanceEnvelope.fromMap(data);
       expect(envelope.completeTaskInstanceBody.completeTaskInstanceResponse, isNotNull);
       expect(envelope.completeTaskInstanceBody.completeTaskInstanceResponse, isA<CompleteTaskInstanceResponse>());
     }));

@@ -10,9 +10,9 @@ import 'export_contacts_body.dart';
 class ExportContactsEnvelope extends SoapEnvelope {
   ExportContactsEnvelope(ExportContactsBody body, {super.header}) : super(body);
 
-  factory ExportContactsEnvelope.fromJson(Map<String, dynamic> json) =>
-      ExportContactsEnvelope(ExportContactsBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory ExportContactsEnvelope.fromMap(Map<String, dynamic> data) =>
+      ExportContactsEnvelope(ExportContactsBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   ExportContactsBody get exportContactsBody => body as ExportContactsBody;
 }

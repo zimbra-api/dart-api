@@ -69,28 +69,28 @@ class AutoCompleteMatch {
       this.company,
       this.fileAs});
 
-  factory AutoCompleteMatch.fromJson(Map<String, dynamic> json) => AutoCompleteMatch(
-        email: json['email'],
+  factory AutoCompleteMatch.fromMap(Map<String, dynamic> data) => AutoCompleteMatch(
+        email: data['email'],
         matchType: AutoCompleteMatchType.values.firstWhere(
-          (item) => item.name == json['type'],
+          (item) => item.name == data['type'],
           orElse: () => AutoCompleteMatchType.contact,
         ),
-        ranking: json['ranking'],
-        isGroup: json['isGroup'],
-        canExpandGroupMembers: json['exp'],
-        id: json['id'],
-        folder: json['l'],
-        displayName: json['display'],
-        firstName: json['first'],
-        middleName: json['middle'],
-        lastName: json['last'],
-        fullName: json['full'],
-        nickName: json['nick'],
-        company: json['company'],
-        fileAs: json['fileas'],
+        ranking: data['ranking'],
+        isGroup: data['isGroup'],
+        canExpandGroupMembers: data['exp'],
+        id: data['id'],
+        folder: data['l'],
+        displayName: data['display'],
+        firstName: data['first'],
+        middleName: data['middle'],
+        lastName: data['last'],
+        fullName: data['full'],
+        nickName: data['nick'],
+        company: data['company'],
+        fileAs: data['fileas'],
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (email != null) 'email': email,
         if (matchType != null) 'type': matchType!.name,
         if (ranking != null) 'ranking': ranking,

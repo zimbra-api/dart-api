@@ -18,7 +18,7 @@ void main() {
         version1: version1,
         version2: version2,
       ));
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'DiffDocumentRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -36,7 +36,7 @@ void main() {
       final disposition = faker.lorem.word();
       final text = faker.lorem.word();
 
-      final json = {
+      final data = {
         'Body': {
           'DiffDocumentResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -49,7 +49,7 @@ void main() {
           }
         }
       };
-      final envelope = DiffDocumentEnvelope.fromJson(json);
+      final envelope = DiffDocumentEnvelope.fromMap(data);
       final response = envelope.diffDocumentBody.diffDocumentResponse!;
       final chunk = response.chunks.first;
 

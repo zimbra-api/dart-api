@@ -36,7 +36,7 @@ void main() {
         id: id,
         partIds: partIds,
       ));
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'RemoveAttachmentsRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -176,7 +176,7 @@ void main() {
       final body = faker.randomGenerator.boolean();
       final truncatedContent = faker.randomGenerator.boolean();
 
-      final json = {
+      final data = {
         'Body': {
           'RemoveAttachmentsResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -645,7 +645,7 @@ void main() {
           }
         }
       };
-      final envelope = RemoveAttachmentsEnvelope.fromJson(json);
+      final envelope = RemoveAttachmentsEnvelope.fromMap(data);
       final response = envelope.removeAttachmentsBody.removeAttachmentsResponse!;
 
       final msg = response.msgMessage!;

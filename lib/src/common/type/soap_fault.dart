@@ -16,10 +16,10 @@ class SoapFault implements Exception {
 
   SoapFault({this.code, this.reason, this.detail});
 
-  factory SoapFault.fromJson(Map<String, dynamic> json) => SoapFault(
-      code: json['Code'] is Map ? FaultCode.fromJson(json['Code']) : null,
-      reason: json['Reason'] is Map ? FaultReason.fromJson(json['Reason']) : null,
-      detail: json['Detail'] is Map ? FaultDetail.fromJson(json['Detail']) : null);
+  factory SoapFault.fromMap(Map<String, dynamic> data) => SoapFault(
+      code: data['Code'] is Map ? FaultCode.fromMap(data['Code']) : null,
+      reason: data['Reason'] is Map ? FaultReason.fromMap(data['Reason']) : null,
+      detail: data['Detail'] is Map ? FaultDetail.fromMap(data['Detail']) : null);
 
   String? faultCode() => code?.value;
 

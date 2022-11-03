@@ -28,7 +28,7 @@ void main() {
             checkGranteeType: checkGranteeType)
       ]);
 
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'GrantRightsRequest': {
             '_jsns': 'urn:zimbraAccount',
@@ -50,7 +50,7 @@ void main() {
     }));
 
     test('Grant rights response', (() {
-      final json = {
+      final data = {
         'Body': {
           'GrantRightsResponse': {
             '_jsns': 'urn:zimbraAccount',
@@ -69,7 +69,7 @@ void main() {
           }
         },
       };
-      final envelope = GrantRightsEnvelope.fromJson(json);
+      final envelope = GrantRightsEnvelope.fromMap(data);
       final response = envelope.grantRightsBody.grantRightsResponse!;
       final ace = response.aces.first;
 

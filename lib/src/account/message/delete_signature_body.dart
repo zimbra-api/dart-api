@@ -12,18 +12,18 @@ class DeleteSignatureBody extends SoapBody {
   DeleteSignatureBody({DeleteSignatureRequest? request, DeleteSignatureResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory DeleteSignatureBody.fromJson(Map<String, dynamic> json) => DeleteSignatureBody(
-      response: json['DeleteSignatureResponse'] != null
-          ? DeleteSignatureResponse.fromJson(json['DeleteSignatureResponse'])
+  factory DeleteSignatureBody.fromMap(Map<String, dynamic> data) => DeleteSignatureBody(
+      response: data['DeleteSignatureResponse'] != null
+          ? DeleteSignatureResponse.fromMap(data['DeleteSignatureResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   DeleteSignatureRequest? get deleteSignatureRequest => request as DeleteSignatureRequest?;
 
   DeleteSignatureResponse? get deleteSignatureResponse => response as DeleteSignatureResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'DeleteSignatureRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'DeleteSignatureRequest': request!.toMap(),
       };
 }

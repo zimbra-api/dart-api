@@ -12,18 +12,18 @@ class OpenIMAPFolderBody extends SoapBody {
   OpenIMAPFolderBody({OpenIMAPFolderRequest? request, OpenIMAPFolderResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory OpenIMAPFolderBody.fromJson(Map<String, dynamic> json) => OpenIMAPFolderBody(
-      response: json['OpenIMAPFolderResponse'] != null
-          ? OpenIMAPFolderResponse.fromJson(json['OpenIMAPFolderResponse'])
+  factory OpenIMAPFolderBody.fromMap(Map<String, dynamic> data) => OpenIMAPFolderBody(
+      response: data['OpenIMAPFolderResponse'] != null
+          ? OpenIMAPFolderResponse.fromMap(data['OpenIMAPFolderResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   OpenIMAPFolderRequest? get openIMAPFolderRequest => request as OpenIMAPFolderRequest?;
 
   OpenIMAPFolderResponse? get openIMAPFolderResponse => response as OpenIMAPFolderResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'OpenIMAPFolderRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'OpenIMAPFolderRequest': request!.toMap(),
       };
 }

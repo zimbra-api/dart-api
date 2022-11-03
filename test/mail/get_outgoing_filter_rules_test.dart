@@ -24,7 +24,7 @@ void main() {
   group('Get outgoing filter rules tests', (() {
     test('Get outgoing filter rules request', (() {
       final request = GetOutgoingFilterRulesRequest();
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'GetOutgoingFilterRulesRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -63,7 +63,7 @@ void main() {
       final countComparator = faker.randomGenerator.boolean();
       final valueComparator = faker.randomGenerator.boolean();
 
-      final json = {
+      final data = {
         'Body': {
           'GetOutgoingFilterRulesResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -477,7 +477,7 @@ void main() {
           }
         }
       };
-      final envelope = GetOutgoingFilterRulesEnvelope.fromJson(json);
+      final envelope = GetOutgoingFilterRulesEnvelope.fromMap(data);
       final response = envelope.getOutgoingFilterRulesBody.getOutgoingFilterRulesResponse!;
       final filterRule = response.filterRules.first;
 

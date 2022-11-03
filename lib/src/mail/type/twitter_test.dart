@@ -7,6 +7,6 @@ import 'filter_test.dart';
 class TwitterTest extends FilterTest {
   TwitterTest({super.index, super.negative});
 
-  factory TwitterTest.fromJson(Map<String, dynamic> json) =>
-      TwitterTest(index: json['index'], negative: json['negative']);
+  factory TwitterTest.fromMap(Map<String, dynamic> data) =>
+      TwitterTest(index: data['index'], negative: data['negative']);
 }

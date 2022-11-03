@@ -11,7 +11,7 @@ void main() {
     test('Reset password request', (() {
       final password = faker.internet.password();
       final request = ResetPasswordRequest(password);
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'ResetPasswordRequest': {
             '_jsns': 'urn:zimbraAccount',
@@ -22,14 +22,14 @@ void main() {
     }));
 
     test('Reset password response', (() {
-      final json = {
+      final data = {
         'Body': {
           'ResetPasswordResponse': {
             '_jsns': 'urn:zimbraAccount',
           }
         }
       };
-      final envelope = ResetPasswordEnvelope.fromJson(json);
+      final envelope = ResetPasswordEnvelope.fromMap(data);
       expect(envelope.resetPasswordBody.resetPasswordResponse, isNotNull);
       expect(envelope.resetPasswordBody.resetPasswordResponse, isA<ResetPasswordResponse>());
     }));

@@ -12,7 +12,7 @@ void main() {
       final verificationCode = faker.lorem.word();
 
       final request = VerifyCodeRequest(address, verificationCode);
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'VerifyCodeRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -25,7 +25,7 @@ void main() {
 
     test('Verify code response', (() {
       final success = faker.randomGenerator.boolean();
-      final json = {
+      final data = {
         'Body': {
           'VerifyCodeResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -33,7 +33,7 @@ void main() {
           }
         }
       };
-      final envelope = VerifyCodeEnvelope.fromJson(json);
+      final envelope = VerifyCodeEnvelope.fromMap(data);
       final response = envelope.verifyCodeBody.verifyCodeResponse!;
       expect(response.success, success);
     }));

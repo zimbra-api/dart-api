@@ -10,9 +10,9 @@ import 'generate_uuid_body.dart';
 class GenerateUUIDEnvelope extends SoapEnvelope {
   GenerateUUIDEnvelope(GenerateUUIDBody body, {super.header}) : super(body);
 
-  factory GenerateUUIDEnvelope.fromJson(Map<String, dynamic> json) =>
-      GenerateUUIDEnvelope(GenerateUUIDBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory GenerateUUIDEnvelope.fromMap(Map<String, dynamic> data) =>
+      GenerateUUIDEnvelope(GenerateUUIDBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   GenerateUUIDBody get generateUUIDBody => body as GenerateUUIDBody;
 }

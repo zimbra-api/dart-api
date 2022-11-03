@@ -15,7 +15,7 @@ class DistributionListSubscribeReq {
 
   DistributionListSubscribeReq({this.op = DistributionListSubscribeOp.subscribe, this.value, this.bccOwners});
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'op': op.name,
         if (value != null) '_content': value,
         if (bccOwners != null) 'bccOwners': bccOwners,

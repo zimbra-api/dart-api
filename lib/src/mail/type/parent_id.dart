@@ -8,9 +8,9 @@ class ParentId {
 
   ParentId({this.parentId = ''});
 
-  factory ParentId.fromJson(Map<String, dynamic> json) => ParentId(parentId: json['parentId'] ?? '');
+  factory ParentId.fromMap(Map<String, dynamic> data) => ParentId(parentId: data['parentId'] ?? '');
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'parentId': parentId,
       };
 }

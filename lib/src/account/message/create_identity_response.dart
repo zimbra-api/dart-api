@@ -11,6 +11,6 @@ class CreateIdentityResponse extends SoapResponse {
 
   CreateIdentityResponse({this.identity});
 
-  factory CreateIdentityResponse.fromJson(Map<String, dynamic> json) =>
-      CreateIdentityResponse(identity: json['identity'] is Map ? Identity.fromJson(json['identity']) : null);
+  factory CreateIdentityResponse.fromMap(Map<String, dynamic> data) =>
+      CreateIdentityResponse(identity: data['identity'] is Map ? Identity.fromMap(data['identity']) : null);
 }

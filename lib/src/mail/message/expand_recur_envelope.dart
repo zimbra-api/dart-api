@@ -10,9 +10,9 @@ import 'expand_recur_body.dart';
 class ExpandRecurEnvelope extends SoapEnvelope {
   ExpandRecurEnvelope(ExpandRecurBody body, {super.header}) : super(body);
 
-  factory ExpandRecurEnvelope.fromJson(Map<String, dynamic> json) =>
-      ExpandRecurEnvelope(ExpandRecurBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory ExpandRecurEnvelope.fromMap(Map<String, dynamic> data) =>
+      ExpandRecurEnvelope(ExpandRecurBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   ExpandRecurBody get expandRecurBody => body as ExpandRecurBody;
 }

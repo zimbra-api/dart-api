@@ -21,7 +21,7 @@ class InvalidateReminderDeviceRequest extends SoapRequest {
       InvalidateReminderDeviceEnvelope(InvalidateReminderDeviceBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
         'a': address,
       };

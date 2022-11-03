@@ -91,90 +91,90 @@ class FilterActions {
       this.deleteheaderActions = const [],
       this.replaceheaderActions = const []});
 
-  factory FilterActions.fromJson(Map<String, dynamic> json) => FilterActions(
-        filterVariables: (json['filterVariables'] is Iterable)
-            ? List.from((json['filterVariables'] as Iterable)
-                .map<FilterVariables>((action) => FilterVariables.fromJson(action)))
+  factory FilterActions.fromMap(Map<String, dynamic> data) => FilterActions(
+        filterVariables: (data['filterVariables'] is Iterable)
+            ? List.from((data['filterVariables'] as Iterable)
+                .map<FilterVariables>((action) => FilterVariables.fromMap(action)))
             : [],
-        keepActions: (json['actionKeep'] is Iterable)
-            ? List.from((json['actionKeep'] as Iterable).map<KeepAction>((action) => KeepAction.fromJson(action)))
+        keepActions: (data['actionKeep'] is Iterable)
+            ? List.from((data['actionKeep'] as Iterable).map<KeepAction>((action) => KeepAction.fromMap(action)))
             : [],
-        discardActions: (json['actionDiscard'] is Iterable)
+        discardActions: (data['actionDiscard'] is Iterable)
             ? List.from(
-                (json['actionDiscard'] as Iterable).map<DiscardAction>((action) => DiscardAction.fromJson(action)))
+                (data['actionDiscard'] as Iterable).map<DiscardAction>((action) => DiscardAction.fromMap(action)))
             : [],
-        fileIntoActions: (json['actionFileInto'] is Iterable)
+        fileIntoActions: (data['actionFileInto'] is Iterable)
             ? List.from(
-                (json['actionFileInto'] as Iterable).map<FileIntoAction>((action) => FileIntoAction.fromJson(action)))
+                (data['actionFileInto'] as Iterable).map<FileIntoAction>((action) => FileIntoAction.fromMap(action)))
             : [],
-        flagActions: (json['actionFlag'] is Iterable)
-            ? List.from((json['actionFlag'] as Iterable).map<FlagAction>((action) => FlagAction.fromJson(action)))
+        flagActions: (data['actionFlag'] is Iterable)
+            ? List.from((data['actionFlag'] as Iterable).map<FlagAction>((action) => FlagAction.fromMap(action)))
             : [],
-        tagActions: (json['actionTag'] is Iterable)
-            ? List.from((json['actionTag'] as Iterable).map<TagAction>((action) => TagAction.fromJson(action)))
+        tagActions: (data['actionTag'] is Iterable)
+            ? List.from((data['actionTag'] as Iterable).map<TagAction>((action) => TagAction.fromMap(action)))
             : [],
-        redirectActions: (json['actionRedirect'] is Iterable)
+        redirectActions: (data['actionRedirect'] is Iterable)
             ? List.from(
-                (json['actionRedirect'] as Iterable).map<RedirectAction>((action) => RedirectAction.fromJson(action)))
+                (data['actionRedirect'] as Iterable).map<RedirectAction>((action) => RedirectAction.fromMap(action)))
             : [],
-        replyActions: (json['actionReply'] is Iterable)
-            ? List.from((json['actionReply'] as Iterable).map<ReplyAction>((action) => ReplyAction.fromJson(action)))
+        replyActions: (data['actionReply'] is Iterable)
+            ? List.from((data['actionReply'] as Iterable).map<ReplyAction>((action) => ReplyAction.fromMap(action)))
             : [],
-        notifyActions: (json['actionNotify'] is Iterable)
-            ? List.from((json['actionNotify'] as Iterable).map<NotifyAction>((action) => NotifyAction.fromJson(action)))
+        notifyActions: (data['actionNotify'] is Iterable)
+            ? List.from((data['actionNotify'] as Iterable).map<NotifyAction>((action) => NotifyAction.fromMap(action)))
             : [],
-        rfcCompliantNotifyActions: (json['actionRFCCompliantNotify'] is Iterable)
-            ? List.from((json['actionRFCCompliantNotify'] as Iterable)
-                .map<RFCCompliantNotifyAction>((action) => RFCCompliantNotifyAction.fromJson(action)))
+        rfcCompliantNotifyActions: (data['actionRFCCompliantNotify'] is Iterable)
+            ? List.from((data['actionRFCCompliantNotify'] as Iterable)
+                .map<RFCCompliantNotifyAction>((action) => RFCCompliantNotifyAction.fromMap(action)))
             : [],
-        stopActions: (json['actionStop'] is Iterable)
-            ? List.from((json['actionStop'] as Iterable).map<StopAction>((action) => StopAction.fromJson(action)))
+        stopActions: (data['actionStop'] is Iterable)
+            ? List.from((data['actionStop'] as Iterable).map<StopAction>((action) => StopAction.fromMap(action)))
             : [],
-        rejectActions: (json['actionReject'] is Iterable)
-            ? List.from((json['actionReject'] as Iterable).map<RejectAction>((action) => RejectAction.fromJson(action)))
+        rejectActions: (data['actionReject'] is Iterable)
+            ? List.from((data['actionReject'] as Iterable).map<RejectAction>((action) => RejectAction.fromMap(action)))
             : [],
-        erejectActions: (json['actionEreject'] is Iterable)
+        erejectActions: (data['actionEreject'] is Iterable)
             ? List.from(
-                (json['actionEreject'] as Iterable).map<ErejectAction>((action) => ErejectAction.fromJson(action)))
+                (data['actionEreject'] as Iterable).map<ErejectAction>((action) => ErejectAction.fromMap(action)))
             : [],
-        logActions: (json['actionLog'] is Iterable)
-            ? List.from((json['actionLog'] as Iterable).map<LogAction>((action) => LogAction.fromJson(action)))
+        logActions: (data['actionLog'] is Iterable)
+            ? List.from((data['actionLog'] as Iterable).map<LogAction>((action) => LogAction.fromMap(action)))
             : [],
-        addheaderActions: (json['actionAddheader'] is Iterable)
-            ? List.from((json['actionAddheader'] as Iterable)
-                .map<AddheaderAction>((action) => AddheaderAction.fromJson(action)))
+        addheaderActions: (data['actionAddheader'] is Iterable)
+            ? List.from((data['actionAddheader'] as Iterable)
+                .map<AddheaderAction>((action) => AddheaderAction.fromMap(action)))
             : [],
-        deleteheaderActions: (json['actionDeleteheader'] is Iterable)
-            ? List.from((json['actionDeleteheader'] as Iterable)
-                .map<DeleteheaderAction>((action) => DeleteheaderAction.fromJson(action)))
+        deleteheaderActions: (data['actionDeleteheader'] is Iterable)
+            ? List.from((data['actionDeleteheader'] as Iterable)
+                .map<DeleteheaderAction>((action) => DeleteheaderAction.fromMap(action)))
             : [],
-        replaceheaderActions: (json['actionReplaceheader'] is Iterable)
-            ? List.from((json['actionReplaceheader'] as Iterable)
-                .map<ReplaceheaderAction>((action) => ReplaceheaderAction.fromJson(action)))
+        replaceheaderActions: (data['actionReplaceheader'] is Iterable)
+            ? List.from((data['actionReplaceheader'] as Iterable)
+                .map<ReplaceheaderAction>((action) => ReplaceheaderAction.fromMap(action)))
             : [],
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (filterVariables.isNotEmpty)
-          'filterVariables': filterVariables.map((variable) => variable.toJson()).toList(),
-        if (keepActions.isNotEmpty) 'actionKeep': keepActions.map((action) => action.toJson()).toList(),
-        if (discardActions.isNotEmpty) 'actionDiscard': discardActions.map((action) => action.toJson()).toList(),
-        if (fileIntoActions.isNotEmpty) 'actionFileInto': fileIntoActions.map((action) => action.toJson()).toList(),
-        if (flagActions.isNotEmpty) 'actionFlag': flagActions.map((action) => action.toJson()).toList(),
-        if (tagActions.isNotEmpty) 'actionTag': tagActions.map((action) => action.toJson()).toList(),
-        if (redirectActions.isNotEmpty) 'actionRedirect': redirectActions.map((action) => action.toJson()).toList(),
-        if (replyActions.isNotEmpty) 'actionReply': replyActions.map((action) => action.toJson()).toList(),
-        if (notifyActions.isNotEmpty) 'actionNotify': notifyActions.map((action) => action.toJson()).toList(),
+          'filterVariables': filterVariables.map((variable) => variable.toMap()).toList(),
+        if (keepActions.isNotEmpty) 'actionKeep': keepActions.map((action) => action.toMap()).toList(),
+        if (discardActions.isNotEmpty) 'actionDiscard': discardActions.map((action) => action.toMap()).toList(),
+        if (fileIntoActions.isNotEmpty) 'actionFileInto': fileIntoActions.map((action) => action.toMap()).toList(),
+        if (flagActions.isNotEmpty) 'actionFlag': flagActions.map((action) => action.toMap()).toList(),
+        if (tagActions.isNotEmpty) 'actionTag': tagActions.map((action) => action.toMap()).toList(),
+        if (redirectActions.isNotEmpty) 'actionRedirect': redirectActions.map((action) => action.toMap()).toList(),
+        if (replyActions.isNotEmpty) 'actionReply': replyActions.map((action) => action.toMap()).toList(),
+        if (notifyActions.isNotEmpty) 'actionNotify': notifyActions.map((action) => action.toMap()).toList(),
         if (rfcCompliantNotifyActions.isNotEmpty)
-          'actionRFCCompliantNotify': rfcCompliantNotifyActions.map((action) => action.toJson()).toList(),
-        if (stopActions.isNotEmpty) 'actionStop': stopActions.map((action) => action.toJson()).toList(),
-        if (rejectActions.isNotEmpty) 'actionReject': rejectActions.map((action) => action.toJson()).toList(),
-        if (erejectActions.isNotEmpty) 'actionEreject': erejectActions.map((action) => action.toJson()).toList(),
-        if (logActions.isNotEmpty) 'actionLog': logActions.map((action) => action.toJson()).toList(),
-        if (addheaderActions.isNotEmpty) 'actionAddheader': addheaderActions.map((action) => action.toJson()).toList(),
+          'actionRFCCompliantNotify': rfcCompliantNotifyActions.map((action) => action.toMap()).toList(),
+        if (stopActions.isNotEmpty) 'actionStop': stopActions.map((action) => action.toMap()).toList(),
+        if (rejectActions.isNotEmpty) 'actionReject': rejectActions.map((action) => action.toMap()).toList(),
+        if (erejectActions.isNotEmpty) 'actionEreject': erejectActions.map((action) => action.toMap()).toList(),
+        if (logActions.isNotEmpty) 'actionLog': logActions.map((action) => action.toMap()).toList(),
+        if (addheaderActions.isNotEmpty) 'actionAddheader': addheaderActions.map((action) => action.toMap()).toList(),
         if (deleteheaderActions.isNotEmpty)
-          'actionDeleteheader': deleteheaderActions.map((action) => action.toJson()).toList(),
+          'actionDeleteheader': deleteheaderActions.map((action) => action.toMap()).toList(),
         if (replaceheaderActions.isNotEmpty)
-          'actionReplaceheader': replaceheaderActions.map((action) => action.toJson()).toList(),
+          'actionReplaceheader': replaceheaderActions.map((action) => action.toMap()).toList(),
       };
 }

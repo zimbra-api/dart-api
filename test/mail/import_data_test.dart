@@ -23,7 +23,7 @@ void main() {
         calDataSources: [DataSourceNameOrId(id: id, name: name)],
         unknownDataSources: [DataSourceNameOrId(id: id, name: name)],
       );
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'ImportDataRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -81,14 +81,14 @@ void main() {
     }));
 
     test('Import data response', (() {
-      final json = {
+      final data = {
         'Body': {
           'ImportDataResponse': {
             '_jsns': 'urn:zimbraMail',
           }
         }
       };
-      final envelope = ImportDataEnvelope.fromJson(json);
+      final envelope = ImportDataEnvelope.fromMap(data);
       final response = envelope.importDataBody.importDataResponse;
       expect(response, isNotNull);
       expect(response, isA<ImportDataResponse>());

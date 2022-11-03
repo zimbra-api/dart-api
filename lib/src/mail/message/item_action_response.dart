@@ -12,6 +12,6 @@ class ItemActionResponse extends SoapResponse {
 
   ItemActionResponse({this.action});
 
-  factory ItemActionResponse.fromJson(Map<String, dynamic> json) =>
-      ItemActionResponse(action: json['action'] != null ? ActionResult.fromJson(json['action']) : null);
+  factory ItemActionResponse.fromMap(Map<String, dynamic> data) =>
+      ItemActionResponse(action: data['action'] != null ? ActionResult.fromMap(data['action']) : null);
 }

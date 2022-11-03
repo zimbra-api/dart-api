@@ -14,11 +14,11 @@ class RedirectAction extends FilterAction {
 
   RedirectAction({this.address, this.copy, super.index});
 
-  factory RedirectAction.fromJson(Map<String, dynamic> json) =>
-      RedirectAction(address: json['a'], copy: json['copy'], index: json['index']);
+  factory RedirectAction.fromMap(Map<String, dynamic> data) =>
+      RedirectAction(address: data['a'], copy: data['copy'], index: data['index']);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (address != null) 'a': address,
         if (copy != null) 'copy': copy,
         if (index != null) 'index': index,

@@ -43,13 +43,13 @@ class ExpandRecurRequest extends SoapRequest {
   SoapEnvelope getEnvelope({SoapHeader? header}) => ExpandRecurEnvelope(ExpandRecurBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
         's': startTime,
         'e': endTime,
-        if (timezones.isNotEmpty) 'tz': timezones.map((tz) => tz.toJson()).toList(),
-        if (cancelComponents.isNotEmpty) 'cancel': cancelComponents.map((cancel) => cancel.toJson()).toList(),
-        if (inviteComponents.isNotEmpty) 'comp': inviteComponents.map((comp) => comp.toJson()).toList(),
-        if (exceptComponents.isNotEmpty) 'except': exceptComponents.map((except) => except.toJson()).toList(),
+        if (timezones.isNotEmpty) 'tz': timezones.map((tz) => tz.toMap()).toList(),
+        if (cancelComponents.isNotEmpty) 'cancel': cancelComponents.map((cancel) => cancel.toMap()).toList(),
+        if (inviteComponents.isNotEmpty) 'comp': inviteComponents.map((comp) => comp.toMap()).toList(),
+        if (exceptComponents.isNotEmpty) 'except': exceptComponents.map((except) => except.toMap()).toList(),
       };
 }

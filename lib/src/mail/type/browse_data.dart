@@ -15,10 +15,10 @@ class BrowseData {
 
   BrowseData(this.browseDomainHeader, this.frequency, {this.data});
 
-  factory BrowseData.fromJson(Map<String, dynamic> json) =>
-      BrowseData(json['h'] ?? '', json['freq'] ?? 0, data: json['_content']);
+  factory BrowseData.fromMap(Map<String, dynamic> data) =>
+      BrowseData(data['h'] ?? '', data['freq'] ?? 0, data: data['_content']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'h': browseDomainHeader,
         'freq': frequency,
         if (data != null) '_content': data,

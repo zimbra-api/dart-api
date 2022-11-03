@@ -12,17 +12,17 @@ class ResetPasswordBody extends SoapBody {
   ResetPasswordBody({ResetPasswordRequest? request, ResetPasswordResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory ResetPasswordBody.fromJson(Map<String, dynamic> json) => ResetPasswordBody(
+  factory ResetPasswordBody.fromMap(Map<String, dynamic> data) => ResetPasswordBody(
       response:
-          json['ResetPasswordResponse'] != null ? ResetPasswordResponse.fromJson(json['ResetPasswordResponse']) : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+          data['ResetPasswordResponse'] != null ? ResetPasswordResponse.fromMap(data['ResetPasswordResponse']) : null,
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   ResetPasswordRequest? get resetPasswordRequest => request as ResetPasswordRequest?;
 
   ResetPasswordResponse? get resetPasswordResponse => response as ResetPasswordResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'ResetPasswordRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'ResetPasswordRequest': request!.toMap(),
       };
 }

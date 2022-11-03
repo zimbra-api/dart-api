@@ -12,17 +12,17 @@ class EmptyDumpsterBody extends SoapBody {
   EmptyDumpsterBody({EmptyDumpsterRequest? request, EmptyDumpsterResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory EmptyDumpsterBody.fromJson(Map<String, dynamic> json) => EmptyDumpsterBody(
+  factory EmptyDumpsterBody.fromMap(Map<String, dynamic> data) => EmptyDumpsterBody(
       response:
-          json['EmptyDumpsterResponse'] != null ? EmptyDumpsterResponse.fromJson(json['EmptyDumpsterResponse']) : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+          data['EmptyDumpsterResponse'] != null ? EmptyDumpsterResponse.fromMap(data['EmptyDumpsterResponse']) : null,
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   EmptyDumpsterRequest? get emptyDumpsterRequest => request as EmptyDumpsterRequest?;
 
   EmptyDumpsterResponse? get emptyDumpsterResponse => response as EmptyDumpsterResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'EmptyDumpsterRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'EmptyDumpsterRequest': request!.toMap(),
       };
 }

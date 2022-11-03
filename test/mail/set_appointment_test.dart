@@ -549,7 +549,7 @@ void main() {
           )
         ],
       );
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'SetAppointmentRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -1114,7 +1114,7 @@ void main() {
       final deprecatedApptId = faker.guid.guid();
       final recurrenceId = faker.guid.guid();
 
-      final json = {
+      final data = {
         'Body': {
           'SetAppointmentResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -1130,7 +1130,7 @@ void main() {
           }
         }
       };
-      final envelope = SetAppointmentEnvelope.fromJson(json);
+      final envelope = SetAppointmentEnvelope.fromMap(data);
       final response = envelope.setAppointmentBody.setAppointmentResponse!;
 
       expect(response.calItemId, calItemId);

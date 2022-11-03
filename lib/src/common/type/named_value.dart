@@ -9,9 +9,9 @@ class NamedValue {
 
   NamedValue(this.name, {this.value});
 
-  factory NamedValue.fromJson(Map<String, dynamic> json) => NamedValue(json['name'], value: json['_content']);
+  factory NamedValue.fromMap(Map<String, dynamic> data) => NamedValue(data['name'], value: data['_content']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'name': name,
         if (value != null) '_content': value,
       };

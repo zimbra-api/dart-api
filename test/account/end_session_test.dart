@@ -20,7 +20,7 @@ void main() {
         excludeCurrentSession: excludeCurrentSession,
         sessionId: sessionId,
       );
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'EndSessionRequest': {
             '_jsns': 'urn:zimbraAccount',
@@ -34,14 +34,14 @@ void main() {
     }));
 
     test('End session response', (() {
-      final json = {
+      final data = {
         'Body': {
           'EndSessionResponse': {
             '_jsns': 'urn:zimbraAccount',
           }
         }
       };
-      final envelope = EndSessionEnvelope.fromJson(json);
+      final envelope = EndSessionEnvelope.fromMap(data);
       expect(envelope.endSessionBody.endSessionResponse, isNotNull);
       expect(envelope.endSessionBody.endSessionResponse, isA<EndSessionResponse>());
     }));

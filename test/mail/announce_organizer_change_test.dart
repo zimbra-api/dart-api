@@ -12,7 +12,7 @@ void main() {
       final id = faker.guid.guid();
       final request = AnnounceOrganizerChangeRequest(id);
 
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'AnnounceOrganizerChangeRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -23,14 +23,14 @@ void main() {
     }));
 
     test('Announce organizer change respone', (() {
-      final json = {
+      final data = {
         'Body': {
           'AnnounceOrganizerChangeResponse': {
             '_jsns': 'urn:zimbraMail',
           }
         }
       };
-      final envelope = AnnounceOrganizerChangeEnvelope.fromJson(json);
+      final envelope = AnnounceOrganizerChangeEnvelope.fromMap(data);
       expect(envelope.announceOrganizerChangeBody.announceOrganizerChangeResponse, isNotNull);
       expect(
           envelope.announceOrganizerChangeBody.announceOrganizerChangeResponse, isA<AnnounceOrganizerChangeResponse>());

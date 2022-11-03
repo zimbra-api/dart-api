@@ -9,7 +9,7 @@ void main() {
   group('Generate UUID tests', (() {
     test('Generate UUID request', (() {
       final request = GenerateUUIDRequest();
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'GenerateUUIDRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -20,7 +20,7 @@ void main() {
 
     test('Generate UUID response', (() {
       final uuid = faker.guid.guid();
-      final json = {
+      final data = {
         'Body': {
           'GenerateUUIDResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -28,7 +28,7 @@ void main() {
           }
         }
       };
-      final envelope = GenerateUUIDEnvelope.fromJson(json);
+      final envelope = GenerateUUIDEnvelope.fromMap(data);
       expect(envelope.generateUUIDBody.generateUUIDResponse!.uuid, uuid);
     }));
   }));

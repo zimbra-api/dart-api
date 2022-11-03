@@ -10,9 +10,9 @@ import 'client_info_body.dart';
 class ClientInfoEnvelope extends SoapEnvelope {
   ClientInfoEnvelope(ClientInfoBody body, {super.header}) : super(body);
 
-  factory ClientInfoEnvelope.fromJson(Map<String, dynamic> json) =>
-      ClientInfoEnvelope(ClientInfoBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory ClientInfoEnvelope.fromMap(Map<String, dynamic> data) =>
+      ClientInfoEnvelope(ClientInfoBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   ClientInfoBody get clientInfoBody => body as ClientInfoBody;
 }

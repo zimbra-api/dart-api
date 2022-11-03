@@ -7,5 +7,5 @@ import 'package:zimbra_api/src/common/type/soap_response.dart';
 class BeginTrackingIMAPResponse extends SoapResponse {
   BeginTrackingIMAPResponse();
 
-  factory BeginTrackingIMAPResponse.fromJson(Map<String, dynamic> json) => BeginTrackingIMAPResponse();
+  factory BeginTrackingIMAPResponse.fromMap(Map<String, dynamic> data) => BeginTrackingIMAPResponse();
 }

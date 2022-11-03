@@ -11,8 +11,8 @@ class GetIdentitiesResponse extends SoapResponse {
 
   GetIdentitiesResponse({this.identities = const []});
 
-  factory GetIdentitiesResponse.fromJson(Map<String, dynamic> json) => GetIdentitiesResponse(
-      identities: (json['identity'] is Iterable)
-          ? List.from((json['identity'] as Iterable).map<Identity>((identity) => Identity.fromJson(identity)))
+  factory GetIdentitiesResponse.fromMap(Map<String, dynamic> data) => GetIdentitiesResponse(
+      identities: (data['identity'] is Iterable)
+          ? List.from((data['identity'] as Iterable).map<Identity>((identity) => Identity.fromMap(identity)))
           : []);
 }

@@ -14,10 +14,10 @@ class IdEmailName {
 
   IdEmailName({this.id, this.email, this.name});
 
-  factory IdEmailName.fromJson(Map<String, dynamic> json) =>
-      IdEmailName(id: json['id'], email: json['email'], name: json['name']);
+  factory IdEmailName.fromMap(Map<String, dynamic> data) =>
+      IdEmailName(id: data['id'], email: data['email'], name: data['name']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (id != null) 'id': id,
         if (email != null) 'email': email,
         if (name != null) 'name': name,

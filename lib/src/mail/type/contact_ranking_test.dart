@@ -10,11 +10,11 @@ class ContactRankingTest extends FilterTest {
 
   ContactRankingTest({this.header, super.index, super.negative});
 
-  factory ContactRankingTest.fromJson(Map<String, dynamic> json) =>
-      ContactRankingTest(header: json['header'], index: json['index'], negative: json['negative']);
+  factory ContactRankingTest.fromMap(Map<String, dynamic> data) =>
+      ContactRankingTest(header: data['header'], index: data['index'], negative: data['negative']);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (header != null) 'header': header,
         if (index != null) 'index': index,
         if (negative != null) 'negative': negative,

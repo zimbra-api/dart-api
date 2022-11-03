@@ -14,10 +14,10 @@ class Grantor {
 
   Grantor({this.id, this.email, this.name});
 
-  factory Grantor.fromJson(Map<String, dynamic> json) =>
-      Grantor(id: json['id'], email: json['email'], name: json['name']);
+  factory Grantor.fromMap(Map<String, dynamic> data) =>
+      Grantor(id: data['id'], email: data['email'], name: data['name']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (id != null) 'id': id,
         if (email != null) 'email': email,
         if (name != null) 'name': name,

@@ -10,9 +10,9 @@ import 'set_custom_metadata_body.dart';
 class SetCustomMetadataEnvelope extends SoapEnvelope {
   SetCustomMetadataEnvelope(SetCustomMetadataBody body, {super.header}) : super(body);
 
-  factory SetCustomMetadataEnvelope.fromJson(Map<String, dynamic> json) =>
-      SetCustomMetadataEnvelope(SetCustomMetadataBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory SetCustomMetadataEnvelope.fromMap(Map<String, dynamic> data) =>
+      SetCustomMetadataEnvelope(SetCustomMetadataBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   SetCustomMetadataBody get setCustomMetadataBody => body as SetCustomMetadataBody;
 }

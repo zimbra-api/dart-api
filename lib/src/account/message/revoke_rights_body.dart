@@ -12,17 +12,17 @@ class RevokeRightsBody extends SoapBody {
   RevokeRightsBody({RevokeRightsRequest? request, RevokeRightsResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory RevokeRightsBody.fromJson(Map<String, dynamic> json) => RevokeRightsBody(
+  factory RevokeRightsBody.fromMap(Map<String, dynamic> data) => RevokeRightsBody(
       response:
-          json['RevokeRightsResponse'] != null ? RevokeRightsResponse.fromJson(json['RevokeRightsResponse']) : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+          data['RevokeRightsResponse'] != null ? RevokeRightsResponse.fromMap(data['RevokeRightsResponse']) : null,
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   RevokeRightsRequest? get revokeRightsRequest => request as RevokeRightsRequest?;
 
   RevokeRightsResponse? get revokeRightsResponse => response as RevokeRightsResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'RevokeRightsRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'RevokeRightsRequest': request!.toMap(),
       };
 }

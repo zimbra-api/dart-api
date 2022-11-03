@@ -53,15 +53,15 @@ class SendInviteReplyRequest extends SoapRequest {
       SendInviteReplyEnvelope(SendInviteReplyBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
         'id': id,
         'comp': componentNum,
         if (verb != null) 'verb': verb!.name,
         if (updateOrganizer != null) 'updateOrganizer': updateOrganizer,
         if (identityId != null) 'idnt': identityId,
-        if (exceptionId != null) 'exceptId': exceptionId!.toJson(),
-        if (timezone != null) 'tz': timezone!.toJson(),
-        if (msg != null) 'm': msg!.toJson(),
+        if (exceptionId != null) 'exceptId': exceptionId!.toMap(),
+        if (timezone != null) 'tz': timezone!.toMap(),
+        if (msg != null) 'm': msg!.toMap(),
       };
 }

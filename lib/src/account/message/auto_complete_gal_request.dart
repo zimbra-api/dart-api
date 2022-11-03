@@ -42,7 +42,7 @@ class AutoCompleteGalRequest extends SoapRequest {
       AutoCompleteGalEnvelope(AutoCompleteGalBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraAccount',
         'name': name,
         if (type != null) 'type': type!.name,

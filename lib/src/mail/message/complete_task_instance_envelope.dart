@@ -10,9 +10,9 @@ import 'complete_task_instance_body.dart';
 class CompleteTaskInstanceEnvelope extends SoapEnvelope {
   CompleteTaskInstanceEnvelope(CompleteTaskInstanceBody body, {super.header}) : super(body);
 
-  factory CompleteTaskInstanceEnvelope.fromJson(Map<String, dynamic> json) =>
-      CompleteTaskInstanceEnvelope(CompleteTaskInstanceBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory CompleteTaskInstanceEnvelope.fromMap(Map<String, dynamic> data) =>
+      CompleteTaskInstanceEnvelope(CompleteTaskInstanceBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   CompleteTaskInstanceBody get completeTaskInstanceBody => body as CompleteTaskInstanceBody;
 }

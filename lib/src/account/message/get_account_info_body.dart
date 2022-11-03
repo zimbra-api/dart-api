@@ -12,18 +12,18 @@ class GetAccountInfoBody extends SoapBody {
   GetAccountInfoBody({GetAccountInfoRequest? request, GetAccountInfoResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory GetAccountInfoBody.fromJson(Map<String, dynamic> json) => GetAccountInfoBody(
-      response: json['GetAccountInfoResponse'] != null
-          ? GetAccountInfoResponse.fromJson(json['GetAccountInfoResponse'])
+  factory GetAccountInfoBody.fromMap(Map<String, dynamic> data) => GetAccountInfoBody(
+      response: data['GetAccountInfoResponse'] != null
+          ? GetAccountInfoResponse.fromMap(data['GetAccountInfoResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   GetAccountInfoRequest? get getAccountInfoRequest => request as GetAccountInfoRequest?;
 
   GetAccountInfoResponse? get getAccountInfoResponse => response as GetAccountInfoResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'GetAccountInfoRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'GetAccountInfoRequest': request!.toMap(),
       };
 }

@@ -12,16 +12,16 @@ class GetInfoBody extends SoapBody {
   GetInfoBody({GetInfoRequest? request, GetInfoResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory GetInfoBody.fromJson(Map<String, dynamic> json) => GetInfoBody(
-      response: json['GetInfoResponse'] != null ? GetInfoResponse.fromJson(json['GetInfoResponse']) : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+  factory GetInfoBody.fromMap(Map<String, dynamic> data) => GetInfoBody(
+      response: data['GetInfoResponse'] != null ? GetInfoResponse.fromMap(data['GetInfoResponse']) : null,
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   GetInfoRequest? get getInfoRequest => request as GetInfoRequest?;
 
   GetInfoResponse? get getInfoResponse => response as GetInfoResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'GetInfoRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'GetInfoRequest': request!.toMap(),
       };
 }

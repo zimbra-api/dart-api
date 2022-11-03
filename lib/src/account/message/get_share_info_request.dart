@@ -35,10 +35,10 @@ class GetShareInfoRequest extends SoapRequest {
       GetShareInfoEnvelope(GetShareInfoBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraAccount',
-        if (grantee != null) 'grantee': grantee!.toJson(),
-        if (owner != null) 'owner': owner!.toJson(),
+        if (grantee != null) 'grantee': grantee!.toMap(),
+        if (owner != null) 'owner': owner!.toMap(),
         if (internal != null) 'internal': internal,
         if (includeSelf != null) 'includeSelf': includeSelf,
       };

@@ -11,10 +11,10 @@ class CheckRightsRightInfo {
 
   CheckRightsRightInfo({this.right = '', this.allow = false});
 
-  factory CheckRightsRightInfo.fromJson(Map<String, dynamic> json) =>
-      CheckRightsRightInfo(allow: json['allow'], right: json['_content']);
+  factory CheckRightsRightInfo.fromMap(Map<String, dynamic> data) =>
+      CheckRightsRightInfo(allow: data['allow'], right: data['_content']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'allow': allow,
         '_content': right,
       };

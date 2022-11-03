@@ -10,9 +10,9 @@ import 'note_action_body.dart';
 class NoteActionEnvelope extends SoapEnvelope {
   NoteActionEnvelope(NoteActionBody body, {super.header}) : super(body);
 
-  factory NoteActionEnvelope.fromJson(Map<String, dynamic> json) =>
-      NoteActionEnvelope(NoteActionBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory NoteActionEnvelope.fromMap(Map<String, dynamic> data) =>
+      NoteActionEnvelope(NoteActionBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   NoteActionBody get noteActionBody => body as NoteActionBody;
 }

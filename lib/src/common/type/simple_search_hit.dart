@@ -11,9 +11,9 @@ class SimpleSearchHit {
 
   SimpleSearchHit({this.id, this.sortField});
 
-  factory SimpleSearchHit.fromJson(Map<String, dynamic> json) => SimpleSearchHit(id: json['id'], sortField: json['sf']);
+  factory SimpleSearchHit.fromMap(Map<String, dynamic> data) => SimpleSearchHit(id: data['id'], sortField: data['sf']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (id != null) 'id': id,
         if (sortField != null) 'sf': sortField,
       };

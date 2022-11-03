@@ -13,11 +13,11 @@ class GetAccountDistributionListsBody extends SoapBody {
       {GetAccountDistributionListsRequest? request, GetAccountDistributionListsResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory GetAccountDistributionListsBody.fromJson(Map<String, dynamic> json) => GetAccountDistributionListsBody(
-      response: json['GetAccountDistributionListsResponse'] != null
-          ? GetAccountDistributionListsResponse.fromJson(json['GetAccountDistributionListsResponse'])
+  factory GetAccountDistributionListsBody.fromMap(Map<String, dynamic> data) => GetAccountDistributionListsBody(
+      response: data['GetAccountDistributionListsResponse'] != null
+          ? GetAccountDistributionListsResponse.fromMap(data['GetAccountDistributionListsResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   GetAccountDistributionListsRequest? get getAccountDistributionListsRequest =>
       request as GetAccountDistributionListsRequest?;
@@ -26,7 +26,7 @@ class GetAccountDistributionListsBody extends SoapBody {
       response as GetAccountDistributionListsResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'GetAccountDistributionListsRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'GetAccountDistributionListsRequest': request!.toMap(),
       };
 }

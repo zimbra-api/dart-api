@@ -25,7 +25,7 @@ class PreAuth {
     return digest.toString();
   }
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'timestamp': timestamp,
         'expires': expiresTimestamp,
         '_content': value,

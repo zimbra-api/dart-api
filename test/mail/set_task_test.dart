@@ -549,7 +549,7 @@ void main() {
           )
         ],
       );
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'SetTaskRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -1114,7 +1114,7 @@ void main() {
       final deprecatedApptId = faker.guid.guid();
       final recurrenceId = faker.guid.guid();
 
-      final json = {
+      final data = {
         'Body': {
           'SetTaskResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -1130,7 +1130,7 @@ void main() {
           }
         }
       };
-      final envelope = SetTaskEnvelope.fromJson(json);
+      final envelope = SetTaskEnvelope.fromMap(data);
       final response = envelope.setTaskBody.setTaskResponse!;
 
       expect(response.calItemId, calItemId);

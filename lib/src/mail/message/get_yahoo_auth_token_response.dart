@@ -9,6 +9,6 @@ class GetYahooAuthTokenResponse extends SoapResponse {
 
   GetYahooAuthTokenResponse({this.failed});
 
-  factory GetYahooAuthTokenResponse.fromJson(Map<String, dynamic> json) =>
-      GetYahooAuthTokenResponse(failed: json['failed']);
+  factory GetYahooAuthTokenResponse.fromMap(Map<String, dynamic> data) =>
+      GetYahooAuthTokenResponse(failed: data['failed']);
 }

@@ -9,11 +9,11 @@ import 'dismiss_calendar_item_alarm_response.dart';
 class SnoozeCalendarItemAlarmResponse extends DismissCalendarItemAlarmResponse {
   SnoozeCalendarItemAlarmResponse({super.apptUpdatedAlarms = const [], super.taskUpdatedAlarms = const []});
 
-  factory SnoozeCalendarItemAlarmResponse.fromJson(Map<String, dynamic> json) => SnoozeCalendarItemAlarmResponse(
-      apptUpdatedAlarms: (json['appt'] is Iterable)
-          ? List.from((json['appt'] as Iterable).map<UpdatedAlarmInfo>((appt) => UpdatedAlarmInfo.fromJson(appt)))
+  factory SnoozeCalendarItemAlarmResponse.fromMap(Map<String, dynamic> data) => SnoozeCalendarItemAlarmResponse(
+      apptUpdatedAlarms: (data['appt'] is Iterable)
+          ? List.from((data['appt'] as Iterable).map<UpdatedAlarmInfo>((appt) => UpdatedAlarmInfo.fromMap(appt)))
           : [],
-      taskUpdatedAlarms: (json['task'] is Iterable)
-          ? List.from((json['task'] as Iterable).map<UpdatedAlarmInfo>((task) => UpdatedAlarmInfo.fromJson(task)))
+      taskUpdatedAlarms: (data['task'] is Iterable)
+          ? List.from((data['task'] as Iterable).map<UpdatedAlarmInfo>((task) => UpdatedAlarmInfo.fromMap(task)))
           : []);
 }

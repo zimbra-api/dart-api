@@ -503,7 +503,7 @@ void main() {
           fragment: fragment,
         ),
       );
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'ModifyAppointmentRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -1132,7 +1132,7 @@ void main() {
       final tagNames = faker.lorem.word();
       final section = faker.lorem.word();
 
-      final json = {
+      final data = {
         'Body': {
           'ModifyAppointmentResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -1574,7 +1574,7 @@ void main() {
           }
         }
       };
-      final envelope = ModifyAppointmentEnvelope.fromJson(json);
+      final envelope = ModifyAppointmentEnvelope.fromMap(data);
       final response = envelope.modifyAppointmentBody.modifyAppointmentResponse!;
 
       expect(response.calItemId, calItemId);

@@ -10,9 +10,9 @@ import 'create_folder_body.dart';
 class CreateFolderEnvelope extends SoapEnvelope {
   CreateFolderEnvelope(CreateFolderBody body, {super.header}) : super(body);
 
-  factory CreateFolderEnvelope.fromJson(Map<String, dynamic> json) =>
-      CreateFolderEnvelope(CreateFolderBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory CreateFolderEnvelope.fromMap(Map<String, dynamic> data) =>
+      CreateFolderEnvelope(CreateFolderBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   CreateFolderBody get createFolderBody => body as CreateFolderBody;
 }

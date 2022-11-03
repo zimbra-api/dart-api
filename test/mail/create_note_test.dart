@@ -20,7 +20,7 @@ void main() {
         color: color,
         bounds: bounds,
       ));
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'CreateNoteRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -54,7 +54,7 @@ void main() {
       final key = faker.lorem.word();
       final value = faker.lorem.word();
 
-      final json = {
+      final data = {
         'Body': {
           'CreateNoteResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -87,7 +87,7 @@ void main() {
           }
         }
       };
-      final envelope = CreateNoteEnvelope.fromJson(json);
+      final envelope = CreateNoteEnvelope.fromMap(data);
       final response = envelope.createNoteBody.createNoteResponse!;
       final note = response.note!;
 

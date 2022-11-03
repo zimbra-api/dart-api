@@ -10,7 +10,7 @@ void main() {
     test('Destroy WaitSet request', (() {
       final waitSetId = faker.guid.guid();
       final request = DestroyWaitSetRequest(waitSetId);
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'DestroyWaitSetRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -22,7 +22,7 @@ void main() {
 
     test('Destroy WaitSet response', (() {
       final waitSetId = faker.guid.guid();
-      final json = {
+      final data = {
         'Body': {
           'DestroyWaitSetResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -30,7 +30,7 @@ void main() {
           }
         }
       };
-      final envelope = DestroyWaitSetEnvelope.fromJson(json);
+      final envelope = DestroyWaitSetEnvelope.fromMap(data);
       final response = envelope.destroyWaitSetBody.destroyWaitSetResponse!;
 
       expect(response.waitSetId, waitSetId);

@@ -507,7 +507,7 @@ void main() {
         wantImapUid: wantImapUid,
         wantModifiedSequence: wantModifiedSequence,
       );
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'SaveDraftRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -1144,7 +1144,7 @@ void main() {
       final body = faker.randomGenerator.boolean();
       final truncatedContent = faker.randomGenerator.boolean();
 
-      final json = {
+      final data = {
         'Body': {
           'SaveDraftResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -1613,7 +1613,7 @@ void main() {
           }
         }
       };
-      final envelope = SaveDraftEnvelope.fromJson(json);
+      final envelope = SaveDraftEnvelope.fromMap(data);
       final response = envelope.saveDraftBody.saveDraftResponse!;
 
       final msg = response.msgMessage!;

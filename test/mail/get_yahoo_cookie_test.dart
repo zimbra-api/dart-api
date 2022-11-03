@@ -10,7 +10,7 @@ void main() {
     test('Get Yahoo cookie request', (() {
       final user = faker.internet.userName();
       final request = GetYahooCookieRequest(user);
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'GetYahooCookieRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -26,7 +26,7 @@ void main() {
       final y = faker.lorem.word();
       final t = faker.lorem.word();
 
-      final json = {
+      final data = {
         'Body': {
           'GetYahooCookieResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -37,7 +37,7 @@ void main() {
           }
         }
       };
-      final envelope = GetYahooCookieEnvelope.fromJson(json);
+      final envelope = GetYahooCookieEnvelope.fromMap(data);
       final response = envelope.getYahooCookieBody.getYahooCookieResponse!;
       expect(response.error, error);
       expect(response.crumb, crumb);

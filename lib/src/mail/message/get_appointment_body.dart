@@ -12,18 +12,18 @@ class GetAppointmentBody extends SoapBody {
   GetAppointmentBody({GetAppointmentRequest? request, GetAppointmentResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory GetAppointmentBody.fromJson(Map<String, dynamic> json) => GetAppointmentBody(
-      response: json['GetAppointmentResponse'] != null
-          ? GetAppointmentResponse.fromJson(json['GetAppointmentResponse'])
+  factory GetAppointmentBody.fromMap(Map<String, dynamic> data) => GetAppointmentBody(
+      response: data['GetAppointmentResponse'] != null
+          ? GetAppointmentResponse.fromMap(data['GetAppointmentResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   GetAppointmentRequest? get getAppointmentRequest => request as GetAppointmentRequest?;
 
   GetAppointmentResponse? get getAppointmentResponse => response as GetAppointmentResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'GetAppointmentRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'GetAppointmentRequest': request!.toMap(),
       };
 }

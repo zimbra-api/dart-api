@@ -10,11 +10,11 @@ class HeaderExistsTest extends FilterTest {
 
   HeaderExistsTest({this.header, super.index, super.negative});
 
-  factory HeaderExistsTest.fromJson(Map<String, dynamic> json) =>
-      HeaderExistsTest(header: json['header'], index: json['index'], negative: json['negative']);
+  factory HeaderExistsTest.fromMap(Map<String, dynamic> data) =>
+      HeaderExistsTest(header: data['header'], index: data['index'], negative: data['negative']);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (header != null) 'header': header,
         if (index != null) 'index': index,
         if (negative != null) 'negative': negative,

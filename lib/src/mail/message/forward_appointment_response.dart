@@ -7,5 +7,5 @@ import 'package:zimbra_api/src/common/type/soap_response.dart';
 class ForwardAppointmentResponse extends SoapResponse {
   ForwardAppointmentResponse();
 
-  factory ForwardAppointmentResponse.fromJson(Map<String, dynamic> json) => ForwardAppointmentResponse();
+  factory ForwardAppointmentResponse.fromMap(Map<String, dynamic> data) => ForwardAppointmentResponse();
 }

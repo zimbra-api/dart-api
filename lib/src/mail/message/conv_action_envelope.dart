@@ -10,9 +10,9 @@ import 'conv_action_body.dart';
 class ConvActionEnvelope extends SoapEnvelope {
   ConvActionEnvelope(ConvActionBody body, {super.header}) : super(body);
 
-  factory ConvActionEnvelope.fromJson(Map<String, dynamic> json) =>
-      ConvActionEnvelope(ConvActionBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory ConvActionEnvelope.fromMap(Map<String, dynamic> data) =>
+      ConvActionEnvelope(ConvActionBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   ConvActionBody get convActionBody => body as ConvActionBody;
 }

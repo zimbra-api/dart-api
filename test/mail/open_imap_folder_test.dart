@@ -14,7 +14,7 @@ void main() {
       final limit = faker.randomGenerator.integer(100);
 
       final request = OpenIMAPFolderRequest(folderId, limit, cursor: ImapCursorInfo(id));
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'OpenIMAPFolderRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -34,7 +34,7 @@ void main() {
       final tags = faker.lorem.word();
       final hasMore = faker.randomGenerator.boolean();
 
-      final json = {
+      final data = {
         'Body': {
           'OpenIMAPFolderResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -54,7 +54,7 @@ void main() {
           }
         }
       };
-      final envelope = OpenIMAPFolderEnvelope.fromJson(json);
+      final envelope = OpenIMAPFolderEnvelope.fromMap(data);
       final response = envelope.openIMAPFolderBody.openIMAPFolderResponse!;
 
       expect(response.hasMore, hasMore);

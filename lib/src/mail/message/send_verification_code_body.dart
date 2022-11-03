@@ -12,18 +12,18 @@ class SendVerificationCodeBody extends SoapBody {
   SendVerificationCodeBody({SendVerificationCodeRequest? request, SendVerificationCodeResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory SendVerificationCodeBody.fromJson(Map<String, dynamic> json) => SendVerificationCodeBody(
-      response: json['SendVerificationCodeResponse'] != null
-          ? SendVerificationCodeResponse.fromJson(json['SendVerificationCodeResponse'])
+  factory SendVerificationCodeBody.fromMap(Map<String, dynamic> data) => SendVerificationCodeBody(
+      response: data['SendVerificationCodeResponse'] != null
+          ? SendVerificationCodeResponse.fromMap(data['SendVerificationCodeResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   SendVerificationCodeRequest? get sendVerificationCodeRequest => request as SendVerificationCodeRequest?;
 
   SendVerificationCodeResponse? get sendVerificationCodeResponse => response as SendVerificationCodeResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'SendVerificationCodeRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'SendVerificationCodeRequest': request!.toMap(),
       };
 }

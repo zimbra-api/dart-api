@@ -13,18 +13,18 @@ class AnnounceOrganizerChangeBody extends SoapBody {
       {AnnounceOrganizerChangeRequest? request, AnnounceOrganizerChangeResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory AnnounceOrganizerChangeBody.fromJson(Map<String, dynamic> json) => AnnounceOrganizerChangeBody(
-      response: json['AnnounceOrganizerChangeResponse'] != null
-          ? AnnounceOrganizerChangeResponse.fromJson(json['AnnounceOrganizerChangeResponse'])
+  factory AnnounceOrganizerChangeBody.fromMap(Map<String, dynamic> data) => AnnounceOrganizerChangeBody(
+      response: data['AnnounceOrganizerChangeResponse'] != null
+          ? AnnounceOrganizerChangeResponse.fromMap(data['AnnounceOrganizerChangeResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   AnnounceOrganizerChangeRequest? get announceOrganizerChangeRequest => request as AnnounceOrganizerChangeRequest?;
 
   AnnounceOrganizerChangeResponse? get announceOrganizerChangeResponse => response as AnnounceOrganizerChangeResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'AnnounceOrganizerChangeRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'AnnounceOrganizerChangeRequest': request!.toMap(),
       };
 }

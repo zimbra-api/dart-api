@@ -12,16 +12,16 @@ class CreateTagBody extends SoapBody {
   CreateTagBody({CreateTagRequest? request, CreateTagResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory CreateTagBody.fromJson(Map<String, dynamic> json) => CreateTagBody(
-      response: json['CreateTagResponse'] != null ? CreateTagResponse.fromJson(json['CreateTagResponse']) : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+  factory CreateTagBody.fromMap(Map<String, dynamic> data) => CreateTagBody(
+      response: data['CreateTagResponse'] != null ? CreateTagResponse.fromMap(data['CreateTagResponse']) : null,
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   CreateTagRequest? get createTagRequest => request as CreateTagRequest?;
 
   CreateTagResponse? get createTagResponse => response as CreateTagResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'CreateTagRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'CreateTagRequest': request!.toMap(),
       };
 }

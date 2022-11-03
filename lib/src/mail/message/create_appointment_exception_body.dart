@@ -13,11 +13,11 @@ class CreateAppointmentExceptionBody extends SoapBody {
       {CreateAppointmentExceptionRequest? request, CreateAppointmentExceptionResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory CreateAppointmentExceptionBody.fromJson(Map<String, dynamic> json) => CreateAppointmentExceptionBody(
-      response: json['CreateAppointmentExceptionResponse'] != null
-          ? CreateAppointmentExceptionResponse.fromJson(json['CreateAppointmentExceptionResponse'])
+  factory CreateAppointmentExceptionBody.fromMap(Map<String, dynamic> data) => CreateAppointmentExceptionBody(
+      response: data['CreateAppointmentExceptionResponse'] != null
+          ? CreateAppointmentExceptionResponse.fromMap(data['CreateAppointmentExceptionResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   CreateAppointmentExceptionRequest? get createAppointmentExceptionRequest =>
       request as CreateAppointmentExceptionRequest?;
@@ -26,7 +26,7 @@ class CreateAppointmentExceptionBody extends SoapBody {
       response as CreateAppointmentExceptionResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'CreateAppointmentExceptionRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'CreateAppointmentExceptionRequest': request!.toMap(),
       };
 }

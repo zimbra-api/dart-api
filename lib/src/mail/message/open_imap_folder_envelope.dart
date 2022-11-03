@@ -10,9 +10,9 @@ import 'open_imap_folder_body.dart';
 class OpenIMAPFolderEnvelope extends SoapEnvelope {
   OpenIMAPFolderEnvelope(OpenIMAPFolderBody body, {super.header}) : super(body);
 
-  factory OpenIMAPFolderEnvelope.fromJson(Map<String, dynamic> json) =>
-      OpenIMAPFolderEnvelope(OpenIMAPFolderBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory OpenIMAPFolderEnvelope.fromMap(Map<String, dynamic> data) =>
+      OpenIMAPFolderEnvelope(OpenIMAPFolderBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   OpenIMAPFolderBody get openIMAPFolderBody => body as OpenIMAPFolderBody;
 }

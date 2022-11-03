@@ -115,98 +115,98 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon {
       super.neverSent,
       super.changes});
 
-  factory InviteComponentWithGroupInfo.fromJson(Map<String, dynamic> json) => InviteComponentWithGroupInfo(
-      categories: (json['category'] is Iterable)
-          ? List.from((json['category'] as Iterable).map<String>((category) => category['_content']))
+  factory InviteComponentWithGroupInfo.fromMap(Map<String, dynamic> data) => InviteComponentWithGroupInfo(
+      categories: (data['category'] is Iterable)
+          ? List.from((data['category'] as Iterable).map<String>((category) => category['_content']))
           : [],
-      comments: (json['comment'] is Iterable)
-          ? List.from((json['comment'] as Iterable).map<String>((comment) => comment['_content']))
+      comments: (data['comment'] is Iterable)
+          ? List.from((data['comment'] as Iterable).map<String>((comment) => comment['_content']))
           : [],
-      contacts: (json['contact'] is Iterable)
-          ? List.from((json['contact'] as Iterable).map<String>((contact) => contact['_content']))
+      contacts: (data['contact'] is Iterable)
+          ? List.from((data['contact'] as Iterable).map<String>((contact) => contact['_content']))
           : [],
-      geo: json['geo'] is Map ? GeoInfo.fromJson(json['geo']) : null,
-      attendees: (json['at'] is Iterable)
-          ? List.from((json['at'] as Iterable).map<CalendarAttendee>((at) => CalendarAttendee.fromJson(at)))
+      geo: data['geo'] is Map ? GeoInfo.fromMap(data['geo']) : null,
+      attendees: (data['at'] is Iterable)
+          ? List.from((data['at'] as Iterable).map<CalendarAttendee>((at) => CalendarAttendee.fromMap(at)))
           : [],
-      alarms: (json['alarm'] is Iterable)
-          ? List.from((json['alarm'] as Iterable).map<AlarmInfo>((alarm) => AlarmInfo.fromJson(alarm)))
+      alarms: (data['alarm'] is Iterable)
+          ? List.from((data['alarm'] as Iterable).map<AlarmInfo>((alarm) => AlarmInfo.fromMap(alarm)))
           : [],
-      xProps: (json['xprop'] is Iterable)
-          ? List.from((json['xprop'] as Iterable).map<XProp>((xprop) => XProp.fromJson(xprop)))
+      xProps: (data['xprop'] is Iterable)
+          ? List.from((data['xprop'] as Iterable).map<XProp>((xprop) => XProp.fromMap(xprop)))
           : [],
-      fragment: json['fr']?['_content'],
-      description: json['desc']?['_content'],
-      htmlDescription: json['descHtml']?['_content'],
-      organizer: json['or'] is Map ? CalOrganizer.fromJson(json['or']) : null,
-      recurrence: json['recur'] is Map ? RecurrenceInfo.fromJson(json['recur']) : null,
-      exceptionId: json['exceptId'] is Map ? ExceptionRecurIdInfo.fromJson(json['exceptId']) : null,
-      dtStart: json['s'] is Map ? DtTimeInfo.fromJson(json['s']) : null,
-      dtEnd: json['e'] is Map ? DtTimeInfo.fromJson(json['e']) : null,
-      duration: json['dur'] is Map ? DurationInfo.fromJson(json['dur']) : null,
-      method: json['method'],
-      componentNum: json['compNum'],
-      rsvp: json['rsvp'],
-      priority: json['priority'],
-      name: json['name'],
-      location: json['loc'],
-      percentComplete: json['percentComplete'],
-      completed: json['completed'],
-      noBlob: json['noBlob'],
+      fragment: data['fr']?['_content'],
+      description: data['desc']?['_content'],
+      htmlDescription: data['descHtml']?['_content'],
+      organizer: data['or'] is Map ? CalOrganizer.fromMap(data['or']) : null,
+      recurrence: data['recur'] is Map ? RecurrenceInfo.fromMap(data['recur']) : null,
+      exceptionId: data['exceptId'] is Map ? ExceptionRecurIdInfo.fromMap(data['exceptId']) : null,
+      dtStart: data['s'] is Map ? DtTimeInfo.fromMap(data['s']) : null,
+      dtEnd: data['e'] is Map ? DtTimeInfo.fromMap(data['e']) : null,
+      duration: data['dur'] is Map ? DurationInfo.fromMap(data['dur']) : null,
+      method: data['method'],
+      componentNum: data['compNum'],
+      rsvp: data['rsvp'],
+      priority: data['priority'],
+      name: data['name'],
+      location: data['loc'],
+      percentComplete: data['percentComplete'],
+      completed: data['completed'],
+      noBlob: data['noBlob'],
       freeBusyActual: FreeBusyStatus.values.firstWhere(
-        (item) => item.name == json['fba'],
+        (item) => item.name == data['fba'],
         orElse: () => FreeBusyStatus.free,
       ),
       freeBusy: FreeBusyStatus.values.firstWhere(
-        (item) => item.name == json['fb'],
+        (item) => item.name == data['fb'],
         orElse: () => FreeBusyStatus.free,
       ),
       transparency: Transparency.values.firstWhere(
-        (item) => item.name == json['transp'],
+        (item) => item.name == data['transp'],
         orElse: () => Transparency.opaque,
       ),
-      isOrganizer: json['isOrg'],
-      xUid: json['x_uid'],
-      uid: json['uid'],
-      sequence: json['seq'],
-      dateTime: json['d'],
-      calItemId: json['calItemId'],
-      deprecatedApptId: json['apptId'],
-      calItemFolder: json['ciFolder'],
+      isOrganizer: data['isOrg'],
+      xUid: data['x_uid'],
+      uid: data['uid'],
+      sequence: data['seq'],
+      dateTime: data['d'],
+      calItemId: data['calItemId'],
+      deprecatedApptId: data['apptId'],
+      calItemFolder: data['ciFolder'],
       status: InviteStatus.values.firstWhere(
-        (item) => item.name == json['status'],
+        (item) => item.name == data['status'],
         orElse: () => InviteStatus.inprogress,
       ),
       calClass: InviteClass.values.firstWhere(
-        (item) => item.name == json['class'],
+        (item) => item.name == data['class'],
         orElse: () => InviteClass.public,
       ),
-      url: json['url'],
-      isException: json['ex'],
-      recurIdZ: json['ridZ'],
-      isAllDay: json['allDay'],
-      isDraft: json['draft'],
-      neverSent: json['neverSent'],
-      changes: json['changes']);
+      url: data['url'],
+      isException: data['ex'],
+      recurIdZ: data['ridZ'],
+      isAllDay: data['allDay'],
+      isDraft: data['draft'],
+      neverSent: data['neverSent'],
+      changes: data['changes']);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (categories.isNotEmpty) 'category': categories.map((category) => {'_content': category}).toList(),
         if (comments.isNotEmpty) 'comment': comments.map((comment) => {'_content': comment}).toList(),
         if (contacts.isNotEmpty) 'contact': contacts.map((contact) => {'_content': contact}).toList(),
-        if (geo != null) 'geo': geo!.toJson(),
-        if (attendees.isNotEmpty) 'at': attendees.map((at) => at.toJson()).toList(),
-        if (alarms.isNotEmpty) 'alarm': alarms.map((alarm) => alarm.toJson()).toList(),
-        if (xProps.isNotEmpty) 'xprop': xProps.map((xprop) => xprop.toJson()).toList(),
+        if (geo != null) 'geo': geo!.toMap(),
+        if (attendees.isNotEmpty) 'at': attendees.map((at) => at.toMap()).toList(),
+        if (alarms.isNotEmpty) 'alarm': alarms.map((alarm) => alarm.toMap()).toList(),
+        if (xProps.isNotEmpty) 'xprop': xProps.map((xprop) => xprop.toMap()).toList(),
         if (fragment != null) 'fr': {'_content': fragment},
         if (description != null) 'desc': {'_content': description},
         if (htmlDescription != null) 'descHtml': {'_content': htmlDescription},
-        if (organizer != null) 'or': organizer!.toJson(),
-        if (recurrence != null) 'recur': recurrence!.toJson(),
-        if (exceptionId != null) 'exceptId': exceptionId!.toJson(),
-        if (dtStart != null) 's': dtStart!.toJson(),
-        if (dtEnd != null) 'e': dtEnd!.toJson(),
-        if (duration != null) 'dur': duration!.toJson(),
+        if (organizer != null) 'or': organizer!.toMap(),
+        if (recurrence != null) 'recur': recurrence!.toMap(),
+        if (exceptionId != null) 'exceptId': exceptionId!.toMap(),
+        if (dtStart != null) 's': dtStart!.toMap(),
+        if (dtEnd != null) 'e': dtEnd!.toMap(),
+        if (duration != null) 'dur': duration!.toMap(),
         if (method != null) 'method': method,
         if (componentNum != null) 'compNum': componentNum,
         if (rsvp != null) 'rsvp': rsvp,

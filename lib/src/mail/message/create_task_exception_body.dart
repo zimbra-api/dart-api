@@ -12,18 +12,18 @@ class CreateTaskExceptionBody extends SoapBody {
   CreateTaskExceptionBody({CreateTaskExceptionRequest? request, CreateTaskExceptionResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory CreateTaskExceptionBody.fromJson(Map<String, dynamic> json) => CreateTaskExceptionBody(
-      response: json['CreateTaskExceptionResponse'] != null
-          ? CreateTaskExceptionResponse.fromJson(json['CreateTaskExceptionResponse'])
+  factory CreateTaskExceptionBody.fromMap(Map<String, dynamic> data) => CreateTaskExceptionBody(
+      response: data['CreateTaskExceptionResponse'] != null
+          ? CreateTaskExceptionResponse.fromMap(data['CreateTaskExceptionResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   CreateTaskExceptionRequest? get createTaskExceptionRequest => request as CreateTaskExceptionRequest?;
 
   CreateTaskExceptionResponse? get createTaskExceptionResponse => response as CreateTaskExceptionResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'CreateTaskExceptionRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'CreateTaskExceptionRequest': request!.toMap(),
       };
 }

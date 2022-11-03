@@ -7,10 +7,10 @@ class FaultReason {
 
   FaultReason(this.text);
 
-  factory FaultReason.fromJson(Map<String, dynamic> json) =>
-      FaultReason(json['Text'] ?? '');
+  factory FaultReason.fromMap(Map<String, dynamic> data) =>
+      FaultReason(data['Text'] ?? '');
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'Text': text,
       };
 }

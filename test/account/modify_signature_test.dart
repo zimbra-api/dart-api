@@ -20,7 +20,7 @@ void main() {
       final request = ModifySignatureRequest(
           Signature(name: name, id: id, cid: cid, contents: [SignatureContent(ContentType.textHtml, value: value)]));
 
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'ModifySignatureRequest': {
             '_jsns': 'urn:zimbraAccount',
@@ -41,14 +41,14 @@ void main() {
     }));
 
     test('Modify signature response', (() {
-      final json = {
+      final data = {
         'Body': {
           'ModifySignatureResponse': {
             '_jsns': 'urn:zimbraAccount',
           }
         }
       };
-      final envelope = ModifySignatureEnvelope.fromJson(json);
+      final envelope = ModifySignatureEnvelope.fromMap(data);
       expect(envelope.modifySignatureBody.modifySignatureResponse, isNotNull);
       expect(envelope.modifySignatureBody.modifySignatureResponse, isA<ModifySignatureResponse>());
     }));

@@ -15,17 +15,17 @@ class SizeTest extends FilterTest {
 
   SizeTest({this.numberComparison, this.size, super.index, super.negative});
 
-  factory SizeTest.fromJson(Map<String, dynamic> json) => SizeTest(
+  factory SizeTest.fromMap(Map<String, dynamic> data) => SizeTest(
       numberComparison: NumberComparison.values.firstWhere(
-        (comparison) => comparison.name == json['numberComparison'],
+        (comparison) => comparison.name == data['numberComparison'],
         orElse: () => NumberComparison.over,
       ),
-      size: json['s'],
-      index: json['index'],
-      negative: json['negative']);
+      size: data['s'],
+      index: data['index'],
+      negative: data['negative']);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (numberComparison != null) 'numberComparison': numberComparison!.name,
         if (size != null) 's': size,
         if (index != null) 'index': index,

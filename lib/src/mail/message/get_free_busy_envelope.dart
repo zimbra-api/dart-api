@@ -10,9 +10,9 @@ import 'get_free_busy_body.dart';
 class GetFreeBusyEnvelope extends SoapEnvelope {
   GetFreeBusyEnvelope(GetFreeBusyBody body, {super.header}) : super(body);
 
-  factory GetFreeBusyEnvelope.fromJson(Map<String, dynamic> json) =>
-      GetFreeBusyEnvelope(GetFreeBusyBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory GetFreeBusyEnvelope.fromMap(Map<String, dynamic> data) =>
+      GetFreeBusyEnvelope(GetFreeBusyBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   GetFreeBusyBody get getFreeBusyBody => body as GetFreeBusyBody;
 }

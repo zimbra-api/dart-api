@@ -17,21 +17,21 @@ class ChildAccount {
 
   ChildAccount({this.id, this.name, this.isVisible, this.isActive, this.attrs = const []});
 
-  factory ChildAccount.fromJson(Map<String, dynamic> json) => ChildAccount(
-        id: json['id'],
-        name: json['name'],
-        isVisible: json['visible'],
-        isActive: json['active'],
-        attrs: (json['attrs']?['attr'] is Iterable)
-            ? List.from((json['attrs']['attr'] as Iterable).map<Attr>((attr) => Attr.fromJson(attr)))
+  factory ChildAccount.fromMap(Map<String, dynamic> data) => ChildAccount(
+        id: data['id'],
+        name: data['name'],
+        isVisible: data['visible'],
+        isActive: data['active'],
+        attrs: (data['attrs']?['attr'] is Iterable)
+            ? List.from((data['attrs']['attr'] as Iterable).map<Attr>((attr) => Attr.fromMap(attr)))
             : [],
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (id != null) 'id': id,
         if (name != null) 'name': name,
         if (isVisible != null) 'visible': isVisible,
         if (isActive != null) 'active': isActive,
-        if (attrs.isNotEmpty) 'attrs': {'attr': attrs.map((attr) => attr.toJson()).toList()},
+        if (attrs.isNotEmpty) 'attrs': {'attr': attrs.map((attr) => attr.toMap()).toList()},
       };
 }

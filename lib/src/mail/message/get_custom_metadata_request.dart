@@ -25,9 +25,9 @@ class GetCustomMetadataRequest extends SoapRequest {
       GetCustomMetadataEnvelope(GetCustomMetadataBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
         if (id != null) 'id': id,
-        'meta': metadata.toJson(),
+        'meta': metadata.toMap(),
       };
 }

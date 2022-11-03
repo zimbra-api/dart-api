@@ -10,9 +10,9 @@ import 'check_permission_body.dart';
 class CheckPermissionEnvelope extends SoapEnvelope {
   CheckPermissionEnvelope(CheckPermissionBody body, {super.header}) : super(body);
 
-  factory CheckPermissionEnvelope.fromJson(Map<String, dynamic> json) =>
-      CheckPermissionEnvelope(CheckPermissionBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory CheckPermissionEnvelope.fromMap(Map<String, dynamic> data) =>
+      CheckPermissionEnvelope(CheckPermissionBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   CheckPermissionBody get checkPermissionBody => body as CheckPermissionBody;
 }

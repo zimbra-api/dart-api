@@ -10,6 +10,6 @@ class DestroyWaitSetResponse extends SoapResponse {
 
   DestroyWaitSetResponse({this.waitSetId});
 
-  factory DestroyWaitSetResponse.fromJson(Map<String, dynamic> json) =>
-      DestroyWaitSetResponse(waitSetId: json['waitSet']);
+  factory DestroyWaitSetResponse.fromMap(Map<String, dynamic> data) =>
+      DestroyWaitSetResponse(waitSetId: data['waitSet']);
 }

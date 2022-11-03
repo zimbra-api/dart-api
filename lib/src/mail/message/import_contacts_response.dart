@@ -11,6 +11,6 @@ class ImportContactsResponse extends SoapResponse {
 
   ImportContactsResponse({this.contact});
 
-  factory ImportContactsResponse.fromJson(Map<String, dynamic> json) =>
-      ImportContactsResponse(contact: json['cn'] != null ? ImportContact.fromJson(json['cn']) : null);
+  factory ImportContactsResponse.fromMap(Map<String, dynamic> data) =>
+      ImportContactsResponse(contact: data['cn'] != null ? ImportContact.fromMap(data['cn']) : null);
 }

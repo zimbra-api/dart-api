@@ -14,7 +14,7 @@ class DistributionListGranteeSelector {
 
   DistributionListGranteeSelector({this.type = GranteeType.all, this.by = DistributionListGranteeBy.name, this.value});
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'type': type.name,
         'by': by.name,
         if (value != null) '_content': value,

@@ -12,18 +12,18 @@ class CreateSearchFolderBody extends SoapBody {
   CreateSearchFolderBody({CreateSearchFolderRequest? request, CreateSearchFolderResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory CreateSearchFolderBody.fromJson(Map<String, dynamic> json) => CreateSearchFolderBody(
-      response: json['CreateSearchFolderResponse'] != null
-          ? CreateSearchFolderResponse.fromJson(json['CreateSearchFolderResponse'])
+  factory CreateSearchFolderBody.fromMap(Map<String, dynamic> data) => CreateSearchFolderBody(
+      response: data['CreateSearchFolderResponse'] != null
+          ? CreateSearchFolderResponse.fromMap(data['CreateSearchFolderResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   CreateSearchFolderRequest? get createSearchFolderRequest => request as CreateSearchFolderRequest?;
 
   CreateSearchFolderResponse? get createSearchFolderResponse => response as CreateSearchFolderResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'CreateSearchFolderRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'CreateSearchFolderRequest': request!.toMap(),
       };
 }

@@ -14,9 +14,9 @@ class IdVersion {
     this.version,
   });
 
-  factory IdVersion.fromJson(Map<String, dynamic> json) => IdVersion(id: json['id'], version: json['ver']);
+  factory IdVersion.fromMap(Map<String, dynamic> data) => IdVersion(id: data['id'], version: data['ver']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (id != null) 'id': id,
         if (version != null) 'ver': version,
       };

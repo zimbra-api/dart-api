@@ -17,10 +17,10 @@ class ContentSpec {
 
   ContentSpec({this.attachmentId, this.messageId, this.part, this.text});
 
-  factory ContentSpec.fromJson(Map<String, dynamic> json) =>
-      ContentSpec(attachmentId: json['aid'], messageId: json['mid'], part: json['part'], text: json['_content']);
+  factory ContentSpec.fromMap(Map<String, dynamic> data) =>
+      ContentSpec(attachmentId: data['aid'], messageId: data['mid'], part: data['part'], text: data['_content']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (attachmentId != null) 'aid': attachmentId,
         if (messageId != null) 'mid': messageId,
         if (part != null) 'part': part,

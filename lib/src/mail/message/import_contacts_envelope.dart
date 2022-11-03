@@ -10,9 +10,9 @@ import 'import_contacts_body.dart';
 class ImportContactsEnvelope extends SoapEnvelope {
   ImportContactsEnvelope(ImportContactsBody body, {super.header}) : super(body);
 
-  factory ImportContactsEnvelope.fromJson(Map<String, dynamic> json) =>
-      ImportContactsEnvelope(ImportContactsBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory ImportContactsEnvelope.fromMap(Map<String, dynamic> data) =>
+      ImportContactsEnvelope(ImportContactsBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   ImportContactsBody get importContactsBody => body as ImportContactsBody;
 }

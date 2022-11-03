@@ -12,16 +12,16 @@ class GetMiniCalBody extends SoapBody {
   GetMiniCalBody({GetMiniCalRequest? request, GetMiniCalResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory GetMiniCalBody.fromJson(Map<String, dynamic> json) => GetMiniCalBody(
-      response: json['GetMiniCalResponse'] != null ? GetMiniCalResponse.fromJson(json['GetMiniCalResponse']) : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+  factory GetMiniCalBody.fromMap(Map<String, dynamic> data) => GetMiniCalBody(
+      response: data['GetMiniCalResponse'] != null ? GetMiniCalResponse.fromMap(data['GetMiniCalResponse']) : null,
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   GetMiniCalRequest? get getMiniCalRequest => request as GetMiniCalRequest?;
 
   GetMiniCalResponse? get getMiniCalResponse => response as GetMiniCalResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'GetMiniCalRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'GetMiniCalRequest': request!.toMap(),
       };
 }

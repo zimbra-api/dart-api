@@ -7,5 +7,5 @@ import 'package:zimbra_api/src/common/type/soap_response.dart';
 class BounceMsgResponse extends SoapResponse {
   BounceMsgResponse();
 
-  factory BounceMsgResponse.fromJson(Map<String, dynamic> json) => BounceMsgResponse();
+  factory BounceMsgResponse.fromMap(Map<String, dynamic> data) => BounceMsgResponse();
 }

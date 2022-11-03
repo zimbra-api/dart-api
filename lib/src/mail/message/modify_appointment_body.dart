@@ -12,18 +12,18 @@ class ModifyAppointmentBody extends SoapBody {
   ModifyAppointmentBody({ModifyAppointmentRequest? request, ModifyAppointmentResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory ModifyAppointmentBody.fromJson(Map<String, dynamic> json) => ModifyAppointmentBody(
-      response: json['ModifyAppointmentResponse'] != null
-          ? ModifyAppointmentResponse.fromJson(json['ModifyAppointmentResponse'])
+  factory ModifyAppointmentBody.fromMap(Map<String, dynamic> data) => ModifyAppointmentBody(
+      response: data['ModifyAppointmentResponse'] != null
+          ? ModifyAppointmentResponse.fromMap(data['ModifyAppointmentResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   ModifyAppointmentRequest? get modifyAppointmentRequest => request as ModifyAppointmentRequest?;
 
   ModifyAppointmentResponse? get modifyAppointmentResponse => response as ModifyAppointmentResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'ModifyAppointmentRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'ModifyAppointmentRequest': request!.toMap(),
       };
 }

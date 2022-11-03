@@ -10,9 +10,9 @@ import 'get_spell_dictionaries_body.dart';
 class GetSpellDictionariesEnvelope extends SoapEnvelope {
   GetSpellDictionariesEnvelope(GetSpellDictionariesBody body, {super.header}) : super(body);
 
-  factory GetSpellDictionariesEnvelope.fromJson(Map<String, dynamic> json) =>
-      GetSpellDictionariesEnvelope(GetSpellDictionariesBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory GetSpellDictionariesEnvelope.fromMap(Map<String, dynamic> data) =>
+      GetSpellDictionariesEnvelope(GetSpellDictionariesBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   GetSpellDictionariesBody get getSpellDictionariesBody => body as GetSpellDictionariesBody;
 }

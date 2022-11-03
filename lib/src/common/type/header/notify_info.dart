@@ -7,9 +7,9 @@ class NotifyInfo {
 
   NotifyInfo({this.sequenceNum});
 
-  factory NotifyInfo.fromJson(Map<String, dynamic> json) => NotifyInfo(sequenceNum: json['seq']);
+  factory NotifyInfo.fromMap(Map<String, dynamic> data) => NotifyInfo(sequenceNum: data['seq']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (sequenceNum != null) 'seq': sequenceNum,
       };
 }

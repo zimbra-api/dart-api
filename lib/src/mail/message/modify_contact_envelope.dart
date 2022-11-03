@@ -10,9 +10,9 @@ import 'modify_contact_body.dart';
 class ModifyContactEnvelope extends SoapEnvelope {
   ModifyContactEnvelope(ModifyContactBody body, {super.header}) : super(body);
 
-  factory ModifyContactEnvelope.fromJson(Map<String, dynamic> json) =>
-      ModifyContactEnvelope(ModifyContactBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory ModifyContactEnvelope.fromMap(Map<String, dynamic> data) =>
+      ModifyContactEnvelope(ModifyContactBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   ModifyContactBody get modifyContactBody => body as ModifyContactBody;
 }

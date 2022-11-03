@@ -15,7 +15,7 @@ class GetTagRequest extends SoapRequest {
   SoapEnvelope getEnvelope({SoapHeader? header}) => GetTagEnvelope(GetTagBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
       };
 }

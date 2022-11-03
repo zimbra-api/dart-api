@@ -43,16 +43,16 @@ class SearchConvResponse extends SoapResponse {
   SearchConvResponse(
       {this.sortBy, this.queryOffset, this.queryMore, this.conversation, this.messages = const [], this.queryInfo});
 
-  factory SearchConvResponse.fromJson(Map<String, dynamic> json) => SearchConvResponse(
+  factory SearchConvResponse.fromMap(Map<String, dynamic> data) => SearchConvResponse(
       sortBy: SearchSortBy.values.firstWhere(
-        (sortBy) => sortBy.name == json['sortBy'],
+        (sortBy) => sortBy.name == data['sortBy'],
         orElse: () => SearchSortBy.dateDesc,
       ),
-      queryOffset: json['offset'],
-      queryMore: json['more'],
-      conversation: json['c'] is Map ? NestedSearchConversation.fromJson(json['c']) : null,
-      messages: (json['m'] is Iterable)
-          ? List.from((json['m'] as Iterable).map<MessageHitInfo>((m) => MessageHitInfo.fromJson(m)))
+      queryOffset: data['offset'],
+      queryMore: data['more'],
+      conversation: data['c'] is Map ? NestedSearchConversation.fromMap(data['c']) : null,
+      messages: (data['m'] is Iterable)
+          ? List.from((data['m'] as Iterable).map<MessageHitInfo>((m) => MessageHitInfo.fromMap(m)))
           : [],
-      queryInfo: json['info'] is Map ? SearchQueryInfo.fromJson(json['info']) : null);
+      queryInfo: data['info'] is Map ? SearchQueryInfo.fromMap(data['info']) : null);
 }

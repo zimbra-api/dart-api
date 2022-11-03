@@ -40,7 +40,7 @@ void main() {
           ownerName: ownerName,
           remoteId: remoteId,
           path: path));
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'CreateMountpointRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -117,7 +117,7 @@ void main() {
       final query = faker.lorem.word();
       final types = faker.lorem.words(3).join(',');
 
-      final json = {
+      final data = {
         'Body': {
           'CreateMountpointResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -237,7 +237,7 @@ void main() {
           }
         }
       };
-      final envelope = CreateMountpointEnvelope.fromJson(json);
+      final envelope = CreateMountpointEnvelope.fromMap(data);
       final response = envelope.createMountpointBody.createMountpointResponse!;
 
       final mountpoint = response.mountpoint!;

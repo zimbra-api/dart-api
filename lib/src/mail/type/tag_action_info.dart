@@ -15,10 +15,10 @@ class TagActionInfo {
 
   TagActionInfo(this.successes, {this.successNames, this.operation});
 
-  factory TagActionInfo.fromJson(Map<String, dynamic> json) =>
-      TagActionInfo(json['id'] ?? '', successNames: json['tn'], operation: json['op']);
+  factory TagActionInfo.fromMap(Map<String, dynamic> data) =>
+      TagActionInfo(data['id'] ?? '', successNames: data['tn'], operation: data['op']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'id': successes,
         if (successNames != null) 'tn': successNames,
         if (operation != null) 'op': operation,

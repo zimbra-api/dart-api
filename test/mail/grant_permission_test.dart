@@ -28,7 +28,7 @@ void main() {
           deny: deny,
         )
       ]);
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'GrantPermissionRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -56,7 +56,7 @@ void main() {
       final accessKey = faker.internet.password();
       final deny = faker.randomGenerator.boolean();
 
-      final json = {
+      final data = {
         'Body': {
           'GrantPermissionResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -74,7 +74,7 @@ void main() {
           }
         }
       };
-      final envelope = GrantPermissionEnvelope.fromJson(json);
+      final envelope = GrantPermissionEnvelope.fromMap(data);
       final response = envelope.grantPermissionBody.grantPermissionResponse!;
       final ace = response.aces.first;
 

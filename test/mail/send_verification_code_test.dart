@@ -12,7 +12,7 @@ void main() {
       final address = faker.internet.email();
 
       final request = SendVerificationCodeRequest(address);
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'SendVerificationCodeRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -23,14 +23,14 @@ void main() {
     }));
 
     test('Send verification code response', (() {
-      final json = {
+      final data = {
         'Body': {
           'SendVerificationCodeResponse': {
             '_jsns': 'urn:zimbraMail',
           }
         }
       };
-      final envelope = SendVerificationCodeEnvelope.fromJson(json);
+      final envelope = SendVerificationCodeEnvelope.fromMap(data);
       final response = envelope.sendVerificationCodeBody.sendVerificationCodeResponse;
       expect(response, isNotNull);
       expect(response, isA<SendVerificationCodeResponse>());

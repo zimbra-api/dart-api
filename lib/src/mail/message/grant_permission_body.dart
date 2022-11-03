@@ -12,18 +12,18 @@ class GrantPermissionBody extends SoapBody {
   GrantPermissionBody({GrantPermissionRequest? request, GrantPermissionResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory GrantPermissionBody.fromJson(Map<String, dynamic> json) => GrantPermissionBody(
-      response: json['GrantPermissionResponse'] != null
-          ? GrantPermissionResponse.fromJson(json['GrantPermissionResponse'])
+  factory GrantPermissionBody.fromMap(Map<String, dynamic> data) => GrantPermissionBody(
+      response: data['GrantPermissionResponse'] != null
+          ? GrantPermissionResponse.fromMap(data['GrantPermissionResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   GrantPermissionRequest? get grantPermissionRequest => request as GrantPermissionRequest?;
 
   GrantPermissionResponse? get grantPermissionResponse => response as GrantPermissionResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'GrantPermissionRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'GrantPermissionRequest': request!.toMap(),
       };
 }

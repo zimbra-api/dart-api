@@ -10,9 +10,9 @@ import 'dismiss_calendar_item_alarm_body.dart';
 class DismissCalendarItemAlarmEnvelope extends SoapEnvelope {
   DismissCalendarItemAlarmEnvelope(DismissCalendarItemAlarmBody body, {super.header}) : super(body);
 
-  factory DismissCalendarItemAlarmEnvelope.fromJson(Map<String, dynamic> json) =>
-      DismissCalendarItemAlarmEnvelope(DismissCalendarItemAlarmBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory DismissCalendarItemAlarmEnvelope.fromMap(Map<String, dynamic> data) =>
+      DismissCalendarItemAlarmEnvelope(DismissCalendarItemAlarmBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   DismissCalendarItemAlarmBody get dismissCalendarItemAlarmBody => body as DismissCalendarItemAlarmBody;
 }

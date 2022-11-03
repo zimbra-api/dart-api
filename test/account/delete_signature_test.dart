@@ -16,7 +16,7 @@ void main() {
       final signature = NameId(name: name, id: id);
       final request = DeleteSignatureRequest(signature);
 
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'DeleteSignatureRequest': {
             '_jsns': 'urn:zimbraAccount',
@@ -30,14 +30,14 @@ void main() {
     }));
 
     test('Delete signature response', (() {
-      final json = {
+      final data = {
         'Body': {
           'DeleteSignatureResponse': {
             '_jsns': 'urn:zimbraAccount',
           }
         }
       };
-      final envelope = DeleteSignatureEnvelope.fromJson(json);
+      final envelope = DeleteSignatureEnvelope.fromMap(data);
       expect(envelope.deleteSignatureBody.deleteSignatureResponse, isNotNull);
       expect(envelope.deleteSignatureBody.deleteSignatureResponse, isA<DeleteSignatureResponse>());
     }));

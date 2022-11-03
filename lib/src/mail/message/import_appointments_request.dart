@@ -29,9 +29,9 @@ class ImportAppointmentsRequest extends SoapRequest {
       ImportAppointmentsEnvelope(ImportAppointmentsBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
-        'content': content.toJson(),
+        'content': content.toMap(),
         'ct': contentType,
         if (folderId != null) 'l': folderId,
       };

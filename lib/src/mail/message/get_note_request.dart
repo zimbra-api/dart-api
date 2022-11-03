@@ -21,8 +21,8 @@ class GetNoteRequest extends SoapRequest {
   SoapEnvelope getEnvelope({SoapHeader? header}) => GetNoteEnvelope(GetNoteBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
-        'note': note.toJson(),
+        'note': note.toMap(),
       };
 }

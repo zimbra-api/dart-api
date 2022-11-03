@@ -12,6 +12,6 @@ class NoteActionResponse extends SoapResponse {
 
   NoteActionResponse({this.action});
 
-  factory NoteActionResponse.fromJson(Map<String, dynamic> json) =>
-      NoteActionResponse(action: json['action'] is Map ? ActionResult.fromJson(json['action']) : null);
+  factory NoteActionResponse.fromMap(Map<String, dynamic> data) =>
+      NoteActionResponse(action: data['action'] is Map ? ActionResult.fromMap(data['action']) : null);
 }

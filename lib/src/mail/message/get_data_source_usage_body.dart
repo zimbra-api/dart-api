@@ -12,18 +12,18 @@ class GetDataSourceUsageBody extends SoapBody {
   GetDataSourceUsageBody({GetDataSourceUsageRequest? request, GetDataSourceUsageResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory GetDataSourceUsageBody.fromJson(Map<String, dynamic> json) => GetDataSourceUsageBody(
-      response: json['GetDataSourceUsageResponse'] != null
-          ? GetDataSourceUsageResponse.fromJson(json['GetDataSourceUsageResponse'])
+  factory GetDataSourceUsageBody.fromMap(Map<String, dynamic> data) => GetDataSourceUsageBody(
+      response: data['GetDataSourceUsageResponse'] != null
+          ? GetDataSourceUsageResponse.fromMap(data['GetDataSourceUsageResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   GetDataSourceUsageRequest? get getDataSourceUsageRequest => request as GetDataSourceUsageRequest?;
 
   GetDataSourceUsageResponse? get getDataSourceUsageResponse => response as GetDataSourceUsageResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'GetDataSourceUsageRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'GetDataSourceUsageRequest': request!.toMap(),
       };
 }

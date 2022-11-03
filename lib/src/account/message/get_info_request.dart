@@ -25,7 +25,7 @@ class GetInfoRequest extends SoapRequest {
   SoapEnvelope getEnvelope({SoapHeader? header}) => GetInfoEnvelope(GetInfoBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraAccount',
         if (sections != null) 'sections': sections,
         if (rights != null) 'rights': rights,

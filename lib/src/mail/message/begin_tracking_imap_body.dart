@@ -12,18 +12,18 @@ class BeginTrackingIMAPBody extends SoapBody {
   BeginTrackingIMAPBody({BeginTrackingIMAPRequest? request, BeginTrackingIMAPResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory BeginTrackingIMAPBody.fromJson(Map<String, dynamic> json) => BeginTrackingIMAPBody(
-      response: json['BeginTrackingIMAPResponse'] != null
-          ? BeginTrackingIMAPResponse.fromJson(json['BeginTrackingIMAPResponse'])
+  factory BeginTrackingIMAPBody.fromMap(Map<String, dynamic> data) => BeginTrackingIMAPBody(
+      response: data['BeginTrackingIMAPResponse'] != null
+          ? BeginTrackingIMAPResponse.fromMap(data['BeginTrackingIMAPResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   BeginTrackingIMAPRequest? get beginTrackingIMAPRequest => request as BeginTrackingIMAPRequest?;
 
   BeginTrackingIMAPResponse? get beginTrackingIMAPResponse => response as BeginTrackingIMAPResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'BeginTrackingIMAPRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'BeginTrackingIMAPRequest': request!.toMap(),
       };
 }

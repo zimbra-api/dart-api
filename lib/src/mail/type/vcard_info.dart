@@ -18,10 +18,10 @@ class VCardInfo {
 
   VCardInfo({this.messageId, this.part, this.attachId, this.value});
 
-  factory VCardInfo.fromJson(Map<String, dynamic> json) =>
-      VCardInfo(messageId: json['mid'], part: json['part'], attachId: json['aid'], value: json['_content']);
+  factory VCardInfo.fromMap(Map<String, dynamic> data) =>
+      VCardInfo(messageId: data['mid'], part: data['part'], attachId: data['aid'], value: data['_content']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (messageId != null) 'mid': messageId,
         if (part != null) 'part': part,
         if (attachId != null) 'aid': attachId,

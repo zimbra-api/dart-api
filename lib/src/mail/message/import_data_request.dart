@@ -54,15 +54,15 @@ class ImportDataRequest extends SoapRequest {
   SoapEnvelope getEnvelope({SoapHeader? header}) => ImportDataEnvelope(ImportDataBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
-        if (imapDataSources.isNotEmpty) 'imap': imapDataSources.map((imap) => imap.toJson()).toList(),
-        if (pop3DataSources.isNotEmpty) 'pop3': pop3DataSources.map((pop3) => pop3.toJson()).toList(),
-        if (caldavDataSources.isNotEmpty) 'caldav': caldavDataSources.map((caldav) => caldav.toJson()).toList(),
-        if (yabDataSources.isNotEmpty) 'yab': yabDataSources.map((yab) => yab.toJson()).toList(),
-        if (rssDataSources.isNotEmpty) 'rss': rssDataSources.map((rss) => rss.toJson()).toList(),
-        if (galDataSources.isNotEmpty) 'gal': galDataSources.map((gal) => gal.toJson()).toList(),
-        if (calDataSources.isNotEmpty) 'cal': calDataSources.map((cal) => cal.toJson()).toList(),
-        if (unknownDataSources.isNotEmpty) 'unknown': unknownDataSources.map((unknown) => unknown.toJson()).toList(),
+        if (imapDataSources.isNotEmpty) 'imap': imapDataSources.map((imap) => imap.toMap()).toList(),
+        if (pop3DataSources.isNotEmpty) 'pop3': pop3DataSources.map((pop3) => pop3.toMap()).toList(),
+        if (caldavDataSources.isNotEmpty) 'caldav': caldavDataSources.map((caldav) => caldav.toMap()).toList(),
+        if (yabDataSources.isNotEmpty) 'yab': yabDataSources.map((yab) => yab.toMap()).toList(),
+        if (rssDataSources.isNotEmpty) 'rss': rssDataSources.map((rss) => rss.toMap()).toList(),
+        if (galDataSources.isNotEmpty) 'gal': galDataSources.map((gal) => gal.toMap()).toList(),
+        if (calDataSources.isNotEmpty) 'cal': calDataSources.map((cal) => cal.toMap()).toList(),
+        if (unknownDataSources.isNotEmpty) 'unknown': unknownDataSources.map((unknown) => unknown.toMap()).toList(),
       };
 }

@@ -18,10 +18,10 @@ class ActionResult {
 
   ActionResult(this.id, this.operation, {this.nonExistentIds, this.newlyCreatedIds});
 
-  factory ActionResult.fromJson(Map<String, dynamic> json) =>
-      ActionResult(json['id'] ?? '', json['op'] ?? '', nonExistentIds: json['nei'], newlyCreatedIds: json['nci']);
+  factory ActionResult.fromMap(Map<String, dynamic> data) =>
+      ActionResult(data['id'] ?? '', data['op'] ?? '', nonExistentIds: data['nei'], newlyCreatedIds: data['nci']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'id': id,
         'op': operation,
         if (nonExistentIds != null) 'nei': nonExistentIds,

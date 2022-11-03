@@ -26,7 +26,7 @@ void main() {
         contentType: contentType,
         folderId: folderId,
       );
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'ImportAppointmentsRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -50,7 +50,7 @@ void main() {
         faker.randomGenerator.integer(100)
       ].join(',');
       final num = faker.randomGenerator.integer(100);
-      final json = {
+      final data = {
         'Body': {
           'ImportAppointmentsResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -59,7 +59,7 @@ void main() {
           }
         }
       };
-      final envelope = ImportAppointmentsEnvelope.fromJson(json);
+      final envelope = ImportAppointmentsEnvelope.fromMap(data);
       final response = envelope.importAppointmentsBody.importAppointmentsResponse!;
       expect(response.ids, ids);
       expect(response.num, num);

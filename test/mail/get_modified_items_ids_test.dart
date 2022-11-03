@@ -11,7 +11,7 @@ void main() {
       final folderId = faker.randomGenerator.integer(100);
       final modSeq = faker.randomGenerator.integer(100);
       final request = GetModifiedItemsIDsRequest(folderId, modSeq);
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'GetModifiedItemsIDsRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -25,7 +25,7 @@ void main() {
     test('Get modified items ids response', (() {
       final id1 = faker.randomGenerator.integer(100);
       final id2 = faker.randomGenerator.integer(100);
-      final json = {
+      final data = {
         'Body': {
           'GetModifiedItemsIDsResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -36,7 +36,7 @@ void main() {
           }
         }
       };
-      final envelope = GetModifiedItemsIDsEnvelope.fromJson(json);
+      final envelope = GetModifiedItemsIDsEnvelope.fromMap(data);
       final response = envelope.getModifiedItemsIDsBody.getModifiedItemsIDsResponse!;
       expect(response.ids.first, id1);
       expect(response.ids.last, id2);

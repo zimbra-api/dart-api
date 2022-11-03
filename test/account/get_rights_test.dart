@@ -13,7 +13,7 @@ void main() {
       final right = faker.lorem.word();
       final request = GetRightsRequest(aces: [Right(right)]);
 
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'GetRightsRequest': {
             '_jsns': 'urn:zimbraAccount',
@@ -36,7 +36,7 @@ void main() {
       final deny = faker.randomGenerator.boolean();
       final checkGranteeType = faker.randomGenerator.boolean();
 
-      final json = {
+      final data = {
         'Body': {
           'GetRightsResponse': {
             '_jsns': 'urn:zimbraAccount',
@@ -55,7 +55,7 @@ void main() {
           }
         },
       };
-      final envelope = GetRightsEnvelope.fromJson(json);
+      final envelope = GetRightsEnvelope.fromMap(data);
       final response = envelope.getRightsBody.getRightsResponse!;
       final ace = response.aces.first;
 

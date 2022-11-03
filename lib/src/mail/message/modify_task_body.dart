@@ -12,16 +12,16 @@ class ModifyTaskBody extends SoapBody {
   ModifyTaskBody({ModifyTaskRequest? request, ModifyTaskResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory ModifyTaskBody.fromJson(Map<String, dynamic> json) => ModifyTaskBody(
-      response: json['ModifyTaskResponse'] != null ? ModifyTaskResponse.fromJson(json['ModifyTaskResponse']) : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+  factory ModifyTaskBody.fromMap(Map<String, dynamic> data) => ModifyTaskBody(
+      response: data['ModifyTaskResponse'] != null ? ModifyTaskResponse.fromMap(data['ModifyTaskResponse']) : null,
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   ModifyTaskRequest? get modifyTaskRequest => request as ModifyTaskRequest?;
 
   ModifyTaskResponse? get modifyTaskResponse => response as ModifyTaskResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'ModifyTaskRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'ModifyTaskRequest': request!.toMap(),
       };
 }

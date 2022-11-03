@@ -26,27 +26,27 @@ class ChatSummary extends MessageSummary {
       super.modifiedSequence,
       super.metadatas = const []});
 
-  factory ChatSummary.fromJson(Map<String, dynamic> json) => ChatSummary(
-        json['id'] ?? '',
-        autoSendTime: json['autoSendTime'],
-        emails: (json['e'] is Iterable)
-            ? List.from((json['e'] as Iterable).map<EmailInfo>((e) => EmailInfo.fromJson(e)))
+  factory ChatSummary.fromMap(Map<String, dynamic> data) => ChatSummary(
+        data['id'] ?? '',
+        autoSendTime: data['autoSendTime'],
+        emails: (data['e'] is Iterable)
+            ? List.from((data['e'] as Iterable).map<EmailInfo>((e) => EmailInfo.fromMap(e)))
             : [],
-        subject: json['su']?['_content'],
-        fragment: json['fr']?['_content'],
-        invite: json['inv'] is Map ? InviteInfo.fromJson(json['inv']) : null,
-        size: json['s'],
-        date: json['d'],
-        folder: json['l'],
-        conversationId: json['cid'],
-        flags: json['f'],
-        tags: json['t'],
-        tagNames: json['tn'],
-        revision: json['rev'],
-        changeDate: json['md'],
-        modifiedSequence: json['ms'],
-        metadatas: (json['meta'] is Iterable)
-            ? List.from((json['meta'] as Iterable).map<MailCustomMetadata>((meta) => MailCustomMetadata.fromJson(meta)))
+        subject: data['su']?['_content'],
+        fragment: data['fr']?['_content'],
+        invite: data['inv'] is Map ? InviteInfo.fromMap(data['inv']) : null,
+        size: data['s'],
+        date: data['d'],
+        folder: data['l'],
+        conversationId: data['cid'],
+        flags: data['f'],
+        tags: data['t'],
+        tagNames: data['tn'],
+        revision: data['rev'],
+        changeDate: data['md'],
+        modifiedSequence: data['ms'],
+        metadatas: (data['meta'] is Iterable)
+            ? List.from((data['meta'] as Iterable).map<MailCustomMetadata>((meta) => MailCustomMetadata.fromMap(meta)))
             : [],
       );
 }

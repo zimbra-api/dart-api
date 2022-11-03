@@ -35,34 +35,34 @@ class PendingFolderModifications {
       this.modifiedTags = const [],
       this.modifiedFolders = const []});
 
-  factory PendingFolderModifications.fromJson(Map<String, dynamic> json) => PendingFolderModifications(
-      folderId: json['id'] ?? 0,
-      created: (json['created'] is Iterable)
-          ? List.from((json['created'] as Iterable)
-              .map<CreateItemNotification>((created) => CreateItemNotification.fromJson(created)))
+  factory PendingFolderModifications.fromMap(Map<String, dynamic> data) => PendingFolderModifications(
+      folderId: data['id'] ?? 0,
+      created: (data['created'] is Iterable)
+          ? List.from((data['created'] as Iterable)
+              .map<CreateItemNotification>((created) => CreateItemNotification.fromMap(created)))
           : [],
-      deleted: (json['deleted'] is Iterable)
-          ? List.from((json['deleted'] as Iterable)
-              .map<DeleteItemNotification>((deleted) => DeleteItemNotification.fromJson(deleted)))
+      deleted: (data['deleted'] is Iterable)
+          ? List.from((data['deleted'] as Iterable)
+              .map<DeleteItemNotification>((deleted) => DeleteItemNotification.fromMap(deleted)))
           : [],
-      modifiedMsgs: (json['modMsgs'] is Iterable)
-          ? List.from((json['modMsgs'] as Iterable)
-              .map<ModifyItemNotification>((modMsgs) => ModifyItemNotification.fromJson(modMsgs)))
+      modifiedMsgs: (data['modMsgs'] is Iterable)
+          ? List.from((data['modMsgs'] as Iterable)
+              .map<ModifyItemNotification>((modMsgs) => ModifyItemNotification.fromMap(modMsgs)))
           : [],
-      modifiedTags: (json['modTags'] is Iterable)
-          ? List.from((json['modTags'] as Iterable)
-              .map<ModifyTagNotification>((modTags) => ModifyTagNotification.fromJson(modTags)))
+      modifiedTags: (data['modTags'] is Iterable)
+          ? List.from((data['modTags'] as Iterable)
+              .map<ModifyTagNotification>((modTags) => ModifyTagNotification.fromMap(modTags)))
           : [],
-      modifiedFolders: (json['modFolders'] is Iterable)
-          ? List.from((json['modFolders'] as Iterable).map<RenameFolderNotification>((modFolders) => RenameFolderNotification.fromJson(modFolders)))
+      modifiedFolders: (data['modFolders'] is Iterable)
+          ? List.from((data['modFolders'] as Iterable).map<RenameFolderNotification>((modFolders) => RenameFolderNotification.fromMap(modFolders)))
           : []);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'id': folderId,
-        if (created.isNotEmpty) 'created': created.map((created) => created.toJson()).toList(),
-        if (deleted.isNotEmpty) 'deleted': deleted.map((deleted) => deleted.toJson()).toList(),
-        if (modifiedMsgs.isNotEmpty) 'modMsgs': modifiedMsgs.map((modMsgs) => modMsgs.toJson()).toList(),
-        if (modifiedTags.isNotEmpty) 'modTags': modifiedTags.map((modTags) => modTags.toJson()).toList(),
-        if (modifiedFolders.isNotEmpty) 'modFolders': modifiedFolders.map((modFolders) => modFolders.toJson()).toList(),
+        if (created.isNotEmpty) 'created': created.map((created) => created.toMap()).toList(),
+        if (deleted.isNotEmpty) 'deleted': deleted.map((deleted) => deleted.toMap()).toList(),
+        if (modifiedMsgs.isNotEmpty) 'modMsgs': modifiedMsgs.map((modMsgs) => modMsgs.toMap()).toList(),
+        if (modifiedTags.isNotEmpty) 'modTags': modifiedTags.map((modTags) => modTags.toMap()).toList(),
+        if (modifiedFolders.isNotEmpty) 'modFolders': modifiedFolders.map((modFolders) => modFolders.toMap()).toList(),
       };
 }

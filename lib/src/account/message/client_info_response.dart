@@ -11,6 +11,6 @@ class ClientInfoResponse extends SoapResponse {
 
   ClientInfoResponse({this.attrs = const []});
 
-  factory ClientInfoResponse.fromJson(Map<String, dynamic> json) => ClientInfoResponse(
-      attrs: (json['a'] is Iterable) ? List.from((json['a'] as Iterable).map<Attr>((a) => Attr.fromJson(a))) : []);
+  factory ClientInfoResponse.fromMap(Map<String, dynamic> data) => ClientInfoResponse(
+      attrs: (data['a'] is Iterable) ? List.from((data['a'] as Iterable).map<Attr>((a) => Attr.fromMap(a))) : []);
 }

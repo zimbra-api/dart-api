@@ -10,9 +10,9 @@ import 'test_data_source_body.dart';
 class TestDataSourceEnvelope extends SoapEnvelope {
   TestDataSourceEnvelope(TestDataSourceBody body, {super.header}) : super(body);
 
-  factory TestDataSourceEnvelope.fromJson(Map<String, dynamic> json) =>
-      TestDataSourceEnvelope(TestDataSourceBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory TestDataSourceEnvelope.fromMap(Map<String, dynamic> data) =>
+      TestDataSourceEnvelope(TestDataSourceBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   TestDataSourceBody get testDataSourceBody => body as TestDataSourceBody;
 }

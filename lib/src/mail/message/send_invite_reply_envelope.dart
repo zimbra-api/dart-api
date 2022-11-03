@@ -10,9 +10,9 @@ import 'send_invite_reply_body.dart';
 class SendInviteReplyEnvelope extends SoapEnvelope {
   SendInviteReplyEnvelope(SendInviteReplyBody body, {super.header}) : super(body);
 
-  factory SendInviteReplyEnvelope.fromJson(Map<String, dynamic> json) =>
-      SendInviteReplyEnvelope(SendInviteReplyBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory SendInviteReplyEnvelope.fromMap(Map<String, dynamic> data) =>
+      SendInviteReplyEnvelope(SendInviteReplyBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   SendInviteReplyBody get sendInviteReplyBody => body as SendInviteReplyBody;
 }

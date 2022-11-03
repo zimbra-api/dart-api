@@ -10,9 +10,9 @@ import 'create_task_exception_body.dart';
 class CreateTaskExceptionEnvelope extends SoapEnvelope {
   CreateTaskExceptionEnvelope(CreateTaskExceptionBody body, {super.header}) : super(body);
 
-  factory CreateTaskExceptionEnvelope.fromJson(Map<String, dynamic> json) =>
-      CreateTaskExceptionEnvelope(CreateTaskExceptionBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory CreateTaskExceptionEnvelope.fromMap(Map<String, dynamic> data) =>
+      CreateTaskExceptionEnvelope(CreateTaskExceptionBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   CreateTaskExceptionBody get createTaskExceptionBody => body as CreateTaskExceptionBody;
 }

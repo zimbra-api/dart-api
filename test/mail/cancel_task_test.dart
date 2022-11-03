@@ -526,7 +526,7 @@ void main() {
         ),
       );
 
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'CancelTaskRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -1062,14 +1062,14 @@ void main() {
     }));
 
     test('Cancel task response', (() {
-      final json = {
+      final data = {
         'Body': {
           'CancelTaskResponse': {
             '_jsns': 'urn:zimbraMail',
           }
         }
       };
-      final envelope = CancelTaskEnvelope.fromJson(json);
+      final envelope = CancelTaskEnvelope.fromMap(data);
       expect(envelope.cancelTaskBody.cancelTaskResponse, isNotNull);
       expect(envelope.cancelTaskBody.cancelTaskResponse, isA<CancelTaskResponse>());
     }));

@@ -12,17 +12,17 @@ class CheckSpellingBody extends SoapBody {
   CheckSpellingBody({CheckSpellingRequest? request, CheckSpellingResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory CheckSpellingBody.fromJson(Map<String, dynamic> json) => CheckSpellingBody(
+  factory CheckSpellingBody.fromMap(Map<String, dynamic> data) => CheckSpellingBody(
       response:
-          json['CheckSpellingResponse'] != null ? CheckSpellingResponse.fromJson(json['CheckSpellingResponse']) : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+          data['CheckSpellingResponse'] != null ? CheckSpellingResponse.fromMap(data['CheckSpellingResponse']) : null,
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   CheckSpellingRequest? get checkSpellingRequest => request as CheckSpellingRequest?;
 
   CheckSpellingResponse? get checkSpellingResponse => response as CheckSpellingResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'CheckSpellingRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'CheckSpellingRequest': request!.toMap(),
       };
 }

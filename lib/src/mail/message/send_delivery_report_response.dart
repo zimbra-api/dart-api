@@ -7,5 +7,5 @@ import 'package:zimbra_api/src/common/type/soap_response.dart';
 class SendDeliveryReportResponse extends SoapResponse {
   SendDeliveryReportResponse();
 
-  factory SendDeliveryReportResponse.fromJson(Map<String, dynamic> json) => SendDeliveryReportResponse();
+  factory SendDeliveryReportResponse.fromMap(Map<String, dynamic> data) => SendDeliveryReportResponse();
 }

@@ -12,16 +12,16 @@ class GetItemBody extends SoapBody {
   GetItemBody({GetItemRequest? request, GetItemResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory GetItemBody.fromJson(Map<String, dynamic> json) => GetItemBody(
-      response: json['GetItemResponse'] != null ? GetItemResponse.fromJson(json['GetItemResponse']) : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+  factory GetItemBody.fromMap(Map<String, dynamic> data) => GetItemBody(
+      response: data['GetItemResponse'] != null ? GetItemResponse.fromMap(data['GetItemResponse']) : null,
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   GetItemRequest? get getItemRequest => request as GetItemRequest?;
 
   GetItemResponse? get getItemResponse => response as GetItemResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'GetItemRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'GetItemRequest': request!.toMap(),
       };
 }

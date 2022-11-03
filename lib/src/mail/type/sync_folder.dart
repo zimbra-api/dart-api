@@ -88,94 +88,94 @@ class SyncFolder extends Folder {
       super.searchFolders = const [],
       super.retentionPolicy});
 
-  factory SyncFolder.fromJson(Map<String, dynamic> json) => SyncFolder(
-      tagItemIds: (json['tag'] is Iterable)
-          ? List.from((json['tag'] as Iterable).map<IdsAttr>((tag) => IdsAttr.fromJson(tag)))
+  factory SyncFolder.fromMap(Map<String, dynamic> data) => SyncFolder(
+      tagItemIds: (data['tag'] is Iterable)
+          ? List.from((data['tag'] as Iterable).map<IdsAttr>((tag) => IdsAttr.fromMap(tag)))
           : [],
-      convItemIds: (json['c'] is Iterable)
-          ? List.from((json['c'] as Iterable).map<IdsAttr>((conv) => IdsAttr.fromJson(conv)))
+      convItemIds: (data['c'] is Iterable)
+          ? List.from((data['c'] as Iterable).map<IdsAttr>((conv) => IdsAttr.fromMap(conv)))
           : [],
-      chatItemIds: (json['chat'] is Iterable)
-          ? List.from((json['chat'] as Iterable).map<IdsAttr>((chat) => IdsAttr.fromJson(chat)))
+      chatItemIds: (data['chat'] is Iterable)
+          ? List.from((data['chat'] as Iterable).map<IdsAttr>((chat) => IdsAttr.fromMap(chat)))
           : [],
-      msgItemIds: (json['m'] is Iterable)
-          ? List.from((json['m'] as Iterable).map<IdsAttr>((msg) => IdsAttr.fromJson(msg)))
+      msgItemIds: (data['m'] is Iterable)
+          ? List.from((data['m'] as Iterable).map<IdsAttr>((msg) => IdsAttr.fromMap(msg)))
           : [],
-      contactItemIds: (json['cn'] is Iterable)
-          ? List.from((json['cn'] as Iterable).map<IdsAttr>((cn) => IdsAttr.fromJson(cn)))
+      contactItemIds: (data['cn'] is Iterable)
+          ? List.from((data['cn'] as Iterable).map<IdsAttr>((cn) => IdsAttr.fromMap(cn)))
           : [],
-      apptItemIds: (json['appt'] is Iterable)
-          ? List.from((json['appt'] as Iterable).map<IdsAttr>((appt) => IdsAttr.fromJson(appt)))
+      apptItemIds: (data['appt'] is Iterable)
+          ? List.from((data['appt'] as Iterable).map<IdsAttr>((appt) => IdsAttr.fromMap(appt)))
           : [],
-      taskItemIds: (json['task'] is Iterable)
-          ? List.from((json['task'] as Iterable).map<IdsAttr>((task) => IdsAttr.fromJson(task)))
+      taskItemIds: (data['task'] is Iterable)
+          ? List.from((data['task'] as Iterable).map<IdsAttr>((task) => IdsAttr.fromMap(task)))
           : [],
-      noteItemIds: (json['notes'] is Iterable)
-          ? List.from((json['notes'] as Iterable).map<IdsAttr>((note) => IdsAttr.fromJson(note)))
+      noteItemIds: (data['notes'] is Iterable)
+          ? List.from((data['notes'] as Iterable).map<IdsAttr>((note) => IdsAttr.fromMap(note)))
           : [],
-      wikiItemIds: (json['w'] is Iterable)
-          ? List.from((json['w'] as Iterable).map<IdsAttr>((wiki) => IdsAttr.fromJson(wiki)))
+      wikiItemIds: (data['w'] is Iterable)
+          ? List.from((data['w'] as Iterable).map<IdsAttr>((wiki) => IdsAttr.fromMap(wiki)))
           : [],
-      docItemIds: (json['doc'] is Iterable)
-          ? List.from((json['doc'] as Iterable).map<IdsAttr>((doc) => IdsAttr.fromJson(doc)))
+      docItemIds: (data['doc'] is Iterable)
+          ? List.from((data['doc'] as Iterable).map<IdsAttr>((doc) => IdsAttr.fromMap(doc)))
           : [],
-      id: json['id'],
-      uuid: json['uuid'],
-      name: json['name'],
-      absoluteFolderPath: json['absFolderPath'],
-      parentId: json['l'],
-      folderUuid: json['luuid'],
-      flags: json['f'],
-      color: json['color'],
-      rgb: json['rgb'],
-      unreadCount: json['u'],
-      imapUnreadCount: json['i4u'],
+      id: data['id'],
+      uuid: data['uuid'],
+      name: data['name'],
+      absoluteFolderPath: data['absFolderPath'],
+      parentId: data['l'],
+      folderUuid: data['luuid'],
+      flags: data['f'],
+      color: data['color'],
+      rgb: data['rgb'],
+      unreadCount: data['u'],
+      imapUnreadCount: data['i4u'],
       view: ViewType.values.firstWhere(
-        (view) => view.name == json['view'],
+        (view) => view.name == data['view'],
         orElse: () => ViewType.message,
       ),
-      revision: json['rev'],
-      modifiedSequence: json['ms'],
-      changeDate: json['md'],
-      itemCount: json['n'],
-      imapItemCount: json['i4n'],
-      totalSize: json['s'],
-      imapModifiedSequence: json['i4ms'],
-      imapUidNext: json['i4next'],
-      url: json['url'],
-      activeSyncDisabled: json['activesyncdisabled'],
-      webOfflineSyncDays: json['webOfflineSyncDays'],
-      perm: json['perm'],
-      recursive: json['recursive'],
-      restUrl: json['rest'],
-      deletable: json['deletable'],
-      metadatas: (json['meta'] is Iterable)
-          ? List.from((json['meta'] as Iterable).map<MailCustomMetadata>((meta) => MailCustomMetadata.fromJson(meta)))
+      revision: data['rev'],
+      modifiedSequence: data['ms'],
+      changeDate: data['md'],
+      itemCount: data['n'],
+      imapItemCount: data['i4n'],
+      totalSize: data['s'],
+      imapModifiedSequence: data['i4ms'],
+      imapUidNext: data['i4next'],
+      url: data['url'],
+      activeSyncDisabled: data['activesyncdisabled'],
+      webOfflineSyncDays: data['webOfflineSyncDays'],
+      perm: data['perm'],
+      recursive: data['recursive'],
+      restUrl: data['rest'],
+      deletable: data['deletable'],
+      metadatas: (data['meta'] is Iterable)
+          ? List.from((data['meta'] as Iterable).map<MailCustomMetadata>((meta) => MailCustomMetadata.fromMap(meta)))
           : [],
-      acl: json['acl'] is Map ? Acl.fromJson(json['acl']) : null,
-      subFolders: (json['folder'] is Iterable)
-          ? List.from((json['folder'] as Iterable).map<Folder>((folder) => Folder.fromJson(folder)))
+      acl: data['acl'] is Map ? Acl.fromMap(data['acl']) : null,
+      subFolders: (data['folder'] is Iterable)
+          ? List.from((data['folder'] as Iterable).map<Folder>((folder) => Folder.fromMap(folder)))
           : [],
-      mountpoints: (json['link'] is Iterable)
-          ? List.from((json['link'] as Iterable).map<Mountpoint>((link) => Mountpoint.fromJson(link)))
+      mountpoints: (data['link'] is Iterable)
+          ? List.from((data['link'] as Iterable).map<Mountpoint>((link) => Mountpoint.fromMap(link)))
           : [],
-      searchFolders: (json['search'] is Iterable)
-          ? List.from((json['search'] as Iterable).map<SearchFolder>((search) => SearchFolder.fromJson(search)))
+      searchFolders: (data['search'] is Iterable)
+          ? List.from((data['search'] as Iterable).map<SearchFolder>((search) => SearchFolder.fromMap(search)))
           : [],
-      retentionPolicy: json['retentionPolicy'] is Map ? RetentionPolicy.fromJson(json['retentionPolicy']) : null);
+      retentionPolicy: data['retentionPolicy'] is Map ? RetentionPolicy.fromMap(data['retentionPolicy']) : null);
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (tagItemIds.isNotEmpty) 'tag': tagItemIds.map((tag) => tag.toJson()).toList(),
-        if (convItemIds.isNotEmpty) 'c': convItemIds.map((conv) => conv.toJson()).toList(),
-        if (chatItemIds.isNotEmpty) 'chat': chatItemIds.map((chat) => chat.toJson()).toList(),
-        if (msgItemIds.isNotEmpty) 'm': msgItemIds.map((msg) => msg.toJson()).toList(),
-        if (contactItemIds.isNotEmpty) 'cn': contactItemIds.map((cn) => cn.toJson()).toList(),
-        if (apptItemIds.isNotEmpty) 'appt': apptItemIds.map((appt) => appt.toJson()).toList(),
-        if (taskItemIds.isNotEmpty) 'task': taskItemIds.map((task) => task.toJson()).toList(),
-        if (noteItemIds.isNotEmpty) 'notes': noteItemIds.map((note) => note.toJson()).toList(),
-        if (wikiItemIds.isNotEmpty) 'w': wikiItemIds.map((wiki) => wiki.toJson()).toList(),
-        if (docItemIds.isNotEmpty) 'doc': docItemIds.map((doc) => doc.toJson()).toList(),
+  Map<String, dynamic> toMap() => {
+        if (tagItemIds.isNotEmpty) 'tag': tagItemIds.map((tag) => tag.toMap()).toList(),
+        if (convItemIds.isNotEmpty) 'c': convItemIds.map((conv) => conv.toMap()).toList(),
+        if (chatItemIds.isNotEmpty) 'chat': chatItemIds.map((chat) => chat.toMap()).toList(),
+        if (msgItemIds.isNotEmpty) 'm': msgItemIds.map((msg) => msg.toMap()).toList(),
+        if (contactItemIds.isNotEmpty) 'cn': contactItemIds.map((cn) => cn.toMap()).toList(),
+        if (apptItemIds.isNotEmpty) 'appt': apptItemIds.map((appt) => appt.toMap()).toList(),
+        if (taskItemIds.isNotEmpty) 'task': taskItemIds.map((task) => task.toMap()).toList(),
+        if (noteItemIds.isNotEmpty) 'notes': noteItemIds.map((note) => note.toMap()).toList(),
+        if (wikiItemIds.isNotEmpty) 'w': wikiItemIds.map((wiki) => wiki.toMap()).toList(),
+        if (docItemIds.isNotEmpty) 'doc': docItemIds.map((doc) => doc.toMap()).toList(),
         if (id != null) 'id': id,
         if (uuid != null) 'uuid': uuid,
         if (name != null) 'name': name,
@@ -203,11 +203,11 @@ class SyncFolder extends Folder {
         if (recursive != null) 'recursive': recursive,
         if (restUrl != null) 'rest': restUrl,
         if (deletable != null) 'deletable': deletable,
-        if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toJson()).toList(),
-        if (acl != null) 'acl': acl!.toJson(),
-        if (subFolders.isNotEmpty) 'folder': subFolders.map((folder) => folder.toJson()).toList(),
-        if (mountpoints.isNotEmpty) 'link': mountpoints.map((link) => link.toJson()).toList(),
-        if (searchFolders.isNotEmpty) 'search': searchFolders.map((search) => search.toJson()).toList(),
-        if (retentionPolicy != null) 'retentionPolicy': retentionPolicy!.toJson(),
+        if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toMap()).toList(),
+        if (acl != null) 'acl': acl!.toMap(),
+        if (subFolders.isNotEmpty) 'folder': subFolders.map((folder) => folder.toMap()).toList(),
+        if (mountpoints.isNotEmpty) 'link': mountpoints.map((link) => link.toMap()).toList(),
+        if (searchFolders.isNotEmpty) 'search': searchFolders.map((search) => search.toMap()).toList(),
+        if (retentionPolicy != null) 'retentionPolicy': retentionPolicy!.toMap(),
       };
 }

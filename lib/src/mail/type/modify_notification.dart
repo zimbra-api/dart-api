@@ -8,10 +8,10 @@ class ModifyNotification {
 
   ModifyNotification({this.changeBitmask = 0});
 
-  factory ModifyNotification.fromJson(Map<String, dynamic> json) =>
-      ModifyNotification(changeBitmask: json['change'] ?? 0);
+  factory ModifyNotification.fromMap(Map<String, dynamic> data) =>
+      ModifyNotification(changeBitmask: data['change'] ?? 0);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'change': changeBitmask,
       };
 }

@@ -21,8 +21,8 @@ class AddCommentRequest extends SoapRequest {
   SoapEnvelope getEnvelope({SoapHeader? header}) => AddCommentEnvelope(AddCommentBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
-        'comment': comment.toJson(),
+        'comment': comment.toMap(),
       };
 }

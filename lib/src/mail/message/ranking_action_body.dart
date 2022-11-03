@@ -12,17 +12,17 @@ class RankingActionBody extends SoapBody {
   RankingActionBody({RankingActionRequest? request, RankingActionResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory RankingActionBody.fromJson(Map<String, dynamic> json) => RankingActionBody(
+  factory RankingActionBody.fromMap(Map<String, dynamic> data) => RankingActionBody(
       response:
-          json['RankingActionResponse'] != null ? RankingActionResponse.fromJson(json['RankingActionResponse']) : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+          data['RankingActionResponse'] != null ? RankingActionResponse.fromMap(data['RankingActionResponse']) : null,
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   RankingActionRequest? get purgeRevisionRequest => request as RankingActionRequest?;
 
   RankingActionResponse? get purgeRevisionResponse => response as RankingActionResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'RankingActionRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'RankingActionRequest': request!.toMap(),
       };
 }

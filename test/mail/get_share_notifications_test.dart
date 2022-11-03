@@ -9,7 +9,7 @@ void main() {
   group('Get share notifications tests', (() {
     test('Get share notifications request', (() {
       final request = GetShareNotificationsRequest();
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'GetShareNotificationsRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -28,7 +28,7 @@ void main() {
       final defaultView = faker.lorem.word();
       final rights = faker.lorem.word();
 
-      final json = {
+      final data = {
         'Body': {
           'GetShareNotificationsResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -54,7 +54,7 @@ void main() {
           }
         }
       };
-      final envelope = GetShareNotificationsEnvelope.fromJson(json);
+      final envelope = GetShareNotificationsEnvelope.fromMap(data);
       final respnse = envelope.getShareNotificationsBody.getShareNotificationsResponse!;
       final share = respnse.shares.first;
 

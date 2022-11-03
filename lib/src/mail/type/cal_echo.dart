@@ -10,10 +10,10 @@ class CalEcho {
 
   CalEcho({this.invite});
 
-  factory CalEcho.fromJson(Map<String, dynamic> json) =>
-      CalEcho(invite: json['m'] is Map ? InviteAsMP.fromJson(json['m']) : null);
+  factory CalEcho.fromMap(Map<String, dynamic> data) =>
+      CalEcho(invite: data['m'] is Map ? InviteAsMP.fromMap(data['m']) : null);
 
-  Map<String, dynamic> toJson() => {
-        if (invite != null) 'm': invite!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (invite != null) 'm': invite!.toMap(),
       };
 }

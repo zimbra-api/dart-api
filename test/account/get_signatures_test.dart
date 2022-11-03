@@ -11,7 +11,7 @@ void main() {
     test('Get signatures request', (() {
       final request = GetSignaturesRequest();
 
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'GetSignaturesRequest': {
             '_jsns': 'urn:zimbraAccount',
@@ -26,7 +26,7 @@ void main() {
       final cid = faker.guid.guid();
       final value = faker.lorem.word();
 
-      final json = {
+      final data = {
         'Body': {
           'GetSignaturesResponse': {
             '_jsns': 'urn:zimbraAccount',
@@ -46,7 +46,7 @@ void main() {
           }
         }
       };
-      final envelope = GetSignaturesEnvelope.fromJson(json);
+      final envelope = GetSignaturesEnvelope.fromMap(data);
       final response = envelope.getSignaturesBody.getSignaturesResponse!;
       final signature = response.signatures.first;
 

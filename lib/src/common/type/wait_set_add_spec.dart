@@ -29,14 +29,14 @@ class WaitSetAddSpec {
 
   WaitSetAddSpec({this.name, this.id, this.token, this.interests, this.folderInterests});
 
-  factory WaitSetAddSpec.fromJson(Map<String, dynamic> json) => WaitSetAddSpec(
-      name: json['name'],
-      id: json['id'],
-      token: json['token'],
-      interests: json['types'],
-      folderInterests: json['folderInterests']);
+  factory WaitSetAddSpec.fromMap(Map<String, dynamic> data) => WaitSetAddSpec(
+      name: data['name'],
+      id: data['id'],
+      token: data['token'],
+      interests: data['types'],
+      folderInterests: data['folderInterests']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (name != null) 'name': name,
         if (id != null) 'id': id,
         if (token != null) 'token': token,

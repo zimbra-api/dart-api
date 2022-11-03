@@ -22,17 +22,17 @@ class RFCCompliantNotifyAction extends FilterAction {
 
   RFCCompliantNotifyAction({this.from, this.importance, this.options, this.message, this.method, super.index});
 
-  factory RFCCompliantNotifyAction.fromJson(Map<String, dynamic> json) => RFCCompliantNotifyAction(
-        from: json['from'],
-        importance: json['importance'],
-        options: json['options'],
-        message: json['message'],
-        method: json['method']?['_content'],
-        index: json['index'],
+  factory RFCCompliantNotifyAction.fromMap(Map<String, dynamic> data) => RFCCompliantNotifyAction(
+        from: data['from'],
+        importance: data['importance'],
+        options: data['options'],
+        message: data['message'],
+        method: data['method']?['_content'],
+        index: data['index'],
       );
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (from != null) 'from': from,
         if (importance != null) 'importance': importance,
         if (options != null) 'options': options,

@@ -9,10 +9,10 @@ class ChangeInfo {
 
   ChangeInfo({this.changeId, this.changeType});
 
-  factory ChangeInfo.fromJson(Map<String, dynamic> json) =>
-      ChangeInfo(changeId: json['token'], changeType: json['type']);
+  factory ChangeInfo.fromMap(Map<String, dynamic> data) =>
+      ChangeInfo(changeId: data['token'], changeType: data['type']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (changeId != null) 'token': changeId,
         if (changeType != null) 'type': changeType,
       };

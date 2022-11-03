@@ -21,7 +21,7 @@ void main() {
         taskAlarms: [SnoozeAlarm(id, snoozeUntil)],
       );
 
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'SnoozeCalendarItemAlarmRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -80,7 +80,7 @@ void main() {
       final contentType = faker.lorem.word();
       final binaryB64Data = faker.lorem.word();
 
-      final json = {
+      final data = {
         'Body': {
           'SnoozeCalendarItemAlarmResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -168,7 +168,7 @@ void main() {
           }
         }
       };
-      final envelope = SnoozeCalendarItemAlarmEnvelope.fromJson(json);
+      final envelope = SnoozeCalendarItemAlarmEnvelope.fromMap(data);
       final response = envelope.snoozeCalendarItemAlarmBody.snoozeCalendarItemAlarmResponse!;
 
       final appt = response.apptUpdatedAlarms.first;

@@ -10,9 +10,9 @@ import 'save_imap_subscriptions_body.dart';
 class SaveIMAPSubscriptionsEnvelope extends SoapEnvelope {
   SaveIMAPSubscriptionsEnvelope(SaveIMAPSubscriptionsBody body, {super.header}) : super(body);
 
-  factory SaveIMAPSubscriptionsEnvelope.fromJson(Map<String, dynamic> json) =>
-      SaveIMAPSubscriptionsEnvelope(SaveIMAPSubscriptionsBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory SaveIMAPSubscriptionsEnvelope.fromMap(Map<String, dynamic> data) =>
+      SaveIMAPSubscriptionsEnvelope(SaveIMAPSubscriptionsBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   SaveIMAPSubscriptionsBody get saveIMAPSubscriptionsBody => body as SaveIMAPSubscriptionsBody;
 }

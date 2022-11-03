@@ -11,8 +11,8 @@ class GetContactsResponse extends SoapResponse {
 
   GetContactsResponse({this.contacts = const []});
 
-  factory GetContactsResponse.fromJson(Map<String, dynamic> json) => GetContactsResponse(
-      contacts: (json['cn'] is Iterable)
-          ? List.from((json['cn'] as Iterable).map<ContactInfo>((cn) => ContactInfo.fromJson(cn)))
+  factory GetContactsResponse.fromMap(Map<String, dynamic> data) => GetContactsResponse(
+      contacts: (data['cn'] is Iterable)
+          ? List.from((data['cn'] as Iterable).map<ContactInfo>((cn) => ContactInfo.fromMap(cn)))
           : []);
 }

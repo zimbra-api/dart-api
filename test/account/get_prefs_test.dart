@@ -14,7 +14,7 @@ void main() {
       final modified = faker.randomGenerator.integer(100);
       final request = GetPrefsRequest(prefs: [Pref(name, value: value, modified: modified)]);
 
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'GetPrefsRequest': {
             '_jsns': 'urn:zimbraAccount',
@@ -35,7 +35,7 @@ void main() {
       final value = faker.lorem.word();
       final modified = faker.randomGenerator.integer(100);
 
-      final json = {
+      final data = {
         'Body': {
           'GetPrefsResponse': {
             '_jsns': 'urn:zimbraAccount',
@@ -49,7 +49,7 @@ void main() {
           }
         },
       };
-      final envelope = GetPrefsEnvelope.fromJson(json);
+      final envelope = GetPrefsEnvelope.fromMap(data);
       final response = envelope.getPrefsBody.getPrefsResponse!;
       final pref = response.prefs.first;
       expect(pref.name, name);

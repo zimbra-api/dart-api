@@ -27,10 +27,10 @@ class OpenIMAPFolderRequest extends SoapRequest {
       OpenIMAPFolderEnvelope(OpenIMAPFolderBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
         'l': folderId,
         'limit': limit,
-        if (cursor != null) 'cursor': cursor!.toJson(),
+        if (cursor != null) 'cursor': cursor!.toMap(),
       };
 }

@@ -37,41 +37,41 @@ class AccountPop3DataSource extends AccountDataSource {
       super.refreshTokenUrl,
       this.leaveOnServer});
 
-  factory AccountPop3DataSource.fromJson(Map<String, dynamic> json) => AccountPop3DataSource(
-        id: json['id'],
-        name: json['name'],
-        folderId: json['l'],
-        isEnabled: json['isEnabled'],
-        importOnly: json['importOnly'],
-        host: json['host'],
-        port: json['port'],
+  factory AccountPop3DataSource.fromMap(Map<String, dynamic> data) => AccountPop3DataSource(
+        id: data['id'],
+        name: data['name'],
+        folderId: data['l'],
+        isEnabled: data['isEnabled'],
+        importOnly: data['importOnly'],
+        host: data['host'],
+        port: data['port'],
         connectionType: ConnectionType.values.firstWhere(
-          (item) => item.name == json['connectionType'],
+          (item) => item.name == data['connectionType'],
           orElse: () => ConnectionType.clearText,
         ),
-        username: json['username'],
-        password: json['password'],
-        pollingInterval: json['pollingInterval'],
-        emailAddress: json['emailAddress'],
-        useAddressForForwardReply: json['useAddressForForwardReply'],
-        defaultSignature: json['defaultSignature'],
-        forwardReplySignature: json['forwardReplySignature'],
-        fromDisplay: json['fromDisplay'],
-        replyToAddress: json['replyToAddress'],
-        replyToDisplay: json['replyToDisplay'],
-        importClass: json['importClass'],
-        failingSince: json['failingSince'],
-        lastError: json['lastError']?['_content'],
-        attributes: (json['a'] is Iterable) ? List.from((json['a'] as Iterable).map((a) => a['_content'])) : [],
-        refreshToken: json['refreshToken'],
-        refreshTokenUrl: json['refreshTokenUrl'],
-        leaveOnServer: json['leaveOnServer'],
+        username: data['username'],
+        password: data['password'],
+        pollingInterval: data['pollingInterval'],
+        emailAddress: data['emailAddress'],
+        useAddressForForwardReply: data['useAddressForForwardReply'],
+        defaultSignature: data['defaultSignature'],
+        forwardReplySignature: data['forwardReplySignature'],
+        fromDisplay: data['fromDisplay'],
+        replyToAddress: data['replyToAddress'],
+        replyToDisplay: data['replyToDisplay'],
+        importClass: data['importClass'],
+        failingSince: data['failingSince'],
+        lastError: data['lastError']?['_content'],
+        attributes: (data['a'] is Iterable) ? List.from((data['a'] as Iterable).map((a) => a['_content'])) : [],
+        refreshToken: data['refreshToken'],
+        refreshTokenUrl: data['refreshTokenUrl'],
+        leaveOnServer: data['leaveOnServer'],
       );
 
   @override
-  Map<String, dynamic> toJson() {
-    final json = super.toJson();
-    if (leaveOnServer != null) json['leaveOnServer'] = leaveOnServer;
-    return json;
+  Map<String, dynamic> toMap() {
+    final data = super.toMap();
+    if (leaveOnServer != null) data['leaveOnServer'] = leaveOnServer;
+    return data;
   }
 }

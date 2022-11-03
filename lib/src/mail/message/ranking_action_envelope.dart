@@ -10,9 +10,9 @@ import 'ranking_action_body.dart';
 class RankingActionEnvelope extends SoapEnvelope {
   RankingActionEnvelope(RankingActionBody body, {super.header}) : super(body);
 
-  factory RankingActionEnvelope.fromJson(Map<String, dynamic> json) =>
-      RankingActionEnvelope(RankingActionBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory RankingActionEnvelope.fromMap(Map<String, dynamic> data) =>
+      RankingActionEnvelope(RankingActionBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   RankingActionBody get rankingActionBody => body as RankingActionBody;
 }

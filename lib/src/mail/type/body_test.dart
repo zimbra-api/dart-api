@@ -13,11 +13,11 @@ class BodyTest extends FilterTest {
 
   BodyTest({this.value, this.caseSensitive, super.index, super.negative});
 
-  factory BodyTest.fromJson(Map<String, dynamic> json) => BodyTest(
-      value: json['value'], caseSensitive: json['caseSensitive'], index: json['index'], negative: json['negative']);
+  factory BodyTest.fromMap(Map<String, dynamic> data) => BodyTest(
+      value: data['value'], caseSensitive: data['caseSensitive'], index: data['index'], negative: data['negative']);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (value != null) 'value': value,
         if (caseSensitive != null) 'caseSensitive': caseSensitive,
         if (index != null) 'index': index,

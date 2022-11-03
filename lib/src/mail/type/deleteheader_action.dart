@@ -17,17 +17,17 @@ class DeleteheaderAction extends FilterAction {
 
   DeleteheaderAction({this.last, this.offset, this.test, super.index});
 
-  factory DeleteheaderAction.fromJson(Map<String, dynamic> json) => DeleteheaderAction(
-      last: json['last'],
-      offset: json['offset'],
-      test: json['test'] is Map ? EditheaderTest.fromJson(json['test']) : null,
-      index: json['index']);
+  factory DeleteheaderAction.fromMap(Map<String, dynamic> data) => DeleteheaderAction(
+      last: data['last'],
+      offset: data['offset'],
+      test: data['test'] is Map ? EditheaderTest.fromMap(data['test']) : null,
+      index: data['index']);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (last != null) 'last': last,
         if (offset != null) 'offset': offset,
-        if (test != null) 'test': test!.toJson(),
+        if (test != null) 'test': test!.toMap(),
         if (index != null) 'index': index,
       };
 }

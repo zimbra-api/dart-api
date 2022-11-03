@@ -17,7 +17,7 @@ void main() {
         operation: RankingActionOp.reset,
         email: email,
       ));
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'RankingActionRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -31,14 +31,14 @@ void main() {
     }));
 
     test('Ranking action response', (() {
-      final json = {
+      final data = {
         'Body': {
           'RankingActionResponse': {
             '_jsns': 'urn:zimbraMail',
           }
         }
       };
-      final envelope = RankingActionEnvelope.fromJson(json);
+      final envelope = RankingActionEnvelope.fromMap(data);
       final response = envelope.rankingActionBody.purgeRevisionResponse;
       expect(response, isNotNull);
       expect(response, isA<RankingActionResponse>());

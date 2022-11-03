@@ -73,32 +73,32 @@ class CalendarItemInfo {
       this.calendarReplies = const [],
       this.metadatas = const []});
 
-  factory CalendarItemInfo.fromJson(Map<String, dynamic> json) => CalendarItemInfo(
-      flags: json['f'],
-      tags: json['t'],
-      tagNames: json['tn'],
-      uid: json['uid'],
-      id: json['id'],
-      revision: json['rev'],
-      size: json['s'],
-      date: json['d'],
-      folder: json['l'],
-      changeDate: json['md'],
-      modifiedSequence: json['ms'],
-      nextAlarm: json['nextAlarm'],
-      orphan: json['orphan'],
-      invites: (json['inv'] is Iterable)
-          ? List.from((json['inv'] as Iterable).map<Invitation>((inv) => Invitation.fromJson(inv)))
+  factory CalendarItemInfo.fromMap(Map<String, dynamic> data) => CalendarItemInfo(
+      flags: data['f'],
+      tags: data['t'],
+      tagNames: data['tn'],
+      uid: data['uid'],
+      id: data['id'],
+      revision: data['rev'],
+      size: data['s'],
+      date: data['d'],
+      folder: data['l'],
+      changeDate: data['md'],
+      modifiedSequence: data['ms'],
+      nextAlarm: data['nextAlarm'],
+      orphan: data['orphan'],
+      invites: (data['inv'] is Iterable)
+          ? List.from((data['inv'] as Iterable).map<Invitation>((inv) => Invitation.fromMap(inv)))
           : [],
-      calendarReplies: (json['replies']?['reply'] is Iterable)
+      calendarReplies: (data['replies']?['reply'] is Iterable)
           ? List.from(
-              (json['replies']['reply'] as Iterable).map<CalendarReply>((reply) => CalendarReply.fromJson(reply)))
+              (data['replies']['reply'] as Iterable).map<CalendarReply>((reply) => CalendarReply.fromMap(reply)))
           : [],
-      metadatas: (json['meta'] is Iterable)
-          ? List.from((json['meta'] as Iterable).map<MailCustomMetadata>((meta) => MailCustomMetadata.fromJson(meta)))
+      metadatas: (data['meta'] is Iterable)
+          ? List.from((data['meta'] as Iterable).map<MailCustomMetadata>((meta) => MailCustomMetadata.fromMap(meta)))
           : []);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (flags != null) 'f': flags,
         if (tags != null) 't': tags,
         if (tagNames != null) 'tn': tagNames,
@@ -112,8 +112,8 @@ class CalendarItemInfo {
         if (modifiedSequence != null) 'ms': modifiedSequence,
         if (nextAlarm != null) 'nextAlarm': nextAlarm,
         if (orphan != null) 'orphan': orphan,
-        if (invites.isNotEmpty) 'inv': invites.map((inv) => inv.toJson()).toList(),
-        if (calendarReplies.isNotEmpty) 'replies': {'reply': calendarReplies.map((reply) => reply.toJson()).toList()},
-        if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toJson()).toList(),
+        if (invites.isNotEmpty) 'inv': invites.map((inv) => inv.toMap()).toList(),
+        if (calendarReplies.isNotEmpty) 'replies': {'reply': calendarReplies.map((reply) => reply.toMap()).toList()},
+        if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toMap()).toList(),
       };
 }

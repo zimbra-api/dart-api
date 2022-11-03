@@ -10,9 +10,9 @@ import 'get_filter_rules_body.dart';
 class GetFilterRulesEnvelope extends SoapEnvelope {
   GetFilterRulesEnvelope(GetFilterRulesBody body, {super.header}) : super(body);
 
-  factory GetFilterRulesEnvelope.fromJson(Map<String, dynamic> json) =>
-      GetFilterRulesEnvelope(GetFilterRulesBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory GetFilterRulesEnvelope.fromMap(Map<String, dynamic> data) =>
+      GetFilterRulesEnvelope(GetFilterRulesBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   GetFilterRulesBody get getFilterRulesBody => body as GetFilterRulesBody;
 }

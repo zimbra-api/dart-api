@@ -11,9 +11,9 @@ class ICalContent {
 
   ICalContent({this.id, this.ical});
 
-  factory ICalContent.fromJson(Map<String, dynamic> json) => ICalContent(id: json['id'], ical: json['_content']);
+  factory ICalContent.fromMap(Map<String, dynamic> data) => ICalContent(id: data['id'], ical: data['_content']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (id != null) 'id': id,
         if (ical != null) '_content': ical,
       };

@@ -12,16 +12,16 @@ class GetNoteBody extends SoapBody {
   GetNoteBody({GetNoteRequest? request, GetNoteResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory GetNoteBody.fromJson(Map<String, dynamic> json) => GetNoteBody(
-      response: json['GetNoteResponse'] != null ? GetNoteResponse.fromJson(json['GetNoteResponse']) : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+  factory GetNoteBody.fromMap(Map<String, dynamic> data) => GetNoteBody(
+      response: data['GetNoteResponse'] != null ? GetNoteResponse.fromMap(data['GetNoteResponse']) : null,
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   GetNoteRequest? get getNoteRequest => request as GetNoteRequest?;
 
   GetNoteResponse? get getNoteResponse => response as GetNoteResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'GetNoteRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'GetNoteRequest': request!.toMap(),
       };
 }

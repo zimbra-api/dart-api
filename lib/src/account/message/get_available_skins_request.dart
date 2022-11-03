@@ -18,7 +18,7 @@ class GetAvailableSkinsRequest extends SoapRequest {
       GetAvailableSkinsEnvelope(GetAvailableSkinsBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraAccount',
       };
 }

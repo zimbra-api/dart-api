@@ -13,7 +13,7 @@ void main() {
       final endTime = faker.date.dateTime().millisecondsSinceEpoch;
 
       final request = GetICalRequest(id: id, startTime: startTime, endTime: endTime);
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'GetICalRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -28,7 +28,7 @@ void main() {
     test('Get iCalendar response', (() {
       final id = faker.guid.guid();
       final ical = faker.lorem.word();
-      final json = {
+      final data = {
         'Body': {
           'GetICalResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -39,7 +39,7 @@ void main() {
           }
         }
       };
-      final envelope = GetICalEnvelope.fromJson(json);
+      final envelope = GetICalEnvelope.fromMap(data);
       final response = envelope.getICalBody.getICalResponse!;
       final content = response.content!;
 

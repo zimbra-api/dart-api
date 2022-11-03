@@ -71,7 +71,7 @@ class SetAppointmentRequest extends SoapRequest {
       SetAppointmentEnvelope(SetAppointmentBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
         if (flags != null) 'f': flags,
         if (tags != null) 't': tags,
@@ -79,9 +79,9 @@ class SetAppointmentRequest extends SoapRequest {
         if (folderId != null) 'l': folderId,
         if (noNextAlarm != null) 'noNextAlarm': noNextAlarm,
         if (nextAlarm != null) 'nextAlarm': nextAlarm,
-        if (defaultId != null) 'default': defaultId!.toJson(),
-        if (exceptions.isNotEmpty) 'except': exceptions.map((except) => except.toJson()).toList(),
-        if (cancellations.isNotEmpty) 'cancel': cancellations.map((cancel) => cancel.toJson()).toList(),
-        if (replies.isNotEmpty) 'replies': {'reply': replies.map((reply) => reply.toJson()).toList()},
+        if (defaultId != null) 'default': defaultId!.toMap(),
+        if (exceptions.isNotEmpty) 'except': exceptions.map((except) => except.toMap()).toList(),
+        if (cancellations.isNotEmpty) 'cancel': cancellations.map((cancel) => cancel.toMap()).toList(),
+        if (replies.isNotEmpty) 'replies': {'reply': replies.map((reply) => reply.toMap()).toList()},
       };
 }

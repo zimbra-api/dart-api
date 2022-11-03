@@ -39,17 +39,17 @@ class AddMsgSpec {
       this.attachmentId,
       this.content});
 
-  factory AddMsgSpec.fromJson(Map<String, dynamic> json) => AddMsgSpec(
-      flags: json['f'],
-      tags: json['t'],
-      tagNames: json['tn'],
-      folder: json['l'],
-      noICal: json['noICal'],
-      dateReceived: json['d'],
-      attachmentId: json['aid'],
-      content: json['content']?['_content']);
+  factory AddMsgSpec.fromMap(Map<String, dynamic> data) => AddMsgSpec(
+      flags: data['f'],
+      tags: data['t'],
+      tagNames: data['tn'],
+      folder: data['l'],
+      noICal: data['noICal'],
+      dateReceived: data['d'],
+      attachmentId: data['aid'],
+      content: data['content']?['_content']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (flags != null) 'f': flags,
         if (tags != null) 't': tags,
         if (tagNames != null) 'tn': tagNames,

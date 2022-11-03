@@ -15,14 +15,14 @@ class RankingActionSpec {
 
   RankingActionSpec({this.operation = RankingActionOp.reset, this.email});
 
-  factory RankingActionSpec.fromJson(Map<String, dynamic> json) => RankingActionSpec(
+  factory RankingActionSpec.fromMap(Map<String, dynamic> data) => RankingActionSpec(
       operation: RankingActionOp.values.firstWhere(
-        (op) => op.name == json['op'],
+        (op) => op.name == data['op'],
         orElse: () => RankingActionOp.reset,
       ),
-      email: json['email']);
+      email: data['email']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'op': operation.name,
         if (email != null) 'email': email,
       };

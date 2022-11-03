@@ -17,7 +17,7 @@ class GetAvailableLocalesRequest extends SoapRequest {
       GetAvailableLocalesEnvelope(GetAvailableLocalesBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraAccount',
       };
 }

@@ -12,17 +12,17 @@ class GenerateUUIDBody extends SoapBody {
   GenerateUUIDBody({GenerateUUIDRequest? request, GenerateUUIDResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory GenerateUUIDBody.fromJson(Map<String, dynamic> json) => GenerateUUIDBody(
+  factory GenerateUUIDBody.fromMap(Map<String, dynamic> data) => GenerateUUIDBody(
       response:
-          json['GenerateUUIDResponse'] != null ? GenerateUUIDResponse.fromJson(json['GenerateUUIDResponse']) : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+          data['GenerateUUIDResponse'] != null ? GenerateUUIDResponse.fromMap(data['GenerateUUIDResponse']) : null,
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   GenerateUUIDRequest? get generateUUIDRequest => request as GenerateUUIDRequest?;
 
   GenerateUUIDResponse? get generateUUIDResponse => response as GenerateUUIDResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'GenerateUUIDRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'GenerateUUIDRequest': request!.toMap(),
       };
 }

@@ -12,16 +12,16 @@ class GetRecurBody extends SoapBody {
   GetRecurBody({GetRecurRequest? request, GetRecurResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory GetRecurBody.fromJson(Map<String, dynamic> json) => GetRecurBody(
-      response: json['GetRecurResponse'] != null ? GetRecurResponse.fromJson(json['GetRecurResponse']) : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+  factory GetRecurBody.fromMap(Map<String, dynamic> data) => GetRecurBody(
+      response: data['GetRecurResponse'] != null ? GetRecurResponse.fromMap(data['GetRecurResponse']) : null,
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   GetRecurRequest? get getRecurRequest => request as GetRecurRequest?;
 
   GetRecurResponse? get getRecurResponse => response as GetRecurResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'GetRecurRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'GetRecurRequest': request!.toMap(),
       };
 }

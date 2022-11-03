@@ -14,10 +14,10 @@ class LocaleInfo {
 
   LocaleInfo(this.id, this.name, {this.localName});
 
-  factory LocaleInfo.fromJson(Map<String, dynamic> json) =>
-      LocaleInfo(json['id'], json['name'], localName: json['localName']);
+  factory LocaleInfo.fromMap(Map<String, dynamic> data) =>
+      LocaleInfo(data['id'], data['name'], localName: data['localName']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'id': id,
         'name': name,
         if (localName != null) 'localName': localName,

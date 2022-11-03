@@ -16,7 +16,7 @@ void main() {
       final rights = faker.lorem.words(3).join(',');
       final request = GetInfoRequest(sections: sections, rights: rights);
 
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'GetInfoRequest': {
             '_jsns': 'urn:zimbraAccount',
@@ -126,7 +126,7 @@ void main() {
       final pop3DataSource = Map<String, dynamic>.from(dataSource);
       pop3DataSource['leaveOnServer'] = leaveOnServer;
 
-      final json = {
+      final data = {
         'Body': {
           'GetInfoResponse': {
             '_jsns': 'urn:zimbraAccount',
@@ -319,7 +319,7 @@ void main() {
           }
         }
       };
-      final envelope = GetInfoEnvelope.fromJson(json);
+      final envelope = GetInfoEnvelope.fromMap(data);
       final response = envelope.getInfoBody.getInfoResponse!;
 
       expect(response.attachmentSizeLimit, attachmentSizeLimit);
@@ -355,14 +355,14 @@ void main() {
       final gal = dataSources.galDataSources.first;
       final cal = dataSources.calDataSources.first;
       final unknown = dataSources.unknownDataSources.first;
-      expect(imap.toJson(), dataSource);
-      expect(pop3.toJson(), pop3DataSource);
-      expect(caldav.toJson(), dataSource);
-      expect(yab.toJson(), dataSource);
-      expect(rss.toJson(), dataSource);
-      expect(gal.toJson(), dataSource);
-      expect(cal.toJson(), dataSource);
-      expect(unknown.toJson(), dataSource);
+      expect(imap.toMap(), dataSource);
+      expect(pop3.toMap(), pop3DataSource);
+      expect(caldav.toMap(), dataSource);
+      expect(yab.toMap(), dataSource);
+      expect(rss.toMap(), dataSource);
+      expect(gal.toMap(), dataSource);
+      expect(cal.toMap(), dataSource);
+      expect(unknown.toMap(), dataSource);
 
       expect(response.prefs.first.name, name);
       expect(response.prefs.first.modified, modified);

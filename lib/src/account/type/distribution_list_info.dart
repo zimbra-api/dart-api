@@ -35,32 +35,32 @@ class DistributionListInfo extends ObjectInfo {
       this.owners = const [],
       this.rights = const []});
 
-  factory DistributionListInfo.fromJson(Map<String, dynamic> json) => DistributionListInfo(
-      json['name'] ?? '',
-      json['id'] ?? '',
-      isOwner: json['isOwner'],
-      isMember: json['isMember'],
-      isDynamic: json['dynamic'],
+  factory DistributionListInfo.fromMap(Map<String, dynamic> data) => DistributionListInfo(
+      data['name'] ?? '',
+      data['id'] ?? '',
+      isOwner: data['isOwner'],
+      isMember: data['isMember'],
+      isDynamic: data['dynamic'],
         members:
-            (json['dlm'] is Iterable) ? List.from((json['dlm'] as Iterable).map<String>((dlm) => dlm['_content'])) : [],
-        owners: (json['owners']?['owner'] is Iterable)
-            ? List.from((json['owners']['owner'] as Iterable)
-                .map<DistributionListGranteeInfo>((owner) => DistributionListGranteeInfo.fromJson(owner)))
+            (data['dlm'] is Iterable) ? List.from((data['dlm'] as Iterable).map<String>((dlm) => dlm['_content'])) : [],
+        owners: (data['owners']?['owner'] is Iterable)
+            ? List.from((data['owners']['owner'] as Iterable)
+                .map<DistributionListGranteeInfo>((owner) => DistributionListGranteeInfo.fromMap(owner)))
             : [],
-        rights: (json['rights']?['right'] is Iterable)
-            ? List.from((json['rights']['right'] as Iterable)
-                .map<DistributionListRightInfo>((right) => DistributionListRightInfo.fromJson(right)))
+        rights: (data['rights']?['right'] is Iterable)
+            ? List.from((data['rights']['right'] as Iterable)
+                .map<DistributionListRightInfo>((right) => DistributionListRightInfo.fromMap(right)))
             : [],
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'name': name,
         'id': id,
         if (isOwner != null) 'isOwner': isOwner,
         if (isMember != null) 'isMember': isMember,
         if (isDynamic != null) 'dynamic': isDynamic,
         if (members.isNotEmpty) 'dlm': members.map((dlm) => {'_content': dlm}).toList(),
-        if (owners.isNotEmpty) 'owners': {'owner': owners.map((owner) => owner.toJson()).toList()},
-        if (rights.isNotEmpty) 'rights': {'right': rights.map((right) => right.toJson()).toList()},
+        if (owners.isNotEmpty) 'owners': {'owner': owners.map((owner) => owner.toMap()).toList()},
+        if (rights.isNotEmpty) 'rights': {'right': rights.map((right) => right.toMap()).toList()},
       };
 }

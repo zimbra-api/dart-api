@@ -38,12 +38,12 @@ class CounterAppointmentRequest extends SoapRequest {
       CounterAppointmentEnvelope(CounterAppointmentBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
         if (id != null) 'id': id,
         if (componentNum != null) 'comp': componentNum,
         if (modifiedSequence != null) 'ms': modifiedSequence,
         if (revision != null) 'rev': revision,
-        if (msg != null) 'm': msg!.toJson(),
+        if (msg != null) 'm': msg!.toMap(),
       };
 }

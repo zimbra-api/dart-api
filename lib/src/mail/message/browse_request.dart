@@ -27,7 +27,7 @@ class BrowseRequest extends SoapRequest {
   SoapEnvelope getEnvelope({SoapHeader? header}) => BrowseEnvelope(BrowseBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
         'browseBy': browseBy.name,
         if (regex != null) 'regex': regex,

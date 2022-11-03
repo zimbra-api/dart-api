@@ -15,11 +15,11 @@ class GetCommentsResponse extends SoapResponse {
 
   GetCommentsResponse({this.users = const [], this.comments = const []});
 
-  factory GetCommentsResponse.fromJson(Map<String, dynamic> json) => GetCommentsResponse(
-      users: (json['user'] is Iterable)
-          ? List.from((json['user'] as Iterable).map<IdEmailName>((user) => IdEmailName.fromJson(user)))
+  factory GetCommentsResponse.fromMap(Map<String, dynamic> data) => GetCommentsResponse(
+      users: (data['user'] is Iterable)
+          ? List.from((data['user'] as Iterable).map<IdEmailName>((user) => IdEmailName.fromMap(user)))
           : [],
-      comments: (json['comment'] is Iterable)
-          ? List.from((json['comment'] as Iterable).map<CommentInfo>((comment) => CommentInfo.fromJson(comment)))
+      comments: (data['comment'] is Iterable)
+          ? List.from((data['comment'] as Iterable).map<CommentInfo>((comment) => CommentInfo.fromMap(comment)))
           : []);
 }

@@ -64,66 +64,66 @@ class InstanceDataInfo extends InstanceDataAttrs {
       super.taskDueDate,
       super.taskTzOffsetDue});
 
-  factory InstanceDataInfo.fromJson(Map<String, dynamic> json) => InstanceDataInfo(
-      startTime: json['s'],
-      isException: json['ex'],
-      organizer: (json['or'] is Map) ? CalOrganizer.fromJson(json['or']) : null,
-      categories: (json['category'] is Iterable)
-          ? List.from((json['category'] as Iterable).map<String>((category) => category['_content']))
+  factory InstanceDataInfo.fromMap(Map<String, dynamic> data) => InstanceDataInfo(
+      startTime: data['s'],
+      isException: data['ex'],
+      organizer: (data['or'] is Map) ? CalOrganizer.fromMap(data['or']) : null,
+      categories: (data['category'] is Iterable)
+          ? List.from((data['category'] as Iterable).map<String>((category) => category['_content']))
           : [],
-      geo: (json['geo'] is Map) ? GeoInfo.fromJson(json['geo']) : null,
-      fragment: json['fr']?['_content'],
-      duration: json['dur'],
+      geo: (data['geo'] is Map) ? GeoInfo.fromMap(data['geo']) : null,
+      fragment: data['fr']?['_content'],
+      duration: data['dur'],
       partStat: ParticipationStatus.values.firstWhere(
-        (ptst) => ptst.name == json['ptst'],
+        (ptst) => ptst.name == data['ptst'],
         orElse: () => ParticipationStatus.accept,
       ),
-      recurIdZ: json['ridZ'],
-      tzOffset: json['tzo'],
+      recurIdZ: data['ridZ'],
+      tzOffset: data['tzo'],
       freeBusyActual: FreeBusyStatus.values.firstWhere(
-        (fba) => fba.name == json['fba'],
+        (fba) => fba.name == data['fba'],
         orElse: () => FreeBusyStatus.free,
       ),
-      taskPercentComplete: json['percentComplete'],
-      isRecurring: json['recur'],
-      hasExceptions: json['hasEx'],
-      priority: json['priority'],
+      taskPercentComplete: data['percentComplete'],
+      isRecurring: data['recur'],
+      hasExceptions: data['hasEx'],
+      priority: data['priority'],
       freeBusyIntended: FreeBusyStatus.values.firstWhere(
-        (fb) => fb.name == json['fb'],
+        (fb) => fb.name == data['fb'],
         orElse: () => FreeBusyStatus.free,
       ),
       transparency: Transparency.values.firstWhere(
-        (transp) => transp.name == json['transp'],
+        (transp) => transp.name == data['transp'],
         orElse: () => Transparency.opaque,
       ),
-      name: json['name'],
-      location: json['loc'],
-      hasOtherAttendees: json['otherAtt'],
-      hasAlarm: json['alarm'],
-      isOrganizer: json['isOrg'],
-      invId: json['invId'],
-      componentNum: json['compNum'],
+      name: data['name'],
+      location: data['loc'],
+      hasOtherAttendees: data['otherAtt'],
+      hasAlarm: data['alarm'],
+      isOrganizer: data['isOrg'],
+      invId: data['invId'],
+      componentNum: data['compNum'],
       status: InviteStatus.values.firstWhere(
-        (status) => status.name == json['status'],
+        (status) => status.name == data['status'],
         orElse: () => InviteStatus.completed,
       ),
       calClass: InviteClass.values.firstWhere(
-        (calClass) => calClass.name == json['class'],
+        (calClass) => calClass.name == data['class'],
         orElse: () => InviteClass.public,
       ),
-      allDay: json['allDay'],
-      draft: json['draft'],
-      neverSent: json['neverSent'],
-      taskDueDate: json['dueDate'],
-      taskTzOffsetDue: json['tzoDue']);
+      allDay: data['allDay'],
+      draft: data['draft'],
+      neverSent: data['neverSent'],
+      taskDueDate: data['dueDate'],
+      taskTzOffsetDue: data['tzoDue']);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (startTime != null) 's': startTime,
         if (isException != null) 'ex': isException,
-        if (organizer != null) 'or': organizer!.toJson(),
+        if (organizer != null) 'or': organizer!.toMap(),
         if (categories.isNotEmpty) 'category': categories.map((category) => {'_content': category}).toList(),
-        if (geo != null) 'geo': geo!.toJson(),
+        if (geo != null) 'geo': geo!.toMap(),
         if (fragment != null) 'fr': {'_content': fragment},
         if (duration != null) 'dur': duration,
         if (partStat != null) 'ptst': partStat!.name,

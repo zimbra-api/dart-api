@@ -20,7 +20,7 @@ void main() {
         needOwners: needOwners,
         needRights: needRights,
       );
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'GetDistributionListRequest': {
             '_jsns': 'urn:zimbraAccount',
@@ -44,7 +44,7 @@ void main() {
       final member = faker.internet.email();
       final rightName = faker.lorem.word();
 
-      final json = {
+      final data = {
         'Body': {
           'GetDistributionListResponse': {
             '_jsns': 'urn:zimbraAccount',
@@ -84,7 +84,7 @@ void main() {
           }
         }
       };
-      final envelope = GetDistributionListEnvelope.fromJson(json);
+      final envelope = GetDistributionListEnvelope.fromMap(data);
       final response = envelope.getDistributionListBody.getDistributionListResponse!;
       final dl = response.dl!;
 

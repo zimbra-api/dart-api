@@ -82,43 +82,43 @@ class SimpleRepeatingRule {
       this.weekStart,
       this.xNames = const []});
 
-  factory SimpleRepeatingRule.fromJson(Map<String, dynamic> json) => SimpleRepeatingRule(
+  factory SimpleRepeatingRule.fromMap(Map<String, dynamic> data) => SimpleRepeatingRule(
       frequency: Frequency.values.firstWhere(
-        (item) => item.name == json['freq'],
+        (item) => item.name == data['freq'],
         orElse: () => Frequency.second,
       ),
-      until: json['until'] is Map ? DateTimeStringAttr.fromJson(json['until']) : null,
-      count: json['count'] is Map ? NumAttr.fromJson(json['count']) : null,
-      interval: json['interval'] is Map ? IntervalRule.fromJson(json['interval']) : null,
-      bySecond: json['bysecond'] is Map ? BySecondRule.fromJson(json['bysecond']) : null,
-      byMinute: json['byminute'] is Map ? ByMinuteRule.fromJson(json['byminute']) : null,
-      byHour: json['byhour'] is Map ? ByHourRule.fromJson(json['byhour']) : null,
-      byDay: json['byday'] is Map ? ByDayRule.fromJson(json['byday']) : null,
-      byMonthDay: json['bymonthday'] is Map ? ByMonthDayRule.fromJson(json['bymonthday']) : null,
-      byYearDay: json['byyearday'] is Map ? ByYearDayRule.fromJson(json['byyearday']) : null,
-      byWeekNo: json['byweekno'] is Map ? ByWeekNoRule.fromJson(json['byweekno']) : null,
-      byMonth: json['bymonth'] is Map ? ByMonthRule.fromJson(json['bymonth']) : null,
-      bySetPose: json['bysetpos'] is Map ? BySetPosRule.fromJson(json['bysetpos']) : null,
-      weekStart: json['wkst'] is Map ? WkstRule.fromJson(json['wkst']) : null,
-      xNames: (json['rule-x-name'] is Iterable)
-          ? List.from((json['rule-x-name'] as Iterable).map<XNameRule>((rule) => XNameRule.fromJson(rule)))
+      until: data['until'] is Map ? DateTimeStringAttr.fromMap(data['until']) : null,
+      count: data['count'] is Map ? NumAttr.fromMap(data['count']) : null,
+      interval: data['interval'] is Map ? IntervalRule.fromMap(data['interval']) : null,
+      bySecond: data['bysecond'] is Map ? BySecondRule.fromMap(data['bysecond']) : null,
+      byMinute: data['byminute'] is Map ? ByMinuteRule.fromMap(data['byminute']) : null,
+      byHour: data['byhour'] is Map ? ByHourRule.fromMap(data['byhour']) : null,
+      byDay: data['byday'] is Map ? ByDayRule.fromMap(data['byday']) : null,
+      byMonthDay: data['bymonthday'] is Map ? ByMonthDayRule.fromMap(data['bymonthday']) : null,
+      byYearDay: data['byyearday'] is Map ? ByYearDayRule.fromMap(data['byyearday']) : null,
+      byWeekNo: data['byweekno'] is Map ? ByWeekNoRule.fromMap(data['byweekno']) : null,
+      byMonth: data['bymonth'] is Map ? ByMonthRule.fromMap(data['bymonth']) : null,
+      bySetPose: data['bysetpos'] is Map ? BySetPosRule.fromMap(data['bysetpos']) : null,
+      weekStart: data['wkst'] is Map ? WkstRule.fromMap(data['wkst']) : null,
+      xNames: (data['rule-x-name'] is Iterable)
+          ? List.from((data['rule-x-name'] as Iterable).map<XNameRule>((rule) => XNameRule.fromMap(rule)))
           : []);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'freq': frequency.name,
-        if (until != null) 'until': until!.toJson(),
-        if (count != null) 'count': count!.toJson(),
-        if (interval != null) 'interval': interval!.toJson(),
-        if (bySecond != null) 'bysecond': bySecond!.toJson(),
-        if (byMinute != null) 'byminute': byMinute!.toJson(),
-        if (byHour != null) 'byhour': byHour!.toJson(),
-        if (byDay != null) 'byday': byDay!.toJson(),
-        if (byMonthDay != null) 'bymonthday': byMonthDay!.toJson(),
-        if (byYearDay != null) 'byyearday': byYearDay!.toJson(),
-        if (byWeekNo != null) 'byweekno': byWeekNo!.toJson(),
-        if (byMonth != null) 'bymonth': byMonth!.toJson(),
-        if (bySetPose != null) 'bysetpos': bySetPose!.toJson(),
-        if (weekStart != null) 'wkst': weekStart!.toJson(),
-        if (xNames.isNotEmpty) 'rule-x-name': xNames.map((rule) => rule.toJson()).toList(),
+        if (until != null) 'until': until!.toMap(),
+        if (count != null) 'count': count!.toMap(),
+        if (interval != null) 'interval': interval!.toMap(),
+        if (bySecond != null) 'bysecond': bySecond!.toMap(),
+        if (byMinute != null) 'byminute': byMinute!.toMap(),
+        if (byHour != null) 'byhour': byHour!.toMap(),
+        if (byDay != null) 'byday': byDay!.toMap(),
+        if (byMonthDay != null) 'bymonthday': byMonthDay!.toMap(),
+        if (byYearDay != null) 'byyearday': byYearDay!.toMap(),
+        if (byWeekNo != null) 'byweekno': byWeekNo!.toMap(),
+        if (byMonth != null) 'bymonth': byMonth!.toMap(),
+        if (bySetPose != null) 'bysetpos': bySetPose!.toMap(),
+        if (weekStart != null) 'wkst': weekStart!.toMap(),
+        if (xNames.isNotEmpty) 'rule-x-name': xNames.map((rule) => rule.toMap()).toList(),
       };
 }

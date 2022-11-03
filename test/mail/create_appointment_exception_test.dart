@@ -504,7 +504,7 @@ void main() {
           fragment: fragment,
         ),
       );
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'CreateAppointmentExceptionRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -1133,7 +1133,7 @@ void main() {
       final tagNames = faker.lorem.word();
       final section = faker.lorem.word();
 
-      final json = {
+      final data = {
         'Body': {
           'CreateAppointmentExceptionResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -1575,7 +1575,7 @@ void main() {
           }
         }
       };
-      final envelope = CreateAppointmentExceptionEnvelope.fromJson(json);
+      final envelope = CreateAppointmentExceptionEnvelope.fromMap(data);
       final response = envelope.createAppointmentExceptionBody.createAppointmentExceptionResponse!;
 
       expect(response.calItemId, calItemId);

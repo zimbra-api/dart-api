@@ -11,9 +11,9 @@ class ExceptIdInfo {
 
   ExceptIdInfo(this.recurrenceId, this.id);
 
-  factory ExceptIdInfo.fromJson(Map<String, dynamic> json) => ExceptIdInfo(json['recurId'] ?? '', json['id'] ?? '');
+  factory ExceptIdInfo.fromMap(Map<String, dynamic> data) => ExceptIdInfo(data['recurId'] ?? '', data['id'] ?? '');
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'recurId': recurrenceId,
         'id': id,
       };

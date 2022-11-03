@@ -14,21 +14,21 @@ class ReplaceheaderAction extends DeleteheaderAction {
 
   ReplaceheaderAction({this.newName, this.newValue, super.last, super.offset, super.test, super.index});
 
-  factory ReplaceheaderAction.fromJson(Map<String, dynamic> json) => ReplaceheaderAction(
-      newName: json['newName']?['_content'],
-      newValue: json['newValue']?['_content'],
-      last: json['last'],
-      offset: json['offset'],
-      test: json['test'] is Map ? EditheaderTest.fromJson(json['test']) : null,
-      index: json['index']);
+  factory ReplaceheaderAction.fromMap(Map<String, dynamic> data) => ReplaceheaderAction(
+      newName: data['newName']?['_content'],
+      newValue: data['newValue']?['_content'],
+      last: data['last'],
+      offset: data['offset'],
+      test: data['test'] is Map ? EditheaderTest.fromMap(data['test']) : null,
+      index: data['index']);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (newName != null) 'newName': {'_content': newName},
         if (newValue != null) 'newValue': {'_content': newValue},
         if (last != null) 'last': last,
         if (offset != null) 'offset': offset,
-        if (test != null) 'test': test!.toJson(),
+        if (test != null) 'test': test!.toMap(),
         if (index != null) 'index': index,
       };
 }

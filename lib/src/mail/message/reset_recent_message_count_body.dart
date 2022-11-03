@@ -13,18 +13,18 @@ class ResetRecentMessageCountBody extends SoapBody {
       {ResetRecentMessageCountRequest? request, ResetRecentMessageCountResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory ResetRecentMessageCountBody.fromJson(Map<String, dynamic> json) => ResetRecentMessageCountBody(
-      response: json['ResetRecentMessageCountResponse'] != null
-          ? ResetRecentMessageCountResponse.fromJson(json['ResetRecentMessageCountResponse'])
+  factory ResetRecentMessageCountBody.fromMap(Map<String, dynamic> data) => ResetRecentMessageCountBody(
+      response: data['ResetRecentMessageCountResponse'] != null
+          ? ResetRecentMessageCountResponse.fromMap(data['ResetRecentMessageCountResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   ResetRecentMessageCountRequest? get resetRecentMessageCountRequest => request as ResetRecentMessageCountRequest?;
 
   ResetRecentMessageCountResponse? get resetRecentMessageCountResponse => response as ResetRecentMessageCountResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'ResetRecentMessageCountRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'ResetRecentMessageCountRequest': request!.toMap(),
       };
 }

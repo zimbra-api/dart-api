@@ -12,18 +12,18 @@ class GetApptSummariesBody extends SoapBody {
   GetApptSummariesBody({GetApptSummariesRequest? request, GetApptSummariesResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory GetApptSummariesBody.fromJson(Map<String, dynamic> json) => GetApptSummariesBody(
-      response: json['GetApptSummariesResponse'] != null
-          ? GetApptSummariesResponse.fromJson(json['GetApptSummariesResponse'])
+  factory GetApptSummariesBody.fromMap(Map<String, dynamic> data) => GetApptSummariesBody(
+      response: data['GetApptSummariesResponse'] != null
+          ? GetApptSummariesResponse.fromMap(data['GetApptSummariesResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   GetApptSummariesRequest? get getApptSummariesRequest => request as GetApptSummariesRequest?;
 
   GetApptSummariesResponse? get getApptSummariesResponse => response as GetApptSummariesResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'GetApptSummariesRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'GetApptSummariesRequest': request!.toMap(),
       };
 }

@@ -51,22 +51,22 @@ class CommentInfo {
       this.date,
       this.metadatas = const []});
 
-  factory CommentInfo.fromJson(Map<String, dynamic> json) => CommentInfo(
-      parentId: json['parentId'],
-      id: json['id'],
-      uuid: json['uuid'],
-      creatorEmail: json['email'],
-      flags: json['f'],
-      tags: json['t'],
-      tagNames: json['tn'],
-      color: json['color'],
-      rgb: json['rgb'],
-      date: json['d'],
-      metadatas: (json['meta'] is Iterable)
-          ? List.from((json['meta'] as Iterable).map<MailCustomMetadata>((meta) => MailCustomMetadata.fromJson(meta)))
+  factory CommentInfo.fromMap(Map<String, dynamic> data) => CommentInfo(
+      parentId: data['parentId'],
+      id: data['id'],
+      uuid: data['uuid'],
+      creatorEmail: data['email'],
+      flags: data['f'],
+      tags: data['t'],
+      tagNames: data['tn'],
+      color: data['color'],
+      rgb: data['rgb'],
+      date: data['d'],
+      metadatas: (data['meta'] is Iterable)
+          ? List.from((data['meta'] as Iterable).map<MailCustomMetadata>((meta) => MailCustomMetadata.fromMap(meta)))
           : []);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (parentId != null) 'parentId': parentId,
         if (id != null) 'id': id,
         if (uuid != null) 'uuid': uuid,
@@ -77,6 +77,6 @@ class CommentInfo {
         if (color != null) 'color': color,
         if (rgb != null) 'rgb': rgb,
         if (date != null) 'd': date,
-        if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toJson()).toList(),
+        if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toMap()).toList(),
       };
 }

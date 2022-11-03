@@ -7,5 +7,5 @@ import 'package:zimbra_api/src/common/type/soap_response.dart';
 class SetMailboxMetadataResponse extends SoapResponse {
   SetMailboxMetadataResponse();
 
-  factory SetMailboxMetadataResponse.fromJson(Map<String, dynamic> json) => SetMailboxMetadataResponse();
+  factory SetMailboxMetadataResponse.fromMap(Map<String, dynamic> data) => SetMailboxMetadataResponse();
 }

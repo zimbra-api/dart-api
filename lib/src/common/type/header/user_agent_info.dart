@@ -9,10 +9,10 @@ class UserAgentInfo {
 
   UserAgentInfo({this.name, this.version});
 
-  factory UserAgentInfo.fromJson(Map<String, dynamic> json) =>
-      UserAgentInfo(name: json['name'], version: json['version']);
+  factory UserAgentInfo.fromMap(Map<String, dynamic> data) =>
+      UserAgentInfo(name: data['name'], version: data['version']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (name != null) 'name': name,
         if (version != null) 'version': version,
       };

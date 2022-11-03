@@ -10,10 +10,10 @@ class CreateItemNotification {
 
   CreateItemNotification({this.messageInfo});
 
-  factory CreateItemNotification.fromJson(Map<String, dynamic> json) =>
-      CreateItemNotification(messageInfo: json['m'] is Map ? ImapMessageInfo.fromJson(json['m']) : null);
+  factory CreateItemNotification.fromMap(Map<String, dynamic> data) =>
+      CreateItemNotification(messageInfo: data['m'] is Map ? ImapMessageInfo.fromMap(data['m']) : null);
 
-  Map<String, dynamic> toJson() => {
-        if (messageInfo != null) 'm': messageInfo!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (messageInfo != null) 'm': messageInfo!.toMap(),
       };
 }

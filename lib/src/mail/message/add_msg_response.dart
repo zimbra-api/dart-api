@@ -15,7 +15,7 @@ class AddMsgResponse extends SoapResponse {
 
   AddMsgResponse({this.message, this.chatMessage});
 
-  factory AddMsgResponse.fromJson(Map<String, dynamic> json) => AddMsgResponse(
-      message: json['m']?[0] is Map ? MessageSummary.fromJson(json['m'][0]) : null,
-      chatMessage: json['chat']?[0] is Map ? ChatSummary.fromJson(json['chat'][0]) : null);
+  factory AddMsgResponse.fromMap(Map<String, dynamic> data) => AddMsgResponse(
+      message: data['m']?[0] is Map ? MessageSummary.fromMap(data['m'][0]) : null,
+      chatMessage: data['chat']?[0] is Map ? ChatSummary.fromMap(data['chat'][0]) : null);
 }

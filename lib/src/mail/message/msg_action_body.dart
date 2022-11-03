@@ -12,16 +12,16 @@ class MsgActionBody extends SoapBody {
   MsgActionBody({MsgActionRequest? request, MsgActionResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory MsgActionBody.fromJson(Map<String, dynamic> json) => MsgActionBody(
-      response: json['MsgActionResponse'] != null ? MsgActionResponse.fromJson(json['MsgActionResponse']) : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+  factory MsgActionBody.fromMap(Map<String, dynamic> data) => MsgActionBody(
+      response: data['MsgActionResponse'] != null ? MsgActionResponse.fromMap(data['MsgActionResponse']) : null,
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   MsgActionRequest? get msgActionRequest => request as MsgActionRequest?;
 
   MsgActionResponse? get msgActionResponse => response as MsgActionResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'MsgActionRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'MsgActionRequest': request!.toMap(),
       };
 }

@@ -10,9 +10,9 @@ import 'create_signature_body.dart';
 class CreateSignatureEnvelope extends SoapEnvelope {
   CreateSignatureEnvelope(CreateSignatureBody body, {super.header}) : super(body);
 
-  factory CreateSignatureEnvelope.fromJson(Map<String, dynamic> json) =>
-      CreateSignatureEnvelope(CreateSignatureBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory CreateSignatureEnvelope.fromMap(Map<String, dynamic> data) =>
+      CreateSignatureEnvelope(CreateSignatureBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   CreateSignatureBody get createSignatureBody => body as CreateSignatureBody;
 }

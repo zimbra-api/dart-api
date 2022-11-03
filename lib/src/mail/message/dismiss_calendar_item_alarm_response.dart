@@ -14,11 +14,11 @@ class DismissCalendarItemAlarmResponse extends SoapResponse {
 
   DismissCalendarItemAlarmResponse({this.apptUpdatedAlarms = const [], this.taskUpdatedAlarms = const []});
 
-  factory DismissCalendarItemAlarmResponse.fromJson(Map<String, dynamic> json) => DismissCalendarItemAlarmResponse(
-      apptUpdatedAlarms: (json['appt'] is Iterable)
-          ? List.from((json['appt'] as Iterable).map<UpdatedAlarmInfo>((appt) => UpdatedAlarmInfo.fromJson(appt)))
+  factory DismissCalendarItemAlarmResponse.fromMap(Map<String, dynamic> data) => DismissCalendarItemAlarmResponse(
+      apptUpdatedAlarms: (data['appt'] is Iterable)
+          ? List.from((data['appt'] as Iterable).map<UpdatedAlarmInfo>((appt) => UpdatedAlarmInfo.fromMap(appt)))
           : [],
-      taskUpdatedAlarms: (json['task'] is Iterable)
-          ? List.from((json['task'] as Iterable).map<UpdatedAlarmInfo>((task) => UpdatedAlarmInfo.fromJson(task)))
+      taskUpdatedAlarms: (data['task'] is Iterable)
+          ? List.from((data['task'] as Iterable).map<UpdatedAlarmInfo>((task) => UpdatedAlarmInfo.fromMap(task)))
           : []);
 }

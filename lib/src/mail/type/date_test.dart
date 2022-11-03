@@ -15,17 +15,17 @@ class DateTest extends FilterTest {
 
   DateTest({this.dateComparison, this.date, super.index, super.negative});
 
-  factory DateTest.fromJson(Map<String, dynamic> json) => DateTest(
+  factory DateTest.fromMap(Map<String, dynamic> data) => DateTest(
       dateComparison: DateComparison.values.firstWhere(
-        (dateComparison) => dateComparison.name == json['dateComparison'],
+        (dateComparison) => dateComparison.name == data['dateComparison'],
         orElse: () => DateComparison.before,
       ),
-      date: json['date'],
-      index: json['index'],
-      negative: json['negative']);
+      date: data['date'],
+      index: data['index'],
+      negative: data['negative']);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (dateComparison != null) 'dateComparison': dateComparison!.name,
         if (date != null) 'date': date,
         if (index != null) 'index': index,

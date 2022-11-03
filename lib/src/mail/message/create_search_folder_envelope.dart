@@ -10,9 +10,9 @@ import 'create_search_folder_body.dart';
 class CreateSearchFolderEnvelope extends SoapEnvelope {
   CreateSearchFolderEnvelope(CreateSearchFolderBody body, {super.header}) : super(body);
 
-  factory CreateSearchFolderEnvelope.fromJson(Map<String, dynamic> json) =>
-      CreateSearchFolderEnvelope(CreateSearchFolderBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory CreateSearchFolderEnvelope.fromMap(Map<String, dynamic> data) =>
+      CreateSearchFolderEnvelope(CreateSearchFolderBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   CreateSearchFolderBody get createSearchFolderBody => body as CreateSearchFolderBody;
 }

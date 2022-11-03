@@ -38,9 +38,9 @@ class SaveDraftRequest extends SoapRequest {
   SoapEnvelope getEnvelope({SoapHeader? header}) => SaveDraftEnvelope(SaveDraftBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
-        'm': msg.toJson(),
+        'm': msg.toMap(),
         if (wantImapUid != null) 'wantImapUid': wantImapUid,
         if (wantModifiedSequence != null) 'wantModSeq': wantModifiedSequence,
       };

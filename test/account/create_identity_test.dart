@@ -19,7 +19,7 @@ void main() {
       final request =
           CreateIdentityRequest(
           Identity(name: email, id: id, attrs: [Attr(name, value: value, permDenied: permDenied)]));
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'CreateIdentityRequest': {
             '_jsns': 'urn:zimbraAccount',
@@ -46,7 +46,7 @@ void main() {
       final value = faker.lorem.word();
       final permDenied = faker.randomGenerator.boolean();
 
-      final json = {
+      final data = {
         'Body': {
           'CreateIdentityResponse': {
             '_jsns': 'urn:zimbraAccount',
@@ -64,7 +64,7 @@ void main() {
           }
         }
       };
-      final envelope = CreateIdentityEnvelope.fromJson(json);
+      final envelope = CreateIdentityEnvelope.fromMap(data);
       final response = envelope.createIdentityBody.createIdentityResponse!;
       final identity = response.identity!;
 

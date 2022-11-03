@@ -10,11 +10,11 @@ void main() {
   final faker = Faker();
 
   group('Check rights request tests', (() {
-    test('Default to json test', () {
+    test('Default to data test', () {
       final request = CheckRightsRequest();
 
-      expect(request.toJson(), {'_jsns': 'urn:zimbraAccount'});
-      expect(request.getEnvelope().toJson(), {
+      expect(request.toMap(), {'_jsns': 'urn:zimbraAccount'});
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'CheckRightsRequest': {
             '_jsns': 'urn:zimbraAccount',
@@ -23,7 +23,7 @@ void main() {
       });
     });
 
-    test('To json test', () {
+    test('To data test', () {
       final targetKey = faker.guid.guid();
       final right = faker.lorem.word();
       final target = CheckRightsTargetSpec(
@@ -34,7 +34,7 @@ void main() {
       );
 
       final request = CheckRightsRequest(targets: [target]);
-      expect(request.toJson(), {
+      expect(request.toMap(), {
         '_jsns': 'urn:zimbraAccount',
         'target': [
           {
@@ -51,26 +51,26 @@ void main() {
   }));
 
   group('Check rights response tests', (() {
-    test('Default from json test', () {
-      final json = {
+    test('Default from data test', () {
+      final data = {
         'Body': {
           'CheckRightsResponse': {
             '_jsns': 'urn:zimbraAccount',
           },
         },
       };
-      final envelope = CheckRightsEnvelope.fromJson(json);
+      final envelope = CheckRightsEnvelope.fromMap(data);
 
       expect(envelope.checkRightsBody, isNotNull);
       expect(envelope.checkRightsBody.checkRightsRequest, isNull);
       expect(envelope.checkRightsBody.checkRightsResponse, isNotNull);
     });
 
-    test('From json test', (() {
+    test('From data test', (() {
       final targetKey = faker.guid.guid();
       final allow = faker.randomGenerator.boolean();
       final right = faker.lorem.word();
-      final json = {
+      final data = {
         'Body': {
           'CheckRightsResponse': {
             '_jsns': 'urn:zimbraAccount',
@@ -92,7 +92,7 @@ void main() {
         },
       };
 
-      final envelope = CheckRightsEnvelope.fromJson(json);
+      final envelope = CheckRightsEnvelope.fromMap(data);
       final response = envelope.checkRightsBody.checkRightsResponse!;
       final target = response.targets.first;
 

@@ -17,10 +17,10 @@ class VersionInfo {
 
   VersionInfo(this.fullVersion, {this.release, this.date, this.host});
 
-  factory VersionInfo.fromJson(Map<String, dynamic> json) =>
-      VersionInfo(json['version'] ?? '', release: json['release'], date: json['buildDate'], host: json['host']);
+  factory VersionInfo.fromMap(Map<String, dynamic> data) =>
+      VersionInfo(data['version'] ?? '', release: data['release'], date: data['buildDate'], host: data['host']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'version': fullVersion,
         if (release != null) 'release': release,
         if (date != null) 'buildDate': date,

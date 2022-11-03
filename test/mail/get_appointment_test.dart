@@ -36,7 +36,7 @@ void main() {
         includeContent: includeContent,
         includeInvites: includeInvites,
       );
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'GetAppointmentRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -161,7 +161,7 @@ void main() {
       final body = faker.randomGenerator.boolean();
       final truncatedContent = faker.randomGenerator.boolean();
 
-      final json = {
+      final data = {
         'Body': {
           'GetAppointmentResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -596,7 +596,7 @@ void main() {
           }
         }
       };
-      final envelope = GetAppointmentEnvelope.fromJson(json);
+      final envelope = GetAppointmentEnvelope.fromMap(data);
       final response = envelope.getAppointmentBody.getAppointmentResponse!;
       final appt = response.appt!;
 

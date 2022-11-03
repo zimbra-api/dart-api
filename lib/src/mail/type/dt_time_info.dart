@@ -29,10 +29,10 @@ class DtTimeInfo {
 
   DtTimeInfo({this.dateTime, this.timezone, this.utcTime});
 
-  factory DtTimeInfo.fromJson(Map<String, dynamic> json) =>
-      DtTimeInfo(dateTime: json['d'], timezone: json['tz'], utcTime: json['u']);
+  factory DtTimeInfo.fromMap(Map<String, dynamic> data) =>
+      DtTimeInfo(dateTime: data['d'], timezone: data['tz'], utcTime: data['u']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (dateTime != null) 'd': dateTime,
         if (timezone != null) 'tz': timezone,
         if (utcTime != null) 'u': utcTime,

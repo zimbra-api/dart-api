@@ -12,17 +12,17 @@ class GetAllLocalesBody extends SoapBody {
   GetAllLocalesBody({GetAllLocalesRequest? request, GetAllLocalesResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory GetAllLocalesBody.fromJson(Map<String, dynamic> json) => GetAllLocalesBody(
+  factory GetAllLocalesBody.fromMap(Map<String, dynamic> data) => GetAllLocalesBody(
       response:
-          json['GetAllLocalesResponse'] != null ? GetAllLocalesResponse.fromJson(json['GetAllLocalesResponse']) : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+          data['GetAllLocalesResponse'] != null ? GetAllLocalesResponse.fromMap(data['GetAllLocalesResponse']) : null,
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   GetAllLocalesRequest? get getAllLocalesRequest => request as GetAllLocalesRequest?;
 
   GetAllLocalesResponse? get getAllLocalesResponse => response as GetAllLocalesResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'GetAllLocalesRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'GetAllLocalesRequest': request!.toMap(),
       };
 }

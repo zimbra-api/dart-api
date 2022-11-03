@@ -21,19 +21,19 @@ class MimeHeaderTest extends FilterTest {
 
   MimeHeaderTest({this.headers, this.stringComparison, this.value, this.caseSensitive, super.index, super.negative});
 
-  factory MimeHeaderTest.fromJson(Map<String, dynamic> json) => MimeHeaderTest(
-      headers: json['header'],
+  factory MimeHeaderTest.fromMap(Map<String, dynamic> data) => MimeHeaderTest(
+      headers: data['header'],
       stringComparison: StringComparison.values.firstWhere(
-        (comparison) => comparison.name == json['stringComparison'],
+        (comparison) => comparison.name == data['stringComparison'],
         orElse: () => StringComparison.contains,
       ),
-      value: json['value'],
-      caseSensitive: json['caseSensitive'],
-      index: json['index'],
-      negative: json['negative']);
+      value: data['value'],
+      caseSensitive: data['caseSensitive'],
+      index: data['index'],
+      negative: data['negative']);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (headers != null) 'header': headers,
         if (stringComparison != null) 'stringComparison': stringComparison!.name,
         if (value != null) 'value': value,

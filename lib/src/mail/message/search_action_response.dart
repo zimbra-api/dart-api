@@ -7,5 +7,5 @@ import 'package:zimbra_api/src/common/type/soap_response.dart';
 class SearchActionResponse extends SoapResponse {
   SearchActionResponse();
 
-  factory SearchActionResponse.fromJson(Map<String, dynamic> json) => SearchActionResponse();
+  factory SearchActionResponse.fromMap(Map<String, dynamic> data) => SearchActionResponse();
 }

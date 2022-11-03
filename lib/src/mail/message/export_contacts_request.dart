@@ -35,7 +35,7 @@ class ExportContactsRequest extends SoapRequest {
       ExportContactsEnvelope(ExportContactsBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
         'ct': contentType,
         if (folderId != null) 'l': folderId,

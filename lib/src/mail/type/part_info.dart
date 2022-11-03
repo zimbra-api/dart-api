@@ -47,20 +47,20 @@ class PartInfo {
       this.content,
       this.mimeParts = const []});
 
-  factory PartInfo.fromJson(Map<String, dynamic> json) => PartInfo(json['part'] ?? '', json['ct'] ?? '',
-      size: json['s'],
-      contentDisposition: json['cd'],
-      contentFilename: json['filename'],
-      contentId: json['ci'],
-      location: json['cl'],
-      body: json['body'],
-      truncatedContent: json['truncated'],
-      content: json['content']?['_content'],
-      mimeParts: (json['mp'] is Iterable)
-          ? List.from((json['mp'] as Iterable).map<PartInfo>((mp) => PartInfo.fromJson(mp)))
+  factory PartInfo.fromMap(Map<String, dynamic> data) => PartInfo(data['part'] ?? '', data['ct'] ?? '',
+      size: data['s'],
+      contentDisposition: data['cd'],
+      contentFilename: data['filename'],
+      contentId: data['ci'],
+      location: data['cl'],
+      body: data['body'],
+      truncatedContent: data['truncated'],
+      content: data['content']?['_content'],
+      mimeParts: (data['mp'] is Iterable)
+          ? List.from((data['mp'] as Iterable).map<PartInfo>((mp) => PartInfo.fromMap(mp)))
           : []);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'part': part,
         'ct': contentType,
         if (size != null) 's': size,
@@ -71,6 +71,6 @@ class PartInfo {
         if (body != null) 'body': body,
         if (truncatedContent != null) 'truncated': truncatedContent,
         if (content != null) 'content': {'_content': content},
-        if (mimeParts.isNotEmpty) 'mp': mimeParts.map((mp) => mp.toJson()).toList(),
+        if (mimeParts.isNotEmpty) 'mp': mimeParts.map((mp) => mp.toMap()).toList(),
       };
 }

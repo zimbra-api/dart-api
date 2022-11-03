@@ -10,6 +10,6 @@ class GetModifiedItemsIDsResponse extends SoapResponse {
 
   GetModifiedItemsIDsResponse({this.ids = const []});
 
-  factory GetModifiedItemsIDsResponse.fromJson(Map<String, dynamic> json) => GetModifiedItemsIDsResponse(
-      ids: (json['ids'] is Iterable) ? List.from((json['ids'] as Iterable).map<int>((id) => id['_content'])) : []);
+  factory GetModifiedItemsIDsResponse.fromMap(Map<String, dynamic> data) => GetModifiedItemsIDsResponse(
+      ids: (data['ids'] is Iterable) ? List.from((data['ids'] as Iterable).map<int>((id) => id['_content'])) : []);
 }

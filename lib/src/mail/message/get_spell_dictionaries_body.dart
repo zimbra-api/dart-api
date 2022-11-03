@@ -12,18 +12,18 @@ class GetSpellDictionariesBody extends SoapBody {
   GetSpellDictionariesBody({GetSpellDictionariesRequest? request, GetSpellDictionariesResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory GetSpellDictionariesBody.fromJson(Map<String, dynamic> json) => GetSpellDictionariesBody(
-      response: json['GetSpellDictionariesResponse'] != null
-          ? GetSpellDictionariesResponse.fromJson(json['GetSpellDictionariesResponse'])
+  factory GetSpellDictionariesBody.fromMap(Map<String, dynamic> data) => GetSpellDictionariesBody(
+      response: data['GetSpellDictionariesResponse'] != null
+          ? GetSpellDictionariesResponse.fromMap(data['GetSpellDictionariesResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   GetSpellDictionariesRequest? get getSpellDictionariesRequest => request as GetSpellDictionariesRequest?;
 
   GetSpellDictionariesResponse? get getSpellDictionariesResponse => response as GetSpellDictionariesResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'GetSpellDictionariesRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'GetSpellDictionariesRequest': request!.toMap(),
       };
 }

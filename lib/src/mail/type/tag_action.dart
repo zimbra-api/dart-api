@@ -10,10 +10,10 @@ class TagAction extends FilterAction {
 
   TagAction({this.tag, super.index});
 
-  factory TagAction.fromJson(Map<String, dynamic> json) => TagAction(tag: json['tagName'], index: json['index']);
+  factory TagAction.fromMap(Map<String, dynamic> data) => TagAction(tag: data['tagName'], index: data['index']);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (tag != null) 'tagName': tag,
         if (index != null) 'index': index,
       };

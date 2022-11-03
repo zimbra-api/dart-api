@@ -13,11 +13,11 @@ class GetSystemRetentionPolicyBody extends SoapBody {
       {GetSystemRetentionPolicyRequest? request, GetSystemRetentionPolicyResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory GetSystemRetentionPolicyBody.fromJson(Map<String, dynamic> json) => GetSystemRetentionPolicyBody(
-      response: json['GetSystemRetentionPolicyResponse'] != null
-          ? GetSystemRetentionPolicyResponse.fromJson(json['GetSystemRetentionPolicyResponse'])
+  factory GetSystemRetentionPolicyBody.fromMap(Map<String, dynamic> data) => GetSystemRetentionPolicyBody(
+      response: data['GetSystemRetentionPolicyResponse'] != null
+          ? GetSystemRetentionPolicyResponse.fromMap(data['GetSystemRetentionPolicyResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   GetSystemRetentionPolicyRequest? get getSystemRetentionPolicyRequest => request as GetSystemRetentionPolicyRequest?;
 
@@ -25,7 +25,7 @@ class GetSystemRetentionPolicyBody extends SoapBody {
       response as GetSystemRetentionPolicyResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'GetSystemRetentionPolicyRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'GetSystemRetentionPolicyRequest': request!.toMap(),
       };
 }

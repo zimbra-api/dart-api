@@ -13,11 +13,11 @@ class UpdatedAlarmInfo {
 
   UpdatedAlarmInfo(this.calItemId, {this.alarmData});
 
-  factory UpdatedAlarmInfo.fromJson(Map<String, dynamic> json) => UpdatedAlarmInfo(json['calItemId'],
-      alarmData: json['alarmData'] is Map ? AlarmDataInfo.fromJson(json['alarmData']) : null);
+  factory UpdatedAlarmInfo.fromMap(Map<String, dynamic> data) => UpdatedAlarmInfo(data['calItemId'],
+      alarmData: data['alarmData'] is Map ? AlarmDataInfo.fromMap(data['alarmData']) : null);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'calItemId': calItemId,
-        if (alarmData != null) 'alarmData': alarmData!.toJson(),
+        if (alarmData != null) 'alarmData': alarmData!.toMap(),
       };
 }

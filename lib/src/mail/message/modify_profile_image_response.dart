@@ -10,6 +10,6 @@ class ModifyProfileImageResponse extends SoapResponse {
 
   ModifyProfileImageResponse({this.itemId});
 
-  factory ModifyProfileImageResponse.fromJson(Map<String, dynamic> json) =>
-      ModifyProfileImageResponse(itemId: json['itemId']);
+  factory ModifyProfileImageResponse.fromMap(Map<String, dynamic> data) =>
+      ModifyProfileImageResponse(itemId: data['itemId']);
 }

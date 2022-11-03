@@ -9,10 +9,10 @@ class ContactAttachSpec extends AttachSpec {
 
   ContactAttachSpec(this.id, {super.optional});
 
-  factory ContactAttachSpec.fromJson(Map<String, dynamic> json) =>
-      ContactAttachSpec(json['id'] ?? '', optional: json['optional']);
+  factory ContactAttachSpec.fromMap(Map<String, dynamic> data) =>
+      ContactAttachSpec(data['id'] ?? '', optional: data['optional']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'id': id,
         if (optional != null) 'optional': optional,
       };

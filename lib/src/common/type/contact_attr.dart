@@ -15,15 +15,15 @@ class ContactAttr extends KeyValuePair {
 
   ContactAttr(super.key, {super.value, this.part, this.contentType, this.size, this.contentFilename});
 
-  factory ContactAttr.fromJson(Map<String, dynamic> json) => ContactAttr(json['n'],
-      value: json['_content'],
-      part: json['part'],
-      contentType: json['ct'],
-      size: json['s'],
-      contentFilename: json['filename']);
+  factory ContactAttr.fromMap(Map<String, dynamic> data) => ContactAttr(data['n'],
+      value: data['_content'],
+      part: data['part'],
+      contentType: data['ct'],
+      size: data['s'],
+      contentFilename: data['filename']);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'n': key,
         if (value != null) '_content': value,
         if (part != null) 'part': part,

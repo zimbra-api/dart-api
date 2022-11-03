@@ -65,7 +65,7 @@ void main() {
         ],
       );
       final request = DistributionListActionRequest(dl, action);
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'DistributionListActionRequest': {
             '_jsns': 'urn:zimbraAccount',
@@ -116,14 +116,14 @@ void main() {
     }));
 
     test('Distribution list action response', (() {
-      final json = {
+      final data = {
         'Body': {
           'DistributionListActionResponse': {
             '_jsns': 'urn:zimbraAccount',
           }
         }
       };
-      final envelope = DistributionListActionEnvelope.fromJson(json);
+      final envelope = DistributionListActionEnvelope.fromMap(data);
       expect(envelope.distributionListActionBody.distributionListActionResponse, isNotNull);
       expect(envelope.distributionListActionBody.distributionListActionResponse, isA<DistributionListActionResponse>());
     }));

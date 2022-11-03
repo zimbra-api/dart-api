@@ -11,10 +11,10 @@ class DeleteItemNotification {
 
   DeleteItemNotification({this.id, this.type});
 
-  factory DeleteItemNotification.fromJson(Map<String, dynamic> json) =>
-      DeleteItemNotification(id: json['id'], type: json['t']);
+  factory DeleteItemNotification.fromMap(Map<String, dynamic> data) =>
+      DeleteItemNotification(id: data['id'], type: data['t']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (id != null) 'id': id,
         if (type != null) 't': type,
       };

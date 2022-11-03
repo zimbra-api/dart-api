@@ -22,8 +22,8 @@ class GetAccountInfoRequest extends SoapRequest {
       GetAccountInfoEnvelope(GetAccountInfoBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraAccount',
-        'account': account.toJson(),
+        'account': account.toMap(),
       };
 }

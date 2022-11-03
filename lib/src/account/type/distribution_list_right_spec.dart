@@ -11,8 +11,8 @@ class DistributionListRightSpec {
 
   DistributionListRightSpec(this.right, {this.grantees = const []});
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'right': right,
-        if (grantees.isNotEmpty) 'grantee': grantees.map((grantee) => grantee.toJson()).toList(),
+        if (grantees.isNotEmpty) 'grantee': grantees.map((grantee) => grantee.toMap()).toList(),
       };
 }

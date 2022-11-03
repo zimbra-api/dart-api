@@ -10,9 +10,9 @@ import 'get_version_info_body.dart';
 class GetVersionInfoEnvelope extends SoapEnvelope {
   GetVersionInfoEnvelope(GetVersionInfoBody body, {super.header}) : super(body);
 
-  factory GetVersionInfoEnvelope.fromJson(Map<String, dynamic> json) =>
-      GetVersionInfoEnvelope(GetVersionInfoBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory GetVersionInfoEnvelope.fromMap(Map<String, dynamic> data) =>
+      GetVersionInfoEnvelope(GetVersionInfoBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   GetVersionInfoBody get getVersionInfoBody => body as GetVersionInfoBody;
 }

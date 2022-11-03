@@ -8,9 +8,9 @@ class DateAttr {
 
   DateAttr(this.date);
 
-  factory DateAttr.fromJson(Map<String, dynamic> json) => DateAttr(json['d'] ?? '');
+  factory DateAttr.fromMap(Map<String, dynamic> data) => DateAttr(data['d'] ?? '');
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'd': date,
       };
 }

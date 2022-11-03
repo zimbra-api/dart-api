@@ -19,16 +19,16 @@ class Policy {
 
   Policy({this.type, this.id, this.name, this.lifetime});
 
-  factory Policy.fromJson(Map<String, dynamic> json) => Policy(
+  factory Policy.fromMap(Map<String, dynamic> data) => Policy(
       type: PolicyType.values.firstWhere(
-        (gt) => gt.name == json['type'],
+        (gt) => gt.name == data['type'],
         orElse: () => PolicyType.user,
       ),
-      id: json['id'],
-      name: json['name'],
-      lifetime: json['lifetime']);
+      id: data['id'],
+      name: data['name'],
+      lifetime: data['lifetime']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (type != null) 'type': type!.name,
         if (id != null) 'id': id,
         if (name != null) 'name': name,

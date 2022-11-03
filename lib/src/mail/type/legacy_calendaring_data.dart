@@ -77,81 +77,81 @@ class LegacyCalendaringData extends CommonCalendaringData {
       super.taskDueDate,
       super.taskTzOffsetDue});
 
-  factory LegacyCalendaringData.fromJson(Map<String, dynamic> json) => LegacyCalendaringData(
-      organizer: json['or'] is Map ? CalOrganizer.fromJson(json['or']) : null,
-      categories: (json['category'] is Iterable)
-          ? List.from((json['category'] as Iterable).map<String>((category) => category['_content']))
+  factory LegacyCalendaringData.fromMap(Map<String, dynamic> data) => LegacyCalendaringData(
+      organizer: data['or'] is Map ? CalOrganizer.fromMap(data['or']) : null,
+      categories: (data['category'] is Iterable)
+          ? List.from((data['category'] as Iterable).map<String>((category) => category['_content']))
           : [],
-      geo: json['geo'] is Map ? GeoInfo.fromJson(json['geo']) : null,
-      fragment: json['fr']?['_content'],
-      instances: (json['inst'] is Iterable)
+      geo: data['geo'] is Map ? GeoInfo.fromMap(data['geo']) : null,
+      fragment: data['fr']?['_content'],
+      instances: (data['inst'] is Iterable)
           ? List.from(
-              (json['inst'] as Iterable).map<LegacyInstanceDataInfo>((inst) => LegacyInstanceDataInfo.fromJson(inst)))
+              (data['inst'] as Iterable).map<LegacyInstanceDataInfo>((inst) => LegacyInstanceDataInfo.fromMap(inst)))
           : [],
-      alarmData: json['alarmData'] is Map ? AlarmDataInfo.fromJson(json['alarmData']) : null,
-      xUid: json['x_uid'],
-      uid: json['uid'],
-      flags: json['f'],
-      tags: json['t'],
-      tagNames: json['tn'],
-      folderId: json['l'],
-      size: json['s'],
-      changeDate: json['md'],
-      modifiedSequence: json['ms'],
-      revision: json['rev'],
-      id: json['id'],
-      duration: json['dur'],
+      alarmData: data['alarmData'] is Map ? AlarmDataInfo.fromMap(data['alarmData']) : null,
+      xUid: data['x_uid'],
+      uid: data['uid'],
+      flags: data['f'],
+      tags: data['t'],
+      tagNames: data['tn'],
+      folderId: data['l'],
+      size: data['s'],
+      changeDate: data['md'],
+      modifiedSequence: data['ms'],
+      revision: data['rev'],
+      id: data['id'],
+      duration: data['dur'],
       partStat: ParticipationStatus.values.firstWhere(
-        (ptst) => ptst.name == json['ptst'],
+        (ptst) => ptst.name == data['ptst'],
         orElse: () => ParticipationStatus.accept,
       ),
-      recurIdZ: json['ridZ'],
-      tzOffset: json['tzo'],
+      recurIdZ: data['ridZ'],
+      tzOffset: data['tzo'],
       freeBusyActual: FreeBusyStatus.values.firstWhere(
-        (fba) => fba.name == json['fba'],
+        (fba) => fba.name == data['fba'],
         orElse: () => FreeBusyStatus.free,
       ),
-      taskPercentComplete: json['percentComplete'],
-      isRecurring: json['recur'],
-      hasExceptions: json['hasEx'],
-      priority: json['priority'],
+      taskPercentComplete: data['percentComplete'],
+      isRecurring: data['recur'],
+      hasExceptions: data['hasEx'],
+      priority: data['priority'],
       freeBusyIntended: FreeBusyStatus.values.firstWhere(
-        (fb) => fb.name == json['fb'],
+        (fb) => fb.name == data['fb'],
         orElse: () => FreeBusyStatus.free,
       ),
       transparency: Transparency.values.firstWhere(
-        (transp) => transp.name == json['transp'],
+        (transp) => transp.name == data['transp'],
         orElse: () => Transparency.opaque,
       ),
-      name: json['name'],
-      location: json['loc'],
-      hasOtherAttendees: json['otherAtt'],
-      hasAlarm: json['alarm'],
-      isOrganizer: json['isOrg'],
-      invId: json['invId'],
-      componentNum: json['compNum'],
+      name: data['name'],
+      location: data['loc'],
+      hasOtherAttendees: data['otherAtt'],
+      hasAlarm: data['alarm'],
+      isOrganizer: data['isOrg'],
+      invId: data['invId'],
+      componentNum: data['compNum'],
       status: InviteStatus.values.firstWhere(
-        (status) => status.name == json['status'],
+        (status) => status.name == data['status'],
         orElse: () => InviteStatus.completed,
       ),
       calClass: InviteClass.values.firstWhere(
-        (calClass) => calClass.name == json['class'],
+        (calClass) => calClass.name == data['class'],
         orElse: () => InviteClass.public,
       ),
-      allDay: json['allDay'],
-      draft: json['draft'],
-      neverSent: json['neverSent'],
-      taskDueDate: json['dueDate'],
-      taskTzOffsetDue: json['tzoDue']);
+      allDay: data['allDay'],
+      draft: data['draft'],
+      neverSent: data['neverSent'],
+      taskDueDate: data['dueDate'],
+      taskTzOffsetDue: data['tzoDue']);
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (organizer != null) 'or': organizer!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (organizer != null) 'or': organizer!.toMap(),
         if (categories.isNotEmpty) 'category': categories.map((category) => {'_content': category}).toList(),
-        if (geo != null) 'geo': geo!.toJson(),
+        if (geo != null) 'geo': geo!.toMap(),
         if (fragment != null) 'fr': {'_content': fragment},
-        if (instances.isNotEmpty) 'inst': instances.map((inst) => inst.toJson()).toList(),
-        if (alarmData != null) 'alarmData': alarmData!.toJson(),
+        if (instances.isNotEmpty) 'inst': instances.map((inst) => inst.toMap()).toList(),
+        if (alarmData != null) 'alarmData': alarmData!.toMap(),
         if (xUid != null) 'x_uid': xUid,
         if (uid != null) 'uid': uid,
         if (flags != null) 'f': flags,

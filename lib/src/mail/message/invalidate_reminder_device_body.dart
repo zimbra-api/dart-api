@@ -13,11 +13,11 @@ class InvalidateReminderDeviceBody extends SoapBody {
       {InvalidateReminderDeviceRequest? request, InvalidateReminderDeviceResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory InvalidateReminderDeviceBody.fromJson(Map<String, dynamic> json) => InvalidateReminderDeviceBody(
-      response: json['InvalidateReminderDeviceResponse'] != null
-          ? InvalidateReminderDeviceResponse.fromJson(json['InvalidateReminderDeviceResponse'])
+  factory InvalidateReminderDeviceBody.fromMap(Map<String, dynamic> data) => InvalidateReminderDeviceBody(
+      response: data['InvalidateReminderDeviceResponse'] != null
+          ? InvalidateReminderDeviceResponse.fromMap(data['InvalidateReminderDeviceResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   InvalidateReminderDeviceRequest? get invalidateReminderDeviceRequest => request as InvalidateReminderDeviceRequest?;
 
@@ -25,7 +25,7 @@ class InvalidateReminderDeviceBody extends SoapBody {
       response as InvalidateReminderDeviceResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'InvalidateReminderDeviceRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'InvalidateReminderDeviceRequest': request!.toMap(),
       };
 }

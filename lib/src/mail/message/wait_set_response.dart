@@ -26,15 +26,15 @@ class WaitSetResponse extends SoapResponse {
   WaitSetResponse(
       {this.waitSetId = '', this.canceled, this.seqNo, this.signalledAccounts = const [], this.errors = const []});
 
-  factory WaitSetResponse.fromJson(Map<String, dynamic> json) => WaitSetResponse(
-      waitSetId: json['waitSet'] ?? '',
-      canceled: json['canceled'],
-      seqNo: json['seq'],
-      signalledAccounts: (json['a'] is Iterable)
+  factory WaitSetResponse.fromMap(Map<String, dynamic> data) => WaitSetResponse(
+      waitSetId: data['waitSet'] ?? '',
+      canceled: data['canceled'],
+      seqNo: data['seq'],
+      signalledAccounts: (data['a'] is Iterable)
           ? List.from(
-              (json['a'] as Iterable).map<AccountWithModifications>((a) => AccountWithModifications.fromJson(a)))
+              (data['a'] as Iterable).map<AccountWithModifications>((a) => AccountWithModifications.fromMap(a)))
           : [],
-      errors: (json['error'] is Iterable)
-          ? List.from((json['error'] as Iterable).map<IdAndType>((error) => IdAndType.fromJson(error)))
+      errors: (data['error'] is Iterable)
+          ? List.from((data['error'] as Iterable).map<IdAndType>((error) => IdAndType.fromMap(error)))
           : []);
 }

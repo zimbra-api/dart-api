@@ -7,9 +7,9 @@ class AccountZimletTarget {
 
   AccountZimletTarget({this.value});
 
-  factory AccountZimletTarget.fromJson(Map<String, dynamic> json) => AccountZimletTarget(value: json['_content']);
+  factory AccountZimletTarget.fromMap(Map<String, dynamic> data) => AccountZimletTarget(value: data['_content']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (value != null) '_content': value,
       };
 }

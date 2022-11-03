@@ -14,14 +14,14 @@ class FreeBusyUserStatus {
 
   FreeBusyUserStatus({this.name, this.freebusyStatus});
 
-  factory FreeBusyUserStatus.fromJson(Map<String, dynamic> json) => FreeBusyUserStatus(
-      name: json['name'],
+  factory FreeBusyUserStatus.fromMap(Map<String, dynamic> data) => FreeBusyUserStatus(
+      name: data['name'],
       freebusyStatus: FreeBusyStatus.values.firstWhere(
-        (item) => item.name == json['fb'],
+        (item) => item.name == data['fb'],
         orElse: () => FreeBusyStatus.free,
       ));
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (name != null) 'name': name,
         if (freebusyStatus != null) 'fb': freebusyStatus!.name,
       };

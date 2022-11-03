@@ -7,5 +7,5 @@ import 'package:zimbra_api/src/common/type/soap_response.dart';
 class AnnounceOrganizerChangeResponse extends SoapResponse {
   AnnounceOrganizerChangeResponse();
 
-  factory AnnounceOrganizerChangeResponse.fromJson(Map<String, dynamic> json) => AnnounceOrganizerChangeResponse();
+  factory AnnounceOrganizerChangeResponse.fromMap(Map<String, dynamic> data) => AnnounceOrganizerChangeResponse();
 }

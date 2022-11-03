@@ -10,15 +10,15 @@ class InviteTest extends FilterTest {
 
   InviteTest({this.methods = const [], super.index, super.negative});
 
-  factory InviteTest.fromJson(Map<String, dynamic> json) => InviteTest(
-      methods: (json['method'] is Iterable)
-          ? List.from((json['method'] as Iterable).map<String>((method) => method['_content']))
+  factory InviteTest.fromMap(Map<String, dynamic> data) => InviteTest(
+      methods: (data['method'] is Iterable)
+          ? List.from((data['method'] as Iterable).map<String>((method) => method['_content']))
           : [],
-      index: json['index'],
-      negative: json['negative']);
+      index: data['index'],
+      negative: data['negative']);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (methods.isNotEmpty) 'method': methods.map((method) => {'_content': method}).toList(),
         if (index != null) 'index': index,
         if (negative != null) 'negative': negative,

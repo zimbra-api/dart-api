@@ -14,11 +14,11 @@ class FileIntoAction extends FilterAction {
 
   FileIntoAction({this.folder, this.copy, super.index});
 
-  factory FileIntoAction.fromJson(Map<String, dynamic> json) =>
-      FileIntoAction(folder: json['folderPath'], copy: json['copy'], index: json['index']);
+  factory FileIntoAction.fromMap(Map<String, dynamic> data) =>
+      FileIntoAction(folder: data['folderPath'], copy: data['copy'], index: data['index']);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (folder != null) 'folderPath': folder,
         if (copy != null) 'copy': copy,
         if (index != null) 'index': index,

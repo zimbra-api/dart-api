@@ -8,9 +8,9 @@ class IdsAttr {
 
   IdsAttr(this.ids);
 
-  factory IdsAttr.fromJson(Map<String, dynamic> json) => IdsAttr(json['ids'] ?? '');
+  factory IdsAttr.fromMap(Map<String, dynamic> data) => IdsAttr(data['ids'] ?? '');
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'ids': ids,
       };
 }

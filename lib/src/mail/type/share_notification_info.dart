@@ -24,18 +24,18 @@ class ShareNotificationInfo {
 
   ShareNotificationInfo({this.status, this.id, this.date, this.grantor, this.link});
 
-  factory ShareNotificationInfo.fromJson(Map<String, dynamic> json) => ShareNotificationInfo(
-      status: json['status'],
-      id: json['id'],
-      date: json['d'],
-      grantor: json['grantor'] is Map ? Grantor.fromJson(json['grantor']) : null,
-      link: json['link'] is Map ? LinkInfo.fromJson(json['link']) : null);
+  factory ShareNotificationInfo.fromMap(Map<String, dynamic> data) => ShareNotificationInfo(
+      status: data['status'],
+      id: data['id'],
+      date: data['d'],
+      grantor: data['grantor'] is Map ? Grantor.fromMap(data['grantor']) : null,
+      link: data['link'] is Map ? LinkInfo.fromMap(data['link']) : null);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (status != null) 'status': status,
         if (id != null) 'id': id,
         if (date != null) 'd': date,
-        if (grantor != null) 'grantor': grantor!.toJson(),
-        if (link != null) 'link': link!.toJson(),
+        if (grantor != null) 'grantor': grantor!.toMap(),
+        if (link != null) 'link': link!.toMap(),
       };
 }

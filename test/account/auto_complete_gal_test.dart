@@ -8,15 +8,15 @@ void main() {
   final faker = Faker();
 
   group('Auto complete gal request tests', (() {
-    test('Default to json test', () {
+    test('Default to data test', () {
       final name = faker.lorem.word();
       final request = AutoCompleteGalRequest(name);
 
-      expect(request.toJson(), {
+      expect(request.toMap(), {
         '_jsns': 'urn:zimbraAccount',
         'name': name,
       });
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'AutoCompleteGalRequest': {
             '_jsns': 'urn:zimbraAccount',
@@ -26,7 +26,7 @@ void main() {
       });
     });
 
-    test('To json test', (() {
+    test('To data test', (() {
       final name = faker.lorem.word();
       final needCanExpand = faker.randomGenerator.boolean();
       final galAccountId = faker.guid.guid();
@@ -39,7 +39,7 @@ void main() {
         limit: limit,
       );
 
-      expect(request.toJson(), {
+      expect(request.toMap(), {
         '_jsns': 'urn:zimbraAccount',
         'name': name,
         'type': GalSearchType.account.name,
@@ -51,22 +51,22 @@ void main() {
   }));
 
   group('Auto complete gal response tests', (() {
-    test('Default from json test', (() {
-      final json = {
+    test('Default from data test', (() {
+      final data = {
         'Body': {
           'AutoCompleteGalResponse': {
             '_jsns': 'urn:zimbraAccount',
           },
         },
       };
-      final envelope = AutoCompleteGalEnvelope.fromJson(json);
+      final envelope = AutoCompleteGalEnvelope.fromMap(data);
 
       expect(envelope.autoCompleteGalBody, isNotNull);
       expect(envelope.autoCompleteGalBody.autoCompleteGalRequest, isNull);
       expect(envelope.autoCompleteGalBody.autoCompleteGalResponse, isNotNull);
     }));
 
-    test('From json test', (() {
+    test('From data test', (() {
       final more = faker.randomGenerator.boolean();
       final tokenizeKey = faker.randomGenerator.boolean();
       final pagingSupported = faker.randomGenerator.boolean();
@@ -102,7 +102,7 @@ void main() {
       final size = faker.randomGenerator.integer(100);
       final contentFilename = faker.lorem.word();
 
-      final json = {
+      final data = {
         'Body': {
           'AutoCompleteGalResponse': {
             '_jsns': 'urn:zimbraAccount',
@@ -165,7 +165,7 @@ void main() {
         },
       };
 
-      final envelope = AutoCompleteGalEnvelope.fromJson(json);
+      final envelope = AutoCompleteGalEnvelope.fromMap(data);
       final response = envelope.autoCompleteGalBody.autoCompleteGalResponse!;
       final contact = response.contacts.first;
 

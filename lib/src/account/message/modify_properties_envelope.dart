@@ -10,9 +10,9 @@ import 'modify_properties_body.dart';
 class ModifyPropertiesEnvelope extends SoapEnvelope {
   ModifyPropertiesEnvelope(ModifyPropertiesBody body, {super.header}) : super(body);
 
-  factory ModifyPropertiesEnvelope.fromJson(Map<String, dynamic> json) =>
-      ModifyPropertiesEnvelope(ModifyPropertiesBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory ModifyPropertiesEnvelope.fromMap(Map<String, dynamic> data) =>
+      ModifyPropertiesEnvelope(ModifyPropertiesBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   ModifyPropertiesBody get modifyPropertiesBody => body as ModifyPropertiesBody;
 }

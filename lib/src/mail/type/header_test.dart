@@ -42,31 +42,31 @@ class HeaderTest extends FilterTest {
       super.index,
       super.negative});
 
-  factory HeaderTest.fromJson(Map<String, dynamic> json) => HeaderTest(
-      headers: json['header'],
+  factory HeaderTest.fromMap(Map<String, dynamic> data) => HeaderTest(
+      headers: data['header'],
       stringComparison: StringComparison.values.firstWhere(
-        (comparison) => comparison.name == json['stringComparison'],
+        (comparison) => comparison.name == data['stringComparison'],
         orElse: () => StringComparison.contains,
       ),
       valueComparison: ValueComparison.values.firstWhere(
-        (comparison) => comparison.name == json['valueComparison'],
+        (comparison) => comparison.name == data['valueComparison'],
         orElse: () => ValueComparison.equal,
       ),
       countComparison: CountComparison.values.firstWhere(
-        (comparison) => comparison.name == json['countComparison'],
+        (comparison) => comparison.name == data['countComparison'],
         orElse: () => CountComparison.equal,
       ),
       valueComparisonComparator: ComparisonComparator.values.firstWhere(
-        (comparator) => comparator.name == json['valueComparisonComparator'],
+        (comparator) => comparator.name == data['valueComparisonComparator'],
         orElse: () => ComparisonComparator.asciiNumeric,
       ),
-      value: json['value'],
-      caseSensitive: json['caseSensitive'],
-      index: json['index'],
-      negative: json['negative']);
+      value: data['value'],
+      caseSensitive: data['caseSensitive'],
+      index: data['index'],
+      negative: data['negative']);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (headers != null) 'header': headers,
         if (stringComparison != null) 'stringComparison': stringComparison!.name,
         if (valueComparison != null) 'valueComparison': valueComparison!.name,

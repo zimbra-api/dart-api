@@ -19,15 +19,15 @@ class SetCalendarItemInfo {
 
   SetCalendarItemInfo({this.partStat, this.msg});
 
-  factory SetCalendarItemInfo.fromJson(Map<String, dynamic> json) => SetCalendarItemInfo(
+  factory SetCalendarItemInfo.fromMap(Map<String, dynamic> data) => SetCalendarItemInfo(
       partStat: ParticipationStatus.values.firstWhere(
-        (ptst) => ptst.name == json['ptst'],
+        (ptst) => ptst.name == data['ptst'],
         orElse: () => ParticipationStatus.completed,
       ),
-      msg: json['m'] is Map ? Msg.fromJson(json['m']) : null);
+      msg: data['m'] is Map ? Msg.fromMap(data['m']) : null);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (partStat != null) 'ptst': partStat!.name,
-        if (msg != null) 'm': msg!.toJson(),
+        if (msg != null) 'm': msg!.toMap(),
       };
 }

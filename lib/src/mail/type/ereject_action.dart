@@ -7,6 +7,6 @@ import 'package:zimbra_api/src/mail/type/reject_action.dart';
 class ErejectAction extends RejectAction {
   ErejectAction({super.content, super.index});
 
-  factory ErejectAction.fromJson(Map<String, dynamic> json) =>
-      ErejectAction(content: json['_content'], index: json['index']);
+  factory ErejectAction.fromMap(Map<String, dynamic> data) =>
+      ErejectAction(content: data['_content'], index: data['index']);
 }

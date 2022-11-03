@@ -21,7 +21,7 @@ void main() {
       final folderId = faker.guid.guid();
 
       final request = GetTaskSummariesRequest(startTime, endTime, folderId: folderId);
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'GetTaskSummariesRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -106,7 +106,7 @@ void main() {
       final contentType = faker.lorem.word();
       final binaryB64Data = faker.lorem.word();
 
-      final json = {
+      final data = {
         'Body': {
           'GetTaskSummariesResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -339,7 +339,7 @@ void main() {
           }
         }
       };
-      final envelope = GetTaskSummariesEnvelope.fromJson(json);
+      final envelope = GetTaskSummariesEnvelope.fromMap(data);
       final response = envelope.getTaskSummariesBody.getTaskSummariesResponse!;
 
       final appt = response.apptEntries.first;

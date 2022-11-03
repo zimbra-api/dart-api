@@ -17,10 +17,10 @@ class ItemSpec {
 
   ItemSpec({this.id, this.folder, this.name, this.path});
 
-  factory ItemSpec.fromJson(Map<String, dynamic> json) =>
-      ItemSpec(id: json['id'], folder: json['l'], name: json['name'], path: json['path']);
+  factory ItemSpec.fromMap(Map<String, dynamic> data) =>
+      ItemSpec(id: data['id'], folder: data['l'], name: data['name'], path: data['path']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (id != null) 'id': id,
         if (folder != null) 'l': folder,
         if (name != null) 'name': name,

@@ -17,7 +17,7 @@ void main() {
         RecoverAccountOperation.getRecoveryAccount,
         channel: Channel.email,
       );
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'RecoverAccountRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -32,7 +32,7 @@ void main() {
     test('Recover account response', (() {
       final recoveryAccount = faker.internet.email();
       final recoveryAttemptsLeft = faker.randomGenerator.integer(100);
-      final json = {
+      final data = {
         'Body': {
           'RecoverAccountResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -41,7 +41,7 @@ void main() {
           }
         }
       };
-      final envelope = RecoverAccountEnvelope.fromJson(json);
+      final envelope = RecoverAccountEnvelope.fromMap(data);
       final response = envelope.recoverAccountBody.recoverAccountResponse!;
       expect(response.recoveryAccount, recoveryAccount);
       expect(response.recoveryAttemptsLeft, recoveryAttemptsLeft);

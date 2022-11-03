@@ -11,6 +11,6 @@ class CreateSignatureResponse extends SoapResponse {
 
   CreateSignatureResponse({this.signature});
 
-  factory CreateSignatureResponse.fromJson(Map<String, dynamic> json) =>
-      CreateSignatureResponse(signature: json['signature'] is Map ? Signature.fromJson(json['signature']) : null);
+  factory CreateSignatureResponse.fromMap(Map<String, dynamic> data) =>
+      CreateSignatureResponse(signature: data['signature'] is Map ? Signature.fromMap(data['signature']) : null);
 }

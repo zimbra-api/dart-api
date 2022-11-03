@@ -66,17 +66,17 @@ class SearchCalendarResourcesRequest extends SoapRequest {
       SearchCalendarResourcesEnvelope(SearchCalendarResourcesBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraAccount',
         if (quick != null) 'quick': quick,
         if (sortBy != null) 'sortBy': sortBy,
         if (limit != null) 'limit': limit,
         if (offset != null) 'offset': offset,
         if (locale != null) 'locale': {'_content': locale},
-        if (cursor != null) 'cursor': cursor!.toJson(),
+        if (cursor != null) 'cursor': cursor!.toMap(),
         if (galAccountId != null) 'galAcctId': galAccountId,
         if (name != null) 'name': {'_content': name},
-        if (searchFilter != null) 'searchFilter': searchFilter!.toJson(),
+        if (searchFilter != null) 'searchFilter': searchFilter!.toMap(),
         if (attrs != null) 'attrs': attrs,
       };
 }

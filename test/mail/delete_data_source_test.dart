@@ -23,7 +23,7 @@ void main() {
         calDataSources: [DataSourceNameOrId(id: id, name: name)],
         unknownDataSources: [DataSourceNameOrId(id: id, name: name)],
       );
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'DeleteDataSourceRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -81,14 +81,14 @@ void main() {
     }));
 
     test('Delete data source response', (() {
-      final json = {
+      final data = {
         'Body': {
           'DeleteDataSourceResponse': {
             '_jsns': 'urn:zimbraMail',
           }
         }
       };
-      final envelope = DeleteDataSourceEnvelope.fromJson(json);
+      final envelope = DeleteDataSourceEnvelope.fromMap(data);
       expect(envelope.deleteDataSourceBody.deleteDataSourceResponse, isNotNull);
       expect(envelope.deleteDataSourceBody.deleteDataSourceResponse, isA<DeleteDataSourceResponse>());
     }));

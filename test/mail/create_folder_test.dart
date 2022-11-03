@@ -60,7 +60,7 @@ void main() {
           ],
         ),
       );
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'CreateFolderRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -146,7 +146,7 @@ void main() {
       final query = faker.lorem.word();
       final types = faker.lorem.words(3).join(',');
 
-      final json = {
+      final data = {
         'Body': {
           'CreateFolderResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -277,7 +277,7 @@ void main() {
           }
         }
       };
-      final envelope = CreateFolderEnvelope.fromJson(json);
+      final envelope = CreateFolderEnvelope.fromMap(data);
       final response = envelope.createFolderBody.createFolderResponse!;
 
       final folder = response.folder!;

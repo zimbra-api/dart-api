@@ -21,7 +21,7 @@ void main() {
       final folderId = faker.guid.guid();
 
       final request = GetCalendarItemSummariesRequest(startTime, endTime, folderId: folderId);
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'GetCalendarItemSummariesRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -106,7 +106,7 @@ void main() {
       final contentType = faker.lorem.word();
       final binaryB64Data = faker.lorem.word();
 
-      final json = {
+      final data = {
         'Body': {
           'GetCalendarItemSummariesResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -339,7 +339,7 @@ void main() {
           }
         }
       };
-      final envelope = GetCalendarItemSummariesEnvelope.fromJson(json);
+      final envelope = GetCalendarItemSummariesEnvelope.fromMap(data);
       final response = envelope.getCalendarItemSummariesBody.getCalendarItemSummariesResponse!;
 
       final appt = response.apptEntries.first;

@@ -12,18 +12,18 @@ class GetImportStatusBody extends SoapBody {
   GetImportStatusBody({GetImportStatusRequest? request, GetImportStatusResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory GetImportStatusBody.fromJson(Map<String, dynamic> json) => GetImportStatusBody(
-      response: json['GetImportStatusResponse'] != null
-          ? GetImportStatusResponse.fromJson(json['GetImportStatusResponse'])
+  factory GetImportStatusBody.fromMap(Map<String, dynamic> data) => GetImportStatusBody(
+      response: data['GetImportStatusResponse'] != null
+          ? GetImportStatusResponse.fromMap(data['GetImportStatusResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   GetImportStatusRequest? get getImportStatusRequest => request as GetImportStatusRequest?;
 
   GetImportStatusResponse? get getImportStatusResponse => response as GetImportStatusResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'GetImportStatusRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'GetImportStatusRequest': request!.toMap(),
       };
 }

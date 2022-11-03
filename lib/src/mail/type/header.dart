@@ -12,9 +12,9 @@ class Header {
 
   Header(this.name, {this.value});
 
-  factory Header.fromJson(Map<String, dynamic> json) => Header(json['name'] ?? '', value: json['_content']);
+  factory Header.fromMap(Map<String, dynamic> data) => Header(data['name'] ?? '', value: data['_content']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'name': name,
         if (value != null) '_content': value,
       };

@@ -15,10 +15,10 @@ class FreeBusyUserSpec {
 
   FreeBusyUserSpec({this.folderId, this.id, this.name});
 
-  factory FreeBusyUserSpec.fromJson(Map<String, dynamic> json) =>
-      FreeBusyUserSpec(folderId: json['l'], id: json['id'], name: json['name']);
+  factory FreeBusyUserSpec.fromMap(Map<String, dynamic> data) =>
+      FreeBusyUserSpec(folderId: data['l'], id: data['id'], name: data['name']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (folderId != null) 'l': folderId,
         if (id != null) 'id': id,
         if (name != null) 'name': name,

@@ -17,14 +17,14 @@ class BulkAction {
 
   BulkAction({this.operation = BulkOperation.read, this.folder});
 
-  factory BulkAction.fromJson(Map<String, dynamic> json) => BulkAction(
+  factory BulkAction.fromMap(Map<String, dynamic> data) => BulkAction(
       operation: BulkOperation.values.firstWhere(
-        (op) => op.name == json['op'],
+        (op) => op.name == data['op'],
         orElse: () => BulkOperation.read,
       ),
-      folder: json['l']);
+      folder: data['l']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'op': operation.name,
         if (folder != null) 'l': folder,
       };

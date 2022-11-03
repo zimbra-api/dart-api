@@ -10,9 +10,9 @@ import 'modify_outgoing_filter_rules_body.dart';
 class ModifyOutgoingFilterRulesEnvelope extends SoapEnvelope {
   ModifyOutgoingFilterRulesEnvelope(ModifyOutgoingFilterRulesBody body, {super.header}) : super(body);
 
-  factory ModifyOutgoingFilterRulesEnvelope.fromJson(Map<String, dynamic> json) =>
-      ModifyOutgoingFilterRulesEnvelope(ModifyOutgoingFilterRulesBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory ModifyOutgoingFilterRulesEnvelope.fromMap(Map<String, dynamic> data) =>
+      ModifyOutgoingFilterRulesEnvelope(ModifyOutgoingFilterRulesBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   ModifyOutgoingFilterRulesBody get modifyOutgoingFilterRulesBody => body as ModifyOutgoingFilterRulesBody;
 }

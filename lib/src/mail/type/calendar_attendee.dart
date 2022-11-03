@@ -70,29 +70,29 @@ class CalendarAttendee {
       this.delegatedFrom,
       this.xParams = const []});
 
-  factory CalendarAttendee.fromJson(Map<String, dynamic> json) => CalendarAttendee(
-        address: json['a'],
-        url: json['url'],
-        displayName: json['d'],
-        sentBy: json['sentBy'],
-        dir: json['dir'],
-        language: json['lang'],
-        cuType: json['cutype'],
-        role: json['role'],
+  factory CalendarAttendee.fromMap(Map<String, dynamic> data) => CalendarAttendee(
+        address: data['a'],
+        url: data['url'],
+        displayName: data['d'],
+        sentBy: data['sentBy'],
+        dir: data['dir'],
+        language: data['lang'],
+        cuType: data['cutype'],
+        role: data['role'],
         partStat: ParticipationStatus.values.firstWhere(
-          (item) => item.name == json['ptst'],
+          (item) => item.name == data['ptst'],
           orElse: () => ParticipationStatus.inProcess,
         ),
-        rsvp: json['rsvp'],
-        member: json['member'],
-        delegatedTo: json['delegatedTo'],
-        delegatedFrom: json['delegatedFrom'],
-        xParams: (json['xparam'] is Iterable)
-            ? List.from((json['xparam'] as Iterable).map<XParam>((xparam) => XParam.fromJson(xparam)))
+        rsvp: data['rsvp'],
+        member: data['member'],
+        delegatedTo: data['delegatedTo'],
+        delegatedFrom: data['delegatedFrom'],
+        xParams: (data['xparam'] is Iterable)
+            ? List.from((data['xparam'] as Iterable).map<XParam>((xparam) => XParam.fromMap(xparam)))
             : [],
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (address != null) 'a': address,
         if (url != null) 'url': url,
         if (displayName != null) 'd': displayName,
@@ -106,6 +106,6 @@ class CalendarAttendee {
         if (member != null) 'member': member,
         if (delegatedTo != null) 'delegatedTo': delegatedTo,
         if (delegatedFrom != null) 'delegatedFrom': delegatedFrom,
-        if (xParams.isNotEmpty) 'xparam': xParams.map((xparam) => xparam.toJson()).toList(),
+        if (xParams.isNotEmpty) 'xparam': xParams.map((xparam) => xparam.toMap()).toList(),
       };
 }

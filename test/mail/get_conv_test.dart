@@ -40,7 +40,7 @@ void main() {
         needCanExpand: needCanExpand,
         headers: [AttributeName(name: name)],
       ));
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'GetConvRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -189,7 +189,7 @@ void main() {
       final body = faker.randomGenerator.boolean();
       final truncatedContent = faker.randomGenerator.boolean();
 
-      final json = {
+      final data = {
         'Body': {
           'GetConvResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -682,7 +682,7 @@ void main() {
           }
         }
       };
-      final envelope = GetConvEnvelope.fromJson(json);
+      final envelope = GetConvEnvelope.fromMap(data);
       final response = envelope.getConvBody.getConvResponse!;
       final conv = response.conversation!;
 

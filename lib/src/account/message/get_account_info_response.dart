@@ -44,16 +44,16 @@ class GetAccountInfoResponse extends SoapResponse {
       this.adminURL,
       this.boshURL});
 
-  factory GetAccountInfoResponse.fromJson(Map<String, dynamic> json) => GetAccountInfoResponse(
-        json['name'],
-        attrs: (json['attr'] is Iterable)
-            ? List.from((json['attr'] as Iterable).map<NamedValue>((attr) => NamedValue.fromJson(attr)))
+  factory GetAccountInfoResponse.fromMap(Map<String, dynamic> data) => GetAccountInfoResponse(
+        data['name'],
+        attrs: (data['attr'] is Iterable)
+            ? List.from((data['attr'] as Iterable).map<NamedValue>((attr) => NamedValue.fromMap(attr)))
             : [],
-        soapURL: json['soapURL'],
-        publicURL: json['publicURL'],
-        changePasswordURL: json['changePasswordURL'],
-        communityURL: json['communityURL'],
-        adminURL: json['adminURL'],
-        boshURL: json['boshURL'],
+        soapURL: data['soapURL'],
+        publicURL: data['publicURL'],
+        changePasswordURL: data['changePasswordURL'],
+        communityURL: data['communityURL'],
+        adminURL: data['adminURL'],
+        boshURL: data['boshURL'],
       );
 }

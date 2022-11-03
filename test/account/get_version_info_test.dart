@@ -9,7 +9,7 @@ void main() {
   group('Get version info tests', (() {
     test(' Get version info request', (() {
       final request = GetVersionInfoRequest();
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'GetVersionInfoRequest': {
             '_jsns': 'urn:zimbraAccount',
@@ -24,7 +24,7 @@ void main() {
       final date = faker.date.dateTime().toString();
       final host = faker.internet.ipv4Address();
 
-      final json = {
+      final data = {
         'Body': {
           'GetVersionInfoResponse': {
             '_jsns': 'urn:zimbraAccount',
@@ -37,7 +37,7 @@ void main() {
           }
         }
       };
-      final envelope = GetVersionInfoEnvelope.fromJson(json);
+      final envelope = GetVersionInfoEnvelope.fromMap(data);
       final response = envelope.getVersionInfoBody.getVersionInfoResponse;
       final versionInfo = response!.versionInfo!;
 

@@ -12,17 +12,17 @@ class DiffDocumentBody extends SoapBody {
   DiffDocumentBody({DiffDocumentRequest? request, DiffDocumentResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory DiffDocumentBody.fromJson(Map<String, dynamic> json) => DiffDocumentBody(
+  factory DiffDocumentBody.fromMap(Map<String, dynamic> data) => DiffDocumentBody(
       response:
-          json['DiffDocumentResponse'] != null ? DiffDocumentResponse.fromJson(json['DiffDocumentResponse']) : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+          data['DiffDocumentResponse'] != null ? DiffDocumentResponse.fromMap(data['DiffDocumentResponse']) : null,
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   DiffDocumentRequest? get diffDocumentRequest => request as DiffDocumentRequest?;
 
   DiffDocumentResponse? get diffDocumentResponse => response as DiffDocumentResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'DiffDocumentRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'DiffDocumentRequest': request!.toMap(),
       };
 }

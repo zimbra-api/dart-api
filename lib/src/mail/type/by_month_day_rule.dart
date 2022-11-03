@@ -12,9 +12,9 @@ class ByMonthDayRule {
 
   ByMonthDayRule(this.list);
 
-  factory ByMonthDayRule.fromJson(Map<String, dynamic> json) => ByMonthDayRule(json['modaylist'] ?? '');
+  factory ByMonthDayRule.fromMap(Map<String, dynamic> data) => ByMonthDayRule(data['modaylist'] ?? '');
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'modaylist': list,
       };
 }

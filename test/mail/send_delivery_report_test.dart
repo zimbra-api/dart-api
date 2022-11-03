@@ -12,7 +12,7 @@ void main() {
       final messageId = faker.guid.guid();
 
       final request = SendDeliveryReportRequest(messageId);
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'SendDeliveryReportRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -23,14 +23,14 @@ void main() {
     }));
 
     test('Send delivery report response', (() {
-      final json = {
+      final data = {
         'Body': {
           'SendDeliveryReportResponse': {
             '_jsns': 'urn:zimbraMail',
           }
         }
       };
-      final envelope = SendDeliveryReportEnvelope.fromJson(json);
+      final envelope = SendDeliveryReportEnvelope.fromMap(data);
       final response = envelope.sendDeliveryReportBody.sendDeliveryReportResponse;
       expect(response, isNotNull);
       expect(response, isA<SendDeliveryReportResponse>());

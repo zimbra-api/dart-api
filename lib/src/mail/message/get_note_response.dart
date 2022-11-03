@@ -11,6 +11,6 @@ class GetNoteResponse extends SoapResponse {
 
   GetNoteResponse({this.note});
 
-  factory GetNoteResponse.fromJson(Map<String, dynamic> json) =>
-      GetNoteResponse(note: json['note'] is Map ? NoteInfo.fromJson(json['note']) : null);
+  factory GetNoteResponse.fromMap(Map<String, dynamic> data) =>
+      GetNoteResponse(note: data['note'] is Map ? NoteInfo.fromMap(data['note']) : null);
 }

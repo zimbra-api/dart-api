@@ -10,9 +10,9 @@ import 'delete_signature_body.dart';
 class DeleteSignatureEnvelope extends SoapEnvelope {
   DeleteSignatureEnvelope(DeleteSignatureBody body, {super.header}) : super(body);
 
-  factory DeleteSignatureEnvelope.fromJson(Map<String, dynamic> json) =>
-      DeleteSignatureEnvelope(DeleteSignatureBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory DeleteSignatureEnvelope.fromMap(Map<String, dynamic> data) =>
+      DeleteSignatureEnvelope(DeleteSignatureBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   DeleteSignatureBody get deleteSignatureBody => body as DeleteSignatureBody;
 }

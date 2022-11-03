@@ -44,7 +44,7 @@ void main() {
         name: name,
         path: path,
       ));
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'GetItemRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -253,7 +253,7 @@ void main() {
       final autoSendTime = faker.randomGenerator.integer(100);
       final conversationId = faker.guid.guid();
 
-      final json = {
+      final data = {
         'Body': {
           'GetItemResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -1471,7 +1471,7 @@ void main() {
           }
         }
       };
-      final envelope = GetItemEnvelope.fromJson(json);
+      final envelope = GetItemEnvelope.fromMap(data);
       final response = envelope.getItemBody.getItemResponse!;
 
       final folderItem = response.folderItem!;

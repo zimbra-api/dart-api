@@ -53,22 +53,22 @@ class MessageCommon {
       this.modifiedSequence,
       this.metadatas = const []});
 
-  factory MessageCommon.fromJson(Map<String, dynamic> json) => MessageCommon(
-      size: json['s'],
-      date: json['d'],
-      folder: json['l'],
-      conversationId: json['cid'],
-      flags: json['f'],
-      tags: json['t'],
-      tagNames: json['tn'],
-      revision: json['rev'],
-      changeDate: json['md'],
-      modifiedSequence: json['ms'],
-      metadatas: (json['meta'] is Iterable)
-          ? List.from((json['meta'] as Iterable).map<MailCustomMetadata>((meta) => MailCustomMetadata.fromJson(meta)))
+  factory MessageCommon.fromMap(Map<String, dynamic> data) => MessageCommon(
+      size: data['s'],
+      date: data['d'],
+      folder: data['l'],
+      conversationId: data['cid'],
+      flags: data['f'],
+      tags: data['t'],
+      tagNames: data['tn'],
+      revision: data['rev'],
+      changeDate: data['md'],
+      modifiedSequence: data['ms'],
+      metadatas: (data['meta'] is Iterable)
+          ? List.from((data['meta'] as Iterable).map<MailCustomMetadata>((meta) => MailCustomMetadata.fromMap(meta)))
           : []);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (size != null) 's': size,
         if (date != null) 'd': date,
         if (folder != null) 'l': folder,
@@ -79,6 +79,6 @@ class MessageCommon {
         if (revision != null) 'rev': revision,
         if (changeDate != null) 'md': changeDate,
         if (modifiedSequence != null) 'ms': modifiedSequence,
-        if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toJson()).toList(),
+        if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toMap()).toList(),
       };
 }

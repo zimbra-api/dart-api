@@ -13,18 +13,18 @@ class GetLastItemIdInMailboxBody extends SoapBody {
       {GetLastItemIdInMailboxRequest? request, GetLastItemIdInMailboxResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory GetLastItemIdInMailboxBody.fromJson(Map<String, dynamic> json) => GetLastItemIdInMailboxBody(
-      response: json['GetLastItemIdInMailboxResponse'] != null
-          ? GetLastItemIdInMailboxResponse.fromJson(json['GetLastItemIdInMailboxResponse'])
+  factory GetLastItemIdInMailboxBody.fromMap(Map<String, dynamic> data) => GetLastItemIdInMailboxBody(
+      response: data['GetLastItemIdInMailboxResponse'] != null
+          ? GetLastItemIdInMailboxResponse.fromMap(data['GetLastItemIdInMailboxResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   GetLastItemIdInMailboxRequest? get getLastItemIdInMailboxRequest => request as GetLastItemIdInMailboxRequest?;
 
   GetLastItemIdInMailboxResponse? get getLastItemIdInMailboxResponse => response as GetLastItemIdInMailboxResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'GetLastItemIdInMailboxRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'GetLastItemIdInMailboxRequest': request!.toMap(),
       };
 }

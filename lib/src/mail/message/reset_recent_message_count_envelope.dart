@@ -10,9 +10,9 @@ import 'reset_recent_message_count_body.dart';
 class ResetRecentMessageCountEnvelope extends SoapEnvelope {
   ResetRecentMessageCountEnvelope(ResetRecentMessageCountBody body, {super.header}) : super(body);
 
-  factory ResetRecentMessageCountEnvelope.fromJson(Map<String, dynamic> json) =>
-      ResetRecentMessageCountEnvelope(ResetRecentMessageCountBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory ResetRecentMessageCountEnvelope.fromMap(Map<String, dynamic> data) =>
+      ResetRecentMessageCountEnvelope(ResetRecentMessageCountBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   ResetRecentMessageCountBody get resetRecentMessageCountBody => body as ResetRecentMessageCountBody;
 }

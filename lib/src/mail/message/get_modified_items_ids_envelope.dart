@@ -10,9 +10,9 @@ import 'get_modified_items_ids_body.dart';
 class GetModifiedItemsIDsEnvelope extends SoapEnvelope {
   GetModifiedItemsIDsEnvelope(GetModifiedItemsIDsBody body, {super.header}) : super(body);
 
-  factory GetModifiedItemsIDsEnvelope.fromJson(Map<String, dynamic> json) =>
-      GetModifiedItemsIDsEnvelope(GetModifiedItemsIDsBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory GetModifiedItemsIDsEnvelope.fromMap(Map<String, dynamic> data) =>
+      GetModifiedItemsIDsEnvelope(GetModifiedItemsIDsBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   GetModifiedItemsIDsBody get getModifiedItemsIDsBody => body as GetModifiedItemsIDsBody;
 }

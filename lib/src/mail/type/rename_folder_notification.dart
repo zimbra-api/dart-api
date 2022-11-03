@@ -12,11 +12,11 @@ class RenameFolderNotification extends ModifyNotification {
 
   RenameFolderNotification({this.folderId = 0, this.path = '', super.changeBitmask});
 
-  factory RenameFolderNotification.fromJson(Map<String, dynamic> json) =>
-      RenameFolderNotification(folderId: json['id'] ?? 0, path: json['path'] ?? 0, changeBitmask: json['change'] ?? 0);
+  factory RenameFolderNotification.fromMap(Map<String, dynamic> data) =>
+      RenameFolderNotification(folderId: data['id'] ?? 0, path: data['path'] ?? 0, changeBitmask: data['change'] ?? 0);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'id': folderId,
         'path': path,
         'change': changeBitmask,

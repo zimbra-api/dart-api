@@ -11,10 +11,10 @@ class TestDataSource {
 
   TestDataSource(this.success, {this.error});
 
-  factory TestDataSource.fromJson(Map<String, dynamic> json) =>
-      TestDataSource(json['success'] ?? 0, error: json['error']);
+  factory TestDataSource.fromMap(Map<String, dynamic> data) =>
+      TestDataSource(data['success'] ?? 0, error: data['error']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'success': success,
         if (error != null) 'error': error,
       };

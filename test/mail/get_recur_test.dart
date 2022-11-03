@@ -16,7 +16,7 @@ void main() {
     test('Get recurrence request', (() {
       final id = faker.guid.guid();
       final request = GetRecurRequest(id);
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'GetRecurRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -64,7 +64,7 @@ void main() {
       final list = faker.randomGenerator.amount((_) => random.integer(10), 10).join(',');
       final ordWk = faker.randomGenerator.integer(100);
 
-      final json = {
+      final data = {
         'Body': {
           'GetRecurResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -257,7 +257,7 @@ void main() {
           }
         }
       };
-      final envelope = GetRecurEnvelope.fromJson(json);
+      final envelope = GetRecurEnvelope.fromMap(data);
       final response = envelope.getRecurBody.getRecurResponse!;
 
       final tz = response.timezone!;

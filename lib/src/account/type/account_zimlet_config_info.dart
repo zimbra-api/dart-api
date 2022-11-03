@@ -33,24 +33,24 @@ class AccountZimletConfigInfo {
   AccountZimletConfigInfo(
       {this.name, this.version, this.description, this.extension, this.target, this.label, this.global, this.host});
 
-  factory AccountZimletConfigInfo.fromJson(Map<String, dynamic> json) => AccountZimletConfigInfo(
-      name: json['name'],
-      version: json['version'],
-      description: json['description'],
-      extension: json['extension'],
-      target: json['target'],
-      label: json['label'],
-      global: json['global'] is Map ? AccountZimletGlobalConfigInfo.fromJson(json['global']) : null,
-      host: json['host'] is Map ? AccountZimletHostConfigInfo.fromJson(json['host']) : null);
+  factory AccountZimletConfigInfo.fromMap(Map<String, dynamic> data) => AccountZimletConfigInfo(
+      name: data['name'],
+      version: data['version'],
+      description: data['description'],
+      extension: data['extension'],
+      target: data['target'],
+      label: data['label'],
+      global: data['global'] is Map ? AccountZimletGlobalConfigInfo.fromMap(data['global']) : null,
+      host: data['host'] is Map ? AccountZimletHostConfigInfo.fromMap(data['host']) : null);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (name != null) 'name': name,
         if (version != null) 'version': version,
         if (description != null) 'description': description,
         if (extension != null) 'extension': extension,
         if (target != null) 'target': target,
         if (label != null) 'label': label,
-        if (global != null) 'global': global!.toJson(),
-        if (host != null) 'host': host!.toJson(),
+        if (global != null) 'global': global!.toMap(),
+        if (host != null) 'host': host!.toMap(),
       };
 }

@@ -28,22 +28,22 @@ class ConversationSpec {
   ConversationSpec(
       {this.id, this.inlineRule, this.wantHtml, this.maxInlinedLength, this.needCanExpand, this.headers = const []});
 
-  factory ConversationSpec.fromJson(Map<String, dynamic> json) => ConversationSpec(
-      id: json['id'],
-      inlineRule: json['fetch'],
-      wantHtml: json['html'],
-      maxInlinedLength: json['max'],
-      needCanExpand: json['needExp'],
-      headers: (json['header'] is Iterable)
-          ? List.from((json['header'] as Iterable).map<AttributeName>((header) => AttributeName.fromJson(header)))
+  factory ConversationSpec.fromMap(Map<String, dynamic> data) => ConversationSpec(
+      id: data['id'],
+      inlineRule: data['fetch'],
+      wantHtml: data['html'],
+      maxInlinedLength: data['max'],
+      needCanExpand: data['needExp'],
+      headers: (data['header'] is Iterable)
+          ? List.from((data['header'] as Iterable).map<AttributeName>((header) => AttributeName.fromMap(header)))
           : []);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (id != null) 'id': id,
         if (inlineRule != null) 'fetch': inlineRule,
         if (wantHtml != null) 'html': wantHtml,
         if (maxInlinedLength != null) 'max': maxInlinedLength,
         if (needCanExpand != null) 'needExp': needCanExpand,
-        if (headers.isNotEmpty) 'header': headers.map((header) => header.toJson()).toList(),
+        if (headers.isNotEmpty) 'header': headers.map((header) => header.toMap()).toList(),
       };
 }

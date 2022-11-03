@@ -26,7 +26,7 @@ void main() {
         action: action,
         notes: notes,
       );
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'SendShareNotificationRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -48,14 +48,14 @@ void main() {
     }));
 
     test('Send share notification response', (() {
-      final json = {
+      final data = {
         'Body': {
           'SendShareNotificationResponse': {
             '_jsns': 'urn:zimbraMail',
           }
         }
       };
-      final envelope = SendShareNotificationEnvelope.fromJson(json);
+      final envelope = SendShareNotificationEnvelope.fromMap(data);
       final response = envelope.sendShareNotificationBody.sendShareNotificationResponse;
       expect(response, isNotNull);
       expect(response, isA<SendShareNotificationResponse>());

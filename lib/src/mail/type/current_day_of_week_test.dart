@@ -10,11 +10,11 @@ class CurrentDayOfWeekTest extends FilterTest {
 
   CurrentDayOfWeekTest({this.values, super.index, super.negative});
 
-  factory CurrentDayOfWeekTest.fromJson(Map<String, dynamic> json) =>
-      CurrentDayOfWeekTest(values: json['value'], index: json['index'], negative: json['negative']);
+  factory CurrentDayOfWeekTest.fromMap(Map<String, dynamic> data) =>
+      CurrentDayOfWeekTest(values: data['value'], index: data['index'], negative: data['negative']);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (values != null) 'value': values,
         if (index != null) 'index': index,
         if (negative != null) 'negative': negative,

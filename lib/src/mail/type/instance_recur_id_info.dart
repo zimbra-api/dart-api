@@ -31,15 +31,15 @@ class InstanceRecurIdInfo {
 
   InstanceRecurIdInfo({this.range, this.dateTime, this.timezone});
 
-  factory InstanceRecurIdInfo.fromJson(Map<String, dynamic> json) => InstanceRecurIdInfo(
+  factory InstanceRecurIdInfo.fromMap(Map<String, dynamic> data) => InstanceRecurIdInfo(
       range: RecurrenceRange.values.firstWhere(
-        (item) => item.name == json['by'],
+        (item) => item.name == data['by'],
         orElse: () => RecurrenceRange.thisAndFuture,
       ),
-      dateTime: json['d'],
-      timezone: json['tz']);
+      dateTime: data['d'],
+      timezone: data['tz']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (range != null) 'range': range!.name,
         if (dateTime != null) 'd': dateTime,
         if (timezone != null) 'tz': timezone,

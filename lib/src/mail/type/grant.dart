@@ -35,18 +35,18 @@ class Grant {
       this.guestPassword,
       this.accessKey});
 
-  factory Grant.fromJson(Map<String, dynamic> json) => Grant(json['perm'] ?? '',
+  factory Grant.fromMap(Map<String, dynamic> data) => Grant(data['perm'] ?? '',
       granteeType: GrantGranteeType.values.firstWhere(
-        (gt) => gt.name == json['gt'],
+        (gt) => gt.name == data['gt'],
         orElse: () => GrantGranteeType.all,
       ),
-      granteeId: json['zid'],
-      expiry: json['expiry'],
-      granteeName: json['d'],
-      guestPassword: json['pw'],
-      accessKey: json['key']);
+      granteeId: data['zid'],
+      expiry: data['expiry'],
+      granteeName: data['d'],
+      guestPassword: data['pw'],
+      accessKey: data['key']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'perm': perm,
         'gt': granteeType.name,
         if (granteeId != null) 'zid': granteeId,

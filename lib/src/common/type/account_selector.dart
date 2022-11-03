@@ -11,15 +11,15 @@ class AccountSelector {
 
   AccountSelector(this.by, this.value);
 
-  factory AccountSelector.fromJson(Map<String, dynamic> json) => AccountSelector(
+  factory AccountSelector.fromMap(Map<String, dynamic> data) => AccountSelector(
         AccountBy.values.firstWhere(
-          (by) => by.name == json['by'],
+          (by) => by.name == data['by'],
           orElse: () => AccountBy.name,
         ),
-        json['_content'] ?? '',
+        data['_content'] ?? '',
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'by': by.name,
         '_content': value,
       };

@@ -15,10 +15,10 @@ class GetFolderSpec {
 
   GetFolderSpec({this.uuid, this.folderId, this.path});
 
-  factory GetFolderSpec.fromJson(Map<String, dynamic> json) =>
-      GetFolderSpec(uuid: json['uuid'], folderId: json['l'], path: json['path']);
+  factory GetFolderSpec.fromMap(Map<String, dynamic> data) =>
+      GetFolderSpec(uuid: data['uuid'], folderId: data['l'], path: data['path']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (uuid != null) 'uuid': uuid,
         if (folderId != null) 'l': folderId,
         if (path != null) 'path': path,

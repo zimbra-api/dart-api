@@ -32,7 +32,7 @@ class CheckSpellingRequest extends SoapRequest {
       CheckSpellingEnvelope(CheckSpellingBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
         if (dictionary != null) 'dictionary': dictionary,
         if (ignoreList != null) 'ignore': ignoreList,

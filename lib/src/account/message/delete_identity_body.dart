@@ -12,18 +12,18 @@ class DeleteIdentityBody extends SoapBody {
   DeleteIdentityBody({DeleteIdentityRequest? request, DeleteIdentityResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory DeleteIdentityBody.fromJson(Map<String, dynamic> json) => DeleteIdentityBody(
-      response: json['DeleteIdentityResponse'] != null
-          ? DeleteIdentityResponse.fromJson(json['DeleteIdentityResponse'])
+  factory DeleteIdentityBody.fromMap(Map<String, dynamic> data) => DeleteIdentityBody(
+      response: data['DeleteIdentityResponse'] != null
+          ? DeleteIdentityResponse.fromMap(data['DeleteIdentityResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   DeleteIdentityRequest? get deleteIdentityRequest => request as DeleteIdentityRequest?;
 
   DeleteIdentityResponse? get deleteIdentityResponse => response as DeleteIdentityResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'DeleteIdentityRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'DeleteIdentityRequest': request!.toMap(),
       };
 }

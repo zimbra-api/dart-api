@@ -16,17 +16,17 @@ class AccountWithModifications {
 
   AccountWithModifications({this.id, this.modifications = const [], this.lastChangeId});
 
-  factory AccountWithModifications.fromJson(Map<String, dynamic> json) => AccountWithModifications(
-      id: json['id'],
-      modifications: (json['mods'] is Iterable)
-          ? List.from((json['mods'] as Iterable)
-              .map<PendingFolderModifications>((mods) => PendingFolderModifications.fromJson(mods)))
+  factory AccountWithModifications.fromMap(Map<String, dynamic> data) => AccountWithModifications(
+      id: data['id'],
+      modifications: (data['mods'] is Iterable)
+          ? List.from((data['mods'] as Iterable)
+              .map<PendingFolderModifications>((mods) => PendingFolderModifications.fromMap(mods)))
           : [],
-      lastChangeId: json['changeid']);
+      lastChangeId: data['changeid']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (id != null) 'id': id,
-        if (modifications.isNotEmpty) 'mods': modifications.map((mods) => mods.toJson()).toList(),
+        if (modifications.isNotEmpty) 'mods': modifications.map((mods) => mods.toMap()).toList(),
         if (lastChangeId != null) 'changeid': lastChangeId,
       };
 }

@@ -48,8 +48,8 @@ class SaveDocumentRequest extends SoapRequest {
       SaveDocumentEnvelope(SaveDocumentBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
-        'doc': doc.toJson(),
+        'doc': doc.toMap(),
       };
 }

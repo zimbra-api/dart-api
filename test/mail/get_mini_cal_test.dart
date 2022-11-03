@@ -58,7 +58,7 @@ void main() {
           daylightTZName: daylightTZName,
         ),
       );
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'GetMiniCalRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -105,7 +105,7 @@ void main() {
       final code = faker.lorem.word();
       final errorMessage = faker.lorem.word();
 
-      final json = {
+      final data = {
         'Body': {
           'GetMiniCalResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -122,7 +122,7 @@ void main() {
           }
         }
       };
-      final envelope = GetMiniCalEnvelope.fromJson(json);
+      final envelope = GetMiniCalEnvelope.fromMap(data);
       final response = envelope.getMiniCalBody.getMiniCalResponse!;
       expect(response.busyDates.first, busyDate);
 

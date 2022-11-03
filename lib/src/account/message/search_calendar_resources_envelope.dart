@@ -10,9 +10,9 @@ import 'search_calendar_resources_body.dart';
 class SearchCalendarResourcesEnvelope extends SoapEnvelope {
   SearchCalendarResourcesEnvelope(SearchCalendarResourcesBody body, {super.header}) : super(body);
 
-  factory SearchCalendarResourcesEnvelope.fromJson(Map<String, dynamic> json) =>
-      SearchCalendarResourcesEnvelope(SearchCalendarResourcesBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory SearchCalendarResourcesEnvelope.fromMap(Map<String, dynamic> data) =>
+      SearchCalendarResourcesEnvelope(SearchCalendarResourcesBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   SearchCalendarResourcesBody get searchCalendarResourcesBody => body as SearchCalendarResourcesBody;
 }

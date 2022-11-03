@@ -9,7 +9,7 @@ void main() {
   final faker = Faker();
 
   group('Change password request tests', (() {
-    test('To json test', () {
+    test('To data test', () {
       final email = faker.internet.email();
       final oldPassword = faker.lorem.word();
       final password = faker.lorem.word();
@@ -20,7 +20,7 @@ void main() {
 
       final request = ChangePasswordRequest(account, oldPassword, password, virtualHost: virtualHost, dryRun: dryRun);
 
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'ChangePasswordRequest': {
             '_jsns': 'urn:zimbraAccount',
@@ -47,10 +47,10 @@ void main() {
   }));
 
   group('Change password response tests', (() {
-    test('From json test', (() {
+    test('From data test', (() {
       final authToken = faker.guid.guid();
       final lifetime = faker.randomGenerator.integer(100);
-      final json = {
+      final data = {
         'Body': {
           'ChangePasswordResponse': {
             '_jsns': 'urn:zimbraAccount',
@@ -64,7 +64,7 @@ void main() {
         },
       };
 
-      final envelope = ChangePasswordEnvelope.fromJson(json);
+      final envelope = ChangePasswordEnvelope.fromMap(data);
       final response = envelope.changePasswordBody.changePasswordResponse!;
 
       expect(response.authToken, authToken);

@@ -20,7 +20,7 @@ class GetRecurRequest extends SoapRequest {
   SoapEnvelope getEnvelope({SoapHeader? header}) => GetRecurEnvelope(GetRecurBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
         'id': id,
       };

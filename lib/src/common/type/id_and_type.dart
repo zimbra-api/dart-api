@@ -11,9 +11,9 @@ class IdAndType {
 
   IdAndType({this.id, this.type});
 
-  factory IdAndType.fromJson(Map<String, dynamic> json) => IdAndType(id: json['id'], type: json['type']);
+  factory IdAndType.fromMap(Map<String, dynamic> data) => IdAndType(id: data['id'], type: data['type']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (id != null) 'id': id,
         if (type != null) 'type': type,
       };

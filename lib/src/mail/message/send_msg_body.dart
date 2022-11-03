@@ -12,16 +12,16 @@ class SendMsgBody extends SoapBody {
   SendMsgBody({SendMsgRequest? request, SendMsgResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory SendMsgBody.fromJson(Map<String, dynamic> json) => SendMsgBody(
-      response: json['SendMsgResponse'] != null ? SendMsgResponse.fromJson(json['SendMsgResponse']) : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+  factory SendMsgBody.fromMap(Map<String, dynamic> data) => SendMsgBody(
+      response: data['SendMsgResponse'] != null ? SendMsgResponse.fromMap(data['SendMsgResponse']) : null,
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   SendMsgRequest? get sendMsgRequest => request as SendMsgRequest?;
 
   SendMsgResponse? get sendMsgResponse => response as SendMsgResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'SendMsgRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'SendMsgRequest': request!.toMap(),
       };
 }

@@ -40,30 +40,30 @@ class GetImportStatusResponse extends SoapResponse {
       this.calStatuses = const [],
       this.unknownStatuses = const []});
 
-  factory GetImportStatusResponse.fromJson(Map<String, dynamic> json) => GetImportStatusResponse(
-      imapStatuses: (json['imap'] is Iterable)
-          ? List.from((json['imap'] as Iterable).map<ImportStatusInfo>((imap) => ImportStatusInfo.fromJson(imap)))
+  factory GetImportStatusResponse.fromMap(Map<String, dynamic> data) => GetImportStatusResponse(
+      imapStatuses: (data['imap'] is Iterable)
+          ? List.from((data['imap'] as Iterable).map<ImportStatusInfo>((imap) => ImportStatusInfo.fromMap(imap)))
           : [],
-      pop3Statuses: (json['pop3'] is Iterable)
-          ? List.from((json['pop3'] as Iterable).map<ImportStatusInfo>((pop3) => ImportStatusInfo.fromJson(pop3)))
+      pop3Statuses: (data['pop3'] is Iterable)
+          ? List.from((data['pop3'] as Iterable).map<ImportStatusInfo>((pop3) => ImportStatusInfo.fromMap(pop3)))
           : [],
-      caldavStatuses: (json['caldav'] is Iterable)
-          ? List.from((json['caldav'] as Iterable).map<ImportStatusInfo>((caldav) => ImportStatusInfo.fromJson(caldav)))
+      caldavStatuses: (data['caldav'] is Iterable)
+          ? List.from((data['caldav'] as Iterable).map<ImportStatusInfo>((caldav) => ImportStatusInfo.fromMap(caldav)))
           : [],
-      yabStatuses: (json['yab'] is Iterable)
-          ? List.from((json['yab'] as Iterable).map<ImportStatusInfo>((yab) => ImportStatusInfo.fromJson(yab)))
+      yabStatuses: (data['yab'] is Iterable)
+          ? List.from((data['yab'] as Iterable).map<ImportStatusInfo>((yab) => ImportStatusInfo.fromMap(yab)))
           : [],
-      rssStatuses: (json['rss'] is Iterable)
-          ? List.from((json['rss'] as Iterable).map<ImportStatusInfo>((rss) => ImportStatusInfo.fromJson(rss)))
+      rssStatuses: (data['rss'] is Iterable)
+          ? List.from((data['rss'] as Iterable).map<ImportStatusInfo>((rss) => ImportStatusInfo.fromMap(rss)))
           : [],
-      galStatuses: (json['gal'] is Iterable)
-          ? List.from((json['gal'] as Iterable).map<ImportStatusInfo>((gal) => ImportStatusInfo.fromJson(gal)))
+      galStatuses: (data['gal'] is Iterable)
+          ? List.from((data['gal'] as Iterable).map<ImportStatusInfo>((gal) => ImportStatusInfo.fromMap(gal)))
           : [],
-      calStatuses: (json['cal'] is Iterable)
-          ? List.from((json['cal'] as Iterable).map<ImportStatusInfo>((cal) => ImportStatusInfo.fromJson(cal)))
+      calStatuses: (data['cal'] is Iterable)
+          ? List.from((data['cal'] as Iterable).map<ImportStatusInfo>((cal) => ImportStatusInfo.fromMap(cal)))
           : [],
-      unknownStatuses: (json['unknown'] is Iterable)
+      unknownStatuses: (data['unknown'] is Iterable)
           ? List.from(
-              (json['unknown'] as Iterable).map<ImportStatusInfo>((unknown) => ImportStatusInfo.fromJson(unknown)))
+              (data['unknown'] as Iterable).map<ImportStatusInfo>((unknown) => ImportStatusInfo.fromMap(unknown)))
           : []);
 }

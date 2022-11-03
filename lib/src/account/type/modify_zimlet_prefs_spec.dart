@@ -14,14 +14,14 @@ class ModifyZimletPrefsSpec {
 
   ModifyZimletPrefsSpec(this.name, this.presence);
 
-  factory ModifyZimletPrefsSpec.fromJson(Map<String, dynamic> json) => ModifyZimletPrefsSpec(
-      json['name'] ?? '',
+  factory ModifyZimletPrefsSpec.fromMap(Map<String, dynamic> data) => ModifyZimletPrefsSpec(
+      data['name'] ?? '',
       ZimletStatus.values.firstWhere(
-        (item) => item.name == json['presence'],
+        (item) => item.name == data['presence'],
         orElse: () => ZimletStatus.enabled,
       ));
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'name': name,
         'presence': presence.name,
       };

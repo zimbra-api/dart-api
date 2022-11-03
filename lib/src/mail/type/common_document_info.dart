@@ -105,35 +105,35 @@ class CommonDocumentInfo {
       this.fragment,
       this.acl});
 
-  factory CommonDocumentInfo.fromJson(Map<String, dynamic> json) => CommonDocumentInfo(
-      id: json['id'],
-      uuid: json['uuid'],
-      name: json['name'],
-      size: json['s'],
-      date: json['d'],
-      folderId: json['l'],
-      folderUuid: json['luuid'],
-      modifiedSequence: json['ms'],
-      metadataVersion: json['mdver'],
-      changeDate: json['md'],
-      revision: json['rev'],
-      flags: json['f'],
-      tags: json['t'],
-      tagNames: json['tn'],
-      description: json['desc'],
-      contentType: json['ct'],
-      descEnabled: json['descEnabled'],
-      version: json['ver'],
-      lastEditedBy: json['leb'],
-      creator: json['cr'],
-      createdDate: json['cd'],
-      metadatas: (json['meta'] is Iterable)
-          ? List.from((json['meta'] as Iterable).map<MailCustomMetadata>((meta) => MailCustomMetadata.fromJson(meta)))
+  factory CommonDocumentInfo.fromMap(Map<String, dynamic> data) => CommonDocumentInfo(
+      id: data['id'],
+      uuid: data['uuid'],
+      name: data['name'],
+      size: data['s'],
+      date: data['d'],
+      folderId: data['l'],
+      folderUuid: data['luuid'],
+      modifiedSequence: data['ms'],
+      metadataVersion: data['mdver'],
+      changeDate: data['md'],
+      revision: data['rev'],
+      flags: data['f'],
+      tags: data['t'],
+      tagNames: data['tn'],
+      description: data['desc'],
+      contentType: data['ct'],
+      descEnabled: data['descEnabled'],
+      version: data['ver'],
+      lastEditedBy: data['leb'],
+      creator: data['cr'],
+      createdDate: data['cd'],
+      metadatas: (data['meta'] is Iterable)
+          ? List.from((data['meta'] as Iterable).map<MailCustomMetadata>((meta) => MailCustomMetadata.fromMap(meta)))
           : [],
-      fragment: json['fr']?['_content'],
-      acl: (json['acl'] is Map) ? Acl.fromJson(json['acl']) : null);
+      fragment: data['fr']?['_content'],
+      acl: (data['acl'] is Map) ? Acl.fromMap(data['acl']) : null);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (id != null) 'id': id,
         if (uuid != null) 'uuid': uuid,
         if (name != null) 'name': name,
@@ -155,8 +155,8 @@ class CommonDocumentInfo {
         if (lastEditedBy != null) 'leb': lastEditedBy,
         if (creator != null) 'cr': creator,
         if (createdDate != null) 'cd': createdDate,
-        if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toJson()).toList(),
+        if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toMap()).toList(),
         if (fragment != null) 'fr': {'_content': fragment},
-        if (acl != null) 'acl': acl!.toJson(),
+        if (acl != null) 'acl': acl!.toMap(),
       };
 }

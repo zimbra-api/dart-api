@@ -8,10 +8,10 @@ class AccountZimletIncludeCSS {
 
   AccountZimletIncludeCSS({this.value});
 
-  factory AccountZimletIncludeCSS.fromJson(Map<String, dynamic> json) =>
-      AccountZimletIncludeCSS(value: json['_content']);
+  factory AccountZimletIncludeCSS.fromMap(Map<String, dynamic> data) =>
+      AccountZimletIncludeCSS(value: data['_content']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (value != null) '_content': value,
       };
 }

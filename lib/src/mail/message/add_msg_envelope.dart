@@ -10,8 +10,8 @@ import 'add_msg_body.dart';
 class AddMsgEnvelope extends SoapEnvelope {
   AddMsgEnvelope(AddMsgBody body, {super.header}) : super(body);
 
-  factory AddMsgEnvelope.fromJson(Map<String, dynamic> json) => AddMsgEnvelope(AddMsgBody.fromJson(json['Body']),
-      header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory AddMsgEnvelope.fromMap(Map<String, dynamic> data) => AddMsgEnvelope(AddMsgBody.fromMap(data['Body']),
+      header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   AddMsgBody get addMsgBody => body as AddMsgBody;
 }

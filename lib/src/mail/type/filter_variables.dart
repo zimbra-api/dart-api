@@ -11,16 +11,16 @@ class FilterVariables extends FilterAction {
 
   FilterVariables({super.index, this.variables = const []});
 
-  factory FilterVariables.fromJson(Map<String, dynamic> json) => FilterVariables(
-      index: json['index'],
-      variables: (json['filterVariable'] is Iterable)
+  factory FilterVariables.fromMap(Map<String, dynamic> data) => FilterVariables(
+      index: data['index'],
+      variables: (data['filterVariable'] is Iterable)
           ? List.from(
-              (json['filterVariable'] as Iterable).map<FilterVariable>((variable) => FilterVariable.fromJson(variable)))
+              (data['filterVariable'] as Iterable).map<FilterVariable>((variable) => FilterVariable.fromMap(variable)))
           : []);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (index != null) 'index': index,
-        if (variables.isNotEmpty) 'filterVariable': variables.map((variable) => variable.toJson()).toList(),
+        if (variables.isNotEmpty) 'filterVariable': variables.map((variable) => variable.toMap()).toList(),
       };
 }

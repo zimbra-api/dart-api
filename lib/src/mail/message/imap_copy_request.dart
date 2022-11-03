@@ -28,7 +28,7 @@ class IMAPCopyRequest extends SoapRequest {
   SoapEnvelope getEnvelope({SoapHeader? header}) => IMAPCopyEnvelope(IMAPCopyBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
         'ids': ids,
         't': type.name,

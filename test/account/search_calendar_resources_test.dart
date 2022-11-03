@@ -60,7 +60,7 @@ void main() {
                   )
                 ],
               )));
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'SearchCalendarResourcesRequest': {
             '_jsns': 'urn:zimbraAccount',
@@ -128,7 +128,7 @@ void main() {
       final key = faker.lorem.word();
       final value = faker.lorem.word();
 
-      final json = {
+      final data = {
         'Body': {
           'SearchCalendarResourcesResponse': {
             '_jsns': 'urn:zimbraAccount',
@@ -151,7 +151,7 @@ void main() {
           }
         }
       };
-      final envelope = SearchCalendarResourcesEnvelope.fromJson(json);
+      final envelope = SearchCalendarResourcesEnvelope.fromMap(data);
       final response = envelope.searchCalendarResourcesBody.searchCalendarResourcesResponse!;
 
       expect(response.sortBy, sortBy);

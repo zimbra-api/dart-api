@@ -12,16 +12,16 @@ class ModifyPrefsBody extends SoapBody {
   ModifyPrefsBody({ModifyPrefsRequest? request, ModifyPrefsResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory ModifyPrefsBody.fromJson(Map<String, dynamic> json) => ModifyPrefsBody(
-      response: json['ModifyPrefsResponse'] != null ? ModifyPrefsResponse.fromJson(json['ModifyPrefsResponse']) : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+  factory ModifyPrefsBody.fromMap(Map<String, dynamic> data) => ModifyPrefsBody(
+      response: data['ModifyPrefsResponse'] != null ? ModifyPrefsResponse.fromMap(data['ModifyPrefsResponse']) : null,
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   ModifyPrefsRequest? get modifyPrefsRequest => request as ModifyPrefsRequest?;
 
   ModifyPrefsResponse? get modifyPrefsResponse => response as ModifyPrefsResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'ModifyPrefsRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'ModifyPrefsRequest': request!.toMap(),
       };
 }

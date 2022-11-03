@@ -12,18 +12,18 @@ class GetSearchFolderBody extends SoapBody {
   GetSearchFolderBody({GetSearchFolderRequest? request, GetSearchFolderResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory GetSearchFolderBody.fromJson(Map<String, dynamic> json) => GetSearchFolderBody(
-      response: json['GetSearchFolderResponse'] != null
-          ? GetSearchFolderResponse.fromJson(json['GetSearchFolderResponse'])
+  factory GetSearchFolderBody.fromMap(Map<String, dynamic> data) => GetSearchFolderBody(
+      response: data['GetSearchFolderResponse'] != null
+          ? GetSearchFolderResponse.fromMap(data['GetSearchFolderResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   GetSearchFolderRequest? get getSearchFolderRequest => request as GetSearchFolderRequest?;
 
   GetSearchFolderResponse? get getSearchFolderResponse => response as GetSearchFolderResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'GetSearchFolderRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'GetSearchFolderRequest': request!.toMap(),
       };
 }

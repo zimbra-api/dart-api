@@ -22,19 +22,19 @@ class AccountACEinfo {
   AccountACEinfo(this.granteeType, this.right,
       {this.zimbraId, this.displayName, this.accessKey, this.password, this.deny});
 
-  factory AccountACEinfo.fromJson(Map<String, dynamic> json) => AccountACEinfo(
+  factory AccountACEinfo.fromMap(Map<String, dynamic> data) => AccountACEinfo(
       GranteeType.values.firstWhere(
-        (gt) => gt.name == json['gt'],
+        (gt) => gt.name == data['gt'],
         orElse: () => GranteeType.all,
       ),
-      json['right'] ?? '',
-      zimbraId: json['zid'],
-      displayName: json['d'],
-      password: json['pw'],
-      accessKey: json['key'],
-      deny: json['deny']);
+      data['right'] ?? '',
+      zimbraId: data['zid'],
+      displayName: data['d'],
+      password: data['pw'],
+      accessKey: data['key'],
+      deny: data['deny']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'gt': granteeType.name,
         'right': right,
         if (zimbraId != null) 'zid': zimbraId,

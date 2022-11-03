@@ -70,7 +70,7 @@ void main() {
                   )
                 ],
               )));
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'SearchGalRequest': {
             '_jsns': 'urn:zimbraAccount',
@@ -170,7 +170,7 @@ void main() {
       final size = faker.randomGenerator.integer(100);
       final contentFilename = faker.lorem.word();
 
-      final json = {
+      final data = {
         'Body': {
           'SearchGalResponse': {
             '_jsns': 'urn:zimbraAccount',
@@ -234,7 +234,7 @@ void main() {
           }
         }
       };
-      final envelope = SearchGalEnvelope.fromJson(json);
+      final envelope = SearchGalEnvelope.fromMap(data);
       final response = envelope.searchGalBody.searchGalResponse!;
       final contact = response.contacts.first;
 

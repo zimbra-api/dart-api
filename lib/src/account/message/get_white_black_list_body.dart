@@ -12,18 +12,18 @@ class GetWhiteBlackListBody extends SoapBody {
   GetWhiteBlackListBody({GetWhiteBlackListRequest? request, GetWhiteBlackListResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory GetWhiteBlackListBody.fromJson(Map<String, dynamic> json) => GetWhiteBlackListBody(
-      response: json['GetWhiteBlackListResponse'] != null
-          ? GetWhiteBlackListResponse.fromJson(json['GetWhiteBlackListResponse'])
+  factory GetWhiteBlackListBody.fromMap(Map<String, dynamic> data) => GetWhiteBlackListBody(
+      response: data['GetWhiteBlackListResponse'] != null
+          ? GetWhiteBlackListResponse.fromMap(data['GetWhiteBlackListResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   GetWhiteBlackListRequest? get getWhiteBlackListRequest => request as GetWhiteBlackListRequest?;
 
   GetWhiteBlackListResponse? get getWhiteBlackListResponse => response as GetWhiteBlackListResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'GetWhiteBlackListRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'GetWhiteBlackListRequest': request!.toMap(),
       };
 }

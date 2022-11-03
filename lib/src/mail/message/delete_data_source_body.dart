@@ -12,18 +12,18 @@ class DeleteDataSourceBody extends SoapBody {
   DeleteDataSourceBody({DeleteDataSourceRequest? request, DeleteDataSourceResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory DeleteDataSourceBody.fromJson(Map<String, dynamic> json) => DeleteDataSourceBody(
-      response: json['DeleteDataSourceResponse'] != null
-          ? DeleteDataSourceResponse.fromJson(json['DeleteDataSourceResponse'])
+  factory DeleteDataSourceBody.fromMap(Map<String, dynamic> data) => DeleteDataSourceBody(
+      response: data['DeleteDataSourceResponse'] != null
+          ? DeleteDataSourceResponse.fromMap(data['DeleteDataSourceResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   DeleteDataSourceRequest? get deleteDataSourceRequest => request as DeleteDataSourceRequest?;
 
   DeleteDataSourceResponse? get deleteDataSourceResponse => response as DeleteDataSourceResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'DeleteDataSourceRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'DeleteDataSourceRequest': request!.toMap(),
       };
 }

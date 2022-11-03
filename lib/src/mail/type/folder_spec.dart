@@ -8,9 +8,9 @@ class FolderSpec {
 
   FolderSpec({this.folder = ''});
 
-  factory FolderSpec.fromJson(Map<String, dynamic> json) => FolderSpec(folder: json['l'] ?? '');
+  factory FolderSpec.fromMap(Map<String, dynamic> data) => FolderSpec(folder: data['l'] ?? '');
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'l': folder,
       };
 }

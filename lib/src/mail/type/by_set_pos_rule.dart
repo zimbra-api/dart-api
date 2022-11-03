@@ -10,9 +10,9 @@ class BySetPosRule {
 
   BySetPosRule(this.list);
 
-  factory BySetPosRule.fromJson(Map<String, dynamic> json) => BySetPosRule(json['poslist'] ?? '');
+  factory BySetPosRule.fromMap(Map<String, dynamic> data) => BySetPosRule(data['poslist'] ?? '');
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'poslist': list,
       };
 }

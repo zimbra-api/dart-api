@@ -15,7 +15,7 @@ void main() {
       final color = faker.randomGenerator.integer(127);
 
       final request = CreateTagRequest(TagSpec(name, rgb: rgb, color: color));
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'CreateTagRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -46,7 +46,7 @@ void main() {
       final key = faker.lorem.word();
       final value = faker.lorem.word();
 
-      final json = {
+      final data = {
         'Body': {
           'CreateTagResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -98,7 +98,7 @@ void main() {
           }
         }
       };
-      final envelope = CreateTagEnvelope.fromJson(json);
+      final envelope = CreateTagEnvelope.fromMap(data);
       final response = envelope.createTagBody.createTagResponse!;
 
       final tag = response.tag!;

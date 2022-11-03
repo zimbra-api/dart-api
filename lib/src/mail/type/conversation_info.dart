@@ -49,34 +49,34 @@ class ConversationInfo {
       this.chatMessages = const [],
       this.messages = const []});
 
-  factory ConversationInfo.fromJson(Map<String, dynamic> json) => ConversationInfo(
-      id: json['id'],
-      num: json['n'],
-      totalSize: json['total'],
-      flags: json['f'],
-      tags: json['t'],
-      tagNames: json['tn'],
-      metadatas: (json['meta'] is Iterable)
-          ? List.from((json['meta'] as Iterable).map<MailCustomMetadata>((meta) => MailCustomMetadata.fromJson(meta)))
+  factory ConversationInfo.fromMap(Map<String, dynamic> data) => ConversationInfo(
+      id: data['id'],
+      num: data['n'],
+      totalSize: data['total'],
+      flags: data['f'],
+      tags: data['t'],
+      tagNames: data['tn'],
+      metadatas: (data['meta'] is Iterable)
+          ? List.from((data['meta'] as Iterable).map<MailCustomMetadata>((meta) => MailCustomMetadata.fromMap(meta)))
           : [],
-      subject: json['su']?['_content'],
-      chatMessages: (json['chat'] is Iterable)
-          ? List.from((json['chat'] as Iterable).map<MessageInfo>((chat) => MessageInfo.fromJson(chat)))
+      subject: data['su']?['_content'],
+      chatMessages: (data['chat'] is Iterable)
+          ? List.from((data['chat'] as Iterable).map<MessageInfo>((chat) => MessageInfo.fromMap(chat)))
           : [],
-      messages: (json['m'] is Iterable)
-          ? List.from((json['m'] as Iterable).map<MessageInfo>((m) => MessageInfo.fromJson(m)))
+      messages: (data['m'] is Iterable)
+          ? List.from((data['m'] as Iterable).map<MessageInfo>((m) => MessageInfo.fromMap(m)))
           : []);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (id != null) 'id': id,
         if (num != null) 'n': num,
         if (totalSize != null) 'total': totalSize,
         if (flags != null) 'f': flags,
         if (tags != null) 't': tags,
         if (tagNames != null) 'tn': tagNames,
-        if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toJson()).toList(),
+        if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toMap()).toList(),
         if (subject != null) 'su': {'_content': subject},
-        if (chatMessages.isNotEmpty) 'chat': chatMessages.map((chat) => chat.toJson()).toList(),
-        if (messages.isNotEmpty) 'm': messages.map((m) => m.toJson()).toList(),
+        if (chatMessages.isNotEmpty) 'chat': chatMessages.map((chat) => chat.toMap()).toList(),
+        if (messages.isNotEmpty) 'm': messages.map((m) => m.toMap()).toList(),
       };
 }

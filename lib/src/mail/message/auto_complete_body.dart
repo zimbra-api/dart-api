@@ -12,17 +12,17 @@ class AutoCompleteBody extends SoapBody {
   AutoCompleteBody({AutoCompleteRequest? request, AutoCompleteResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory AutoCompleteBody.fromJson(Map<String, dynamic> json) => AutoCompleteBody(
+  factory AutoCompleteBody.fromMap(Map<String, dynamic> data) => AutoCompleteBody(
       response:
-          json['AutoCompleteResponse'] != null ? AutoCompleteResponse.fromJson(json['AutoCompleteResponse']) : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+          data['AutoCompleteResponse'] != null ? AutoCompleteResponse.fromMap(data['AutoCompleteResponse']) : null,
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   AutoCompleteRequest? get autoCompleteRequest => request as AutoCompleteRequest?;
 
   AutoCompleteResponse? get autoCompleteResponse => response as AutoCompleteResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'AutoCompleteRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'AutoCompleteRequest': request!.toMap(),
       };
 }

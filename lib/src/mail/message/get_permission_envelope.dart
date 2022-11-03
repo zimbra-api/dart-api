@@ -10,9 +10,9 @@ import 'get_permission_body.dart';
 class GetPermissionEnvelope extends SoapEnvelope {
   GetPermissionEnvelope(GetPermissionBody body, {super.header}) : super(body);
 
-  factory GetPermissionEnvelope.fromJson(Map<String, dynamic> json) =>
-      GetPermissionEnvelope(GetPermissionBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory GetPermissionEnvelope.fromMap(Map<String, dynamic> data) =>
+      GetPermissionEnvelope(GetPermissionBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   GetPermissionBody get getPermissionBody => body as GetPermissionBody;
 }

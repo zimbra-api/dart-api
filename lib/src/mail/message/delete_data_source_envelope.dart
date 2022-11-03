@@ -10,9 +10,9 @@ import 'delete_data_source_body.dart';
 class DeleteDataSourceEnvelope extends SoapEnvelope {
   DeleteDataSourceEnvelope(DeleteDataSourceBody body, {super.header}) : super(body);
 
-  factory DeleteDataSourceEnvelope.fromJson(Map<String, dynamic> json) =>
-      DeleteDataSourceEnvelope(DeleteDataSourceBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory DeleteDataSourceEnvelope.fromMap(Map<String, dynamic> data) =>
+      DeleteDataSourceEnvelope(DeleteDataSourceBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   DeleteDataSourceBody get deleteDataSourceBody => body as DeleteDataSourceBody;
 }

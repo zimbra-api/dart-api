@@ -10,9 +10,9 @@ import 'search_action_body.dart';
 class SearchActionEnvelope extends SoapEnvelope {
   SearchActionEnvelope(SearchActionBody body, {super.header}) : super(body);
 
-  factory SearchActionEnvelope.fromJson(Map<String, dynamic> json) =>
-      SearchActionEnvelope(SearchActionBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory SearchActionEnvelope.fromMap(Map<String, dynamic> data) =>
+      SearchActionEnvelope(SearchActionBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   SearchActionBody get searchActionBody => body as SearchActionBody;
 }

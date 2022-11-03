@@ -7,5 +7,5 @@ import 'filter_action.dart';
 class StopAction extends FilterAction {
   StopAction({super.index});
 
-  factory StopAction.fromJson(Map<String, dynamic> json) => StopAction(index: json['index']);
+  factory StopAction.fromMap(Map<String, dynamic> data) => StopAction(index: data['index']);
 }

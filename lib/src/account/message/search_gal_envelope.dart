@@ -10,9 +10,9 @@ import 'search_gal_body.dart';
 class SearchGalEnvelope extends SoapEnvelope {
   SearchGalEnvelope(SearchGalBody body, {super.header}) : super(body);
 
-  factory SearchGalEnvelope.fromJson(Map<String, dynamic> json) =>
-      SearchGalEnvelope(SearchGalBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory SearchGalEnvelope.fromMap(Map<String, dynamic> data) =>
+      SearchGalEnvelope(SearchGalBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   SearchGalBody get searchGalBody => body as SearchGalBody;
 }

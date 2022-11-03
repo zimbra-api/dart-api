@@ -9,9 +9,9 @@ class NameId {
 
   NameId({this.name, this.id});
 
-  factory NameId.fromJson(Map<String, dynamic> json) => NameId(name: json['name'], id: json['id']);
+  factory NameId.fromMap(Map<String, dynamic> data) => NameId(name: data['name'], id: data['id']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (name != null) 'name': name,
         if (id != null) 'id': id,
       };

@@ -12,16 +12,16 @@ class ICalReplyBody extends SoapBody {
   ICalReplyBody({ICalReplyRequest? request, ICalReplyResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory ICalReplyBody.fromJson(Map<String, dynamic> json) => ICalReplyBody(
-      response: json['ICalReplyResponse'] != null ? ICalReplyResponse.fromJson(json['ICalReplyResponse']) : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+  factory ICalReplyBody.fromMap(Map<String, dynamic> data) => ICalReplyBody(
+      response: data['ICalReplyResponse'] != null ? ICalReplyResponse.fromMap(data['ICalReplyResponse']) : null,
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   ICalReplyRequest? get iCalReplyRequest => request as ICalReplyRequest?;
 
   ICalReplyResponse? get iCalReplyResponse => response as ICalReplyResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'ICalReplyRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'ICalReplyRequest': request!.toMap(),
       };
 }

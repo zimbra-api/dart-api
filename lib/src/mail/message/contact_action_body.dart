@@ -12,17 +12,17 @@ class ContactActionBody extends SoapBody {
   ContactActionBody({ContactActionRequest? request, ContactActionResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory ContactActionBody.fromJson(Map<String, dynamic> json) => ContactActionBody(
+  factory ContactActionBody.fromMap(Map<String, dynamic> data) => ContactActionBody(
       response:
-          json['ContactActionResponse'] != null ? ContactActionResponse.fromJson(json['ContactActionResponse']) : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+          data['ContactActionResponse'] != null ? ContactActionResponse.fromMap(data['ContactActionResponse']) : null,
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   ContactActionRequest? get contactActionRequest => request as ContactActionRequest?;
 
   ContactActionResponse? get contactActionResponse => response as ContactActionResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'ContactActionRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'ContactActionRequest': request!.toMap(),
       };
 }

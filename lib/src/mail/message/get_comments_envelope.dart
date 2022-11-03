@@ -10,9 +10,9 @@ import 'get_comments_body.dart';
 class GetCommentsEnvelope extends SoapEnvelope {
   GetCommentsEnvelope(GetCommentsBody body, {super.header}) : super(body);
 
-  factory GetCommentsEnvelope.fromJson(Map<String, dynamic> json) =>
-      GetCommentsEnvelope(GetCommentsBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory GetCommentsEnvelope.fromMap(Map<String, dynamic> data) =>
+      GetCommentsEnvelope(GetCommentsBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   GetCommentsBody get getCommentsBody => body as GetCommentsBody;
 }

@@ -11,7 +11,7 @@ void main() {
       final user = faker.internet.userName();
       final password = faker.internet.password();
       final request = GetYahooAuthTokenRequest(user, password);
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'GetYahooAuthTokenRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -24,7 +24,7 @@ void main() {
 
     test('Get Yahoo Auth Token response', (() {
       final failed = faker.randomGenerator.boolean();
-      final json = {
+      final data = {
         'Body': {
           'GetYahooAuthTokenResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -32,7 +32,7 @@ void main() {
           }
         }
       };
-      final envelope = GetYahooAuthTokenEnvelope.fromJson(json);
+      final envelope = GetYahooAuthTokenEnvelope.fromMap(data);
       final response = envelope.getYahooAuthTokenBody.getYahooAuthTokenResponse!;
       expect(response.failed, failed);
     }));

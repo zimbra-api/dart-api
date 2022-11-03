@@ -13,9 +13,9 @@ import 'send_verification_code_body.dart';
 class SendVerificationCodeEnvelope extends SoapEnvelope {
   SendVerificationCodeEnvelope(SendVerificationCodeBody body, {super.header}) : super(body);
 
-  factory SendVerificationCodeEnvelope.fromJson(Map<String, dynamic> json) =>
-      SendVerificationCodeEnvelope(SendVerificationCodeBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory SendVerificationCodeEnvelope.fromMap(Map<String, dynamic> data) =>
+      SendVerificationCodeEnvelope(SendVerificationCodeBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   SendVerificationCodeBody get sendVerificationCodeBody => body as SendVerificationCodeBody;
 }

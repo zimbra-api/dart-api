@@ -10,7 +10,7 @@ void main() {
   group('Get data sources tests', (() {
     test('Get data sources request', (() {
       final request = GetDataSourcesRequest();
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'GetDataSourcesRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -55,7 +55,7 @@ void main() {
       final clientSecret = faker.guid.guid();
       final test = faker.randomGenerator.boolean();
 
-      final json = {
+      final data = {
         'Body': {
           'GetDataSourcesResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -363,7 +363,7 @@ void main() {
           }
         }
       };
-      final envelope = GetDataSourcesEnvelope.fromJson(json);
+      final envelope = GetDataSourcesEnvelope.fromMap(data);
       final response = envelope.getDataSourcesBody.getDataSourcesResponse!;
 
       final imap = response.imapDataSources.first;

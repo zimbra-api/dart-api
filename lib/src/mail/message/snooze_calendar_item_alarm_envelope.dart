@@ -10,9 +10,9 @@ import 'snooze_calendar_item_alarm_body.dart';
 class SnoozeCalendarItemAlarmEnvelope extends SoapEnvelope {
   SnoozeCalendarItemAlarmEnvelope(SnoozeCalendarItemAlarmBody body, {super.header}) : super(body);
 
-  factory SnoozeCalendarItemAlarmEnvelope.fromJson(Map<String, dynamic> json) =>
-      SnoozeCalendarItemAlarmEnvelope(SnoozeCalendarItemAlarmBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory SnoozeCalendarItemAlarmEnvelope.fromMap(Map<String, dynamic> data) =>
+      SnoozeCalendarItemAlarmEnvelope(SnoozeCalendarItemAlarmBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   SnoozeCalendarItemAlarmBody get snoozeCalendarItemAlarmBody => body as SnoozeCalendarItemAlarmBody;
 }

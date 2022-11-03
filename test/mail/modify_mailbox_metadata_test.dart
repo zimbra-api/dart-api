@@ -21,7 +21,7 @@ void main() {
           keyValuePairs: [KeyValuePair(key, value: value)],
         ),
       );
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'ModifyMailboxMetadataRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -40,14 +40,14 @@ void main() {
     }));
 
     test('Modify mailbox metadata response', (() {
-      final json = {
+      final data = {
         'Body': {
           'ModifyMailboxMetadataResponse': {
             '_jsns': 'urn:zimbraMail',
           }
         }
       };
-      final envelope = ModifyMailboxMetadataEnvelope.fromJson(json);
+      final envelope = ModifyMailboxMetadataEnvelope.fromMap(data);
       final response = envelope.modifyMailboxMetadataBody.modifyMailboxMetadataResponse;
       expect(response, isNotNull);
       expect(response, isA<ModifyMailboxMetadataResponse>());

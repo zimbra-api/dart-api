@@ -12,7 +12,7 @@ void main() {
       final parentId = faker.guid.guid();
 
       final request = GetCommentsRequest(ParentId(parentId: parentId));
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'GetCommentsRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -42,7 +42,7 @@ void main() {
       final rgb = faker.randomGenerator.fromPatternToHex(['######']);
       final date = faker.date.dateTime().millisecondsSinceEpoch;
 
-      final json = {
+      final data = {
         'Body': {
           'GetCommentsResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -81,7 +81,7 @@ void main() {
           }
         }
       };
-      final envelope = GetCommentsEnvelope.fromJson(json);
+      final envelope = GetCommentsEnvelope.fromMap(data);
       final response = envelope.getCommentsBody.getCommentsResponse!;
 
       final user = response.users.first;

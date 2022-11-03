@@ -12,18 +12,18 @@ class GetVersionInfoBody extends SoapBody {
   GetVersionInfoBody({GetVersionInfoRequest? request, GetVersionInfoResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory GetVersionInfoBody.fromJson(Map<String, dynamic> json) => GetVersionInfoBody(
-      response: json['GetVersionInfoResponse'] != null
-          ? GetVersionInfoResponse.fromJson(json['GetVersionInfoResponse'])
+  factory GetVersionInfoBody.fromMap(Map<String, dynamic> data) => GetVersionInfoBody(
+      response: data['GetVersionInfoResponse'] != null
+          ? GetVersionInfoResponse.fromMap(data['GetVersionInfoResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   GetVersionInfoRequest? get getVersionInfoRequest => request as GetVersionInfoRequest?;
 
   GetVersionInfoResponse? get getVersionInfoResponse => response as GetVersionInfoResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'GetVersionInfoRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'GetVersionInfoRequest': request!.toMap(),
       };
 }

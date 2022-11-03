@@ -12,18 +12,18 @@ class GetYahooAuthTokenBody extends SoapBody {
   GetYahooAuthTokenBody({GetYahooAuthTokenRequest? request, GetYahooAuthTokenResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory GetYahooAuthTokenBody.fromJson(Map<String, dynamic> json) => GetYahooAuthTokenBody(
-      response: json['GetYahooAuthTokenResponse'] != null
-          ? GetYahooAuthTokenResponse.fromJson(json['GetYahooAuthTokenResponse'])
+  factory GetYahooAuthTokenBody.fromMap(Map<String, dynamic> data) => GetYahooAuthTokenBody(
+      response: data['GetYahooAuthTokenResponse'] != null
+          ? GetYahooAuthTokenResponse.fromMap(data['GetYahooAuthTokenResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   GetYahooAuthTokenRequest? get getYahooAuthTokenRequest => request as GetYahooAuthTokenRequest?;
 
   GetYahooAuthTokenResponse? get getYahooAuthTokenResponse => response as GetYahooAuthTokenResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'GetYahooAuthTokenRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'GetYahooAuthTokenRequest': request!.toMap(),
       };
 }

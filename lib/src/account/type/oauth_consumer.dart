@@ -13,13 +13,13 @@ class OAuthConsumer {
 
   OAuthConsumer({this.accessToken, this.approvedOn, this.applicationName, this.device});
 
-  factory OAuthConsumer.fromJson(Map<String, dynamic> json) => OAuthConsumer(
-      accessToken: json['accessToken'],
-      approvedOn: json['approvedOn'],
-      applicationName: json['appName'],
-      device: json['device']);
+  factory OAuthConsumer.fromMap(Map<String, dynamic> data) => OAuthConsumer(
+      accessToken: data['accessToken'],
+      approvedOn: data['approvedOn'],
+      applicationName: data['appName'],
+      device: data['device']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (accessToken != null) 'accessToken': accessToken,
         if (approvedOn != null) 'approvedOn': approvedOn,
         if (applicationName != null) 'appName': applicationName,

@@ -10,9 +10,9 @@ import 'get_rights_body.dart';
 class GetRightsEnvelope extends SoapEnvelope {
   GetRightsEnvelope(GetRightsBody body, {super.header}) : super(body);
 
-  factory GetRightsEnvelope.fromJson(Map<String, dynamic> json) =>
-      GetRightsEnvelope(GetRightsBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory GetRightsEnvelope.fromMap(Map<String, dynamic> data) =>
+      GetRightsEnvelope(GetRightsBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   GetRightsBody get getRightsBody => body as GetRightsBody;
 }

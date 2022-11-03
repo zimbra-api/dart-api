@@ -14,10 +14,10 @@ abstract class SoapEnvelope {
 
   SoapEnvelope(this.body, {this.header});
 
-  Map<String, dynamic> toJson() => {
-        'Body': body.toJson(),
-        if (header != null) 'Header': header!.toJson(),
+  Map<String, dynamic> toMap() => {
+        'Body': body.toMap(),
+        if (header != null) 'Header': header!.toMap(),
       };
 
-  String get jsonContent => convert.jsonEncode(toJson());
+  String get jsonContent => convert.jsonEncode(toMap());
 }

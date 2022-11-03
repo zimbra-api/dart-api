@@ -233,7 +233,7 @@ void main() {
         ],
       );
 
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'CheckRecurConflictsRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -437,7 +437,7 @@ void main() {
       final tzOffset = faker.randomGenerator.integer(100);
       final recurIdZ = faker.date.dateTime().toString();
 
-      final json = {
+      final data = {
         'Body': {
           'CheckRecurConflictsResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -459,7 +459,7 @@ void main() {
           }
         }
       };
-      final envelope = CheckRecurConflictsEnvelope.fromJson(json);
+      final envelope = CheckRecurConflictsEnvelope.fromMap(data);
       final response = envelope.checkRecurConflictsBody.checkRecurConflictsResponse!;
       final inst = response.instances.first;
 

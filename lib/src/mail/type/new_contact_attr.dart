@@ -23,10 +23,10 @@ class NewContactAttr {
 
   NewContactAttr(this.name, {this.attachId, this.id, this.part, this.value});
 
-  factory NewContactAttr.fromJson(Map<String, dynamic> json) => NewContactAttr(json['n'] ?? '',
-      attachId: json['aid'], id: json['id'], part: json['part'], value: json['_content']);
+  factory NewContactAttr.fromMap(Map<String, dynamic> data) => NewContactAttr(data['n'] ?? '',
+      attachId: data['aid'], id: data['id'], part: data['part'], value: data['_content']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'n': name,
         if (attachId != null) 'aid': attachId,
         if (id != null) 'id': id,

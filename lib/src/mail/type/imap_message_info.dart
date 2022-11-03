@@ -16,11 +16,11 @@ class ImapMessageInfo extends IMAPItemInfo {
 
   ImapMessageInfo({super.id, super.imapUid, this.type, this.flags, this.tags});
 
-  factory ImapMessageInfo.fromJson(Map<String, dynamic> json) =>
-      ImapMessageInfo(id: json['id'], imapUid: json['i4uid'], type: json['t'], flags: json['f'], tags: json['tn']);
+  factory ImapMessageInfo.fromMap(Map<String, dynamic> data) =>
+      ImapMessageInfo(id: data['id'], imapUid: data['i4uid'], type: data['t'], flags: data['f'], tags: data['tn']);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (id != null) 'id': id,
         if (imapUid != null) 'i4uid': imapUid,
         if (type != null) 't': type,

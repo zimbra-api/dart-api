@@ -11,9 +11,9 @@ class DismissAlarm {
 
   DismissAlarm(this.id, this.dismissedAt);
 
-  factory DismissAlarm.fromJson(Map<String, dynamic> json) => DismissAlarm(json['id'] ?? '', json['dismissedAt'] ?? 0);
+  factory DismissAlarm.fromMap(Map<String, dynamic> data) => DismissAlarm(data['id'] ?? '', data['dismissedAt'] ?? 0);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'id': id,
         'dismissedAt': dismissedAt,
       };

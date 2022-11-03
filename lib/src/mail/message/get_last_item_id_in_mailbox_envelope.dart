@@ -10,9 +10,9 @@ import 'get_last_item_id_in_mailbox_body.dart';
 class GetLastItemIdInMailboxEnvelope extends SoapEnvelope {
   GetLastItemIdInMailboxEnvelope(GetLastItemIdInMailboxBody body, {super.header}) : super(body);
 
-  factory GetLastItemIdInMailboxEnvelope.fromJson(Map<String, dynamic> json) =>
-      GetLastItemIdInMailboxEnvelope(GetLastItemIdInMailboxBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory GetLastItemIdInMailboxEnvelope.fromMap(Map<String, dynamic> data) =>
+      GetLastItemIdInMailboxEnvelope(GetLastItemIdInMailboxBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   GetLastItemIdInMailboxBody get getLastItemIdInMailboxBody => body as GetLastItemIdInMailboxBody;
 }

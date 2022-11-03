@@ -13,7 +13,7 @@ void main() {
       final sub2 = faker.lorem.word();
 
       final request = SaveIMAPSubscriptionsRequest([sub1, sub2]);
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'SaveIMAPSubscriptionsRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -27,14 +27,14 @@ void main() {
     }));
 
     test('Save IMAP subscriptions response', (() {
-      final json = {
+      final data = {
         'Body': {
           'SaveIMAPSubscriptionsResponse': {
             '_jsns': 'urn:zimbraMail',
           }
         }
       };
-      final envelope = SaveIMAPSubscriptionsEnvelope.fromJson(json);
+      final envelope = SaveIMAPSubscriptionsEnvelope.fromMap(data);
       final response = envelope.saveIMAPSubscriptionsBody.saveIMAPSubscriptionsResponse;
       expect(response, isNotNull);
       expect(response, isA<SaveIMAPSubscriptionsResponse>());

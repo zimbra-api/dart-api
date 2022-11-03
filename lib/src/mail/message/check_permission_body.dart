@@ -12,18 +12,18 @@ class CheckPermissionBody extends SoapBody {
   CheckPermissionBody({CheckPermissionRequest? request, CheckPermissionResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory CheckPermissionBody.fromJson(Map<String, dynamic> json) => CheckPermissionBody(
-      response: json['CheckPermissionResponse'] != null
-          ? CheckPermissionResponse.fromJson(json['CheckPermissionResponse'])
+  factory CheckPermissionBody.fromMap(Map<String, dynamic> data) => CheckPermissionBody(
+      response: data['CheckPermissionResponse'] != null
+          ? CheckPermissionResponse.fromMap(data['CheckPermissionResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   CheckPermissionRequest? get checkPermissionRequest => request as CheckPermissionRequest?;
 
   CheckPermissionResponse? get checkPermissionResponse => response as CheckPermissionResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'CheckPermissionRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'CheckPermissionRequest': request!.toMap(),
       };
 }

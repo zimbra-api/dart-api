@@ -12,9 +12,9 @@ class GeoInfo {
 
   GeoInfo({this.latitude, this.longitude});
 
-  factory GeoInfo.fromJson(Map<String, dynamic> json) => GeoInfo(latitude: json['lat'], longitude: json['lon']);
+  factory GeoInfo.fromMap(Map<String, dynamic> data) => GeoInfo(latitude: data['lat'], longitude: data['lon']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (latitude != null) 'lat': latitude,
         if (longitude != null) 'lon': longitude,
       };

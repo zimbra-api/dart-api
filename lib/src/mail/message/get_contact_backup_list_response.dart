@@ -10,8 +10,8 @@ class GetContactBackupListResponse extends SoapResponse {
 
   GetContactBackupListResponse({this.backups = const []});
 
-  factory GetContactBackupListResponse.fromJson(Map<String, dynamic> json) => GetContactBackupListResponse(
-      backups: (json['backups']?['backup'] is Iterable)
-          ? List.from((json['backups']['backup'] as Iterable).map<String>((backup) => backup['_content']))
+  factory GetContactBackupListResponse.fromMap(Map<String, dynamic> data) => GetContactBackupListResponse(
+      backups: (data['backups']?['backup'] is Iterable)
+          ? List.from((data['backups']['backup'] as Iterable).map<String>((backup) => backup['_content']))
           : []);
 }

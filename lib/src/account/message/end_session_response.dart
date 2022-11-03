@@ -7,5 +7,5 @@ import 'package:zimbra_api/src/common/type/soap_response.dart';
 class EndSessionResponse extends SoapResponse {
   EndSessionResponse();
 
-  factory EndSessionResponse.fromJson(Map<String, dynamic> json) => EndSessionResponse();
+  factory EndSessionResponse.fromMap(Map<String, dynamic> data) => EndSessionResponse();
 }

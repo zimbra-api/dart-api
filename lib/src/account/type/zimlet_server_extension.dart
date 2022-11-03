@@ -11,10 +11,10 @@ class ZimletServerExtension {
 
   ZimletServerExtension({this.hasKeyword, this.extensionClass, this.regex});
 
-  factory ZimletServerExtension.fromJson(Map<String, dynamic> json) => ZimletServerExtension(
-      hasKeyword: json['hasKeyword'], extensionClass: json['extensionClass'], regex: json['regex']);
+  factory ZimletServerExtension.fromMap(Map<String, dynamic> data) => ZimletServerExtension(
+      hasKeyword: data['hasKeyword'], extensionClass: data['extensionClass'], regex: data['regex']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (hasKeyword != null) 'hasKeyword': hasKeyword,
         if (extensionClass != null) 'extensionClass': extensionClass,
         if (regex != null) 'regex': regex,

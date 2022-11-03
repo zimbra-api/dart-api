@@ -29,23 +29,23 @@ class CalReply extends RecurIdInfo {
   CalReply(super.recurrenceRangeType, super.recurrenceId,
       {this.attendee, this.sentBy, this.partStat, this.sequence, this.date, super.timezone, super.recurIdZ});
 
-  factory CalReply.fromJson(Map<String, dynamic> json) => CalReply(
-        json['rangeType'] ?? 1,
-        json['recurId'] ?? '',
-        attendee: json['at'],
-        sentBy: json['sentBy'],
+  factory CalReply.fromMap(Map<String, dynamic> data) => CalReply(
+        data['rangeType'] ?? 1,
+        data['recurId'] ?? '',
+        attendee: data['at'],
+        sentBy: data['sentBy'],
         partStat: ParticipationStatus.values.firstWhere(
-          (ptst) => ptst.name == json['ptst'],
+          (ptst) => ptst.name == data['ptst'],
           orElse: () => ParticipationStatus.inProcess,
         ),
-        sequence: json['seq'],
-        date: json['d'],
-        timezone: json['tz'],
-        recurIdZ: json['ridZ'],
+        sequence: data['seq'],
+        date: data['d'],
+        timezone: data['tz'],
+        recurIdZ: data['ridZ'],
       );
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'rangeType': recurrenceRangeType,
         'recurId': recurrenceId,
         if (attendee != null) 'at': attendee,

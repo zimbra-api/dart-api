@@ -15,17 +15,17 @@ class CurrentTimeTest extends FilterTest {
 
   CurrentTimeTest({this.dateComparison, this.time, super.index, super.negative});
 
-  factory CurrentTimeTest.fromJson(Map<String, dynamic> json) => CurrentTimeTest(
+  factory CurrentTimeTest.fromMap(Map<String, dynamic> data) => CurrentTimeTest(
       dateComparison: DateComparison.values.firstWhere(
-        (dateComparison) => dateComparison.name == json['dateComparison'],
+        (dateComparison) => dateComparison.name == data['dateComparison'],
         orElse: () => DateComparison.before,
       ),
-      time: json['time'],
-      index: json['index'],
-      negative: json['negative']);
+      time: data['time'],
+      index: data['index'],
+      negative: data['negative']);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (dateComparison != null) 'dateComparison': dateComparison!.name,
         if (time != null) 'time': time,
         if (index != null) 'index': index,

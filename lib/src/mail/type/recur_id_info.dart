@@ -19,10 +19,10 @@ class RecurIdInfo {
 
   RecurIdInfo(this.recurrenceRangeType, this.recurrenceId, {this.timezone, this.recurIdZ});
 
-  factory RecurIdInfo.fromJson(Map<String, dynamic> json) =>
-      RecurIdInfo(json['rangeType'] ?? 1, json['recurId'] ?? '', timezone: json['tz'], recurIdZ: json['ridZ']);
+  factory RecurIdInfo.fromMap(Map<String, dynamic> data) =>
+      RecurIdInfo(data['rangeType'] ?? 1, data['recurId'] ?? '', timezone: data['tz'], recurIdZ: data['ridZ']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'rangeType': recurrenceRangeType,
         'recurId': recurrenceId,
         if (timezone != null) 'tz': timezone,

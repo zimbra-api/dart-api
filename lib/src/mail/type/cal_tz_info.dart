@@ -33,19 +33,19 @@ class CalTZInfo {
   CalTZInfo(this.id, this.tzStdOffset, this.tzDayOffset,
       {this.standardTzOnset, this.daylightTzOnset, this.standardTZName, this.daylightTZName});
 
-  factory CalTZInfo.fromJson(Map<String, dynamic> json) =>
-      CalTZInfo(json['id'] ?? '', json['stdoff'] ?? 0, json['dayoff'] ?? 0,
-          standardTzOnset: json['standard'] is Map ? TzOnsetInfo.fromJson(json['standard']) : null,
-          daylightTzOnset: json['daylight'] is Map ? TzOnsetInfo.fromJson(json['daylight']) : null,
-          standardTZName: json['stdname'],
-          daylightTZName: json['dayname']);
+  factory CalTZInfo.fromMap(Map<String, dynamic> data) =>
+      CalTZInfo(data['id'] ?? '', data['stdoff'] ?? 0, data['dayoff'] ?? 0,
+          standardTzOnset: data['standard'] is Map ? TzOnsetInfo.fromMap(data['standard']) : null,
+          daylightTzOnset: data['daylight'] is Map ? TzOnsetInfo.fromMap(data['daylight']) : null,
+          standardTZName: data['stdname'],
+          daylightTZName: data['dayname']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'id': id,
         'stdoff': tzStdOffset,
         'dayoff': tzDayOffset,
-        if (standardTzOnset != null) 'standard': standardTzOnset!.toJson(),
-        if (daylightTzOnset != null) 'daylight': daylightTzOnset!.toJson(),
+        if (standardTzOnset != null) 'standard': standardTzOnset!.toMap(),
+        if (daylightTzOnset != null) 'daylight': daylightTzOnset!.toMap(),
         if (standardTZName != null) 'stdname': standardTZName,
         if (daylightTZName != null) 'dayname': daylightTZName,
       };

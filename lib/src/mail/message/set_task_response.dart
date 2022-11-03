@@ -10,11 +10,11 @@ import 'set_appointment_response.dart';
 class SetTaskResponse extends SetAppointmentResponse {
   SetTaskResponse({super.calItemId, super.deprecatedApptId, super.defaultId, super.exceptions = const []});
 
-  factory SetTaskResponse.fromJson(Map<String, dynamic> json) => SetTaskResponse(
-      calItemId: json['calItemId'],
-      deprecatedApptId: json['apptId'],
-      defaultId: json['default'] is Map ? Id.fromJson(json['default']) : null,
-      exceptions: (json['except'] is Iterable)
-          ? List.from((json['except'] as Iterable).map<ExceptIdInfo>((except) => ExceptIdInfo.fromJson(except)))
+  factory SetTaskResponse.fromMap(Map<String, dynamic> data) => SetTaskResponse(
+      calItemId: data['calItemId'],
+      deprecatedApptId: data['apptId'],
+      defaultId: data['default'] is Map ? Id.fromMap(data['default']) : null,
+      exceptions: (data['except'] is Iterable)
+          ? List.from((data['except'] as Iterable).map<ExceptIdInfo>((except) => ExceptIdInfo.fromMap(except)))
           : []);
 }

@@ -63,38 +63,38 @@ class FolderActionSelector extends ActionSelector {
       this.retentionPolicy,
       this.numDays});
 
-  factory FolderActionSelector.fromJson(Map<String, dynamic> json) =>
-      FolderActionSelector(json['id'] ?? '', json['op'] ?? '',
-          constraint: json['tcon'],
-          tag: json['tag'],
-          folder: json['l'],
-          rgb: json['rgb'],
-          color: json['color'],
-          name: json['name'],
-          flags: json['f'],
-          tags: json['t'],
-          tagNames: json['tn'],
-          nonExistentIds: json['nei'],
-          newlyCreatedIds: json['nci'],
-          recursive: json['recursive'],
-          url: json['url'],
-          excludeFreeBusy: json['excludeFreeBusy'],
-          zimbraId: json['zid'],
+  factory FolderActionSelector.fromMap(Map<String, dynamic> data) =>
+      FolderActionSelector(data['id'] ?? '', data['op'] ?? '',
+          constraint: data['tcon'],
+          tag: data['tag'],
+          folder: data['l'],
+          rgb: data['rgb'],
+          color: data['color'],
+          name: data['name'],
+          flags: data['f'],
+          tags: data['t'],
+          tagNames: data['tn'],
+          nonExistentIds: data['nei'],
+          newlyCreatedIds: data['nci'],
+          recursive: data['recursive'],
+          url: data['url'],
+          excludeFreeBusy: data['excludeFreeBusy'],
+          zimbraId: data['zid'],
           grantType: GranteeType.values.firstWhere(
-            (gt) => gt.name == json['gt'],
+            (gt) => gt.name == data['gt'],
             orElse: () => GranteeType.all,
           ),
-          view: json['view'],
-          grant: json['grant'] is Map ? ActionGrantSelector.fromJson(json['grant']) : null,
-          grants: (json['acl']?['grant'] is Iterable)
-              ? List.from((json['acl']['grant'] as Iterable)
-                  .map<ActionGrantSelector>((grant) => ActionGrantSelector.fromJson(grant)))
+          view: data['view'],
+          grant: data['grant'] is Map ? ActionGrantSelector.fromMap(data['grant']) : null,
+          grants: (data['acl']?['grant'] is Iterable)
+              ? List.from((data['acl']['grant'] as Iterable)
+                  .map<ActionGrantSelector>((grant) => ActionGrantSelector.fromMap(grant)))
               : [],
-          retentionPolicy: json['retentionPolicy'] is Map ? RetentionPolicy.fromJson(json['retentionPolicy']) : null,
-          numDays: json['numDays']);
+          retentionPolicy: data['retentionPolicy'] is Map ? RetentionPolicy.fromMap(data['retentionPolicy']) : null,
+          numDays: data['numDays']);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'id': ids,
         'op': operation,
         if (constraint != null) 'tcon': constraint,
@@ -114,9 +114,9 @@ class FolderActionSelector extends ActionSelector {
         if (zimbraId != null) 'zid': zimbraId,
         if (grantType != null) 'gt': grantType!.name,
         if (view != null) 'view': view,
-        if (grant != null) 'grant': grant!.toJson(),
-        if (grants.isNotEmpty) 'acl': {'grant': grants.map((grant) => grant.toJson()).toList()},
-        if (retentionPolicy != null) 'retentionPolicy': retentionPolicy!.toJson(),
+        if (grant != null) 'grant': grant!.toMap(),
+        if (grants.isNotEmpty) 'acl': {'grant': grants.map((grant) => grant.toMap()).toList()},
+        if (retentionPolicy != null) 'retentionPolicy': retentionPolicy!.toMap(),
         if (numDays != null) 'numDays': numDays,
       };
 }

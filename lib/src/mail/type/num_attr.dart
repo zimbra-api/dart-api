@@ -9,9 +9,9 @@ class NumAttr {
 
   NumAttr(this.num);
 
-  factory NumAttr.fromJson(Map<String, dynamic> json) => NumAttr(json['num'] ?? 0);
+  factory NumAttr.fromMap(Map<String, dynamic> data) => NumAttr(data['num'] ?? 0);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'num': num,
       };
 }

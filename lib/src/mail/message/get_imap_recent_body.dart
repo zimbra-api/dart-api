@@ -12,17 +12,17 @@ class GetIMAPRecentBody extends SoapBody {
   GetIMAPRecentBody({GetIMAPRecentRequest? request, GetIMAPRecentResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory GetIMAPRecentBody.fromJson(Map<String, dynamic> json) => GetIMAPRecentBody(
+  factory GetIMAPRecentBody.fromMap(Map<String, dynamic> data) => GetIMAPRecentBody(
       response:
-          json['GetIMAPRecentResponse'] != null ? GetIMAPRecentResponse.fromJson(json['GetIMAPRecentResponse']) : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+          data['GetIMAPRecentResponse'] != null ? GetIMAPRecentResponse.fromMap(data['GetIMAPRecentResponse']) : null,
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   GetIMAPRecentRequest? get getIMAPRecentRequest => request as GetIMAPRecentRequest?;
 
   GetIMAPRecentResponse? get getIMAPRecentResponse => response as GetIMAPRecentResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'GetIMAPRecentRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'GetIMAPRecentRequest': request!.toMap(),
       };
 }

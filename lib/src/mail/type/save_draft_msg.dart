@@ -60,42 +60,42 @@ class SaveDraftMsg extends Msg {
     super.fragment,
   });
 
-  factory SaveDraftMsg.fromJson(Map<String, dynamic> json) => SaveDraftMsg(
-      id: json['id'],
-      draftAccountId: json['forAcct'],
-      tags: json['t'],
-      tagNames: json['tn'],
-      rgb: json['rgb'],
-      color: json['color'],
-      autoSendTime: json['autoSendTime'],
-      attachmentId: json['aid'],
-      origId: json['origid'],
+  factory SaveDraftMsg.fromMap(Map<String, dynamic> data) => SaveDraftMsg(
+      id: data['id'],
+      draftAccountId: data['forAcct'],
+      tags: data['t'],
+      tagNames: data['tn'],
+      rgb: data['rgb'],
+      color: data['color'],
+      autoSendTime: data['autoSendTime'],
+      attachmentId: data['aid'],
+      origId: data['origid'],
       replyType: ReplyType.values.firstWhere(
-        (rt) => rt.name == json['rt'],
+        (rt) => rt.name == data['rt'],
         orElse: () => ReplyType.replied,
       ),
-      identityId: json['idnt'],
-      subject: json['su'],
-      headers: (json['header'] is Iterable)
-          ? List.from((json['header'] as Iterable).map<Header>((header) => Header.fromJson(header)))
+      identityId: data['idnt'],
+      subject: data['su'],
+      headers: (data['header'] is Iterable)
+          ? List.from((data['header'] as Iterable).map<Header>((header) => Header.fromMap(header)))
           : [],
-      inReplyTo: json['irt'],
-      folderId: json['l'],
-      flags: json['f'],
-      content: json['content']?['_content'],
-      mimePart: (json['mp'] is Map) ? MimePartInfo.fromJson(json['mp']) : null,
-      attachments: (json['attach'] is Map) ? AttachmentsInfo.fromJson(json['attach']) : null,
-      invite: (json['inv'] is Map) ? InvitationInfo.fromJson(json['inv']) : null,
-      emailAddresses: (json['e'] is Iterable)
-          ? List.from((json['e'] as Iterable).map<EmailAddrInfo>((e) => EmailAddrInfo.fromJson(e)))
+      inReplyTo: data['irt'],
+      folderId: data['l'],
+      flags: data['f'],
+      content: data['content']?['_content'],
+      mimePart: (data['mp'] is Map) ? MimePartInfo.fromMap(data['mp']) : null,
+      attachments: (data['attach'] is Map) ? AttachmentsInfo.fromMap(data['attach']) : null,
+      invite: (data['inv'] is Map) ? InvitationInfo.fromMap(data['inv']) : null,
+      emailAddresses: (data['e'] is Iterable)
+          ? List.from((data['e'] as Iterable).map<EmailAddrInfo>((e) => EmailAddrInfo.fromMap(e)))
           : [],
-      timezones: (json['tz'] is Iterable)
-          ? List.from((json['tz'] as Iterable).map<CalTZInfo>((tz) => CalTZInfo.fromJson(tz)))
+      timezones: (data['tz'] is Iterable)
+          ? List.from((data['tz'] as Iterable).map<CalTZInfo>((tz) => CalTZInfo.fromMap(tz)))
           : [],
-      fragment: json['fr']?['_content']);
+      fragment: data['fr']?['_content']);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (id != null) 'id': id,
         if (draftAccountId != null) 'forAcct': draftAccountId,
         if (tags != null) 't': tags,
@@ -108,16 +108,16 @@ class SaveDraftMsg extends Msg {
         if (replyType != null) 'rt': replyType!.name,
         if (identityId != null) 'idnt': identityId,
         if (subject != null) 'su': subject,
-        if (headers.isNotEmpty) 'header': headers.map((header) => header.toJson()).toList(),
+        if (headers.isNotEmpty) 'header': headers.map((header) => header.toMap()).toList(),
         if (inReplyTo != null) 'irt': inReplyTo,
         if (folderId != null) 'l': folderId,
         if (flags != null) 'f': flags,
         if (content != null) 'content': {'_content': content},
-        if (mimePart != null) 'mp': mimePart!.toJson(),
-        if (attachments != null) 'attach': attachments!.toJson(),
-        if (invite != null) 'inv': invite!.toJson(),
-        if (emailAddresses.isNotEmpty) 'e': emailAddresses.map((e) => e.toJson()).toList(),
-        if (timezones.isNotEmpty) 'tz': timezones.map((tz) => tz.toJson()).toList(),
+        if (mimePart != null) 'mp': mimePart!.toMap(),
+        if (attachments != null) 'attach': attachments!.toMap(),
+        if (invite != null) 'inv': invite!.toMap(),
+        if (emailAddresses.isNotEmpty) 'e': emailAddresses.map((e) => e.toMap()).toList(),
+        if (timezones.isNotEmpty) 'tz': timezones.map((tz) => tz.toMap()).toList(),
         if (fragment != null) 'fr': {'_content': fragment},
       };
 }

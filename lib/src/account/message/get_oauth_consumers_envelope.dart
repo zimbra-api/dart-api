@@ -10,9 +10,9 @@ import 'get_oauth_consumers_body.dart';
 class GetOAuthConsumersEnvelope extends SoapEnvelope {
   GetOAuthConsumersEnvelope(GetOAuthConsumersBody body, {super.header}) : super(body);
 
-  factory GetOAuthConsumersEnvelope.fromJson(Map<String, dynamic> json) =>
-      GetOAuthConsumersEnvelope(GetOAuthConsumersBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory GetOAuthConsumersEnvelope.fromMap(Map<String, dynamic> data) =>
+      GetOAuthConsumersEnvelope(GetOAuthConsumersBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   GetOAuthConsumersBody get getOAuthConsumersBody => body as GetOAuthConsumersBody;
 }

@@ -12,16 +12,16 @@ class GetCommentsBody extends SoapBody {
   GetCommentsBody({GetCommentsRequest? request, GetCommentsResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory GetCommentsBody.fromJson(Map<String, dynamic> json) => GetCommentsBody(
-      response: json['GetCommentsResponse'] != null ? GetCommentsResponse.fromJson(json['GetCommentsResponse']) : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+  factory GetCommentsBody.fromMap(Map<String, dynamic> data) => GetCommentsBody(
+      response: data['GetCommentsResponse'] != null ? GetCommentsResponse.fromMap(data['GetCommentsResponse']) : null,
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   GetCommentsRequest? get getCommentsRequest => request as GetCommentsRequest?;
 
   GetCommentsResponse? get getCommentsResponse => response as GetCommentsResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'GetCommentsRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'GetCommentsRequest': request!.toMap(),
       };
 }

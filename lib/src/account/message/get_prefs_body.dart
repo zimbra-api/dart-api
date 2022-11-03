@@ -12,16 +12,16 @@ class GetPrefsBody extends SoapBody {
   GetPrefsBody({GetPrefsRequest? request, GetPrefsResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory GetPrefsBody.fromJson(Map<String, dynamic> json) => GetPrefsBody(
-      response: json['GetPrefsResponse'] != null ? GetPrefsResponse.fromJson(json['GetPrefsResponse']) : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+  factory GetPrefsBody.fromMap(Map<String, dynamic> data) => GetPrefsBody(
+      response: data['GetPrefsResponse'] != null ? GetPrefsResponse.fromMap(data['GetPrefsResponse']) : null,
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   GetPrefsRequest? get getPrefsRequest => request as GetPrefsRequest?;
 
   GetPrefsResponse? get getPrefsResponse => response as GetPrefsResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'GetPrefsRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'GetPrefsRequest': request!.toMap(),
       };
 }

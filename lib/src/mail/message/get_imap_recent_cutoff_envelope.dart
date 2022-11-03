@@ -10,9 +10,9 @@ import 'get_imap_recent_cutoff_body.dart';
 class GetIMAPRecentCutoffEnvelope extends SoapEnvelope {
   GetIMAPRecentCutoffEnvelope(GetIMAPRecentCutoffBody body, {super.header}) : super(body);
 
-  factory GetIMAPRecentCutoffEnvelope.fromJson(Map<String, dynamic> json) =>
-      GetIMAPRecentCutoffEnvelope(GetIMAPRecentCutoffBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory GetIMAPRecentCutoffEnvelope.fromMap(Map<String, dynamic> data) =>
+      GetIMAPRecentCutoffEnvelope(GetIMAPRecentCutoffBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   GetIMAPRecentCutoffBody get getIMAPRecentCutoffBody => body as GetIMAPRecentCutoffBody;
 }

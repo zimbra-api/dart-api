@@ -26,23 +26,23 @@ class ConvActionSelector extends ActionSelector {
       super.newlyCreatedIds,
       this.acctRelativePath});
 
-  factory ConvActionSelector.fromJson(Map<String, dynamic> json) =>
-      ConvActionSelector(json['id'] ?? '', json['op'] ?? '',
-          constraint: json['tcon'],
-          tag: json['tag'],
-          folder: json['l'],
-          rgb: json['rgb'],
-          color: json['color'],
-          name: json['name'],
-          flags: json['f'],
-          tags: json['t'],
-          tagNames: json['tn'],
-          nonExistentIds: json['nei'],
-          newlyCreatedIds: json['nci'],
-          acctRelativePath: json['acctRelPath']?['_content']);
+  factory ConvActionSelector.fromMap(Map<String, dynamic> data) =>
+      ConvActionSelector(data['id'] ?? '', data['op'] ?? '',
+          constraint: data['tcon'],
+          tag: data['tag'],
+          folder: data['l'],
+          rgb: data['rgb'],
+          color: data['color'],
+          name: data['name'],
+          flags: data['f'],
+          tags: data['t'],
+          tagNames: data['tn'],
+          nonExistentIds: data['nei'],
+          newlyCreatedIds: data['nci'],
+          acctRelativePath: data['acctRelPath']?['_content']);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'id': ids,
         'op': operation,
         if (constraint != null) 'tcon': constraint,

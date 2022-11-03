@@ -13,10 +13,10 @@ class CalendarAttach {
   final String? binaryB64Data;
 
   CalendarAttach({this.uri, this.contentType, this.binaryB64Data});
-  factory CalendarAttach.fromJson(Map<String, dynamic> json) =>
-      CalendarAttach(uri: json['uri'], contentType: json['ct'], binaryB64Data: json['_content']);
+  factory CalendarAttach.fromMap(Map<String, dynamic> data) =>
+      CalendarAttach(uri: data['uri'], contentType: data['ct'], binaryB64Data: data['_content']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (uri != null) 'uri': uri,
         if (contentType != null) 'ct': contentType,
         if (binaryB64Data != null) '_content': binaryB64Data,

@@ -11,9 +11,9 @@ class GetFilterRulesResponse extends SoapResponse {
 
   GetFilterRulesResponse({this.filterRules = const []});
 
-  factory GetFilterRulesResponse.fromJson(Map<String, dynamic> json) => GetFilterRulesResponse(
-      filterRules: (json['filterRules']?[0]['filterRule'] is Iterable)
-          ? List.from((json['filterRules'][0]['filterRule'] as Iterable)
-              .map<FilterRule>((filterRule) => FilterRule.fromJson(filterRule)))
+  factory GetFilterRulesResponse.fromMap(Map<String, dynamic> data) => GetFilterRulesResponse(
+      filterRules: (data['filterRules']?[0]['filterRule'] is Iterable)
+          ? List.from((data['filterRules'][0]['filterRule'] as Iterable)
+              .map<FilterRule>((filterRule) => FilterRule.fromMap(filterRule)))
           : []);
 }

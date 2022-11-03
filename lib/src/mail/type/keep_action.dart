@@ -7,5 +7,5 @@ import 'filter_action.dart';
 class KeepAction extends FilterAction {
   KeepAction({super.index});
 
-  factory KeepAction.fromJson(Map<String, dynamic> json) => KeepAction(index: json['index']);
+  factory KeepAction.fromMap(Map<String, dynamic> data) => KeepAction(index: data['index']);
 }

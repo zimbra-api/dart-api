@@ -32,7 +32,7 @@ class SetRecoveryAccountRequest extends SoapRequest {
       SetRecoveryAccountEnvelope(SetRecoveryAccountBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
         'op': operation.name,
         'recoveryAccount': recoveryAccount,

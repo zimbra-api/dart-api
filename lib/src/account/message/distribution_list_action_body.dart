@@ -13,18 +13,18 @@ class DistributionListActionBody extends SoapBody {
       {DistributionListActionRequest? request, DistributionListActionResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory DistributionListActionBody.fromJson(Map<String, dynamic> json) => DistributionListActionBody(
-      response: json['DistributionListActionResponse'] != null
-          ? DistributionListActionResponse.fromJson(json['DistributionListActionResponse'])
+  factory DistributionListActionBody.fromMap(Map<String, dynamic> data) => DistributionListActionBody(
+      response: data['DistributionListActionResponse'] != null
+          ? DistributionListActionResponse.fromMap(data['DistributionListActionResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   DistributionListActionRequest? get distributionListActionRequest => request as DistributionListActionRequest?;
 
   DistributionListActionResponse? get distributionListActionResponse => response as DistributionListActionResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'DistributionListActionRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'DistributionListActionRequest': request!.toMap(),
       };
 }

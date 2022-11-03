@@ -12,17 +12,17 @@ class GetPermissionBody extends SoapBody {
   GetPermissionBody({GetPermissionRequest? request, GetPermissionResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory GetPermissionBody.fromJson(Map<String, dynamic> json) => GetPermissionBody(
+  factory GetPermissionBody.fromMap(Map<String, dynamic> data) => GetPermissionBody(
       response:
-          json['GetPermissionResponse'] != null ? GetPermissionResponse.fromJson(json['GetPermissionResponse']) : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+          data['GetPermissionResponse'] != null ? GetPermissionResponse.fromMap(data['GetPermissionResponse']) : null,
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   GetPermissionRequest? get getPermissionRequest => request as GetPermissionRequest?;
 
   GetPermissionResponse? get getPermissionResponse => response as GetPermissionResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'GetPermissionRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'GetPermissionRequest': request!.toMap(),
       };
 }

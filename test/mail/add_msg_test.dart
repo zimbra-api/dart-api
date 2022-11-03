@@ -46,7 +46,7 @@ void main() {
               attachmentId: attachmentId,
               content: content),
           filterSent: filterSent);
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'AddMsgRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -176,7 +176,7 @@ void main() {
       final neverSent = faker.randomGenerator.boolean();
       final changes = faker.lorem.words(3).join(',');
 
-      final json = {
+      final data = {
         'Body': {
           'AddMsgResponse': {
             '_jsns': 'urn:zimbraAccount',
@@ -577,7 +577,7 @@ void main() {
           }
         }
       };
-      final envelope = AddMsgEnvelope.fromJson(json);
+      final envelope = AddMsgEnvelope.fromMap(data);
       final response = envelope.addMsgBody.addMsgResponse!;
       final chatMessage = response.chatMessage!;
       final message = response.message!;

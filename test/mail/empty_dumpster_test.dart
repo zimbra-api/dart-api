@@ -7,7 +7,7 @@ void main() {
   group('Empty dumpster tests', (() {
     test('Empty dumpster request', (() {
       final request = EmptyDumpsterRequest();
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'EmptyDumpsterRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -17,14 +17,14 @@ void main() {
     }));
 
     test('Empty dumpster response', (() {
-      final json = {
+      final data = {
         'Body': {
           'EmptyDumpsterResponse': {
             '_jsns': 'urn:zimbraMail',
           }
         }
       };
-      final envelope = EmptyDumpsterEnvelope.fromJson(json);
+      final envelope = EmptyDumpsterEnvelope.fromMap(data);
       expect(envelope.emptyDumpsterBody.emptyDumpsterResponse, isNotNull);
       expect(envelope.emptyDumpsterBody.emptyDumpsterResponse, isA<EmptyDumpsterResponse>());
     }));

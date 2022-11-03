@@ -11,10 +11,10 @@ class ImportContact {
 
   ImportContact({this.listOfCreatedIds, this.numImported});
 
-  factory ImportContact.fromJson(Map<String, dynamic> json) =>
-      ImportContact(listOfCreatedIds: json['ids'], numImported: json['n']);
+  factory ImportContact.fromMap(Map<String, dynamic> data) =>
+      ImportContact(listOfCreatedIds: data['ids'], numImported: data['n']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (listOfCreatedIds != null) 'ids': listOfCreatedIds,
         if (numImported != null) 'n': numImported,
       };

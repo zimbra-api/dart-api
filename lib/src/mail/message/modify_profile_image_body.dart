@@ -12,18 +12,18 @@ class ModifyProfileImageBody extends SoapBody {
   ModifyProfileImageBody({ModifyProfileImageRequest? request, ModifyProfileImageResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory ModifyProfileImageBody.fromJson(Map<String, dynamic> json) => ModifyProfileImageBody(
-      response: json['ModifyProfileImageResponse'] != null
-          ? ModifyProfileImageResponse.fromJson(json['ModifyProfileImageResponse'])
+  factory ModifyProfileImageBody.fromMap(Map<String, dynamic> data) => ModifyProfileImageBody(
+      response: data['ModifyProfileImageResponse'] != null
+          ? ModifyProfileImageResponse.fromMap(data['ModifyProfileImageResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   ModifyProfileImageRequest? get modifyProfileImageRequest => request as ModifyProfileImageRequest?;
 
   ModifyProfileImageResponse? get modifyProfileImageResponse => response as ModifyProfileImageResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'ModifyProfileImageRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'ModifyProfileImageRequest': request!.toMap(),
       };
 }

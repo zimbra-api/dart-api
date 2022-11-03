@@ -10,9 +10,9 @@ import 'empty_dumpster_body.dart';
 class EmptyDumpsterEnvelope extends SoapEnvelope {
   EmptyDumpsterEnvelope(EmptyDumpsterBody body, {super.header}) : super(body);
 
-  factory EmptyDumpsterEnvelope.fromJson(Map<String, dynamic> json) =>
-      EmptyDumpsterEnvelope(EmptyDumpsterBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory EmptyDumpsterEnvelope.fromMap(Map<String, dynamic> data) =>
+      EmptyDumpsterEnvelope(EmptyDumpsterBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   EmptyDumpsterBody get emptyDumpsterBody => body as EmptyDumpsterBody;
 }

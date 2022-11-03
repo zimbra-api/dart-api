@@ -17,7 +17,7 @@ void main() {
       final folder = faker.randomGenerator.integer(100);
 
       final request = IMAPCopyRequest(ids, MailItemType.message, folder);
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'IMAPCopyRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -32,7 +32,7 @@ void main() {
     test('IMAP copy response', (() {
       final id = faker.randomGenerator.integer(100);
       final imapUid = faker.randomGenerator.integer(100);
-      final json = {
+      final data = {
         'Body': {
           'IMAPCopyResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -45,7 +45,7 @@ void main() {
           }
         }
       };
-      final envelope = IMAPCopyEnvelope.fromJson(json);
+      final envelope = IMAPCopyEnvelope.fromMap(data);
       final response = envelope.imapCopyBody.imapCopyResponse!;
       final item = response.items.first;
 

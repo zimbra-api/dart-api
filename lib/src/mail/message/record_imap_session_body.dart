@@ -12,18 +12,18 @@ class RecordIMAPSessionBody extends SoapBody {
   RecordIMAPSessionBody({RecordIMAPSessionRequest? request, RecordIMAPSessionResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory RecordIMAPSessionBody.fromJson(Map<String, dynamic> json) => RecordIMAPSessionBody(
-      response: json['RecordIMAPSessionResponse'] != null
-          ? RecordIMAPSessionResponse.fromJson(json['RecordIMAPSessionResponse'])
+  factory RecordIMAPSessionBody.fromMap(Map<String, dynamic> data) => RecordIMAPSessionBody(
+      response: data['RecordIMAPSessionResponse'] != null
+          ? RecordIMAPSessionResponse.fromMap(data['RecordIMAPSessionResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   RecordIMAPSessionRequest? get recordIMAPSessionRequest => request as RecordIMAPSessionRequest?;
 
   RecordIMAPSessionResponse? get recordIMAPSessionResponse => response as RecordIMAPSessionResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'RecordIMAPSessionRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'RecordIMAPSessionRequest': request!.toMap(),
       };
 }

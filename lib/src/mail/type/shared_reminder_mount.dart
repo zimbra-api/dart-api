@@ -11,10 +11,10 @@ class SharedReminderMount {
 
   SharedReminderMount(this.id, {this.showReminders});
 
-  factory SharedReminderMount.fromJson(Map<String, dynamic> json) =>
-      SharedReminderMount(json['id'] ?? '', showReminders: json['reminder']);
+  factory SharedReminderMount.fromMap(Map<String, dynamic> data) =>
+      SharedReminderMount(data['id'] ?? '', showReminders: data['reminder']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'id': id,
         if (showReminders != null) 'reminder': showReminders,
       };

@@ -10,7 +10,7 @@ void main() {
     test('Get OAuth consumers request', (() {
       final request = GetOAuthConsumersRequest();
 
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'GetOAuthConsumersRequest': {
             '_jsns': 'urn:zimbraAccount',
@@ -25,7 +25,7 @@ void main() {
       final applicationName = faker.lorem.word();
       final device = faker.lorem.word();
 
-      final json = {
+      final data = {
         'Body': {
           'GetOAuthConsumersResponse': {
             '_jsns': 'urn:zimbraAccount',
@@ -40,7 +40,7 @@ void main() {
           }
         }
       };
-      final envelope = GetOAuthConsumersEnvelope.fromJson(json);
+      final envelope = GetOAuthConsumersEnvelope.fromMap(data);
       final response = envelope.getOAuthConsumersBody.getOAuthConsumersResponse!;
       final consumer = response.consumers.first;
 

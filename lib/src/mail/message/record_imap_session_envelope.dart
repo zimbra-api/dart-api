@@ -10,9 +10,9 @@ import 'record_imap_session_body.dart';
 class RecordIMAPSessionEnvelope extends SoapEnvelope {
   RecordIMAPSessionEnvelope(RecordIMAPSessionBody body, {super.header}) : super(body);
 
-  factory RecordIMAPSessionEnvelope.fromJson(Map<String, dynamic> json) =>
-      RecordIMAPSessionEnvelope(RecordIMAPSessionBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory RecordIMAPSessionEnvelope.fromMap(Map<String, dynamic> data) =>
+      RecordIMAPSessionEnvelope(RecordIMAPSessionBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   RecordIMAPSessionBody get recordIMAPSessionBody => body as RecordIMAPSessionBody;
 }

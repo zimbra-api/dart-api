@@ -16,7 +16,7 @@ void main() {
       final identity = NameId(name: name, id: id);
       final request = DeleteIdentityRequest(identity);
 
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'DeleteIdentityRequest': {
             '_jsns': 'urn:zimbraAccount',
@@ -30,14 +30,14 @@ void main() {
     }));
 
     test('Delete identity response', (() {
-      final json = {
+      final data = {
         'Body': {
           'DeleteIdentityResponse': {
             '_jsns': 'urn:zimbraAccount',
           }
         }
       };
-      final envelope = DeleteIdentityEnvelope.fromJson(json);
+      final envelope = DeleteIdentityEnvelope.fromMap(data);
       expect(envelope.deleteIdentityBody.deleteIdentityResponse, isNotNull);
       expect(envelope.deleteIdentityBody.deleteIdentityResponse, isA<DeleteIdentityResponse>());
     }));

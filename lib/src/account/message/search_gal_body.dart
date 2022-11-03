@@ -12,16 +12,16 @@ class SearchGalBody extends SoapBody {
   SearchGalBody({SearchGalRequest? request, SearchGalResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory SearchGalBody.fromJson(Map<String, dynamic> json) => SearchGalBody(
-      response: json['SearchGalResponse'] != null ? SearchGalResponse.fromJson(json['SearchGalResponse']) : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+  factory SearchGalBody.fromMap(Map<String, dynamic> data) => SearchGalBody(
+      response: data['SearchGalResponse'] != null ? SearchGalResponse.fromMap(data['SearchGalResponse']) : null,
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   SearchGalRequest? get searchGalRequest => request as SearchGalRequest?;
 
   SearchGalResponse? get searchGalResponse => response as SearchGalResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'SearchGalRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'SearchGalRequest': request!.toMap(),
       };
 }

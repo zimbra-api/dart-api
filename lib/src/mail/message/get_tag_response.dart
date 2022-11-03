@@ -11,8 +11,8 @@ class GetTagResponse extends SoapResponse {
 
   GetTagResponse({this.tags = const []});
 
-  factory GetTagResponse.fromJson(Map<String, dynamic> json) => GetTagResponse(
-      tags: (json['tag'] is Iterable)
-          ? List.from((json['tag'] as Iterable).map<TagInfo>((tag) => TagInfo.fromJson(tag)))
+  factory GetTagResponse.fromMap(Map<String, dynamic> data) => GetTagResponse(
+      tags: (data['tag'] is Iterable)
+          ? List.from((data['tag'] as Iterable).map<TagInfo>((tag) => TagInfo.fromMap(tag)))
           : []);
 }

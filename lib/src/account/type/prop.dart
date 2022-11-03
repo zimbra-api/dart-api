@@ -11,9 +11,9 @@ class Prop {
 
   Prop(this.zimlet, this.name, {this.value});
 
-  factory Prop.fromJson(Map<String, dynamic> json) => Prop(json['zimlet'], json['name'], value: json['_content']);
+  factory Prop.fromMap(Map<String, dynamic> data) => Prop(data['zimlet'], data['name'], value: data['_content']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'zimlet': zimlet,
         'name': name,
         if (value != null) '_content': value,

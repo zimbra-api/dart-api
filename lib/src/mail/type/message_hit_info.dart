@@ -62,65 +62,65 @@ class MessageHitInfo extends MessageInfo {
       super.modifiedSequence,
       super.metadatas = const []});
 
-  factory MessageHitInfo.fromJson(Map<String, dynamic> json) => MessageHitInfo(
-      sortField: json['sf'],
-      contentMatched: json['cm'],
+  factory MessageHitInfo.fromMap(Map<String, dynamic> data) => MessageHitInfo(
+      sortField: data['sf'],
+      contentMatched: data['cm'],
       messagePartHits:
-          (json['hp'] is Iterable) ? List.from((json['hp'] as Iterable).map<Part>((hp) => Part.fromJson(hp))) : [],
-      id: json['id'],
-      imapUid: json['i4uid'],
-      calendarIntendedFor: json['cif'],
-      origId: json['origid'],
+          (data['hp'] is Iterable) ? List.from((data['hp'] as Iterable).map<Part>((hp) => Part.fromMap(hp))) : [],
+      id: data['id'],
+      imapUid: data['i4uid'],
+      calendarIntendedFor: data['cif'],
+      origId: data['origid'],
       draftReplyType: ReplyType.values.firstWhere(
-        (rt) => rt.name == json['rt'],
+        (rt) => rt.name == data['rt'],
         orElse: () => ReplyType.replied,
       ),
-      identityId: json['idnt'],
-      draftAccountId: json['forAcct'],
-      draftAutoSendTime: json['autoSendTime'],
-      sentDate: json['sd'],
-      resentDate: json['rd'],
-      part: json['part'],
-      fragment: json['fr']?['_content'],
-      emails: (json['e'] is Iterable)
-          ? List.from((json['e'] as Iterable).map<EmailInfo>((e) => EmailInfo.fromJson(e)))
+      identityId: data['idnt'],
+      draftAccountId: data['forAcct'],
+      draftAutoSendTime: data['autoSendTime'],
+      sentDate: data['sd'],
+      resentDate: data['rd'],
+      part: data['part'],
+      fragment: data['fr']?['_content'],
+      emails: (data['e'] is Iterable)
+          ? List.from((data['e'] as Iterable).map<EmailInfo>((e) => EmailInfo.fromMap(e)))
           : [],
-      subject: json['su']?['_content'],
-      messageIdHeader: json['mid']?['_content'],
-      inReplyTo: json['irt'],
-      invite: json['inv'] is Map ? InviteInfo.fromJson(json['inv']) : null,
-      headers: (json['header'] is Iterable)
-          ? List.from((json['header'] as Iterable).map<KeyValuePair>((header) => KeyValuePair.fromJson(header)))
+      subject: data['su']?['_content'],
+      messageIdHeader: data['mid']?['_content'],
+      inReplyTo: data['irt'],
+      invite: data['inv'] is Map ? InviteInfo.fromMap(data['inv']) : null,
+      headers: (data['header'] is Iterable)
+          ? List.from((data['header'] as Iterable).map<KeyValuePair>((header) => KeyValuePair.fromMap(header)))
           : [],
-      partInfos: (json['mp'] is Iterable)
-          ? List.from((json['mp'] as Iterable).map<PartInfo>((mp) => PartInfo.fromJson(mp)))
+      partInfos: (data['mp'] is Iterable)
+          ? List.from((data['mp'] as Iterable).map<PartInfo>((mp) => PartInfo.fromMap(mp)))
           : [],
-      shareNotifications: (json['shr'] is Iterable)
-          ? List.from((json['shr'] as Iterable).map<ShareNotification>((shr) => ShareNotification.fromJson(shr)))
+      shareNotifications: (data['shr'] is Iterable)
+          ? List.from((data['shr'] as Iterable).map<ShareNotification>((shr) => ShareNotification.fromMap(shr)))
           : [],
-      dlSubsNotifications: (json['dlSubs'] is Iterable)
-          ? List.from((json['dlSubs'] as Iterable)
-              .map<DLSubscriptionNotification>((dlSubs) => DLSubscriptionNotification.fromJson(dlSubs)))
+      dlSubsNotifications: (data['dlSubs'] is Iterable)
+          ? List.from((data['dlSubs'] as Iterable)
+              .map<DLSubscriptionNotification>((dlSubs) => DLSubscriptionNotification.fromMap(dlSubs)))
           : [],
-      size: json['s'],
-      date: json['d'],
-      folder: json['l'],
-      conversationId: json['cid'],
-      flags: json['f'],
-      tags: json['t'],
-      tagNames: json['tn'],
-      revision: json['rev'],
-      changeDate: json['md'],
-      modifiedSequence: json['ms'],
-      metadatas: (json['meta'] is Iterable)
-          ? List.from((json['meta'] as Iterable).map<MailCustomMetadata>((meta) => MailCustomMetadata.fromJson(meta)))
+      size: data['s'],
+      date: data['d'],
+      folder: data['l'],
+      conversationId: data['cid'],
+      flags: data['f'],
+      tags: data['t'],
+      tagNames: data['tn'],
+      revision: data['rev'],
+      changeDate: data['md'],
+      modifiedSequence: data['ms'],
+      metadatas: (data['meta'] is Iterable)
+          ? List.from((data['meta'] as Iterable).map<MailCustomMetadata>((meta) => MailCustomMetadata.fromMap(meta)))
           : []);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (sortField != null) 'sf': sortField,
         if (contentMatched != null) 'cm': contentMatched,
-        if (messagePartHits.isNotEmpty) 'hp': messagePartHits.map((hp) => hp.toJson()).toList(),
+        if (messagePartHits.isNotEmpty) 'hp': messagePartHits.map((hp) => hp.toMap()).toList(),
         if (id != null) 'id': id,
         if (imapUid != null) 'i4uid': imapUid,
         if (calendarIntendedFor != null) 'cif': calendarIntendedFor,
@@ -133,15 +133,15 @@ class MessageHitInfo extends MessageInfo {
         if (resentDate != null) 'rd': resentDate,
         if (part != null) 'part': part,
         if (fragment != null) 'fr': {'_content': fragment},
-        if (emails.isNotEmpty) 'e': emails.map((e) => e.toJson()).toList(),
+        if (emails.isNotEmpty) 'e': emails.map((e) => e.toMap()).toList(),
         if (subject != null) 'su': {'_content': subject},
         if (messageIdHeader != null) 'mid': {'_content': messageIdHeader},
         if (inReplyTo != null) 'irt': inReplyTo,
-        if (invite != null) 'inv': invite!.toJson(),
-        if (headers.isNotEmpty) 'header': headers.map((header) => header.toJson()).toList(),
-        if (partInfos.isNotEmpty) 'mp': partInfos.map((mp) => mp.toJson()).toList(),
-        if (shareNotifications.isNotEmpty) 'shr': shareNotifications.map((shr) => shr.toJson()).toList(),
-        if (dlSubsNotifications.isNotEmpty) 'dlSubs': dlSubsNotifications.map((dlSubs) => dlSubs.toJson()).toList(),
+        if (invite != null) 'inv': invite!.toMap(),
+        if (headers.isNotEmpty) 'header': headers.map((header) => header.toMap()).toList(),
+        if (partInfos.isNotEmpty) 'mp': partInfos.map((mp) => mp.toMap()).toList(),
+        if (shareNotifications.isNotEmpty) 'shr': shareNotifications.map((shr) => shr.toMap()).toList(),
+        if (dlSubsNotifications.isNotEmpty) 'dlSubs': dlSubsNotifications.map((dlSubs) => dlSubs.toMap()).toList(),
         if (size != null) 's': size,
         if (date != null) 'd': date,
         if (folder != null) 'l': folder,
@@ -152,6 +152,6 @@ class MessageHitInfo extends MessageInfo {
         if (revision != null) 'rev': revision,
         if (changeDate != null) 'md': changeDate,
         if (modifiedSequence != null) 'ms': modifiedSequence,
-        if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toJson()).toList(),
+        if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toMap()).toList(),
       };
 }

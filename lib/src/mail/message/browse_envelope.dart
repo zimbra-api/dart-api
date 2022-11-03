@@ -10,8 +10,8 @@ import 'browse_body.dart';
 class BrowseEnvelope extends SoapEnvelope {
   BrowseEnvelope(BrowseBody body, {super.header}) : super(body);
 
-  factory BrowseEnvelope.fromJson(Map<String, dynamic> json) => BrowseEnvelope(BrowseBody.fromJson(json['Body']),
-      header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory BrowseEnvelope.fromMap(Map<String, dynamic> data) => BrowseEnvelope(BrowseBody.fromMap(data['Body']),
+      header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   BrowseBody get browseBody => body as BrowseBody;
 }

@@ -13,7 +13,7 @@ void main() {
       final offset = faker.randomGenerator.integer(10);
       final request = GetDistributionListMembersRequest(dl, limit: limit, offset: offset);
 
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'GetDistributionListMembersRequest': {
             '_jsns': 'urn:zimbraAccount',
@@ -33,7 +33,7 @@ void main() {
       final name = faker.lorem.word();
       final value = faker.lorem.word();
 
-      final json = {
+      final data = {
         'Body': {
           'GetDistributionListMembersResponse': {
             '_jsns': 'urn:zimbraAccount',
@@ -57,7 +57,7 @@ void main() {
           }
         }
       };
-      final envelope = GetDistributionListMembersEnvelope.fromJson(json);
+      final envelope = GetDistributionListMembersEnvelope.fromMap(data);
       final response = envelope.getDistributionListMembersBody.getDistributionListMembersResponse!;
 
       expect(response.more, more);

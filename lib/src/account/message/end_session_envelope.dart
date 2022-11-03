@@ -10,9 +10,9 @@ import 'end_session_body.dart';
 class EndSessionEnvelope extends SoapEnvelope {
   EndSessionEnvelope(EndSessionBody body, {super.header}) : super(body);
 
-  factory EndSessionEnvelope.fromJson(Map<String, dynamic> json) =>
-      EndSessionEnvelope(EndSessionBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory EndSessionEnvelope.fromMap(Map<String, dynamic> data) =>
+      EndSessionEnvelope(EndSessionBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   EndSessionBody get endSessionBody => body as EndSessionBody;
 }

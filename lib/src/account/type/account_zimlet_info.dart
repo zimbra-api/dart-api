@@ -18,14 +18,14 @@ class AccountZimletInfo {
 
   AccountZimletInfo({this.zimletContext, this.zimlet, this.zimletConfig});
 
-  factory AccountZimletInfo.fromJson(Map<String, dynamic> json) => AccountZimletInfo(
-      zimletContext: (json['zimletContext'] is Map) ? AccountZimletContext.fromJson(json['zimletContext']) : null,
-      zimlet: (json['zimlet'] is Map) ? AccountZimletDesc.fromJson(json['zimlet']) : null,
-      zimletConfig: (json['zimletConfig'] is Map) ? AccountZimletConfigInfo.fromJson(json['zimletConfig']) : null);
+  factory AccountZimletInfo.fromMap(Map<String, dynamic> data) => AccountZimletInfo(
+      zimletContext: (data['zimletContext'] is Map) ? AccountZimletContext.fromMap(data['zimletContext']) : null,
+      zimlet: (data['zimlet'] is Map) ? AccountZimletDesc.fromMap(data['zimlet']) : null,
+      zimletConfig: (data['zimletConfig'] is Map) ? AccountZimletConfigInfo.fromMap(data['zimletConfig']) : null);
 
-  Map<String, dynamic> toJson() => {
-        if (zimletContext != null) 'zimletContext': zimletContext!.toJson(),
-        if (zimlet != null) 'zimlet': zimlet!.toJson(),
-        if (zimletConfig != null) 'zimletConfig': zimletConfig!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (zimletContext != null) 'zimletContext': zimletContext!.toMap(),
+        if (zimlet != null) 'zimlet': zimlet!.toMap(),
+        if (zimletConfig != null) 'zimletConfig': zimletConfig!.toMap(),
       };
 }

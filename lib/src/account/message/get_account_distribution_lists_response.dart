@@ -11,9 +11,9 @@ class GetAccountDistributionListsResponse extends SoapResponse {
 
   GetAccountDistributionListsResponse({this.dlList = const []});
 
-  factory GetAccountDistributionListsResponse.fromJson(Map<String, dynamic> json) =>
+  factory GetAccountDistributionListsResponse.fromMap(Map<String, dynamic> data) =>
       GetAccountDistributionListsResponse(
-          dlList: (json['dl'] is Iterable)
-              ? List.from((json['dl'] as Iterable).map<DLInfo>((dl) => DLInfo.fromJson(dl)))
+          dlList: (data['dl'] is Iterable)
+              ? List.from((data['dl'] as Iterable).map<DLInfo>((dl) => DLInfo.fromMap(dl)))
               : []);
 }

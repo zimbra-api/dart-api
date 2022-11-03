@@ -12,18 +12,18 @@ class GetContactBackupListBody extends SoapBody {
   GetContactBackupListBody({GetContactBackupListRequest? request, GetContactBackupListResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory GetContactBackupListBody.fromJson(Map<String, dynamic> json) => GetContactBackupListBody(
-      response: json['GetContactBackupListResponse'] != null
-          ? GetContactBackupListResponse.fromJson(json['GetContactBackupListResponse'])
+  factory GetContactBackupListBody.fromMap(Map<String, dynamic> data) => GetContactBackupListBody(
+      response: data['GetContactBackupListResponse'] != null
+          ? GetContactBackupListResponse.fromMap(data['GetContactBackupListResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   GetContactBackupListRequest? get getContactBackupListRequest => request as GetContactBackupListRequest?;
 
   GetContactBackupListResponse? get getContactBackupListResponse => response as GetContactBackupListResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'GetContactBackupListRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'GetContactBackupListRequest': request!.toMap(),
       };
 }

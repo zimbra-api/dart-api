@@ -54,7 +54,7 @@ void main() {
               )
             ]),
       );
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'ContactActionRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -96,7 +96,7 @@ void main() {
       final displayName = faker.person.name();
       final accessKey = faker.internet.password();
 
-      final json = {
+      final data = {
         'Body': {
           'ContactActionResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -112,7 +112,7 @@ void main() {
           }
         }
       };
-      final envelope = ContactActionEnvelope.fromJson(json);
+      final envelope = ContactActionEnvelope.fromMap(data);
       final response = envelope.contactActionBody.contactActionResponse!;
       final action = response.action!;
 

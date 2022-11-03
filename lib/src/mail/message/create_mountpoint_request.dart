@@ -22,8 +22,8 @@ class CreateMountpointRequest extends SoapRequest {
       CreateMountpointEnvelope(CreateMountpointBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
-        'link': mountpoint.toJson(),
+        'link': mountpoint.toMap(),
       };
 }

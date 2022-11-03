@@ -10,9 +10,9 @@ import 'send_delivery_report_body.dart';
 class SendDeliveryReportEnvelope extends SoapEnvelope {
   SendDeliveryReportEnvelope(SendDeliveryReportBody body, {super.header}) : super(body);
 
-  factory SendDeliveryReportEnvelope.fromJson(Map<String, dynamic> json) =>
-      SendDeliveryReportEnvelope(SendDeliveryReportBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory SendDeliveryReportEnvelope.fromMap(Map<String, dynamic> data) =>
+      SendDeliveryReportEnvelope(SendDeliveryReportBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   SendDeliveryReportBody get sendDeliveryReportBody => body as SendDeliveryReportBody;
 }

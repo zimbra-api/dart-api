@@ -9,9 +9,9 @@ class UrlAndValue {
 
   UrlAndValue({this.url, this.value});
 
-  factory UrlAndValue.fromJson(Map<String, dynamic> json) => UrlAndValue(url: json['url'], value: json['_content']);
+  factory UrlAndValue.fromMap(Map<String, dynamic> data) => UrlAndValue(url: data['url'], value: data['_content']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (url != null) 'url': url,
         if (value != null) '_content': value,
       };

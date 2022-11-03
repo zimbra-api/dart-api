@@ -12,18 +12,18 @@ class CancelAppointmentBody extends SoapBody {
   CancelAppointmentBody({CancelAppointmentRequest? request, CancelAppointmentResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory CancelAppointmentBody.fromJson(Map<String, dynamic> json) => CancelAppointmentBody(
-      response: json['CancelAppointmentResponse'] != null
-          ? CancelAppointmentResponse.fromJson(json['CancelAppointmentResponse'])
+  factory CancelAppointmentBody.fromMap(Map<String, dynamic> data) => CancelAppointmentBody(
+      response: data['CancelAppointmentResponse'] != null
+          ? CancelAppointmentResponse.fromMap(data['CancelAppointmentResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   CancelAppointmentRequest? get cancelAppointmentRequest => request as CancelAppointmentRequest?;
 
   CancelAppointmentResponse? get cancelAppointmentResponse => response as CancelAppointmentResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'CancelAppointmentRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'CancelAppointmentRequest': request!.toMap(),
       };
 }

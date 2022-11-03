@@ -10,9 +10,9 @@ import 'get_yahoo_auth_token_body.dart';
 class GetYahooAuthTokenEnvelope extends SoapEnvelope {
   GetYahooAuthTokenEnvelope(GetYahooAuthTokenBody body, {super.header}) : super(body);
 
-  factory GetYahooAuthTokenEnvelope.fromJson(Map<String, dynamic> json) =>
-      GetYahooAuthTokenEnvelope(GetYahooAuthTokenBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory GetYahooAuthTokenEnvelope.fromMap(Map<String, dynamic> data) =>
+      GetYahooAuthTokenEnvelope(GetYahooAuthTokenBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   GetYahooAuthTokenBody get getYahooAuthTokenBody => body as GetYahooAuthTokenBody;
 }

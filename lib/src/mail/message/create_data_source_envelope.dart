@@ -10,9 +10,9 @@ import 'create_data_source_body.dart';
 class CreateDataSourceEnvelope extends SoapEnvelope {
   CreateDataSourceEnvelope(CreateDataSourceBody body, {super.header}) : super(body);
 
-  factory CreateDataSourceEnvelope.fromJson(Map<String, dynamic> json) =>
-      CreateDataSourceEnvelope(CreateDataSourceBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory CreateDataSourceEnvelope.fromMap(Map<String, dynamic> data) =>
+      CreateDataSourceEnvelope(CreateDataSourceBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   CreateDataSourceBody get createDataSourceBody => body as CreateDataSourceBody;
 }

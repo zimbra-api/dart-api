@@ -7,5 +7,5 @@ import 'package:zimbra_api/src/common/type/soap_response.dart';
 class ResetPasswordResponse extends SoapResponse {
   ResetPasswordResponse();
 
-  factory ResetPasswordResponse.fromJson(Map<String, dynamic> json) => ResetPasswordResponse();
+  factory ResetPasswordResponse.fromMap(Map<String, dynamic> data) => ResetPasswordResponse();
 }

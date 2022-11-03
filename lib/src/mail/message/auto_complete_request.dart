@@ -34,7 +34,7 @@ class AutoCompleteRequest extends SoapRequest {
       AutoCompleteEnvelope(AutoCompleteBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
         'name': name,
         if (type != null) 't': type!.name,

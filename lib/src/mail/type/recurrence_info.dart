@@ -37,35 +37,35 @@ class RecurrenceInfo {
       this.dates = const [],
       this.simple = const []});
 
-  factory RecurrenceInfo.fromJson(Map<String, dynamic> json) => RecurrenceInfo(
-      add: (json['add'] is Iterable)
-          ? List.from((json['add'] as Iterable).map<AddRecurrenceInfo>((add) => AddRecurrenceInfo.fromJson(add)))
+  factory RecurrenceInfo.fromMap(Map<String, dynamic> data) => RecurrenceInfo(
+      add: (data['add'] is Iterable)
+          ? List.from((data['add'] as Iterable).map<AddRecurrenceInfo>((add) => AddRecurrenceInfo.fromMap(add)))
           : [],
-      exclude: (json['exclude'] is Iterable)
-          ? List.from((json['exclude'] as Iterable)
-              .map<ExcludeRecurrenceInfo>((exclude) => ExcludeRecurrenceInfo.fromJson(exclude)))
+      exclude: (data['exclude'] is Iterable)
+          ? List.from((data['exclude'] as Iterable)
+              .map<ExcludeRecurrenceInfo>((exclude) => ExcludeRecurrenceInfo.fromMap(exclude)))
           : [],
-      except: (json['except'] is Iterable)
+      except: (data['except'] is Iterable)
           ? List.from(
-              (json['except'] as Iterable).map<ExceptionRuleInfo>((except) => ExceptionRuleInfo.fromJson(except)))
+              (data['except'] as Iterable).map<ExceptionRuleInfo>((except) => ExceptionRuleInfo.fromMap(except)))
           : [],
-      cancel: (json['cancel'] is Iterable)
-          ? List.from((json['cancel'] as Iterable).map<CancelRuleInfo>((cancel) => CancelRuleInfo.fromJson(cancel)))
+      cancel: (data['cancel'] is Iterable)
+          ? List.from((data['cancel'] as Iterable).map<CancelRuleInfo>((cancel) => CancelRuleInfo.fromMap(cancel)))
           : [],
-      dates: (json['dates'] is Iterable)
-          ? List.from((json['dates'] as Iterable).map<SingleDates>((dates) => SingleDates.fromJson(dates)))
+      dates: (data['dates'] is Iterable)
+          ? List.from((data['dates'] as Iterable).map<SingleDates>((dates) => SingleDates.fromMap(dates)))
           : [],
-      simple: (json['rule'] is Iterable)
+      simple: (data['rule'] is Iterable)
           ? List.from(
-              (json['rule'] as Iterable).map<SimpleRepeatingRule>((simple) => SimpleRepeatingRule.fromJson(simple)))
+              (data['rule'] as Iterable).map<SimpleRepeatingRule>((simple) => SimpleRepeatingRule.fromMap(simple)))
           : []);
 
-  Map<String, dynamic> toJson() => {
-        if (add.isNotEmpty) 'add': add.map((rule) => rule.toJson()).toList(),
-        if (exclude.isNotEmpty) 'exclude': exclude.map((rule) => rule.toJson()).toList(),
-        if (except.isNotEmpty) 'except': except.map((rule) => rule.toJson()).toList(),
-        if (cancel.isNotEmpty) 'cancel': cancel.map((rule) => rule.toJson()).toList(),
-        if (dates.isNotEmpty) 'dates': dates.map((rule) => rule.toJson()).toList(),
-        if (simple.isNotEmpty) 'rule': simple.map((rule) => rule.toJson()).toList(),
+  Map<String, dynamic> toMap() => {
+        if (add.isNotEmpty) 'add': add.map((rule) => rule.toMap()).toList(),
+        if (exclude.isNotEmpty) 'exclude': exclude.map((rule) => rule.toMap()).toList(),
+        if (except.isNotEmpty) 'except': except.map((rule) => rule.toMap()).toList(),
+        if (cancel.isNotEmpty) 'cancel': cancel.map((rule) => rule.toMap()).toList(),
+        if (dates.isNotEmpty) 'dates': dates.map((rule) => rule.toMap()).toList(),
+        if (simple.isNotEmpty) 'rule': simple.map((rule) => rule.toMap()).toList(),
       };
 }

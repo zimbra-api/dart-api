@@ -10,9 +10,9 @@ import 'get_all_locales_body.dart';
 class GetAllLocalesEnvelope extends SoapEnvelope {
   GetAllLocalesEnvelope(GetAllLocalesBody body, {super.header}) : super(body);
 
-  factory GetAllLocalesEnvelope.fromJson(Map<String, dynamic> json) =>
-      GetAllLocalesEnvelope(GetAllLocalesBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory GetAllLocalesEnvelope.fromMap(Map<String, dynamic> data) =>
+      GetAllLocalesEnvelope(GetAllLocalesBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   GetAllLocalesBody get getAllLocalesBody => body as GetAllLocalesBody;
 }

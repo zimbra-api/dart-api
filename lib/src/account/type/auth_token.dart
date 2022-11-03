@@ -11,11 +11,11 @@ class AuthToken {
 
   AuthToken(this.value, {this.lifetime, this.verifyAccount});
 
-  factory AuthToken.fromJson(Map<String, dynamic> json) {
-    return AuthToken(json['_content'] ?? '', lifetime: json['lifetime'], verifyAccount: json['verifyAccount']);
+  factory AuthToken.fromMap(Map<String, dynamic> data) {
+    return AuthToken(data['_content'] ?? '', lifetime: data['lifetime'], verifyAccount: data['verifyAccount']);
   }
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_content': value,
         if (lifetime != null) 'lifetime': lifetime,
         if (verifyAccount != null) 'verifyAccount': verifyAccount,

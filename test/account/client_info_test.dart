@@ -9,12 +9,12 @@ void main() {
   final faker = Faker();
 
   group('Client info request tests', (() {
-    test('To json test', () {
+    test('To data test', () {
       final domainName = faker.internet.domainName();
       final domain = DomainSelector(DomainBy.name, domainName);
 
       final request = ClientInfoRequest(domain);
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'ClientInfoRequest': {
             '_jsns': 'urn:zimbraAccount',
@@ -29,10 +29,10 @@ void main() {
   }));
 
   group('Client info response tests', () {
-    test('From json test', () {
+    test('From data test', () {
       final key = faker.lorem.word();
       final value = faker.lorem.word();
-      final json = {
+      final data = {
         'Body': {
           'ClientInfoResponse': {
             '_jsns': 'urn:zimbraAccount',
@@ -46,7 +46,7 @@ void main() {
         },
       };
 
-      final envelope = ClientInfoEnvelope.fromJson(json);
+      final envelope = ClientInfoEnvelope.fromMap(data);
       final response = envelope.clientInfoBody.clientInfoResponse!;
       final attr = response.attrs.first;
 

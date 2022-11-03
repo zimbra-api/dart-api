@@ -9,7 +9,7 @@ void main() {
   group('Get spell dictionaries tests', (() {
     test('Get spell dictionaries request', (() {
       final request = GetSpellDictionariesRequest();
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'GetSpellDictionariesRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -22,7 +22,7 @@ void main() {
       final dictionary1 = faker.lorem.word();
       final dictionary2 = faker.lorem.word();
 
-      final json = {
+      final data = {
         'Body': {
           'GetSpellDictionariesResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -33,7 +33,7 @@ void main() {
           }
         }
       };
-      final envelope = GetSpellDictionariesEnvelope.fromJson(json);
+      final envelope = GetSpellDictionariesEnvelope.fromMap(data);
       final response = envelope.getSpellDictionariesBody.getSpellDictionariesResponse!;
       expect(response.dictionaries.first, dictionary1);
       expect(response.dictionaries.last, dictionary2);

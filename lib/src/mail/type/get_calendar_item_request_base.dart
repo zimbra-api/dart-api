@@ -25,7 +25,7 @@ abstract class GetCalendarItemRequestBase extends SoapRequest {
   GetCalendarItemRequestBase({this.uid, this.id, this.sync, this.includeContent, this.includeInvites});
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
         if (uid != null) 'uid': uid,
         if (id != null) 'id': id,

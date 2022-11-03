@@ -14,11 +14,11 @@ class GetMiniCalResponse extends SoapResponse {
 
   GetMiniCalResponse({this.busyDates = const [], this.errors = const []});
 
-  factory GetMiniCalResponse.fromJson(Map<String, dynamic> json) => GetMiniCalResponse(
-      busyDates: (json['date'] is Iterable)
-          ? List.from((json['date'] as Iterable).map<String>((date) => date['_content']))
+  factory GetMiniCalResponse.fromMap(Map<String, dynamic> data) => GetMiniCalResponse(
+      busyDates: (data['date'] is Iterable)
+          ? List.from((data['date'] as Iterable).map<String>((date) => date['_content']))
           : [],
-      errors: (json['error'] is Iterable)
-          ? List.from((json['error'] as Iterable).map<MiniCalError>((error) => MiniCalError.fromJson(error)))
+      errors: (data['error'] is Iterable)
+          ? List.from((data['error'] as Iterable).map<MiniCalError>((error) => MiniCalError.fromMap(error)))
           : []);
 }

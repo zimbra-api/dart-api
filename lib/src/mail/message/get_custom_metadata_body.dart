@@ -12,18 +12,18 @@ class GetCustomMetadataBody extends SoapBody {
   GetCustomMetadataBody({GetCustomMetadataRequest? request, GetCustomMetadataResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory GetCustomMetadataBody.fromJson(Map<String, dynamic> json) => GetCustomMetadataBody(
-      response: json['GetCustomMetadataResponse'] != null
-          ? GetCustomMetadataResponse.fromJson(json['GetCustomMetadataResponse'])
+  factory GetCustomMetadataBody.fromMap(Map<String, dynamic> data) => GetCustomMetadataBody(
+      response: data['GetCustomMetadataResponse'] != null
+          ? GetCustomMetadataResponse.fromMap(data['GetCustomMetadataResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   GetCustomMetadataRequest? get getCustomMetadataRequest => request as GetCustomMetadataRequest?;
 
   GetCustomMetadataResponse? get getCustomMetadataResponse => response as GetCustomMetadataResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'GetCustomMetadataRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'GetCustomMetadataRequest': request!.toMap(),
       };
 }

@@ -7,5 +7,5 @@ import 'key_value_pair.dart';
 class Attr extends KeyValuePair {
   Attr(super.key, {super.value});
 
-  factory Attr.fromJson(Map<String, dynamic> json) => Attr(json['n'], value: json['_content']);
+  factory Attr.fromMap(Map<String, dynamic> data) => Attr(data['n'], value: data['_content']);
 }

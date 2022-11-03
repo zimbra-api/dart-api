@@ -151,58 +151,58 @@ class GetInfoResponse extends SoapResponse {
       this.license,
       this.isTrackingIMAP});
 
-  factory GetInfoResponse.fromJson(Map<String, dynamic> json) => GetInfoResponse(
-        attachmentSizeLimit: json['attSizeLimit'],
-        documentSizeLimit: json['docSizeLimit'],
-        version: json['version'],
-        accountId: json['id'],
-        profileImageId: json['profileImageId'],
-        accountName: json['name'],
-        crumb: json['crumb'],
-        lifetime: json['lifetime'],
-        adminDelegated: json['adminDelegated'],
-        restUrl: json['rest'],
-        quotaUsed: json['used'],
-        previousSessionTime: json['prevSession'],
-        lastWriteAccessTime: json['accessed'],
-        recentMessageCount: json['recent'],
-        cos: json['cos'] is Map ? Cos.fromJson(json['cos']) : null,
-        dataSources: json['dataSources'] is Map ? AccountDataSources.fromJson(json['dataSources']) : null,
-        soapURL: json['soapURL'],
-        publicURL: json['publicURL'],
-        changePasswordURL: json['changePasswordURL'],
-        adminURL: json['adminURL'],
-        boshURL: json['boshURL'],
-        license: json['license'] is Map ? LicenseInfo.fromJson(json['license']) : null,
-        isTrackingIMAP: json['isTrackingIMAP'],
-        prefs: (json['prefs']?['_attrs'] is Map)
-            ? List.from(Utils.prefsFromJson(json['prefs']['_attrs'] as Map<String, dynamic>))
+  factory GetInfoResponse.fromMap(Map<String, dynamic> data) => GetInfoResponse(
+        attachmentSizeLimit: data['attSizeLimit'],
+        documentSizeLimit: data['docSizeLimit'],
+        version: data['version'],
+        accountId: data['id'],
+        profileImageId: data['profileImageId'],
+        accountName: data['name'],
+        crumb: data['crumb'],
+        lifetime: data['lifetime'],
+        adminDelegated: data['adminDelegated'],
+        restUrl: data['rest'],
+        quotaUsed: data['used'],
+        previousSessionTime: data['prevSession'],
+        lastWriteAccessTime: data['accessed'],
+        recentMessageCount: data['recent'],
+        cos: data['cos'] is Map ? Cos.fromMap(data['cos']) : null,
+        dataSources: data['dataSources'] is Map ? AccountDataSources.fromMap(data['dataSources']) : null,
+        soapURL: data['soapURL'],
+        publicURL: data['publicURL'],
+        changePasswordURL: data['changePasswordURL'],
+        adminURL: data['adminURL'],
+        boshURL: data['boshURL'],
+        license: data['license'] is Map ? LicenseInfo.fromMap(data['license']) : null,
+        isTrackingIMAP: data['isTrackingIMAP'],
+        prefs: (data['prefs']?['_attrs'] is Map)
+            ? List.from(Utils.prefsFromJson(data['prefs']['_attrs'] as Map<String, dynamic>))
             : [],
-        attrs: (json['attrs']?['_attrs'] is Map)
-            ? List.from(Utils.attrsFromJson(json['attrs']['_attrs'] as Map<String, dynamic>))
+        attrs: (data['attrs']?['_attrs'] is Map)
+            ? List.from(Utils.attrsFromJson(data['attrs']['_attrs'] as Map<String, dynamic>))
             : [],
-        zimlets: (json['zimlets']?['zimlet'] is Iterable)
-            ? List.from((json['zimlets']['zimlet'] as Iterable)
-                .map<AccountZimletInfo>((zimlet) => AccountZimletInfo.fromJson(zimlet)))
+        zimlets: (data['zimlets']?['zimlet'] is Iterable)
+            ? List.from((data['zimlets']['zimlet'] as Iterable)
+                .map<AccountZimletInfo>((zimlet) => AccountZimletInfo.fromMap(zimlet)))
             : [],
-        props: (json['props']?['prop'] is Iterable)
-            ? List.from((json['props']['prop'] as Iterable).map<Prop>((prop) => Prop.fromJson(prop)))
+        props: (data['props']?['prop'] is Iterable)
+            ? List.from((data['props']['prop'] as Iterable).map<Prop>((prop) => Prop.fromMap(prop)))
             : [],
-        identities: (json['identities']?['identity'] is Iterable)
+        identities: (data['identities']?['identity'] is Iterable)
             ? List.from(
-                (json['identities']['identity'] as Iterable).map<Identity>((identity) => Identity.fromJson(identity)))
+                (data['identities']['identity'] as Iterable).map<Identity>((identity) => Identity.fromMap(identity)))
             : [],
-        signatures: (json['signatures']?['signature'] is Iterable)
-            ? List.from((json['signatures']['signature'] as Iterable)
-                .map<Signature>((signature) => Signature.fromJson(signature)))
+        signatures: (data['signatures']?['signature'] is Iterable)
+            ? List.from((data['signatures']['signature'] as Iterable)
+                .map<Signature>((signature) => Signature.fromMap(signature)))
             : [],
-        childAccounts: (json['childAccounts']?['childAccount'] is Iterable)
-            ? List.from((json['childAccounts']['childAccount'] as Iterable)
-                .map<ChildAccount>((childAccount) => ChildAccount.fromJson(childAccount)))
+        childAccounts: (data['childAccounts']?['childAccount'] is Iterable)
+            ? List.from((data['childAccounts']['childAccount'] as Iterable)
+                .map<ChildAccount>((childAccount) => ChildAccount.fromMap(childAccount)))
             : [],
-        discoveredRights: (json['rights']?['targets'] is Iterable)
-            ? List.from((json['rights']['targets'] as Iterable)
-                .map<DiscoverRightsInfo>((targets) => DiscoverRightsInfo.fromJson(targets)))
+        discoveredRights: (data['rights']?['targets'] is Iterable)
+            ? List.from((data['rights']['targets'] as Iterable)
+                .map<DiscoverRightsInfo>((targets) => DiscoverRightsInfo.fromMap(targets)))
             : [],
       );
 }

@@ -11,12 +11,12 @@ class AccountCustomMetadata extends AccountKeyValuePairs {
 
   AccountCustomMetadata({this.section, super.keyValuePairs});
 
-  factory AccountCustomMetadata.fromJson(Map<String, dynamic> json) =>
-      AccountCustomMetadata(section: json['section'], keyValuePairs: KeyValuePairs.keyValuePairsFromJson(json));
+  factory AccountCustomMetadata.fromMap(Map<String, dynamic> data) =>
+      AccountCustomMetadata(section: data['section'], keyValuePairs: KeyValuePairs.keyValuePairsFromJson(data));
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (section != null) 'section': section,
-        if (keyValuePairs.isNotEmpty) 'a': keyValuePairs.map((kvp) => kvp.toJson()),
+        if (keyValuePairs.isNotEmpty) 'a': keyValuePairs.map((kvp) => kvp.toMap()),
       };
 }

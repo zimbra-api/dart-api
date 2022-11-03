@@ -10,9 +10,9 @@ import 'cancel_appointment_body.dart';
 class CancelAppointmentEnvelope extends SoapEnvelope {
   CancelAppointmentEnvelope(CancelAppointmentBody body, {super.header}) : super(body);
 
-  factory CancelAppointmentEnvelope.fromJson(Map<String, dynamic> json) =>
-      CancelAppointmentEnvelope(CancelAppointmentBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory CancelAppointmentEnvelope.fromMap(Map<String, dynamic> data) =>
+      CancelAppointmentEnvelope(CancelAppointmentBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   CancelAppointmentBody get cancelAppointmentBody => body as CancelAppointmentBody;
 }

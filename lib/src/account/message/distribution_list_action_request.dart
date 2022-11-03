@@ -32,9 +32,9 @@ class DistributionListActionRequest extends SoapRequest {
       DistributionListActionEnvelope(DistributionListActionBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraAccount',
-        'dl': dl.toJson(),
-        'action': action.toJson(),
+        'dl': dl.toMap(),
+        'action': action.toMap(),
       };
 }

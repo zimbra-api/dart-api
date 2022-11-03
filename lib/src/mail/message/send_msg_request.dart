@@ -67,9 +67,9 @@ class SendMsgRequest extends SoapRequest {
   SoapEnvelope getEnvelope({SoapHeader? header}) => SendMsgEnvelope(SendMsgBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
-        'm': msg.toJson(),
+        'm': msg.toMap(),
         if (needCalendarSentByFixup != null) 'needCalendarSentByFixup': needCalendarSentByFixup,
         if (isCalendarForward != null) 'isCalendarForward': isCalendarForward,
         if (noSaveToSent != null) 'noSave': noSaveToSent,

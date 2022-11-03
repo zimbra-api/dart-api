@@ -7,7 +7,7 @@ void main() {
   group('Reset recent message count tests', (() {
     test('Reset recent message count request', (() {
       final request = ResetRecentMessageCountRequest();
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'ResetRecentMessageCountRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -17,14 +17,14 @@ void main() {
     }));
 
     test('Reset recent message count response', (() {
-      final json = {
+      final data = {
         'Body': {
           'ResetRecentMessageCountResponse': {
             '_jsns': 'urn:zimbraMail',
           }
         }
       };
-      final envelope = ResetRecentMessageCountEnvelope.fromJson(json);
+      final envelope = ResetRecentMessageCountEnvelope.fromMap(data);
       final response = envelope.resetRecentMessageCountBody.resetRecentMessageCountResponse;
       expect(response, isNotNull);
       expect(response, isA<ResetRecentMessageCountResponse>());

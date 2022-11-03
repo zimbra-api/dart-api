@@ -52,14 +52,14 @@ class CancelAppointmentRequest extends SoapRequest {
       CancelAppointmentEnvelope(CancelAppointmentBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
         if (id != null) 'id': id,
         if (componentNum != null) 'comp': componentNum,
         if (modifiedSequence != null) 'ms': modifiedSequence,
         if (revision != null) 'rev': revision,
-        if (instance != null) 'inst': instance!.toJson(),
-        if (timezone != null) 'tz': timezone!.toJson(),
-        if (msg != null) 'm': msg!.toJson(),
+        if (instance != null) 'inst': instance!.toMap(),
+        if (timezone != null) 'tz': timezone!.toMap(),
+        if (msg != null) 'm': msg!.toMap(),
       };
 }

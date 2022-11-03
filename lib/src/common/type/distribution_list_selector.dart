@@ -11,15 +11,15 @@ class DistributionListSelector {
 
   DistributionListSelector(this.by, this.value);
 
-  factory DistributionListSelector.fromJson(Map<String, dynamic> json) => DistributionListSelector(
+  factory DistributionListSelector.fromMap(Map<String, dynamic> data) => DistributionListSelector(
         DistributionListBy.values.firstWhere(
-          (by) => by.name == json['by'],
+          (by) => by.name == data['by'],
           orElse: () => DistributionListBy.name,
         ),
-        json['_content'] ?? '',
+        data['_content'] ?? '',
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'by': by.name,
         '_content': value,
       };

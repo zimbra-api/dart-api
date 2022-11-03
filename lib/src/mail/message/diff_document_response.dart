@@ -11,9 +11,9 @@ class DiffDocumentResponse extends SoapResponse {
 
   DiffDocumentResponse({this.chunks = const []});
 
-  factory DiffDocumentResponse.fromJson(Map<String, dynamic> json) => DiffDocumentResponse(
-      chunks: (json['chunk'] is Iterable)
+  factory DiffDocumentResponse.fromMap(Map<String, dynamic> data) => DiffDocumentResponse(
+      chunks: (data['chunk'] is Iterable)
           ? List.from(
-              (json['chunk'] as Iterable).map<DispositionAndText>((chunk) => DispositionAndText.fromJson(chunk)))
+              (data['chunk'] as Iterable).map<DispositionAndText>((chunk) => DispositionAndText.fromMap(chunk)))
           : []);
 }

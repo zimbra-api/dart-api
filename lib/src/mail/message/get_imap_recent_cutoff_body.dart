@@ -12,18 +12,18 @@ class GetIMAPRecentCutoffBody extends SoapBody {
   GetIMAPRecentCutoffBody({GetIMAPRecentCutoffRequest? request, GetIMAPRecentCutoffResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory GetIMAPRecentCutoffBody.fromJson(Map<String, dynamic> json) => GetIMAPRecentCutoffBody(
-      response: json['GetIMAPRecentCutoffResponse'] != null
-          ? GetIMAPRecentCutoffResponse.fromJson(json['GetIMAPRecentCutoffResponse'])
+  factory GetIMAPRecentCutoffBody.fromMap(Map<String, dynamic> data) => GetIMAPRecentCutoffBody(
+      response: data['GetIMAPRecentCutoffResponse'] != null
+          ? GetIMAPRecentCutoffResponse.fromMap(data['GetIMAPRecentCutoffResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   GetIMAPRecentCutoffRequest? get getIMAPRecentCutoffRequest => request as GetIMAPRecentCutoffRequest?;
 
   GetIMAPRecentCutoffResponse? get getIMAPRecentCutoffResponse => response as GetIMAPRecentCutoffResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'GetIMAPRecentCutoffRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'GetIMAPRecentCutoffRequest': request!.toMap(),
       };
 }

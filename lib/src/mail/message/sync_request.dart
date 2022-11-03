@@ -54,7 +54,7 @@ class SyncRequest extends SoapRequest {
   SoapEnvelope getEnvelope({SoapHeader? header}) => SyncEnvelope(SyncBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
         if (token != null) 'token': token,
         if (calendarCutoff != null) 'calCutoff': calendarCutoff,

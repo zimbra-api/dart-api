@@ -26,8 +26,8 @@ class BounceMsgRequest extends SoapRequest {
   SoapEnvelope getEnvelope({SoapHeader? header}) => BounceMsgEnvelope(BounceMsgBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
-        'm': msg.toJson(),
+        'm': msg.toMap(),
       };
 }

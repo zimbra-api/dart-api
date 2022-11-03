@@ -12,7 +12,7 @@ void main() {
       final imageB64Data = faker.lorem.word();
 
       final request = ModifyProfileImageRequest(uploadId: uploadId, imageB64Data: imageB64Data);
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'ModifyProfileImageRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -25,7 +25,7 @@ void main() {
 
     test('Modify profile image response', (() {
       final itemId = faker.randomGenerator.integer(100);
-      final json = {
+      final data = {
         'Body': {
           'ModifyProfileImageResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -33,7 +33,7 @@ void main() {
           }
         }
       };
-      final envelope = ModifyProfileImageEnvelope.fromJson(json);
+      final envelope = ModifyProfileImageEnvelope.fromMap(data);
       final response = envelope.modifyProfileImageBody.modifyProfileImageResponse!;
       expect(response.itemId, itemId);
     }));

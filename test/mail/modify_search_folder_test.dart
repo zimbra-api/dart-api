@@ -30,7 +30,7 @@ void main() {
         searchTypes: searchTypes,
         sortBy: SearchSortBy.none,
       ));
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'ModifySearchFolderRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -98,7 +98,7 @@ void main() {
       final query = faker.lorem.word();
       final types = faker.lorem.words(3).join(',');
 
-      final json = {
+      final data = {
         'Body': {
           'ModifySearchFolderResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -214,7 +214,7 @@ void main() {
           }
         }
       };
-      final envelope = ModifySearchFolderEnvelope.fromJson(json);
+      final envelope = ModifySearchFolderEnvelope.fromMap(data);
       final response = envelope.modifySearchFolderBody.modifySearchFolderResponse!;
 
       final searchFolder = response.searchFolder!;

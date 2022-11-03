@@ -19,18 +19,18 @@ class TargetSpec {
 
   TargetSpec({this.targetType, this.accountBy, this.value});
 
-  factory TargetSpec.fromJson(Map<String, dynamic> json) => TargetSpec(
+  factory TargetSpec.fromMap(Map<String, dynamic> data) => TargetSpec(
       targetType: TargetType.values.firstWhere(
-        (item) => item.name == json['type'],
+        (item) => item.name == data['type'],
         orElse: () => TargetType.account,
       ),
       accountBy: AccountBy.values.firstWhere(
-        (item) => item.name == json['by'],
+        (item) => item.name == data['by'],
         orElse: () => AccountBy.name,
       ),
-      value: json['_content']);
+      value: data['_content']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (targetType != null) 'type': targetType!.name,
         if (accountBy != null) 'by': accountBy!.name,
         if (value != null) '_content': value,

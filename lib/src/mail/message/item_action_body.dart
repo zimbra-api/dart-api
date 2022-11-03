@@ -12,16 +12,16 @@ class ItemActionBody extends SoapBody {
   ItemActionBody({ItemActionRequest? request, ItemActionResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory ItemActionBody.fromJson(Map<String, dynamic> json) => ItemActionBody(
-      response: json['ItemActionResponse'] != null ? ItemActionResponse.fromJson(json['ItemActionResponse']) : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+  factory ItemActionBody.fromMap(Map<String, dynamic> data) => ItemActionBody(
+      response: data['ItemActionResponse'] != null ? ItemActionResponse.fromMap(data['ItemActionResponse']) : null,
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   ItemActionRequest? get itemActionRequest => request as ItemActionRequest?;
 
   ItemActionResponse? get itemActionResponse => response as ItemActionResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'ItemActionRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'ItemActionRequest': request!.toMap(),
       };
 }

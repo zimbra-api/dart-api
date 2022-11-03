@@ -110,8 +110,8 @@ class FolderActionRequest extends SoapRequest {
       FolderActionEnvelope(FolderActionBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
-        'action': action.toJson(),
+        'action': action.toMap(),
       };
 }

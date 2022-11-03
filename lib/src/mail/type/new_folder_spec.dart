@@ -51,24 +51,24 @@ class NewFolderSpec {
       this.syncToUrl,
       this.grants = const []});
 
-  factory NewFolderSpec.fromJson(Map<String, dynamic> json) => NewFolderSpec(json['name'] ?? '',
+  factory NewFolderSpec.fromMap(Map<String, dynamic> data) => NewFolderSpec(data['name'] ?? '',
       defaultView: ViewType.values.firstWhere(
-        (view) => view.name == json['view'],
+        (view) => view.name == data['view'],
         orElse: () => ViewType.conversation,
       ),
-      flags: json['f'],
-      color: json['color'],
-      rgb: json['rgb'],
-      url: json['url'],
-      parentFolderId: json['l'],
-      fetchIfExists: json['fie'],
-      syncToUrl: json['sync'],
-      grants: json['acl']?['grant'] is Iterable
-          ? List.from((json['acl']['grant'] as Iterable)
-              .map<ActionGrantSelector>((grant) => ActionGrantSelector.fromJson(grant)))
+      flags: data['f'],
+      color: data['color'],
+      rgb: data['rgb'],
+      url: data['url'],
+      parentFolderId: data['l'],
+      fetchIfExists: data['fie'],
+      syncToUrl: data['sync'],
+      grants: data['acl']?['grant'] is Iterable
+          ? List.from((data['acl']['grant'] as Iterable)
+              .map<ActionGrantSelector>((grant) => ActionGrantSelector.fromMap(grant)))
           : []);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'name': name,
         if (defaultView != null) 'view': defaultView!.name,
         if (flags != null) 'f': flags,
@@ -78,6 +78,6 @@ class NewFolderSpec {
         if (parentFolderId != null) 'l': parentFolderId,
         if (fetchIfExists != null) 'fie': fetchIfExists,
         if (syncToUrl != null) 'sync': syncToUrl,
-        if (grants.isNotEmpty) 'acl': {'grant': grants.map((grant) => grant.toJson()).toList()},
+        if (grants.isNotEmpty) 'acl': {'grant': grants.map((grant) => grant.toMap()).toList()},
       };
 }

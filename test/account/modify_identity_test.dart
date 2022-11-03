@@ -19,7 +19,7 @@ void main() {
 
       final identity = Identity(name: email, id: id, attrs: [Attr(name, value: value, permDenied: permDenied)]);
       final request = ModifyIdentityRequest(identity);
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'ModifyIdentityRequest': {
             '_jsns': 'urn:zimbraAccount',
@@ -40,14 +40,14 @@ void main() {
     }));
 
     test('Modify identity response', (() {
-      final json = {
+      final data = {
         'Body': {
           'ModifyIdentityResponse': {
             '_jsns': 'urn:zimbraAccount',
           }
         }
       };
-      final envelope = ModifyIdentityEnvelope.fromJson(json);
+      final envelope = ModifyIdentityEnvelope.fromMap(data);
       expect(envelope.modifyIdentityBody.modifyIdentityResponse, isNotNull);
       expect(envelope.modifyIdentityBody.modifyIdentityResponse, isA<ModifyIdentityResponse>());
     }));

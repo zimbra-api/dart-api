@@ -12,18 +12,18 @@ class CompleteTaskInstanceBody extends SoapBody {
   CompleteTaskInstanceBody({CompleteTaskInstanceRequest? request, CompleteTaskInstanceResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory CompleteTaskInstanceBody.fromJson(Map<String, dynamic> json) => CompleteTaskInstanceBody(
-      response: json['CompleteTaskInstanceResponse'] != null
-          ? CompleteTaskInstanceResponse.fromJson(json['CompleteTaskInstanceResponse'])
+  factory CompleteTaskInstanceBody.fromMap(Map<String, dynamic> data) => CompleteTaskInstanceBody(
+      response: data['CompleteTaskInstanceResponse'] != null
+          ? CompleteTaskInstanceResponse.fromMap(data['CompleteTaskInstanceResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   CompleteTaskInstanceRequest? get completeTaskInstanceRequest => request as CompleteTaskInstanceRequest?;
 
   CompleteTaskInstanceResponse? get completeTaskInstanceResponse => response as CompleteTaskInstanceResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'CompleteTaskInstanceRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'CompleteTaskInstanceRequest': request!.toMap(),
       };
 }

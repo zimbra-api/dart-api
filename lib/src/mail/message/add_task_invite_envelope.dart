@@ -10,9 +10,9 @@ import 'add_task_invite_body.dart';
 class AddTaskInviteEnvelope extends SoapEnvelope {
   AddTaskInviteEnvelope(AddTaskInviteBody body, {super.header}) : super(body);
 
-  factory AddTaskInviteEnvelope.fromJson(Map<String, dynamic> json) =>
-      AddTaskInviteEnvelope(AddTaskInviteBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory AddTaskInviteEnvelope.fromMap(Map<String, dynamic> data) =>
+      AddTaskInviteEnvelope(AddTaskInviteBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   AddTaskInviteBody get addTaskInviteBody => body as AddTaskInviteBody;
 }

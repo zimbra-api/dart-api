@@ -62,16 +62,16 @@ class CheckRecurConflictsRequest extends SoapRequest {
       CheckRecurConflictsEnvelope(CheckRecurConflictsBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
         if (startTime != null) 's': startTime,
         if (endTime != null) 'e': endTime,
         if (allInstances != null) 'all': allInstances,
         if (excludeUid != null) 'excludeUid': excludeUid,
-        if (timezones.isNotEmpty) 'tz': timezones.map((tz) => tz.toJson()).toList(),
-        if (cancelComponents.isNotEmpty) 'cancel': cancelComponents.map((cancel) => cancel.toJson()).toList(),
-        if (inviteComponents.isNotEmpty) 'comp': inviteComponents.map((comp) => comp.toJson()).toList(),
-        if (exceptComponents.isNotEmpty) 'except': exceptComponents.map((except) => except.toJson()).toList(),
-        if (freebusyUsers.isNotEmpty) 'usr': freebusyUsers.map((usr) => usr.toJson()).toList(),
+        if (timezones.isNotEmpty) 'tz': timezones.map((tz) => tz.toMap()).toList(),
+        if (cancelComponents.isNotEmpty) 'cancel': cancelComponents.map((cancel) => cancel.toMap()).toList(),
+        if (inviteComponents.isNotEmpty) 'comp': inviteComponents.map((comp) => comp.toMap()).toList(),
+        if (exceptComponents.isNotEmpty) 'except': exceptComponents.map((except) => except.toMap()).toList(),
+        if (freebusyUsers.isNotEmpty) 'usr': freebusyUsers.map((usr) => usr.toMap()).toList(),
       };
 }

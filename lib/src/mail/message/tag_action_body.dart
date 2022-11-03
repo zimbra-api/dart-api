@@ -12,16 +12,16 @@ class TagActionBody extends SoapBody {
   TagActionBody({TagActionRequest? request, TagActionResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory TagActionBody.fromJson(Map<String, dynamic> json) => TagActionBody(
-      response: json['TagActionResponse'] != null ? TagActionResponse.fromJson(json['TagActionResponse']) : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+  factory TagActionBody.fromMap(Map<String, dynamic> data) => TagActionBody(
+      response: data['TagActionResponse'] != null ? TagActionResponse.fromMap(data['TagActionResponse']) : null,
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   TagActionRequest? get tagActionRequest => request as TagActionRequest?;
 
   TagActionResponse? get tagActionResponse => response as TagActionResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'TagActionRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'TagActionRequest': request!.toMap(),
       };
 }

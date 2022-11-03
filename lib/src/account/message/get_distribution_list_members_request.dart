@@ -27,7 +27,7 @@ class GetDistributionListMembersRequest extends SoapRequest {
       GetDistributionListMembersEnvelope(GetDistributionListMembersBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraAccount',
         'dl': {'_content': dl},
         if (limit != null) 'limit': limit,

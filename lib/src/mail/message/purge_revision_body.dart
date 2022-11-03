@@ -12,17 +12,17 @@ class PurgeRevisionBody extends SoapBody {
   PurgeRevisionBody({PurgeRevisionRequest? request, PurgeRevisionResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory PurgeRevisionBody.fromJson(Map<String, dynamic> json) => PurgeRevisionBody(
+  factory PurgeRevisionBody.fromMap(Map<String, dynamic> data) => PurgeRevisionBody(
       response:
-          json['PurgeRevisionResponse'] != null ? PurgeRevisionResponse.fromJson(json['PurgeRevisionResponse']) : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+          data['PurgeRevisionResponse'] != null ? PurgeRevisionResponse.fromMap(data['PurgeRevisionResponse']) : null,
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   PurgeRevisionRequest? get purgeRevisionRequest => request as PurgeRevisionRequest?;
 
   PurgeRevisionResponse? get purgeRevisionResponse => response as PurgeRevisionResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'PurgeRevisionRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'PurgeRevisionRequest': request!.toMap(),
       };
 }

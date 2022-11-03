@@ -13,7 +13,7 @@ void main() {
       final section = faker.lorem.word();
 
       final request = GetCustomMetadataRequest(SectionAttr(section: section), id: id);
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'GetCustomMetadataRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -32,7 +32,7 @@ void main() {
       final key = faker.lorem.word();
       final value = faker.lorem.word();
 
-      final json = {
+      final data = {
         'Body': {
           'GetCustomMetadataResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -49,7 +49,7 @@ void main() {
           }
         }
       };
-      final envelope = GetCustomMetadataEnvelope.fromJson(json);
+      final envelope = GetCustomMetadataEnvelope.fromMap(data);
       final response = envelope.getCustomMetadataBody.getCustomMetadataResponse!;
 
       expect(response.id, id);

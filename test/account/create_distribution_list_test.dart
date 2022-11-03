@@ -17,7 +17,7 @@ void main() {
       final request =
           CreateDistributionListRequest(name, isDynamic: isDynamic, keyValuePairs: [KeyValuePair(key, value: value)]);
 
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'CreateDistributionListRequest': {
             '_jsns': 'urn:zimbraAccount',
@@ -46,7 +46,7 @@ void main() {
       final key = faker.lorem.word();
       final value = faker.lorem.word();
 
-      final json = {
+      final data = {
         'Body': {
           'CreateDistributionListResponse': {
             '_jsns': 'urn:zimbraAccount',
@@ -69,7 +69,7 @@ void main() {
           },
         },
       };
-      final envelope = CreateDistributionListEnvelope.fromJson(json);
+      final envelope = CreateDistributionListEnvelope.fromMap(data);
       final response = envelope.createDistributionListBody.createDistributionListResponse!;
       final dl = response.dl;
 

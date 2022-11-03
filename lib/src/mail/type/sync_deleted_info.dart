@@ -62,61 +62,61 @@ class SyncDeletedInfo {
       this.wikiTypes = const [],
       this.docTypes = const []});
 
-  factory SyncDeletedInfo.fromJson(Map<String, dynamic> json) => SyncDeletedInfo(json['ids'],
-      folderTypes: (json['folder'] is Iterable)
-          ? List.from((json['folder'] as Iterable).map<IdsAttr>((folder) => IdsAttr.fromJson(folder)))
+  factory SyncDeletedInfo.fromMap(Map<String, dynamic> data) => SyncDeletedInfo(data['ids'],
+      folderTypes: (data['folder'] is Iterable)
+          ? List.from((data['folder'] as Iterable).map<IdsAttr>((folder) => IdsAttr.fromMap(folder)))
           : [],
-      searchTypes: (json['search'] is Iterable)
-          ? List.from((json['search'] as Iterable).map<IdsAttr>((search) => IdsAttr.fromJson(search)))
+      searchTypes: (data['search'] is Iterable)
+          ? List.from((data['search'] as Iterable).map<IdsAttr>((search) => IdsAttr.fromMap(search)))
           : [],
-      linkTypes: (json['link'] is Iterable)
-          ? List.from((json['link'] as Iterable).map<IdsAttr>((link) => IdsAttr.fromJson(link)))
+      linkTypes: (data['link'] is Iterable)
+          ? List.from((data['link'] as Iterable).map<IdsAttr>((link) => IdsAttr.fromMap(link)))
           : [],
-      tagTypes: (json['tag'] is Iterable)
-          ? List.from((json['tag'] as Iterable).map<IdsAttr>((tag) => IdsAttr.fromJson(tag)))
+      tagTypes: (data['tag'] is Iterable)
+          ? List.from((data['tag'] as Iterable).map<IdsAttr>((tag) => IdsAttr.fromMap(tag)))
           : [],
-      convTypes: (json['c'] is Iterable)
-          ? List.from((json['c'] as Iterable).map<IdsAttr>((conv) => IdsAttr.fromJson(conv)))
+      convTypes: (data['c'] is Iterable)
+          ? List.from((data['c'] as Iterable).map<IdsAttr>((conv) => IdsAttr.fromMap(conv)))
           : [],
-      chatTypes: (json['chat'] is Iterable)
-          ? List.from((json['chat'] as Iterable).map<IdsAttr>((chat) => IdsAttr.fromJson(chat)))
+      chatTypes: (data['chat'] is Iterable)
+          ? List.from((data['chat'] as Iterable).map<IdsAttr>((chat) => IdsAttr.fromMap(chat)))
           : [],
-      msgTypes: (json['m'] is Iterable)
-          ? List.from((json['m'] as Iterable).map<IdsAttr>((msg) => IdsAttr.fromJson(msg)))
+      msgTypes: (data['m'] is Iterable)
+          ? List.from((data['m'] as Iterable).map<IdsAttr>((msg) => IdsAttr.fromMap(msg)))
           : [],
-      contactTypes: (json['cn'] is Iterable)
-          ? List.from((json['cn'] as Iterable).map<IdsAttr>((cn) => IdsAttr.fromJson(cn)))
+      contactTypes: (data['cn'] is Iterable)
+          ? List.from((data['cn'] as Iterable).map<IdsAttr>((cn) => IdsAttr.fromMap(cn)))
           : [],
-      apptTypes: (json['appt'] is Iterable)
-          ? List.from((json['appt'] as Iterable).map<IdsAttr>((appt) => IdsAttr.fromJson(appt)))
+      apptTypes: (data['appt'] is Iterable)
+          ? List.from((data['appt'] as Iterable).map<IdsAttr>((appt) => IdsAttr.fromMap(appt)))
           : [],
-      taskTypes: (json['task'] is Iterable)
-          ? List.from((json['task'] as Iterable).map<IdsAttr>((task) => IdsAttr.fromJson(task)))
+      taskTypes: (data['task'] is Iterable)
+          ? List.from((data['task'] as Iterable).map<IdsAttr>((task) => IdsAttr.fromMap(task)))
           : [],
-      noteTypes: (json['notes'] is Iterable)
-          ? List.from((json['notes'] as Iterable).map<IdsAttr>((note) => IdsAttr.fromJson(note)))
+      noteTypes: (data['notes'] is Iterable)
+          ? List.from((data['notes'] as Iterable).map<IdsAttr>((note) => IdsAttr.fromMap(note)))
           : [],
-      wikiTypes: (json['w'] is Iterable)
-          ? List.from((json['w'] as Iterable).map<IdsAttr>((wiki) => IdsAttr.fromJson(wiki)))
+      wikiTypes: (data['w'] is Iterable)
+          ? List.from((data['w'] as Iterable).map<IdsAttr>((wiki) => IdsAttr.fromMap(wiki)))
           : [],
-      docTypes: (json['doc'] is Iterable)
-          ? List.from((json['doc'] as Iterable).map<IdsAttr>((doc) => IdsAttr.fromJson(doc)))
+      docTypes: (data['doc'] is Iterable)
+          ? List.from((data['doc'] as Iterable).map<IdsAttr>((doc) => IdsAttr.fromMap(doc)))
           : []);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'ids': ids,
-        if (folderTypes.isNotEmpty) 'folder': folderTypes.map((folder) => folder.toJson()).toList(),
-        if (searchTypes.isNotEmpty) 'search': searchTypes.map((search) => search.toJson()).toList(),
-        if (linkTypes.isNotEmpty) 'link': linkTypes.map((link) => link.toJson()).toList(),
-        if (tagTypes.isNotEmpty) 'tag': tagTypes.map((tag) => tag.toJson()).toList(),
-        if (convTypes.isNotEmpty) 'c': convTypes.map((conv) => conv.toJson()).toList(),
-        if (chatTypes.isNotEmpty) 'chat': chatTypes.map((chat) => chat.toJson()).toList(),
-        if (msgTypes.isNotEmpty) 'm': msgTypes.map((msg) => msg.toJson()).toList(),
-        if (contactTypes.isNotEmpty) 'cn': contactTypes.map((cn) => cn.toJson()).toList(),
-        if (apptTypes.isNotEmpty) 'appt': apptTypes.map((appt) => appt.toJson()).toList(),
-        if (taskTypes.isNotEmpty) 'task': taskTypes.map((task) => task.toJson()).toList(),
-        if (noteTypes.isNotEmpty) 'notes': noteTypes.map((note) => note.toJson()).toList(),
-        if (wikiTypes.isNotEmpty) 'w': wikiTypes.map((wiki) => wiki.toJson()).toList(),
-        if (docTypes.isNotEmpty) 'doc': docTypes.map((doc) => doc.toJson()).toList(),
+        if (folderTypes.isNotEmpty) 'folder': folderTypes.map((folder) => folder.toMap()).toList(),
+        if (searchTypes.isNotEmpty) 'search': searchTypes.map((search) => search.toMap()).toList(),
+        if (linkTypes.isNotEmpty) 'link': linkTypes.map((link) => link.toMap()).toList(),
+        if (tagTypes.isNotEmpty) 'tag': tagTypes.map((tag) => tag.toMap()).toList(),
+        if (convTypes.isNotEmpty) 'c': convTypes.map((conv) => conv.toMap()).toList(),
+        if (chatTypes.isNotEmpty) 'chat': chatTypes.map((chat) => chat.toMap()).toList(),
+        if (msgTypes.isNotEmpty) 'm': msgTypes.map((msg) => msg.toMap()).toList(),
+        if (contactTypes.isNotEmpty) 'cn': contactTypes.map((cn) => cn.toMap()).toList(),
+        if (apptTypes.isNotEmpty) 'appt': apptTypes.map((appt) => appt.toMap()).toList(),
+        if (taskTypes.isNotEmpty) 'task': taskTypes.map((task) => task.toMap()).toList(),
+        if (noteTypes.isNotEmpty) 'notes': noteTypes.map((note) => note.toMap()).toList(),
+        if (wikiTypes.isNotEmpty) 'w': wikiTypes.map((wiki) => wiki.toMap()).toList(),
+        if (docTypes.isNotEmpty) 'doc': docTypes.map((doc) => doc.toMap()).toList(),
       };
 }

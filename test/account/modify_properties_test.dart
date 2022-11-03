@@ -16,7 +16,7 @@ void main() {
 
       final request = ModifyPropertiesRequest(props: [Prop(zimlet, name, value: value)]);
 
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'ModifyPropertiesRequest': {
             '_jsns': 'urn:zimbraAccount',
@@ -33,14 +33,14 @@ void main() {
     }));
 
     test('Modify properties response', (() {
-      final json = {
+      final data = {
         'Body': {
           'ModifyPropertiesResponse': {
             '_jsns': 'urn:zimbraAccount',
           }
         }
       };
-      final envelope = ModifyPropertiesEnvelope.fromJson(json);
+      final envelope = ModifyPropertiesEnvelope.fromMap(data);
       expect(envelope.modifyPropertiesBody.modifyPropertiesResponse, isNotNull);
       expect(envelope.modifyPropertiesBody.modifyPropertiesResponse, isA<ModifyPropertiesResponse>());
     }));

@@ -40,7 +40,7 @@ class CreateAppointmentExceptionRequest extends CalItemRequestBase {
       CreateAppointmentExceptionEnvelope(CreateAppointmentExceptionBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
         if (id != null) 'id': id,
         if (numComponents != null) 'comp': numComponents,
@@ -51,6 +51,6 @@ class CreateAppointmentExceptionRequest extends CalItemRequestBase {
         if (wantHtml != null) 'want': wantHtml,
         if (neuter != null) 'neuter': neuter,
         if (forceSend != null) 'forcesend': forceSend,
-        if (msg != null) 'm': msg!.toJson(),
+        if (msg != null) 'm': msg!.toMap(),
       };
 }

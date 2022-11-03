@@ -14,7 +14,7 @@ void main() {
   group('Get search folders tests', (() {
     test('Get search folders request', (() {
       final request = GetSearchFolderRequest();
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'GetSearchFolderRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -76,7 +76,7 @@ void main() {
       final query = faker.lorem.word();
       final types = faker.lorem.words(3).join(',');
 
-      final json = {
+      final data = {
         'Body': {
           'GetSearchFolderResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -194,7 +194,7 @@ void main() {
           }
         }
       };
-      final envelope = GetSearchFolderEnvelope.fromJson(json);
+      final envelope = GetSearchFolderEnvelope.fromMap(data);
       final response = envelope.getSearchFolderBody.getSearchFolderResponse!;
       final searchFolder = response.searchFolders.first;
 

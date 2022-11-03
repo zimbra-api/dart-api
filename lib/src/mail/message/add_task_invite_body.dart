@@ -12,17 +12,17 @@ class AddTaskInviteBody extends SoapBody {
   AddTaskInviteBody({AddTaskInviteRequest? request, AddTaskInviteResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory AddTaskInviteBody.fromJson(Map<String, dynamic> json) => AddTaskInviteBody(
+  factory AddTaskInviteBody.fromMap(Map<String, dynamic> data) => AddTaskInviteBody(
       response:
-          json['AddTaskInviteResponse'] != null ? AddTaskInviteResponse.fromJson(json['AddTaskInviteResponse']) : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+          data['AddTaskInviteResponse'] != null ? AddTaskInviteResponse.fromMap(data['AddTaskInviteResponse']) : null,
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   AddTaskInviteRequest? get addTaskInviteRequest => request as AddTaskInviteRequest?;
 
   AddTaskInviteResponse? get addTaskInviteResponse => response as AddTaskInviteResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'AddTaskInviteRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'AddTaskInviteRequest': request!.toMap(),
       };
 }

@@ -49,32 +49,32 @@ class AlarmInfo {
       this.attendees = const [],
       this.xProps = const []});
 
-  factory AlarmInfo.fromJson(Map<String, dynamic> json) => AlarmInfo(
+  factory AlarmInfo.fromMap(Map<String, dynamic> data) => AlarmInfo(
         action: AlarmAction.values.firstWhere(
-          (item) => item.name == json['action'],
+          (item) => item.name == data['action'],
           orElse: () => AlarmAction.display,
         ),
-        trigger: json['trigger'] is Map ? AlarmTriggerInfo.fromJson(json['trigger']) : null,
-        repeat: json['repeat'] is Map ? DurationInfo.fromJson(json['repeat']) : null,
-        description: json['desc'] is Map ? json['desc']['_content'] : null,
-        attach: json['attach'] is Map ? CalendarAttach.fromJson(json['attach']) : null,
-        summary: json['summary']?['_content'],
-        attendees: (json['at'] is Iterable)
-            ? List.from((json['at'] as Iterable).map<CalendarAttendee>((at) => CalendarAttendee.fromJson(at)))
+        trigger: data['trigger'] is Map ? AlarmTriggerInfo.fromMap(data['trigger']) : null,
+        repeat: data['repeat'] is Map ? DurationInfo.fromMap(data['repeat']) : null,
+        description: data['desc'] is Map ? data['desc']['_content'] : null,
+        attach: data['attach'] is Map ? CalendarAttach.fromMap(data['attach']) : null,
+        summary: data['summary']?['_content'],
+        attendees: (data['at'] is Iterable)
+            ? List.from((data['at'] as Iterable).map<CalendarAttendee>((at) => CalendarAttendee.fromMap(at)))
             : [],
-        xProps: (json['xprop'] is Iterable)
-            ? List.from((json['xprop'] as Iterable).map<XProp>((xprop) => XProp.fromJson(xprop)))
+        xProps: (data['xprop'] is Iterable)
+            ? List.from((data['xprop'] as Iterable).map<XProp>((xprop) => XProp.fromMap(xprop)))
             : [],
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (action != null) 'action': action!.name,
-        if (trigger != null) 'trigger': trigger!.toJson(),
-        if (repeat != null) 'repeat': repeat!.toJson(),
+        if (trigger != null) 'trigger': trigger!.toMap(),
+        if (repeat != null) 'repeat': repeat!.toMap(),
         if (description != null) 'desc': {'_content': description},
-        if (attach != null) 'attach': attach!.toJson(),
+        if (attach != null) 'attach': attach!.toMap(),
         if (summary != null) 'summary': {'_content': summary},
-        if (attendees.isNotEmpty) 'at': attendees.map((at) => at.toJson()).toList(),
-        if (xProps.isNotEmpty) 'xprop': xProps.map((xprop) => xprop.toJson()).toList(),
+        if (attendees.isNotEmpty) 'at': attendees.map((at) => at.toMap()).toList(),
+        if (xProps.isNotEmpty) 'xprop': xProps.map((xprop) => xprop.toMap()).toList(),
       };
 }

@@ -10,7 +10,7 @@ void main() {
     test('Get IMAP recent request', (() {
       final id = faker.guid.guid();
       final request = GetIMAPRecentRequest(id);
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'GetIMAPRecentRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -22,7 +22,7 @@ void main() {
 
     test('Get IMAP recent response', (() {
       final num = faker.randomGenerator.integer(100);
-      final json = {
+      final data = {
         'Body': {
           'GetIMAPRecentResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -30,7 +30,7 @@ void main() {
           }
         }
       };
-      final envelope = GetIMAPRecentEnvelope.fromJson(json);
+      final envelope = GetIMAPRecentEnvelope.fromMap(data);
       final response = envelope.getIMAPRecentBody.getIMAPRecentResponse!;
       expect(response.num, num);
     }));

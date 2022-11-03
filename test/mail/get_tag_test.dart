@@ -10,7 +10,7 @@ void main() {
   group('Get tag tests', (() {
     test('Get tag request', (() {
       final request = GetTagRequest();
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'GetTagRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -36,7 +36,7 @@ void main() {
       final key = faker.lorem.word();
       final value = faker.lorem.word();
 
-      final json = {
+      final data = {
         'Body': {
           'GetTagResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -90,7 +90,7 @@ void main() {
           }
         }
       };
-      final envelope = GetTagEnvelope.fromJson(json);
+      final envelope = GetTagEnvelope.fromMap(data);
       final response = envelope.getTagBody.getTagResponse!;
       final tag = response.tags.first;
 

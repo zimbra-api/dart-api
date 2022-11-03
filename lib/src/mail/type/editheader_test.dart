@@ -37,28 +37,28 @@ class EditheaderTest {
       this.headerName,
       this.headerValue = const []});
 
-  factory EditheaderTest.fromJson(Map<String, dynamic> json) => EditheaderTest(
+  factory EditheaderTest.fromMap(Map<String, dynamic> data) => EditheaderTest(
         matchType: MatchType.values.firstWhere(
-          (matchType) => matchType.name == json['matchType'],
+          (matchType) => matchType.name == data['matchType'],
           orElse: () => MatchType.value,
         ),
-        countComparator: json['countComparator'],
-        valueComparator: json['valueComparator'],
+        countComparator: data['countComparator'],
+        valueComparator: data['valueComparator'],
         relationalComparator: RelationalComparator.values.firstWhere(
-          (comparator) => comparator.name == json['relationalComparator'],
+          (comparator) => comparator.name == data['relationalComparator'],
           orElse: () => RelationalComparator.equal,
         ),
         comparator: ComparisonComparator.values.firstWhere(
-          (comparator) => comparator.name == json['comparator'],
+          (comparator) => comparator.name == data['comparator'],
           orElse: () => ComparisonComparator.asciiNumeric,
         ),
-        headerName: json['headerName']?['_content'],
-        headerValue: (json['headerValue'] is Iterable)
-            ? List.from((json['headerValue'] as Iterable).map<String>((value) => value['_content']))
+        headerName: data['headerName']?['_content'],
+        headerValue: (data['headerValue'] is Iterable)
+            ? List.from((data['headerValue'] as Iterable).map<String>((value) => value['_content']))
             : [],
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (matchType != null) 'matchType': matchType!.name,
         if (countComparator != null) 'countComparator': countComparator,
         if (valueComparator != null) 'valueComparator': valueComparator,

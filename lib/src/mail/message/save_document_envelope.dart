@@ -10,9 +10,9 @@ import 'save_document_body.dart';
 class SaveDocumentEnvelope extends SoapEnvelope {
   SaveDocumentEnvelope(SaveDocumentBody body, {super.header}) : super(body);
 
-  factory SaveDocumentEnvelope.fromJson(Map<String, dynamic> json) =>
-      SaveDocumentEnvelope(SaveDocumentBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory SaveDocumentEnvelope.fromMap(Map<String, dynamic> data) =>
+      SaveDocumentEnvelope(SaveDocumentBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   SaveDocumentBody get saveDocumentBody => body as SaveDocumentBody;
 }

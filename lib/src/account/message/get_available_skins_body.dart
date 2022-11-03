@@ -12,18 +12,18 @@ class GetAvailableSkinsBody extends SoapBody {
   GetAvailableSkinsBody({GetAvailableSkinsRequest? request, GetAvailableSkinsResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory GetAvailableSkinsBody.fromJson(Map<String, dynamic> json) => GetAvailableSkinsBody(
-      response: json['GetAvailableSkinsResponse'] != null
-          ? GetAvailableSkinsResponse.fromJson(json['GetAvailableSkinsResponse'])
+  factory GetAvailableSkinsBody.fromMap(Map<String, dynamic> data) => GetAvailableSkinsBody(
+      response: data['GetAvailableSkinsResponse'] != null
+          ? GetAvailableSkinsResponse.fromMap(data['GetAvailableSkinsResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   GetAvailableSkinsRequest? get getAvailableSkinsRequest => request as GetAvailableSkinsRequest?;
 
   GetAvailableSkinsResponse? get getAvailableSkinsResponse => response as GetAvailableSkinsResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'GetAvailableSkinsRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'GetAvailableSkinsRequest': request!.toMap(),
       };
 }

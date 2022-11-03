@@ -12,16 +12,16 @@ class GetTagBody extends SoapBody {
   GetTagBody({GetTagRequest? request, GetTagResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory GetTagBody.fromJson(Map<String, dynamic> json) => GetTagBody(
-      response: json['GetTagResponse'] != null ? GetTagResponse.fromJson(json['GetTagResponse']) : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+  factory GetTagBody.fromMap(Map<String, dynamic> data) => GetTagBody(
+      response: data['GetTagResponse'] != null ? GetTagResponse.fromMap(data['GetTagResponse']) : null,
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   GetTagRequest? get getTagRequest => request as GetTagRequest?;
 
   GetTagResponse? get getTagResponse => response as GetTagResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'GetTagRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'GetTagRequest': request!.toMap(),
       };
 }

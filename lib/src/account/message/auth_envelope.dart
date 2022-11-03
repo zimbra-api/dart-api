@@ -10,8 +10,8 @@ import 'auth_body.dart';
 class AuthEnvelope extends SoapEnvelope {
   AuthEnvelope(AuthBody body, {super.header}) : super(body);
 
-  factory AuthEnvelope.fromJson(Map<String, dynamic> json) => AuthEnvelope(AuthBody.fromJson(json['Body']),
-      header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory AuthEnvelope.fromMap(Map<String, dynamic> data) => AuthEnvelope(AuthBody.fromMap(data['Body']),
+      header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   AuthBody get authBody => body as AuthBody;
 }

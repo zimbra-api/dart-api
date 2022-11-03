@@ -7,10 +7,10 @@ class AuthTokenControl {
 
   AuthTokenControl({this.voidOnExpired});
 
-  factory AuthTokenControl.fromJson(Map<String, dynamic> json) =>
-      AuthTokenControl(voidOnExpired: json['voidOnExpired']);
+  factory AuthTokenControl.fromMap(Map<String, dynamic> data) =>
+      AuthTokenControl(voidOnExpired: data['voidOnExpired']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'voidOnExpired': voidOnExpired,
       };
 }

@@ -12,18 +12,18 @@ class CounterAppointmentBody extends SoapBody {
   CounterAppointmentBody({CounterAppointmentRequest? request, CounterAppointmentResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory CounterAppointmentBody.fromJson(Map<String, dynamic> json) => CounterAppointmentBody(
-      response: json['CounterAppointmentResponse'] != null
-          ? CounterAppointmentResponse.fromJson(json['CounterAppointmentResponse'])
+  factory CounterAppointmentBody.fromMap(Map<String, dynamic> data) => CounterAppointmentBody(
+      response: data['CounterAppointmentResponse'] != null
+          ? CounterAppointmentResponse.fromMap(data['CounterAppointmentResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   CounterAppointmentRequest? get counterAppointmentRequest => request as CounterAppointmentRequest?;
 
   CounterAppointmentResponse? get counterAppointmentResponse => response as CounterAppointmentResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'CounterAppointmentRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'CounterAppointmentRequest': request!.toMap(),
       };
 }

@@ -12,18 +12,18 @@ class RestoreContactsBody extends SoapBody {
   RestoreContactsBody({RestoreContactsRequest? request, RestoreContactsResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory RestoreContactsBody.fromJson(Map<String, dynamic> json) => RestoreContactsBody(
-      response: json['RestoreContactsResponse'] != null
-          ? RestoreContactsResponse.fromJson(json['RestoreContactsResponse'])
+  factory RestoreContactsBody.fromMap(Map<String, dynamic> data) => RestoreContactsBody(
+      response: data['RestoreContactsResponse'] != null
+          ? RestoreContactsResponse.fromMap(data['RestoreContactsResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   RestoreContactsRequest? get restoreContactsRequest => request as RestoreContactsRequest?;
 
   RestoreContactsResponse? get restoreContactsResponse => response as RestoreContactsResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'RestoreContactsRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'RestoreContactsRequest': request!.toMap(),
       };
 }

@@ -25,9 +25,9 @@ class SnoozeCalendarItemAlarmRequest extends SoapRequest {
       SnoozeCalendarItemAlarmEnvelope(SnoozeCalendarItemAlarmBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
-        if (apptAlarms.isNotEmpty) 'appt': apptAlarms.map((appt) => appt.toJson()).toList(),
-        if (taskAlarms.isNotEmpty) 'task': taskAlarms.map((task) => task.toJson()).toList(),
+        if (apptAlarms.isNotEmpty) 'appt': apptAlarms.map((appt) => appt.toMap()).toList(),
+        if (taskAlarms.isNotEmpty) 'task': taskAlarms.map((task) => task.toMap()).toList(),
       };
 }

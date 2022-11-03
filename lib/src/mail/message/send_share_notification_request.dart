@@ -35,10 +35,10 @@ class SendShareNotificationRequest extends SoapRequest {
       SendShareNotificationEnvelope(SendShareNotificationBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
-        'item': item.toJson(),
-        if (emailAddresses.isNotEmpty) 'e': emailAddresses.map((e) => e.toJson()).toList(),
+        'item': item.toMap(),
+        if (emailAddresses.isNotEmpty) 'e': emailAddresses.map((e) => e.toMap()).toList(),
         if (action != null) 'action': action!.name,
         if (notes != null) 'notes': {'_content': notes},
       };

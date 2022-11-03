@@ -10,9 +10,9 @@ import 'get_data_source_usage_body.dart';
 class GetDataSourceUsageEnvelope extends SoapEnvelope {
   GetDataSourceUsageEnvelope(GetDataSourceUsageBody body, {super.header}) : super(body);
 
-  factory GetDataSourceUsageEnvelope.fromJson(Map<String, dynamic> json) =>
-      GetDataSourceUsageEnvelope(GetDataSourceUsageBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory GetDataSourceUsageEnvelope.fromMap(Map<String, dynamic> data) =>
+      GetDataSourceUsageEnvelope(GetDataSourceUsageBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   GetDataSourceUsageBody get getDataSourceUsageBody => body as GetDataSourceUsageBody;
 }

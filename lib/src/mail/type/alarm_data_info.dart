@@ -36,22 +36,22 @@ class AlarmDataInfo {
     this.alarm,
   });
 
-  factory AlarmDataInfo.fromJson(Map<String, dynamic> json) => AlarmDataInfo(
-      nextAlarm: json['nextAlarm'],
-      alarmInstanceStart: json['alarmInstStart'],
-      invId: json['invId'],
-      componentNum: json['compNum'],
-      name: json['name'],
-      location: json['loc'],
-      alarm: json['alarm'] is Map ? AlarmInfo.fromJson(json['alarm']) : null);
+  factory AlarmDataInfo.fromMap(Map<String, dynamic> data) => AlarmDataInfo(
+      nextAlarm: data['nextAlarm'],
+      alarmInstanceStart: data['alarmInstStart'],
+      invId: data['invId'],
+      componentNum: data['compNum'],
+      name: data['name'],
+      location: data['loc'],
+      alarm: data['alarm'] is Map ? AlarmInfo.fromMap(data['alarm']) : null);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (nextAlarm != null) 'nextAlarm': nextAlarm,
         if (alarmInstanceStart != null) 'alarmInstStart': alarmInstanceStart,
         if (invId != null) 'invId': invId,
         if (componentNum != null) 'compNum': componentNum,
         if (name != null) 'name': name,
         if (location != null) 'loc': location,
-        if (alarm != null) 'alarm': alarm!.toJson(),
+        if (alarm != null) 'alarm': alarm!.toMap(),
       };
 }

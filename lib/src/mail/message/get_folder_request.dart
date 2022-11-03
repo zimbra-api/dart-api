@@ -50,9 +50,9 @@ class GetFolderRequest extends SoapRequest {
   SoapEnvelope getEnvelope({SoapHeader? header}) => GetFolderEnvelope(GetFolderBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
-        'folder': folder.toJson(),
+        'folder': folder.toMap(),
         if (isVisible != null) 'visible': isVisible,
         if (needGranteeName != null) 'needGranteeName': needGranteeName,
         if (viewConstraint != null) 'view': viewConstraint,

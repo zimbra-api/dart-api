@@ -18,10 +18,10 @@ class NewNoteSpec {
 
   NewNoteSpec({this.folder, this.content, this.color, this.bounds});
 
-  factory NewNoteSpec.fromJson(Map<String, dynamic> json) =>
-      NewNoteSpec(folder: json['l'], content: json['content'], color: json['color'], bounds: json['pos']);
+  factory NewNoteSpec.fromMap(Map<String, dynamic> data) =>
+      NewNoteSpec(folder: data['l'], content: data['content'], color: data['color'], bounds: data['pos']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (folder != null) 'l': folder,
         if (content != null) 'content': content,
         if (color != null) 'color': color,

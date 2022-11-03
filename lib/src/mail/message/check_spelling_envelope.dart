@@ -10,9 +10,9 @@ import 'check_spelling_body.dart';
 class CheckSpellingEnvelope extends SoapEnvelope {
   CheckSpellingEnvelope(CheckSpellingBody body, {super.header}) : super(body);
 
-  factory CheckSpellingEnvelope.fromJson(Map<String, dynamic> json) =>
-      CheckSpellingEnvelope(CheckSpellingBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory CheckSpellingEnvelope.fromMap(Map<String, dynamic> data) =>
+      CheckSpellingEnvelope(CheckSpellingBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   CheckSpellingBody get checkSpellingBody => body as CheckSpellingBody;
 }

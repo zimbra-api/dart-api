@@ -60,7 +60,7 @@ void main() {
         wantImapUid: wantImapUid,
         wantModifiedSequence: wantModifiedSequence,
       );
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'CreateContactRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -131,7 +131,7 @@ void main() {
       final size = faker.randomGenerator.integer(100);
       final contentFilename = faker.lorem.word();
 
-      final json = {
+      final data = {
         'Body': {
           'CreateContactResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -211,7 +211,7 @@ void main() {
           }
         }
       };
-      final envelope = CreateContactEnvelope.fromJson(json);
+      final envelope = CreateContactEnvelope.fromMap(data);
       final response = envelope.createContactBody.createContactResponse!;
       final contact = response.contact!;
 

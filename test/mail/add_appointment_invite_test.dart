@@ -483,7 +483,7 @@ void main() {
         ),
       );
 
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'AddAppointmentInviteRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -990,7 +990,7 @@ void main() {
       final invId = faker.randomGenerator.integer(100);
       final componentNum = faker.randomGenerator.integer(100);
 
-      final json = {
+      final data = {
         'Body': {
           'AddAppointmentInviteResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -1000,7 +1000,7 @@ void main() {
           }
         }
       };
-      final envelope = AddAppointmentInviteEnvelope.fromJson(json);
+      final envelope = AddAppointmentInviteEnvelope.fromMap(data);
       final response = envelope.addAppointmentInviteBody.addAppointmentInviteResponse!;
 
       expect(response.calItemId, calItemId);

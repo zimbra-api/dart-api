@@ -11,6 +11,6 @@ class SaveDocumentResponse extends SoapResponse {
 
   SaveDocumentResponse({this.doc});
 
-  factory SaveDocumentResponse.fromJson(Map<String, dynamic> json) =>
-      SaveDocumentResponse(doc: json['doc'] is Map ? IdVersionName.fromJson(json['doc']) : null);
+  factory SaveDocumentResponse.fromMap(Map<String, dynamic> data) =>
+      SaveDocumentResponse(doc: data['doc'] is Map ? IdVersionName.fromMap(data['doc']) : null);
 }

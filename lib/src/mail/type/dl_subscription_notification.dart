@@ -7,6 +7,6 @@ import 'notification.dart';
 class DLSubscriptionNotification extends Notification {
   DLSubscriptionNotification({super.truncatedContent, super.content});
 
-  factory DLSubscriptionNotification.fromJson(Map<String, dynamic> json) =>
-      DLSubscriptionNotification(truncatedContent: json['truncated'], content: json['content']?['_content']);
+  factory DLSubscriptionNotification.fromMap(Map<String, dynamic> data) =>
+      DLSubscriptionNotification(truncatedContent: data['truncated'], content: data['content']?['_content']);
 }

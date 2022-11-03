@@ -62,16 +62,16 @@ class GetItemResponse extends SoapResponse {
       this.msgItem,
       this.chatItem});
 
-  factory GetItemResponse.fromJson(Map<String, dynamic> json) => GetItemResponse(
-      folderItem: (json['folder'] is Map) ? Folder.fromJson(json['folder']) : null,
-      tagItem: (json['tag'] is Map) ? TagInfo.fromJson(json['tag']) : null,
-      noteItem: (json['note'] is Map) ? NoteInfo.fromJson(json['note']) : null,
-      contactItem: (json['cn'] is Map) ? ContactInfo.fromJson(json['cn']) : null,
-      apptItem: (json['appt'] is Map) ? CalendarItemInfo.fromJson(json['appt']) : null,
-      taskItem: (json['task'] is Map) ? TaskItemInfo.fromJson(json['task']) : null,
-      convItem: (json['c'] is Map) ? ConversationSummary.fromJson(json['c']) : null,
-      wikiItem: (json['w'] is Map) ? CommonDocumentInfo.fromJson(json['w']) : null,
-      docItem: (json['doc'] is Map) ? DocumentInfo.fromJson(json['doc']) : null,
-      msgItem: (json['m'] is Map) ? MessageSummary.fromJson(json['m']) : null,
-      chatItem: (json['chat'] is Map) ? ChatSummary.fromJson(json['chat']) : null);
+  factory GetItemResponse.fromMap(Map<String, dynamic> data) => GetItemResponse(
+      folderItem: (data['folder'] is Map) ? Folder.fromMap(data['folder']) : null,
+      tagItem: (data['tag'] is Map) ? TagInfo.fromMap(data['tag']) : null,
+      noteItem: (data['note'] is Map) ? NoteInfo.fromMap(data['note']) : null,
+      contactItem: (data['cn'] is Map) ? ContactInfo.fromMap(data['cn']) : null,
+      apptItem: (data['appt'] is Map) ? CalendarItemInfo.fromMap(data['appt']) : null,
+      taskItem: (data['task'] is Map) ? TaskItemInfo.fromMap(data['task']) : null,
+      convItem: (data['c'] is Map) ? ConversationSummary.fromMap(data['c']) : null,
+      wikiItem: (data['w'] is Map) ? CommonDocumentInfo.fromMap(data['w']) : null,
+      docItem: (data['doc'] is Map) ? DocumentInfo.fromMap(data['doc']) : null,
+      msgItem: (data['m'] is Map) ? MessageSummary.fromMap(data['m']) : null,
+      chatItem: (data['chat'] is Map) ? ChatSummary.fromMap(data['chat']) : null);
 }

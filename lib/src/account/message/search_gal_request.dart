@@ -98,7 +98,7 @@ class SearchGalRequest extends SoapRequest {
   SoapEnvelope getEnvelope({SoapHeader? header}) => SearchGalEnvelope(SearchGalBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraAccount',
         if (ref != null) 'ref': ref,
         if (name != null) 'name': name,
@@ -113,7 +113,7 @@ class SearchGalRequest extends SoapRequest {
         if (limit != null) 'limit': limit,
         if (offset != null) 'offset': offset,
         if (locale != null) 'locale': {'_content': locale},
-        if (cursor != null) 'cursor': cursor!.toJson(),
-        if (searchFilter != null) 'searchFilter': searchFilter!.toJson(),
+        if (cursor != null) 'cursor': cursor!.toMap(),
+        if (searchFilter != null) 'searchFilter': searchFilter!.toMap(),
       };
 }

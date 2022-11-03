@@ -152,144 +152,144 @@ class FilterTests {
       this.communityContentTests = const [],
       this.communityConnectionsTests = const []});
 
-  factory FilterTests.fromJson(Map<String, dynamic> json) => FilterTests(
+  factory FilterTests.fromMap(Map<String, dynamic> data) => FilterTests(
         condition: FilterCondition.values.firstWhere(
-          (condition) => condition.name == json['condition'],
+          (condition) => condition.name == data['condition'],
           orElse: () => FilterCondition.allof,
         ),
-        addressBookTests: json['addressBookTest'] is Iterable
+        addressBookTests: data['addressBookTest'] is Iterable
             ? List.from(
-                (json['addressBookTest'] as Iterable).map<AddressBookTest>((test) => AddressBookTest.fromJson(test)))
+                (data['addressBookTest'] as Iterable).map<AddressBookTest>((test) => AddressBookTest.fromMap(test)))
             : [],
-        addressTests: json['addressTest'] is Iterable
-            ? List.from((json['addressTest'] as Iterable).map<AddressTest>((test) => AddressTest.fromJson(test)))
+        addressTests: data['addressTest'] is Iterable
+            ? List.from((data['addressTest'] as Iterable).map<AddressTest>((test) => AddressTest.fromMap(test)))
             : [],
-        envelopeTests: json['envelopeTest'] is Iterable
-            ? List.from((json['envelopeTest'] as Iterable).map<EnvelopeTest>((test) => EnvelopeTest.fromJson(test)))
+        envelopeTests: data['envelopeTest'] is Iterable
+            ? List.from((data['envelopeTest'] as Iterable).map<EnvelopeTest>((test) => EnvelopeTest.fromMap(test)))
             : [],
-        attachmentTests: json['attachmentTest'] is Iterable
+        attachmentTests: data['attachmentTest'] is Iterable
             ? List.from(
-                (json['attachmentTest'] as Iterable).map<AttachmentTest>((test) => AttachmentTest.fromJson(test)))
+                (data['attachmentTest'] as Iterable).map<AttachmentTest>((test) => AttachmentTest.fromMap(test)))
             : [],
-        bodyTests: json['bodyTest'] is Iterable
-            ? List.from((json['bodyTest'] as Iterable).map<BodyTest>((test) => BodyTest.fromJson(test)))
+        bodyTests: data['bodyTest'] is Iterable
+            ? List.from((data['bodyTest'] as Iterable).map<BodyTest>((test) => BodyTest.fromMap(test)))
             : [],
-        bulkTests: json['bulkTest'] is Iterable
-            ? List.from((json['bulkTest'] as Iterable).map<BulkTest>((test) => BulkTest.fromJson(test)))
+        bulkTests: data['bulkTest'] is Iterable
+            ? List.from((data['bulkTest'] as Iterable).map<BulkTest>((test) => BulkTest.fromMap(test)))
             : [],
-        contactRankingTests: json['contactRankingTest'] is Iterable
-            ? List.from((json['contactRankingTest'] as Iterable)
-                .map<ContactRankingTest>((test) => ContactRankingTest.fromJson(test)))
+        contactRankingTests: data['contactRankingTest'] is Iterable
+            ? List.from((data['contactRankingTest'] as Iterable)
+                .map<ContactRankingTest>((test) => ContactRankingTest.fromMap(test)))
             : [],
-        conversationTests: json['conversationTest'] is Iterable
+        conversationTests: data['conversationTest'] is Iterable
             ? List.from(
-                (json['conversationTest'] as Iterable).map<ConversationTest>((test) => ConversationTest.fromJson(test)))
+                (data['conversationTest'] as Iterable).map<ConversationTest>((test) => ConversationTest.fromMap(test)))
             : [],
-        currentDayOfWeekTests: json['currentDayOfWeekTest'] is Iterable
-            ? List.from((json['currentDayOfWeekTest'] as Iterable)
-                .map<CurrentDayOfWeekTest>((test) => CurrentDayOfWeekTest.fromJson(test)))
+        currentDayOfWeekTests: data['currentDayOfWeekTest'] is Iterable
+            ? List.from((data['currentDayOfWeekTest'] as Iterable)
+                .map<CurrentDayOfWeekTest>((test) => CurrentDayOfWeekTest.fromMap(test)))
             : [],
-        currentTimeTests: json['currentTimeTest'] is Iterable
+        currentTimeTests: data['currentTimeTest'] is Iterable
             ? List.from(
-                (json['currentTimeTest'] as Iterable).map<CurrentTimeTest>((test) => CurrentTimeTest.fromJson(test)))
+                (data['currentTimeTest'] as Iterable).map<CurrentTimeTest>((test) => CurrentTimeTest.fromMap(test)))
             : [],
-        dateTests: json['dateTest'] is Iterable
-            ? List.from((json['dateTest'] as Iterable).map<DateTest>((test) => DateTest.fromJson(test)))
+        dateTests: data['dateTest'] is Iterable
+            ? List.from((data['dateTest'] as Iterable).map<DateTest>((test) => DateTest.fromMap(test)))
             : [],
-        facebookTests: json['facebookTest'] is Iterable
-            ? List.from((json['facebookTest'] as Iterable).map<FacebookTest>((test) => FacebookTest.fromJson(test)))
+        facebookTests: data['facebookTest'] is Iterable
+            ? List.from((data['facebookTest'] as Iterable).map<FacebookTest>((test) => FacebookTest.fromMap(test)))
             : [],
-        flaggedTests: json['flaggedTest'] is Iterable
-            ? List.from((json['flaggedTest'] as Iterable).map<FlaggedTest>((test) => FlaggedTest.fromJson(test)))
+        flaggedTests: data['flaggedTest'] is Iterable
+            ? List.from((data['flaggedTest'] as Iterable).map<FlaggedTest>((test) => FlaggedTest.fromMap(test)))
             : [],
-        headerExistsTests: json['headerExistsTest'] is Iterable
+        headerExistsTests: data['headerExistsTest'] is Iterable
             ? List.from(
-                (json['headerExistsTest'] as Iterable).map<HeaderExistsTest>((test) => HeaderExistsTest.fromJson(test)))
+                (data['headerExistsTest'] as Iterable).map<HeaderExistsTest>((test) => HeaderExistsTest.fromMap(test)))
             : [],
-        headerTests: json['headerTest'] is Iterable
-            ? List.from((json['headerTest'] as Iterable).map<HeaderTest>((test) => HeaderTest.fromJson(test)))
+        headerTests: data['headerTest'] is Iterable
+            ? List.from((data['headerTest'] as Iterable).map<HeaderTest>((test) => HeaderTest.fromMap(test)))
             : [],
-        importanceTests: json['importanceTest'] is Iterable
+        importanceTests: data['importanceTest'] is Iterable
             ? List.from(
-                (json['importanceTest'] as Iterable).map<ImportanceTest>((test) => ImportanceTest.fromJson(test)))
+                (data['importanceTest'] as Iterable).map<ImportanceTest>((test) => ImportanceTest.fromMap(test)))
             : [],
-        inviteTests: json['inviteTest'] is Iterable
-            ? List.from((json['inviteTest'] as Iterable).map<InviteTest>((test) => InviteTest.fromJson(test)))
+        inviteTests: data['inviteTest'] is Iterable
+            ? List.from((data['inviteTest'] as Iterable).map<InviteTest>((test) => InviteTest.fromMap(test)))
             : [],
-        linkedinTests: json['linkedinTest'] is Iterable
-            ? List.from((json['linkedinTest'] as Iterable).map<LinkedInTest>((test) => LinkedInTest.fromJson(test)))
+        linkedinTests: data['linkedinTest'] is Iterable
+            ? List.from((data['linkedinTest'] as Iterable).map<LinkedInTest>((test) => LinkedInTest.fromMap(test)))
             : [],
-        listTests: json['listTest'] is Iterable
-            ? List.from((json['listTest'] as Iterable).map<ListTest>((test) => ListTest.fromJson(test)))
+        listTests: data['listTest'] is Iterable
+            ? List.from((data['listTest'] as Iterable).map<ListTest>((test) => ListTest.fromMap(test)))
             : [],
-        meTests: json['meTest'] is Iterable
-            ? List.from((json['meTest'] as Iterable).map<MeTest>((test) => MeTest.fromJson(test)))
+        meTests: data['meTest'] is Iterable
+            ? List.from((data['meTest'] as Iterable).map<MeTest>((test) => MeTest.fromMap(test)))
             : [],
-        mimeHeaderTests: json['mimeHeaderTest'] is Iterable
+        mimeHeaderTests: data['mimeHeaderTest'] is Iterable
             ? List.from(
-                (json['mimeHeaderTest'] as Iterable).map<MimeHeaderTest>((test) => MimeHeaderTest.fromJson(test)))
+                (data['mimeHeaderTest'] as Iterable).map<MimeHeaderTest>((test) => MimeHeaderTest.fromMap(test)))
             : [],
-        sizeTests: json['sizeTest'] is Iterable
-            ? List.from((json['sizeTest'] as Iterable).map<SizeTest>((test) => SizeTest.fromJson(test)))
+        sizeTests: data['sizeTest'] is Iterable
+            ? List.from((data['sizeTest'] as Iterable).map<SizeTest>((test) => SizeTest.fromMap(test)))
             : [],
-        socialcastTests: json['socialcastTest'] is Iterable
+        socialcastTests: data['socialcastTest'] is Iterable
             ? List.from(
-                (json['socialcastTest'] as Iterable).map<SocialcastTest>((test) => SocialcastTest.fromJson(test)))
+                (data['socialcastTest'] as Iterable).map<SocialcastTest>((test) => SocialcastTest.fromMap(test)))
             : [],
-        trueTests: json['trueTest'] is Iterable
-            ? List.from((json['trueTest'] as Iterable).map<TrueTest>((test) => TrueTest.fromJson(test)))
+        trueTests: data['trueTest'] is Iterable
+            ? List.from((data['trueTest'] as Iterable).map<TrueTest>((test) => TrueTest.fromMap(test)))
             : [],
-        twitterTests: json['twitterTest'] is Iterable
-            ? List.from((json['twitterTest'] as Iterable).map<TwitterTest>((test) => TwitterTest.fromJson(test)))
+        twitterTests: data['twitterTest'] is Iterable
+            ? List.from((data['twitterTest'] as Iterable).map<TwitterTest>((test) => TwitterTest.fromMap(test)))
             : [],
-        communityRequestsTests: json['communityRequestsTest'] is Iterable
-            ? List.from((json['communityRequestsTest'] as Iterable)
-                .map<CommunityRequestsTest>((test) => CommunityRequestsTest.fromJson(test)))
+        communityRequestsTests: data['communityRequestsTest'] is Iterable
+            ? List.from((data['communityRequestsTest'] as Iterable)
+                .map<CommunityRequestsTest>((test) => CommunityRequestsTest.fromMap(test)))
             : [],
-        communityContentTests: json['communityContentTest'] is Iterable
-            ? List.from((json['communityContentTest'] as Iterable)
-                .map<CommunityContentTest>((test) => CommunityContentTest.fromJson(test)))
+        communityContentTests: data['communityContentTest'] is Iterable
+            ? List.from((data['communityContentTest'] as Iterable)
+                .map<CommunityContentTest>((test) => CommunityContentTest.fromMap(test)))
             : [],
-        communityConnectionsTests: json['communityConnectionsTest'] is Iterable
-            ? List.from((json['communityConnectionsTest'] as Iterable)
-                .map<CommunityConnectionsTest>((test) => CommunityConnectionsTest.fromJson(test)))
+        communityConnectionsTests: data['communityConnectionsTest'] is Iterable
+            ? List.from((data['communityConnectionsTest'] as Iterable)
+                .map<CommunityConnectionsTest>((test) => CommunityConnectionsTest.fromMap(test)))
             : [],
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'condition': condition.name,
-        if (addressBookTests.isNotEmpty) 'addressBookTest': addressBookTests.map((test) => test.toJson()).toList(),
-        if (addressTests.isNotEmpty) 'addressTest': addressTests.map((test) => test.toJson()).toList(),
-        if (envelopeTests.isNotEmpty) 'envelopeTest': envelopeTests.map((test) => test.toJson()).toList(),
-        if (attachmentTests.isNotEmpty) 'attachmentTest': attachmentTests.map((test) => test.toJson()).toList(),
-        if (bodyTests.isNotEmpty) 'bodyTest': bodyTests.map((test) => test.toJson()).toList(),
-        if (bulkTests.isNotEmpty) 'bulkTest': bulkTests.map((test) => test.toJson()).toList(),
+        if (addressBookTests.isNotEmpty) 'addressBookTest': addressBookTests.map((test) => test.toMap()).toList(),
+        if (addressTests.isNotEmpty) 'addressTest': addressTests.map((test) => test.toMap()).toList(),
+        if (envelopeTests.isNotEmpty) 'envelopeTest': envelopeTests.map((test) => test.toMap()).toList(),
+        if (attachmentTests.isNotEmpty) 'attachmentTest': attachmentTests.map((test) => test.toMap()).toList(),
+        if (bodyTests.isNotEmpty) 'bodyTest': bodyTests.map((test) => test.toMap()).toList(),
+        if (bulkTests.isNotEmpty) 'bulkTest': bulkTests.map((test) => test.toMap()).toList(),
         if (contactRankingTests.isNotEmpty)
-          'contactRankingTest': contactRankingTests.map((test) => test.toJson()).toList(),
-        if (conversationTests.isNotEmpty) 'conversationTest': conversationTests.map((test) => test.toJson()).toList(),
+          'contactRankingTest': contactRankingTests.map((test) => test.toMap()).toList(),
+        if (conversationTests.isNotEmpty) 'conversationTest': conversationTests.map((test) => test.toMap()).toList(),
         if (currentDayOfWeekTests.isNotEmpty)
-          'currentDayOfWeekTest': currentDayOfWeekTests.map((test) => test.toJson()).toList(),
-        if (currentTimeTests.isNotEmpty) 'currentTimeTest': currentTimeTests.map((test) => test.toJson()).toList(),
-        if (dateTests.isNotEmpty) 'dateTest': dateTests.map((test) => test.toJson()).toList(),
-        if (facebookTests.isNotEmpty) 'facebookTest': facebookTests.map((test) => test.toJson()).toList(),
-        if (flaggedTests.isNotEmpty) 'flaggedTest': flaggedTests.map((test) => test.toJson()).toList(),
-        if (headerExistsTests.isNotEmpty) 'headerExistsTest': headerExistsTests.map((test) => test.toJson()).toList(),
-        if (headerTests.isNotEmpty) 'headerTest': headerTests.map((test) => test.toJson()).toList(),
-        if (importanceTests.isNotEmpty) 'importanceTest': importanceTests.map((test) => test.toJson()).toList(),
-        if (inviteTests.isNotEmpty) 'inviteTest': inviteTests.map((test) => test.toJson()).toList(),
-        if (linkedinTests.isNotEmpty) 'linkedinTest': linkedinTests.map((test) => test.toJson()).toList(),
-        if (listTests.isNotEmpty) 'listTest': listTests.map((test) => test.toJson()).toList(),
-        if (meTests.isNotEmpty) 'meTest': meTests.map((test) => test.toJson()).toList(),
-        if (mimeHeaderTests.isNotEmpty) 'mimeHeaderTest': mimeHeaderTests.map((test) => test.toJson()).toList(),
-        if (sizeTests.isNotEmpty) 'sizeTest': sizeTests.map((test) => test.toJson()).toList(),
-        if (socialcastTests.isNotEmpty) 'socialcastTest': socialcastTests.map((test) => test.toJson()).toList(),
-        if (trueTests.isNotEmpty) 'trueTest': trueTests.map((test) => test.toJson()).toList(),
-        if (twitterTests.isNotEmpty) 'twitterTest': twitterTests.map((test) => test.toJson()).toList(),
+          'currentDayOfWeekTest': currentDayOfWeekTests.map((test) => test.toMap()).toList(),
+        if (currentTimeTests.isNotEmpty) 'currentTimeTest': currentTimeTests.map((test) => test.toMap()).toList(),
+        if (dateTests.isNotEmpty) 'dateTest': dateTests.map((test) => test.toMap()).toList(),
+        if (facebookTests.isNotEmpty) 'facebookTest': facebookTests.map((test) => test.toMap()).toList(),
+        if (flaggedTests.isNotEmpty) 'flaggedTest': flaggedTests.map((test) => test.toMap()).toList(),
+        if (headerExistsTests.isNotEmpty) 'headerExistsTest': headerExistsTests.map((test) => test.toMap()).toList(),
+        if (headerTests.isNotEmpty) 'headerTest': headerTests.map((test) => test.toMap()).toList(),
+        if (importanceTests.isNotEmpty) 'importanceTest': importanceTests.map((test) => test.toMap()).toList(),
+        if (inviteTests.isNotEmpty) 'inviteTest': inviteTests.map((test) => test.toMap()).toList(),
+        if (linkedinTests.isNotEmpty) 'linkedinTest': linkedinTests.map((test) => test.toMap()).toList(),
+        if (listTests.isNotEmpty) 'listTest': listTests.map((test) => test.toMap()).toList(),
+        if (meTests.isNotEmpty) 'meTest': meTests.map((test) => test.toMap()).toList(),
+        if (mimeHeaderTests.isNotEmpty) 'mimeHeaderTest': mimeHeaderTests.map((test) => test.toMap()).toList(),
+        if (sizeTests.isNotEmpty) 'sizeTest': sizeTests.map((test) => test.toMap()).toList(),
+        if (socialcastTests.isNotEmpty) 'socialcastTest': socialcastTests.map((test) => test.toMap()).toList(),
+        if (trueTests.isNotEmpty) 'trueTest': trueTests.map((test) => test.toMap()).toList(),
+        if (twitterTests.isNotEmpty) 'twitterTest': twitterTests.map((test) => test.toMap()).toList(),
         if (communityRequestsTests.isNotEmpty)
-          'communityRequestsTest': communityRequestsTests.map((test) => test.toJson()).toList(),
+          'communityRequestsTest': communityRequestsTests.map((test) => test.toMap()).toList(),
         if (communityContentTests.isNotEmpty)
-          'communityContentTest': communityContentTests.map((test) => test.toJson()).toList(),
+          'communityContentTest': communityContentTests.map((test) => test.toMap()).toList(),
         if (communityConnectionsTests.isNotEmpty)
-          'communityConnectionsTest': communityConnectionsTests.map((test) => test.toJson()).toList(),
+          'communityConnectionsTest': communityConnectionsTests.map((test) => test.toMap()).toList(),
       };
 }

@@ -11,9 +11,9 @@ class Cos {
 
   Cos({this.id, this.name});
 
-  factory Cos.fromJson(Map<String, dynamic> json) => Cos(id: json['id'], name: json['name']);
+  factory Cos.fromMap(Map<String, dynamic> data) => Cos(id: data['id'], name: data['name']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (id != null) 'id': id,
         if (name != null) 'name': name,
       };

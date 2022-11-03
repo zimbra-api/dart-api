@@ -12,16 +12,16 @@ class BounceMsgBody extends SoapBody {
   BounceMsgBody({BounceMsgRequest? request, BounceMsgResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory BounceMsgBody.fromJson(Map<String, dynamic> json) => BounceMsgBody(
-      response: json['BounceMsgResponse'] != null ? BounceMsgResponse.fromJson(json['BounceMsgResponse']) : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+  factory BounceMsgBody.fromMap(Map<String, dynamic> data) => BounceMsgBody(
+      response: data['BounceMsgResponse'] != null ? BounceMsgResponse.fromMap(data['BounceMsgResponse']) : null,
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   BounceMsgRequest? get bounceMsgRequest => request as BounceMsgRequest?;
 
   BounceMsgResponse? get bounceMsgResponse => response as BounceMsgResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'BounceMsgRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'BounceMsgRequest': request!.toMap(),
       };
 }

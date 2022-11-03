@@ -17,7 +17,7 @@ void main() {
           whiteListEntries: [OpValue(op: op, value: whiteEntry)],
           blackListEntries: [OpValue(op: op, value: blackEntry)]);
 
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'ModifyWhiteBlackListRequest': {
             '_jsns': 'urn:zimbraAccount',
@@ -43,14 +43,14 @@ void main() {
     }));
 
     test('Modify white black list response', (() {
-      final json = {
+      final data = {
         'Body': {
           'ModifyWhiteBlackListResponse': {
             '_jsns': 'urn:zimbraAccount',
           }
         }
       };
-      final envelope = ModifyWhiteBlackListEnvelope.fromJson(json);
+      final envelope = ModifyWhiteBlackListEnvelope.fromMap(data);
       expect(envelope.modifyWhiteBlackListBody.modifyWhiteBlackListResponse, isNotNull);
       expect(envelope.modifyWhiteBlackListBody.modifyWhiteBlackListResponse, isA<ModifyWhiteBlackListResponse>());
     }));

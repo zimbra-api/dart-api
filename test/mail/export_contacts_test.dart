@@ -21,7 +21,7 @@ void main() {
         csvLocale: csvLocale,
         csvDelimiter: csvDelimiter,
       );
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'ExportContactsRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -37,7 +37,7 @@ void main() {
 
     test('Export contacts response', (() {
       final content = faker.lorem.word();
-      final json = {
+      final data = {
         'Body': {
           'ExportContactsResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -45,7 +45,7 @@ void main() {
           }
         }
       };
-      final envelope = ExportContactsEnvelope.fromJson(json);
+      final envelope = ExportContactsEnvelope.fromMap(data);
       final response = envelope.exportContactsBody.exportContactsResponse!;
       expect(response.content, content);
     }));

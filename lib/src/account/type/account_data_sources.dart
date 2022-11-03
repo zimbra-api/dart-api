@@ -38,49 +38,49 @@ class AccountDataSources {
       this.calDataSources = const [],
       this.unknownDataSources = const []});
 
-  factory AccountDataSources.fromJson(Map<String, dynamic> json) => AccountDataSources(
-        imapDataSources: (json['imap'] is Iterable)
+  factory AccountDataSources.fromMap(Map<String, dynamic> data) => AccountDataSources(
+        imapDataSources: (data['imap'] is Iterable)
             ? List.from(
-                (json['imap'] as Iterable).map<AccountImapDataSource>((imap) => AccountImapDataSource.fromJson(imap)))
+                (data['imap'] as Iterable).map<AccountImapDataSource>((imap) => AccountImapDataSource.fromMap(imap)))
             : [],
-        pop3DataSources: (json['pop3'] is Iterable)
+        pop3DataSources: (data['pop3'] is Iterable)
             ? List.from(
-                (json['pop3'] as Iterable).map<AccountPop3DataSource>((pop3) => AccountPop3DataSource.fromJson(pop3)))
+                (data['pop3'] as Iterable).map<AccountPop3DataSource>((pop3) => AccountPop3DataSource.fromMap(pop3)))
             : [],
-        caldavDataSources: (json['caldav'] is Iterable)
-            ? List.from((json['caldav'] as Iterable)
-                .map<AccountCaldavDataSource>((caldav) => AccountCaldavDataSource.fromJson(caldav)))
+        caldavDataSources: (data['caldav'] is Iterable)
+            ? List.from((data['caldav'] as Iterable)
+                .map<AccountCaldavDataSource>((caldav) => AccountCaldavDataSource.fromMap(caldav)))
             : [],
-        yabDataSources: (json['yab'] is Iterable)
+        yabDataSources: (data['yab'] is Iterable)
             ? List.from(
-                (json['yab'] as Iterable).map<AccountYabDataSource>((yab) => AccountYabDataSource.fromJson(yab)))
+                (data['yab'] as Iterable).map<AccountYabDataSource>((yab) => AccountYabDataSource.fromMap(yab)))
             : [],
-        rssDataSources: (json['rss'] is Iterable)
+        rssDataSources: (data['rss'] is Iterable)
             ? List.from(
-                (json['rss'] as Iterable).map<AccountRssDataSource>((rss) => AccountRssDataSource.fromJson(rss)))
+                (data['rss'] as Iterable).map<AccountRssDataSource>((rss) => AccountRssDataSource.fromMap(rss)))
             : [],
-        galDataSources: (json['gal'] is Iterable)
+        galDataSources: (data['gal'] is Iterable)
             ? List.from(
-                (json['gal'] as Iterable).map<AccountGalDataSource>((gal) => AccountGalDataSource.fromJson(gal)))
+                (data['gal'] as Iterable).map<AccountGalDataSource>((gal) => AccountGalDataSource.fromMap(gal)))
             : [],
-        calDataSources: (json['cal'] is Iterable)
+        calDataSources: (data['cal'] is Iterable)
             ? List.from(
-                (json['cal'] as Iterable).map<AccountCalDataSource>((cal) => AccountCalDataSource.fromJson(cal)))
+                (data['cal'] as Iterable).map<AccountCalDataSource>((cal) => AccountCalDataSource.fromMap(cal)))
             : [],
-        unknownDataSources: (json['unknown'] is Iterable)
-            ? List.from((json['unknown'] as Iterable)
-                .map<AccountUnknownDataSource>((unknown) => AccountUnknownDataSource.fromJson(unknown)))
+        unknownDataSources: (data['unknown'] is Iterable)
+            ? List.from((data['unknown'] as Iterable)
+                .map<AccountUnknownDataSource>((unknown) => AccountUnknownDataSource.fromMap(unknown)))
             : [],
       );
 
-  Map<String, dynamic> toJson() => {
-        if (imapDataSources.isNotEmpty) 'imap': imapDataSources.map((imap) => imap.toJson()),
-        if (pop3DataSources.isNotEmpty) 'pop3': pop3DataSources.map((pop3) => pop3.toJson()),
-        if (caldavDataSources.isNotEmpty) 'caldav': caldavDataSources.map((caldav) => caldav.toJson()),
-        if (yabDataSources.isNotEmpty) 'yab': yabDataSources.map((yab) => yab.toJson()),
-        if (rssDataSources.isNotEmpty) 'rss': rssDataSources.map((rss) => rss.toJson()),
-        if (galDataSources.isNotEmpty) 'gal': galDataSources.map((gal) => gal.toJson()),
-        if (calDataSources.isNotEmpty) 'cal': calDataSources.map((cal) => cal.toJson()),
-        if (unknownDataSources.isNotEmpty) 'unknown': unknownDataSources.map((unknown) => unknown.toJson()),
+  Map<String, dynamic> toMap() => {
+        if (imapDataSources.isNotEmpty) 'imap': imapDataSources.map((imap) => imap.toMap()),
+        if (pop3DataSources.isNotEmpty) 'pop3': pop3DataSources.map((pop3) => pop3.toMap()),
+        if (caldavDataSources.isNotEmpty) 'caldav': caldavDataSources.map((caldav) => caldav.toMap()),
+        if (yabDataSources.isNotEmpty) 'yab': yabDataSources.map((yab) => yab.toMap()),
+        if (rssDataSources.isNotEmpty) 'rss': rssDataSources.map((rss) => rss.toMap()),
+        if (galDataSources.isNotEmpty) 'gal': galDataSources.map((gal) => gal.toMap()),
+        if (calDataSources.isNotEmpty) 'cal': calDataSources.map((cal) => cal.toMap()),
+        if (unknownDataSources.isNotEmpty) 'unknown': unknownDataSources.map((unknown) => unknown.toMap()),
       };
 }

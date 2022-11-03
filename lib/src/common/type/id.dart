@@ -7,9 +7,9 @@ class Id {
 
   Id({this.id});
 
-  factory Id.fromJson(Map<String, dynamic> json) => Id(id: json['id']);
+  factory Id.fromMap(Map<String, dynamic> data) => Id(id: data['id']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (id != null) 'id': id,
       };
 }

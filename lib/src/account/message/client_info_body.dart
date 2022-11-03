@@ -12,16 +12,16 @@ class ClientInfoBody extends SoapBody {
   ClientInfoBody({ClientInfoRequest? request, ClientInfoResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory ClientInfoBody.fromJson(Map<String, dynamic> json) => ClientInfoBody(
-      response: json['ClientInfoResponse'] != null ? ClientInfoResponse.fromJson(json['ClientInfoResponse']) : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+  factory ClientInfoBody.fromMap(Map<String, dynamic> data) => ClientInfoBody(
+      response: data['ClientInfoResponse'] != null ? ClientInfoResponse.fromMap(data['ClientInfoResponse']) : null,
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   ClientInfoRequest? get clientInfoRequest => request as ClientInfoRequest?;
 
   ClientInfoResponse? get clientInfoResponse => response as ClientInfoResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'ClientInfoRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'ClientInfoRequest': request!.toMap(),
       };
 }

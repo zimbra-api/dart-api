@@ -10,9 +10,9 @@ import 'set_appointment_body.dart';
 class SetAppointmentEnvelope extends SoapEnvelope {
   SetAppointmentEnvelope(SetAppointmentBody body, {super.header}) : super(body);
 
-  factory SetAppointmentEnvelope.fromJson(Map<String, dynamic> json) =>
-      SetAppointmentEnvelope(SetAppointmentBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory SetAppointmentEnvelope.fromMap(Map<String, dynamic> data) =>
+      SetAppointmentEnvelope(SetAppointmentBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   SetAppointmentBody get setAppointmentBody => body as SetAppointmentBody;
 }

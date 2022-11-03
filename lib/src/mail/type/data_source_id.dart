@@ -7,5 +7,5 @@ import 'package:zimbra_api/src/common/type/id.dart';
 class DataSourceId extends Id {
   DataSourceId({super.id});
 
-  factory DataSourceId.fromJson(Map<String, dynamic> json) => DataSourceId(id: json['id']);
+  factory DataSourceId.fromMap(Map<String, dynamic> data) => DataSourceId(id: data['id']);
 }

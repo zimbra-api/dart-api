@@ -22,20 +22,20 @@ class MimePartInfo {
 
   MimePartInfo({this.contentType, this.content, this.contentId, this.attachments, this.mimeParts = const []});
 
-  factory MimePartInfo.fromJson(Map<String, dynamic> json) => MimePartInfo(
-      contentType: json['ct'],
-      content: json['content'],
-      contentId: json['ci'],
-      attachments: json['attach'] is Map ? AttachmentsInfo.fromJson(json['attach']) : null,
-      mimeParts: (json['mp'] is Iterable)
-          ? List.from((json['mp'] as Iterable).map<MimePartInfo>((mp) => MimePartInfo.fromJson(mp)))
+  factory MimePartInfo.fromMap(Map<String, dynamic> data) => MimePartInfo(
+      contentType: data['ct'],
+      content: data['content'],
+      contentId: data['ci'],
+      attachments: data['attach'] is Map ? AttachmentsInfo.fromMap(data['attach']) : null,
+      mimeParts: (data['mp'] is Iterable)
+          ? List.from((data['mp'] as Iterable).map<MimePartInfo>((mp) => MimePartInfo.fromMap(mp)))
           : []);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (contentType != null) 'ct': contentType,
         if (content != null) 'content': content,
         if (contentId != null) 'ci': contentId,
-        if (attachments != null) 'attach': attachments!.toJson(),
-        if (mimeParts.isNotEmpty) 'mp': mimeParts.map((mp) => mp.toJson()).toList(),
+        if (attachments != null) 'attach': attachments!.toMap(),
+        if (mimeParts.isNotEmpty) 'mp': mimeParts.map((mp) => mp.toMap()).toList(),
       };
 }

@@ -12,18 +12,18 @@ class CreateSignatureBody extends SoapBody {
   CreateSignatureBody({CreateSignatureRequest? request, CreateSignatureResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory CreateSignatureBody.fromJson(Map<String, dynamic> json) => CreateSignatureBody(
-      response: json['CreateSignatureResponse'] != null
-          ? CreateSignatureResponse.fromJson(json['CreateSignatureResponse'])
+  factory CreateSignatureBody.fromMap(Map<String, dynamic> data) => CreateSignatureBody(
+      response: data['CreateSignatureResponse'] != null
+          ? CreateSignatureResponse.fromMap(data['CreateSignatureResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   CreateSignatureRequest? get createSignatureRequest => request as CreateSignatureRequest?;
 
   CreateSignatureResponse? get createSignatureResponse => response as CreateSignatureResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'CreateSignatureRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'CreateSignatureRequest': request!.toMap(),
       };
 }

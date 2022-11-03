@@ -56,23 +56,23 @@ class ShareInfo {
       this.granteeDisplayName,
       this.mountpointId});
 
-  factory ShareInfo.fromJson(Map<String, dynamic> json) => ShareInfo(
-        json['ownerId'],
-        json['ownerEmail'],
-        ownerDisplayName: json['ownerName'],
-        folderId: json['folderId'],
-        folderUuid: json['folderUuid'],
-        folderPath: json['folderPath'],
-        defaultView: json['view'],
-        rights: json['rights'],
-        granteeType: json['granteeType'],
-        granteeId: json['granteeId'],
-        granteeName: json['granteeName'],
-        granteeDisplayName: json['granteeDisplayName'],
-        mountpointId: json['mid'],
+  factory ShareInfo.fromMap(Map<String, dynamic> data) => ShareInfo(
+        data['ownerId'],
+        data['ownerEmail'],
+        ownerDisplayName: data['ownerName'],
+        folderId: data['folderId'],
+        folderUuid: data['folderUuid'],
+        folderPath: data['folderPath'],
+        defaultView: data['view'],
+        rights: data['rights'],
+        granteeType: data['granteeType'],
+        granteeId: data['granteeId'],
+        granteeName: data['granteeName'],
+        granteeDisplayName: data['granteeDisplayName'],
+        mountpointId: data['mid'],
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'ownerId': ownerId,
         'ownerEmail': ownerEmail,
         if (ownerDisplayName != null) 'ownerName': ownerDisplayName,

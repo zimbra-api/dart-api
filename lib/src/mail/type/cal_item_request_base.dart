@@ -29,13 +29,13 @@ abstract class CalItemRequestBase extends SoapRequest {
   CalItemRequestBase({this.echo, this.maxSize, this.wantHtml, this.neuter, this.forceSend, this.msg});
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
         if (echo != null) 'echo': echo,
         if (maxSize != null) 'max': maxSize,
         if (wantHtml != null) 'want': wantHtml,
         if (neuter != null) 'neuter': neuter,
         if (forceSend != null) 'forcesend': forceSend,
-        if (msg != null) 'm': msg!.toJson(),
+        if (msg != null) 'm': msg!.toMap(),
       };
 }

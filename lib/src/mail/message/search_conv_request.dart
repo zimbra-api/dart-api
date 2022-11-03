@@ -56,7 +56,7 @@ class SearchConvRequest extends MailSearchParams {
   SoapEnvelope getEnvelope({SoapHeader? header}) => SearchConvEnvelope(SearchConvBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
         'cid': conversationId,
         if (nestMessages != null) 'nest': nestMessages,
@@ -84,10 +84,10 @@ class SearchConvRequest extends MailSearchParams {
         if (field != null) 'field': field,
         if (limit != null) 'limit': limit,
         if (offset != null) 'offset': offset,
-        if (headers.isNotEmpty) 'header': headers.map((header) => header.toJson()).toList(),
-        if (timezone != null) 'tz': timezone!.toJson(),
+        if (headers.isNotEmpty) 'header': headers.map((header) => header.toMap()).toList(),
+        if (timezone != null) 'tz': timezone!.toMap(),
         if (locale != null) 'locale': {'_content': locale},
-        if (cursor != null) 'cursor': cursor!.toJson(),
+        if (cursor != null) 'cursor': cursor!.toMap(),
         if (wantContent != null) 'wantContent': wantContent!.name,
         if (includeMemberOf != null) 'memberOf': includeMemberOf,
       };

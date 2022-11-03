@@ -522,7 +522,7 @@ void main() {
           fragment: fragment,
         ),
       );
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'SendInviteReplyRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -1178,7 +1178,7 @@ void main() {
       final tagNames = faker.lorem.word();
       final section = faker.lorem.word();
 
-      final json = {
+      final data = {
         'Body': {
           'SendInviteReplyResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -1622,7 +1622,7 @@ void main() {
           }
         }
       };
-      final envelope = SendInviteReplyEnvelope.fromJson(json);
+      final envelope = SendInviteReplyEnvelope.fromMap(data);
       final response = envelope.sendInviteReplyBody.sendInviteReplyResponse!;
 
       expect(response.calItemId, calItemId);

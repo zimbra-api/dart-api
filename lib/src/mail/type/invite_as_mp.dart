@@ -71,56 +71,56 @@ class InviteAsMP extends MessageCommon {
       super.modifiedSequence,
       super.metadatas = const []});
 
-  factory InviteAsMP.fromJson(Map<String, dynamic> json) => InviteAsMP(
-      id: json['id'],
-      part: json['part'],
-      sentDate: json['sd'],
-      emails: (json['e'] is Iterable)
-          ? List.from((json['e'] as Iterable).map<EmailInfo>((e) => EmailInfo.fromJson(e)))
+  factory InviteAsMP.fromMap(Map<String, dynamic> data) => InviteAsMP(
+      id: data['id'],
+      part: data['part'],
+      sentDate: data['sd'],
+      emails: (data['e'] is Iterable)
+          ? List.from((data['e'] as Iterable).map<EmailInfo>((e) => EmailInfo.fromMap(e)))
           : [],
-      subject: json['su']?['_content'],
-      messageIdHeader: json['mid']?['_content'],
-      invite: (json['inv'] is Map) ? MPInviteInfo.fromJson(json['inv']) : null,
-      headers: (json['header'] is Iterable)
-          ? List.from((json['header'] as Iterable).map<KeyValuePair>((header) => KeyValuePair.fromJson(header)))
+      subject: data['su']?['_content'],
+      messageIdHeader: data['mid']?['_content'],
+      invite: (data['inv'] is Map) ? MPInviteInfo.fromMap(data['inv']) : null,
+      headers: (data['header'] is Iterable)
+          ? List.from((data['header'] as Iterable).map<KeyValuePair>((header) => KeyValuePair.fromMap(header)))
           : [],
-      mpContentElems: (json['mp'] is Iterable)
-          ? List.from((json['mp'] as Iterable).map<PartInfo>((mp) => PartInfo.fromJson(mp)))
+      mpContentElems: (data['mp'] is Iterable)
+          ? List.from((data['mp'] as Iterable).map<PartInfo>((mp) => PartInfo.fromMap(mp)))
           : [],
-      shrContentElems: (json['shr'] is Iterable)
-          ? List.from((json['shr'] as Iterable).map<ShareNotification>((shr) => ShareNotification.fromJson(shr)))
+      shrContentElems: (data['shr'] is Iterable)
+          ? List.from((data['shr'] as Iterable).map<ShareNotification>((shr) => ShareNotification.fromMap(shr)))
           : [],
-      dlSubsContentElems: (json['dlSubs'] is Iterable)
-          ? List.from((json['dlSubs'] as Iterable)
-              .map<DLSubscriptionNotification>((dlSubs) => DLSubscriptionNotification.fromJson(dlSubs)))
+      dlSubsContentElems: (data['dlSubs'] is Iterable)
+          ? List.from((data['dlSubs'] as Iterable)
+              .map<DLSubscriptionNotification>((dlSubs) => DLSubscriptionNotification.fromMap(dlSubs)))
           : [],
-      size: json['s'],
-      date: json['d'],
-      folder: json['l'],
-      conversationId: json['cid'],
-      flags: json['f'],
-      tags: json['t'],
-      tagNames: json['tn'],
-      revision: json['rev'],
-      changeDate: json['md'],
-      modifiedSequence: json['ms'],
-      metadatas: (json['meta'] is Iterable)
-          ? List.from((json['meta'] as Iterable).map<MailCustomMetadata>((meta) => MailCustomMetadata.fromJson(meta)))
+      size: data['s'],
+      date: data['d'],
+      folder: data['l'],
+      conversationId: data['cid'],
+      flags: data['f'],
+      tags: data['t'],
+      tagNames: data['tn'],
+      revision: data['rev'],
+      changeDate: data['md'],
+      modifiedSequence: data['ms'],
+      metadatas: (data['meta'] is Iterable)
+          ? List.from((data['meta'] as Iterable).map<MailCustomMetadata>((meta) => MailCustomMetadata.fromMap(meta)))
           : []);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (id != null) 'id': id,
         if (part != null) 'part': part,
         if (sentDate != null) 'sd': sentDate,
-        if (emails.isNotEmpty) 'e': emails.map((e) => e.toJson()).toList(),
+        if (emails.isNotEmpty) 'e': emails.map((e) => e.toMap()).toList(),
         if (subject != null) 'su': {'_content': subject},
         if (messageIdHeader != null) 'mid': {'_content': messageIdHeader},
-        if (invite != null) 'inv': invite!.toJson(),
-        if (headers.isNotEmpty) 'header': headers.map((header) => header.toJson()).toList(),
-        if (mpContentElems.isNotEmpty) 'mp': mpContentElems.map((mp) => mp.toJson()).toList(),
-        if (shrContentElems.isNotEmpty) 'shr': shrContentElems.map((shr) => shr.toJson()).toList(),
-        if (dlSubsContentElems.isNotEmpty) 'dlSubs': dlSubsContentElems.map((dlSubs) => dlSubs.toJson()).toList(),
+        if (invite != null) 'inv': invite!.toMap(),
+        if (headers.isNotEmpty) 'header': headers.map((header) => header.toMap()).toList(),
+        if (mpContentElems.isNotEmpty) 'mp': mpContentElems.map((mp) => mp.toMap()).toList(),
+        if (shrContentElems.isNotEmpty) 'shr': shrContentElems.map((shr) => shr.toMap()).toList(),
+        if (dlSubsContentElems.isNotEmpty) 'dlSubs': dlSubsContentElems.map((dlSubs) => dlSubs.toMap()).toList(),
         if (size != null) 's': size,
         if (date != null) 'd': date,
         if (folder != null) 'l': folder,
@@ -131,6 +131,6 @@ class InviteAsMP extends MessageCommon {
         if (revision != null) 'rev': revision,
         if (changeDate != null) 'md': changeDate,
         if (modifiedSequence != null) 'ms': modifiedSequence,
-        if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toJson()).toList(),
+        if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toMap()).toList(),
       };
 }

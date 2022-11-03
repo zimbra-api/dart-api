@@ -10,7 +10,7 @@ void main() {
     test('Get identities request', (() {
       final request = GetIdentitiesRequest();
 
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'GetIdentitiesRequest': {
             '_jsns': 'urn:zimbraAccount',
@@ -26,7 +26,7 @@ void main() {
       final value = faker.lorem.word();
       final permDenied = faker.randomGenerator.boolean();
 
-      final json = {
+      final data = {
         'Body': {
           'GetIdentitiesResponse': {
             '_jsns': 'urn:zimbraAccount',
@@ -46,7 +46,7 @@ void main() {
           }
         }
       };
-      final envelope = GetIdentitiesEnvelope.fromJson(json);
+      final envelope = GetIdentitiesEnvelope.fromMap(data);
       final response = envelope.getIdentitiesBody.getIdentitiesResponse!;
       final identity = response.identities.first;
 

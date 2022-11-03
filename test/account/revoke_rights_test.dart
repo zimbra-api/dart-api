@@ -28,7 +28,7 @@ void main() {
             checkGranteeType: checkGranteeType)
       ]);
 
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'RevokeRightsRequest': {
             '_jsns': 'urn:zimbraAccount',
@@ -50,7 +50,7 @@ void main() {
     }));
 
     test('Revoke rights response', (() {
-      final json = {
+      final data = {
         'Body': {
           'RevokeRightsResponse': {
             '_jsns': 'urn:zimbraAccount',
@@ -69,7 +69,7 @@ void main() {
           }
         },
       };
-      final envelope = RevokeRightsEnvelope.fromJson(json);
+      final envelope = RevokeRightsEnvelope.fromMap(data);
       final response = envelope.revokeRightsBody.revokeRightsResponse!;
       final ace = response.aces.first;
 

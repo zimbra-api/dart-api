@@ -29,10 +29,10 @@ class CreateDistributionListRequest extends SoapRequest {
       CreateDistributionListEnvelope(CreateDistributionListBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraAccount',
         'name': name,
         if (isDynamic != null) 'dynamic': isDynamic,
-        if (keyValuePairs.isNotEmpty) 'a': keyValuePairs.map((a) => a.toJson()).toList(),
+        if (keyValuePairs.isNotEmpty) 'a': keyValuePairs.map((a) => a.toMap()).toList(),
       };
 }

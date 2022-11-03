@@ -49,7 +49,7 @@ void main() {
         deleteLimit: deleteLimit,
         changeLimit: changeLimit,
       );
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'SyncRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -263,7 +263,7 @@ void main() {
       final autoSendTime = faker.randomGenerator.integer(100);
       final conversationId = faker.guid.guid();
 
-      final json = {
+      final data = {
         'Body': {
           'SyncResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -1625,7 +1625,7 @@ void main() {
           }
         }
       };
-      final envelope = SyncEnvelope.fromJson(json);
+      final envelope = SyncEnvelope.fromMap(data);
       final response = envelope.syncBody.syncResponse!;
 
       expect(response.changeDate, changeDate);

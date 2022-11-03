@@ -10,9 +10,9 @@ import 'set_mailbox_metadata_body.dart';
 class SetMailboxMetadataEnvelope extends SoapEnvelope {
   SetMailboxMetadataEnvelope(SetMailboxMetadataBody body, {super.header}) : super(body);
 
-  factory SetMailboxMetadataEnvelope.fromJson(Map<String, dynamic> json) =>
-      SetMailboxMetadataEnvelope(SetMailboxMetadataBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory SetMailboxMetadataEnvelope.fromMap(Map<String, dynamic> data) =>
+      SetMailboxMetadataEnvelope(SetMailboxMetadataBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   SetMailboxMetadataBody get setMailboxMetadataBody => body as SetMailboxMetadataBody;
 }

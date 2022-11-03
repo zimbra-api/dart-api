@@ -12,18 +12,18 @@ class ImportAppointmentsBody extends SoapBody {
   ImportAppointmentsBody({ImportAppointmentsRequest? request, ImportAppointmentsResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory ImportAppointmentsBody.fromJson(Map<String, dynamic> json) => ImportAppointmentsBody(
-      response: json['ImportAppointmentsResponse'] != null
-          ? ImportAppointmentsResponse.fromJson(json['ImportAppointmentsResponse'])
+  factory ImportAppointmentsBody.fromMap(Map<String, dynamic> data) => ImportAppointmentsBody(
+      response: data['ImportAppointmentsResponse'] != null
+          ? ImportAppointmentsResponse.fromMap(data['ImportAppointmentsResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   ImportAppointmentsRequest? get importAppointmentsRequest => request as ImportAppointmentsRequest?;
 
   ImportAppointmentsResponse? get importAppointmentsResponse => response as ImportAppointmentsResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'ImportAppointmentsRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'ImportAppointmentsRequest': request!.toMap(),
       };
 }

@@ -65,24 +65,24 @@ class AuthResponse extends SoapResponse {
       this.twoFactorAuthRequired,
       this.trustedDevicesEnabled});
 
-  factory AuthResponse.fromJson(Map<String, dynamic> json) => AuthResponse(
-        authToken: json['authToken']?[0]['_content'],
-        lifetime: json['lifetime'],
-        trustLifetime: json['trustLifetime'],
-        session: json['session'] is Map ? Session.fromJson(json['session']) : null,
-        refer: json['refer']?[0]['_content'],
-        skin: json['skin']?[0]['_content'],
-        csrfToken: json['csrfToken']?['_content'],
-        deviceId: json['deviceId']?['_content'],
-        trustedToken: json['trustedToken']?['_content'],
-        zmgProxy: json['zmgProxy'],
-        prefs: (json['prefs']?['_attrs'] is Map)
-            ? List.from(Utils.prefsFromJson(json['prefs']['_attrs'] as Map<String, dynamic>))
+  factory AuthResponse.fromMap(Map<String, dynamic> data) => AuthResponse(
+        authToken: data['authToken']?[0]['_content'],
+        lifetime: data['lifetime'],
+        trustLifetime: data['trustLifetime'],
+        session: data['session'] is Map ? Session.fromMap(data['session']) : null,
+        refer: data['refer']?[0]['_content'],
+        skin: data['skin']?[0]['_content'],
+        csrfToken: data['csrfToken']?['_content'],
+        deviceId: data['deviceId']?['_content'],
+        trustedToken: data['trustedToken']?['_content'],
+        zmgProxy: data['zmgProxy'],
+        prefs: (data['prefs']?['_attrs'] is Map)
+            ? List.from(Utils.prefsFromJson(data['prefs']['_attrs'] as Map<String, dynamic>))
             : [],
-        attrs: (json['attrs']?['_attrs'] is Map)
-            ? List.from(Utils.attrsFromJson(json['attrs']['_attrs'] as Map<String, dynamic>))
+        attrs: (data['attrs']?['_attrs'] is Map)
+            ? List.from(Utils.attrsFromJson(data['attrs']['_attrs'] as Map<String, dynamic>))
             : [],
-        twoFactorAuthRequired: json['twoFactorAuthRequired'],
-        trustedDevicesEnabled: json['trustedDevicesEnabled'],
+        twoFactorAuthRequired: data['twoFactorAuthRequired'],
+        trustedDevicesEnabled: data['trustedDevicesEnabled'],
       );
 }

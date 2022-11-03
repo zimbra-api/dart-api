@@ -22,7 +22,7 @@ void main() {
         includeGal: includeGal,
       );
 
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'AutoCompleteRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -53,7 +53,7 @@ void main() {
       final fileAs = faker.lorem.word();
       final canBeCached = faker.randomGenerator.boolean();
 
-      final json = {
+      final data = {
         'Body': {
           'AutoCompleteResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -80,7 +80,7 @@ void main() {
           }
         }
       };
-      final envelope = AutoCompleteEnvelope.fromJson(json);
+      final envelope = AutoCompleteEnvelope.fromMap(data);
       final response = envelope.autoCompleteBody.autoCompleteResponse!;
 
       expect(response.canBeCached, canBeCached);

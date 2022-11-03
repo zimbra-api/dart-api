@@ -8,9 +8,9 @@ class Right {
 
   Right({this.right = ''});
 
-  factory Right.fromJson(Map<String, dynamic> json) => Right(right: json['right'] ?? '');
+  factory Right.fromMap(Map<String, dynamic> data) => Right(right: data['right'] ?? '');
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'right': right,
       };
 }

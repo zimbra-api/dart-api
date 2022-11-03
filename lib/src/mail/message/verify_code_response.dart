@@ -10,6 +10,6 @@ class VerifyCodeResponse extends SoapResponse {
 
   VerifyCodeResponse({this.success = false});
 
-  factory VerifyCodeResponse.fromJson(Map<String, dynamic> json) =>
-      VerifyCodeResponse(success: json['success'] ?? false);
+  factory VerifyCodeResponse.fromMap(Map<String, dynamic> data) =>
+      VerifyCodeResponse(success: data['success'] ?? false);
 }

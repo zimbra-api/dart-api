@@ -11,10 +11,10 @@ class FilterVariable {
 
   FilterVariable({this.name, this.value});
 
-  factory FilterVariable.fromJson(Map<String, dynamic> json) =>
-      FilterVariable(name: json['name'], value: json['value']);
+  factory FilterVariable.fromMap(Map<String, dynamic> data) =>
+      FilterVariable(name: data['name'], value: data['value']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (name != null) 'name': name,
         if (value != null) 'value': value,
       };

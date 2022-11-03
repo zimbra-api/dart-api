@@ -12,17 +12,17 @@ class SaveDocumentBody extends SoapBody {
   SaveDocumentBody({SaveDocumentRequest? request, SaveDocumentResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory SaveDocumentBody.fromJson(Map<String, dynamic> json) => SaveDocumentBody(
+  factory SaveDocumentBody.fromMap(Map<String, dynamic> data) => SaveDocumentBody(
       response:
-          json['SaveDocumentResponse'] != null ? SaveDocumentResponse.fromJson(json['SaveDocumentResponse']) : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+          data['SaveDocumentResponse'] != null ? SaveDocumentResponse.fromMap(data['SaveDocumentResponse']) : null,
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   SaveDocumentRequest? get saveDocumentRequest => request as SaveDocumentRequest?;
 
   SaveDocumentResponse? get saveDocumentResponse => response as SaveDocumentResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'SaveDocumentRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'SaveDocumentRequest': request!.toMap(),
       };
 }

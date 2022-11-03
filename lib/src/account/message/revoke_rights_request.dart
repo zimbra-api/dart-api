@@ -22,8 +22,8 @@ class RevokeRightsRequest extends SoapRequest {
       RevokeRightsEnvelope(RevokeRightsBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraAccount',
-        if (aces.isNotEmpty) 'ace': aces.map((ace) => ace.toJson()).toList(),
+        if (aces.isNotEmpty) 'ace': aces.map((ace) => ace.toMap()).toList(),
       };
 }

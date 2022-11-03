@@ -10,9 +10,9 @@ import 'counter_appointment_body.dart';
 class CounterAppointmentEnvelope extends SoapEnvelope {
   CounterAppointmentEnvelope(CounterAppointmentBody body, {super.header}) : super(body);
 
-  factory CounterAppointmentEnvelope.fromJson(Map<String, dynamic> json) =>
-      CounterAppointmentEnvelope(CounterAppointmentBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory CounterAppointmentEnvelope.fromMap(Map<String, dynamic> data) =>
+      CounterAppointmentEnvelope(CounterAppointmentBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   CounterAppointmentBody get counterAppointmentBody => body as CounterAppointmentBody;
 }

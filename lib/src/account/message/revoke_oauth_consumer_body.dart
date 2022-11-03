@@ -12,18 +12,18 @@ class RevokeOAuthConsumerBody extends SoapBody {
   RevokeOAuthConsumerBody({RevokeOAuthConsumerRequest? request, RevokeOAuthConsumerResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory RevokeOAuthConsumerBody.fromJson(Map<String, dynamic> json) => RevokeOAuthConsumerBody(
-      response: json['RevokeOAuthConsumerResponse'] != null
-          ? RevokeOAuthConsumerResponse.fromJson(json['RevokeOAuthConsumerResponse'])
+  factory RevokeOAuthConsumerBody.fromMap(Map<String, dynamic> data) => RevokeOAuthConsumerBody(
+      response: data['RevokeOAuthConsumerResponse'] != null
+          ? RevokeOAuthConsumerResponse.fromMap(data['RevokeOAuthConsumerResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   RevokeOAuthConsumerRequest? get revokeOAuthConsumerRequest => request as RevokeOAuthConsumerRequest?;
 
   RevokeOAuthConsumerResponse? get revokeOAuthConsumerResponse => response as RevokeOAuthConsumerResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'RevokeOAuthConsumerRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'RevokeOAuthConsumerRequest': request!.toMap(),
       };
 }

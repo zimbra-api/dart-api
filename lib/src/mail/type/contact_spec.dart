@@ -38,26 +38,26 @@ class ContactSpec {
       this.attrs = const [],
       this.contactGroupMembers = const []});
 
-  factory ContactSpec.fromJson(Map<String, dynamic> json) => ContactSpec(
-      id: json['id'],
-      folder: json['l'],
-      tags: json['t'],
-      tagNames: json['tn'],
-      vcard: json['vcard'] is Map ? VCardInfo.fromJson(json['vcard']) : null,
-      attrs: (json['a'] is Iterable)
-          ? List.from((json['a'] as Iterable).map<NewContactAttr>((a) => NewContactAttr.fromJson(a)))
+  factory ContactSpec.fromMap(Map<String, dynamic> data) => ContactSpec(
+      id: data['id'],
+      folder: data['l'],
+      tags: data['t'],
+      tagNames: data['tn'],
+      vcard: data['vcard'] is Map ? VCardInfo.fromMap(data['vcard']) : null,
+      attrs: (data['a'] is Iterable)
+          ? List.from((data['a'] as Iterable).map<NewContactAttr>((a) => NewContactAttr.fromMap(a)))
           : [],
-      contactGroupMembers: (json['m'] is Iterable)
-          ? List.from((json['m'] as Iterable).map<NewContactGroupMember>((m) => NewContactGroupMember.fromJson(m)))
+      contactGroupMembers: (data['m'] is Iterable)
+          ? List.from((data['m'] as Iterable).map<NewContactGroupMember>((m) => NewContactGroupMember.fromMap(m)))
           : []);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (id != null) 'id': id,
         if (folder != null) 'l': folder,
         if (tags != null) 't': tags,
         if (tagNames != null) 'tn': tagNames,
-        if (vcard != null) 'vcard': vcard!.toJson(),
-        if (attrs.isNotEmpty) 'a': attrs.map((a) => a.toJson()).toList(),
-        if (contactGroupMembers.isNotEmpty) 'm': contactGroupMembers.map((m) => m.toJson()).toList(),
+        if (vcard != null) 'vcard': vcard!.toMap(),
+        if (attrs.isNotEmpty) 'a': attrs.map((a) => a.toMap()).toList(),
+        if (contactGroupMembers.isNotEmpty) 'm': contactGroupMembers.map((m) => m.toMap()).toList(),
       };
 }

@@ -29,7 +29,7 @@ class GetICalRequest extends SoapRequest {
   SoapEnvelope getEnvelope({SoapHeader? header}) => GetICalEnvelope(GetICalBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
         if (id != null) 'id': id,
         if (startTime != null) 's': startTime,

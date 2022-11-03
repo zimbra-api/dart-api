@@ -7,6 +7,6 @@ import 'filter_test.dart';
 class AttachmentTest extends FilterTest {
   AttachmentTest({super.index, super.negative});
 
-  factory AttachmentTest.fromJson(Map<String, dynamic> json) =>
-      AttachmentTest(index: json['index'], negative: json['negative']);
+  factory AttachmentTest.fromMap(Map<String, dynamic> data) =>
+      AttachmentTest(index: data['index'], negative: data['negative']);
 }

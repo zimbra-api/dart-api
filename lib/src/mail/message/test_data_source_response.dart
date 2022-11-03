@@ -40,29 +40,29 @@ class TestDataSourceResponse extends SoapResponse {
       this.calDataSources = const [],
       this.unknownDataSources = const []});
 
-  factory TestDataSourceResponse.fromJson(Map<String, dynamic> json) => TestDataSourceResponse(
-      imapDataSources: (json['imap'] is Iterable)
-          ? List.from((json['imap'] as Iterable).map<TestDataSource>((imap) => TestDataSource.fromJson(imap)))
+  factory TestDataSourceResponse.fromMap(Map<String, dynamic> data) => TestDataSourceResponse(
+      imapDataSources: (data['imap'] is Iterable)
+          ? List.from((data['imap'] as Iterable).map<TestDataSource>((imap) => TestDataSource.fromMap(imap)))
           : [],
-      pop3DataSources: (json['pop3'] is Iterable)
-          ? List.from((json['pop3'] as Iterable).map<TestDataSource>((pop3) => TestDataSource.fromJson(pop3)))
+      pop3DataSources: (data['pop3'] is Iterable)
+          ? List.from((data['pop3'] as Iterable).map<TestDataSource>((pop3) => TestDataSource.fromMap(pop3)))
           : [],
-      caldavDataSources: (json['caldav'] is Iterable)
-          ? List.from((json['caldav'] as Iterable).map<TestDataSource>((caldav) => TestDataSource.fromJson(caldav)))
+      caldavDataSources: (data['caldav'] is Iterable)
+          ? List.from((data['caldav'] as Iterable).map<TestDataSource>((caldav) => TestDataSource.fromMap(caldav)))
           : [],
-      yabDataSources: (json['yab'] is Iterable)
-          ? List.from((json['yab'] as Iterable).map<TestDataSource>((yab) => TestDataSource.fromJson(yab)))
+      yabDataSources: (data['yab'] is Iterable)
+          ? List.from((data['yab'] as Iterable).map<TestDataSource>((yab) => TestDataSource.fromMap(yab)))
           : [],
-      rssDataSources: (json['rss'] is Iterable)
-          ? List.from((json['rss'] as Iterable).map<TestDataSource>((rss) => TestDataSource.fromJson(rss)))
+      rssDataSources: (data['rss'] is Iterable)
+          ? List.from((data['rss'] as Iterable).map<TestDataSource>((rss) => TestDataSource.fromMap(rss)))
           : [],
-      galDataSources: (json['gal'] is Iterable)
-          ? List.from((json['gal'] as Iterable).map<TestDataSource>((gal) => TestDataSource.fromJson(gal)))
+      galDataSources: (data['gal'] is Iterable)
+          ? List.from((data['gal'] as Iterable).map<TestDataSource>((gal) => TestDataSource.fromMap(gal)))
           : [],
-      calDataSources: (json['cal'] is Iterable)
-          ? List.from((json['cal'] as Iterable).map<TestDataSource>((cal) => TestDataSource.fromJson(cal)))
+      calDataSources: (data['cal'] is Iterable)
+          ? List.from((data['cal'] as Iterable).map<TestDataSource>((cal) => TestDataSource.fromMap(cal)))
           : [],
-      unknownDataSources: (json['unknown'] is Iterable)
-          ? List.from((json['unknown'] as Iterable).map<TestDataSource>((unknown) => TestDataSource.fromJson(unknown)))
+      unknownDataSources: (data['unknown'] is Iterable)
+          ? List.from((data['unknown'] as Iterable).map<TestDataSource>((unknown) => TestDataSource.fromMap(unknown)))
           : []);
 }

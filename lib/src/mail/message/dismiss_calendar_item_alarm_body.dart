@@ -13,11 +13,11 @@ class DismissCalendarItemAlarmBody extends SoapBody {
       {DismissCalendarItemAlarmRequest? request, DismissCalendarItemAlarmResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory DismissCalendarItemAlarmBody.fromJson(Map<String, dynamic> json) => DismissCalendarItemAlarmBody(
-      response: json['DismissCalendarItemAlarmResponse'] != null
-          ? DismissCalendarItemAlarmResponse.fromJson(json['DismissCalendarItemAlarmResponse'])
+  factory DismissCalendarItemAlarmBody.fromMap(Map<String, dynamic> data) => DismissCalendarItemAlarmBody(
+      response: data['DismissCalendarItemAlarmResponse'] != null
+          ? DismissCalendarItemAlarmResponse.fromMap(data['DismissCalendarItemAlarmResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   DismissCalendarItemAlarmRequest? get dismissCalendarItemAlarmRequest => request as DismissCalendarItemAlarmRequest?;
 
@@ -25,7 +25,7 @@ class DismissCalendarItemAlarmBody extends SoapBody {
       response as DismissCalendarItemAlarmResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'DismissCalendarItemAlarmRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'DismissCalendarItemAlarmRequest': request!.toMap(),
       };
 }

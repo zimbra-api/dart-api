@@ -21,21 +21,21 @@ class ModifyContactSpec {
 
   ModifyContactSpec({this.id, this.tagNames, this.attributes = const [], this.contactGroupMembers = const []});
 
-  factory ModifyContactSpec.fromJson(Map<String, dynamic> json) => ModifyContactSpec(
-      id: json['id'],
-      tagNames: json['tn'],
-      attributes: (json['a'] is Iterable)
-          ? List.from((json['a'] as Iterable).map<ModifyContactAttr>((a) => ModifyContactAttr.fromJson(a)))
+  factory ModifyContactSpec.fromMap(Map<String, dynamic> data) => ModifyContactSpec(
+      id: data['id'],
+      tagNames: data['tn'],
+      attributes: (data['a'] is Iterable)
+          ? List.from((data['a'] as Iterable).map<ModifyContactAttr>((a) => ModifyContactAttr.fromMap(a)))
           : [],
-      contactGroupMembers: (json['m'] is Iterable)
+      contactGroupMembers: (data['m'] is Iterable)
           ? List.from(
-              (json['m'] as Iterable).map<ModifyContactGroupMember>((m) => ModifyContactGroupMember.fromJson(m)))
+              (data['m'] as Iterable).map<ModifyContactGroupMember>((m) => ModifyContactGroupMember.fromMap(m)))
           : []);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (id != null) 'id': id,
         if (tagNames != null) 'tn': tagNames,
-        if (attributes.isNotEmpty) 'a': attributes.map((a) => a.toJson()).toList(),
-        if (contactGroupMembers.isNotEmpty) 'm': contactGroupMembers.map((m) => m.toJson()).toList(),
+        if (attributes.isNotEmpty) 'a': attributes.map((a) => a.toMap()).toList(),
+        if (contactGroupMembers.isNotEmpty) 'm': contactGroupMembers.map((m) => m.toMap()).toList(),
       };
 }

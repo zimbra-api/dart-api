@@ -23,8 +23,8 @@ class RemoveAttachmentsRequest extends SoapRequest {
       RemoveAttachmentsEnvelope(RemoveAttachmentsBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
-        'm': msg.toJson(),
+        'm': msg.toMap(),
       };
 }

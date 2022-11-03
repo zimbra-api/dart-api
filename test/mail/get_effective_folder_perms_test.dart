@@ -11,7 +11,7 @@ void main() {
     test('Get effective folder perms request', (() {
       final folder = faker.guid.guid();
       final request = GetEffectiveFolderPermsRequest(FolderSpec(folder: folder));
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'GetEffectiveFolderPermsRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -25,7 +25,7 @@ void main() {
 
     test('Get effective folder perms response', (() {
       final effectivePermissions = faker.lorem.word();
-      final json = {
+      final data = {
         'Body': {
           'GetEffectiveFolderPermsResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -35,7 +35,7 @@ void main() {
           }
         }
       };
-      final envelope = GetEffectiveFolderPermsEnvelope.fromJson(json);
+      final envelope = GetEffectiveFolderPermsEnvelope.fromMap(data);
       final response = envelope.getEffectiveFolderPermsBody.getEffectiveFolderPermsResponse!;
       final folder = response.folder!;
 

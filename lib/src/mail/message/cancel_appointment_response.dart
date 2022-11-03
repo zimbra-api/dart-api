@@ -7,5 +7,5 @@ import 'package:zimbra_api/src/common/type/soap_response.dart';
 class CancelAppointmentResponse extends SoapResponse {
   CancelAppointmentResponse();
 
-  factory CancelAppointmentResponse.fromJson(Map<String, dynamic> json) => CancelAppointmentResponse();
+  factory CancelAppointmentResponse.fromMap(Map<String, dynamic> data) => CancelAppointmentResponse();
 }

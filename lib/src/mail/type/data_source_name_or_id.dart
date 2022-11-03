@@ -7,6 +7,6 @@ import 'name_or_id.dart';
 class DataSourceNameOrId extends NameOrId {
   DataSourceNameOrId({super.name, super.id});
 
-  factory DataSourceNameOrId.fromJson(Map<String, dynamic> json) =>
-      DataSourceNameOrId(name: json['name'], id: json['id']);
+  factory DataSourceNameOrId.fromMap(Map<String, dynamic> data) =>
+      DataSourceNameOrId(name: data['name'], id: data['id']);
 }

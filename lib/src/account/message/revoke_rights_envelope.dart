@@ -10,9 +10,9 @@ import 'revoke_rights_body.dart';
 class RevokeRightsEnvelope extends SoapEnvelope {
   RevokeRightsEnvelope(RevokeRightsBody body, {super.header}) : super(body);
 
-  factory RevokeRightsEnvelope.fromJson(Map<String, dynamic> json) =>
-      RevokeRightsEnvelope(RevokeRightsBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory RevokeRightsEnvelope.fromMap(Map<String, dynamic> data) =>
+      RevokeRightsEnvelope(RevokeRightsBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   RevokeRightsBody get revokeRightsBody => body as RevokeRightsBody;
 }

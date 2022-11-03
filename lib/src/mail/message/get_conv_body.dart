@@ -12,16 +12,16 @@ class GetConvBody extends SoapBody {
   GetConvBody({GetConvRequest? request, GetConvResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory GetConvBody.fromJson(Map<String, dynamic> json) => GetConvBody(
-      response: json['GetConvResponse'] != null ? GetConvResponse.fromJson(json['GetConvResponse']) : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+  factory GetConvBody.fromMap(Map<String, dynamic> data) => GetConvBody(
+      response: data['GetConvResponse'] != null ? GetConvResponse.fromMap(data['GetConvResponse']) : null,
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   GetConvRequest? get getConvRequest => request as GetConvRequest?;
 
   GetConvResponse? get getConvResponse => response as GetConvResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'GetConvRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'GetConvRequest': request!.toMap(),
       };
 }

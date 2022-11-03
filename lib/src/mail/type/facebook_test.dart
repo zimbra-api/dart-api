@@ -7,6 +7,6 @@ import 'filter_test.dart';
 class FacebookTest extends FilterTest {
   FacebookTest({super.index, super.negative});
 
-  factory FacebookTest.fromJson(Map<String, dynamic> json) =>
-      FacebookTest(index: json['index'], negative: json['negative']);
+  factory FacebookTest.fromMap(Map<String, dynamic> data) =>
+      FacebookTest(index: data['index'], negative: data['negative']);
 }

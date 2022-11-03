@@ -12,9 +12,9 @@ class XNameRule {
 
   XNameRule({this.name, this.value});
 
-  factory XNameRule.fromJson(Map<String, dynamic> json) => XNameRule(name: json['name'], value: json['value']);
+  factory XNameRule.fromMap(Map<String, dynamic> data) => XNameRule(name: data['name'], value: data['value']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (name != null) 'name': name,
         if (value != null) 'value': value,
       };

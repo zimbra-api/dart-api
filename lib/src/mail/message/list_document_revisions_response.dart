@@ -15,11 +15,11 @@ class ListDocumentRevisionsResponse extends SoapResponse {
 
   ListDocumentRevisionsResponse({this.revisions = const [], this.users = const []});
 
-  factory ListDocumentRevisionsResponse.fromJson(Map<String, dynamic> json) => ListDocumentRevisionsResponse(
-      revisions: (json['doc'] is Iterable)
-          ? List.from((json['doc'] as Iterable).map<DocumentInfo>((doc) => DocumentInfo.fromJson(doc)))
+  factory ListDocumentRevisionsResponse.fromMap(Map<String, dynamic> data) => ListDocumentRevisionsResponse(
+      revisions: (data['doc'] is Iterable)
+          ? List.from((data['doc'] as Iterable).map<DocumentInfo>((doc) => DocumentInfo.fromMap(doc)))
           : [],
-      users: (json['user'] is Iterable)
-          ? List.from((json['user'] as Iterable).map<IdEmailName>((user) => IdEmailName.fromJson(user)))
+      users: (data['user'] is Iterable)
+          ? List.from((data['user'] as Iterable).map<IdEmailName>((user) => IdEmailName.fromMap(user)))
           : []);
 }

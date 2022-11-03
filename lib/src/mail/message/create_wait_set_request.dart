@@ -48,7 +48,7 @@ class CreateWaitSetRequest extends SoapRequest {
       CreateWaitSetEnvelope(CreateWaitSetBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
         if (defaultInterests != null)
           'defTypes': defaultInterests!
@@ -57,6 +57,6 @@ class CreateWaitSetRequest extends SoapRequest {
               .where((type) => InterestType.values.any((element) => element.name == type))
               .join(','),
         if (allAccounts != null) 'allAccounts': allAccounts,
-        if (accounts.isNotEmpty) 'add': {'a': accounts.map((a) => a.toJson()).toList()},
+        if (accounts.isNotEmpty) 'add': {'a': accounts.map((a) => a.toMap()).toList()},
       };
 }

@@ -28,19 +28,19 @@ class EmailInfo {
 
   EmailInfo({this.address, this.display, this.personal, this.addressType, this.isGroup, this.canExpandGroupMembers});
 
-  factory EmailInfo.fromJson(Map<String, dynamic> json) => EmailInfo(
-        address: json['a'],
-        display: json['d'],
-        personal: json['p'],
+  factory EmailInfo.fromMap(Map<String, dynamic> data) => EmailInfo(
+        address: data['a'],
+        display: data['d'],
+        personal: data['p'],
         addressType: AddressType.values.firstWhere(
-          (item) => item.name == json['t'],
+          (item) => item.name == data['t'],
           orElse: () => AddressType.from,
         ),
-        isGroup: json['isGroup'],
-        canExpandGroupMembers: json['exp'],
+        isGroup: data['isGroup'],
+        canExpandGroupMembers: data['exp'],
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (address != null) 'a': address,
         if (display != null) 'd': display,
         if (personal != null) 'p': personal,

@@ -19,7 +19,7 @@ void main() {
         version: version,
         count: count,
       ));
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'ListDocumentRevisionsRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -77,7 +77,7 @@ void main() {
       final creator = faker.lorem.word();
       final createdDate = faker.date.dateTime().millisecondsSinceEpoch;
 
-      final json = {
+      final data = {
         'Body': {
           'ListDocumentRevisionsResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -146,7 +146,7 @@ void main() {
           }
         }
       };
-      final envelope = ListDocumentRevisionsEnvelope.fromJson(json);
+      final envelope = ListDocumentRevisionsEnvelope.fromMap(data);
       final response = envelope.listDocumentRevisionsBody.listDocumentRevisionsResponse!;
 
       final user = response.users.first;

@@ -10,6 +10,6 @@ class ExportContactsResponse extends SoapResponse {
 
   ExportContactsResponse({this.content});
 
-  factory ExportContactsResponse.fromJson(Map<String, dynamic> json) =>
-      ExportContactsResponse(content: json['content']?['_content']);
+  factory ExportContactsResponse.fromMap(Map<String, dynamic> data) =>
+      ExportContactsResponse(content: data['content']?['_content']);
 }

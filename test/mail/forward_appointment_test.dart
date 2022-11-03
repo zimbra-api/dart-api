@@ -518,7 +518,7 @@ void main() {
           fragment: fragment,
         ),
       );
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'ForwardAppointmentRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -1051,14 +1051,14 @@ void main() {
     }));
 
     test('Forward appointment response', (() {
-      final json = {
+      final data = {
         'Body': {
           'ForwardAppointmentResponse': {
             '_jsns': 'urn:zimbraMail',
           }
         }
       };
-      final envelope = ForwardAppointmentEnvelope.fromJson(json);
+      final envelope = ForwardAppointmentEnvelope.fromMap(data);
       expect(envelope.forwardAppointmentBody.forwardAppointmentResponse, isNotNull);
       expect(envelope.forwardAppointmentBody.forwardAppointmentResponse, isA<ForwardAppointmentResponse>());
     }));

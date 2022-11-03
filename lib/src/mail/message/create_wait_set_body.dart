@@ -12,17 +12,17 @@ class CreateWaitSetBody extends SoapBody {
   CreateWaitSetBody({CreateWaitSetRequest? request, CreateWaitSetResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory CreateWaitSetBody.fromJson(Map<String, dynamic> json) => CreateWaitSetBody(
+  factory CreateWaitSetBody.fromMap(Map<String, dynamic> data) => CreateWaitSetBody(
       response:
-          json['CreateWaitSetResponse'] != null ? CreateWaitSetResponse.fromJson(json['CreateWaitSetResponse']) : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+          data['CreateWaitSetResponse'] != null ? CreateWaitSetResponse.fromMap(data['CreateWaitSetResponse']) : null,
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   CreateWaitSetRequest? get createWaitSetRequest => request as CreateWaitSetRequest?;
 
   CreateWaitSetResponse? get createWaitSetResponse => response as CreateWaitSetResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'CreateWaitSetRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'CreateWaitSetRequest': request!.toMap(),
       };
 }

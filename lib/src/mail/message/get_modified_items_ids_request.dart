@@ -24,7 +24,7 @@ class GetModifiedItemsIDsRequest extends SoapRequest {
       GetModifiedItemsIDsEnvelope(GetModifiedItemsIDsBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
         'l': folderId,
         'ms': modSeq,

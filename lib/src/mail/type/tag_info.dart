@@ -55,21 +55,21 @@ class TagInfo {
       this.metadatas = const [],
       this.retentionPolicy});
 
-  factory TagInfo.fromJson(Map<String, dynamic> json) => TagInfo(json['id'] ?? '', json['name'] ?? '',
-      color: json['color'],
-      rgb: json['rgb'],
-      unread: json['u'],
-      count: json['n'],
-      date: json['d'],
-      revision: json['rev'],
-      changeDate: json['md'],
-      modifiedSequence: json['ms'],
-      metadatas: (json['meta'] is Iterable)
-          ? List.from((json['meta'] as Iterable).map<MailCustomMetadata>((meta) => MailCustomMetadata.fromJson(meta)))
+  factory TagInfo.fromMap(Map<String, dynamic> data) => TagInfo(data['id'] ?? '', data['name'] ?? '',
+      color: data['color'],
+      rgb: data['rgb'],
+      unread: data['u'],
+      count: data['n'],
+      date: data['d'],
+      revision: data['rev'],
+      changeDate: data['md'],
+      modifiedSequence: data['ms'],
+      metadatas: (data['meta'] is Iterable)
+          ? List.from((data['meta'] as Iterable).map<MailCustomMetadata>((meta) => MailCustomMetadata.fromMap(meta)))
           : [],
-      retentionPolicy: json['retentionPolicy'] is Map ? RetentionPolicy.fromJson(json['retentionPolicy']) : null);
+      retentionPolicy: data['retentionPolicy'] is Map ? RetentionPolicy.fromMap(data['retentionPolicy']) : null);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'id': id,
         'name': name,
         if (color != null) 'color': color,
@@ -80,7 +80,7 @@ class TagInfo {
         if (revision != null) 'rev': revision,
         if (changeDate != null) 'md': changeDate,
         if (modifiedSequence != null) 'ms': modifiedSequence,
-        if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toJson()).toList(),
-        if (retentionPolicy != null) 'retentionPolicy': retentionPolicy!.toJson(),
+        if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toMap()).toList(),
+        if (retentionPolicy != null) 'retentionPolicy': retentionPolicy!.toMap(),
       };
 }

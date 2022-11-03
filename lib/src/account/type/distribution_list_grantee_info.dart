@@ -16,15 +16,15 @@ class DistributionListGranteeInfo {
 
   DistributionListGranteeInfo(this.type, {this.id, this.name});
 
-  factory DistributionListGranteeInfo.fromJson(Map<String, dynamic> json) => DistributionListGranteeInfo(
+  factory DistributionListGranteeInfo.fromMap(Map<String, dynamic> data) => DistributionListGranteeInfo(
       GranteeType.values.firstWhere(
-        (item) => item.name == json['type']?.toString(),
+        (item) => item.name == data['type']?.toString(),
         orElse: () => GranteeType.all,
       ),
-      id: json['id'],
-      name: json['name']);
+      id: data['id'],
+      name: data['name']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'type': type.name,
         if (id != null) 'id': id,
         if (name != null) 'name': name,

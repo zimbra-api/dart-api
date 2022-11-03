@@ -10,9 +10,9 @@ import 'get_share_notifications_body.dart';
 class GetShareNotificationsEnvelope extends SoapEnvelope {
   GetShareNotificationsEnvelope(GetShareNotificationsBody body, {super.header}) : super(body);
 
-  factory GetShareNotificationsEnvelope.fromJson(Map<String, dynamic> json) =>
-      GetShareNotificationsEnvelope(GetShareNotificationsBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory GetShareNotificationsEnvelope.fromMap(Map<String, dynamic> data) =>
+      GetShareNotificationsEnvelope(GetShareNotificationsBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   GetShareNotificationsBody get getShareNotificationsBody => body as GetShareNotificationsBody;
 }

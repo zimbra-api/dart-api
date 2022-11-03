@@ -13,16 +13,16 @@ class AccountInfo {
 
   AccountInfo(this.by, this.value, {this.mountpointTraversed});
 
-  factory AccountInfo.fromJson(Map<String, dynamic> json) => AccountInfo(
+  factory AccountInfo.fromMap(Map<String, dynamic> data) => AccountInfo(
         AccountBy.values.firstWhere(
-          (item) => item.name == json['by'],
+          (item) => item.name == data['by'],
           orElse: () => AccountBy.name,
         ),
-        json['_content'] ?? '',
-        mountpointTraversed: json['link'],
+        data['_content'] ?? '',
+        mountpointTraversed: data['link'],
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'by': by.toString(),
         if (mountpointTraversed != null) 'link': mountpointTraversed,
         '_content': value,

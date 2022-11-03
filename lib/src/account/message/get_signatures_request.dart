@@ -16,7 +16,7 @@ class GetSignaturesRequest extends SoapRequest {
       GetSignaturesEnvelope(GetSignaturesBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraAccount',
       };
 }

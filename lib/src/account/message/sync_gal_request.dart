@@ -32,7 +32,7 @@ class SyncGalRequest extends SoapRequest {
   SoapEnvelope getEnvelope({SoapHeader? header}) => SyncGalEnvelope(SyncGalBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraAccount',
         if (token != null) 'token': token,
         if (galAccountId != null) 'galAcctId': galAccountId,

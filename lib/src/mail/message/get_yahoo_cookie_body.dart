@@ -12,18 +12,18 @@ class GetYahooCookieBody extends SoapBody {
   GetYahooCookieBody({GetYahooCookieRequest? request, GetYahooCookieResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory GetYahooCookieBody.fromJson(Map<String, dynamic> json) => GetYahooCookieBody(
-      response: json['GetYahooCookieResponse'] != null
-          ? GetYahooCookieResponse.fromJson(json['GetYahooCookieResponse'])
+  factory GetYahooCookieBody.fromMap(Map<String, dynamic> data) => GetYahooCookieBody(
+      response: data['GetYahooCookieResponse'] != null
+          ? GetYahooCookieResponse.fromMap(data['GetYahooCookieResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   GetYahooCookieRequest? get getYahooCookieRequest => request as GetYahooCookieRequest?;
 
   GetYahooCookieResponse? get getYahooCookieResponse => response as GetYahooCookieResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'GetYahooCookieRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'GetYahooCookieRequest': request!.toMap(),
       };
 }

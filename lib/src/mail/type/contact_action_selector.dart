@@ -24,25 +24,25 @@ class ContactActionSelector extends ActionSelector {
       super.newlyCreatedIds,
       this.attrs = const []});
 
-  factory ContactActionSelector.fromJson(Map<String, dynamic> json) =>
-      ContactActionSelector(json['id'] ?? '', json['op'] ?? '',
-          constraint: json['tcon'],
-          tag: json['tag'],
-          folder: json['l'],
-          rgb: json['rgb'],
-          color: json['color'],
-          name: json['name'],
-          flags: json['f'],
-          tags: json['t'],
-          tagNames: json['tn'],
-          nonExistentIds: json['nei'],
-          newlyCreatedIds: json['nci'],
-          attrs: (json['attr'] is Iterable)
-              ? List.from((json['attr'] as Iterable).map<NewContactAttr>((attr) => NewContactAttr.fromJson(attr)))
+  factory ContactActionSelector.fromMap(Map<String, dynamic> data) =>
+      ContactActionSelector(data['id'] ?? '', data['op'] ?? '',
+          constraint: data['tcon'],
+          tag: data['tag'],
+          folder: data['l'],
+          rgb: data['rgb'],
+          color: data['color'],
+          name: data['name'],
+          flags: data['f'],
+          tags: data['t'],
+          tagNames: data['tn'],
+          nonExistentIds: data['nei'],
+          newlyCreatedIds: data['nci'],
+          attrs: (data['attr'] is Iterable)
+              ? List.from((data['attr'] as Iterable).map<NewContactAttr>((attr) => NewContactAttr.fromMap(attr)))
               : []);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'id': ids,
         'op': operation,
         if (constraint != null) 'tcon': constraint,
@@ -56,6 +56,6 @@ class ContactActionSelector extends ActionSelector {
         if (tagNames != null) 'tn': tagNames,
         if (nonExistentIds != null) 'nei': nonExistentIds,
         if (newlyCreatedIds != null) 'nci': newlyCreatedIds,
-        if (attrs.isNotEmpty) 'attr': attrs.map((attr) => attr.toJson()).toList(),
+        if (attrs.isNotEmpty) 'attr': attrs.map((attr) => attr.toMap()).toList(),
       };
 }

@@ -64,25 +64,25 @@ class NoteInfo {
       this.content,
       this.metadatas = const []});
 
-  factory NoteInfo.fromJson(Map<String, dynamic> json) => NoteInfo(
-      id: json['id'],
-      revision: json['rev'],
-      folder: json['l'],
-      date: json['d'],
-      flags: json['f'],
-      tags: json['t'],
-      tagNames: json['tn'],
-      bounds: json['pos'],
-      color: json['color'],
-      rgb: json['rgb'],
-      changeDate: json['md'],
-      modifiedSequence: json['ms'],
-      content: json['content']?['_content'],
-      metadatas: (json['meta'] is Iterable)
-          ? List.from((json['meta'] as Iterable).map<MailCustomMetadata>((meta) => MailCustomMetadata.fromJson(meta)))
+  factory NoteInfo.fromMap(Map<String, dynamic> data) => NoteInfo(
+      id: data['id'],
+      revision: data['rev'],
+      folder: data['l'],
+      date: data['d'],
+      flags: data['f'],
+      tags: data['t'],
+      tagNames: data['tn'],
+      bounds: data['pos'],
+      color: data['color'],
+      rgb: data['rgb'],
+      changeDate: data['md'],
+      modifiedSequence: data['ms'],
+      content: data['content']?['_content'],
+      metadatas: (data['meta'] is Iterable)
+          ? List.from((data['meta'] as Iterable).map<MailCustomMetadata>((meta) => MailCustomMetadata.fromMap(meta)))
           : []);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (id != null) 'id': id,
         if (revision != null) 'rev': revision,
         if (folder != null) 'l': folder,
@@ -96,6 +96,6 @@ class NoteInfo {
         if (changeDate != null) 'md': changeDate,
         if (modifiedSequence != null) 'ms': modifiedSequence,
         if (content != null) 'content': {'_content': content},
-        if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toJson()).toList(),
+        if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toMap()).toList(),
       };
 }

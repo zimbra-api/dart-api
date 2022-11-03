@@ -17,12 +17,12 @@ class CreateTaskExceptionResponse extends CreateCalendarItemResponse {
       super.msg,
       super.echo});
 
-  factory CreateTaskExceptionResponse.fromJson(Map<String, dynamic> json) => CreateTaskExceptionResponse(
-      calItemId: json['calItemId'],
-      deprecatedApptId: json['apptId'],
-      calInvId: json['invId'],
-      modifiedSequence: json['ms'],
-      revision: json['rev'],
-      msg: json['m'] is Map ? Id.fromJson(json['m']) : null,
-      echo: json['echo'] is Map ? CalEcho.fromJson(json['echo']) : null);
+  factory CreateTaskExceptionResponse.fromMap(Map<String, dynamic> data) => CreateTaskExceptionResponse(
+      calItemId: data['calItemId'],
+      deprecatedApptId: data['apptId'],
+      calInvId: data['invId'],
+      modifiedSequence: data['ms'],
+      revision: data['rev'],
+      msg: data['m'] is Map ? Id.fromMap(data['m']) : null,
+      echo: data['echo'] is Map ? CalEcho.fromMap(data['echo']) : null);
 }

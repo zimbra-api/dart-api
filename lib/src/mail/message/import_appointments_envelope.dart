@@ -10,9 +10,9 @@ import 'import_appointments_body.dart';
 class ImportAppointmentsEnvelope extends SoapEnvelope {
   ImportAppointmentsEnvelope(ImportAppointmentsBody body, {super.header}) : super(body);
 
-  factory ImportAppointmentsEnvelope.fromJson(Map<String, dynamic> json) =>
-      ImportAppointmentsEnvelope(ImportAppointmentsBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory ImportAppointmentsEnvelope.fromMap(Map<String, dynamic> data) =>
+      ImportAppointmentsEnvelope(ImportAppointmentsBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   ImportAppointmentsBody get importAppointmentsBody => body as ImportAppointmentsBody;
 }

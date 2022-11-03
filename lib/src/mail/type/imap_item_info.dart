@@ -11,9 +11,9 @@ class IMAPItemInfo {
 
   IMAPItemInfo({this.id, this.imapUid});
 
-  factory IMAPItemInfo.fromJson(Map<String, dynamic> json) => IMAPItemInfo(id: json['id'], imapUid: json['i4uid']);
+  factory IMAPItemInfo.fromMap(Map<String, dynamic> data) => IMAPItemInfo(id: data['id'], imapUid: data['i4uid']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (id != null) 'id': id,
         if (imapUid != null) 'i4uid': imapUid,
       };

@@ -12,17 +12,17 @@ class FolderActionBody extends SoapBody {
   FolderActionBody({FolderActionRequest? request, FolderActionResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory FolderActionBody.fromJson(Map<String, dynamic> json) => FolderActionBody(
+  factory FolderActionBody.fromMap(Map<String, dynamic> data) => FolderActionBody(
       response:
-          json['FolderActionResponse'] != null ? FolderActionResponse.fromJson(json['FolderActionResponse']) : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+          data['FolderActionResponse'] != null ? FolderActionResponse.fromMap(data['FolderActionResponse']) : null,
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   FolderActionRequest? get folderActionRequest => request as FolderActionRequest?;
 
   FolderActionResponse? get folderActionResponse => response as FolderActionResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'FolderActionRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'FolderActionRequest': request!.toMap(),
       };
 }

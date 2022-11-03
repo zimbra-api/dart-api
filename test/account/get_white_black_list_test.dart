@@ -9,7 +9,7 @@ void main() {
   group('Get white black list tests', (() {
     test('Get white black list request', (() {
       final request = GetWhiteBlackListRequest();
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'GetWhiteBlackListRequest': {
             '_jsns': 'urn:zimbraAccount',
@@ -21,7 +21,7 @@ void main() {
     test('Get white black list response', (() {
       final whiteEntry = faker.lorem.word();
       final blackEntry = faker.lorem.word();
-      final json = {
+      final data = {
         'Body': {
           'GetWhiteBlackListResponse': {
             '_jsns': 'urn:zimbraAccount',
@@ -38,7 +38,7 @@ void main() {
           }
         }
       };
-      final envelope = GetWhiteBlackListEnvelope.fromJson(json);
+      final envelope = GetWhiteBlackListEnvelope.fromMap(data);
       final response = envelope.getWhiteBlackListBody.getWhiteBlackListResponse!;
       expect(response.whiteListEntries.first, whiteEntry);
       expect(response.blackListEntries.first, blackEntry);

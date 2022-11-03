@@ -10,9 +10,9 @@ import 'get_calendar_item_summaries_body.dart';
 class GetCalendarItemSummariesEnvelope extends SoapEnvelope {
   GetCalendarItemSummariesEnvelope(GetCalendarItemSummariesBody body, {super.header}) : super(body);
 
-  factory GetCalendarItemSummariesEnvelope.fromJson(Map<String, dynamic> json) =>
-      GetCalendarItemSummariesEnvelope(GetCalendarItemSummariesBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory GetCalendarItemSummariesEnvelope.fromMap(Map<String, dynamic> data) =>
+      GetCalendarItemSummariesEnvelope(GetCalendarItemSummariesBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   GetCalendarItemSummariesBody get getCalendarItemSummariesBody => body as GetCalendarItemSummariesBody;
 }

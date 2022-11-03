@@ -10,9 +10,9 @@ import 'tag_action_body.dart';
 class TagActionEnvelope extends SoapEnvelope {
   TagActionEnvelope(TagActionBody body, {super.header}) : super(body);
 
-  factory TagActionEnvelope.fromJson(Map<String, dynamic> json) =>
-      TagActionEnvelope(TagActionBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory TagActionEnvelope.fromMap(Map<String, dynamic> data) =>
+      TagActionEnvelope(TagActionBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   TagActionBody get tagActionBody => body as TagActionBody;
 }

@@ -41,19 +41,19 @@ class NewSearchFolderSpec {
     this.parentFolderId,
   });
 
-  factory NewSearchFolderSpec.fromJson(Map<String, dynamic> json) =>
-      NewSearchFolderSpec(json['name'] ?? '', json['query'] ?? '',
-          searchTypes: json['types'],
+  factory NewSearchFolderSpec.fromMap(Map<String, dynamic> data) =>
+      NewSearchFolderSpec(data['name'] ?? '', data['query'] ?? '',
+          searchTypes: data['types'],
           sortBy: SearchSortBy.values.firstWhere(
-            (sortBy) => sortBy.name == json['sortBy'],
+            (sortBy) => sortBy.name == data['sortBy'],
             orElse: () => SearchSortBy.none,
           ),
-          flags: json['f'],
-          color: json['color'],
-          rgb: json['rgb'],
-          parentFolderId: json['l']);
+          flags: data['f'],
+          color: data['color'],
+          rgb: data['rgb'],
+          parentFolderId: data['l']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'name': name,
         'query': query,
         if (searchTypes != null) 'types': searchTypes,

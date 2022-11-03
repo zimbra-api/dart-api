@@ -9,9 +9,9 @@ class FormatInfo {
 
   FormatInfo();
 
-  factory FormatInfo.fromJson(Map<String, dynamic> json) => FormatInfo();
+  factory FormatInfo.fromMap(Map<String, dynamic> data) => FormatInfo();
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'type': format.name,
       };
 }

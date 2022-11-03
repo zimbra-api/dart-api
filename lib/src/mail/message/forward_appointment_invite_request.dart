@@ -26,9 +26,9 @@ class ForwardAppointmentInviteRequest extends SoapRequest {
       ForwardAppointmentInviteEnvelope(ForwardAppointmentInviteBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
         if (id != null) 'id': id,
-        if (msg != null) 'm': msg!.toJson(),
+        if (msg != null) 'm': msg!.toMap(),
       };
 }

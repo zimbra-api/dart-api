@@ -11,7 +11,7 @@ void main() {
     test('Revoke OAuth consumer request', (() {
       final accessToken = faker.lorem.word();
       final request = RevokeOAuthConsumerRequest(accessToken);
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'RevokeOAuthConsumerRequest': {
             '_jsns': 'urn:zimbraAccount',
@@ -22,14 +22,14 @@ void main() {
     }));
 
     test('Revoke OAuth consumer response', (() {
-      final json = {
+      final data = {
         'Body': {
           'RevokeOAuthConsumerResponse': {
             '_jsns': 'urn:zimbraAccount',
           }
         }
       };
-      final envelope = RevokeOAuthConsumerEnvelope.fromJson(json);
+      final envelope = RevokeOAuthConsumerEnvelope.fromMap(data);
       expect(envelope.revokeOAuthConsumerBody.revokeOAuthConsumerResponse, isNotNull);
       expect(envelope.revokeOAuthConsumerBody.revokeOAuthConsumerResponse, isA<RevokeOAuthConsumerResponse>());
     }));

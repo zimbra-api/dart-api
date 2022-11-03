@@ -37,7 +37,7 @@ void main() {
           )
         ],
       );
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'CreateWaitSetRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -69,7 +69,7 @@ void main() {
       final id = faker.guid.guid();
       final type = faker.lorem.word();
 
-      final json = {
+      final data = {
         'Body': {
           'CreateWaitSetResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -85,7 +85,7 @@ void main() {
           }
         }
       };
-      final envelope = CreateWaitSetEnvelope.fromJson(json);
+      final envelope = CreateWaitSetEnvelope.fromMap(data);
       final response = envelope.createWaitSetBody.createWaitSetResponse!;
 
       expect(response.waitSetId, waitSetId);

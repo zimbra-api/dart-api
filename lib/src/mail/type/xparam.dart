@@ -12,9 +12,9 @@ class XParam {
 
   XParam(this.name, {this.value});
 
-  factory XParam.fromJson(Map<String, dynamic> json) => XParam(json['name'] ?? '', value: json['_content']);
+  factory XParam.fromMap(Map<String, dynamic> data) => XParam(data['name'] ?? '', value: data['_content']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'name': name,
         if (value != null) '_content': value,
       };

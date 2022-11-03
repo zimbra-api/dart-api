@@ -13,18 +13,18 @@ class SnoozeCalendarItemAlarmBody extends SoapBody {
       {SnoozeCalendarItemAlarmRequest? request, SnoozeCalendarItemAlarmResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory SnoozeCalendarItemAlarmBody.fromJson(Map<String, dynamic> json) => SnoozeCalendarItemAlarmBody(
-      response: json['SnoozeCalendarItemAlarmResponse'] != null
-          ? SnoozeCalendarItemAlarmResponse.fromJson(json['SnoozeCalendarItemAlarmResponse'])
+  factory SnoozeCalendarItemAlarmBody.fromMap(Map<String, dynamic> data) => SnoozeCalendarItemAlarmBody(
+      response: data['SnoozeCalendarItemAlarmResponse'] != null
+          ? SnoozeCalendarItemAlarmResponse.fromMap(data['SnoozeCalendarItemAlarmResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   SnoozeCalendarItemAlarmRequest? get snoozeCalendarItemAlarmRequest => request as SnoozeCalendarItemAlarmRequest?;
 
   SnoozeCalendarItemAlarmResponse? get snoozeCalendarItemAlarmResponse => response as SnoozeCalendarItemAlarmResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'SnoozeCalendarItemAlarmRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'SnoozeCalendarItemAlarmRequest': request!.toMap(),
       };
 }

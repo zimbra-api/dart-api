@@ -16,20 +16,20 @@ class ExceptionRuleInfo extends RecurIdInfo {
   ExceptionRuleInfo(super.recurrenceRangeType, super.recurrenceId,
       {this.add, this.exclude, super.timezone, super.recurIdZ});
 
-  factory ExceptionRuleInfo.fromJson(Map<String, dynamic> json) =>
-      ExceptionRuleInfo(json['rangeType'] ?? 1, json['recurId'] ?? '',
-          timezone: json['tz'],
-          recurIdZ: json['ridZ'],
-          add: json['add'] is Map ? RecurrenceInfo.fromJson(json['add']) : null,
-          exclude: json['exclude'] is Map ? RecurrenceInfo.fromJson(json['exclude']) : null);
+  factory ExceptionRuleInfo.fromMap(Map<String, dynamic> data) =>
+      ExceptionRuleInfo(data['rangeType'] ?? 1, data['recurId'] ?? '',
+          timezone: data['tz'],
+          recurIdZ: data['ridZ'],
+          add: data['add'] is Map ? RecurrenceInfo.fromMap(data['add']) : null,
+          exclude: data['exclude'] is Map ? RecurrenceInfo.fromMap(data['exclude']) : null);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'rangeType': recurrenceRangeType,
         'recurId': recurrenceId,
         if (timezone != null) 'tz': timezone,
         if (recurIdZ != null) 'ridZ': recurIdZ,
-        if (add != null) 'add': add!.toJson(),
-        if (exclude != null) 'exclude': exclude!.toJson(),
+        if (add != null) 'add': add!.toMap(),
+        if (exclude != null) 'exclude': exclude!.toMap(),
       };
 }

@@ -9,9 +9,9 @@ class ImapCursorInfo {
 
   ImapCursorInfo(this.id);
 
-  factory ImapCursorInfo.fromJson(Map<String, dynamic> json) => ImapCursorInfo(json['id'] ?? '');
+  factory ImapCursorInfo.fromMap(Map<String, dynamic> data) => ImapCursorInfo(data['id'] ?? '');
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'id': id,
       };
 }

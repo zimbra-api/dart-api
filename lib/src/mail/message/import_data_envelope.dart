@@ -10,9 +10,9 @@ import 'import_data_body.dart';
 class ImportDataEnvelope extends SoapEnvelope {
   ImportDataEnvelope(ImportDataBody body, {super.header}) : super(body);
 
-  factory ImportDataEnvelope.fromJson(Map<String, dynamic> json) =>
-      ImportDataEnvelope(ImportDataBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory ImportDataEnvelope.fromMap(Map<String, dynamic> data) =>
+      ImportDataEnvelope(ImportDataBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   ImportDataBody get importDataBody => body as ImportDataBody;
 }

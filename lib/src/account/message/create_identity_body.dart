@@ -12,18 +12,18 @@ class CreateIdentityBody extends SoapBody {
   CreateIdentityBody({CreateIdentityRequest? request, CreateIdentityResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory CreateIdentityBody.fromJson(Map<String, dynamic> json) => CreateIdentityBody(
-      response: json['CreateIdentityResponse'] != null
-          ? CreateIdentityResponse.fromJson(json['CreateIdentityResponse'])
+  factory CreateIdentityBody.fromMap(Map<String, dynamic> data) => CreateIdentityBody(
+      response: data['CreateIdentityResponse'] != null
+          ? CreateIdentityResponse.fromMap(data['CreateIdentityResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   CreateIdentityRequest? get createIdentityRequest => request as CreateIdentityRequest?;
 
   CreateIdentityResponse? get createIdentityResponse => response as CreateIdentityResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'CreateIdentityRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'CreateIdentityRequest': request!.toMap(),
       };
 }

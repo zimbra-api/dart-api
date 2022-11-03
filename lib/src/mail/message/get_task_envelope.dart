@@ -10,8 +10,8 @@ import 'get_task_body.dart';
 class GetTaskEnvelope extends SoapEnvelope {
   GetTaskEnvelope(GetTaskBody body, {super.header}) : super(body);
 
-  factory GetTaskEnvelope.fromJson(Map<String, dynamic> json) => GetTaskEnvelope(GetTaskBody.fromJson(json['Body']),
-      header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory GetTaskEnvelope.fromMap(Map<String, dynamic> data) => GetTaskEnvelope(GetTaskBody.fromMap(data['Body']),
+      header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   GetTaskBody get getTaskBody => body as GetTaskBody;
 }

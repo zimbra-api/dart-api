@@ -11,9 +11,9 @@ class GetShareNotificationsResponse extends SoapResponse {
 
   GetShareNotificationsResponse({this.shares = const []});
 
-  factory GetShareNotificationsResponse.fromJson(Map<String, dynamic> json) => GetShareNotificationsResponse(
-      shares: (json['share'] is Iterable)
+  factory GetShareNotificationsResponse.fromMap(Map<String, dynamic> data) => GetShareNotificationsResponse(
+      shares: (data['share'] is Iterable)
           ? List.from(
-              (json['share'] as Iterable).map<ShareNotificationInfo>((share) => ShareNotificationInfo.fromJson(share)))
+              (data['share'] as Iterable).map<ShareNotificationInfo>((share) => ShareNotificationInfo.fromMap(share)))
           : []);
 }

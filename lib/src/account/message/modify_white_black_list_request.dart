@@ -25,11 +25,11 @@ class ModifyWhiteBlackListRequest extends SoapRequest {
       ModifyWhiteBlackListEnvelope(ModifyWhiteBlackListBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraAccount',
         if (whiteListEntries.isNotEmpty)
-          'whiteList': {'addr': whiteListEntries.map((entry) => entry.toJson()).toList()},
+          'whiteList': {'addr': whiteListEntries.map((entry) => entry.toMap()).toList()},
         if (blackListEntries.isNotEmpty)
-          'blackList': {'addr': blackListEntries.map((entry) => entry.toJson()).toList()},
+          'blackList': {'addr': blackListEntries.map((entry) => entry.toMap()).toList()},
       };
 }

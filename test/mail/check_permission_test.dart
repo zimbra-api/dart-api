@@ -21,7 +21,7 @@ void main() {
           ),
           rights: [right]);
 
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'CheckPermissionRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -42,7 +42,7 @@ void main() {
       final allow = faker.randomGenerator.boolean();
       final rightName = faker.lorem.word();
 
-      final json = {
+      final data = {
         'Body': {
           'CheckPermissionResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -56,7 +56,7 @@ void main() {
           }
         }
       };
-      final envelope = CheckPermissionEnvelope.fromJson(json);
+      final envelope = CheckPermissionEnvelope.fromMap(data);
       final response = envelope.checkPermissionBody.checkPermissionResponse!;
 
       expect(response.allow, allow);

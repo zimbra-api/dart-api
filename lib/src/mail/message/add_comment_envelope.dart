@@ -10,9 +10,9 @@ import 'add_comment_body.dart';
 class AddCommentEnvelope extends SoapEnvelope {
   AddCommentEnvelope(AddCommentBody body, {super.header}) : super(body);
 
-  factory AddCommentEnvelope.fromJson(Map<String, dynamic> json) =>
-      AddCommentEnvelope(AddCommentBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory AddCommentEnvelope.fromMap(Map<String, dynamic> data) =>
+      AddCommentEnvelope(AddCommentBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   AddCommentBody get addCommentBody => body as AddCommentBody;
 }

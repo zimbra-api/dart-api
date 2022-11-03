@@ -14,12 +14,12 @@ class EntrySearchFilterInfo {
 
   EntrySearchFilterInfo({this.condition, this.conditions});
 
-  factory EntrySearchFilterInfo.fromJson(Map<String, dynamic> json) => EntrySearchFilterInfo(
-      condition: json['cond']?[0] is Map ? EntrySearchFilterSingleCond.fromJson(json['cond'][0]) : null,
-      conditions: json['conds']?[0] is Map ? EntrySearchFilterMultiCond.fromJson(json['conds'][0]) : null);
+  factory EntrySearchFilterInfo.fromMap(Map<String, dynamic> data) => EntrySearchFilterInfo(
+      condition: data['cond']?[0] is Map ? EntrySearchFilterSingleCond.fromMap(data['cond'][0]) : null,
+      conditions: data['conds']?[0] is Map ? EntrySearchFilterMultiCond.fromMap(data['conds'][0]) : null);
 
-  Map<String, dynamic> toJson() => {
-        if (condition != null) 'cond': [condition!.toJson()],
-        if (conditions != null) 'conds': [conditions!.toJson()],
+  Map<String, dynamic> toMap() => {
+        if (condition != null) 'cond': [condition!.toMap()],
+        if (conditions != null) 'conds': [conditions!.toMap()],
       };
 }

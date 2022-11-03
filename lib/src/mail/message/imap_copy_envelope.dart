@@ -10,8 +10,8 @@ import 'imap_copy_body.dart';
 class IMAPCopyEnvelope extends SoapEnvelope {
   IMAPCopyEnvelope(IMAPCopyBody body, {super.header}) : super(body);
 
-  factory IMAPCopyEnvelope.fromJson(Map<String, dynamic> json) => IMAPCopyEnvelope(IMAPCopyBody.fromJson(json['Body']),
-      header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory IMAPCopyEnvelope.fromMap(Map<String, dynamic> data) => IMAPCopyEnvelope(IMAPCopyBody.fromMap(data['Body']),
+      header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   IMAPCopyBody get imapCopyBody => body as IMAPCopyBody;
 }

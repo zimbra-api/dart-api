@@ -10,8 +10,8 @@ import 'get_msg_body.dart';
 class GetMsgEnvelope extends SoapEnvelope {
   GetMsgEnvelope(GetMsgBody body, {super.header}) : super(body);
 
-  factory GetMsgEnvelope.fromJson(Map<String, dynamic> json) => GetMsgEnvelope(GetMsgBody.fromJson(json['Body']),
-      header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory GetMsgEnvelope.fromMap(Map<String, dynamic> data) => GetMsgEnvelope(GetMsgBody.fromMap(data['Body']),
+      header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   GetMsgBody get getMsgBody => body as GetMsgBody;
 }

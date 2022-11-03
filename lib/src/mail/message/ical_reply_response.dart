@@ -7,5 +7,5 @@ import 'package:zimbra_api/src/common/type/soap_response.dart';
 class ICalReplyResponse extends SoapResponse {
   ICalReplyResponse();
 
-  factory ICalReplyResponse.fromJson(Map<String, dynamic> json) => ICalReplyResponse();
+  factory ICalReplyResponse.fromMap(Map<String, dynamic> data) => ICalReplyResponse();
 }

@@ -16,10 +16,10 @@ class WildcardExpansionQueryInfo {
 
   WildcardExpansionQueryInfo(this.wildcardString, {this.expanded, this.numExpanded});
 
-  factory WildcardExpansionQueryInfo.fromJson(Map<String, dynamic> json) =>
-      WildcardExpansionQueryInfo(json['str'] ?? '', expanded: json['expanded'], numExpanded: json['numExpanded']);
+  factory WildcardExpansionQueryInfo.fromMap(Map<String, dynamic> data) =>
+      WildcardExpansionQueryInfo(data['str'] ?? '', expanded: data['expanded'], numExpanded: data['numExpanded']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'str': wildcardString,
         if (expanded != null) 'expanded': expanded,
         if (numExpanded != null) 'numExpanded': numExpanded,

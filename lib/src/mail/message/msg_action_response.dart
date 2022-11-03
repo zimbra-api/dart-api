@@ -12,6 +12,6 @@ class MsgActionResponse extends SoapResponse {
 
   MsgActionResponse({this.action});
 
-  factory MsgActionResponse.fromJson(Map<String, dynamic> json) =>
-      MsgActionResponse(action: json['action'] is Map ? ActionResult.fromJson(json['action']) : null);
+  factory MsgActionResponse.fromMap(Map<String, dynamic> data) =>
+      MsgActionResponse(action: data['action'] is Map ? ActionResult.fromMap(data['action']) : null);
 }

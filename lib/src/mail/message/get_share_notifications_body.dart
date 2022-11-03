@@ -13,18 +13,18 @@ class GetShareNotificationsBody extends SoapBody {
       {GetShareNotificationsRequest? request, GetShareNotificationsResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory GetShareNotificationsBody.fromJson(Map<String, dynamic> json) => GetShareNotificationsBody(
-      response: json['GetShareNotificationsResponse'] != null
-          ? GetShareNotificationsResponse.fromJson(json['GetShareNotificationsResponse'])
+  factory GetShareNotificationsBody.fromMap(Map<String, dynamic> data) => GetShareNotificationsBody(
+      response: data['GetShareNotificationsResponse'] != null
+          ? GetShareNotificationsResponse.fromMap(data['GetShareNotificationsResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   GetShareNotificationsRequest? get getShareNotificationsRequest => request as GetShareNotificationsRequest?;
 
   GetShareNotificationsResponse? get getShareNotificationsResponse => response as GetShareNotificationsResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'GetShareNotificationsRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'GetShareNotificationsRequest': request!.toMap(),
       };
 }

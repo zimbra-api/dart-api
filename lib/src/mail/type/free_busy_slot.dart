@@ -48,18 +48,18 @@ class FreeBusySlot {
       this.isPrivate,
       this.hasPermission});
 
-  factory FreeBusySlot.fromJson(Map<String, dynamic> json) => FreeBusySlot(json['s'] ?? 0, json['e'] ?? 0,
-      eventId: json['eventId'],
-      subject: json['subject'],
-      location: json['location'],
-      isMeeting: json['isMeeting'],
-      isRecurring: json['isRecurring'],
-      isException: json['isException'],
-      isReminderSet: json['isReminderSet'],
-      isPrivate: json['isPrivate'],
-      hasPermission: json['hasPermission']);
+  factory FreeBusySlot.fromMap(Map<String, dynamic> data) => FreeBusySlot(data['s'] ?? 0, data['e'] ?? 0,
+      eventId: data['eventId'],
+      subject: data['subject'],
+      location: data['location'],
+      isMeeting: data['isMeeting'],
+      isRecurring: data['isRecurring'],
+      isException: data['isException'],
+      isReminderSet: data['isReminderSet'],
+      isPrivate: data['isPrivate'],
+      hasPermission: data['hasPermission']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         's': startTime,
         'e': endTime,
         if (eventId != null) 'eventId': eventId,

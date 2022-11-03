@@ -13,7 +13,7 @@ void main() {
       final id = faker.guid.guid();
       final showReminders = faker.randomGenerator.boolean();
       final request = EnableSharedReminderRequest(SharedReminderMount(id, showReminders: showReminders));
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'EnableSharedReminderRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -27,14 +27,14 @@ void main() {
     }));
 
     test('Enable shared reminder response', (() {
-      final json = {
+      final data = {
         'Body': {
           'EnableSharedReminderResponse': {
             '_jsns': 'urn:zimbraMail',
           }
         }
       };
-      final envelope = EnableSharedReminderEnvelope.fromJson(json);
+      final envelope = EnableSharedReminderEnvelope.fromMap(data);
       expect(envelope.enableSharedReminderBody.enableSharedReminderResponse, isNotNull);
       expect(envelope.enableSharedReminderBody.enableSharedReminderResponse, isA<EnableSharedReminderResponse>());
     }));

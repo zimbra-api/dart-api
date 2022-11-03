@@ -36,7 +36,7 @@ void main() {
         includeContent: includeContent,
         includeInvites: includeInvites,
       );
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'GetTaskRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -161,7 +161,7 @@ void main() {
       final body = faker.randomGenerator.boolean();
       final truncatedContent = faker.randomGenerator.boolean();
 
-      final json = {
+      final data = {
         'Body': {
           'GetTaskResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -596,7 +596,7 @@ void main() {
           }
         }
       };
-      final envelope = GetTaskEnvelope.fromJson(json);
+      final envelope = GetTaskEnvelope.fromMap(data);
       final response = envelope.getTaskBody.getTaskResponse!;
       final appt = response.appt!;
 

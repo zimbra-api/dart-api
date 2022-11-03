@@ -497,7 +497,7 @@ void main() {
           fragment: fragment,
         ),
       );
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'CreateTaskRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -1122,7 +1122,7 @@ void main() {
       final tagNames = faker.lorem.word();
       final section = faker.lorem.word();
 
-      final json = {
+      final data = {
         'Body': {
           'CreateTaskResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -1564,7 +1564,7 @@ void main() {
           }
         }
       };
-      final envelope = CreateTaskEnvelope.fromJson(json);
+      final envelope = CreateTaskEnvelope.fromMap(data);
       final response = envelope.createTaskBody.createTaskResponse!;
 
       expect(response.calItemId, calItemId);

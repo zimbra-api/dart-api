@@ -35,7 +35,7 @@ void main() {
           color: color,
           rgb: rgb,
           parentFolderId: parentFolderId));
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'CreateSearchFolderRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -107,7 +107,7 @@ void main() {
       final query = faker.lorem.word();
       final types = faker.lorem.words(3).join(',');
 
-      final json = {
+      final data = {
         'Body': {
           'CreateSearchFolderResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -223,7 +223,7 @@ void main() {
           }
         }
       };
-      final envelope = CreateSearchFolderEnvelope.fromJson(json);
+      final envelope = CreateSearchFolderEnvelope.fromMap(data);
       final response = envelope.createSearchFolderBody.createSearchFolderResponse!;
 
       final searchFolder = response.searchFolder!;

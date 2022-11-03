@@ -10,9 +10,9 @@ import 'get_msg_metadata_body.dart';
 class GetMsgMetadataEnvelope extends SoapEnvelope {
   GetMsgMetadataEnvelope(GetMsgMetadataBody body, {super.header}) : super(body);
 
-  factory GetMsgMetadataEnvelope.fromJson(Map<String, dynamic> json) =>
-      GetMsgMetadataEnvelope(GetMsgMetadataBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory GetMsgMetadataEnvelope.fromMap(Map<String, dynamic> data) =>
+      GetMsgMetadataEnvelope(GetMsgMetadataBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   GetMsgMetadataBody get getMsgMetadataBody => body as GetMsgMetadataBody;
 }

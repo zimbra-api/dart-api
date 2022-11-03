@@ -9,7 +9,7 @@ void main() {
   group('Get last item id in mailbox tests', (() {
     test('Get last item id in mailbox request', (() {
       final request = GetLastItemIdInMailboxRequest();
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'GetLastItemIdInMailboxRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -20,7 +20,7 @@ void main() {
 
     test('Get last item id in mailbox response', (() {
       final id = faker.randomGenerator.integer(100);
-      final json = {
+      final data = {
         'Body': {
           'GetLastItemIdInMailboxResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -28,7 +28,7 @@ void main() {
           }
         }
       };
-      final envelope = GetLastItemIdInMailboxEnvelope.fromJson(json);
+      final envelope = GetLastItemIdInMailboxEnvelope.fromMap(data);
       final response = envelope.getLastItemIdInMailboxBody.getLastItemIdInMailboxResponse!;
       expect(response.id, id);
     }));

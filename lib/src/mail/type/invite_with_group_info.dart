@@ -25,26 +25,26 @@ class InviteWithGroupInfo {
   InviteWithGroupInfo(this.calItemType,
       {this.timezones = const [], this.inviteComponents = const [], this.calendarReplies = const []});
 
-  factory InviteWithGroupInfo.fromJson(Map<String, dynamic> json) => InviteWithGroupInfo(
+  factory InviteWithGroupInfo.fromMap(Map<String, dynamic> data) => InviteWithGroupInfo(
       InviteType.values.firstWhere(
-        (item) => item.name == json['type'],
+        (item) => item.name == data['type'],
         orElse: () => InviteType.appt,
       ),
-      timezones: (json['tz'] is Iterable)
-          ? List.from((json['tz'] as Iterable).map<CalTZInfo>((tz) => CalTZInfo.fromJson(tz)))
+      timezones: (data['tz'] is Iterable)
+          ? List.from((data['tz'] as Iterable).map<CalTZInfo>((tz) => CalTZInfo.fromMap(tz)))
           : [],
-      inviteComponents: (json['comp'] is Iterable)
-          ? List.from((json['comp'] as Iterable)
-              .map<InviteComponentWithGroupInfo>((comp) => InviteComponentWithGroupInfo.fromJson(comp)))
+      inviteComponents: (data['comp'] is Iterable)
+          ? List.from((data['comp'] as Iterable)
+              .map<InviteComponentWithGroupInfo>((comp) => InviteComponentWithGroupInfo.fromMap(comp)))
           : [],
-      calendarReplies: (json['replies']?['reply'] is Iterable)
-          ? List.from((json['replies']['reply'] as Iterable).map<CalendarReply>((at) => CalendarReply.fromJson(at)))
+      calendarReplies: (data['replies']?['reply'] is Iterable)
+          ? List.from((data['replies']['reply'] as Iterable).map<CalendarReply>((at) => CalendarReply.fromMap(at)))
           : []);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'type': calItemType.name,
-        if (timezones.isNotEmpty) 'tz': timezones.map((tz) => tz.toJson()).toList(),
-        if (inviteComponents.isNotEmpty) 'comp': inviteComponents.map((comp) => comp.toJson()).toList(),
-        if (calendarReplies.isNotEmpty) 'replies': {'reply': calendarReplies.map((reply) => reply.toJson()).toList()},
+        if (timezones.isNotEmpty) 'tz': timezones.map((tz) => tz.toMap()).toList(),
+        if (inviteComponents.isNotEmpty) 'comp': inviteComponents.map((comp) => comp.toMap()).toList(),
+        if (calendarReplies.isNotEmpty) 'replies': {'reply': calendarReplies.map((reply) => reply.toMap()).toList()},
       };
 }

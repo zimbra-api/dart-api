@@ -9,10 +9,10 @@ class DataSourceUsage {
 
   DataSourceUsage({this.id = '', this.usage = 0});
 
-  factory DataSourceUsage.fromJson(Map<String, dynamic> json) =>
-      DataSourceUsage(id: json['id'] ?? '', usage: json['usage'] ?? 0);
+  factory DataSourceUsage.fromMap(Map<String, dynamic> data) =>
+      DataSourceUsage(id: data['id'] ?? '', usage: data['usage'] ?? 0);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'id': id,
         'usage': usage,
       };

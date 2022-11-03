@@ -9,10 +9,10 @@ class AccountZimletProperty {
 
   AccountZimletProperty({this.name, this.value});
 
-  factory AccountZimletProperty.fromJson(Map<String, dynamic> json) =>
-      AccountZimletProperty(name: json['name'], value: json['_content']);
+  factory AccountZimletProperty.fromMap(Map<String, dynamic> data) =>
+      AccountZimletProperty(name: data['name'], value: data['_content']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (name != null) 'name': name,
         if (value != null) '_content': value,
       };

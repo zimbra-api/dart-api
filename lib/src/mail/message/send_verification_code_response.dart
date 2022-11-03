@@ -7,5 +7,5 @@ import 'package:zimbra_api/src/common/type/soap_response.dart';
 class SendVerificationCodeResponse extends SoapResponse {
   SendVerificationCodeResponse();
 
-  factory SendVerificationCodeResponse.fromJson(Map<String, dynamic> json) => SendVerificationCodeResponse();
+  factory SendVerificationCodeResponse.fromMap(Map<String, dynamic> data) => SendVerificationCodeResponse();
 }

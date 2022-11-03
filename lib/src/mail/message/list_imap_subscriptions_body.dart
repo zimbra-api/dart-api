@@ -13,18 +13,18 @@ class ListIMAPSubscriptionsBody extends SoapBody {
       {ListIMAPSubscriptionsRequest? request, ListIMAPSubscriptionsResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory ListIMAPSubscriptionsBody.fromJson(Map<String, dynamic> json) => ListIMAPSubscriptionsBody(
-      response: json['ListIMAPSubscriptionsResponse'] != null
-          ? ListIMAPSubscriptionsResponse.fromJson(json['ListIMAPSubscriptionsResponse'])
+  factory ListIMAPSubscriptionsBody.fromMap(Map<String, dynamic> data) => ListIMAPSubscriptionsBody(
+      response: data['ListIMAPSubscriptionsResponse'] != null
+          ? ListIMAPSubscriptionsResponse.fromMap(data['ListIMAPSubscriptionsResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   ListIMAPSubscriptionsRequest? get listIMAPSubscriptionsRequest => request as ListIMAPSubscriptionsRequest?;
 
   ListIMAPSubscriptionsResponse? get listIMAPSubscriptionsResponse => response as ListIMAPSubscriptionsResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'ListIMAPSubscriptionsRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'ListIMAPSubscriptionsRequest': request!.toMap(),
       };
 }

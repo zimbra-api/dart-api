@@ -46,35 +46,35 @@ class AddressTest extends FilterTest {
       super.index,
       super.negative});
 
-  factory AddressTest.fromJson(Map<String, dynamic> json) => AddressTest(
-      header: json['header'],
+  factory AddressTest.fromMap(Map<String, dynamic> data) => AddressTest(
+      header: data['header'],
       part: AddressPart.values.firstWhere(
-        (part) => part.name == json['part'],
+        (part) => part.name == data['part'],
         orElse: () => AddressPart.all,
       ),
       stringComparison: StringComparison.values.firstWhere(
-        (comparison) => comparison.name == json['stringComparison'],
+        (comparison) => comparison.name == data['stringComparison'],
         orElse: () => StringComparison.contains,
       ),
-      caseSensitive: json['caseSensitive'],
-      value: json['value'],
+      caseSensitive: data['caseSensitive'],
+      value: data['value'],
       valueComparison: ValueComparison.values.firstWhere(
-        (comparison) => comparison.name == json['valueComparison'],
+        (comparison) => comparison.name == data['valueComparison'],
         orElse: () => ValueComparison.equal,
       ),
       countComparison: CountComparison.values.firstWhere(
-        (comparison) => comparison.name == json['countComparison'],
+        (comparison) => comparison.name == data['countComparison'],
         orElse: () => CountComparison.equal,
       ),
       valueComparisonComparator: ComparisonComparator.values.firstWhere(
-        (comparator) => comparator.name == json['valueComparisonComparator'],
+        (comparator) => comparator.name == data['valueComparisonComparator'],
         orElse: () => ComparisonComparator.asciiNumeric,
       ),
-      index: json['index'],
-      negative: json['negative']);
+      index: data['index'],
+      negative: data['negative']);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (header != null) 'header': header,
         if (part != null) 'part': part!.name,
         if (stringComparison != null) 'stringComparison': stringComparison!.name,

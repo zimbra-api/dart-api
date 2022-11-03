@@ -32,9 +32,9 @@ class CreateContactRequest extends SoapRequest {
       CreateContactEnvelope(CreateContactBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
-        'cn': contact.toJson(),
+        'cn': contact.toMap(),
         if (verbose != null) 'verbose': verbose,
         if (wantImapUid != null) 'wantImapUid': wantImapUid,
         if (wantModifiedSequence != null) 'wantModSeq': wantModifiedSequence,

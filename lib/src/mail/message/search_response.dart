@@ -95,46 +95,46 @@ class SearchResponse extends SoapResponse {
       this.taskHits = const [],
       this.queryInfo});
 
-  factory SearchResponse.fromJson(Map<String, dynamic> json) => SearchResponse(
+  factory SearchResponse.fromMap(Map<String, dynamic> data) => SearchResponse(
       sortBy: SearchSortBy.values.firstWhere(
-        (sortBy) => sortBy.name == json['sortBy'],
+        (sortBy) => sortBy.name == data['sortBy'],
         orElse: () => SearchSortBy.dateDesc,
       ),
-      queryOffset: json['offset'],
-      queryMore: json['more'],
-      totalSize: json['total'],
-      simpleHits: (json['hit'] is Iterable)
-          ? List.from((json['hit'] as Iterable).map<SimpleSearchHit>((hit) => SimpleSearchHit.fromJson(hit)))
+      queryOffset: data['offset'],
+      queryMore: data['more'],
+      totalSize: data['total'],
+      simpleHits: (data['hit'] is Iterable)
+          ? List.from((data['hit'] as Iterable).map<SimpleSearchHit>((hit) => SimpleSearchHit.fromMap(hit)))
           : [],
-      conversationHits: (json['c'] is Iterable)
-          ? List.from((json['c'] as Iterable).map<ConversationHitInfo>((c) => ConversationHitInfo.fromJson(c)))
+      conversationHits: (data['c'] is Iterable)
+          ? List.from((data['c'] as Iterable).map<ConversationHitInfo>((c) => ConversationHitInfo.fromMap(c)))
           : [],
-      messageHits: (json['m'] is Iterable)
-          ? List.from((json['m'] as Iterable).map<MessageHitInfo>((m) => MessageHitInfo.fromJson(m)))
+      messageHits: (data['m'] is Iterable)
+          ? List.from((data['m'] as Iterable).map<MessageHitInfo>((m) => MessageHitInfo.fromMap(m)))
           : [],
-      chatHits: (json['chat'] is Iterable)
-          ? List.from((json['chat'] as Iterable).map<MessageHitInfo>((chat) => MessageHitInfo.fromJson(chat)))
+      chatHits: (data['chat'] is Iterable)
+          ? List.from((data['chat'] as Iterable).map<MessageHitInfo>((chat) => MessageHitInfo.fromMap(chat)))
           : [],
-      messagePartHits: (json['mp'] is Iterable)
-          ? List.from((json['mp'] as Iterable).map<MessagePartHitInfo>((mp) => MessagePartHitInfo.fromJson(mp)))
+      messagePartHits: (data['mp'] is Iterable)
+          ? List.from((data['mp'] as Iterable).map<MessagePartHitInfo>((mp) => MessagePartHitInfo.fromMap(mp)))
           : [],
-      contactHits: (json['cn'] is Iterable)
-          ? List.from((json['cn'] as Iterable).map<ContactInfo>((cn) => ContactInfo.fromJson(cn)))
+      contactHits: (data['cn'] is Iterable)
+          ? List.from((data['cn'] as Iterable).map<ContactInfo>((cn) => ContactInfo.fromMap(cn)))
           : [],
-      noteHits: (json['note'] is Iterable)
-          ? List.from((json['note'] as Iterable).map<NoteHitInfo>((note) => NoteHitInfo.fromJson(note)))
+      noteHits: (data['note'] is Iterable)
+          ? List.from((data['note'] as Iterable).map<NoteHitInfo>((note) => NoteHitInfo.fromMap(note)))
           : [],
-      documentHits: (json['doc'] is Iterable)
-          ? List.from((json['doc'] as Iterable).map<DocumentHitInfo>((doc) => DocumentHitInfo.fromJson(doc)))
+      documentHits: (data['doc'] is Iterable)
+          ? List.from((data['doc'] as Iterable).map<DocumentHitInfo>((doc) => DocumentHitInfo.fromMap(doc)))
           : [],
-      wikiHits: (json['w'] is Iterable)
-          ? List.from((json['w'] as Iterable).map<WikiHitInfo>((w) => WikiHitInfo.fromJson(w)))
+      wikiHits: (data['w'] is Iterable)
+          ? List.from((data['w'] as Iterable).map<WikiHitInfo>((w) => WikiHitInfo.fromMap(w)))
           : [],
-      appointmentHits: (json['appt'] is Iterable)
-          ? List.from((json['appt'] as Iterable).map<CalendarItemHitInfo>((appt) => CalendarItemHitInfo.fromJson(appt)))
+      appointmentHits: (data['appt'] is Iterable)
+          ? List.from((data['appt'] as Iterable).map<CalendarItemHitInfo>((appt) => CalendarItemHitInfo.fromMap(appt)))
           : [],
-      taskHits: (json['task'] is Iterable)
-          ? List.from((json['task'] as Iterable).map<CalendarItemHitInfo>((task) => CalendarItemHitInfo.fromJson(task)))
+      taskHits: (data['task'] is Iterable)
+          ? List.from((data['task'] as Iterable).map<CalendarItemHitInfo>((task) => CalendarItemHitInfo.fromMap(task)))
           : [],
-      queryInfo: json['info'] is Map ? SearchQueryInfo.fromJson(json['info']) : null);
+      queryInfo: data['info'] is Map ? SearchQueryInfo.fromMap(data['info']) : null);
 }

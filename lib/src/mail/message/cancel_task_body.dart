@@ -12,16 +12,16 @@ class CancelTaskBody extends SoapBody {
   CancelTaskBody({CancelTaskRequest? request, CancelTaskResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory CancelTaskBody.fromJson(Map<String, dynamic> json) => CancelTaskBody(
-      response: json['CancelTaskResponse'] != null ? CancelTaskResponse.fromJson(json['CancelTaskResponse']) : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+  factory CancelTaskBody.fromMap(Map<String, dynamic> data) => CancelTaskBody(
+      response: data['CancelTaskResponse'] != null ? CancelTaskResponse.fromMap(data['CancelTaskResponse']) : null,
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   CancelTaskRequest? get cancelTaskRequest => request as CancelTaskRequest?;
 
   CancelTaskResponse? get cancelTaskResponse => response as CancelTaskResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'CancelTaskRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'CancelTaskRequest': request!.toMap(),
       };
 }

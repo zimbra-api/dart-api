@@ -12,18 +12,18 @@ class ModifySignatureBody extends SoapBody {
   ModifySignatureBody({ModifySignatureRequest? request, ModifySignatureResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory ModifySignatureBody.fromJson(Map<String, dynamic> json) => ModifySignatureBody(
-      response: json['ModifySignatureResponse'] != null
-          ? ModifySignatureResponse.fromJson(json['ModifySignatureResponse'])
+  factory ModifySignatureBody.fromMap(Map<String, dynamic> data) => ModifySignatureBody(
+      response: data['ModifySignatureResponse'] != null
+          ? ModifySignatureResponse.fromMap(data['ModifySignatureResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   ModifySignatureRequest? get modifySignatureRequest => request as ModifySignatureRequest?;
 
   ModifySignatureResponse? get modifySignatureResponse => response as ModifySignatureResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'ModifySignatureRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'ModifySignatureRequest': request!.toMap(),
       };
 }

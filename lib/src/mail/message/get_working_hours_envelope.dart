@@ -10,9 +10,9 @@ import 'get_working_hours_body.dart';
 class GetWorkingHoursEnvelope extends SoapEnvelope {
   GetWorkingHoursEnvelope(GetWorkingHoursBody body, {super.header}) : super(body);
 
-  factory GetWorkingHoursEnvelope.fromJson(Map<String, dynamic> json) =>
-      GetWorkingHoursEnvelope(GetWorkingHoursBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory GetWorkingHoursEnvelope.fromMap(Map<String, dynamic> data) =>
+      GetWorkingHoursEnvelope(GetWorkingHoursBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   GetWorkingHoursBody get getWorkingHoursBody => body as GetWorkingHoursBody;
 }

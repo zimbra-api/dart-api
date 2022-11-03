@@ -24,23 +24,23 @@ class InviteInfo {
 
   InviteInfo(this.calItemType, {this.timezones = const [], this.inviteComponent, this.calendarReplies = const []});
 
-  factory InviteInfo.fromJson(Map<String, dynamic> json) => InviteInfo(
+  factory InviteInfo.fromMap(Map<String, dynamic> data) => InviteInfo(
       InviteType.values.firstWhere(
-        (item) => item.name == json['type'],
+        (item) => item.name == data['type'],
         orElse: () => InviteType.appt,
       ),
-      timezones: (json['tz'] is Iterable)
-          ? List.from((json['tz'] as Iterable).map<CalTZInfo>((tz) => CalTZInfo.fromJson(tz)))
+      timezones: (data['tz'] is Iterable)
+          ? List.from((data['tz'] as Iterable).map<CalTZInfo>((tz) => CalTZInfo.fromMap(tz)))
           : [],
-      inviteComponent: json['comp'] is Map ? InviteComponent.fromJson(json['comp']) : null,
-      calendarReplies: (json['replies']?['reply'] is Iterable)
-          ? List.from((json['replies']['reply'] as Iterable).map<CalendarReply>((at) => CalendarReply.fromJson(at)))
+      inviteComponent: data['comp'] is Map ? InviteComponent.fromMap(data['comp']) : null,
+      calendarReplies: (data['replies']?['reply'] is Iterable)
+          ? List.from((data['replies']['reply'] as Iterable).map<CalendarReply>((at) => CalendarReply.fromMap(at)))
           : []);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'type': calItemType.name,
-        if (timezones.isNotEmpty) 'tz': timezones.map((tz) => tz.toJson()).toList(),
-        if (inviteComponent != null) 'comp': inviteComponent!.toJson(),
-        if (calendarReplies.isNotEmpty) 'replies': {'reply': calendarReplies.map((reply) => reply.toJson()).toList()},
+        if (timezones.isNotEmpty) 'tz': timezones.map((tz) => tz.toMap()).toList(),
+        if (inviteComponent != null) 'comp': inviteComponent!.toMap(),
+        if (calendarReplies.isNotEmpty) 'replies': {'reply': calendarReplies.map((reply) => reply.toMap()).toList()},
       };
 }

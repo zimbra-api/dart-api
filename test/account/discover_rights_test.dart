@@ -13,7 +13,7 @@ void main() {
       final right2 = faker.lorem.word();
 
       final request = DiscoverRightsRequest(rights: [right1, right2]);
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'DiscoverRightsRequest': {
             '_jsns': 'urn:zimbraAccount',
@@ -33,7 +33,7 @@ void main() {
       final displayName = faker.person.name();
       final addr = faker.internet.email();
 
-      final json = {
+      final data = {
         'Body': {
           'DiscoverRightsResponse': {
             '_jsns': 'urn:zimbraAccount',
@@ -56,7 +56,7 @@ void main() {
           }
         }
       };
-      final envelope = DiscoverRightsEnvelope.fromJson(json);
+      final envelope = DiscoverRightsEnvelope.fromMap(data);
       final response = envelope.discoverRightsBody.discoverRightsResponse!;
       final discoveredRight = response.discoveredRights.first;
 

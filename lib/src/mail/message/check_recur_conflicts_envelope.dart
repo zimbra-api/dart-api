@@ -10,9 +10,9 @@ import 'check_recur_conflicts_body.dart';
 class CheckRecurConflictsEnvelope extends SoapEnvelope {
   CheckRecurConflictsEnvelope(CheckRecurConflictsBody body, {super.header}) : super(body);
 
-  factory CheckRecurConflictsEnvelope.fromJson(Map<String, dynamic> json) =>
-      CheckRecurConflictsEnvelope(CheckRecurConflictsBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory CheckRecurConflictsEnvelope.fromMap(Map<String, dynamic> data) =>
+      CheckRecurConflictsEnvelope(CheckRecurConflictsBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   CheckRecurConflictsBody get checkRecurConflictsBody => body as CheckRecurConflictsBody;
 }

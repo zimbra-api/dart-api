@@ -12,16 +12,16 @@ class ExpandRecurBody extends SoapBody {
   ExpandRecurBody({ExpandRecurRequest? request, ExpandRecurResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory ExpandRecurBody.fromJson(Map<String, dynamic> json) => ExpandRecurBody(
-      response: json['ExpandRecurResponse'] != null ? ExpandRecurResponse.fromJson(json['ExpandRecurResponse']) : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+  factory ExpandRecurBody.fromMap(Map<String, dynamic> data) => ExpandRecurBody(
+      response: data['ExpandRecurResponse'] != null ? ExpandRecurResponse.fromMap(data['ExpandRecurResponse']) : null,
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   ExpandRecurRequest? get expandRecurRequest => request as ExpandRecurRequest?;
 
   ExpandRecurResponse? get expandRecurResponse => response as ExpandRecurResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'ExpandRecurRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'ExpandRecurRequest': request!.toMap(),
       };
 }

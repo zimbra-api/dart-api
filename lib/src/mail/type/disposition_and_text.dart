@@ -13,10 +13,10 @@ class DispositionAndText {
 
   DispositionAndText({this.disposition, this.text});
 
-  factory DispositionAndText.fromJson(Map<String, dynamic> json) =>
-      DispositionAndText(disposition: json['disp'], text: json['_content']);
+  factory DispositionAndText.fromMap(Map<String, dynamic> data) =>
+      DispositionAndText(disposition: data['disp'], text: data['_content']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (disposition != null) 'disp': disposition,
         if (text != null) '_content': text,
       };

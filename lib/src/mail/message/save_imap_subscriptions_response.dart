@@ -7,5 +7,5 @@ import 'package:zimbra_api/src/common/type/soap_response.dart';
 class SaveIMAPSubscriptionsResponse extends SoapResponse {
   SaveIMAPSubscriptionsResponse();
 
-  factory SaveIMAPSubscriptionsResponse.fromJson(Map<String, dynamic> json) => SaveIMAPSubscriptionsResponse();
+  factory SaveIMAPSubscriptionsResponse.fromMap(Map<String, dynamic> data) => SaveIMAPSubscriptionsResponse();
 }

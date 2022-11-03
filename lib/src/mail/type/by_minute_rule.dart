@@ -9,9 +9,9 @@ class ByMinuteRule {
 
   ByMinuteRule(this.list);
 
-  factory ByMinuteRule.fromJson(Map<String, dynamic> json) => ByMinuteRule(json['minlist'] ?? '');
+  factory ByMinuteRule.fromMap(Map<String, dynamic> data) => ByMinuteRule(data['minlist'] ?? '');
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'minlist': list,
       };
 }

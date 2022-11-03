@@ -15,11 +15,11 @@ class NewContactGroupMember {
 
   NewContactGroupMember({this.type = MemberType.contact, this.value});
 
-  factory NewContactGroupMember.fromJson(Map<String, dynamic> json) => NewContactGroupMember(
-      type: MemberType.values.firstWhere((type) => type.name == json['type'], orElse: () => MemberType.contact),
-      value: json['_content']);
+  factory NewContactGroupMember.fromMap(Map<String, dynamic> data) => NewContactGroupMember(
+      type: MemberType.values.firstWhere((type) => type.name == data['type'], orElse: () => MemberType.contact),
+      value: data['_content']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'type': type.name,
         if (value != null) '_content': value,
       };

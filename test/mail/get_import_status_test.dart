@@ -9,7 +9,7 @@ void main() {
   group('Get import status tests', (() {
     test('Get import status request', (() {
       final request = GetImportStatusRequest();
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'GetImportStatusRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -24,7 +24,7 @@ void main() {
       final success = faker.randomGenerator.boolean();
       final error = faker.lorem.word();
 
-      final json = {
+      final data = {
         'Body': {
           'GetImportStatusResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -95,7 +95,7 @@ void main() {
           }
         }
       };
-      final envelope = GetImportStatusEnvelope.fromJson(json);
+      final envelope = GetImportStatusEnvelope.fromMap(data);
       final response = envelope.getImportStatusBody.getImportStatusResponse!;
 
       final imap = response.imapStatuses.first;

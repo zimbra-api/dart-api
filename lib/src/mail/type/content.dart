@@ -11,9 +11,9 @@ class Content {
 
   Content({this.attachUploadId, this.value});
 
-  factory Content.fromJson(Map<String, dynamic> json) => Content(attachUploadId: json['aid'], value: json['_content']);
+  factory Content.fromMap(Map<String, dynamic> data) => Content(attachUploadId: data['aid'], value: data['_content']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (attachUploadId != null) 'aid': attachUploadId,
         if (value != null) '_content': value,
       };

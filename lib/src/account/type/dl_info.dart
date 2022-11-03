@@ -31,21 +31,21 @@ class DLInfo extends ObjectInfo {
   DLInfo(super.name, super.id, this.ref,
       {super.attrList, this.displayName, this.isDynamic, this.via, this.isOwner, this.isMember});
 
-  factory DLInfo.fromJson(Map<String, dynamic> json) => DLInfo(
-        json['name'],
-        json['id'],
-        json['ref'],
-        displayName: json['d'],
-        isDynamic: json['dynamic'],
-        via: json['via'],
-        isOwner: json['isOwner'],
-        isMember: json['isMember'],
-        attrList: (json['a'] is Iterable)
-            ? List.from((json['a'] as Iterable).map<KeyValuePair>((attr) => KeyValuePair.fromJson(attr)))
+  factory DLInfo.fromMap(Map<String, dynamic> data) => DLInfo(
+        data['name'],
+        data['id'],
+        data['ref'],
+        displayName: data['d'],
+        isDynamic: data['dynamic'],
+        via: data['via'],
+        isOwner: data['isOwner'],
+        isMember: data['isMember'],
+        attrList: (data['a'] is Iterable)
+            ? List.from((data['a'] as Iterable).map<KeyValuePair>((attr) => KeyValuePair.fromMap(attr)))
             : [],
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'name': name,
         'id': id,
         'ref': ref,
@@ -54,6 +54,6 @@ class DLInfo extends ObjectInfo {
         if (via != null) 'via': via,
         if (isOwner != null) 'isOwner': isOwner,
         if (isMember != null) 'isMember': isMember,
-        if (attrList.isNotEmpty) 'a': attrList.map((a) => a.toJson()).toList(),
+        if (attrList.isNotEmpty) 'a': attrList.map((a) => a.toMap()).toList(),
       };
 }

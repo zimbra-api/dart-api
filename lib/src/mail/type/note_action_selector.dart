@@ -26,24 +26,24 @@ class NoteActionSelector extends ActionSelector {
       super.nonExistentIds,
       super.newlyCreatedIds});
 
-  factory NoteActionSelector.fromJson(Map<String, dynamic> json) =>
-      NoteActionSelector(json['id'] ?? '', json['op'] ?? '',
-          content: json['content'],
-          bounds: json['pos'],
-          constraint: json['tcon'],
-          tag: json['tag'],
-          folder: json['l'],
-          rgb: json['rgb'],
-          color: json['color'],
-          name: json['name'],
-          flags: json['f'],
-          tags: json['t'],
-          tagNames: json['tn'],
-          nonExistentIds: json['nei'],
-          newlyCreatedIds: json['nci']);
+  factory NoteActionSelector.fromMap(Map<String, dynamic> data) =>
+      NoteActionSelector(data['id'] ?? '', data['op'] ?? '',
+          content: data['content'],
+          bounds: data['pos'],
+          constraint: data['tcon'],
+          tag: data['tag'],
+          folder: data['l'],
+          rgb: data['rgb'],
+          color: data['color'],
+          name: data['name'],
+          flags: data['f'],
+          tags: data['t'],
+          tagNames: data['tn'],
+          nonExistentIds: data['nei'],
+          newlyCreatedIds: data['nci']);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'id': ids,
         'op': operation,
         if (content != null) 'content': content,

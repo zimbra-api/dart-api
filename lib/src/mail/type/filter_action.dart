@@ -8,9 +8,9 @@ class FilterAction {
 
   FilterAction({this.index});
 
-  factory FilterAction.fromJson(Map<String, dynamic> json) => FilterAction(index: json['index']);
+  factory FilterAction.fromMap(Map<String, dynamic> data) => FilterAction(index: data['index']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (index != null) 'index': index,
       };
 }

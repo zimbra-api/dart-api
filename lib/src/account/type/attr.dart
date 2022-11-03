@@ -11,10 +11,10 @@ class Attr {
 
   Attr(this.name, {this.value, this.permDenied});
 
-  factory Attr.fromJson(Map<String, dynamic> json) =>
-      Attr(json['name'], value: json['_content'], permDenied: json['pd']);
+  factory Attr.fromMap(Map<String, dynamic> data) =>
+      Attr(data['name'], value: data['_content'], permDenied: data['pd']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'name': name,
         if (permDenied != null) 'pd': permDenied,
         if (value != null) '_content': value,

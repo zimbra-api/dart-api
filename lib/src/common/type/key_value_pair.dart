@@ -9,9 +9,9 @@ class KeyValuePair {
 
   KeyValuePair(this.key, {this.value});
 
-  factory KeyValuePair.fromJson(Map<String, dynamic> json) => KeyValuePair(json['n'], value: json['_content']);
+  factory KeyValuePair.fromMap(Map<String, dynamic> data) => KeyValuePair(data['n'], value: data['_content']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'n': key,
         if (value != null) '_content': value,
       };

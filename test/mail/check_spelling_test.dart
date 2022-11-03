@@ -17,7 +17,7 @@ void main() {
         text: text,
       );
 
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'CheckSpellingRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -33,7 +33,7 @@ void main() {
       final available = faker.randomGenerator.boolean();
       final word = faker.lorem.word();
       final suggestions = faker.lorem.words(3).join(',');
-      final json = {
+      final data = {
         'Body': {
           'CheckSpellingResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -47,7 +47,7 @@ void main() {
           }
         }
       };
-      final envelope = CheckSpellingEnvelope.fromJson(json);
+      final envelope = CheckSpellingEnvelope.fromMap(data);
       final response = envelope.checkSpellingBody.checkSpellingResponse!;
       final misspelled = response.misspelledWords.first;
 

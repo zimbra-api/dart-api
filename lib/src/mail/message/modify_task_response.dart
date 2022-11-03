@@ -18,12 +18,12 @@ class ModifyTaskResponse extends ModifyAppointmentResponse {
       super.msg,
       super.echo});
 
-  factory ModifyTaskResponse.fromJson(Map<String, dynamic> json) => ModifyTaskResponse(
-      calItemId: json['calItemId'],
-      deprecatedApptId: json['apptId'],
-      calInvId: json['invId'],
-      modifiedSequence: json['ms'],
-      revision: json['rev'],
-      msg: json['m'] is Map ? Id.fromJson(json['m']) : null,
-      echo: json['echo'] is Map ? CalEcho.fromJson(json['echo']) : null);
+  factory ModifyTaskResponse.fromMap(Map<String, dynamic> data) => ModifyTaskResponse(
+      calItemId: data['calItemId'],
+      deprecatedApptId: data['apptId'],
+      calInvId: data['invId'],
+      modifiedSequence: data['ms'],
+      revision: data['rev'],
+      msg: data['m'] is Map ? Id.fromMap(data['m']) : null,
+      echo: data['echo'] is Map ? CalEcho.fromMap(data['echo']) : null);
 }

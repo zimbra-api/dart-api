@@ -10,6 +10,6 @@ class GetLastItemIdInMailboxResponse extends SoapResponse {
 
   GetLastItemIdInMailboxResponse({this.id = 0});
 
-  factory GetLastItemIdInMailboxResponse.fromJson(Map<String, dynamic> json) =>
-      GetLastItemIdInMailboxResponse(id: json['id']?['_content'] ?? 0);
+  factory GetLastItemIdInMailboxResponse.fromMap(Map<String, dynamic> data) =>
+      GetLastItemIdInMailboxResponse(id: data['id']?['_content'] ?? 0);
 }

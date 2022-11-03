@@ -12,16 +12,16 @@ class AddCommentBody extends SoapBody {
   AddCommentBody({AddCommentRequest? request, AddCommentResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory AddCommentBody.fromJson(Map<String, dynamic> json) => AddCommentBody(
-      response: json['AddCommentResponse'] != null ? AddCommentResponse.fromJson(json['AddCommentResponse']) : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+  factory AddCommentBody.fromMap(Map<String, dynamic> data) => AddCommentBody(
+      response: data['AddCommentResponse'] != null ? AddCommentResponse.fromMap(data['AddCommentResponse']) : null,
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   AddCommentRequest? get addCommentRequest => request as AddCommentRequest?;
 
   AddCommentResponse? get addCommentResponse => response as AddCommentResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'AddCommentRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'AddCommentRequest': request!.toMap(),
       };
 }

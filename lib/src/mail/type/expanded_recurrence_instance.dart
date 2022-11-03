@@ -20,14 +20,14 @@ class ExpandedRecurrenceInstance {
 
   ExpandedRecurrenceInstance({this.startTime, this.duration, this.allDay, this.tzOffset, this.recurIdZ});
 
-  factory ExpandedRecurrenceInstance.fromJson(Map<String, dynamic> json) => ExpandedRecurrenceInstance(
-      startTime: json['s'],
-      duration: json['dur'],
-      allDay: json['allDay'],
-      tzOffset: json['tzo'],
-      recurIdZ: json['ridZ']);
+  factory ExpandedRecurrenceInstance.fromMap(Map<String, dynamic> data) => ExpandedRecurrenceInstance(
+      startTime: data['s'],
+      duration: data['dur'],
+      allDay: data['allDay'],
+      tzOffset: data['tzo'],
+      recurIdZ: data['ridZ']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (startTime != null) 's': startTime,
         if (duration != null) 'dur': duration,
         if (allDay != null) 'allDay': allDay,

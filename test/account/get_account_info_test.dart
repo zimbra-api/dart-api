@@ -13,7 +13,7 @@ void main() {
       final name = faker.internet.email();
       final request = GetAccountInfoRequest(AccountSelector(AccountBy.name, name));
 
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'GetAccountInfoRequest': {
             '_jsns': 'urn:zimbraAccount',
@@ -37,7 +37,7 @@ void main() {
       final adminURL = faker.internet.httpsUrl();
       final boshURL = faker.internet.httpsUrl();
 
-      final json = {
+      final data = {
         'Body': {
           'GetAccountInfoResponse': {
             '_jsns': 'urn:zimbraAccount',
@@ -57,7 +57,7 @@ void main() {
           },
         },
       };
-      final envelope = GetAccountInfoEnvelope.fromJson(json);
+      final envelope = GetAccountInfoEnvelope.fromMap(data);
       final response = envelope.getAccountInfoBody.getAccountInfoResponse!;
       final attr = response.attrs.first;
 

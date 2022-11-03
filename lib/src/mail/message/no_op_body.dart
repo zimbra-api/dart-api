@@ -11,16 +11,16 @@ import 'no_op_response.dart';
 class NoOpBody extends SoapBody {
   NoOpBody({NoOpRequest? request, NoOpResponse? response, super.fault}) : super(request: request, response: response);
 
-  factory NoOpBody.fromJson(Map<String, dynamic> json) => NoOpBody(
-      response: json['NoOpResponse'] != null ? NoOpResponse.fromJson(json['NoOpResponse']) : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+  factory NoOpBody.fromMap(Map<String, dynamic> data) => NoOpBody(
+      response: data['NoOpResponse'] != null ? NoOpResponse.fromMap(data['NoOpResponse']) : null,
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   NoOpRequest? get noOpRequest => request as NoOpRequest?;
 
   NoOpResponse? get noOpResponse => response as NoOpResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'NoOpRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'NoOpRequest': request!.toMap(),
       };
 }

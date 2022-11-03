@@ -24,7 +24,7 @@ class ModifyProfileImageRequest extends SoapRequest {
       ModifyProfileImageEnvelope(ModifyProfileImageBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
         if (uploadId != null) 'uid': uploadId,
         if (imageB64Data != null) '_content': imageB64Data,

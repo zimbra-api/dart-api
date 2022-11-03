@@ -13,11 +13,11 @@ class GetCalendarItemSummariesBody extends SoapBody {
       {GetCalendarItemSummariesRequest? request, GetCalendarItemSummariesResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory GetCalendarItemSummariesBody.fromJson(Map<String, dynamic> json) => GetCalendarItemSummariesBody(
-      response: json['GetCalendarItemSummariesResponse'] != null
-          ? GetCalendarItemSummariesResponse.fromJson(json['GetCalendarItemSummariesResponse'])
+  factory GetCalendarItemSummariesBody.fromMap(Map<String, dynamic> data) => GetCalendarItemSummariesBody(
+      response: data['GetCalendarItemSummariesResponse'] != null
+          ? GetCalendarItemSummariesResponse.fromMap(data['GetCalendarItemSummariesResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   GetCalendarItemSummariesRequest? get getCalendarItemSummariesRequest => request as GetCalendarItemSummariesRequest?;
 
@@ -25,7 +25,7 @@ class GetCalendarItemSummariesBody extends SoapBody {
       response as GetCalendarItemSummariesResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'GetCalendarItemSummariesRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'GetCalendarItemSummariesRequest': request!.toMap(),
       };
 }

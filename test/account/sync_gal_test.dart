@@ -21,7 +21,7 @@ void main() {
         limit: limit,
       );
 
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'SyncGalRequest': {
             '_jsns': 'urn:zimbraAccount',
@@ -74,7 +74,7 @@ void main() {
       final size = faker.randomGenerator.integer(100);
       final contentFilename = faker.lorem.word();
 
-      final json = {
+      final data = {
         'Body': {
           'SyncGalResponse': {
             '_jsns': 'urn:zimbraAccount',
@@ -144,7 +144,7 @@ void main() {
           }
         }
       };
-      final envelope = SyncGalEnvelope.fromJson(json);
+      final envelope = SyncGalEnvelope.fromMap(data);
       final response = envelope.syncGalBody.syncGalResponse!;
       final deleted = response.deleted.first;
       final contact = response.contacts.first;

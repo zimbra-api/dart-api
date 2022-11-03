@@ -12,18 +12,18 @@ class ForwardAppointmentBody extends SoapBody {
   ForwardAppointmentBody({ForwardAppointmentRequest? request, ForwardAppointmentResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory ForwardAppointmentBody.fromJson(Map<String, dynamic> json) => ForwardAppointmentBody(
-      response: json['ForwardAppointmentResponse'] != null
-          ? ForwardAppointmentResponse.fromJson(json['ForwardAppointmentResponse'])
+  factory ForwardAppointmentBody.fromMap(Map<String, dynamic> data) => ForwardAppointmentBody(
+      response: data['ForwardAppointmentResponse'] != null
+          ? ForwardAppointmentResponse.fromMap(data['ForwardAppointmentResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   ForwardAppointmentRequest? get forwardAppointmentRequest => request as ForwardAppointmentRequest?;
 
   ForwardAppointmentResponse? get forwardAppointmentResponse => response as ForwardAppointmentResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'ForwardAppointmentRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'ForwardAppointmentRequest': request!.toMap(),
       };
 }

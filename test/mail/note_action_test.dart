@@ -45,7 +45,7 @@ void main() {
             nonExistentIds: nonExistentIds,
             newlyCreatedIds: newlyCreatedIds),
       );
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'NoteActionRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -77,7 +77,7 @@ void main() {
       final nonExistentIds = [faker.guid.guid(), faker.guid.guid(), faker.guid.guid()].join(',');
       final newlyCreatedIds = [faker.guid.guid(), faker.guid.guid(), faker.guid.guid()].join(',');
 
-      final json = {
+      final data = {
         'Body': {
           'NoteActionResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -90,7 +90,7 @@ void main() {
           }
         }
       };
-      final envelope = NoteActionEnvelope.fromJson(json);
+      final envelope = NoteActionEnvelope.fromMap(data);
       final response = envelope.noteActionBody.noteActionResponse!;
       final action = response.action!;
 

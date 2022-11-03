@@ -15,10 +15,10 @@ class TagSpec {
 
   TagSpec(this.name, {this.rgb, this.color});
 
-  factory TagSpec.fromJson(Map<String, dynamic> json) =>
-      TagSpec(json['name'] ?? '', rgb: json['rgb'], color: json['color']);
+  factory TagSpec.fromMap(Map<String, dynamic> data) =>
+      TagSpec(data['name'] ?? '', rgb: data['rgb'], color: data['color']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'name': name,
         if (rgb != null) 'rgb': rgb,
         if (color != null) 'color': color,

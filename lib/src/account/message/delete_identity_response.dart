@@ -7,5 +7,5 @@ import 'package:zimbra_api/src/common/type/soap_response.dart';
 class DeleteIdentityResponse extends SoapResponse {
   DeleteIdentityResponse();
 
-  factory DeleteIdentityResponse.fromJson(Map<String, dynamic> json) => DeleteIdentityResponse();
+  factory DeleteIdentityResponse.fromMap(Map<String, dynamic> data) => DeleteIdentityResponse();
 }

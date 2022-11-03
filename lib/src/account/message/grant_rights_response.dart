@@ -11,8 +11,8 @@ class GrantRightsResponse extends SoapResponse {
 
   GrantRightsResponse({this.aces = const []});
 
-  factory GrantRightsResponse.fromJson(Map<String, dynamic> json) => GrantRightsResponse(
-      aces: (json['ace'] is Iterable)
-          ? List.from((json['ace'] as Iterable).map<AccountACEInfo>((ace) => AccountACEInfo.fromJson(ace)))
+  factory GrantRightsResponse.fromMap(Map<String, dynamic> data) => GrantRightsResponse(
+      aces: (data['ace'] is Iterable)
+          ? List.from((data['ace'] as Iterable).map<AccountACEInfo>((ace) => AccountACEInfo.fromMap(ace)))
           : []);
 }

@@ -26,7 +26,7 @@ void main() {
         excludeUid: excludeUid,
         freebusyUsers: [FreeBusyUserSpec(folderId: folderId, id: id, name: name)],
       );
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'GetFreeBusyRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -62,7 +62,7 @@ void main() {
       final isPrivate = faker.randomGenerator.boolean();
       final hasPermission = faker.randomGenerator.boolean();
 
-      final json = {
+      final data = {
         'Body': {
           'GetFreeBusyResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -149,7 +149,7 @@ void main() {
           }
         }
       };
-      final envelope = GetFreeBusyEnvelope.fromJson(json);
+      final envelope = GetFreeBusyEnvelope.fromMap(data);
       final response = envelope.getFreeBusyBody.getFreeBusyResponse!;
       final usr = response.freebusyUsers.first;
 

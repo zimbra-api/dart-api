@@ -10,9 +10,9 @@ import 'remove_attachments_body.dart';
 class RemoveAttachmentsEnvelope extends SoapEnvelope {
   RemoveAttachmentsEnvelope(RemoveAttachmentsBody body, {super.header}) : super(body);
 
-  factory RemoveAttachmentsEnvelope.fromJson(Map<String, dynamic> json) =>
-      RemoveAttachmentsEnvelope(RemoveAttachmentsBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory RemoveAttachmentsEnvelope.fromMap(Map<String, dynamic> data) =>
+      RemoveAttachmentsEnvelope(RemoveAttachmentsBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   RemoveAttachmentsBody get removeAttachmentsBody => body as RemoveAttachmentsBody;
 }

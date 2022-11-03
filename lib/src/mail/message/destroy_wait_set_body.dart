@@ -12,18 +12,18 @@ class DestroyWaitSetBody extends SoapBody {
   DestroyWaitSetBody({DestroyWaitSetRequest? request, DestroyWaitSetResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory DestroyWaitSetBody.fromJson(Map<String, dynamic> json) => DestroyWaitSetBody(
-      response: json['DestroyWaitSetResponse'] != null
-          ? DestroyWaitSetResponse.fromJson(json['DestroyWaitSetResponse'])
+  factory DestroyWaitSetBody.fromMap(Map<String, dynamic> data) => DestroyWaitSetBody(
+      response: data['DestroyWaitSetResponse'] != null
+          ? DestroyWaitSetResponse.fromMap(data['DestroyWaitSetResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   DestroyWaitSetRequest? get destroyWaitSetRequest => request as DestroyWaitSetRequest?;
 
   DestroyWaitSetResponse? get destroyWaitSetResponse => response as DestroyWaitSetResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'DestroyWaitSetRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'DestroyWaitSetRequest': request!.toMap(),
       };
 }

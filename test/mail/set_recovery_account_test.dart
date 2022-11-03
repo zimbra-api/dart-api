@@ -20,7 +20,7 @@ void main() {
         verificationCode,
         channel: Channel.email,
       );
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'SetRecoveryAccountRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -34,14 +34,14 @@ void main() {
     }));
 
     test('Set recover account response', (() {
-      final json = {
+      final data = {
         'Body': {
           'SetRecoveryAccountResponse': {
             '_jsns': 'urn:zimbraMail',
           }
         }
       };
-      final envelope = SetRecoveryAccountEnvelope.fromJson(json);
+      final envelope = SetRecoveryAccountEnvelope.fromMap(data);
       expect(envelope.setRecoveryAccountBody.setRecoveryAccountResponse, isNotNull);
       expect(envelope.setRecoveryAccountBody.setRecoveryAccountResponse, isA<SetRecoveryAccountResponse>());
     }));

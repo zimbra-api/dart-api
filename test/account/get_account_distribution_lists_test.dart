@@ -17,7 +17,7 @@ void main() {
         attrs: attrs,
       );
 
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'GetAccountDistributionListsRequest': {
             '_jsns': 'urn:zimbraAccount',
@@ -40,7 +40,7 @@ void main() {
       final isMember = faker.randomGenerator.boolean();
       final key = faker.lorem.word();
       final value = faker.lorem.word();
-      final json = {
+      final data = {
         'Body': {
           'GetAccountDistributionListsResponse': {
             '_jsns': 'urn:zimbraAccount',
@@ -65,7 +65,7 @@ void main() {
           },
         },
       };
-      final envelope = GetAccountDistributionListsEnvelope.fromJson(json);
+      final envelope = GetAccountDistributionListsEnvelope.fromMap(data);
       final response = envelope.getAccountDistributionListsBody.getAccountDistributionListsResponse!;
 
       final dl = response.dlList.first;

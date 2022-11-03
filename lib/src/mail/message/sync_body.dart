@@ -11,16 +11,16 @@ import 'sync_response.dart';
 class SyncBody extends SoapBody {
   SyncBody({SyncRequest? request, SyncResponse? response, super.fault}) : super(request: request, response: response);
 
-  factory SyncBody.fromJson(Map<String, dynamic> json) => SyncBody(
-      response: json['SyncResponse'] != null ? SyncResponse.fromJson(json['SyncResponse']) : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+  factory SyncBody.fromMap(Map<String, dynamic> data) => SyncBody(
+      response: data['SyncResponse'] != null ? SyncResponse.fromMap(data['SyncResponse']) : null,
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   SyncRequest? get syncRequest => request as SyncRequest?;
 
   SyncResponse? get syncResponse => response as SyncResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'SyncRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'SyncRequest': request!.toMap(),
       };
 }

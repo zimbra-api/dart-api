@@ -12,16 +12,16 @@ class GetICalBody extends SoapBody {
   GetICalBody({GetICalRequest? request, GetICalResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory GetICalBody.fromJson(Map<String, dynamic> json) => GetICalBody(
-      response: json['GetICalResponse'] != null ? GetICalResponse.fromJson(json['GetICalResponse']) : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+  factory GetICalBody.fromMap(Map<String, dynamic> data) => GetICalBody(
+      response: data['GetICalResponse'] != null ? GetICalResponse.fromMap(data['GetICalResponse']) : null,
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   GetICalRequest? get getICalRequest => request as GetICalRequest?;
 
   GetICalResponse? get getICalResponse => response as GetICalResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'GetICalRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'GetICalRequest': request!.toMap(),
       };
 }

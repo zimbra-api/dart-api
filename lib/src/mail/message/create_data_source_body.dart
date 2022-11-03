@@ -12,18 +12,18 @@ class CreateDataSourceBody extends SoapBody {
   CreateDataSourceBody({CreateDataSourceRequest? request, CreateDataSourceResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory CreateDataSourceBody.fromJson(Map<String, dynamic> json) => CreateDataSourceBody(
-      response: json['CreateDataSourceResponse'] != null
-          ? CreateDataSourceResponse.fromJson(json['CreateDataSourceResponse'])
+  factory CreateDataSourceBody.fromMap(Map<String, dynamic> data) => CreateDataSourceBody(
+      response: data['CreateDataSourceResponse'] != null
+          ? CreateDataSourceResponse.fromMap(data['CreateDataSourceResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   CreateDataSourceRequest? get createDataSourceRequest => request as CreateDataSourceRequest?;
 
   CreateDataSourceResponse? get createDataSourceResponse => response as CreateDataSourceResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'CreateDataSourceRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'CreateDataSourceRequest': request!.toMap(),
       };
 }

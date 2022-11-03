@@ -32,7 +32,7 @@ class EndSessionRequest extends SoapRequest {
   SoapEnvelope getEnvelope({SoapHeader? header}) => EndSessionEnvelope(EndSessionBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraAccount',
         if (logoff != null) 'logoff': logoff,
         if (clearAllSoapSessions != null) 'all': clearAllSoapSessions,

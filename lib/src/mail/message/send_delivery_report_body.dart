@@ -12,18 +12,18 @@ class SendDeliveryReportBody extends SoapBody {
   SendDeliveryReportBody({SendDeliveryReportRequest? request, SendDeliveryReportResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory SendDeliveryReportBody.fromJson(Map<String, dynamic> json) => SendDeliveryReportBody(
-      response: json['SendDeliveryReportResponse'] != null
-          ? SendDeliveryReportResponse.fromJson(json['SendDeliveryReportResponse'])
+  factory SendDeliveryReportBody.fromMap(Map<String, dynamic> data) => SendDeliveryReportBody(
+      response: data['SendDeliveryReportResponse'] != null
+          ? SendDeliveryReportResponse.fromMap(data['SendDeliveryReportResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   SendDeliveryReportRequest? get sendDeliveryReportRequest => request as SendDeliveryReportRequest?;
 
   SendDeliveryReportResponse? get sendDeliveryReportResponse => response as SendDeliveryReportResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'SendDeliveryReportRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'SendDeliveryReportRequest': request!.toMap(),
       };
 }

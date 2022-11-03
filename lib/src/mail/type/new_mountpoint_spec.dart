@@ -60,24 +60,24 @@ class NewMountpointSpec {
       this.remoteId,
       this.path});
 
-  factory NewMountpointSpec.fromJson(Map<String, dynamic> json) => NewMountpointSpec(json['name'] ?? '',
+  factory NewMountpointSpec.fromMap(Map<String, dynamic> data) => NewMountpointSpec(data['name'] ?? '',
       defaultView: ViewType.values.firstWhere(
-        (view) => view.name == json['view'],
+        (view) => view.name == data['view'],
         orElse: () => ViewType.conversation,
       ),
-      flags: json['f'],
-      color: json['color'],
-      rgb: json['rgb'],
-      url: json['url'],
-      folderId: json['l'],
-      fetchIfExists: json['fie'],
-      reminderEnabled: json['reminder'],
-      ownerId: json['zid'],
-      ownerName: json['owner'],
-      remoteId: json['rid'],
-      path: json['path']);
+      flags: data['f'],
+      color: data['color'],
+      rgb: data['rgb'],
+      url: data['url'],
+      folderId: data['l'],
+      fetchIfExists: data['fie'],
+      reminderEnabled: data['reminder'],
+      ownerId: data['zid'],
+      ownerName: data['owner'],
+      remoteId: data['rid'],
+      path: data['path']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'name': name,
         if (defaultView != null) 'view': defaultView!.name,
         if (flags != null) 'f': flags,

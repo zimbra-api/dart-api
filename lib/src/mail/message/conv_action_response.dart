@@ -11,6 +11,6 @@ class ConvActionResponse extends SoapResponse {
 
   ConvActionResponse({this.action});
 
-  factory ConvActionResponse.fromJson(Map<String, dynamic> json) =>
-      ConvActionResponse(action: json['action'] is Map ? ActionResult.fromJson(json['action']) : null);
+  factory ConvActionResponse.fromMap(Map<String, dynamic> data) =>
+      ConvActionResponse(action: data['action'] is Map ? ActionResult.fromMap(data['action']) : null);
 }

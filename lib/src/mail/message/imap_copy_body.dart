@@ -12,16 +12,16 @@ class IMAPCopyBody extends SoapBody {
   IMAPCopyBody({IMAPCopyRequest? request, IMAPCopyResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory IMAPCopyBody.fromJson(Map<String, dynamic> json) => IMAPCopyBody(
-      response: json['IMAPCopyResponse'] != null ? IMAPCopyResponse.fromJson(json['IMAPCopyResponse']) : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+  factory IMAPCopyBody.fromMap(Map<String, dynamic> data) => IMAPCopyBody(
+      response: data['IMAPCopyResponse'] != null ? IMAPCopyResponse.fromMap(data['IMAPCopyResponse']) : null,
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   IMAPCopyRequest? get imapCopyRequest => request as IMAPCopyRequest?;
 
   IMAPCopyResponse? get imapCopyResponse => response as IMAPCopyResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'IMAPCopyRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'IMAPCopyRequest': request!.toMap(),
       };
 }

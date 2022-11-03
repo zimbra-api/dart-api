@@ -16,7 +16,7 @@ class GetWhiteBlackListRequest extends SoapRequest {
       GetWhiteBlackListEnvelope(GetWhiteBlackListBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraAccount',
       };
 }

@@ -14,16 +14,16 @@ class ModifyContactAttr extends NewContactAttr {
   ModifyContactAttr(super.name,
       {this.operation = ModifyAttributeOperation.add, super.attachId, super.id, super.part, super.value});
 
-  factory ModifyContactAttr.fromJson(Map<String, dynamic> json) => ModifyContactAttr(json['n'] ?? '',
+  factory ModifyContactAttr.fromMap(Map<String, dynamic> data) => ModifyContactAttr(data['n'] ?? '',
       operation: ModifyAttributeOperation.values
-          .firstWhere((op) => op.name == json['op'], orElse: () => ModifyAttributeOperation.add),
-      attachId: json['aid'],
-      id: json['id'],
-      part: json['part'],
-      value: json['_content']);
+          .firstWhere((op) => op.name == data['op'], orElse: () => ModifyAttributeOperation.add),
+      attachId: data['aid'],
+      id: data['id'],
+      part: data['part'],
+      value: data['_content']);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'n': name,
         'op': operation.name,
         if (attachId != null) 'aid': attachId,

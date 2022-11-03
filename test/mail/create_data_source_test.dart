@@ -323,7 +323,7 @@ void main() {
           attributes: [attribute],
         ),
       );
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'CreateDataSourceRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -619,7 +619,7 @@ void main() {
 
     test('Create data source response', (() {
       final id = faker.guid.guid();
-      final json = {
+      final data = {
         'Body': {
           'CreateDataSourceResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -634,7 +634,7 @@ void main() {
           }
         }
       };
-      final envelope = CreateDataSourceEnvelope.fromJson(json);
+      final envelope = CreateDataSourceEnvelope.fromMap(data);
       final response = envelope.createDataSourceBody.createDataSourceResponse!;
 
       expect(response.imapDataSource!.id, id);

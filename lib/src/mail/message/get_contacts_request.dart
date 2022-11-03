@@ -78,7 +78,7 @@ class GetContactsRequest extends SoapRequest {
   SoapEnvelope getEnvelope({SoapHeader? header}) => GetContactsEnvelope(GetContactsBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
         if (sync != null) 'sync': sync,
         if (folderId != null) 'l': folderId,
@@ -89,8 +89,8 @@ class GetContactsRequest extends SoapRequest {
         if (returnCertInfo != null) 'returnCertInfo': returnCertInfo,
         if (wantImapUid != null) 'wantImapUid': wantImapUid,
         if (maxMembers != null) 'maxMembers': maxMembers,
-        if (attributes.isNotEmpty) 'a': attributes.map((a) => a.toJson()).toList(),
-        if (memberAttributes.isNotEmpty) 'ma': memberAttributes.map((ma) => ma.toJson()).toList(),
-        if (contacts.isNotEmpty) 'cn': contacts.map((cn) => cn.toJson()).toList(),
+        if (attributes.isNotEmpty) 'a': attributes.map((a) => a.toMap()).toList(),
+        if (memberAttributes.isNotEmpty) 'ma': memberAttributes.map((ma) => ma.toMap()).toList(),
+        if (contacts.isNotEmpty) 'cn': contacts.map((cn) => cn.toMap()).toList(),
       };
 }

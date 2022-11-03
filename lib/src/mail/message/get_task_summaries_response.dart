@@ -9,13 +9,13 @@ import 'get_appt_summaries_response.dart';
 class GetTaskSummariesResponse extends GetApptSummariesResponse {
   GetTaskSummariesResponse({super.apptEntries = const [], super.taskEntries = const []});
 
-  factory GetTaskSummariesResponse.fromJson(Map<String, dynamic> json) => GetTaskSummariesResponse(
-      apptEntries: (json['appt'] is Iterable)
+  factory GetTaskSummariesResponse.fromMap(Map<String, dynamic> data) => GetTaskSummariesResponse(
+      apptEntries: (data['appt'] is Iterable)
           ? List.from(
-              (json['appt'] as Iterable).map<LegacyCalendaringData>((appt) => LegacyCalendaringData.fromJson(appt)))
+              (data['appt'] as Iterable).map<LegacyCalendaringData>((appt) => LegacyCalendaringData.fromMap(appt)))
           : [],
-      taskEntries: (json['task'] is Iterable)
+      taskEntries: (data['task'] is Iterable)
           ? List.from(
-              (json['task'] as Iterable).map<LegacyCalendaringData>((task) => LegacyCalendaringData.fromJson(task)))
+              (data['task'] as Iterable).map<LegacyCalendaringData>((task) => LegacyCalendaringData.fromMap(task)))
           : []);
 }

@@ -12,18 +12,18 @@ class ExportContactsBody extends SoapBody {
   ExportContactsBody({ExportContactsRequest? request, ExportContactsResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory ExportContactsBody.fromJson(Map<String, dynamic> json) => ExportContactsBody(
-      response: json['ExportContactsResponse'] != null
-          ? ExportContactsResponse.fromJson(json['ExportContactsResponse'])
+  factory ExportContactsBody.fromMap(Map<String, dynamic> data) => ExportContactsBody(
+      response: data['ExportContactsResponse'] != null
+          ? ExportContactsResponse.fromMap(data['ExportContactsResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   ExportContactsRequest? get exportContactsRequest => request as ExportContactsRequest?;
 
   ExportContactsResponse? get exportContactsResponse => response as ExportContactsResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'ExportContactsRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'ExportContactsRequest': request!.toMap(),
       };
 }

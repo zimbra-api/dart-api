@@ -28,7 +28,7 @@ void main() {
           deny: deny,
         )
       ]);
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'RevokePermissionRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -56,7 +56,7 @@ void main() {
       final accessKey = faker.internet.password();
       final deny = faker.randomGenerator.boolean();
 
-      final json = {
+      final data = {
         'Body': {
           'RevokePermissionResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -74,7 +74,7 @@ void main() {
           }
         }
       };
-      final envelope = RevokePermissionEnvelope.fromJson(json);
+      final envelope = RevokePermissionEnvelope.fromMap(data);
       final response = envelope.revokePermissionBody.revokePermissionResponse!;
       final ace = response.aces.first;
 

@@ -20,10 +20,10 @@ class LinkInfo {
 
   LinkInfo({this.id, this.uuid, this.name, this.defaultView, this.rights});
 
-  factory LinkInfo.fromJson(Map<String, dynamic> json) =>
-      LinkInfo(id: json['id'], uuid: json['uuid'], name: json['name'], defaultView: json['view'], rights: json['perm']);
+  factory LinkInfo.fromMap(Map<String, dynamic> data) =>
+      LinkInfo(id: data['id'], uuid: data['uuid'], name: data['name'], defaultView: data['view'], rights: data['perm']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (id != null) 'id': id,
         if (uuid != null) 'uuid': uuid,
         if (name != null) 'name': name,

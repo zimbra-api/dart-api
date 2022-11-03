@@ -10,9 +10,9 @@ import 'get_appt_summaries_body.dart';
 class GetApptSummariesEnvelope extends SoapEnvelope {
   GetApptSummariesEnvelope(GetApptSummariesBody body, {super.header}) : super(body);
 
-  factory GetApptSummariesEnvelope.fromJson(Map<String, dynamic> json) =>
-      GetApptSummariesEnvelope(GetApptSummariesBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory GetApptSummariesEnvelope.fromMap(Map<String, dynamic> data) =>
+      GetApptSummariesEnvelope(GetApptSummariesBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   GetApptSummariesBody get getApptSummariesBody => body as GetApptSummariesBody;
 }

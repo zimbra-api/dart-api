@@ -10,6 +10,6 @@ class ApplyFilterRulesResponse extends SoapResponse {
 
   ApplyFilterRulesResponse({this.msgIds});
 
-  factory ApplyFilterRulesResponse.fromJson(Map<String, dynamic> json) =>
-      ApplyFilterRulesResponse(msgIds: (json['m'] is Map) ? IdsAttr.fromJson(json['m']) : null);
+  factory ApplyFilterRulesResponse.fromMap(Map<String, dynamic> data) =>
+      ApplyFilterRulesResponse(msgIds: (data['m'] is Map) ? IdsAttr.fromMap(data['m']) : null);
 }

@@ -11,9 +11,9 @@ class SubscribeDistributionListResponse extends SoapResponse {
 
   SubscribeDistributionListResponse(this.status);
 
-  factory SubscribeDistributionListResponse.fromJson(Map<String, dynamic> json) =>
+  factory SubscribeDistributionListResponse.fromMap(Map<String, dynamic> data) =>
       SubscribeDistributionListResponse(DistributionListSubscribeStatus.values.firstWhere(
-        (item) => item.name == json['status'],
+        (item) => item.name == data['status'],
         orElse: () => DistributionListSubscribeStatus.awaitingApproval,
       ));
 }

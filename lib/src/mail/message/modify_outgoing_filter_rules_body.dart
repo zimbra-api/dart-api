@@ -13,11 +13,11 @@ class ModifyOutgoingFilterRulesBody extends SoapBody {
       {ModifyOutgoingFilterRulesRequest? request, ModifyOutgoingFilterRulesResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory ModifyOutgoingFilterRulesBody.fromJson(Map<String, dynamic> json) => ModifyOutgoingFilterRulesBody(
-      response: json['ModifyOutgoingFilterRulesResponse'] != null
-          ? ModifyOutgoingFilterRulesResponse.fromJson(json['ModifyOutgoingFilterRulesResponse'])
+  factory ModifyOutgoingFilterRulesBody.fromMap(Map<String, dynamic> data) => ModifyOutgoingFilterRulesBody(
+      response: data['ModifyOutgoingFilterRulesResponse'] != null
+          ? ModifyOutgoingFilterRulesResponse.fromMap(data['ModifyOutgoingFilterRulesResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   ModifyOutgoingFilterRulesRequest? get modifyOutgoingFilterRulesRequest =>
       request as ModifyOutgoingFilterRulesRequest?;
@@ -26,7 +26,7 @@ class ModifyOutgoingFilterRulesBody extends SoapBody {
       response as ModifyOutgoingFilterRulesResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'ModifyOutgoingFilterRulesRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'ModifyOutgoingFilterRulesRequest': request!.toMap(),
       };
 }

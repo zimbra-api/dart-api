@@ -30,18 +30,18 @@ class CalendarReply extends RecurIdInfo {
   CalendarReply(super.recurrenceRangeType, super.recurrenceId, this.seq, this.date, this.attendee,
       {this.sentBy, this.partStat, super.timezone, super.recurIdZ});
 
-  factory CalendarReply.fromJson(Map<String, dynamic> json) =>
-      CalendarReply(json['rangeType'] ?? 1, json['recurId'] ?? '', json['seq'] ?? 0, json['d'] ?? 0, json['at'] ?? '',
-          sentBy: json['sentBy'],
+  factory CalendarReply.fromMap(Map<String, dynamic> data) =>
+      CalendarReply(data['rangeType'] ?? 1, data['recurId'] ?? '', data['seq'] ?? 0, data['d'] ?? 0, data['at'] ?? '',
+          sentBy: data['sentBy'],
           partStat: ParticipationStatus.values.firstWhere(
-            (item) => item.name == json['ptst'],
+            (item) => item.name == data['ptst'],
             orElse: () => ParticipationStatus.accept,
           ),
-          timezone: json['tz'],
-          recurIdZ: json['ridZ']);
+          timezone: data['tz'],
+          recurIdZ: data['ridZ']);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'rangeType': recurrenceRangeType,
         'recurId': recurrenceId,
         'seq': seq,

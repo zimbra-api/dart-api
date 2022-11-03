@@ -25,10 +25,10 @@ class ConversationMsgHitInfo {
 
   ConversationMsgHitInfo(this.id, {this.size, this.folderId, this.flags, this.autoSendTime, this.date});
 
-  factory ConversationMsgHitInfo.fromJson(Map<String, dynamic> json) => ConversationMsgHitInfo(json['id'] ?? '',
-      size: json['s'], folderId: json['l'], flags: json['f'], autoSendTime: json['autoSendTime'], date: json['d']);
+  factory ConversationMsgHitInfo.fromMap(Map<String, dynamic> data) => ConversationMsgHitInfo(data['id'] ?? '',
+      size: data['s'], folderId: data['l'], flags: data['f'], autoSendTime: data['autoSendTime'], date: data['d']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'id': id,
         if (size != null) 's': size,
         if (folderId != null) 'l': folderId,

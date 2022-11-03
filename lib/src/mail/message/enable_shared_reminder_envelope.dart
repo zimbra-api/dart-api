@@ -10,9 +10,9 @@ import 'enable_shared_reminder_body.dart';
 class EnableSharedReminderEnvelope extends SoapEnvelope {
   EnableSharedReminderEnvelope(EnableSharedReminderBody body, {super.header}) : super(body);
 
-  factory EnableSharedReminderEnvelope.fromJson(Map<String, dynamic> json) =>
-      EnableSharedReminderEnvelope(EnableSharedReminderBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory EnableSharedReminderEnvelope.fromMap(Map<String, dynamic> data) =>
+      EnableSharedReminderEnvelope(EnableSharedReminderBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   EnableSharedReminderBody get enableSharedReminderBody => body as EnableSharedReminderBody;
 }

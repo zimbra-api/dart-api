@@ -10,11 +10,11 @@ class AddressBookTest extends FilterTest {
 
   AddressBookTest({this.header, super.index, super.negative});
 
-  factory AddressBookTest.fromJson(Map<String, dynamic> json) =>
-      AddressBookTest(header: json['header'], index: json['index'], negative: json['negative']);
+  factory AddressBookTest.fromMap(Map<String, dynamic> data) =>
+      AddressBookTest(header: data['header'], index: data['index'], negative: data['negative']);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (header != null) 'header': header,
         if (index != null) 'index': index,
         if (negative != null) 'negative': negative,

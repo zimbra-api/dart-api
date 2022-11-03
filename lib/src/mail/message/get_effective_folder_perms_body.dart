@@ -13,18 +13,18 @@ class GetEffectiveFolderPermsBody extends SoapBody {
       {GetEffectiveFolderPermsRequest? request, GetEffectiveFolderPermsResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory GetEffectiveFolderPermsBody.fromJson(Map<String, dynamic> json) => GetEffectiveFolderPermsBody(
-      response: json['GetEffectiveFolderPermsResponse'] != null
-          ? GetEffectiveFolderPermsResponse.fromJson(json['GetEffectiveFolderPermsResponse'])
+  factory GetEffectiveFolderPermsBody.fromMap(Map<String, dynamic> data) => GetEffectiveFolderPermsBody(
+      response: data['GetEffectiveFolderPermsResponse'] != null
+          ? GetEffectiveFolderPermsResponse.fromMap(data['GetEffectiveFolderPermsResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   GetEffectiveFolderPermsRequest? get getEffectiveFolderPermsRequest => request as GetEffectiveFolderPermsRequest?;
 
   GetEffectiveFolderPermsResponse? get getEffectiveFolderPermsResponse => response as GetEffectiveFolderPermsResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'GetEffectiveFolderPermsRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'GetEffectiveFolderPermsRequest': request!.toMap(),
       };
 }

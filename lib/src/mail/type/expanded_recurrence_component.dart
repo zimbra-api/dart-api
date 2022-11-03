@@ -25,18 +25,18 @@ class ExpandedRecurrenceComponent {
 
   ExpandedRecurrenceComponent({this.exceptionId, this.startTime, this.endTime, this.duration, this.recurrence});
 
-  factory ExpandedRecurrenceComponent.fromJson(Map<String, dynamic> json) => ExpandedRecurrenceComponent(
-      exceptionId: json['exceptId'] is Map ? InstanceRecurIdInfo.fromJson(json['exceptId']) : null,
-      startTime: json['s'],
-      endTime: json['e'],
-      duration: json['dur'] is Map ? DurationInfo.fromJson(json['dur']) : null,
-      recurrence: json['recur'] is Map ? RecurrenceInfo.fromJson(json['recur']) : null);
+  factory ExpandedRecurrenceComponent.fromMap(Map<String, dynamic> data) => ExpandedRecurrenceComponent(
+      exceptionId: data['exceptId'] is Map ? InstanceRecurIdInfo.fromMap(data['exceptId']) : null,
+      startTime: data['s'],
+      endTime: data['e'],
+      duration: data['dur'] is Map ? DurationInfo.fromMap(data['dur']) : null,
+      recurrence: data['recur'] is Map ? RecurrenceInfo.fromMap(data['recur']) : null);
 
-  Map<String, dynamic> toJson() => {
-        if (exceptionId != null) 'exceptId': exceptionId!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (exceptionId != null) 'exceptId': exceptionId!.toMap(),
         if (startTime != null) 's': startTime,
         if (endTime != null) 'e': endTime,
-        if (duration != null) 'dur': duration!.toJson(),
-        if (recurrence != null) 'recur': recurrence!.toJson(),
+        if (duration != null) 'dur': duration!.toMap(),
+        if (recurrence != null) 'recur': recurrence!.toMap(),
       };
 }

@@ -18,16 +18,16 @@ class FolderActionResult extends ActionResult {
   FolderActionResult(super.id, super.operation,
       {super.nonExistentIds, super.newlyCreatedIds, this.zimbraId, this.displayName, this.accessKey});
 
-  factory FolderActionResult.fromJson(Map<String, dynamic> json) =>
-      FolderActionResult(json['id'] ?? '', json['op'] ?? '',
-          nonExistentIds: json['nei'],
-          newlyCreatedIds: json['nci'],
-          zimbraId: json['zid'],
-          displayName: json['d'],
-          accessKey: json['key']);
+  factory FolderActionResult.fromMap(Map<String, dynamic> data) =>
+      FolderActionResult(data['id'] ?? '', data['op'] ?? '',
+          nonExistentIds: data['nei'],
+          newlyCreatedIds: data['nci'],
+          zimbraId: data['zid'],
+          displayName: data['d'],
+          accessKey: data['key']);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'id': id,
         'op': operation,
         if (nonExistentIds != null) 'nei': nonExistentIds,

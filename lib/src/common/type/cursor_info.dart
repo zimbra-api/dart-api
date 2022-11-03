@@ -13,14 +13,14 @@ class CursorInfo {
 
   CursorInfo({this.id, this.sortVal, this.endSortVal, this.includeOffset});
 
-  factory CursorInfo.fromJson(Map<String, dynamic> json) => CursorInfo(
-        id: json['id'],
-        sortVal: json['sortVal'],
-        endSortVal: json['endSortVal'],
-        includeOffset: json['includeOffset'],
+  factory CursorInfo.fromMap(Map<String, dynamic> data) => CursorInfo(
+        id: data['id'],
+        sortVal: data['sortVal'],
+        endSortVal: data['endSortVal'],
+        includeOffset: data['includeOffset'],
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (id != null) 'id': id,
         if (sortVal != null) 'sortVal': sortVal,
         if (endSortVal != null) 'endSortVal': endSortVal,

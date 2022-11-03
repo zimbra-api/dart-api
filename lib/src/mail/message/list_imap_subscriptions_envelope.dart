@@ -10,9 +10,9 @@ import 'list_imap_subscriptions_body.dart';
 class ListIMAPSubscriptionsEnvelope extends SoapEnvelope {
   ListIMAPSubscriptionsEnvelope(ListIMAPSubscriptionsBody body, {super.header}) : super(body);
 
-  factory ListIMAPSubscriptionsEnvelope.fromJson(Map<String, dynamic> json) =>
-      ListIMAPSubscriptionsEnvelope(ListIMAPSubscriptionsBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory ListIMAPSubscriptionsEnvelope.fromMap(Map<String, dynamic> data) =>
+      ListIMAPSubscriptionsEnvelope(ListIMAPSubscriptionsBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   ListIMAPSubscriptionsBody get listIMAPSubscriptionsBody => body as ListIMAPSubscriptionsBody;
 }

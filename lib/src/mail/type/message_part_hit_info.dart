@@ -49,20 +49,20 @@ class MessagePartHitInfo {
       this.part,
       this.email,
       this.subject});
-  factory MessagePartHitInfo.fromJson(Map<String, dynamic> json) => MessagePartHitInfo(
-      id: json['id'],
-      sortField: json['sf'],
-      size: json['s'],
-      date: json['d'],
-      conversationId: json['cid'],
-      messageId: json['mid'],
-      contentType: json['ct'],
-      contentName: json['name'],
-      part: json['part'],
-      email: json['e'] is Map ? EmailInfo.fromJson(json['e']) : null,
-      subject: json['su']?['_content']);
+  factory MessagePartHitInfo.fromMap(Map<String, dynamic> data) => MessagePartHitInfo(
+      id: data['id'],
+      sortField: data['sf'],
+      size: data['s'],
+      date: data['d'],
+      conversationId: data['cid'],
+      messageId: data['mid'],
+      contentType: data['ct'],
+      contentName: data['name'],
+      part: data['part'],
+      email: data['e'] is Map ? EmailInfo.fromMap(data['e']) : null,
+      subject: data['su']?['_content']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (id != null) 'id': id,
         if (sortField != null) 'sf': sortField,
         if (size != null) 's': size,
@@ -72,7 +72,7 @@ class MessagePartHitInfo {
         if (contentType != null) 'ct': contentType,
         if (contentName != null) 'name': contentName,
         if (part != null) 'part': part,
-        if (email != null) 'e': email!.toJson(),
+        if (email != null) 'e': email!.toMap(),
         if (subject != null) 'su': {'_content': subject},
       };
 }

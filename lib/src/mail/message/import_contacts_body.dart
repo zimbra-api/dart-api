@@ -12,18 +12,18 @@ class ImportContactsBody extends SoapBody {
   ImportContactsBody({ImportContactsRequest? request, ImportContactsResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory ImportContactsBody.fromJson(Map<String, dynamic> json) => ImportContactsBody(
-      response: json['ImportContactsResponse'] != null
-          ? ImportContactsResponse.fromJson(json['ImportContactsResponse'])
+  factory ImportContactsBody.fromMap(Map<String, dynamic> data) => ImportContactsBody(
+      response: data['ImportContactsResponse'] != null
+          ? ImportContactsResponse.fromMap(data['ImportContactsResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   ImportContactsRequest? get importContactsRequest => request as ImportContactsRequest?;
 
   ImportContactsResponse? get importContactsResponse => response as ImportContactsResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'ImportContactsRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'ImportContactsRequest': request!.toMap(),
       };
 }

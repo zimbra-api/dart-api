@@ -10,9 +10,9 @@ import 'get_mini_cal_body.dart';
 class GetMiniCalEnvelope extends SoapEnvelope {
   GetMiniCalEnvelope(GetMiniCalBody body, {super.header}) : super(body);
 
-  factory GetMiniCalEnvelope.fromJson(Map<String, dynamic> json) =>
-      GetMiniCalEnvelope(GetMiniCalBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory GetMiniCalEnvelope.fromMap(Map<String, dynamic> data) =>
+      GetMiniCalEnvelope(GetMiniCalBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   GetMiniCalBody get getMiniCalBody => body as GetMiniCalBody;
 }

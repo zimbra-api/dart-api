@@ -33,9 +33,9 @@ class ChangePasswordRequest extends SoapRequest {
       ChangePasswordEnvelope(ChangePasswordBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraAccount',
-        'account': account.toJson(),
+        'account': account.toMap(),
         'oldPassword': {'_content': oldPassword},
         'password': {'_content': password},
         if (virtualHost != null) 'virtualHost': {'_content': virtualHost},

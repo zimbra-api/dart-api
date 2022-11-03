@@ -7,6 +7,6 @@ import 'filter_test.dart';
 class CommunityRequestsTest extends FilterTest {
   CommunityRequestsTest({super.index, super.negative});
 
-  factory CommunityRequestsTest.fromJson(Map<String, dynamic> json) =>
-      CommunityRequestsTest(index: json['index'], negative: json['negative']);
+  factory CommunityRequestsTest.fromMap(Map<String, dynamic> data) =>
+      CommunityRequestsTest(index: data['index'], negative: data['negative']);
 }

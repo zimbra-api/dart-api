@@ -25,8 +25,8 @@ class GetPermissionRequest extends SoapRequest {
       GetPermissionEnvelope(GetPermissionBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
-        if (aces.isNotEmpty) 'ace': aces.map((ace) => ace.toJson()).toList(),
+        if (aces.isNotEmpty) 'ace': aces.map((ace) => ace.toMap()).toList(),
       };
 }

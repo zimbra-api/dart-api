@@ -13,18 +13,18 @@ class SearchCalendarResourcesBody extends SoapBody {
       {SearchCalendarResourcesRequest? request, SearchCalendarResourcesResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory SearchCalendarResourcesBody.fromJson(Map<String, dynamic> json) => SearchCalendarResourcesBody(
-      response: json['SearchCalendarResourcesResponse'] != null
-          ? SearchCalendarResourcesResponse.fromJson(json['SearchCalendarResourcesResponse'])
+  factory SearchCalendarResourcesBody.fromMap(Map<String, dynamic> data) => SearchCalendarResourcesBody(
+      response: data['SearchCalendarResourcesResponse'] != null
+          ? SearchCalendarResourcesResponse.fromMap(data['SearchCalendarResourcesResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   SearchCalendarResourcesRequest? get searchCalendarResourcesRequest => request as SearchCalendarResourcesRequest?;
 
   SearchCalendarResourcesResponse? get searchCalendarResourcesResponse => response as SearchCalendarResourcesResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'SearchCalendarResourcesRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'SearchCalendarResourcesRequest': request!.toMap(),
       };
 }

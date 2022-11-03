@@ -57,7 +57,7 @@ void main() {
         ],
         removeAccounts: [Id(id: id)],
       );
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'WaitSetRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -116,7 +116,7 @@ void main() {
       final path = faker.lorem.word();
       final changeBitmask = faker.randomGenerator.integer(100);
 
-      final json = {
+      final data = {
         'Body': {
           'WaitSetResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -186,7 +186,7 @@ void main() {
           }
         }
       };
-      final envelope = WaitSetEnvelope.fromJson(json);
+      final envelope = WaitSetEnvelope.fromMap(data);
       final response = envelope.waitSetBody.waitSetResponse!;
       expect(response.waitSetId, waitSetId);
       expect(response.canceled, canceled);

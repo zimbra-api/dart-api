@@ -14,10 +14,10 @@ class IdVersionName {
 
   IdVersionName({this.id, this.version, this.name});
 
-  factory IdVersionName.fromJson(Map<String, dynamic> json) =>
-      IdVersionName(id: json['id'], version: json['ver'], name: json['name']);
+  factory IdVersionName.fromMap(Map<String, dynamic> data) =>
+      IdVersionName(id: data['id'], version: data['ver'], name: data['name']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (id != null) 'id': id,
         if (version != null) 'ver': version,
         if (name != null) 'name': name,

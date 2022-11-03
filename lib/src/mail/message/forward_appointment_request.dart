@@ -33,11 +33,11 @@ class ForwardAppointmentRequest extends SoapRequest {
       ForwardAppointmentEnvelope(ForwardAppointmentBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
         if (id != null) 'id': id,
-        if (exceptionId != null) 'exceptId': exceptionId!.toJson(),
-        if (timezone != null) 'tz': timezone!.toJson(),
-        if (msg != null) 'm': msg!.toJson(),
+        if (exceptionId != null) 'exceptId': exceptionId!.toMap(),
+        if (timezone != null) 'tz': timezone!.toMap(),
+        if (msg != null) 'm': msg!.toMap(),
       };
 }

@@ -12,17 +12,17 @@ class SearchActionBody extends SoapBody {
   SearchActionBody({SearchActionRequest? request, SearchActionResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory SearchActionBody.fromJson(Map<String, dynamic> json) => SearchActionBody(
+  factory SearchActionBody.fromMap(Map<String, dynamic> data) => SearchActionBody(
       response:
-          json['SearchActionResponse'] != null ? SearchActionResponse.fromJson(json['SearchActionResponse']) : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+          data['SearchActionResponse'] != null ? SearchActionResponse.fromMap(data['SearchActionResponse']) : null,
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   SearchActionRequest? get searchActionRequest => request as SearchActionRequest?;
 
   SearchActionResponse? get searchActionResponse => response as SearchActionResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'SearchActionRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'SearchActionRequest': request!.toMap(),
       };
 }

@@ -7,5 +7,5 @@ import 'package:zimbra_api/src/common/type/soap_response.dart';
 class RankingActionResponse extends SoapResponse {
   RankingActionResponse();
 
-  factory RankingActionResponse.fromJson(Map<String, dynamic> json) => RankingActionResponse();
+  factory RankingActionResponse.fromMap(Map<String, dynamic> data) => RankingActionResponse();
 }

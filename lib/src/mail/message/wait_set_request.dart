@@ -81,15 +81,15 @@ class WaitSetRequest extends SoapRequest {
   SoapEnvelope getEnvelope({SoapHeader? header}) => WaitSetEnvelope(WaitSetBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
         'waitSet': waitSetId,
         if (block != null) 'block': block,
         if (defaultInterests != null) 'defTypes': defaultInterests,
         if (timeout != null) 'timeout': timeout,
         if (expand != null) 'expand': expand,
-        if (addAccounts.isNotEmpty) 'add': {'a': addAccounts.map((a) => a.toJson()).toList()},
-        if (updateAccounts.isNotEmpty) 'update': {'a': updateAccounts.map((a) => a.toJson()).toList()},
-        if (removeAccounts.isNotEmpty) 'remove': {'a': removeAccounts.map((a) => a.toJson()).toList()},
+        if (addAccounts.isNotEmpty) 'add': {'a': addAccounts.map((a) => a.toMap()).toList()},
+        if (updateAccounts.isNotEmpty) 'update': {'a': updateAccounts.map((a) => a.toMap()).toList()},
+        if (removeAccounts.isNotEmpty) 'remove': {'a': removeAccounts.map((a) => a.toMap()).toList()},
       };
 }

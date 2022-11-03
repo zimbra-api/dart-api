@@ -12,18 +12,18 @@ class RecoverAccountBody extends SoapBody {
   RecoverAccountBody({RecoverAccountRequest? request, RecoverAccountResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory RecoverAccountBody.fromJson(Map<String, dynamic> json) => RecoverAccountBody(
-      response: json['RecoverAccountResponse'] != null
-          ? RecoverAccountResponse.fromJson(json['RecoverAccountResponse'])
+  factory RecoverAccountBody.fromMap(Map<String, dynamic> data) => RecoverAccountBody(
+      response: data['RecoverAccountResponse'] != null
+          ? RecoverAccountResponse.fromMap(data['RecoverAccountResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   RecoverAccountRequest? get recoverAccountRequest => request as RecoverAccountRequest?;
 
   RecoverAccountResponse? get recoverAccountResponse => response as RecoverAccountResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'RecoverAccountRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'RecoverAccountRequest': request!.toMap(),
       };
 }

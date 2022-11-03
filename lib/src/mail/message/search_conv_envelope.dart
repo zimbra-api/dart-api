@@ -10,9 +10,9 @@ import 'search_conv_body.dart';
 class SearchConvEnvelope extends SoapEnvelope {
   SearchConvEnvelope(SearchConvBody body, {super.header}) : super(body);
 
-  factory SearchConvEnvelope.fromJson(Map<String, dynamic> json) =>
-      SearchConvEnvelope(SearchConvBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory SearchConvEnvelope.fromMap(Map<String, dynamic> data) =>
+      SearchConvEnvelope(SearchConvBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   SearchConvBody get searchConvBody => body as SearchConvBody;
 }

@@ -9,13 +9,13 @@ class KeyValuePairs {
 
   KeyValuePairs({this.keyValuePairs = const []});
 
-  static List<KeyValuePair> keyValuePairsFromJson(Map<String, dynamic> json) {
-    return (json['a'] is Iterable)
-        ? List.from((json['a'] as Iterable).map<KeyValuePair>((kvp) => KeyValuePair.fromJson(kvp)))
+  static List<KeyValuePair> keyValuePairsFromJson(Map<String, dynamic> data) {
+    return (data['a'] is Iterable)
+        ? List.from((data['a'] as Iterable).map<KeyValuePair>((kvp) => KeyValuePair.fromMap(kvp)))
         : [];
   }
 
-  Map<String, dynamic> toJson() => {
-        if (keyValuePairs.isNotEmpty) 'a': keyValuePairs.map((kvp) => kvp.toJson()).toList(),
+  Map<String, dynamic> toMap() => {
+        if (keyValuePairs.isNotEmpty) 'a': keyValuePairs.map((kvp) => kvp.toMap()).toList(),
       };
 }

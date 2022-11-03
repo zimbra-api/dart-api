@@ -19,8 +19,8 @@ class CreateFolderResponse extends SoapResponse {
 
   CreateFolderResponse({this.folder, this.mountpoint, this.searchFolder});
 
-  factory CreateFolderResponse.fromJson(Map<String, dynamic> json) => CreateFolderResponse(
-      folder: json['folder'] is Map ? Folder.fromJson(json['folder']) : null,
-      mountpoint: json['link'] is Map ? Mountpoint.fromJson(json['link']) : null,
-      searchFolder: json['search'] is Map ? SearchFolder.fromJson(json['search']) : null);
+  factory CreateFolderResponse.fromMap(Map<String, dynamic> data) => CreateFolderResponse(
+      folder: data['folder'] is Map ? Folder.fromMap(data['folder']) : null,
+      mountpoint: data['link'] is Map ? Mountpoint.fromMap(data['link']) : null,
+      searchFolder: data['search'] is Map ? SearchFolder.fromMap(data['search']) : null);
 }

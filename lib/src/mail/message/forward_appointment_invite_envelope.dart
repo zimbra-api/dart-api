@@ -10,9 +10,9 @@ import 'forward_appointment_invite_body.dart';
 class ForwardAppointmentInviteEnvelope extends SoapEnvelope {
   ForwardAppointmentInviteEnvelope(ForwardAppointmentInviteBody body, {super.header}) : super(body);
 
-  factory ForwardAppointmentInviteEnvelope.fromJson(Map<String, dynamic> json) =>
-      ForwardAppointmentInviteEnvelope(ForwardAppointmentInviteBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory ForwardAppointmentInviteEnvelope.fromMap(Map<String, dynamic> data) =>
+      ForwardAppointmentInviteEnvelope(ForwardAppointmentInviteBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   ForwardAppointmentInviteBody get forwardAppointmentInviteBody => body as ForwardAppointmentInviteBody;
 }

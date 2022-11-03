@@ -31,13 +31,13 @@ class DistributionListAction extends AccountKeyValuePairs {
       super.keyValuePairs});
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'op': op.name,
         if (newName != null) 'newName': newName,
-        if (subsReq != null) 'subsReq': subsReq!.toJson(),
+        if (subsReq != null) 'subsReq': subsReq!.toMap(),
         if (members.isNotEmpty) 'dlm': members.map((dlm) => {'_content': dlm}).toList(),
-        if (owners.isNotEmpty) 'owner': owners.map((owner) => owner.toJson()).toList(),
-        if (rights.isNotEmpty) 'right': rights.map((right) => right.toJson()).toList(),
-        if (keyValuePairs.isNotEmpty) 'a': keyValuePairs.map((kvp) => kvp.toJson()).toList(),
+        if (owners.isNotEmpty) 'owner': owners.map((owner) => owner.toMap()).toList(),
+        if (rights.isNotEmpty) 'right': rights.map((right) => right.toMap()).toList(),
+        if (keyValuePairs.isNotEmpty) 'a': keyValuePairs.map((kvp) => kvp.toMap()).toList(),
       };
 }

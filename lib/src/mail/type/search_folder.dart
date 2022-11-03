@@ -60,60 +60,60 @@ class SearchFolder extends Folder {
       super.searchFolders = const [],
       super.retentionPolicy});
 
-  factory SearchFolder.fromJson(Map<String, dynamic> json) => SearchFolder(
-      query: json['query'],
+  factory SearchFolder.fromMap(Map<String, dynamic> data) => SearchFolder(
+      query: data['query'],
       sortBy: SearchSortBy.values.firstWhere(
-        (view) => view.name == json['view'],
+        (view) => view.name == data['view'],
         orElse: () => SearchSortBy.none,
       ),
-      types: json['types'],
-      id: json['id'],
-      uuid: json['uuid'],
-      name: json['name'],
-      absoluteFolderPath: json['absFolderPath'],
-      parentId: json['l'],
-      folderUuid: json['luuid'],
-      flags: json['f'],
-      color: json['color'],
-      rgb: json['rgb'],
-      unreadCount: json['u'],
-      imapUnreadCount: json['i4u'],
+      types: data['types'],
+      id: data['id'],
+      uuid: data['uuid'],
+      name: data['name'],
+      absoluteFolderPath: data['absFolderPath'],
+      parentId: data['l'],
+      folderUuid: data['luuid'],
+      flags: data['f'],
+      color: data['color'],
+      rgb: data['rgb'],
+      unreadCount: data['u'],
+      imapUnreadCount: data['i4u'],
       view: ViewType.values.firstWhere(
-        (view) => view.name == json['view'],
+        (view) => view.name == data['view'],
         orElse: () => ViewType.conversation,
       ),
-      revision: json['rev'],
-      modifiedSequence: json['ms'],
-      changeDate: json['md'],
-      itemCount: json['n'],
-      imapItemCount: json['i4n'],
-      totalSize: json['s'],
-      imapModifiedSequence: json['i4ms'],
-      imapUidNext: json['i4next'],
-      url: json['url'],
-      activeSyncDisabled: json['activesyncdisabled'],
-      webOfflineSyncDays: json['webOfflineSyncDays'],
-      perm: json['perm'],
-      recursive: json['recursive'],
-      restUrl: json['rest'],
-      deletable: json['deletable'],
-      metadatas: (json['meta'] is Iterable)
-          ? List.from((json['meta'] as Iterable).map<MailCustomMetadata>((meta) => MailCustomMetadata.fromJson(meta)))
+      revision: data['rev'],
+      modifiedSequence: data['ms'],
+      changeDate: data['md'],
+      itemCount: data['n'],
+      imapItemCount: data['i4n'],
+      totalSize: data['s'],
+      imapModifiedSequence: data['i4ms'],
+      imapUidNext: data['i4next'],
+      url: data['url'],
+      activeSyncDisabled: data['activesyncdisabled'],
+      webOfflineSyncDays: data['webOfflineSyncDays'],
+      perm: data['perm'],
+      recursive: data['recursive'],
+      restUrl: data['rest'],
+      deletable: data['deletable'],
+      metadatas: (data['meta'] is Iterable)
+          ? List.from((data['meta'] as Iterable).map<MailCustomMetadata>((meta) => MailCustomMetadata.fromMap(meta)))
           : [],
-      acl: json['acl'] is Map ? Acl.fromJson(json['acl']) : null,
-      subFolders: (json['folder'] is Iterable)
-          ? List.from((json['folder'] as Iterable).map<Folder>((folder) => Folder.fromJson(folder)))
+      acl: data['acl'] is Map ? Acl.fromMap(data['acl']) : null,
+      subFolders: (data['folder'] is Iterable)
+          ? List.from((data['folder'] as Iterable).map<Folder>((folder) => Folder.fromMap(folder)))
           : [],
-      mountpoints: (json['link'] is Iterable)
-          ? List.from((json['link'] as Iterable).map<Mountpoint>((link) => Mountpoint.fromJson(link)))
+      mountpoints: (data['link'] is Iterable)
+          ? List.from((data['link'] as Iterable).map<Mountpoint>((link) => Mountpoint.fromMap(link)))
           : [],
-      searchFolders: (json['search'] is Iterable)
-          ? List.from((json['search'] as Iterable).map<SearchFolder>((search) => SearchFolder.fromJson(search)))
+      searchFolders: (data['search'] is Iterable)
+          ? List.from((data['search'] as Iterable).map<SearchFolder>((search) => SearchFolder.fromMap(search)))
           : [],
-      retentionPolicy: json['retentionPolicy'] is Map ? RetentionPolicy.fromJson(json['retentionPolicy']) : null);
+      retentionPolicy: data['retentionPolicy'] is Map ? RetentionPolicy.fromMap(data['retentionPolicy']) : null);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (query != null) 'query': query,
         if (sortBy != null) 'sortBy': sortBy!.name,
         if (types != null) 'types': types,
@@ -144,11 +144,11 @@ class SearchFolder extends Folder {
         if (recursive != null) 'recursive': recursive,
         if (restUrl != null) 'rest': restUrl,
         if (deletable != null) 'deletable': deletable,
-        if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toJson()).toList(),
-        if (acl != null) 'acl': acl!.toJson(),
-        if (subFolders.isNotEmpty) 'folder': subFolders.map((folder) => folder.toJson()).toList(),
-        if (mountpoints.isNotEmpty) 'link': mountpoints.map((link) => link.toJson()).toList(),
-        if (searchFolders.isNotEmpty) 'search': searchFolders.map((search) => search.toJson()).toList(),
-        if (retentionPolicy != null) 'retentionPolicy': retentionPolicy!.toJson(),
+        if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toMap()).toList(),
+        if (acl != null) 'acl': acl!.toMap(),
+        if (subFolders.isNotEmpty) 'folder': subFolders.map((folder) => folder.toMap()).toList(),
+        if (mountpoints.isNotEmpty) 'link': mountpoints.map((link) => link.toMap()).toList(),
+        if (searchFolders.isNotEmpty) 'search': searchFolders.map((search) => search.toMap()).toList(),
+        if (retentionPolicy != null) 'retentionPolicy': retentionPolicy!.toMap(),
       };
 }

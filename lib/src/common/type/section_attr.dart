@@ -8,9 +8,9 @@ class SectionAttr {
 
   SectionAttr({this.section = ''});
 
-  factory SectionAttr.fromJson(Map<String, dynamic> json) => SectionAttr(section: json['section'] ?? '');
+  factory SectionAttr.fromMap(Map<String, dynamic> data) => SectionAttr(section: data['section'] ?? '');
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'section': section,
       };
 }

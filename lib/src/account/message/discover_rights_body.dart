@@ -12,18 +12,18 @@ class DiscoverRightsBody extends SoapBody {
   DiscoverRightsBody({DiscoverRightsRequest? request, DiscoverRightsResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory DiscoverRightsBody.fromJson(Map<String, dynamic> json) => DiscoverRightsBody(
-      response: json['DiscoverRightsResponse'] != null
-          ? DiscoverRightsResponse.fromJson(json['DiscoverRightsResponse'])
+  factory DiscoverRightsBody.fromMap(Map<String, dynamic> data) => DiscoverRightsBody(
+      response: data['DiscoverRightsResponse'] != null
+          ? DiscoverRightsResponse.fromMap(data['DiscoverRightsResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   DiscoverRightsRequest? get discoverRightsRequest => request as DiscoverRightsRequest?;
 
   DiscoverRightsResponse? get discoverRightsResponse => response as DiscoverRightsResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'DiscoverRightsRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'DiscoverRightsRequest': request!.toMap(),
       };
 }

@@ -324,7 +324,7 @@ void main() {
           attributes: [attribute],
         ),
       );
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'ModifyDataSourceRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -619,14 +619,14 @@ void main() {
     }));
 
     test('Modify data source response', (() {
-      final json = {
+      final data = {
         'Body': {
           'ModifyDataSourceResponse': {
             '_jsns': 'urn:zimbraMail',
           }
         }
       };
-      final envelope = ModifyDataSourceEnvelope.fromJson(json);
+      final envelope = ModifyDataSourceEnvelope.fromMap(data);
       final response = envelope.modifyDataSourceBody.modifyDataSourceResponse;
       expect(response, isNotNull);
       expect(response, isA<ModifyDataSourceResponse>());

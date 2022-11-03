@@ -10,9 +10,9 @@ import 'auto_complete_gal_body.dart';
 class AutoCompleteGalEnvelope extends SoapEnvelope {
   AutoCompleteGalEnvelope(AutoCompleteGalBody body, {super.header}) : super(body);
 
-  factory AutoCompleteGalEnvelope.fromJson(Map<String, dynamic> json) =>
-      AutoCompleteGalEnvelope(AutoCompleteGalBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory AutoCompleteGalEnvelope.fromMap(Map<String, dynamic> data) =>
+      AutoCompleteGalEnvelope(AutoCompleteGalBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   AutoCompleteGalBody get autoCompleteGalBody => body as AutoCompleteGalBody;
 }

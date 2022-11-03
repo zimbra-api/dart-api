@@ -29,8 +29,8 @@ class GetConvRequest extends SoapRequest {
   SoapEnvelope getEnvelope({SoapHeader? header}) => GetConvEnvelope(GetConvBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
-        'c': conversation.toJson(),
+        'c': conversation.toMap(),
       };
 }

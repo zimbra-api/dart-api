@@ -46,30 +46,30 @@ class AccountZimletDesc {
       this.includeCSS,
       this.zimletTarget});
 
-  factory AccountZimletDesc.fromJson(Map<String, dynamic> json) => AccountZimletDesc(
-        name: json['name'],
-        version: json['version'],
-        description: json['description'],
-        extension: json['extension'],
-        target: json['target'],
-        label: json['label'],
+  factory AccountZimletDesc.fromMap(Map<String, dynamic> data) => AccountZimletDesc(
+        name: data['name'],
+        version: data['version'],
+        description: data['description'],
+        extension: data['extension'],
+        target: data['target'],
+        label: data['label'],
         serverExtension:
-            json['serverExtension'] is Map ? ZimletServerExtension.fromJson(json['serverExtension']) : null,
-        include: json['include'] is Map ? AccountZimletInclude.fromJson(json['include']) : null,
-        includeCSS: json['includeCSS'] is Map ? AccountZimletIncludeCSS.fromJson(json['includeCSS']) : null,
-        zimletTarget: json['zimletTarget'] is Map ? AccountZimletTarget.fromJson(json['zimletTarget']) : null,
+            data['serverExtension'] is Map ? ZimletServerExtension.fromMap(data['serverExtension']) : null,
+        include: data['include'] is Map ? AccountZimletInclude.fromMap(data['include']) : null,
+        includeCSS: data['includeCSS'] is Map ? AccountZimletIncludeCSS.fromMap(data['includeCSS']) : null,
+        zimletTarget: data['zimletTarget'] is Map ? AccountZimletTarget.fromMap(data['zimletTarget']) : null,
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (name != null) 'name': name,
         if (version != null) 'version': version,
         if (description != null) 'description': description,
         if (extension != null) 'extension': extension,
         if (target != null) 'target': target,
         if (label != null) 'label': label,
-        if (serverExtension != null) 'serverExtension': serverExtension!.toJson(),
-        if (include != null) 'include': include!.toJson(),
-        if (includeCSS != null) 'includeCSS': includeCSS!.toJson(),
-        if (zimletTarget != null) 'zimletTarget': zimletTarget!.toJson(),
+        if (serverExtension != null) 'serverExtension': serverExtension!.toMap(),
+        if (include != null) 'include': include!.toMap(),
+        if (includeCSS != null) 'includeCSS': includeCSS!.toMap(),
+        if (zimletTarget != null) 'zimletTarget': zimletTarget!.toMap(),
       };
 }

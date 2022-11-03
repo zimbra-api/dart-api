@@ -84,20 +84,20 @@ class ActionSelector {
       this.nonExistentIds,
       this.newlyCreatedIds});
 
-  factory ActionSelector.fromJson(Map<String, dynamic> json) => ActionSelector(json['id'] ?? '', json['op'] ?? '',
-      constraint: json['tcon'],
-      tag: json['tag'],
-      folder: json['l'],
-      rgb: json['rgb'],
-      color: json['color'],
-      name: json['name'],
-      flags: json['f'],
-      tags: json['t'],
-      tagNames: json['tn'],
-      nonExistentIds: json['nei'],
-      newlyCreatedIds: json['nci']);
+  factory ActionSelector.fromMap(Map<String, dynamic> data) => ActionSelector(data['id'] ?? '', data['op'] ?? '',
+      constraint: data['tcon'],
+      tag: data['tag'],
+      folder: data['l'],
+      rgb: data['rgb'],
+      color: data['color'],
+      name: data['name'],
+      flags: data['f'],
+      tags: data['t'],
+      tagNames: data['tn'],
+      nonExistentIds: data['nei'],
+      newlyCreatedIds: data['nci']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'id': ids,
         'op': operation,
         if (constraint != null) 'tcon': constraint,

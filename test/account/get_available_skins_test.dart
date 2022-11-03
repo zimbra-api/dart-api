@@ -10,7 +10,7 @@ void main() {
     test('Get available csv formats request', (() {
       final request = GetAvailableSkinsRequest();
 
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'GetAvailableSkinsRequest': {
             '_jsns': 'urn:zimbraAccount',
@@ -21,7 +21,7 @@ void main() {
 
     test('Get available csv formats response', (() {
       final name = faker.lorem.word();
-      final json = {
+      final data = {
         'Body': {
           'GetAvailableSkinsResponse': {
             '_jsns': 'urn:zimbraAccount',
@@ -33,7 +33,7 @@ void main() {
           },
         },
       };
-      final envelope = GetAvailableSkinsEnvelope.fromJson(json);
+      final envelope = GetAvailableSkinsEnvelope.fromMap(data);
       final response = envelope.getAvailableSkinsBody.getAvailableSkinsResponse!;
       final skin = response.skins.first;
 

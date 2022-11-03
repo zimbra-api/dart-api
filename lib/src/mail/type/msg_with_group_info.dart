@@ -116,52 +116,52 @@ class MsgWithGroupInfo extends MessageCommon {
       super.modifiedSequence,
       super.metadatas = const []});
 
-  factory MsgWithGroupInfo.fromJson(Map<String, dynamic> json) => MsgWithGroupInfo(
-      id: json['id'],
-      imapUid: json['i4uid'],
-      calendarIntendedFor: json['cif'],
-      origId: json['origid'],
+  factory MsgWithGroupInfo.fromMap(Map<String, dynamic> data) => MsgWithGroupInfo(
+      id: data['id'],
+      imapUid: data['i4uid'],
+      calendarIntendedFor: data['cif'],
+      origId: data['origid'],
       draftReplyType: ReplyType.values.firstWhere(
-        (rt) => rt.name == json['rt'],
+        (rt) => rt.name == data['rt'],
         orElse: () => ReplyType.replied,
       ),
-      identityId: json['idnt'],
-      draftAccountId: json['forAcct'],
-      draftAutoSendTime: json['autoSendTime'],
-      sentDate: json['sd'],
-      resentDate: json['rd'],
-      part: json['part'],
-      fragment: json['fr']?['_content'],
-      emails: (json['e'] is Iterable)
-          ? List.from((json['e'] as Iterable).map<EmailInfo>((e) => EmailInfo.fromJson(e)))
+      identityId: data['idnt'],
+      draftAccountId: data['forAcct'],
+      draftAutoSendTime: data['autoSendTime'],
+      sentDate: data['sd'],
+      resentDate: data['rd'],
+      part: data['part'],
+      fragment: data['fr']?['_content'],
+      emails: (data['e'] is Iterable)
+          ? List.from((data['e'] as Iterable).map<EmailInfo>((e) => EmailInfo.fromMap(e)))
           : [],
-      subject: json['su']?['_content'],
-      messageIdHeader: json['mid']?['_content'],
-      inReplyTo: json['irt']?['_content'],
-      invite: json['inv'] is Map ? InviteWithGroupInfo.fromJson(json['inv']) : null,
-      headers: (json['header'] is Iterable)
-          ? List.from((json['header'] as Iterable).map<KeyValuePair>((header) => KeyValuePair.fromJson(header)))
+      subject: data['su']?['_content'],
+      messageIdHeader: data['mid']?['_content'],
+      inReplyTo: data['irt']?['_content'],
+      invite: data['inv'] is Map ? InviteWithGroupInfo.fromMap(data['inv']) : null,
+      headers: (data['header'] is Iterable)
+          ? List.from((data['header'] as Iterable).map<KeyValuePair>((header) => KeyValuePair.fromMap(header)))
           : [],
-      mimePart: json['mp'] is Map ? MimePartInfo.fromJson(json['mp']) : null,
-      shrNotification: json['shr'] is Map ? ShareNotification.fromJson(json['shr']) : null,
-      dlSubsNotification: json['dlSubs'] is Map ? DLSubscriptionNotification.fromJson(json['dlSubs']) : null,
-      content: json['content'] is Map ? UrlAndValue.fromJson(json['content']) : null,
-      size: json['s'],
-      date: json['d'],
-      folder: json['l'],
-      conversationId: json['cid'],
-      flags: json['f'],
-      tags: json['t'],
-      tagNames: json['tn'],
-      revision: json['rev'],
-      changeDate: json['md'],
-      modifiedSequence: json['ms'],
-      metadatas: (json['meta'] is Iterable)
-          ? List.from((json['meta'] as Iterable).map<MailCustomMetadata>((meta) => MailCustomMetadata.fromJson(meta)))
+      mimePart: data['mp'] is Map ? MimePartInfo.fromMap(data['mp']) : null,
+      shrNotification: data['shr'] is Map ? ShareNotification.fromMap(data['shr']) : null,
+      dlSubsNotification: data['dlSubs'] is Map ? DLSubscriptionNotification.fromMap(data['dlSubs']) : null,
+      content: data['content'] is Map ? UrlAndValue.fromMap(data['content']) : null,
+      size: data['s'],
+      date: data['d'],
+      folder: data['l'],
+      conversationId: data['cid'],
+      flags: data['f'],
+      tags: data['t'],
+      tagNames: data['tn'],
+      revision: data['rev'],
+      changeDate: data['md'],
+      modifiedSequence: data['ms'],
+      metadatas: (data['meta'] is Iterable)
+          ? List.from((data['meta'] as Iterable).map<MailCustomMetadata>((meta) => MailCustomMetadata.fromMap(meta)))
           : []);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (id != null) 'id': id,
         if (imapUid != null) 'i4uid': imapUid,
         if (calendarIntendedFor != null) 'cif': calendarIntendedFor,
@@ -174,16 +174,16 @@ class MsgWithGroupInfo extends MessageCommon {
         if (resentDate != null) 'rd': resentDate,
         if (part != null) 'part': part,
         if (fragment != null) 'fr': {'_content': fragment},
-        if (emails.isNotEmpty) 'e': emails.map((e) => e.toJson()).toList(),
+        if (emails.isNotEmpty) 'e': emails.map((e) => e.toMap()).toList(),
         if (subject != null) 'su': {'_content': subject},
         if (messageIdHeader != null) 'mid': {'_content': messageIdHeader},
         if (inReplyTo != null) 'irt': {'_content': inReplyTo},
-        if (invite != null) 'inv': invite!.toJson(),
-        if (headers.isNotEmpty) 'header': headers.map((header) => header.toJson()).toList(),
-        if (mimePart != null) 'mp': mimePart!.toJson(),
-        if (shrNotification != null) 'shr': shrNotification!.toJson(),
-        if (dlSubsNotification != null) 'dlSubs': dlSubsNotification!.toJson(),
-        if (content != null) 'content': content!.toJson(),
+        if (invite != null) 'inv': invite!.toMap(),
+        if (headers.isNotEmpty) 'header': headers.map((header) => header.toMap()).toList(),
+        if (mimePart != null) 'mp': mimePart!.toMap(),
+        if (shrNotification != null) 'shr': shrNotification!.toMap(),
+        if (dlSubsNotification != null) 'dlSubs': dlSubsNotification!.toMap(),
+        if (content != null) 'content': content!.toMap(),
         if (size != null) 's': size,
         if (date != null) 'd': date,
         if (folder != null) 'l': folder,
@@ -194,6 +194,6 @@ class MsgWithGroupInfo extends MessageCommon {
         if (revision != null) 'rev': revision,
         if (changeDate != null) 'md': changeDate,
         if (modifiedSequence != null) 'ms': modifiedSequence,
-        if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toJson()).toList(),
+        if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toMap()).toList(),
       };
 }

@@ -11,15 +11,15 @@ class DomainSelector {
 
   DomainSelector(this.by, this.value);
 
-  factory DomainSelector.fromJson(Map<String, dynamic> json) => DomainSelector(
+  factory DomainSelector.fromMap(Map<String, dynamic> data) => DomainSelector(
         DomainBy.values.firstWhere(
-          (by) => by.name == json['by'],
+          (by) => by.name == data['by'],
           orElse: () => DomainBy.name,
         ),
-        json['_content'] ?? '',
+        data['_content'] ?? '',
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'by': by.name,
         '_content': value,
       };

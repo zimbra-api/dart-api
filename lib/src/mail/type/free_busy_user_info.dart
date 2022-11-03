@@ -31,29 +31,29 @@ class FreeBusyUserInfo {
       this.unavailableSlots = const [],
       this.nodataSlots = const []});
 
-  factory FreeBusyUserInfo.fromJson(Map<String, dynamic> json) => FreeBusyUserInfo(json['id'] ?? '',
-      freeSlots: (json['f'] is Iterable)
-          ? List.from((json['f'] as Iterable).map<FreeBusySlot>((slot) => FreeBusySlot.fromJson(slot)))
+  factory FreeBusyUserInfo.fromMap(Map<String, dynamic> data) => FreeBusyUserInfo(data['id'] ?? '',
+      freeSlots: (data['f'] is Iterable)
+          ? List.from((data['f'] as Iterable).map<FreeBusySlot>((slot) => FreeBusySlot.fromMap(slot)))
           : [],
-      busySlots: (json['b'] is Iterable)
-          ? List.from((json['b'] as Iterable).map<FreeBusySlot>((slot) => FreeBusySlot.fromJson(slot)))
+      busySlots: (data['b'] is Iterable)
+          ? List.from((data['b'] as Iterable).map<FreeBusySlot>((slot) => FreeBusySlot.fromMap(slot)))
           : [],
-      tentativeSlots: (json['t'] is Iterable)
-          ? List.from((json['t'] as Iterable).map<FreeBusySlot>((slot) => FreeBusySlot.fromJson(slot)))
+      tentativeSlots: (data['t'] is Iterable)
+          ? List.from((data['t'] as Iterable).map<FreeBusySlot>((slot) => FreeBusySlot.fromMap(slot)))
           : [],
-      unavailableSlots: (json['u'] is Iterable)
-          ? List.from((json['u'] as Iterable).map<FreeBusySlot>((slot) => FreeBusySlot.fromJson(slot)))
+      unavailableSlots: (data['u'] is Iterable)
+          ? List.from((data['u'] as Iterable).map<FreeBusySlot>((slot) => FreeBusySlot.fromMap(slot)))
           : [],
-      nodataSlots: (json['n'] is Iterable)
-          ? List.from((json['n'] as Iterable).map<FreeBusySlot>((slot) => FreeBusySlot.fromJson(slot)))
+      nodataSlots: (data['n'] is Iterable)
+          ? List.from((data['n'] as Iterable).map<FreeBusySlot>((slot) => FreeBusySlot.fromMap(slot)))
           : []);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'id': id,
-        if (freeSlots.isNotEmpty) 'f': freeSlots.map((slot) => slot.toJson()).toList(),
-        if (busySlots.isNotEmpty) 'b': busySlots.map((slot) => slot.toJson()).toList(),
-        if (tentativeSlots.isNotEmpty) 't': tentativeSlots.map((slot) => slot.toJson()).toList(),
-        if (unavailableSlots.isNotEmpty) 'u': unavailableSlots.map((slot) => slot.toJson()).toList(),
-        if (nodataSlots.isNotEmpty) 'n': nodataSlots.map((slot) => slot.toJson()).toList(),
+        if (freeSlots.isNotEmpty) 'f': freeSlots.map((slot) => slot.toMap()).toList(),
+        if (busySlots.isNotEmpty) 'b': busySlots.map((slot) => slot.toMap()).toList(),
+        if (tentativeSlots.isNotEmpty) 't': tentativeSlots.map((slot) => slot.toMap()).toList(),
+        if (unavailableSlots.isNotEmpty) 'u': unavailableSlots.map((slot) => slot.toMap()).toList(),
+        if (nodataSlots.isNotEmpty) 'n': nodataSlots.map((slot) => slot.toMap()).toList(),
       };
 }

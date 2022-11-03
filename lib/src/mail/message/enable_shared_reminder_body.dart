@@ -12,18 +12,18 @@ class EnableSharedReminderBody extends SoapBody {
   EnableSharedReminderBody({EnableSharedReminderRequest? request, EnableSharedReminderResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory EnableSharedReminderBody.fromJson(Map<String, dynamic> json) => EnableSharedReminderBody(
-      response: json['EnableSharedReminderResponse'] != null
-          ? EnableSharedReminderResponse.fromJson(json['EnableSharedReminderResponse'])
+  factory EnableSharedReminderBody.fromMap(Map<String, dynamic> data) => EnableSharedReminderBody(
+      response: data['EnableSharedReminderResponse'] != null
+          ? EnableSharedReminderResponse.fromMap(data['EnableSharedReminderResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   EnableSharedReminderRequest? get enableSharedReminderRequest => request as EnableSharedReminderRequest?;
 
   EnableSharedReminderResponse? get enableSharedReminderResponse => response as EnableSharedReminderResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'EnableSharedReminderRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'EnableSharedReminderRequest': request!.toMap(),
       };
 }

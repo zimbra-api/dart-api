@@ -12,18 +12,18 @@ class GetOAuthConsumersBody extends SoapBody {
   GetOAuthConsumersBody({GetOAuthConsumersRequest? request, GetOAuthConsumersResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory GetOAuthConsumersBody.fromJson(Map<String, dynamic> json) => GetOAuthConsumersBody(
-      response: json['GetOAuthConsumersResponse'] != null
-          ? GetOAuthConsumersResponse.fromJson(json['GetOAuthConsumersResponse'])
+  factory GetOAuthConsumersBody.fromMap(Map<String, dynamic> data) => GetOAuthConsumersBody(
+      response: data['GetOAuthConsumersResponse'] != null
+          ? GetOAuthConsumersResponse.fromMap(data['GetOAuthConsumersResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   GetOAuthConsumersRequest? get getOAuthConsumersRequest => request as GetOAuthConsumersRequest?;
 
   GetOAuthConsumersResponse? get getOAuthConsumersResponse => response as GetOAuthConsumersResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'GetOAuthConsumersRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'GetOAuthConsumersRequest': request!.toMap(),
       };
 }

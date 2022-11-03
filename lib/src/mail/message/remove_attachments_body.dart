@@ -12,18 +12,18 @@ class RemoveAttachmentsBody extends SoapBody {
   RemoveAttachmentsBody({RemoveAttachmentsRequest? request, RemoveAttachmentsResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory RemoveAttachmentsBody.fromJson(Map<String, dynamic> json) => RemoveAttachmentsBody(
-      response: json['RemoveAttachmentsResponse'] != null
-          ? RemoveAttachmentsResponse.fromJson(json['RemoveAttachmentsResponse'])
+  factory RemoveAttachmentsBody.fromMap(Map<String, dynamic> data) => RemoveAttachmentsBody(
+      response: data['RemoveAttachmentsResponse'] != null
+          ? RemoveAttachmentsResponse.fromMap(data['RemoveAttachmentsResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   RemoveAttachmentsRequest? get removeAttachmentsRequest => request as RemoveAttachmentsRequest?;
 
   RemoveAttachmentsResponse? get removeAttachmentsResponse => response as RemoveAttachmentsResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'RemoveAttachmentsRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'RemoveAttachmentsRequest': request!.toMap(),
       };
 }

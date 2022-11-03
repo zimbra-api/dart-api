@@ -29,10 +29,10 @@ class CompleteTaskInstanceRequest extends SoapRequest {
       CompleteTaskInstanceEnvelope(CompleteTaskInstanceBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
         'id': id,
-        'exceptId': exceptionId.toJson(),
-        if (timezone != null) 'tz': timezone!.toJson(),
+        'exceptId': exceptionId.toMap(),
+        if (timezone != null) 'tz': timezone!.toMap(),
       };
 }

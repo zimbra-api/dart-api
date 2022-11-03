@@ -13,6 +13,6 @@ class ImportAppointmentsResponse extends SoapResponse {
 
   ImportAppointmentsResponse({this.ids, this.num});
 
-  factory ImportAppointmentsResponse.fromJson(Map<String, dynamic> json) =>
-      ImportAppointmentsResponse(ids: json['ids'], num: json['n']);
+  factory ImportAppointmentsResponse.fromMap(Map<String, dynamic> data) =>
+      ImportAppointmentsResponse(ids: data['ids'], num: data['n']);
 }

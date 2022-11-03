@@ -23,7 +23,7 @@ void main() {
         csvFormat: csvFormat,
         csvLocale: csvLocale,
       );
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'ImportContactsRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -47,7 +47,7 @@ void main() {
         faker.randomGenerator.integer(100)
       ].join(',');
       final numImported = faker.randomGenerator.integer(100);
-      final json = {
+      final data = {
         'Body': {
           'ImportContactsResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -58,7 +58,7 @@ void main() {
           }
         }
       };
-      final envelope = ImportContactsEnvelope.fromJson(json);
+      final envelope = ImportContactsEnvelope.fromMap(data);
       final response = envelope.importContactsBody.importContactsResponse!;
       final contact = response.contact!;
       expect(contact.listOfCreatedIds, listOfCreatedIds);

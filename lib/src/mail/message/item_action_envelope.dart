@@ -10,9 +10,9 @@ import 'item_action_body.dart';
 class ItemActionEnvelope extends SoapEnvelope {
   ItemActionEnvelope(ItemActionBody body, {super.header}) : super(body);
 
-  factory ItemActionEnvelope.fromJson(Map<String, dynamic> json) =>
-      ItemActionEnvelope(ItemActionBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory ItemActionEnvelope.fromMap(Map<String, dynamic> data) =>
+      ItemActionEnvelope(ItemActionBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   ItemActionBody get itemActionBody => body as ItemActionBody;
 }

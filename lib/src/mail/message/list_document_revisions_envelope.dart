@@ -10,9 +10,9 @@ import 'list_document_revisions_body.dart';
 class ListDocumentRevisionsEnvelope extends SoapEnvelope {
   ListDocumentRevisionsEnvelope(ListDocumentRevisionsBody body, {super.header}) : super(body);
 
-  factory ListDocumentRevisionsEnvelope.fromJson(Map<String, dynamic> json) =>
-      ListDocumentRevisionsEnvelope(ListDocumentRevisionsBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory ListDocumentRevisionsEnvelope.fromMap(Map<String, dynamic> data) =>
+      ListDocumentRevisionsEnvelope(ListDocumentRevisionsBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   ListDocumentRevisionsBody get listDocumentRevisionsBody => body as ListDocumentRevisionsBody;
 }

@@ -7,5 +7,5 @@ import 'filter_test.dart';
 class BulkTest extends FilterTest {
   BulkTest({super.index, super.negative});
 
-  factory BulkTest.fromJson(Map<String, dynamic> json) => BulkTest(index: json['index'], negative: json['negative']);
+  factory BulkTest.fromMap(Map<String, dynamic> data) => BulkTest(index: data['index'], negative: data['negative']);
 }

@@ -10,9 +10,9 @@ import 'purge_revision_body.dart';
 class PurgeRevisionEnvelope extends SoapEnvelope {
   PurgeRevisionEnvelope(PurgeRevisionBody body, {super.header}) : super(body);
 
-  factory PurgeRevisionEnvelope.fromJson(Map<String, dynamic> json) =>
-      PurgeRevisionEnvelope(PurgeRevisionBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory PurgeRevisionEnvelope.fromMap(Map<String, dynamic> data) =>
+      PurgeRevisionEnvelope(PurgeRevisionBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   PurgeRevisionBody get purgeRevisionBody => body as PurgeRevisionBody;
 }

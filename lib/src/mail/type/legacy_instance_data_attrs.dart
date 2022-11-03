@@ -41,53 +41,53 @@ class LegacyInstanceDataAttrs extends CommonInstanceDataAttrs {
       super.taskDueDate,
       super.taskTzOffsetDue});
 
-  factory LegacyInstanceDataAttrs.fromJson(Map<String, dynamic> json) => LegacyInstanceDataAttrs(
-      duration: json['d'],
+  factory LegacyInstanceDataAttrs.fromMap(Map<String, dynamic> data) => LegacyInstanceDataAttrs(
+      duration: data['d'],
       partStat: ParticipationStatus.values.firstWhere(
-        (ptst) => ptst.name == json['ptst'],
+        (ptst) => ptst.name == data['ptst'],
         orElse: () => ParticipationStatus.accept,
       ),
-      recurIdZ: json['ridZ'],
-      tzOffset: json['tzo'],
+      recurIdZ: data['ridZ'],
+      tzOffset: data['tzo'],
       freeBusyActual: FreeBusyStatus.values.firstWhere(
-        (fba) => fba.name == json['fba'],
+        (fba) => fba.name == data['fba'],
         orElse: () => FreeBusyStatus.free,
       ),
-      taskPercentComplete: json['percentComplete'],
-      isRecurring: json['recur'],
-      hasExceptions: json['hasEx'],
-      priority: json['priority'],
+      taskPercentComplete: data['percentComplete'],
+      isRecurring: data['recur'],
+      hasExceptions: data['hasEx'],
+      priority: data['priority'],
       freeBusyIntended: FreeBusyStatus.values.firstWhere(
-        (fb) => fb.name == json['fb'],
+        (fb) => fb.name == data['fb'],
         orElse: () => FreeBusyStatus.free,
       ),
       transparency: Transparency.values.firstWhere(
-        (transp) => transp.name == json['transp'],
+        (transp) => transp.name == data['transp'],
         orElse: () => Transparency.opaque,
       ),
-      name: json['name'],
-      location: json['loc'],
-      hasOtherAttendees: json['otherAtt'],
-      hasAlarm: json['alarm'],
-      isOrganizer: json['isOrg'],
-      invId: json['invId'],
-      componentNum: json['compNum'],
+      name: data['name'],
+      location: data['loc'],
+      hasOtherAttendees: data['otherAtt'],
+      hasAlarm: data['alarm'],
+      isOrganizer: data['isOrg'],
+      invId: data['invId'],
+      componentNum: data['compNum'],
       status: InviteStatus.values.firstWhere(
-        (status) => status.name == json['status'],
+        (status) => status.name == data['status'],
         orElse: () => InviteStatus.completed,
       ),
       calClass: InviteClass.values.firstWhere(
-        (calClass) => calClass.name == json['class'],
+        (calClass) => calClass.name == data['class'],
         orElse: () => InviteClass.public,
       ),
-      allDay: json['allDay'],
-      draft: json['draft'],
-      neverSent: json['neverSent'],
-      taskDueDate: json['dueDate'],
-      taskTzOffsetDue: json['tzoDue']);
+      allDay: data['allDay'],
+      draft: data['draft'],
+      neverSent: data['neverSent'],
+      taskDueDate: data['dueDate'],
+      taskTzOffsetDue: data['tzoDue']);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (duration != null) 'd': duration,
         if (partStat != null) 'ptst': partStat!.name,
         if (recurIdZ != null) 'ridZ': recurIdZ,

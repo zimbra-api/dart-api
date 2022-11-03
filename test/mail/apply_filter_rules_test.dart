@@ -19,7 +19,7 @@ void main() {
         query: query,
       );
 
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'ApplyFilterRulesRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -41,7 +41,7 @@ void main() {
 
     test('Apply filter rules response', (() {
       final ids = faker.lorem.words(3).join(',');
-      final json = {
+      final data = {
         'Body': {
           'ApplyFilterRulesResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -51,7 +51,7 @@ void main() {
           }
         }
       };
-      final envelope = ApplyFilterRulesEnvelope.fromJson(json);
+      final envelope = ApplyFilterRulesEnvelope.fromMap(data);
       final response = envelope.applyFilterRulesBody.applyFilterRulesResponse!;
       final msgIds = response.msgIds!;
       expect(msgIds.ids, ids);

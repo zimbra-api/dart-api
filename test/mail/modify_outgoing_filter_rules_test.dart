@@ -318,7 +318,7 @@ void main() {
         )
       ]);
 
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'ModifyOutgoingFilterRulesRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -735,14 +735,14 @@ void main() {
     }));
 
     test('Modify outgoing filter rules resonse', (() {
-      final json = {
+      final data = {
         'Body': {
           'ModifyOutgoingFilterRulesResponse': {
             '_jsns': 'urn:zimbraMail',
           }
         }
       };
-      final envelope = ModifyOutgoingFilterRulesEnvelope.fromJson(json);
+      final envelope = ModifyOutgoingFilterRulesEnvelope.fromMap(data);
       final response = envelope.modifyOutgoingFilterRulesBody.modifyOutgoingFilterRulesResponse;
       expect(response, isNotNull);
       expect(response, isA<ModifyOutgoingFilterRulesResponse>());

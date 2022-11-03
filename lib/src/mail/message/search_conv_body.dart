@@ -12,16 +12,16 @@ class SearchConvBody extends SoapBody {
   SearchConvBody({SearchConvRequest? request, SearchConvResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory SearchConvBody.fromJson(Map<String, dynamic> json) => SearchConvBody(
-      response: json['SearchConvResponse'] != null ? SearchConvResponse.fromJson(json['SearchConvResponse']) : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+  factory SearchConvBody.fromMap(Map<String, dynamic> data) => SearchConvBody(
+      response: data['SearchConvResponse'] != null ? SearchConvResponse.fromMap(data['SearchConvResponse']) : null,
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   SearchConvRequest? get searchConvRequest => request as SearchConvRequest?;
 
   SearchConvResponse? get searchConvResponse => response as SearchConvResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'SearchConvRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'SearchConvRequest': request!.toMap(),
       };
 }

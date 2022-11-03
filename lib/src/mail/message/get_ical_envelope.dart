@@ -10,8 +10,8 @@ import 'get_ical_body.dart';
 class GetICalEnvelope extends SoapEnvelope {
   GetICalEnvelope(GetICalBody body, {super.header}) : super(body);
 
-  factory GetICalEnvelope.fromJson(Map<String, dynamic> json) => GetICalEnvelope(GetICalBody.fromJson(json['Body']),
-      header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory GetICalEnvelope.fromMap(Map<String, dynamic> data) => GetICalEnvelope(GetICalBody.fromMap(data['Body']),
+      header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   GetICalBody get getICalBody => body as GetICalBody;
 }

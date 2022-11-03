@@ -25,9 +25,9 @@ class AddMsgRequest extends SoapRequest {
   SoapEnvelope getEnvelope({SoapHeader? header}) => AddMsgEnvelope(AddMsgBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
-        'm': msg.toJson(),
+        'm': msg.toMap(),
         if (filterSent != null) 'filterSent': filterSent,
       };
 }

@@ -11,6 +11,6 @@ class AddCommentResponse extends SoapResponse {
 
   AddCommentResponse({this.comment});
 
-  factory AddCommentResponse.fromJson(Map<String, dynamic> json) =>
-      AddCommentResponse(comment: json['comment'] is Map ? Id.fromJson(json['comment']) : null);
+  factory AddCommentResponse.fromMap(Map<String, dynamic> data) =>
+      AddCommentResponse(comment: data['comment'] is Map ? Id.fromMap(data['comment']) : null);
 }

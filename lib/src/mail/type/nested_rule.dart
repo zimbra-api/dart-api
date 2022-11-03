@@ -21,17 +21,17 @@ class NestedRule {
 
   NestedRule({this.filterVariables, this.filterTests, this.filterActions, this.child});
 
-  factory NestedRule.fromJson(Map<String, dynamic> json) => NestedRule(
-        filterVariables: json['filterVariables'] is Map ? FilterVariables.fromJson(json['filterVariables']) : null,
-        filterTests: json['filterTests'] is Map ? FilterTests.fromJson(json['filterTests']) : null,
-        filterActions: json['filterActions'] is Map ? FilterActions.fromJson(json['filterActions']) : null,
-        child: json['nestedRule'] is Map ? NestedRule.fromJson(json['nestedRule']) : null,
+  factory NestedRule.fromMap(Map<String, dynamic> data) => NestedRule(
+        filterVariables: data['filterVariables'] is Map ? FilterVariables.fromMap(data['filterVariables']) : null,
+        filterTests: data['filterTests'] is Map ? FilterTests.fromMap(data['filterTests']) : null,
+        filterActions: data['filterActions'] is Map ? FilterActions.fromMap(data['filterActions']) : null,
+        child: data['nestedRule'] is Map ? NestedRule.fromMap(data['nestedRule']) : null,
       );
 
-  Map<String, dynamic> toJson() => {
-        if (filterVariables != null) 'filterVariables': filterVariables!.toJson(),
-        if (filterTests != null) 'filterTests': filterTests!.toJson(),
-        if (filterActions != null) 'filterActions': filterActions!.toJson(),
-        if (child != null) 'nestedRule': child!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (filterVariables != null) 'filterVariables': filterVariables!.toMap(),
+        if (filterTests != null) 'filterTests': filterTests!.toMap(),
+        if (filterActions != null) 'filterActions': filterActions!.toMap(),
+        if (child != null) 'nestedRule': child!.toMap(),
       };
 }

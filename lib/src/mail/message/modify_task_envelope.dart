@@ -10,9 +10,9 @@ import 'modify_task_body.dart';
 class ModifyTaskEnvelope extends SoapEnvelope {
   ModifyTaskEnvelope(ModifyTaskBody body, {super.header}) : super(body);
 
-  factory ModifyTaskEnvelope.fromJson(Map<String, dynamic> json) =>
-      ModifyTaskEnvelope(ModifyTaskBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory ModifyTaskEnvelope.fromMap(Map<String, dynamic> data) =>
+      ModifyTaskEnvelope(ModifyTaskBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   ModifyTaskBody get modifyTaskBody => body as ModifyTaskBody;
 }

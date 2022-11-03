@@ -143,7 +143,7 @@ void main() {
         wantContent: wantContent,
         includeMemberOf: includeMemberOf,
       );
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'SearchRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -419,7 +419,7 @@ void main() {
       final expanded = faker.randomGenerator.boolean();
       final numExpanded = faker.randomGenerator.integer(100);
 
-      final json = {
+      final data = {
         'Body': {
           'SearchResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -1831,7 +1831,7 @@ void main() {
           }
         }
       };
-      final envelope = SearchEnvelope.fromJson(json);
+      final envelope = SearchEnvelope.fromMap(data);
       final response = envelope.searchBody.searchResponse!;
 
       expect(response.sortBy, sortBy);

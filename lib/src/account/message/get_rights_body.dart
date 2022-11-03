@@ -12,16 +12,16 @@ class GetRightsBody extends SoapBody {
   GetRightsBody({GetRightsRequest? request, GetRightsResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory GetRightsBody.fromJson(Map<String, dynamic> json) => GetRightsBody(
-      response: json['GetRightsResponse'] != null ? GetRightsResponse.fromJson(json['GetRightsResponse']) : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+  factory GetRightsBody.fromMap(Map<String, dynamic> data) => GetRightsBody(
+      response: data['GetRightsResponse'] != null ? GetRightsResponse.fromMap(data['GetRightsResponse']) : null,
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   GetRightsRequest? get getRightsRequest => request as GetRightsRequest?;
 
   GetRightsResponse? get getRightsResponse => response as GetRightsResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'GetRightsRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'GetRightsRequest': request!.toMap(),
       };
 }

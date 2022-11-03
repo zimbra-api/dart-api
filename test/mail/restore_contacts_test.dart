@@ -13,7 +13,7 @@ void main() {
       final contactsBackupFileName = faker.lorem.word();
 
       final request = RestoreContactsRequest(contactsBackupFileName, resolve: RestoreResolve.reset);
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'RestoreContactsRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -25,14 +25,14 @@ void main() {
     }));
 
     test('Restore contacts response', (() {
-      final json = {
+      final data = {
         'Body': {
           'RestoreContactsResponse': {
             '_jsns': 'urn:zimbraMail',
           }
         }
       };
-      final envelope = RestoreContactsEnvelope.fromJson(json);
+      final envelope = RestoreContactsEnvelope.fromMap(data);
       final response = envelope.restoreContactsBody.restoreContactsResponse;
       expect(response, isNotNull);
       expect(response, isA<RestoreContactsResponse>());

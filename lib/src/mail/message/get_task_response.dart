@@ -10,7 +10,7 @@ import 'get_appointment_response.dart';
 class GetTaskResponse extends GetAppointmentResponse {
   GetTaskResponse({super.appt, super.task});
 
-  factory GetTaskResponse.fromJson(Map<String, dynamic> json) => GetTaskResponse(
-      appt: json['appt'] is Map ? CalendarItemInfo.fromJson(json['appt']) : null,
-      task: json['task'] is Map ? TaskItemInfo.fromJson(json['task']) : null);
+  factory GetTaskResponse.fromMap(Map<String, dynamic> data) => GetTaskResponse(
+      appt: data['appt'] is Map ? CalendarItemInfo.fromMap(data['appt']) : null,
+      task: data['task'] is Map ? TaskItemInfo.fromMap(data['task']) : null);
 }

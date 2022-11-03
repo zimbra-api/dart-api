@@ -9,7 +9,7 @@ void main() {
   group('List IMAP subscriptions tests', (() {
     test('List IMAP subscriptions request', (() {
       final request = ListIMAPSubscriptionsRequest();
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'ListIMAPSubscriptionsRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -21,7 +21,7 @@ void main() {
     test('List IMAP subscriptions response', (() {
       final sub1 = faker.lorem.word();
       final sub2 = faker.lorem.word();
-      final json = {
+      final data = {
         'Body': {
           'ListIMAPSubscriptionsResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -32,7 +32,7 @@ void main() {
           }
         }
       };
-      final envelope = ListIMAPSubscriptionsEnvelope.fromJson(json);
+      final envelope = ListIMAPSubscriptionsEnvelope.fromMap(data);
       final response = envelope.listIMAPSubscriptionsBody.listIMAPSubscriptionsResponse!;
 
       expect(response.subscriptions.first, sub1);

@@ -10,9 +10,9 @@ import 'create_wait_set_body.dart';
 class CreateWaitSetEnvelope extends SoapEnvelope {
   CreateWaitSetEnvelope(CreateWaitSetBody body, {super.header}) : super(body);
 
-  factory CreateWaitSetEnvelope.fromJson(Map<String, dynamic> json) =>
-      CreateWaitSetEnvelope(CreateWaitSetBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory CreateWaitSetEnvelope.fromMap(Map<String, dynamic> data) =>
+      CreateWaitSetEnvelope(CreateWaitSetBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   CreateWaitSetBody get createWaitSetBody => body as CreateWaitSetBody;
 }

@@ -7,5 +7,5 @@ import 'package:zimbra_api/src/common/type/soap_response.dart';
 class SetRecoveryAccountResponse extends SoapResponse {
   SetRecoveryAccountResponse();
 
-  factory SetRecoveryAccountResponse.fromJson(Map<String, dynamic> json) => SetRecoveryAccountResponse();
+  factory SetRecoveryAccountResponse.fromMap(Map<String, dynamic> data) => SetRecoveryAccountResponse();
 }

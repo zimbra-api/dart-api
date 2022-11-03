@@ -11,7 +11,7 @@ void main() {
     test('iCalendar Reply request', (() {
       final ical = faker.lorem.word();
       final request = ICalReplyRequest(ical);
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'ICalReplyRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -22,14 +22,14 @@ void main() {
     }));
 
     test('iCalendar Reply response', (() {
-      final json = {
+      final data = {
         'Body': {
           'ICalReplyResponse': {
             '_jsns': 'urn:zimbraMail',
           }
         }
       };
-      final envelope = ICalReplyEnvelope.fromJson(json);
+      final envelope = ICalReplyEnvelope.fromMap(data);
       final response = envelope.iCalReplyBody.iCalReplyResponse;
       expect(response, isNotNull);
       expect(response, isA<ICalReplyResponse>());

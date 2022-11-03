@@ -12,18 +12,18 @@ class CheckRecurConflictsBody extends SoapBody {
   CheckRecurConflictsBody({CheckRecurConflictsRequest? request, CheckRecurConflictsResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory CheckRecurConflictsBody.fromJson(Map<String, dynamic> json) => CheckRecurConflictsBody(
-      response: json['CheckRecurConflictsResponse'] != null
-          ? CheckRecurConflictsResponse.fromJson(json['CheckRecurConflictsResponse'])
+  factory CheckRecurConflictsBody.fromMap(Map<String, dynamic> data) => CheckRecurConflictsBody(
+      response: data['CheckRecurConflictsResponse'] != null
+          ? CheckRecurConflictsResponse.fromMap(data['CheckRecurConflictsResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   CheckRecurConflictsRequest? get checkRecurConflictsRequest => request as CheckRecurConflictsRequest?;
 
   CheckRecurConflictsResponse? get checkRecurConflictsResponse => response as CheckRecurConflictsResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'CheckRecurConflictsRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'CheckRecurConflictsRequest': request!.toMap(),
       };
 }

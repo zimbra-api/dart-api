@@ -35,11 +35,11 @@ class GetMiniCalRequest extends SoapRequest {
   SoapEnvelope getEnvelope({SoapHeader? header}) => GetMiniCalEnvelope(GetMiniCalBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
         's': startTime,
         'e': endTime,
-        if (folders.isNotEmpty) 'folder': folders.map((folder) => folder.toJson()).toList(),
-        if (timezone != null) 'tz': timezone!.toJson(),
+        if (folders.isNotEmpty) 'folder': folders.map((folder) => folder.toMap()).toList(),
+        if (timezone != null) 'tz': timezone!.toMap(),
       };
 }

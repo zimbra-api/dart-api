@@ -15,6 +15,6 @@ class GetYahooCookieResponse extends SoapResponse {
 
   GetYahooCookieResponse({this.error, this.crumb, this.y, this.t});
 
-  factory GetYahooCookieResponse.fromJson(Map<String, dynamic> json) =>
-      GetYahooCookieResponse(error: json['error'], crumb: json['crumb'], y: json['y'], t: json['t']);
+  factory GetYahooCookieResponse.fromMap(Map<String, dynamic> data) =>
+      GetYahooCookieResponse(error: data['error'], crumb: data['crumb'], y: data['y'], t: data['t']);
 }

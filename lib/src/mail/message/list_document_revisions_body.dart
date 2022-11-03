@@ -13,18 +13,18 @@ class ListDocumentRevisionsBody extends SoapBody {
       {ListDocumentRevisionsRequest? request, ListDocumentRevisionsResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory ListDocumentRevisionsBody.fromJson(Map<String, dynamic> json) => ListDocumentRevisionsBody(
-      response: json['ListDocumentRevisionsResponse'] != null
-          ? ListDocumentRevisionsResponse.fromJson(json['ListDocumentRevisionsResponse'])
+  factory ListDocumentRevisionsBody.fromMap(Map<String, dynamic> data) => ListDocumentRevisionsBody(
+      response: data['ListDocumentRevisionsResponse'] != null
+          ? ListDocumentRevisionsResponse.fromMap(data['ListDocumentRevisionsResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   ListDocumentRevisionsRequest? get listDocumentRevisionsRequest => request as ListDocumentRevisionsRequest?;
 
   ListDocumentRevisionsResponse? get listDocumentRevisionsResponse => response as ListDocumentRevisionsResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'ListDocumentRevisionsRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'ListDocumentRevisionsRequest': request!.toMap(),
       };
 }

@@ -12,18 +12,18 @@ class CreateMountpointBody extends SoapBody {
   CreateMountpointBody({CreateMountpointRequest? request, CreateMountpointResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory CreateMountpointBody.fromJson(Map<String, dynamic> json) => CreateMountpointBody(
-      response: json['CreateMountpointResponse'] != null
-          ? CreateMountpointResponse.fromJson(json['CreateMountpointResponse'])
+  factory CreateMountpointBody.fromMap(Map<String, dynamic> data) => CreateMountpointBody(
+      response: data['CreateMountpointResponse'] != null
+          ? CreateMountpointResponse.fromMap(data['CreateMountpointResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   CreateMountpointRequest? get createMountpointRequest => request as CreateMountpointRequest?;
 
   CreateMountpointResponse? get createMountpointResponse => response as CreateMountpointResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'CreateMountpointRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'CreateMountpointRequest': request!.toMap(),
       };
 }

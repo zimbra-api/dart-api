@@ -7,5 +7,5 @@ import 'filter_action.dart';
 class DiscardAction extends FilterAction {
   DiscardAction({super.index});
 
-  factory DiscardAction.fromJson(Map<String, dynamic> json) => DiscardAction(index: json['index']);
+  factory DiscardAction.fromMap(Map<String, dynamic> data) => DiscardAction(index: data['index']);
 }

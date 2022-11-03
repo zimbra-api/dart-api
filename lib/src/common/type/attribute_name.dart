@@ -8,9 +8,9 @@ class AttributeName {
 
   AttributeName({this.name = ''});
 
-  factory AttributeName.fromJson(Map<String, dynamic> json) => AttributeName(name: json['n'] ?? '');
+  factory AttributeName.fromMap(Map<String, dynamic> data) => AttributeName(name: data['n'] ?? '');
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'n': name,
       };
 }

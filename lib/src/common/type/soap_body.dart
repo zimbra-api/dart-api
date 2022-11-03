@@ -15,5 +15,5 @@ abstract class SoapBody {
 
   SoapBody({this.request, this.response, this.fault});
 
-  Map<String, dynamic> toJson();
+  Map<String, dynamic> toMap();
 }

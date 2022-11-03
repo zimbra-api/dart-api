@@ -12,18 +12,18 @@ class TestDataSourceBody extends SoapBody {
   TestDataSourceBody({TestDataSourceRequest? request, TestDataSourceResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory TestDataSourceBody.fromJson(Map<String, dynamic> json) => TestDataSourceBody(
-      response: json['TestDataSourceResponse'] != null
-          ? TestDataSourceResponse.fromJson(json['TestDataSourceResponse'])
+  factory TestDataSourceBody.fromMap(Map<String, dynamic> data) => TestDataSourceBody(
+      response: data['TestDataSourceResponse'] != null
+          ? TestDataSourceResponse.fromMap(data['TestDataSourceResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   TestDataSourceRequest? get testDataSourceRequest => request as TestDataSourceRequest?;
 
   TestDataSourceResponse? get testDataSourceResponse => response as TestDataSourceResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'TestDataSourceRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'TestDataSourceRequest': request!.toMap(),
       };
 }

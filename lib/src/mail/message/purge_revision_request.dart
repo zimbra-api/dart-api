@@ -22,8 +22,8 @@ class PurgeRevisionRequest extends SoapRequest {
       PurgeRevisionEnvelope(PurgeRevisionBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
-        'revision': revision.toJson(),
+        'revision': revision.toMap(),
       };
 }

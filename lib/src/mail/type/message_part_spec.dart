@@ -11,9 +11,9 @@ class MessagePartSpec {
 
   MessagePartSpec({this.part, this.id});
 
-  factory MessagePartSpec.fromJson(Map<String, dynamic> json) => MessagePartSpec(part: json['part'], id: json['id']);
+  factory MessagePartSpec.fromMap(Map<String, dynamic> data) => MessagePartSpec(part: data['part'], id: data['id']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (part != null) 'part': part,
         if (id != null) 'id': id,
       };

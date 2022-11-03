@@ -84,28 +84,28 @@ class MsgSpec {
       this.wantContent,
       this.headers = const []});
 
-  factory MsgSpec.fromJson(Map<String, dynamic> json) => MsgSpec(
-      id: json['id'],
-      part: json['part'],
-      raw: json['raw'],
-      markRead: json['read'],
-      maxInlinedLength: json['max'],
-      useContentUrl: json['useContentUrl'],
-      wantHtml: json['html'],
-      wantImapUid: json['wantImapUid'],
-      wantModifiedSequence: json['wantModSeq'],
-      neuter: json['neuter'],
-      recurIdZ: json['ridZ'],
-      needCanExpand: json['needExp'],
+  factory MsgSpec.fromMap(Map<String, dynamic> data) => MsgSpec(
+      id: data['id'],
+      part: data['part'],
+      raw: data['raw'],
+      markRead: data['read'],
+      maxInlinedLength: data['max'],
+      useContentUrl: data['useContentUrl'],
+      wantHtml: data['html'],
+      wantImapUid: data['wantImapUid'],
+      wantModifiedSequence: data['wantModSeq'],
+      neuter: data['neuter'],
+      recurIdZ: data['ridZ'],
+      needCanExpand: data['needExp'],
       wantContent: MsgContent.values.firstWhere(
-        (wantContent) => wantContent.name == json['wantContent'],
+        (wantContent) => wantContent.name == data['wantContent'],
         orElse: () => MsgContent.full,
       ),
-      headers: (json['header'] is Iterable)
-          ? List.from((json['header'] as Iterable).map<AttributeName>((header) => AttributeName.fromJson(header)))
+      headers: (data['header'] is Iterable)
+          ? List.from((data['header'] as Iterable).map<AttributeName>((header) => AttributeName.fromMap(header)))
           : []);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (id != null) 'id': id,
         if (part != null) 'part': part,
         if (raw != null) 'raw': raw,
@@ -119,6 +119,6 @@ class MsgSpec {
         if (recurIdZ != null) 'ridZ': recurIdZ,
         if (needCanExpand != null) 'needExp': needCanExpand,
         if (wantContent != null) 'wantContent': wantContent!.name,
-        if (headers.isNotEmpty) 'header': headers.map((header) => header.toJson()).toList(),
+        if (headers.isNotEmpty) 'header': headers.map((header) => header.toMap()).toList(),
       };
 }

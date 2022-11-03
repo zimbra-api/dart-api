@@ -11,8 +11,8 @@ class BrowseResponse extends SoapResponse {
 
   BrowseResponse({this.browseDatas = const []});
 
-  factory BrowseResponse.fromJson(Map<String, dynamic> json) => BrowseResponse(
-      browseDatas: (json['bd'] is Iterable)
-          ? List.from((json['bd'] as Iterable).map<BrowseData>((bd) => BrowseData.fromJson(bd)))
+  factory BrowseResponse.fromMap(Map<String, dynamic> data) => BrowseResponse(
+      browseDatas: (data['bd'] is Iterable)
+          ? List.from((data['bd'] as Iterable).map<BrowseData>((bd) => BrowseData.fromMap(bd)))
           : []);
 }

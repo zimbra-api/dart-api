@@ -11,9 +11,9 @@ class AddedComment {
 
   AddedComment(this.parentId, this.text);
 
-  factory AddedComment.fromJson(Map<String, dynamic> json) => AddedComment(json['parentId'] ?? '', json['text'] ?? '');
+  factory AddedComment.fromMap(Map<String, dynamic> data) => AddedComment(data['parentId'] ?? '', data['text'] ?? '');
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'parentId': parentId,
         'text': text,
       };

@@ -19,10 +19,10 @@ class ImportStatusInfo {
 
   ImportStatusInfo({this.id, this.isRunning, this.success, this.error});
 
-  factory ImportStatusInfo.fromJson(Map<String, dynamic> json) =>
-      ImportStatusInfo(id: json['id'], isRunning: json['isRunning'], success: json['success'], error: json['error']);
+  factory ImportStatusInfo.fromMap(Map<String, dynamic> data) =>
+      ImportStatusInfo(id: data['id'], isRunning: data['isRunning'], success: data['success'], error: data['error']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (id != null) 'id': id,
         if (isRunning != null) 'isRunning': isRunning,
         if (success != null) 'success': success,

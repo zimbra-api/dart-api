@@ -13,6 +13,6 @@ class RecoverAccountResponse extends SoapResponse {
 
   RecoverAccountResponse({this.recoveryAccount, this.recoveryAttemptsLeft});
 
-  factory RecoverAccountResponse.fromJson(Map<String, dynamic> json) => RecoverAccountResponse(
-      recoveryAccount: json['recoveryAccount'], recoveryAttemptsLeft: json['recoveryAttemptsLeft']);
+  factory RecoverAccountResponse.fromMap(Map<String, dynamic> data) => RecoverAccountResponse(
+      recoveryAccount: data['recoveryAccount'], recoveryAttemptsLeft: data['recoveryAttemptsLeft']);
 }

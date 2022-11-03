@@ -7,5 +7,5 @@ import 'package:zimbra_api/src/common/type/soap_response.dart';
 class ModifyPropertiesResponse extends SoapResponse {
   ModifyPropertiesResponse();
 
-  factory ModifyPropertiesResponse.fromJson(Map<String, dynamic> json) => ModifyPropertiesResponse();
+  factory ModifyPropertiesResponse.fromMap(Map<String, dynamic> data) => ModifyPropertiesResponse();
 }

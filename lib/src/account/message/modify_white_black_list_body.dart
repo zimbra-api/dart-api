@@ -12,18 +12,18 @@ class ModifyWhiteBlackListBody extends SoapBody {
   ModifyWhiteBlackListBody({ModifyWhiteBlackListRequest? request, ModifyWhiteBlackListResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory ModifyWhiteBlackListBody.fromJson(Map<String, dynamic> json) => ModifyWhiteBlackListBody(
-      response: json['ModifyWhiteBlackListResponse'] != null
-          ? ModifyWhiteBlackListResponse.fromJson(json['ModifyWhiteBlackListResponse'])
+  factory ModifyWhiteBlackListBody.fromMap(Map<String, dynamic> data) => ModifyWhiteBlackListBody(
+      response: data['ModifyWhiteBlackListResponse'] != null
+          ? ModifyWhiteBlackListResponse.fromMap(data['ModifyWhiteBlackListResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   ModifyWhiteBlackListRequest? get modifyWhiteBlackListRequest => request as ModifyWhiteBlackListRequest?;
 
   ModifyWhiteBlackListResponse? get modifyWhiteBlackListResponse => response as ModifyWhiteBlackListResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'ModifyWhiteBlackListRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'ModifyWhiteBlackListRequest': request!.toMap(),
       };
 }

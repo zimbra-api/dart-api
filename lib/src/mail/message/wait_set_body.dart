@@ -12,16 +12,16 @@ class WaitSetBody extends SoapBody {
   WaitSetBody({WaitSetRequest? request, WaitSetResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory WaitSetBody.fromJson(Map<String, dynamic> json) => WaitSetBody(
-      response: json['WaitSetResponse'] != null ? WaitSetResponse.fromJson(json['WaitSetResponse']) : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+  factory WaitSetBody.fromMap(Map<String, dynamic> data) => WaitSetBody(
+      response: data['WaitSetResponse'] != null ? WaitSetResponse.fromMap(data['WaitSetResponse']) : null,
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   WaitSetRequest? get waitSetRequest => request as WaitSetRequest?;
 
   WaitSetResponse? get waitSetResponse => response as WaitSetResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'WaitSetRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'WaitSetRequest': request!.toMap(),
       };
 }

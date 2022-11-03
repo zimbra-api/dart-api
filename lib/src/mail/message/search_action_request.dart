@@ -25,9 +25,9 @@ class SearchActionRequest extends SoapRequest {
       SearchActionEnvelope(SearchActionBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
-        'SearchRequest': searchRequest.toJson(),
-        'BulkAction': bulkAction.toJson(),
+        'SearchRequest': searchRequest.toMap(),
+        'BulkAction': bulkAction.toMap(),
       };
 }

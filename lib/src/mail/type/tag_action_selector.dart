@@ -23,25 +23,25 @@ class TagActionSelector extends ActionSelector {
       super.nonExistentIds,
       super.newlyCreatedIds});
 
-  factory TagActionSelector.fromJson(Map<String, dynamic> json) => TagActionSelector(json['id'] ?? '', json['op'] ?? '',
-      retentionPolicy: json['retentionPolicy'] is Map ? RetentionPolicy.fromJson(json['retentionPolicy']) : null,
-      constraint: json['tcon'],
-      tag: json['tag'],
-      folder: json['l'],
-      rgb: json['rgb'],
-      color: json['color'],
-      name: json['name'],
-      flags: json['f'],
-      tags: json['t'],
-      tagNames: json['tn'],
-      nonExistentIds: json['nei'],
-      newlyCreatedIds: json['nci']);
+  factory TagActionSelector.fromMap(Map<String, dynamic> data) => TagActionSelector(data['id'] ?? '', data['op'] ?? '',
+      retentionPolicy: data['retentionPolicy'] is Map ? RetentionPolicy.fromMap(data['retentionPolicy']) : null,
+      constraint: data['tcon'],
+      tag: data['tag'],
+      folder: data['l'],
+      rgb: data['rgb'],
+      color: data['color'],
+      name: data['name'],
+      flags: data['f'],
+      tags: data['t'],
+      tagNames: data['tn'],
+      nonExistentIds: data['nei'],
+      newlyCreatedIds: data['nci']);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'id': ids,
         'op': operation,
-        if (retentionPolicy != null) 'retentionPolicy': retentionPolicy!.toJson(),
+        if (retentionPolicy != null) 'retentionPolicy': retentionPolicy!.toMap(),
         if (constraint != null) 'tcon': constraint,
         if (tag != null) 'tag': tag,
         if (folder != null) 'l': folder,

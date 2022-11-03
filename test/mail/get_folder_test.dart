@@ -32,7 +32,7 @@ void main() {
         treeDepth: treeDepth,
         traverseMountpoints: traverseMountpoints,
       );
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'GetFolderRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -104,7 +104,7 @@ void main() {
       final query = faker.lorem.word();
       final types = faker.lorem.words(3).join(',');
 
-      final json = {
+      final data = {
         'Body': {
           'GetFolderResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -235,7 +235,7 @@ void main() {
           }
         }
       };
-      final envelope = GetFolderEnvelope.fromJson(json);
+      final envelope = GetFolderEnvelope.fromMap(data);
       final response = envelope.getFolderBody.getFolderResponse!;
 
       final folder = response.folder!;

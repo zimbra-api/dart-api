@@ -12,16 +12,16 @@ class ConvActionBody extends SoapBody {
   ConvActionBody({ConvActionRequest? request, ConvActionResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory ConvActionBody.fromJson(Map<String, dynamic> json) => ConvActionBody(
-      response: json['ConvActionResponse'] != null ? ConvActionResponse.fromJson(json['ConvActionResponse']) : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+  factory ConvActionBody.fromMap(Map<String, dynamic> data) => ConvActionBody(
+      response: data['ConvActionResponse'] != null ? ConvActionResponse.fromMap(data['ConvActionResponse']) : null,
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   ConvActionRequest? get convActionRequest => request as ConvActionRequest?;
 
   ConvActionResponse? get convActionResponse => response as ConvActionResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'ConvActionRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'ConvActionRequest': request!.toMap(),
       };
 }

@@ -15,14 +15,14 @@ class ModifyContactGroupMember extends NewContactGroupMember {
   ModifyContactGroupMember(
       {this.operation = ModifyMemberOperation.reset, super.type = MemberType.contact, super.value});
 
-  factory ModifyContactGroupMember.fromJson(Map<String, dynamic> json) => ModifyContactGroupMember(
+  factory ModifyContactGroupMember.fromMap(Map<String, dynamic> data) => ModifyContactGroupMember(
       operation: ModifyMemberOperation.values
-          .firstWhere((op) => op.name == json['op'], orElse: () => ModifyMemberOperation.reset),
-      type: MemberType.values.firstWhere((type) => type.name == json['type'], orElse: () => MemberType.contact),
-      value: json['_content']);
+          .firstWhere((op) => op.name == data['op'], orElse: () => ModifyMemberOperation.reset),
+      type: MemberType.values.firstWhere((type) => type.name == data['type'], orElse: () => MemberType.contact),
+      value: data['_content']);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'op': operation.name,
         'type': type.name,
         if (value != null) '_content': value,

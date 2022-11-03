@@ -60,7 +60,7 @@ class NoOpRequest extends SoapRequest {
   SoapEnvelope getEnvelope({SoapHeader? header}) => NoOpEnvelope(NoOpBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
         if (wait != null) 'wait': wait,
         if (includeDelegates != null) 'delegate': includeDelegates,

@@ -7,5 +7,5 @@ import 'package:zimbra_api/src/common/type/soap_response.dart';
 class ModifyWhiteBlackListResponse extends SoapResponse {
   ModifyWhiteBlackListResponse();
 
-  factory ModifyWhiteBlackListResponse.fromJson(Map<String, dynamic> json) => ModifyWhiteBlackListResponse();
+  factory ModifyWhiteBlackListResponse.fromMap(Map<String, dynamic> data) => ModifyWhiteBlackListResponse();
 }

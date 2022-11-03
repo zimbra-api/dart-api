@@ -12,17 +12,17 @@ class GetIdentitiesBody extends SoapBody {
   GetIdentitiesBody({GetIdentitiesRequest? request, GetIdentitiesResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory GetIdentitiesBody.fromJson(Map<String, dynamic> json) => GetIdentitiesBody(
+  factory GetIdentitiesBody.fromMap(Map<String, dynamic> data) => GetIdentitiesBody(
       response:
-          json['GetIdentitiesResponse'] != null ? GetIdentitiesResponse.fromJson(json['GetIdentitiesResponse']) : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+          data['GetIdentitiesResponse'] != null ? GetIdentitiesResponse.fromMap(data['GetIdentitiesResponse']) : null,
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   GetIdentitiesRequest? get getIdentitiesRequest => request as GetIdentitiesRequest?;
 
   GetIdentitiesResponse? get getIdentitiesResponse => response as GetIdentitiesResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'GetIdentitiesRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'GetIdentitiesRequest': request!.toMap(),
       };
 }

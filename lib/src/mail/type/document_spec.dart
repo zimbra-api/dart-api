@@ -59,22 +59,22 @@ class DocumentSpec {
       this.messagePart,
       this.docRevision});
 
-  factory DocumentSpec.fromJson(Map<String, dynamic> json) => DocumentSpec(
-        name: json['name'],
-        contentType: json['ct'],
-        description: json['desc'],
-        folderId: json['l'],
-        id: json['id'],
-        version: json['ver'],
-        content: json['content'],
-        descEnabled: json['descEnabled'],
-        flags: json['f'],
-        upload: (json['upload'] is Map) ? Id.fromJson(json['upload']) : null,
-        messagePart: (json['m'] is Map) ? MessagePartSpec.fromJson(json['m']) : null,
-        docRevision: (json['doc'] is Map) ? IdVersion.fromJson(json['doc']) : null,
+  factory DocumentSpec.fromMap(Map<String, dynamic> data) => DocumentSpec(
+        name: data['name'],
+        contentType: data['ct'],
+        description: data['desc'],
+        folderId: data['l'],
+        id: data['id'],
+        version: data['ver'],
+        content: data['content'],
+        descEnabled: data['descEnabled'],
+        flags: data['f'],
+        upload: (data['upload'] is Map) ? Id.fromMap(data['upload']) : null,
+        messagePart: (data['m'] is Map) ? MessagePartSpec.fromMap(data['m']) : null,
+        docRevision: (data['doc'] is Map) ? IdVersion.fromMap(data['doc']) : null,
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (name != null) 'name': name,
         if (contentType != null) 'ct': contentType,
         if (description != null) 'desc': description,
@@ -84,8 +84,8 @@ class DocumentSpec {
         if (content != null) 'content': content,
         if (descEnabled != null) 'descEnabled': descEnabled,
         if (flags != null) 'f': flags,
-        if (upload != null) 'upload': upload!.toJson(),
-        if (messagePart != null) 'm': messagePart!.toJson(),
-        if (docRevision != null) 'doc': docRevision!.toJson(),
+        if (upload != null) 'upload': upload!.toMap(),
+        if (messagePart != null) 'm': messagePart!.toMap(),
+        if (docRevision != null) 'doc': docRevision!.toMap(),
       };
 }

@@ -22,8 +22,8 @@ class ModifyZimletPrefsRequest extends SoapRequest {
       ModifyZimletPrefsEnvelope(ModifyZimletPrefsBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraAccount',
-        if (zimlets.isNotEmpty) 'zimlet': zimlets.map((zimlet) => zimlet.toJson()).toList(),
+        if (zimlets.isNotEmpty) 'zimlet': zimlets.map((zimlet) => zimlet.toMap()).toList(),
       };
 }

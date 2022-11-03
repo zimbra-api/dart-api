@@ -25,7 +25,7 @@ class VerifyCodeRequest extends SoapRequest {
   SoapEnvelope getEnvelope({SoapHeader? header}) => VerifyCodeEnvelope(VerifyCodeBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
         'a': address,
         'code': verificationCode,

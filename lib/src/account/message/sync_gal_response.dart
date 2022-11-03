@@ -42,18 +42,18 @@ class SyncGalResponse extends SoapResponse {
       this.contacts = const [],
       this.deleted = const []});
 
-  factory SyncGalResponse.fromJson(Map<String, dynamic> json) => SyncGalResponse(
-        more: json['more'],
-        token: json['token'],
-        galDefinitionLastModified: json['galDefinitionLastModified'],
-        throttled: json['throttled'],
-        fullSyncRecommended: json['fullSyncRecommended'],
-        remain: json['remain'],
-        contacts: (json['cn'] is Iterable)
-            ? List.from((json['cn'] as Iterable).map<ContactInfo>((cn) => ContactInfo.fromJson(cn)))
+  factory SyncGalResponse.fromMap(Map<String, dynamic> data) => SyncGalResponse(
+        more: data['more'],
+        token: data['token'],
+        galDefinitionLastModified: data['galDefinitionLastModified'],
+        throttled: data['throttled'],
+        fullSyncRecommended: data['fullSyncRecommended'],
+        remain: data['remain'],
+        contacts: (data['cn'] is Iterable)
+            ? List.from((data['cn'] as Iterable).map<ContactInfo>((cn) => ContactInfo.fromMap(cn)))
             : [],
-        deleted: (json['deleted'] is Iterable)
-            ? List.from((json['deleted'] as Iterable).map<Id>((deleted) => Id.fromJson(deleted)))
+        deleted: (data['deleted'] is Iterable)
+            ? List.from((data['deleted'] as Iterable).map<Id>((deleted) => Id.fromMap(deleted)))
             : [],
       );
 }

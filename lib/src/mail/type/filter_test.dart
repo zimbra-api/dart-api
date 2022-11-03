@@ -11,10 +11,10 @@ class FilterTest {
 
   FilterTest({this.index, this.negative});
 
-  factory FilterTest.fromJson(Map<String, dynamic> json) =>
-      FilterTest(index: json['index'], negative: json['negative']);
+  factory FilterTest.fromMap(Map<String, dynamic> data) =>
+      FilterTest(index: data['index'], negative: data['negative']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (index != null) 'index': index,
         if (negative != null) 'negative': negative,
       };

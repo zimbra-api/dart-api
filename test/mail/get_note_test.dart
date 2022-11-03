@@ -11,7 +11,7 @@ void main() {
     test('Get note request', (() {
       final id = faker.guid.guid();
       final request = GetNoteRequest(Id(id: id));
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'GetNoteRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -39,7 +39,7 @@ void main() {
       final key = faker.lorem.word();
       final value = faker.lorem.word();
 
-      final json = {
+      final data = {
         'Body': {
           'GetNoteResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -72,7 +72,7 @@ void main() {
           }
         }
       };
-      final envelope = GetNoteEnvelope.fromJson(json);
+      final envelope = GetNoteEnvelope.fromMap(data);
       final respnose = envelope.getNoteBody.getNoteResponse!;
       final note = respnose.note!;
 

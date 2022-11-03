@@ -34,9 +34,9 @@ class AddAppointmentInviteRequest extends SoapRequest {
       AddAppointmentInviteEnvelope(AddAppointmentInviteBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
         if (partStat != null) 'ptst': partStat!.name,
-        if (msg != null) 'm': msg!.toJson(),
+        if (msg != null) 'm': msg!.toMap(),
       };
 }

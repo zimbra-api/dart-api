@@ -29,7 +29,7 @@ class RestoreContactsRequest extends SoapRequest {
       RestoreContactsEnvelope(RestoreContactsBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
         'contactsBackupFileName': contactsBackupFileName,
         if (resolve != null) 'resolve': resolve!.name,

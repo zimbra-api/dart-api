@@ -21,7 +21,7 @@ void main() {
           includeOlderRevisions: includeOlderRevisions,
         ),
       );
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'PurgeRevisionRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -36,14 +36,14 @@ void main() {
     }));
 
     test('Purge revision response', (() {
-      final json = {
+      final data = {
         'Body': {
           'PurgeRevisionResponse': {
             '_jsns': 'urn:zimbraMail',
           }
         }
       };
-      final envelope = PurgeRevisionEnvelope.fromJson(json);
+      final envelope = PurgeRevisionEnvelope.fromMap(data);
       final response = envelope.purgeRevisionBody.purgeRevisionResponse;
       expect(response, isNotNull);
       expect(response, isA<PurgeRevisionResponse>());

@@ -12,18 +12,18 @@ class SendInviteReplyBody extends SoapBody {
   SendInviteReplyBody({SendInviteReplyRequest? request, SendInviteReplyResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory SendInviteReplyBody.fromJson(Map<String, dynamic> json) => SendInviteReplyBody(
-      response: json['SendInviteReplyResponse'] != null
-          ? SendInviteReplyResponse.fromJson(json['SendInviteReplyResponse'])
+  factory SendInviteReplyBody.fromMap(Map<String, dynamic> data) => SendInviteReplyBody(
+      response: data['SendInviteReplyResponse'] != null
+          ? SendInviteReplyResponse.fromMap(data['SendInviteReplyResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   SendInviteReplyRequest? get sendInviteReplyRequest => request as SendInviteReplyRequest?;
 
   SendInviteReplyResponse? get sendInviteReplyResponse => response as SendInviteReplyResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'SendInviteReplyRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'SendInviteReplyRequest': request!.toMap(),
       };
 }

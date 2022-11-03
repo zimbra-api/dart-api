@@ -54,7 +54,7 @@ void main() {
           newlyCreatedIds: newlyCreatedIds,
         ),
       );
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'TagActionRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -104,7 +104,7 @@ void main() {
       final successes = [faker.guid.guid(), faker.guid.guid(), faker.guid.guid()].join(',');
       final successNames = faker.lorem.word();
       final operation = faker.randomGenerator.element(TagAction.values).name;
-      final json = {
+      final data = {
         'Body': {
           'TagActionResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -116,7 +116,7 @@ void main() {
           }
         }
       };
-      final envelope = TagActionEnvelope.fromJson(json);
+      final envelope = TagActionEnvelope.fromMap(data);
       final response = envelope.tagActionBody.tagActionResponse!;
       final action = response.action!;
       expect(action.successes, successes);

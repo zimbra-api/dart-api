@@ -11,7 +11,7 @@ void main() {
       final folderId = faker.guid.guid();
 
       final request = RecordIMAPSessionRequest(folderId);
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'RecordIMAPSessionRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -24,7 +24,7 @@ void main() {
     test('Record IMAP session response', (() {
       final lastItemId = faker.randomGenerator.integer(100);
       final folderUuid = faker.guid.guid();
-      final json = {
+      final data = {
         'Body': {
           'RecordIMAPSessionResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -33,7 +33,7 @@ void main() {
           }
         }
       };
-      final envelope = RecordIMAPSessionEnvelope.fromJson(json);
+      final envelope = RecordIMAPSessionEnvelope.fromMap(data);
       final response = envelope.recordIMAPSessionBody.recordIMAPSessionResponse!;
       expect(response.lastItemId, lastItemId);
       expect(response.folderUuid, folderUuid);

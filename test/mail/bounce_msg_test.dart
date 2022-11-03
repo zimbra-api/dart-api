@@ -23,7 +23,7 @@ void main() {
         )
       ]));
 
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'BounceMsgRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -43,14 +43,14 @@ void main() {
     }));
 
     test('Bounce msg response', (() {
-      final json = {
+      final data = {
         'Body': {
           'BounceMsgResponse': {
             '_jsns': 'urn:zimbraMail',
           }
         }
       };
-      final envelope = BounceMsgEnvelope.fromJson(json);
+      final envelope = BounceMsgEnvelope.fromMap(data);
       expect(envelope.bounceMsgBody.bounceMsgResponse, isNotNull);
       expect(envelope.bounceMsgBody.bounceMsgResponse, isA<BounceMsgResponse>());
     }));

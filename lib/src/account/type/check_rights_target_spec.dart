@@ -20,22 +20,22 @@ class CheckRightsTargetSpec {
       this.targetKey = '',
       this.rights = const []});
 
-  factory CheckRightsTargetSpec.fromJson(Map<String, dynamic> json) => CheckRightsTargetSpec(
+  factory CheckRightsTargetSpec.fromMap(Map<String, dynamic> data) => CheckRightsTargetSpec(
         targetType: TargetType.values.firstWhere(
-          (item) => item.name == json['type']?.toString(),
+          (item) => item.name == data['type']?.toString(),
           orElse: () => TargetType.account,
         ),
         targetBy: TargetBy.values.firstWhere(
-          (item) => item.name == json['by']?.toString(),
+          (item) => item.name == data['by']?.toString(),
           orElse: () => TargetBy.name,
         ),
-        targetKey: json['key'] ?? '',
-        rights: (json['right'] is Iterable)
-            ? List.from((json['right'] as Iterable).map<String>((right) => right['_content']))
+        targetKey: data['key'] ?? '',
+        rights: (data['right'] is Iterable)
+            ? List.from((data['right'] as Iterable).map<String>((right) => right['_content']))
             : [],
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'type': targetType.name,
         'by': targetBy.name,
         'key': targetKey,

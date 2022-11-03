@@ -10,9 +10,9 @@ import 'get_available_locales_body.dart';
 class GetAvailableLocalesEnvelope extends SoapEnvelope {
   GetAvailableLocalesEnvelope(GetAvailableLocalesBody body, {super.header}) : super(body);
 
-  factory GetAvailableLocalesEnvelope.fromJson(Map<String, dynamic> json) =>
-      GetAvailableLocalesEnvelope(GetAvailableLocalesBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory GetAvailableLocalesEnvelope.fromMap(Map<String, dynamic> data) =>
+      GetAvailableLocalesEnvelope(GetAvailableLocalesBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   GetAvailableLocalesBody get getAvailableLocalesBody => body as GetAvailableLocalesBody;
 }

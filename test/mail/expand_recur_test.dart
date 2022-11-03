@@ -218,7 +218,7 @@ void main() {
           )
         ],
       );
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'ExpandRecurRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -412,7 +412,7 @@ void main() {
       final tzOffset = faker.randomGenerator.integer(100);
       final recurIdZ = faker.date.dateTime().toString();
 
-      final json = {
+      final data = {
         'Body': {
           'ExpandRecurResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -428,7 +428,7 @@ void main() {
           }
         }
       };
-      final envelope = ExpandRecurEnvelope.fromJson(json);
+      final envelope = ExpandRecurEnvelope.fromMap(data);
       final response = envelope.expandRecurBody.expandRecurResponse!;
       final inst = response.instances.first;
 

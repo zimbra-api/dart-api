@@ -133,7 +133,7 @@ void main() {
             includeMemberOf: includeMemberOf,
           ),
           BulkAction(operation: operation, folder: folder));
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'SearchActionRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -214,14 +214,14 @@ void main() {
     }));
 
     test('Search action response', (() {
-      final json = {
+      final data = {
         'Body': {
           'SearchActionResponse': {
             '_jsns': 'urn:zimbraMail',
           }
         }
       };
-      final envelope = SearchActionEnvelope.fromJson(json);
+      final envelope = SearchActionEnvelope.fromMap(data);
       final response = envelope.searchActionBody.searchActionResponse;
       expect(response, isNotNull);
       expect(response, isA<SearchActionResponse>());

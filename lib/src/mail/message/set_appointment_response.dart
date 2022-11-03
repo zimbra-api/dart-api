@@ -21,11 +21,11 @@ class SetAppointmentResponse extends SoapResponse {
 
   SetAppointmentResponse({this.calItemId, this.deprecatedApptId, this.defaultId, this.exceptions = const []});
 
-  factory SetAppointmentResponse.fromJson(Map<String, dynamic> json) => SetAppointmentResponse(
-      calItemId: json['calItemId'],
-      deprecatedApptId: json['apptId'],
-      defaultId: json['default'] is Map ? Id.fromJson(json['default']) : null,
-      exceptions: (json['except'] is Iterable)
-          ? List.from((json['except'] as Iterable).map<ExceptIdInfo>((except) => ExceptIdInfo.fromJson(except)))
+  factory SetAppointmentResponse.fromMap(Map<String, dynamic> data) => SetAppointmentResponse(
+      calItemId: data['calItemId'],
+      deprecatedApptId: data['apptId'],
+      defaultId: data['default'] is Map ? Id.fromMap(data['default']) : null,
+      exceptions: (data['except'] is Iterable)
+          ? List.from((data['except'] as Iterable).map<ExceptIdInfo>((except) => ExceptIdInfo.fromMap(except)))
           : []);
 }

@@ -36,7 +36,7 @@ void main() {
           upload: Id(id: id),
           messagePart: MessagePartSpec(part: part, id: id),
           docRevision: IdVersion(id: id, version: version)));
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'SaveDocumentRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -72,7 +72,7 @@ void main() {
       final version = faker.randomGenerator.integer(100);
       final name = faker.lorem.word();
 
-      final json = {
+      final data = {
         'Body': {
           'SaveDocumentResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -84,7 +84,7 @@ void main() {
           }
         }
       };
-      final envelope = SaveDocumentEnvelope.fromJson(json);
+      final envelope = SaveDocumentEnvelope.fromMap(data);
       final response = envelope.saveDocumentBody.saveDocumentResponse!;
       final doc = response.doc!;
       expect(doc.id, id);

@@ -26,9 +26,9 @@ class CheckPermissionRequest extends SoapRequest {
       CheckPermissionEnvelope(CheckPermissionBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
-        'target': target.toJson(),
+        'target': target.toMap(),
         if (rights.isNotEmpty) 'right': rights.map((right) => {'_content': right}).toList(),
       };
 }

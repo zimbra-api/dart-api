@@ -13,10 +13,10 @@ class RawInvite {
 
   RawInvite({this.uid, this.summary, this.content});
 
-  factory RawInvite.fromJson(Map<String, dynamic> json) =>
-      RawInvite(uid: json['uid'], summary: json['summary'], content: json['_content']);
+  factory RawInvite.fromMap(Map<String, dynamic> data) =>
+      RawInvite(uid: data['uid'], summary: data['summary'], content: data['_content']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (uid != null) 'uid': uid,
         if (summary != null) 'summary': summary,
         if (content != null) '_content': content,

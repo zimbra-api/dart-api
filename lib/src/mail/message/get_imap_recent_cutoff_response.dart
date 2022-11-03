@@ -12,6 +12,6 @@ class GetIMAPRecentCutoffResponse extends SoapResponse {
 
   GetIMAPRecentCutoffResponse(this.cutoff);
 
-  factory GetIMAPRecentCutoffResponse.fromJson(Map<String, dynamic> json) =>
-      GetIMAPRecentCutoffResponse(json['cutoff'] ?? 0);
+  factory GetIMAPRecentCutoffResponse.fromMap(Map<String, dynamic> data) =>
+      GetIMAPRecentCutoffResponse(data['cutoff'] ?? 0);
 }

@@ -23,7 +23,7 @@ void main() {
           owner: AccountSelector(AccountBy.name, name),
           internal: internal,
           includeSelf: includeSelf);
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'GetShareInfoRequest': {
             '_jsns': 'urn:zimbraAccount',
@@ -58,7 +58,7 @@ void main() {
       final granteeDisplayName = faker.person.name();
       final mountpointId = faker.guid.guid();
 
-      final json = {
+      final data = {
         'Body': {
           'GetShareInfoResponse': {
             '_jsns': 'urn:zimbraAccount',
@@ -82,7 +82,7 @@ void main() {
           }
         },
       };
-      final envelope = GetShareInfoEnvelope.fromJson(json);
+      final envelope = GetShareInfoEnvelope.fromMap(data);
       final response = envelope.getShareInfoBody.getShareInfoResponse!;
       final share = response.shares.first;
 

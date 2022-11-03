@@ -15,7 +15,7 @@ void main() {
       final dl = faker.internet.email();
       final request = SubscribeDistributionListRequest(DistributionListSelector(DistributionListBy.name, dl),
           op: DistributionListSubscribeOp.subscribe);
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'SubscribeDistributionListRequest': {
             '_jsns': 'urn:zimbraAccount',
@@ -30,7 +30,7 @@ void main() {
     }));
 
     test('Subscribe distribution list response', (() {
-      final json = {
+      final data = {
         'Body': {
           'SubscribeDistributionListResponse': {
             '_jsns': 'urn:zimbraAccount',
@@ -38,7 +38,7 @@ void main() {
           }
         }
       };
-      final envelope = SubscribeDistributionListEnvelope.fromJson(json);
+      final envelope = SubscribeDistributionListEnvelope.fromMap(data);
       final response = envelope.subscribeDistributionListBody.subscribeDistributionListResponse!;
       expect(response.status, DistributionListSubscribeStatus.subscribed);
     }));

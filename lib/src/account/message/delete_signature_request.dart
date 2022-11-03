@@ -23,8 +23,8 @@ class DeleteSignatureRequest extends SoapRequest {
       DeleteSignatureEnvelope(DeleteSignatureBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraAccount',
-        'signature': signature.toJson(),
+        'signature': signature.toMap(),
       };
 }

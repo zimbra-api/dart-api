@@ -10,9 +10,9 @@ import 'revoke_permission_body.dart';
 class RevokePermissionEnvelope extends SoapEnvelope {
   RevokePermissionEnvelope(RevokePermissionBody body, {super.header}) : super(body);
 
-  factory RevokePermissionEnvelope.fromJson(Map<String, dynamic> json) =>
-      RevokePermissionEnvelope(RevokePermissionBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory RevokePermissionEnvelope.fromMap(Map<String, dynamic> data) =>
+      RevokePermissionEnvelope(RevokePermissionBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   RevokePermissionBody get revokePermissionBody => body as RevokePermissionBody;
 }

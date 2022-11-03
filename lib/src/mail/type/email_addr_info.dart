@@ -18,14 +18,14 @@ class EmailAddrInfo {
 
   EmailAddrInfo(this.address, {this.addressType, this.personal});
 
-  factory EmailAddrInfo.fromJson(Map<String, dynamic> json) => EmailAddrInfo(json['a'] ?? '',
+  factory EmailAddrInfo.fromMap(Map<String, dynamic> data) => EmailAddrInfo(data['a'] ?? '',
       addressType: AddressType.values.firstWhere(
-        (item) => item.name == json['t'],
+        (item) => item.name == data['t'],
         orElse: () => AddressType.from,
       ),
-      personal: json['p']);
+      personal: data['p']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'a': address,
         if (addressType != null) 't': addressType!.name,
         if (personal != null) 'p': personal,

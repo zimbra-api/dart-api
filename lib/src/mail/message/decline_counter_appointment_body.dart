@@ -13,11 +13,11 @@ class DeclineCounterAppointmentBody extends SoapBody {
       {DeclineCounterAppointmentRequest? request, DeclineCounterAppointmentResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory DeclineCounterAppointmentBody.fromJson(Map<String, dynamic> json) => DeclineCounterAppointmentBody(
-      response: json['DeclineCounterAppointmentResponse'] != null
-          ? DeclineCounterAppointmentResponse.fromJson(json['DeclineCounterAppointmentResponse'])
+  factory DeclineCounterAppointmentBody.fromMap(Map<String, dynamic> data) => DeclineCounterAppointmentBody(
+      response: data['DeclineCounterAppointmentResponse'] != null
+          ? DeclineCounterAppointmentResponse.fromMap(data['DeclineCounterAppointmentResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   DeclineCounterAppointmentRequest? get declineCounterAppointmentRequest =>
       request as DeclineCounterAppointmentRequest?;
@@ -26,7 +26,7 @@ class DeclineCounterAppointmentBody extends SoapBody {
       response as DeclineCounterAppointmentResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'DeclineCounterAppointmentRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'DeclineCounterAppointmentRequest': request!.toMap(),
       };
 }

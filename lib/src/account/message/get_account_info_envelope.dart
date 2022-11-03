@@ -10,9 +10,9 @@ import 'get_account_info_body.dart';
 class GetAccountInfoEnvelope extends SoapEnvelope {
   GetAccountInfoEnvelope(GetAccountInfoBody body, {super.header}) : super(body);
 
-  factory GetAccountInfoEnvelope.fromJson(Map<String, dynamic> json) =>
-      GetAccountInfoEnvelope(GetAccountInfoBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory GetAccountInfoEnvelope.fromMap(Map<String, dynamic> data) =>
+      GetAccountInfoEnvelope(GetAccountInfoBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   GetAccountInfoBody get getAccountInfoBody => body as GetAccountInfoBody;
 }

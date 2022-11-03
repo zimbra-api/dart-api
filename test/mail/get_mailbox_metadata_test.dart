@@ -12,7 +12,7 @@ void main() {
       final section = faker.lorem.word();
 
       final request = GetMailboxMetadataRequest(SectionAttr(section: section));
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'GetMailboxMetadataRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -29,7 +29,7 @@ void main() {
       final key = faker.lorem.word();
       final value = faker.lorem.word();
 
-      final json = {
+      final data = {
         'Body': {
           'GetMailboxMetadataResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -45,7 +45,7 @@ void main() {
           }
         }
       };
-      final envelope = GetMailboxMetadataEnvelope.fromJson(json);
+      final envelope = GetMailboxMetadataEnvelope.fromMap(data);
       final response = envelope.getMailboxMetadataBody.getMailboxMetadataResponse!;
       final meta = response.metadata!;
       expect(meta.section, section);

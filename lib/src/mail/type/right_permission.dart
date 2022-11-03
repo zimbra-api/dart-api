@@ -12,10 +12,10 @@ class RightPermission {
 
   RightPermission({this.allow = false, this.rightName});
 
-  factory RightPermission.fromJson(Map<String, dynamic> json) =>
-      RightPermission(allow: json['allow'] ?? false, rightName: json['_content']);
+  factory RightPermission.fromMap(Map<String, dynamic> data) =>
+      RightPermission(allow: data['allow'] ?? false, rightName: data['_content']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'allow': allow,
         if (rightName != null) '_content': rightName,
       };

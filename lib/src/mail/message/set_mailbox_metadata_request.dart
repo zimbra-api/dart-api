@@ -27,8 +27,8 @@ class SetMailboxMetadataRequest extends SoapRequest {
       SetMailboxMetadataEnvelope(SetMailboxMetadataBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
-        'meta': metadata.toJson(),
+        'meta': metadata.toMap(),
       };
 }

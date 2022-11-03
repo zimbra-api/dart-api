@@ -22,9 +22,9 @@ class ModifyFilterRulesRequest extends SoapRequest {
       ModifyFilterRulesEnvelope(ModifyFilterRulesBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
         if (filterRules.isNotEmpty)
-          'filterRules': {'filterRule': filterRules.map((filterRule) => filterRule.toJson()).toList()},
+          'filterRules': {'filterRule': filterRules.map((filterRule) => filterRule.toMap()).toList()},
       };
 }

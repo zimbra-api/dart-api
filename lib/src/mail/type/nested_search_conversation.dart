@@ -44,27 +44,27 @@ class NestedSearchConversation {
       this.messages = const [],
       this.queryInfo});
 
-  factory NestedSearchConversation.fromJson(Map<String, dynamic> json) => NestedSearchConversation(
-        id: json['id'],
-        num: json['n'],
-        totalSize: json['total'],
-        flags: json['f'],
-        tags: json['t'],
-        tagNames: json['tn'],
-        messages: (json['m'] is Iterable)
-            ? List.from((json['m'] as Iterable).map<MessageHitInfo>((m) => MessageHitInfo.fromJson(m)))
+  factory NestedSearchConversation.fromMap(Map<String, dynamic> data) => NestedSearchConversation(
+        id: data['id'],
+        num: data['n'],
+        totalSize: data['total'],
+        flags: data['f'],
+        tags: data['t'],
+        tagNames: data['tn'],
+        messages: (data['m'] is Iterable)
+            ? List.from((data['m'] as Iterable).map<MessageHitInfo>((m) => MessageHitInfo.fromMap(m)))
             : [],
-        queryInfo: json['info'] is Map ? SearchQueryInfo.fromJson(json['info']) : null,
+        queryInfo: data['info'] is Map ? SearchQueryInfo.fromMap(data['info']) : null,
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (id != null) 'id': id,
         if (num != null) 'n': num,
         if (totalSize != null) 'total': totalSize,
         if (flags != null) 'f': flags,
         if (tags != null) 't': tags,
         if (tagNames != null) 'tn': tagNames,
-        if (messages.isNotEmpty) 'm': messages.map((m) => m.toJson()).toList(),
-        if (queryInfo != null) 'info': queryInfo!.toJson(),
+        if (messages.isNotEmpty) 'm': messages.map((m) => m.toMap()).toList(),
+        if (queryInfo != null) 'info': queryInfo!.toMap(),
       };
 }

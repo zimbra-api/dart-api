@@ -15,7 +15,7 @@ class GetAppointmentResponse extends SoapResponse {
 
   GetAppointmentResponse({this.appt, this.task});
 
-  factory GetAppointmentResponse.fromJson(Map<String, dynamic> json) => GetAppointmentResponse(
-      appt: json['appt'] is Map ? CalendarItemInfo.fromJson(json['appt']) : null,
-      task: json['task'] is Map ? TaskItemInfo.fromJson(json['task']) : null);
+  factory GetAppointmentResponse.fromMap(Map<String, dynamic> data) => GetAppointmentResponse(
+      appt: data['appt'] is Map ? CalendarItemInfo.fromMap(data['appt']) : null,
+      task: data['task'] is Map ? TaskItemInfo.fromMap(data['task']) : null);
 }

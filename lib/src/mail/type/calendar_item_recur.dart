@@ -25,18 +25,18 @@ class CalendarItemRecur {
 
   CalendarItemRecur({this.exceptionId, this.dtStart, this.dtEnd, this.duration, this.recurrence});
 
-  factory CalendarItemRecur.fromJson(Map<String, dynamic> json) => CalendarItemRecur(
-      exceptionId: json['exceptId'] is Map ? ExceptionRecurIdInfo.fromJson(json['exceptId']) : null,
-      dtStart: json['s'] is Map ? DtTimeInfo.fromJson(json['s']) : null,
-      dtEnd: json['e'] is Map ? DtTimeInfo.fromJson(json['e']) : null,
-      duration: json['dur'] is Map ? DurationInfo.fromJson(json['dur']) : null,
-      recurrence: json['recur'] is Map ? RecurrenceInfo.fromJson(json['recur']) : null);
+  factory CalendarItemRecur.fromMap(Map<String, dynamic> data) => CalendarItemRecur(
+      exceptionId: data['exceptId'] is Map ? ExceptionRecurIdInfo.fromMap(data['exceptId']) : null,
+      dtStart: data['s'] is Map ? DtTimeInfo.fromMap(data['s']) : null,
+      dtEnd: data['e'] is Map ? DtTimeInfo.fromMap(data['e']) : null,
+      duration: data['dur'] is Map ? DurationInfo.fromMap(data['dur']) : null,
+      recurrence: data['recur'] is Map ? RecurrenceInfo.fromMap(data['recur']) : null);
 
-  Map<String, dynamic> toJson() => {
-        if (exceptionId != null) 'exceptId': exceptionId!.toJson(),
-        if (dtStart != null) 's': dtStart!.toJson(),
-        if (dtEnd != null) 'e': dtEnd!.toJson(),
-        if (duration != null) 'dur': duration!.toJson(),
-        if (recurrence != null) 'recur': recurrence!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (exceptionId != null) 'exceptId': exceptionId!.toMap(),
+        if (dtStart != null) 's': dtStart!.toMap(),
+        if (dtEnd != null) 'e': dtEnd!.toMap(),
+        if (duration != null) 'dur': duration!.toMap(),
+        if (recurrence != null) 'recur': recurrence!.toMap(),
       };
 }

@@ -13,10 +13,10 @@ class Misspelling {
 
   Misspelling({this.word, this.suggestions});
 
-  factory Misspelling.fromJson(Map<String, dynamic> json) =>
-      Misspelling(word: json['word'], suggestions: json['suggestions']);
+  factory Misspelling.fromMap(Map<String, dynamic> data) =>
+      Misspelling(word: data['word'], suggestions: data['suggestions']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (word != null) 'word': word,
         if (suggestions != null) 'suggestions': suggestions,
       };

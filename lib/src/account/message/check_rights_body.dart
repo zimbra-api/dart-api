@@ -12,16 +12,16 @@ class CheckRightsBody extends SoapBody {
   CheckRightsBody({CheckRightsRequest? request, CheckRightsResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory CheckRightsBody.fromJson(Map<String, dynamic> json) => CheckRightsBody(
-      response: json['CheckRightsResponse'] != null ? CheckRightsResponse.fromJson(json['CheckRightsResponse']) : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+  factory CheckRightsBody.fromMap(Map<String, dynamic> data) => CheckRightsBody(
+      response: data['CheckRightsResponse'] != null ? CheckRightsResponse.fromMap(data['CheckRightsResponse']) : null,
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   CheckRightsRequest? get checkRightsRequest => request as CheckRightsRequest?;
 
   CheckRightsResponse? get checkRightsResponse => response as CheckRightsResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'CheckRightsRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'CheckRightsRequest': request!.toMap(),
       };
 }

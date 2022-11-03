@@ -9,6 +9,6 @@ import 'apply_filter_rules_response.dart';
 class ApplyOutgoingFilterRulesResponse extends ApplyFilterRulesResponse {
   ApplyOutgoingFilterRulesResponse({super.msgIds});
 
-  factory ApplyOutgoingFilterRulesResponse.fromJson(Map<String, dynamic> json) =>
-      ApplyOutgoingFilterRulesResponse(msgIds: (json['m'] is Map) ? IdsAttr.fromJson(json['m']) : null);
+  factory ApplyOutgoingFilterRulesResponse.fromMap(Map<String, dynamic> data) =>
+      ApplyOutgoingFilterRulesResponse(msgIds: (data['m'] is Map) ? IdsAttr.fromMap(data['m']) : null);
 }

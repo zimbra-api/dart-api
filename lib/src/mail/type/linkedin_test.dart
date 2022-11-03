@@ -7,6 +7,6 @@ import 'filter_test.dart';
 class LinkedInTest extends FilterTest {
   LinkedInTest({super.index, super.negative});
 
-  factory LinkedInTest.fromJson(Map<String, dynamic> json) =>
-      LinkedInTest(index: json['index'], negative: json['negative']);
+  factory LinkedInTest.fromMap(Map<String, dynamic> data) =>
+      LinkedInTest(index: data['index'], negative: data['negative']);
 }

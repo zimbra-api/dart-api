@@ -10,7 +10,7 @@ void main() {
   group('Get system retention policy tests', (() {
     test('Get system retention policy request', (() {
       final request = GetSystemRetentionPolicyRequest();
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'GetSystemRetentionPolicyRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -24,7 +24,7 @@ void main() {
       final name = faker.lorem.word();
       final lifetime = faker.lorem.word();
 
-      final json = {
+      final data = {
         'Body': {
           'GetSystemRetentionPolicyResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -53,7 +53,7 @@ void main() {
           }
         }
       };
-      final envelope = GetSystemRetentionPolicyEnvelope.fromJson(json);
+      final envelope = GetSystemRetentionPolicyEnvelope.fromMap(data);
       final response = envelope.getSystemRetentionPolicyBody.getSystemRetentionPolicyResponse!;
       final retentionPolicy = response.retentionPolicy!;
 

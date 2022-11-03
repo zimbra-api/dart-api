@@ -113,7 +113,7 @@ void main() {
           ),
         ),
       );
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'FolderActionRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -197,7 +197,7 @@ void main() {
       final displayName = faker.person.name();
       final accessKey = faker.internet.password();
 
-      final json = {
+      final data = {
         'Body': {
           'FolderActionResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -213,7 +213,7 @@ void main() {
           }
         }
       };
-      final envelope = FolderActionEnvelope.fromJson(json);
+      final envelope = FolderActionEnvelope.fromMap(data);
       final response = envelope.folderActionBody.folderActionResponse!;
       final action = response.action!;
 

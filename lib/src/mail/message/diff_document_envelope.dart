@@ -10,9 +10,9 @@ import 'diff_document_body.dart';
 class DiffDocumentEnvelope extends SoapEnvelope {
   DiffDocumentEnvelope(DiffDocumentBody body, {super.header}) : super(body);
 
-  factory DiffDocumentEnvelope.fromJson(Map<String, dynamic> json) =>
-      DiffDocumentEnvelope(DiffDocumentBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory DiffDocumentEnvelope.fromMap(Map<String, dynamic> data) =>
+      DiffDocumentEnvelope(DiffDocumentBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   DiffDocumentBody get diffDocumentBody => body as DiffDocumentBody;
 }

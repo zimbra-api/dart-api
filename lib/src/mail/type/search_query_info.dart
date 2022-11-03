@@ -15,18 +15,18 @@ class SearchQueryInfo {
 
   SearchQueryInfo({this.suggests = const [], this.wildcards = const []});
 
-  factory SearchQueryInfo.fromJson(Map<String, dynamic> json) => SearchQueryInfo(
-      suggests: (json['suggest'] is Iterable)
-          ? List.from((json['suggest'] as Iterable)
-              .map<SuggestedQueryString>((suggest) => SuggestedQueryString.fromJson(suggest)))
+  factory SearchQueryInfo.fromMap(Map<String, dynamic> data) => SearchQueryInfo(
+      suggests: (data['suggest'] is Iterable)
+          ? List.from((data['suggest'] as Iterable)
+              .map<SuggestedQueryString>((suggest) => SuggestedQueryString.fromMap(suggest)))
           : [],
-      wildcards: (json['wildcard'] is Iterable)
-          ? List.from((json['wildcard'] as Iterable)
-              .map<WildcardExpansionQueryInfo>((wildcard) => WildcardExpansionQueryInfo.fromJson(wildcard)))
+      wildcards: (data['wildcard'] is Iterable)
+          ? List.from((data['wildcard'] as Iterable)
+              .map<WildcardExpansionQueryInfo>((wildcard) => WildcardExpansionQueryInfo.fromMap(wildcard)))
           : []);
 
-  Map<String, dynamic> toJson() => {
-        if (suggests.isNotEmpty) 'suggest': suggests.map((suggest) => suggest.toJson()).toList(),
-        if (wildcards.isNotEmpty) 'wildcard': wildcards.map((wildcard) => wildcard.toJson()).toList(),
+  Map<String, dynamic> toMap() => {
+        if (suggests.isNotEmpty) 'suggest': suggests.map((suggest) => suggest.toMap()).toList(),
+        if (wildcards.isNotEmpty) 'wildcard': wildcards.map((wildcard) => wildcard.toMap()).toList(),
       };
 }

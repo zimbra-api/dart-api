@@ -12,16 +12,16 @@ class GetTaskBody extends SoapBody {
   GetTaskBody({GetTaskRequest? request, GetTaskResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory GetTaskBody.fromJson(Map<String, dynamic> json) => GetTaskBody(
-      response: json['GetTaskResponse'] != null ? GetTaskResponse.fromJson(json['GetTaskResponse']) : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+  factory GetTaskBody.fromMap(Map<String, dynamic> data) => GetTaskBody(
+      response: data['GetTaskResponse'] != null ? GetTaskResponse.fromMap(data['GetTaskResponse']) : null,
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   GetTaskRequest? get getTaskRequest => request as GetTaskRequest?;
 
   GetTaskResponse? get getTaskResponse => response as GetTaskResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'GetTaskRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'GetTaskRequest': request!.toMap(),
       };
 }

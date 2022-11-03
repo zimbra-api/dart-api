@@ -12,16 +12,16 @@ class NoteActionBody extends SoapBody {
   NoteActionBody({NoteActionRequest? request, NoteActionResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory NoteActionBody.fromJson(Map<String, dynamic> json) => NoteActionBody(
-      response: json['NoteActionResponse'] != null ? NoteActionResponse.fromJson(json['NoteActionResponse']) : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+  factory NoteActionBody.fromMap(Map<String, dynamic> data) => NoteActionBody(
+      response: data['NoteActionResponse'] != null ? NoteActionResponse.fromMap(data['NoteActionResponse']) : null,
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   NoteActionRequest? get noteActionRequest => request as NoteActionRequest?;
 
   NoteActionResponse? get noteActionResponse => response as NoteActionResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'NoteActionRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'NoteActionRequest': request!.toMap(),
       };
 }

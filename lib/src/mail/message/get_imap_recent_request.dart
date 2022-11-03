@@ -21,7 +21,7 @@ class GetIMAPRecentRequest extends SoapRequest {
       GetIMAPRecentEnvelope(GetIMAPRecentBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
         'id': id,
       };

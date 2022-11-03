@@ -13,7 +13,7 @@ void main() {
       final text = faker.lorem.word();
       final request = AddCommentRequest(AddedComment(parentId, text));
 
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'AddCommentRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -28,7 +28,7 @@ void main() {
 
     test('Add comment response', () {
       final id = faker.guid.guid();
-      final json = {
+      final data = {
         'Body': {
           'AddCommentResponse': {
             '_jsns': 'urn:zimbraAccount',
@@ -38,7 +38,7 @@ void main() {
           }
         }
       };
-      final envelope = AddCommentEnvelope.fromJson(json);
+      final envelope = AddCommentEnvelope.fromMap(data);
       final response = envelope.addCommentBody.addCommentResponse!;
       final comment = response.comment!;
 

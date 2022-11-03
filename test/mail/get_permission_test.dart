@@ -12,7 +12,7 @@ void main() {
     test('Get permissions request', (() {
       final right = faker.lorem.word();
       final request = GetPermissionRequest(aces: [Right(right: right)]);
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'GetPermissionRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -32,7 +32,7 @@ void main() {
       final accessKey = faker.internet.password();
       final deny = faker.randomGenerator.boolean();
 
-      final json = {
+      final data = {
         'Body': {
           'GetPermissionResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -50,7 +50,7 @@ void main() {
           }
         }
       };
-      final envelope = GetPermissionEnvelope.fromJson(json);
+      final envelope = GetPermissionEnvelope.fromMap(data);
       final response = envelope.getPermissionBody.getPermissionResponse!;
       final ace = response.aces.first;
 

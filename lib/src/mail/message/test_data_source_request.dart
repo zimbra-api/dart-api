@@ -61,15 +61,15 @@ class TestDataSourceRequest extends SoapRequest {
       TestDataSourceEnvelope(TestDataSourceBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
-        if (imapDataSource != null) 'imap': imapDataSource!.toJson(),
-        if (pop3DataSource != null) 'pop3': pop3DataSource!.toJson(),
-        if (caldavDataSource != null) 'caldav': caldavDataSource!.toJson(),
-        if (yabDataSource != null) 'yab': yabDataSource!.toJson(),
-        if (rssDataSource != null) 'rss': rssDataSource!.toJson(),
-        if (galDataSource != null) 'gal': galDataSource!.toJson(),
-        if (calDataSource != null) 'cal': calDataSource!.toJson(),
-        if (unknownDataSource != null) 'unknown': unknownDataSource!.toJson(),
+        if (imapDataSource != null) 'imap': imapDataSource!.toMap(),
+        if (pop3DataSource != null) 'pop3': pop3DataSource!.toMap(),
+        if (caldavDataSource != null) 'caldav': caldavDataSource!.toMap(),
+        if (yabDataSource != null) 'yab': yabDataSource!.toMap(),
+        if (rssDataSource != null) 'rss': rssDataSource!.toMap(),
+        if (galDataSource != null) 'gal': galDataSource!.toMap(),
+        if (calDataSource != null) 'cal': calDataSource!.toMap(),
+        if (unknownDataSource != null) 'unknown': unknownDataSource!.toMap(),
       };
 }

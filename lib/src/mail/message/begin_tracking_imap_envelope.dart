@@ -10,9 +10,9 @@ import 'begin_tracking_imap_body.dart';
 class BeginTrackingIMAPEnvelope extends SoapEnvelope {
   BeginTrackingIMAPEnvelope(BeginTrackingIMAPBody body, {super.header}) : super(body);
 
-  factory BeginTrackingIMAPEnvelope.fromJson(Map<String, dynamic> json) =>
-      BeginTrackingIMAPEnvelope(BeginTrackingIMAPBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory BeginTrackingIMAPEnvelope.fromMap(Map<String, dynamic> data) =>
+      BeginTrackingIMAPEnvelope(BeginTrackingIMAPBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   BeginTrackingIMAPBody get beginTrackingIMAPBody => body as BeginTrackingIMAPBody;
 }

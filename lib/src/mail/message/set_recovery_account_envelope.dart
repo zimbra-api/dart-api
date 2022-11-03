@@ -10,9 +10,9 @@ import 'set_recovery_account_body.dart';
 class SetRecoveryAccountEnvelope extends SoapEnvelope {
   SetRecoveryAccountEnvelope(SetRecoveryAccountBody body, {super.header}) : super(body);
 
-  factory SetRecoveryAccountEnvelope.fromJson(Map<String, dynamic> json) =>
-      SetRecoveryAccountEnvelope(SetRecoveryAccountBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory SetRecoveryAccountEnvelope.fromMap(Map<String, dynamic> data) =>
+      SetRecoveryAccountEnvelope(SetRecoveryAccountBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   SetRecoveryAccountBody get setRecoveryAccountBody => body as SetRecoveryAccountBody;
 }

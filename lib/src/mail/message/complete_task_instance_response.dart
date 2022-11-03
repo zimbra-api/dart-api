@@ -7,5 +7,5 @@ import 'package:zimbra_api/src/common/type/soap_response.dart';
 class CompleteTaskInstanceResponse extends SoapResponse {
   CompleteTaskInstanceResponse();
 
-  factory CompleteTaskInstanceResponse.fromJson(Map<String, dynamic> json) => CompleteTaskInstanceResponse();
+  factory CompleteTaskInstanceResponse.fromMap(Map<String, dynamic> data) => CompleteTaskInstanceResponse();
 }

@@ -9,9 +9,9 @@ import 'get_filter_rules_response.dart';
 class GetOutgoingFilterRulesResponse extends GetFilterRulesResponse {
   GetOutgoingFilterRulesResponse({super.filterRules = const []});
 
-  factory GetOutgoingFilterRulesResponse.fromJson(Map<String, dynamic> json) => GetOutgoingFilterRulesResponse(
-      filterRules: (json['filterRules']?['filterRule'] is Iterable)
-          ? List.from((json['filterRules']['filterRule'] as Iterable)
-              .map<FilterRule>((filterRule) => FilterRule.fromJson(filterRule)))
+  factory GetOutgoingFilterRulesResponse.fromMap(Map<String, dynamic> data) => GetOutgoingFilterRulesResponse(
+      filterRules: (data['filterRules']?['filterRule'] is Iterable)
+          ? List.from((data['filterRules']['filterRule'] as Iterable)
+              .map<FilterRule>((filterRule) => FilterRule.fromMap(filterRule)))
           : []);
 }

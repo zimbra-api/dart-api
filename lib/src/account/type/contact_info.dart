@@ -83,41 +83,41 @@ class ContactInfo {
       this.isOwner,
       this.isMember});
 
-  factory ContactInfo.fromJson(Map<String, dynamic> json) => ContactInfo(
-        sortField: json['sf'],
-        canExpand: json['exp'],
-        id: json['id'],
-        folder: json['l'],
-        flags: json['f'],
-        tags: json['t'],
-        tagNames: json['tn'],
-        changeDate: json['md'],
-        modifiedSequenceId: json['ms'],
-        date: json['d'],
-        revisionId: json['rev'],
-        fileAs: json['fileAsStr'],
-        email: json['email'],
-        email2: json['email2'],
-        email3: json['email3'],
-        type: json['type'],
-        dlist: json['dlist'],
-        reference: json['ref'],
-        tooManyMembers: json['tooManyMembers'],
-        metadatas: (json['meta'] is Iterable)
+  factory ContactInfo.fromMap(Map<String, dynamic> data) => ContactInfo(
+        sortField: data['sf'],
+        canExpand: data['exp'],
+        id: data['id'],
+        folder: data['l'],
+        flags: data['f'],
+        tags: data['t'],
+        tagNames: data['tn'],
+        changeDate: data['md'],
+        modifiedSequenceId: data['ms'],
+        date: data['d'],
+        revisionId: data['rev'],
+        fileAs: data['fileAsStr'],
+        email: data['email'],
+        email2: data['email2'],
+        email3: data['email3'],
+        type: data['type'],
+        dlist: data['dlist'],
+        reference: data['ref'],
+        tooManyMembers: data['tooManyMembers'],
+        metadatas: (data['meta'] is Iterable)
             ? List.from(
-                (json['meta'] as Iterable).map<AccountCustomMetadata>((meta) => AccountCustomMetadata.fromJson(meta)))
+                (data['meta'] as Iterable).map<AccountCustomMetadata>((meta) => AccountCustomMetadata.fromMap(meta)))
             : [],
-        attrs: (json['_attrs'] is Map)
-            ? List.from(Utils.contactAttrsFromJson(json['_attrs'] as Map<String, dynamic>))
+        attrs: (data['_attrs'] is Map)
+            ? List.from(Utils.contactAttrsFromJson(data['_attrs'] as Map<String, dynamic>))
             : [],
-        contactGroupMembers: (json['m'] is Iterable)
-            ? List.from((json['m'] as Iterable).map<ContactGroupMember>((m) => ContactGroupMember.fromJson(m)))
+        contactGroupMembers: (data['m'] is Iterable)
+            ? List.from((data['m'] as Iterable).map<ContactGroupMember>((m) => ContactGroupMember.fromMap(m)))
             : [],
-        isOwner: json['isOwner'],
-        isMember: json['isMember'],
+        isOwner: data['isOwner'],
+        isMember: data['isMember'],
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (sortField != null) 'sf': sortField,
         if (canExpand != null) 'exp': canExpand,
         if (id != null) 'id': id,
@@ -137,9 +137,9 @@ class ContactInfo {
         if (dlist != null) 'dlist': dlist,
         if (reference != null) 'ref': reference,
         if (tooManyMembers != null) 'tooManyMembers': tooManyMembers,
-        if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toJson()).toList(),
-        if (attrs.isNotEmpty) 'a': attrs.map((a) => a.toJson()).toList(),
-        if (contactGroupMembers.isNotEmpty) 'm': contactGroupMembers.map((m) => m.toJson()).toList(),
+        if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toMap()).toList(),
+        if (attrs.isNotEmpty) 'a': attrs.map((a) => a.toMap()).toList(),
+        if (contactGroupMembers.isNotEmpty) 'm': contactGroupMembers.map((m) => m.toMap()).toList(),
         if (isOwner != null) 'isOwner': isOwner,
         if (isMember != null) 'isMember': isMember,
       };

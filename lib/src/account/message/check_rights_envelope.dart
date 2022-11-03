@@ -10,9 +10,9 @@ import 'check_rights_body.dart';
 class CheckRightsEnvelope extends SoapEnvelope {
   CheckRightsEnvelope(CheckRightsBody body, {super.header}) : super(body);
 
-  factory CheckRightsEnvelope.fromJson(Map<String, dynamic> json) =>
-      CheckRightsEnvelope(CheckRightsBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory CheckRightsEnvelope.fromMap(Map<String, dynamic> data) =>
+      CheckRightsEnvelope(CheckRightsBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   CheckRightsBody get checkRightsBody => body as CheckRightsBody;
 }

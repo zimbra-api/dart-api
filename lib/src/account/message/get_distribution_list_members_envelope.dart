@@ -10,9 +10,9 @@ import 'get_distribution_list_members_body.dart';
 class GetDistributionListMembersEnvelope extends SoapEnvelope {
   GetDistributionListMembersEnvelope(GetDistributionListMembersBody body, {super.header}) : super(body);
 
-  factory GetDistributionListMembersEnvelope.fromJson(Map<String, dynamic> json) =>
-      GetDistributionListMembersEnvelope(GetDistributionListMembersBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory GetDistributionListMembersEnvelope.fromMap(Map<String, dynamic> data) =>
+      GetDistributionListMembersEnvelope(GetDistributionListMembersBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   GetDistributionListMembersBody get getDistributionListMembersBody => body as GetDistributionListMembersBody;
 }

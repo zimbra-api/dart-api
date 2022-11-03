@@ -7,5 +7,5 @@ import 'package:zimbra_api/src/common/type/soap_response.dart';
 class EnableSharedReminderResponse extends SoapResponse {
   EnableSharedReminderResponse();
 
-  factory EnableSharedReminderResponse.fromJson(Map<String, dynamic> json) => EnableSharedReminderResponse();
+  factory EnableSharedReminderResponse.fromMap(Map<String, dynamic> data) => EnableSharedReminderResponse();
 }

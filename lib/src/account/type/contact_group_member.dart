@@ -15,14 +15,14 @@ class ContactGroupMember {
 
   ContactGroupMember({this.type = '', this.value = '', this.contact});
 
-  factory ContactGroupMember.fromJson(Map<String, dynamic> json) => ContactGroupMember(
-      type: json['type'] ?? '',
-      value: json['value'] ?? '',
-      contact: (json['cn'] is Map) ? ContactInfo.fromJson(json['cn']) : null);
+  factory ContactGroupMember.fromMap(Map<String, dynamic> data) => ContactGroupMember(
+      type: data['type'] ?? '',
+      value: data['value'] ?? '',
+      contact: (data['cn'] is Map) ? ContactInfo.fromMap(data['cn']) : null);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'type': type,
         'value': value,
-        if (contact != null) 'cn': contact!.toJson(),
+        if (contact != null) 'cn': contact!.toMap(),
       };
 }

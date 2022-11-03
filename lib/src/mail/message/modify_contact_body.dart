@@ -12,17 +12,17 @@ class ModifyContactBody extends SoapBody {
   ModifyContactBody({ModifyContactRequest? request, ModifyContactResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory ModifyContactBody.fromJson(Map<String, dynamic> json) => ModifyContactBody(
+  factory ModifyContactBody.fromMap(Map<String, dynamic> data) => ModifyContactBody(
       response:
-          json['ModifyContactResponse'] != null ? ModifyContactResponse.fromJson(json['ModifyContactResponse']) : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+          data['ModifyContactResponse'] != null ? ModifyContactResponse.fromMap(data['ModifyContactResponse']) : null,
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   ModifyContactRequest? get modifyContactRequest => request as ModifyContactRequest?;
 
   ModifyContactResponse? get modifyContactResponse => response as ModifyContactResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'ModifyContactRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'ModifyContactRequest': request!.toMap(),
       };
 }

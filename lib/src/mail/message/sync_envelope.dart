@@ -10,8 +10,8 @@ import 'sync_body.dart';
 class SyncEnvelope extends SoapEnvelope {
   SyncEnvelope(SyncBody body, {super.header}) : super(body);
 
-  factory SyncEnvelope.fromJson(Map<String, dynamic> json) => SyncEnvelope(SyncBody.fromJson(json['Body']),
-      header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory SyncEnvelope.fromMap(Map<String, dynamic> data) => SyncEnvelope(SyncBody.fromMap(data['Body']),
+      header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   SyncBody get syncBody => body as SyncBody;
 }

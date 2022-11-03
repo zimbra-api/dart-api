@@ -10,9 +10,9 @@ import 'grant_rights_body.dart';
 class GrantRightsEnvelope extends SoapEnvelope {
   GrantRightsEnvelope(GrantRightsBody body, {super.header}) : super(body);
 
-  factory GrantRightsEnvelope.fromJson(Map<String, dynamic> json) =>
-      GrantRightsEnvelope(GrantRightsBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory GrantRightsEnvelope.fromMap(Map<String, dynamic> data) =>
+      GrantRightsEnvelope(GrantRightsBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   GrantRightsBody get grantRightsBody => body as GrantRightsBody;
 }

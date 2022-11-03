@@ -10,9 +10,9 @@ import 'create_tag_body.dart';
 class CreateTagEnvelope extends SoapEnvelope {
   CreateTagEnvelope(CreateTagBody body, {super.header}) : super(body);
 
-  factory CreateTagEnvelope.fromJson(Map<String, dynamic> json) =>
-      CreateTagEnvelope(CreateTagBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory CreateTagEnvelope.fromMap(Map<String, dynamic> data) =>
+      CreateTagEnvelope(CreateTagBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   CreateTagBody get createTagBody => body as CreateTagBody;
 }

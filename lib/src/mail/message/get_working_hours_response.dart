@@ -11,8 +11,8 @@ class GetWorkingHoursResponse extends SoapResponse {
 
   GetWorkingHoursResponse({this.freebusyUsers = const []});
 
-  factory GetWorkingHoursResponse.fromJson(Map<String, dynamic> json) => GetWorkingHoursResponse(
-      freebusyUsers: (json['usr'] is Iterable)
-          ? List.from((json['usr'] as Iterable).map<FreeBusyUserInfo>((usr) => FreeBusyUserInfo.fromJson(usr)))
+  factory GetWorkingHoursResponse.fromMap(Map<String, dynamic> data) => GetWorkingHoursResponse(
+      freebusyUsers: (data['usr'] is Iterable)
+          ? List.from((data['usr'] as Iterable).map<FreeBusyUserInfo>((usr) => FreeBusyUserInfo.fromMap(usr)))
           : []);
 }

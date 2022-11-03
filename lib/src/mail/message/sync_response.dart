@@ -84,43 +84,43 @@ class SyncResponse extends SoapResponse {
       this.msgItems = const [],
       this.chatItems = const []});
 
-  factory SyncResponse.fromJson(Map<String, dynamic> json) => SyncResponse(
-      changeDate: json['md'],
-      token: json['token'],
-      size: json['s'],
-      more: json['more'],
-      deleted: json['deleted'] is Map ? SyncDeletedInfo.fromJson(json['deleted']) : null,
-      folderItems: (json['folder'] is Iterable)
-          ? List.from((json['folder'] as Iterable).map<SyncFolder>((folder) => SyncFolder.fromJson(folder)))
+  factory SyncResponse.fromMap(Map<String, dynamic> data) => SyncResponse(
+      changeDate: data['md'],
+      token: data['token'],
+      size: data['s'],
+      more: data['more'],
+      deleted: data['deleted'] is Map ? SyncDeletedInfo.fromMap(data['deleted']) : null,
+      folderItems: (data['folder'] is Iterable)
+          ? List.from((data['folder'] as Iterable).map<SyncFolder>((folder) => SyncFolder.fromMap(folder)))
           : [],
-      tagItems: (json['tag'] is Iterable)
-          ? List.from((json['tag'] as Iterable).map<TagInfo>((tag) => TagInfo.fromJson(tag)))
+      tagItems: (data['tag'] is Iterable)
+          ? List.from((data['tag'] as Iterable).map<TagInfo>((tag) => TagInfo.fromMap(tag)))
           : [],
-      noteItems: (json['note'] is Iterable)
-          ? List.from((json['note'] as Iterable).map<NoteInfo>((note) => NoteInfo.fromJson(note)))
+      noteItems: (data['note'] is Iterable)
+          ? List.from((data['note'] as Iterable).map<NoteInfo>((note) => NoteInfo.fromMap(note)))
           : [],
-      contactItems: (json['cn'] is Iterable)
-          ? List.from((json['cn'] as Iterable).map<ContactInfo>((cn) => ContactInfo.fromJson(cn)))
+      contactItems: (data['cn'] is Iterable)
+          ? List.from((data['cn'] as Iterable).map<ContactInfo>((cn) => ContactInfo.fromMap(cn)))
           : [],
-      apptItems: (json['appt'] is Iterable)
-          ? List.from((json['appt'] as Iterable).map<CalendarItemInfo>((appt) => CalendarItemInfo.fromJson(appt)))
+      apptItems: (data['appt'] is Iterable)
+          ? List.from((data['appt'] as Iterable).map<CalendarItemInfo>((appt) => CalendarItemInfo.fromMap(appt)))
           : [],
-      taskItems: (json['task'] is Iterable)
-          ? List.from((json['task'] as Iterable).map<TaskItemInfo>((task) => TaskItemInfo.fromJson(task)))
+      taskItems: (data['task'] is Iterable)
+          ? List.from((data['task'] as Iterable).map<TaskItemInfo>((task) => TaskItemInfo.fromMap(task)))
           : [],
-      convItems: (json['c'] is Iterable)
-          ? List.from((json['c'] as Iterable).map<ConversationSummary>((conv) => ConversationSummary.fromJson(conv)))
+      convItems: (data['c'] is Iterable)
+          ? List.from((data['c'] as Iterable).map<ConversationSummary>((conv) => ConversationSummary.fromMap(conv)))
           : [],
-      wikiItems: (json['w'] is Iterable)
-          ? List.from((json['w'] as Iterable).map<CommonDocumentInfo>((wiki) => CommonDocumentInfo.fromJson(wiki)))
+      wikiItems: (data['w'] is Iterable)
+          ? List.from((data['w'] as Iterable).map<CommonDocumentInfo>((wiki) => CommonDocumentInfo.fromMap(wiki)))
           : [],
-      docItems: (json['doc'] is Iterable)
-          ? List.from((json['doc'] as Iterable).map<DocumentInfo>((doc) => DocumentInfo.fromJson(doc)))
+      docItems: (data['doc'] is Iterable)
+          ? List.from((data['doc'] as Iterable).map<DocumentInfo>((doc) => DocumentInfo.fromMap(doc)))
           : [],
-      msgItems: (json['m'] is Iterable)
-          ? List.from((json['m'] as Iterable).map<MessageSummary>((msg) => MessageSummary.fromJson(msg)))
+      msgItems: (data['m'] is Iterable)
+          ? List.from((data['m'] as Iterable).map<MessageSummary>((msg) => MessageSummary.fromMap(msg)))
           : [],
-      chatItems: (json['chat'] is Iterable)
-          ? List.from((json['chat'] as Iterable).map<ChatSummary>((chat) => ChatSummary.fromJson(chat)))
+      chatItems: (data['chat'] is Iterable)
+          ? List.from((data['chat'] as Iterable).map<ChatSummary>((chat) => ChatSummary.fromMap(chat)))
           : []);
 }

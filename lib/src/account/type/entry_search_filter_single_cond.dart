@@ -15,16 +15,16 @@ class EntrySearchFilterSingleCond {
 
   EntrySearchFilterSingleCond(this.attr, this.op, {this.value, this.isNot});
 
-  factory EntrySearchFilterSingleCond.fromJson(Map<String, dynamic> json) => EntrySearchFilterSingleCond(
-      json['attr'] ?? '',
+  factory EntrySearchFilterSingleCond.fromMap(Map<String, dynamic> data) => EntrySearchFilterSingleCond(
+      data['attr'] ?? '',
       ConditionOperator.values.firstWhere(
-        (item) => item.name == json['op'],
+        (item) => item.name == data['op'],
         orElse: () => ConditionOperator.equal,
       ),
-      value: json['value'],
-      isNot: json['not']);
+      value: data['value'],
+      isNot: data['not']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'attr': attr,
         'op': op.name,
         if (value != null) 'value': value,

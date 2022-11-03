@@ -10,9 +10,9 @@ import 'auto_complete_body.dart';
 class AutoCompleteEnvelope extends SoapEnvelope {
   AutoCompleteEnvelope(AutoCompleteBody body, {super.header}) : super(body);
 
-  factory AutoCompleteEnvelope.fromJson(Map<String, dynamic> json) =>
-      AutoCompleteEnvelope(AutoCompleteBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory AutoCompleteEnvelope.fromMap(Map<String, dynamic> data) =>
+      AutoCompleteEnvelope(AutoCompleteBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   AutoCompleteBody get autoCompleteBody => body as AutoCompleteBody;
 }

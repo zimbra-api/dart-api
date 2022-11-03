@@ -9,5 +9,5 @@ import 'soap_envelope.dart';
 abstract class SoapRequest {
   SoapEnvelope getEnvelope({SoapHeader? header});
 
-  Map<String, dynamic> toJson();
+  Map<String, dynamic> toMap();
 }

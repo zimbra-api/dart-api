@@ -11,7 +11,7 @@ void main() {
     test('Invalidate reminder device request', (() {
       final address = faker.internet.email();
       final request = InvalidateReminderDeviceRequest(address);
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'InvalidateReminderDeviceRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -22,14 +22,14 @@ void main() {
     }));
 
     test('Invalidate reminder device response', (() {
-      final json = {
+      final data = {
         'Body': {
           'InvalidateReminderDeviceResponse': {
             '_jsns': 'urn:zimbraMail',
           }
         }
       };
-      final envelope = InvalidateReminderDeviceEnvelope.fromJson(json);
+      final envelope = InvalidateReminderDeviceEnvelope.fromMap(data);
       final response = envelope.invalidateReminderDeviceBody.invalidateReminderDeviceResponse;
       expect(response, isNotNull);
       expect(response, isA<InvalidateReminderDeviceResponse>());

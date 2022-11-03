@@ -22,8 +22,8 @@ class CreateFolderRequest extends SoapRequest {
       CreateFolderEnvelope(CreateFolderBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
-        'folder': folder.toJson(),
+        'folder': folder.toMap(),
       };
 }

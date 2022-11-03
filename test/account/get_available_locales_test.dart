@@ -10,7 +10,7 @@ void main() {
     test('Get available locales request', (() {
       final request = GetAvailableLocalesRequest();
 
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'GetAvailableLocalesRequest': {
             '_jsns': 'urn:zimbraAccount',
@@ -24,7 +24,7 @@ void main() {
       final name = faker.lorem.word();
       final localName = faker.lorem.word();
 
-      final json = {
+      final data = {
         'Body': {
           'GetAvailableLocalesResponse': {
             '_jsns': 'urn:zimbraAccount',
@@ -38,7 +38,7 @@ void main() {
           },
         },
       };
-      final envelope = GetAvailableLocalesEnvelope.fromJson(json);
+      final envelope = GetAvailableLocalesEnvelope.fromMap(data);
       final response = envelope.getAvailableLocalesBody.getAvailableLocalesResponse!;
       final locale = response.locales.first;
 

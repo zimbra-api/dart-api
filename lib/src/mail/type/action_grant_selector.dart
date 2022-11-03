@@ -38,18 +38,18 @@ class ActionGrantSelector {
     this.accessKey,
   });
 
-  factory ActionGrantSelector.fromJson(Map<String, dynamic> json) => ActionGrantSelector(json['perm'] ?? '',
+  factory ActionGrantSelector.fromMap(Map<String, dynamic> data) => ActionGrantSelector(data['perm'] ?? '',
       grantType: GranteeType.values.firstWhere(
-        (gt) => gt.name == json['gt'],
+        (gt) => gt.name == data['gt'],
         orElse: () => GranteeType.all,
       ),
-      zimbraId: json['zid'],
-      displayName: json['d'],
-      args: json['args'],
-      password: json['pw'],
-      accessKey: json['key']);
+      zimbraId: data['zid'],
+      displayName: data['d'],
+      args: data['args'],
+      password: data['pw'],
+      accessKey: data['key']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'perm': rights,
         'gt': grantType.name,
         if (zimbraId != null) 'zid': zimbraId,

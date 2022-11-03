@@ -10,11 +10,11 @@ class ReplyAction extends FilterAction {
 
   ReplyAction({this.content, super.index});
 
-  factory ReplyAction.fromJson(Map<String, dynamic> json) =>
-      ReplyAction(content: json['content']?['_content'], index: json['index']);
+  factory ReplyAction.fromMap(Map<String, dynamic> data) =>
+      ReplyAction(content: data['content']?['_content'], index: data['index']);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (content != null) 'content': {'_content': content},
         if (index != null) 'index': index,
       };

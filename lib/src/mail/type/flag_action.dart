@@ -12,15 +12,15 @@ class FlagAction extends FilterAction {
 
   FlagAction({this.flag, super.index});
 
-  factory FlagAction.fromJson(Map<String, dynamic> json) => FlagAction(
+  factory FlagAction.fromMap(Map<String, dynamic> data) => FlagAction(
       flag: FilterFlagName.values.firstWhere(
-        (flagName) => flagName.name == json['flagName'],
+        (flagName) => flagName.name == data['flagName'],
         orElse: () => FilterFlagName.flagged,
       ),
-      index: json['index']);
+      index: data['index']);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (flag != null) 'flagName': flag!.name,
         if (index != null) 'index': index,
       };

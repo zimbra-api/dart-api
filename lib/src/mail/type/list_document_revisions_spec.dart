@@ -14,10 +14,10 @@ class ListDocumentRevisionsSpec {
 
   ListDocumentRevisionsSpec({this.id, this.version, this.count});
 
-  factory ListDocumentRevisionsSpec.fromJson(Map<String, dynamic> json) =>
-      ListDocumentRevisionsSpec(id: json['id'], version: json['ver'], count: json['count']);
+  factory ListDocumentRevisionsSpec.fromMap(Map<String, dynamic> data) =>
+      ListDocumentRevisionsSpec(id: data['id'], version: data['ver'], count: data['count']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (id != null) 'id': id,
         if (version != null) 'ver': version,
         if (count != null) 'count': count,

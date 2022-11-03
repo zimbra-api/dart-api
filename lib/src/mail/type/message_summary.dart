@@ -44,36 +44,36 @@ class MessageSummary extends MessageCommon {
       super.modifiedSequence,
       super.metadatas = const []});
 
-  factory MessageSummary.fromJson(Map<String, dynamic> json) => MessageSummary(json['id'] ?? '',
-      autoSendTime: json['autoSendTime'],
-      emails: (json['e'] is Iterable)
-          ? List.from((json['e'] as Iterable).map<EmailInfo>((e) => EmailInfo.fromJson(e)))
+  factory MessageSummary.fromMap(Map<String, dynamic> data) => MessageSummary(data['id'] ?? '',
+      autoSendTime: data['autoSendTime'],
+      emails: (data['e'] is Iterable)
+          ? List.from((data['e'] as Iterable).map<EmailInfo>((e) => EmailInfo.fromMap(e)))
           : [],
-      subject: json['su']?['_content'],
-      fragment: json['fr']?['_content'],
-      invite: json['inv'] is Map ? InviteInfo.fromJson(json['inv']) : null,
-      size: json['s'],
-      date: json['d'],
-      folder: json['l'],
-      conversationId: json['cid'],
-      flags: json['f'],
-      tags: json['t'],
-      tagNames: json['tn'],
-      revision: json['rev'],
-      changeDate: json['md'],
-      modifiedSequence: json['ms'],
-      metadatas: (json['meta'] is Iterable)
-          ? List.from((json['meta'] as Iterable).map<MailCustomMetadata>((meta) => MailCustomMetadata.fromJson(meta)))
+      subject: data['su']?['_content'],
+      fragment: data['fr']?['_content'],
+      invite: data['inv'] is Map ? InviteInfo.fromMap(data['inv']) : null,
+      size: data['s'],
+      date: data['d'],
+      folder: data['l'],
+      conversationId: data['cid'],
+      flags: data['f'],
+      tags: data['t'],
+      tagNames: data['tn'],
+      revision: data['rev'],
+      changeDate: data['md'],
+      modifiedSequence: data['ms'],
+      metadatas: (data['meta'] is Iterable)
+          ? List.from((data['meta'] as Iterable).map<MailCustomMetadata>((meta) => MailCustomMetadata.fromMap(meta)))
           : []);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'id': id,
         if (autoSendTime != null) 'autoSendTime': autoSendTime,
-        if (emails.isNotEmpty) 'e': emails.map((e) => e.toJson()).toList(),
+        if (emails.isNotEmpty) 'e': emails.map((e) => e.toMap()).toList(),
         if (subject != null) 'su': {'_content': subject},
         if (fragment != null) 'fr': {'_content': fragment},
-        if (invite != null) 'inv': invite!.toJson(),
+        if (invite != null) 'inv': invite!.toMap(),
         if (size != null) 's': size,
         if (date != null) 'd': date,
         if (folder != null) 'l': folder,
@@ -84,6 +84,6 @@ class MessageSummary extends MessageCommon {
         if (revision != null) 'rev': revision,
         if (changeDate != null) 'md': changeDate,
         if (modifiedSequence != null) 'ms': modifiedSequence,
-        if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toJson()).toList(),
+        if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toMap()).toList(),
       };
 }

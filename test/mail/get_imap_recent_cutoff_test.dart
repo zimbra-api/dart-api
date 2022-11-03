@@ -10,7 +10,7 @@ void main() {
     test('Get IMAP recent cutoff request', (() {
       final id = faker.guid.guid();
       final request = GetIMAPRecentCutoffRequest(id);
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'GetIMAPRecentCutoffRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -22,7 +22,7 @@ void main() {
 
     test('Get IMAP recent cutoff response', (() {
       final cutoff = faker.randomGenerator.integer(100);
-      final json = {
+      final data = {
         'Body': {
           'GetIMAPRecentCutoffResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -30,7 +30,7 @@ void main() {
           }
         }
       };
-      final envelope = GetIMAPRecentCutoffEnvelope.fromJson(json);
+      final envelope = GetIMAPRecentCutoffEnvelope.fromMap(data);
       final response = envelope.getIMAPRecentCutoffBody.getIMAPRecentCutoffResponse!;
       expect(response.cutoff, cutoff);
     }));

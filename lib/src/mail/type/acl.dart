@@ -17,16 +17,16 @@ class Acl {
 
   Acl({this.internalGrantExpiry, this.guestGrantExpiry, this.grants = const []});
 
-  factory Acl.fromJson(Map<String, dynamic> json) => Acl(
-      internalGrantExpiry: json['internalGrantExpiry'],
-      guestGrantExpiry: json['guestGrantExpiry'],
-      grants: (json['grant'] is Iterable)
-          ? List.from((json['grant'] as Iterable).map<Grant>((grant) => Grant.fromJson(grant)))
+  factory Acl.fromMap(Map<String, dynamic> data) => Acl(
+      internalGrantExpiry: data['internalGrantExpiry'],
+      guestGrantExpiry: data['guestGrantExpiry'],
+      grants: (data['grant'] is Iterable)
+          ? List.from((data['grant'] as Iterable).map<Grant>((grant) => Grant.fromMap(grant)))
           : []);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (internalGrantExpiry != null) 'internalGrantExpiry': internalGrantExpiry,
         if (guestGrantExpiry != null) 'guestGrantExpiry': guestGrantExpiry,
-        if (grants.isNotEmpty) 'grant': grants.map((grant) => grant.toJson()).toList(),
+        if (grants.isNotEmpty) 'grant': grants.map((grant) => grant.toMap()).toList(),
       };
 }

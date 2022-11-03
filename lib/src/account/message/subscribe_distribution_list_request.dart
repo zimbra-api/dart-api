@@ -26,9 +26,9 @@ class SubscribeDistributionListRequest extends SoapRequest {
       SubscribeDistributionListEnvelope(SubscribeDistributionListBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraAccount',
         'op': op.name,
-        'dl': dl.toJson(),
+        'dl': dl.toMap(),
       };
 }

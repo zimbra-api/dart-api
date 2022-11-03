@@ -10,9 +10,9 @@ import 'create_contact_body.dart';
 class CreateContactEnvelope extends SoapEnvelope {
   CreateContactEnvelope(CreateContactBody body, {super.header}) : super(body);
 
-  factory CreateContactEnvelope.fromJson(Map<String, dynamic> json) =>
-      CreateContactEnvelope(CreateContactBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory CreateContactEnvelope.fromMap(Map<String, dynamic> data) =>
+      CreateContactEnvelope(CreateContactBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   CreateContactBody get createContactBody => body as CreateContactBody;
 }

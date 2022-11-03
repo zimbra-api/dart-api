@@ -23,8 +23,8 @@ class ModifyIdentityRequest extends SoapRequest {
       ModifyIdentityEnvelope(ModifyIdentityBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraAccount',
-        'identity': identity.toJson(),
+        'identity': identity.toMap(),
       };
 }

@@ -110,19 +110,19 @@ class AuthRequest extends SoapRequest {
   SoapEnvelope getEnvelope({SoapHeader? header}) => AuthEnvelope(AuthBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraAccount',
         if (persistAuthTokenCookie != null) 'persistAuthTokenCookie': persistAuthTokenCookie,
         if (csrfSupported != null) 'csrfTokenSecured': csrfSupported,
-        if (account != null) 'account': account!.toJson(),
+        if (account != null) 'account': account!.toMap(),
         if (password != null) 'password': {'_content': password},
         if (recoveryCode != null) 'recoveryCode': {'_content': recoveryCode},
-        if (preauth != null) 'preauth': preauth!.toJson(),
-        if (authToken != null) 'authToken': authToken!.toJson(),
+        if (preauth != null) 'preauth': preauth!.toMap(),
+        if (authToken != null) 'authToken': authToken!.toMap(),
         if (jwtToken != null) 'jwtToken': {'_content': jwtToken},
         if (virtualHost != null) 'virtualHost': {'_content': virtualHost},
-        if (prefs.isNotEmpty) 'prefs': {'pref': prefs.map((pref) => pref.toJson()).toList()},
-        if (attrs.isNotEmpty) 'attrs': {'attr': attrs.map((attr) => attr.toJson()).toList()},
+        if (prefs.isNotEmpty) 'prefs': {'pref': prefs.map((pref) => pref.toMap()).toList()},
+        if (attrs.isNotEmpty) 'attrs': {'attr': attrs.map((attr) => attr.toMap()).toList()},
         if (requestedSkin != null) 'requestedSkin': {'_content': requestedSkin},
         if (twoFactorCode != null) 'twoFactorCode': {'_content': twoFactorCode},
         if (deviceTrusted != null) 'deviceTrusted': deviceTrusted,

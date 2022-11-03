@@ -16,17 +16,17 @@ class LicenseInfo {
 
   LicenseInfo(this.status, {this.attrs = const []});
 
-  factory LicenseInfo.fromJson(Map<String, dynamic> json) => LicenseInfo(
+  factory LicenseInfo.fromMap(Map<String, dynamic> data) => LicenseInfo(
       LicenseStatus.values.firstWhere(
-        (status) => status.name == json['status'],
+        (status) => status.name == data['status'],
         orElse: () => LicenseStatus.ok,
       ),
-      attrs: (json['attr'] is Iterable)
-          ? List.from((json['attr'] as Iterable).map<LicenseAttr>((attr) => LicenseAttr.fromJson(attr)))
+      attrs: (data['attr'] is Iterable)
+          ? List.from((data['attr'] as Iterable).map<LicenseAttr>((attr) => LicenseAttr.fromMap(attr)))
           : []);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'status': status.name,
-        if (attrs.isNotEmpty) 'attr': attrs.map((attr) => attr.toJson()).toList(),
+        if (attrs.isNotEmpty) 'attr': attrs.map((attr) => attr.toMap()).toList(),
       };
 }

@@ -12,16 +12,16 @@ class ImportDataBody extends SoapBody {
   ImportDataBody({ImportDataRequest? request, ImportDataResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory ImportDataBody.fromJson(Map<String, dynamic> json) => ImportDataBody(
-      response: json['ImportDataResponse'] != null ? ImportDataResponse.fromJson(json['ImportDataResponse']) : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+  factory ImportDataBody.fromMap(Map<String, dynamic> data) => ImportDataBody(
+      response: data['ImportDataResponse'] != null ? ImportDataResponse.fromMap(data['ImportDataResponse']) : null,
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   ImportDataRequest? get importDataRequest => request as ImportDataRequest?;
 
   ImportDataResponse? get importDataResponse => response as ImportDataResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'ImportDataRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'ImportDataRequest': request!.toMap(),
       };
 }

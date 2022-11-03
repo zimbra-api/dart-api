@@ -12,7 +12,7 @@ void main() {
     test('Modify zimlet prefs request', (() {
       final name = faker.lorem.word();
       final request = ModifyZimletPrefsRequest(zimlets: [ModifyZimletPrefsSpec(name, ZimletStatus.enabled)]);
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'ModifyZimletPrefsRequest': {
             '_jsns': 'urn:zimbraAccount',
@@ -30,7 +30,7 @@ void main() {
     test('Modify zimlet prefs response', (() {
       final zimlet1 = faker.lorem.word();
       final zimlet2 = faker.lorem.word();
-      final json = {
+      final data = {
         'Body': {
           'ModifyZimletPrefsResponse': {
             '_jsns': 'urn:zimbraAccount',
@@ -41,7 +41,7 @@ void main() {
           }
         }
       };
-      final envelope = ModifyZimletPrefsEnvelope.fromJson(json);
+      final envelope = ModifyZimletPrefsEnvelope.fromMap(data);
       final response = envelope.modifyZimletPrefsBody.modifyZimletPrefsResponse!;
       expect(response.zimlets, [zimlet1, zimlet2]);
     }));

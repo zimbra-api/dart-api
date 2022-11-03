@@ -10,9 +10,9 @@ import 'restore_contacts_body.dart';
 class RestoreContactsEnvelope extends SoapEnvelope {
   RestoreContactsEnvelope(RestoreContactsBody body, {super.header}) : super(body);
 
-  factory RestoreContactsEnvelope.fromJson(Map<String, dynamic> json) =>
-      RestoreContactsEnvelope(RestoreContactsBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory RestoreContactsEnvelope.fromMap(Map<String, dynamic> data) =>
+      RestoreContactsEnvelope(RestoreContactsBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   RestoreContactsBody get restoreContactsBody => body as RestoreContactsBody;
 }

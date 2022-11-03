@@ -13,18 +13,18 @@ class SaveIMAPSubscriptionsBody extends SoapBody {
       {SaveIMAPSubscriptionsRequest? request, SaveIMAPSubscriptionsResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory SaveIMAPSubscriptionsBody.fromJson(Map<String, dynamic> json) => SaveIMAPSubscriptionsBody(
-      response: json['SaveIMAPSubscriptionsResponse'] != null
-          ? SaveIMAPSubscriptionsResponse.fromJson(json['SaveIMAPSubscriptionsResponse'])
+  factory SaveIMAPSubscriptionsBody.fromMap(Map<String, dynamic> data) => SaveIMAPSubscriptionsBody(
+      response: data['SaveIMAPSubscriptionsResponse'] != null
+          ? SaveIMAPSubscriptionsResponse.fromMap(data['SaveIMAPSubscriptionsResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   SaveIMAPSubscriptionsRequest? get saveIMAPSubscriptionsRequest => request as SaveIMAPSubscriptionsRequest?;
 
   SaveIMAPSubscriptionsResponse? get saveIMAPSubscriptionsResponse => response as SaveIMAPSubscriptionsResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'SaveIMAPSubscriptionsRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'SaveIMAPSubscriptionsRequest': request!.toMap(),
       };
 }

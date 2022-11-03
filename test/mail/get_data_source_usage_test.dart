@@ -9,7 +9,7 @@ void main() {
   group('Get data source usage tests', (() {
     test('Get data source usage request', (() {
       final request = GetDataSourceUsageRequest();
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'GetDataSourceUsageRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -24,7 +24,7 @@ void main() {
       final dataSourceQuota = faker.randomGenerator.integer(100);
       final totalQuota = faker.randomGenerator.integer(100);
 
-      final json = {
+      final data = {
         'Body': {
           'GetDataSourceUsageResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -39,7 +39,7 @@ void main() {
           }
         }
       };
-      final envelope = GetDataSourceUsageEnvelope.fromJson(json);
+      final envelope = GetDataSourceUsageEnvelope.fromMap(data);
       final response = envelope.getDataSourceUsageBody.getDataSourceUsageResponse!;
 
       expect(response.dataSourceQuota, dataSourceQuota);

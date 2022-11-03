@@ -43,7 +43,7 @@ class GetFreeBusyRequest extends SoapRequest {
   SoapEnvelope getEnvelope({SoapHeader? header}) => GetFreeBusyEnvelope(GetFreeBusyBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
         's': startTime,
         'e': endTime,
@@ -51,6 +51,6 @@ class GetFreeBusyRequest extends SoapRequest {
         if (id != null) 'id': id,
         if (name != null) 'name': name,
         if (excludeUid != null) 'excludeUid': excludeUid,
-        if (freebusyUsers.isNotEmpty) 'usr': freebusyUsers.map((usr) => usr.toJson()).toList(),
+        if (freebusyUsers.isNotEmpty) 'usr': freebusyUsers.map((usr) => usr.toMap()).toList(),
       };
 }

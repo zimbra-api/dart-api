@@ -12,16 +12,16 @@ class ConversationTest extends FilterTest {
 
   ConversationTest({this.where, super.index, super.negative});
 
-  factory ConversationTest.fromJson(Map<String, dynamic> json) => ConversationTest(
+  factory ConversationTest.fromMap(Map<String, dynamic> data) => ConversationTest(
       where: WhereSetting.values.firstWhere(
-        (where) => where.name == json['where'],
+        (where) => where.name == data['where'],
         orElse: () => WhereSetting.started,
       ),
-      index: json['index'],
-      negative: json['negative']);
+      index: data['index'],
+      negative: data['negative']);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (where != null) 'where': where!.name,
         if (index != null) 'index': index,
         if (negative != null) 'negative': negative,

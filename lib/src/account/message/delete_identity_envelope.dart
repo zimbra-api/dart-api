@@ -10,9 +10,9 @@ import 'delete_identity_body.dart';
 class DeleteIdentityEnvelope extends SoapEnvelope {
   DeleteIdentityEnvelope(DeleteIdentityBody body, {super.header}) : super(body);
 
-  factory DeleteIdentityEnvelope.fromJson(Map<String, dynamic> json) =>
-      DeleteIdentityEnvelope(DeleteIdentityBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory DeleteIdentityEnvelope.fromMap(Map<String, dynamic> data) =>
+      DeleteIdentityEnvelope(DeleteIdentityBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   DeleteIdentityBody get deleteIdentityBody => body as DeleteIdentityBody;
 }

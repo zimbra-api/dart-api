@@ -12,16 +12,16 @@ class CreateTaskBody extends SoapBody {
   CreateTaskBody({CreateTaskRequest? request, CreateTaskResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory CreateTaskBody.fromJson(Map<String, dynamic> json) => CreateTaskBody(
-      response: json['CreateTaskResponse'] != null ? CreateTaskResponse.fromJson(json['CreateTaskResponse']) : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+  factory CreateTaskBody.fromMap(Map<String, dynamic> data) => CreateTaskBody(
+      response: data['CreateTaskResponse'] != null ? CreateTaskResponse.fromMap(data['CreateTaskResponse']) : null,
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   CreateTaskRequest? get createTaskRequest => request as CreateTaskRequest?;
 
   CreateTaskResponse? get createTaskResponse => response as CreateTaskResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'CreateTaskRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'CreateTaskRequest': request!.toMap(),
       };
 }

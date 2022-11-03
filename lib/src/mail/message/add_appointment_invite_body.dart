@@ -12,18 +12,18 @@ class AddAppointmentInviteBody extends SoapBody {
   AddAppointmentInviteBody({AddAppointmentInviteRequest? request, AddAppointmentInviteResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory AddAppointmentInviteBody.fromJson(Map<String, dynamic> json) => AddAppointmentInviteBody(
-      response: json['AddAppointmentInviteResponse'] != null
-          ? AddAppointmentInviteResponse.fromJson(json['AddAppointmentInviteResponse'])
+  factory AddAppointmentInviteBody.fromMap(Map<String, dynamic> data) => AddAppointmentInviteBody(
+      response: data['AddAppointmentInviteResponse'] != null
+          ? AddAppointmentInviteResponse.fromMap(data['AddAppointmentInviteResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   AddAppointmentInviteRequest? get addAppointmentInviteRequest => request as AddAppointmentInviteRequest?;
 
   AddAppointmentInviteResponse? get addAppointmentInviteResponse => response as AddAppointmentInviteResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'AddAppointmentInviteRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'AddAppointmentInviteRequest': request!.toMap(),
       };
 }

@@ -12,18 +12,18 @@ class GetModifiedItemsIDsBody extends SoapBody {
   GetModifiedItemsIDsBody({GetModifiedItemsIDsRequest? request, GetModifiedItemsIDsResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory GetModifiedItemsIDsBody.fromJson(Map<String, dynamic> json) => GetModifiedItemsIDsBody(
-      response: json['GetModifiedItemsIDsResponse'] != null
-          ? GetModifiedItemsIDsResponse.fromJson(json['GetModifiedItemsIDsResponse'])
+  factory GetModifiedItemsIDsBody.fromMap(Map<String, dynamic> data) => GetModifiedItemsIDsBody(
+      response: data['GetModifiedItemsIDsResponse'] != null
+          ? GetModifiedItemsIDsResponse.fromMap(data['GetModifiedItemsIDsResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   GetModifiedItemsIDsRequest? get getModifiedItemsIDsRequest => request as GetModifiedItemsIDsRequest?;
 
   GetModifiedItemsIDsResponse? get getModifiedItemsIDsResponse => response as GetModifiedItemsIDsResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'GetModifiedItemsIDsRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'GetModifiedItemsIDsRequest': request!.toMap(),
       };
 }

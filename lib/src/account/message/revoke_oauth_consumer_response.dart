@@ -7,5 +7,5 @@ import 'package:zimbra_api/src/common/type/soap_response.dart';
 class RevokeOAuthConsumerResponse extends SoapResponse {
   RevokeOAuthConsumerResponse();
 
-  factory RevokeOAuthConsumerResponse.fromJson(Map<String, dynamic> json) => RevokeOAuthConsumerResponse();
+  factory RevokeOAuthConsumerResponse.fromMap(Map<String, dynamic> data) => RevokeOAuthConsumerResponse();
 }

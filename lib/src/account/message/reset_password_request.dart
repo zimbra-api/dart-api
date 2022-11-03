@@ -20,7 +20,7 @@ class ResetPasswordRequest extends SoapRequest {
       ResetPasswordEnvelope(ResetPasswordBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraAccount',
         'password': {'_content': password},
       };

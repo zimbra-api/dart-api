@@ -12,18 +12,18 @@ class SetMailboxMetadataBody extends SoapBody {
   SetMailboxMetadataBody({SetMailboxMetadataRequest? request, SetMailboxMetadataResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory SetMailboxMetadataBody.fromJson(Map<String, dynamic> json) => SetMailboxMetadataBody(
-      response: json['SetMailboxMetadataResponse'] != null
-          ? SetMailboxMetadataResponse.fromJson(json['SetMailboxMetadataResponse'])
+  factory SetMailboxMetadataBody.fromMap(Map<String, dynamic> data) => SetMailboxMetadataBody(
+      response: data['SetMailboxMetadataResponse'] != null
+          ? SetMailboxMetadataResponse.fromMap(data['SetMailboxMetadataResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   SetMailboxMetadataRequest? get setMailboxMetadataRequest => request as SetMailboxMetadataRequest?;
 
   SetMailboxMetadataResponse? get setMailboxMetadataResponse => response as SetMailboxMetadataResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'SetMailboxMetadataRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'SetMailboxMetadataRequest': request!.toMap(),
       };
 }

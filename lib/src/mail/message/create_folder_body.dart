@@ -12,17 +12,17 @@ class CreateFolderBody extends SoapBody {
   CreateFolderBody({CreateFolderRequest? request, CreateFolderResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory CreateFolderBody.fromJson(Map<String, dynamic> json) => CreateFolderBody(
+  factory CreateFolderBody.fromMap(Map<String, dynamic> data) => CreateFolderBody(
       response:
-          json['CreateFolderResponse'] != null ? CreateFolderResponse.fromJson(json['CreateFolderResponse']) : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+          data['CreateFolderResponse'] != null ? CreateFolderResponse.fromMap(data['CreateFolderResponse']) : null,
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   CreateFolderRequest? get createFolderRequest => request as CreateFolderRequest?;
 
   CreateFolderResponse? get createFolderResponse => response as CreateFolderResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'CreateFolderRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'CreateFolderRequest': request!.toMap(),
       };
 }

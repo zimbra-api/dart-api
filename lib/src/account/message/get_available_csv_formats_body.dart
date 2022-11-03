@@ -13,18 +13,18 @@ class GetAvailableCsvFormatsBody extends SoapBody {
       {GetAvailableCsvFormatsRequest? request, GetAvailableCsvFormatsResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory GetAvailableCsvFormatsBody.fromJson(Map<String, dynamic> json) => GetAvailableCsvFormatsBody(
-      response: json['GetAvailableCsvFormatsResponse'] != null
-          ? GetAvailableCsvFormatsResponse.fromJson(json['GetAvailableCsvFormatsResponse'])
+  factory GetAvailableCsvFormatsBody.fromMap(Map<String, dynamic> data) => GetAvailableCsvFormatsBody(
+      response: data['GetAvailableCsvFormatsResponse'] != null
+          ? GetAvailableCsvFormatsResponse.fromMap(data['GetAvailableCsvFormatsResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   GetAvailableCsvFormatsRequest? get getAvailableCsvFormatsRequest => request as GetAvailableCsvFormatsRequest?;
 
   GetAvailableCsvFormatsResponse? get getAvailableCsvFormatsResponse => response as GetAvailableCsvFormatsResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'GetAvailableCsvFormatsRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'GetAvailableCsvFormatsRequest': request!.toMap(),
       };
 }

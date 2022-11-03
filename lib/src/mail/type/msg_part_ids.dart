@@ -11,9 +11,9 @@ class MsgPartIds {
 
   MsgPartIds({this.id, this.partIds});
 
-  factory MsgPartIds.fromJson(Map<String, dynamic> json) => MsgPartIds(id: json['id'], partIds: json['part']);
+  factory MsgPartIds.fromMap(Map<String, dynamic> data) => MsgPartIds(id: data['id'], partIds: data['part']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (id != null) 'id': id,
         if (partIds != null) 'part': partIds,
       };

@@ -9,7 +9,7 @@ void main() {
   group('Get contact backup list tests', (() {
     test('Get contact backup list request', (() {
       final request = GetContactBackupListRequest();
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'GetContactBackupListRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -21,7 +21,7 @@ void main() {
     test('Get contact backup list response', (() {
       final backup1 = faker.lorem.word();
       final backup2 = faker.lorem.word();
-      final json = {
+      final data = {
         'Body': {
           'GetContactBackupListResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -38,7 +38,7 @@ void main() {
           }
         }
       };
-      final envelope = GetContactBackupListEnvelope.fromJson(json);
+      final envelope = GetContactBackupListEnvelope.fromMap(data);
       final response = envelope.getContactBackupListBody.getContactBackupListResponse!;
       expect(response.backups.first, backup1);
       expect(response.backups.last, backup2);

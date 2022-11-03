@@ -12,16 +12,16 @@ class FlaggedTest extends FilterTest {
 
   FlaggedTest({this.flag, super.index, super.negative});
 
-  factory FlaggedTest.fromJson(Map<String, dynamic> json) => FlaggedTest(
+  factory FlaggedTest.fromMap(Map<String, dynamic> data) => FlaggedTest(
       flag: FilterFlagName.values.firstWhere(
-        (flagName) => flagName.name == json['flagName'],
+        (flagName) => flagName.name == data['flagName'],
         orElse: () => FilterFlagName.flagged,
       ),
-      index: json['index'],
-      negative: json['negative']);
+      index: data['index'],
+      negative: data['negative']);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (flag != null) 'flagName': flag!.name,
         if (index != null) 'index': index,
         if (negative != null) 'negative': negative,

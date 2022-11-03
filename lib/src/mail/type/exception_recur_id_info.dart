@@ -31,10 +31,10 @@ class ExceptionRecurIdInfo {
 
   ExceptionRecurIdInfo({this.dateTime, this.timezone, this.recurrenceRangeType});
 
-  factory ExceptionRecurIdInfo.fromJson(Map<String, dynamic> json) =>
-      ExceptionRecurIdInfo(dateTime: json['d'], timezone: json['tz'], recurrenceRangeType: json['rangeType']);
+  factory ExceptionRecurIdInfo.fromMap(Map<String, dynamic> data) =>
+      ExceptionRecurIdInfo(dateTime: data['d'], timezone: data['tz'], recurrenceRangeType: data['rangeType']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (dateTime != null) 'd': dateTime,
         if (timezone != null) 'tz': timezone,
         if (recurrenceRangeType != null)

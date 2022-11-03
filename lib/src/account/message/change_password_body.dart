@@ -12,18 +12,18 @@ class ChangePasswordBody extends SoapBody {
   ChangePasswordBody({ChangePasswordRequest? request, ChangePasswordResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory ChangePasswordBody.fromJson(Map<String, dynamic> json) => ChangePasswordBody(
-      response: json['ChangePasswordResponse'] != null
-          ? ChangePasswordResponse.fromJson(json['ChangePasswordResponse'])
+  factory ChangePasswordBody.fromMap(Map<String, dynamic> data) => ChangePasswordBody(
+      response: data['ChangePasswordResponse'] != null
+          ? ChangePasswordResponse.fromMap(data['ChangePasswordResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   ChangePasswordRequest? get changePasswordRequest => request as ChangePasswordRequest?;
 
   ChangePasswordResponse? get changePasswordResponse => response as ChangePasswordResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'ChangePasswordRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'ChangePasswordRequest': request!.toMap(),
       };
 }

@@ -11,10 +11,10 @@ import 'recurrence_info.dart';
 class ExpandedRecurrenceInvite extends ExpandedRecurrenceComponent {
   ExpandedRecurrenceInvite({super.exceptionId, super.startTime, super.endTime, super.duration, super.recurrence});
 
-  factory ExpandedRecurrenceInvite.fromJson(Map<String, dynamic> json) => ExpandedRecurrenceInvite(
-      exceptionId: json['exceptId'] is Map ? InstanceRecurIdInfo.fromJson(json['exceptId']) : null,
-      startTime: json['s'],
-      endTime: json['e'],
-      duration: json['dur'] is Map ? DurationInfo.fromJson(json['dur']) : null,
-      recurrence: json['recur'] is Map ? RecurrenceInfo.fromJson(json['recur']) : null);
+  factory ExpandedRecurrenceInvite.fromMap(Map<String, dynamic> data) => ExpandedRecurrenceInvite(
+      exceptionId: data['exceptId'] is Map ? InstanceRecurIdInfo.fromMap(data['exceptId']) : null,
+      startTime: data['s'],
+      endTime: data['e'],
+      duration: data['dur'] is Map ? DurationInfo.fromMap(data['dur']) : null,
+      recurrence: data['recur'] is Map ? RecurrenceInfo.fromMap(data['recur']) : null);
 }

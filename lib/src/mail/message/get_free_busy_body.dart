@@ -12,16 +12,16 @@ class GetFreeBusyBody extends SoapBody {
   GetFreeBusyBody({GetFreeBusyRequest? request, GetFreeBusyResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory GetFreeBusyBody.fromJson(Map<String, dynamic> json) => GetFreeBusyBody(
-      response: json['GetFreeBusyResponse'] != null ? GetFreeBusyResponse.fromJson(json['GetFreeBusyResponse']) : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+  factory GetFreeBusyBody.fromMap(Map<String, dynamic> data) => GetFreeBusyBody(
+      response: data['GetFreeBusyResponse'] != null ? GetFreeBusyResponse.fromMap(data['GetFreeBusyResponse']) : null,
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   GetFreeBusyRequest? get getFreeBusyRequest => request as GetFreeBusyRequest?;
 
   GetFreeBusyResponse? get getFreeBusyResponse => response as GetFreeBusyResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'GetFreeBusyRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'GetFreeBusyRequest': request!.toMap(),
       };
 }

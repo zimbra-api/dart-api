@@ -7,5 +7,5 @@ import 'package:zimbra_api/src/common/type/soap_response.dart';
 class ModifyFilterRulesResponse extends SoapResponse {
   ModifyFilterRulesResponse();
 
-  factory ModifyFilterRulesResponse.fromJson(Map<String, dynamic> json) => ModifyFilterRulesResponse();
+  factory ModifyFilterRulesResponse.fromMap(Map<String, dynamic> data) => ModifyFilterRulesResponse();
 }

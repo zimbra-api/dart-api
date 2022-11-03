@@ -9,9 +9,9 @@ class IntervalRule {
 
   IntervalRule(this.ival);
 
-  factory IntervalRule.fromJson(Map<String, dynamic> json) => IntervalRule(json['ival'] ?? 0);
+  factory IntervalRule.fromMap(Map<String, dynamic> data) => IntervalRule(data['ival'] ?? 0);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'ival': ival,
       };
 }

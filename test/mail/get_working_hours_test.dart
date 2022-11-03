@@ -19,7 +19,7 @@ void main() {
         id: id,
         name: name,
       );
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'GetWorkingHoursRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -46,7 +46,7 @@ void main() {
       final isPrivate = faker.randomGenerator.boolean();
       final hasPermission = faker.randomGenerator.boolean();
 
-      final json = {
+      final data = {
         'Body': {
           'GetWorkingHoursResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -133,7 +133,7 @@ void main() {
           }
         }
       };
-      final envelope = GetWorkingHoursEnvelope.fromJson(json);
+      final envelope = GetWorkingHoursEnvelope.fromMap(data);
       final response = envelope.getWorkingHoursBody.getWorkingHoursResponse!;
       final usr = response.freebusyUsers.first;
 

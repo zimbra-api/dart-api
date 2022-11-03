@@ -25,28 +25,28 @@ class CheckRightsTargetInfo {
       this.allow = false,
       this.rights = const []});
 
-  factory CheckRightsTargetInfo.fromJson(Map<String, dynamic> json) => CheckRightsTargetInfo(
+  factory CheckRightsTargetInfo.fromMap(Map<String, dynamic> data) => CheckRightsTargetInfo(
         targetType: TargetType.values.firstWhere(
-          (item) => item.name == json['type'],
+          (item) => item.name == data['type'],
           orElse: () => TargetType.account,
         ),
         targetBy: TargetBy.values.firstWhere(
-          (item) => item.name == json['by'],
+          (item) => item.name == data['by'],
           orElse: () => TargetBy.name,
         ),
-        targetKey: json['key'] ?? '',
-        allow: json['allow'] ?? false,
-        rights: (json['right'] is Iterable)
+        targetKey: data['key'] ?? '',
+        allow: data['allow'] ?? false,
+        rights: (data['right'] is Iterable)
             ? List.from(
-                (json['right'] as Iterable).map<CheckRightsRightInfo>((right) => CheckRightsRightInfo.fromJson(right)))
+                (data['right'] as Iterable).map<CheckRightsRightInfo>((right) => CheckRightsRightInfo.fromMap(right)))
             : [],
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'type': targetType.name,
         'by': targetBy.name,
         'key': targetKey,
         'allow': allow,
-        if (rights.isNotEmpty) 'right': rights.map((right) => right.toJson()).toList(),
+        if (rights.isNotEmpty) 'right': rights.map((right) => right.toMap()).toList(),
       };
 }

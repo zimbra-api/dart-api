@@ -8,9 +8,9 @@ class Part {
 
   Part(this.part);
 
-  factory Part.fromJson(Map<String, dynamic> json) => Part(json['part'] ?? '');
+  factory Part.fromMap(Map<String, dynamic> data) => Part(data['part'] ?? '');
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'part': part,
       };
 }

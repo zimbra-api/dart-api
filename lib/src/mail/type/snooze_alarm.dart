@@ -11,9 +11,9 @@ class SnoozeAlarm {
 
   SnoozeAlarm(this.id, this.snoozeUntil);
 
-  factory SnoozeAlarm.fromJson(Map<String, dynamic> json) => SnoozeAlarm(json['id'] ?? '', json['until'] ?? 0);
+  factory SnoozeAlarm.fromMap(Map<String, dynamic> data) => SnoozeAlarm(data['id'] ?? '', data['until'] ?? 0);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'id': id,
         'until': snoozeUntil,
       };

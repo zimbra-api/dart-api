@@ -29,11 +29,11 @@ class CreateWaitSetResponse extends SoapResponse {
 
   CreateWaitSetResponse({this.waitSetId, this.defaultInterests, this.sequence, this.errors = const []});
 
-  factory CreateWaitSetResponse.fromJson(Map<String, dynamic> json) => CreateWaitSetResponse(
-      waitSetId: json['waitSet'],
-      defaultInterests: json['defTypes'],
-      sequence: json['seq'],
-      errors: (json['error'] is Iterable)
-          ? List.from((json['error'] as Iterable).map<IdAndType>((error) => IdAndType.fromJson(error)))
+  factory CreateWaitSetResponse.fromMap(Map<String, dynamic> data) => CreateWaitSetResponse(
+      waitSetId: data['waitSet'],
+      defaultInterests: data['defTypes'],
+      sequence: data['seq'],
+      errors: (data['error'] is Iterable)
+          ? List.from((data['error'] as Iterable).map<IdAndType>((error) => IdAndType.fromMap(error)))
           : []);
 }

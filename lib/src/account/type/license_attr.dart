@@ -12,9 +12,9 @@ class LicenseAttr {
 
   LicenseAttr(this.name, {this.content});
 
-  factory LicenseAttr.fromJson(Map<String, dynamic> json) => LicenseAttr(json['name'], content: json['_content']);
+  factory LicenseAttr.fromMap(Map<String, dynamic> data) => LicenseAttr(data['name'], content: data['_content']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'name': name,
         if (content != null) '_content': content,
       };

@@ -7,5 +7,5 @@ import 'package:zimbra_api/src/common/type/soap_response.dart';
 class DistributionListActionResponse extends SoapResponse {
   DistributionListActionResponse();
 
-  factory DistributionListActionResponse.fromJson(Map<String, dynamic> json) => DistributionListActionResponse();
+  factory DistributionListActionResponse.fromMap(Map<String, dynamic> data) => DistributionListActionResponse();
 }

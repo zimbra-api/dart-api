@@ -24,25 +24,25 @@ class DiscoverRightsTarget {
 
   DiscoverRightsTarget({this.type = TargetType.account, this.id, this.name, this.displayName, this.emails = const []});
 
-  factory DiscoverRightsTarget.fromJson(Map<String, dynamic> json) => DiscoverRightsTarget(
+  factory DiscoverRightsTarget.fromMap(Map<String, dynamic> data) => DiscoverRightsTarget(
         type: TargetType.values.firstWhere(
-          (item) => item.name == json['type']?.toString(),
+          (item) => item.name == data['type']?.toString(),
           orElse: () => TargetType.account,
         ),
-        id: json['id'],
-        name: json['name'],
-        displayName: json['d'],
-        emails: (json['email'] is Iterable)
+        id: data['id'],
+        name: data['name'],
+        displayName: data['d'],
+        emails: (data['email'] is Iterable)
             ? List.from(
-                (json['email'] as Iterable).map<DiscoverRightsEmail>((email) => DiscoverRightsEmail.fromJson(email)))
+                (data['email'] as Iterable).map<DiscoverRightsEmail>((email) => DiscoverRightsEmail.fromMap(email)))
             : [],
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'type': type.name,
         if (id != null) 'id': id,
         if (name != null) 'name': name,
         if (displayName != null) 'd': displayName,
-        if (emails.isNotEmpty) 'email': emails.map((email) => email.toJson()).toList(),
+        if (emails.isNotEmpty) 'email': emails.map((email) => email.toMap()).toList(),
       };
 }

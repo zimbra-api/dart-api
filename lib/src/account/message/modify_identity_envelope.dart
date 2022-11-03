@@ -10,9 +10,9 @@ import 'modify_identity_body.dart';
 class ModifyIdentityEnvelope extends SoapEnvelope {
   ModifyIdentityEnvelope(ModifyIdentityBody body, {super.header}) : super(body);
 
-  factory ModifyIdentityEnvelope.fromJson(Map<String, dynamic> json) =>
-      ModifyIdentityEnvelope(ModifyIdentityBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory ModifyIdentityEnvelope.fromMap(Map<String, dynamic> data) =>
+      ModifyIdentityEnvelope(ModifyIdentityBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   ModifyIdentityBody get modifyIdentityBody => body as ModifyIdentityBody;
 }

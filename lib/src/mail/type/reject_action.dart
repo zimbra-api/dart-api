@@ -10,11 +10,11 @@ class RejectAction extends FilterAction {
 
   RejectAction({this.content, super.index});
 
-  factory RejectAction.fromJson(Map<String, dynamic> json) =>
-      RejectAction(content: json['_content'], index: json['index']);
+  factory RejectAction.fromMap(Map<String, dynamic> data) =>
+      RejectAction(content: data['_content'], index: data['index']);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (content != null) '_content': content,
         if (index != null) 'index': index,
       };

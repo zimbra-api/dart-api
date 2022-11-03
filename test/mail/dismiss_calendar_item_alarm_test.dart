@@ -20,7 +20,7 @@ void main() {
         apptAlarms: [DismissAlarm(id, dismissedAt)],
         taskAlarms: [DismissAlarm(id, dismissedAt)],
       );
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'DismissCalendarItemAlarmRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -79,7 +79,7 @@ void main() {
       final contentType = faker.lorem.word();
       final binaryB64Data = faker.lorem.word();
 
-      final json = {
+      final data = {
         'Body': {
           'DismissCalendarItemAlarmResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -167,7 +167,7 @@ void main() {
           }
         }
       };
-      final envelope = DismissCalendarItemAlarmEnvelope.fromJson(json);
+      final envelope = DismissCalendarItemAlarmEnvelope.fromMap(data);
       final response = envelope.dismissCalendarItemAlarmBody.dismissCalendarItemAlarmResponse!;
 
       final appt = response.apptUpdatedAlarms.first;

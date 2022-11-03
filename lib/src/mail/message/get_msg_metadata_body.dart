@@ -12,18 +12,18 @@ class GetMsgMetadataBody extends SoapBody {
   GetMsgMetadataBody({GetMsgMetadataRequest? request, GetMsgMetadataResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory GetMsgMetadataBody.fromJson(Map<String, dynamic> json) => GetMsgMetadataBody(
-      response: json['GetMsgMetadataResponse'] != null
-          ? GetMsgMetadataResponse.fromJson(json['GetMsgMetadataResponse'])
+  factory GetMsgMetadataBody.fromMap(Map<String, dynamic> data) => GetMsgMetadataBody(
+      response: data['GetMsgMetadataResponse'] != null
+          ? GetMsgMetadataResponse.fromMap(data['GetMsgMetadataResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   GetMsgMetadataRequest? get getMsgMetadataRequest => request as GetMsgMetadataRequest?;
 
   GetMsgMetadataResponse? get getMsgMetadataResponse => response as GetMsgMetadataResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'GetMsgMetadataRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'GetMsgMetadataRequest': request!.toMap(),
       };
 }

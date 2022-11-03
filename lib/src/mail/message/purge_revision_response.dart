@@ -7,5 +7,5 @@ import 'package:zimbra_api/src/common/type/soap_response.dart';
 class PurgeRevisionResponse extends SoapResponse {
   PurgeRevisionResponse();
 
-  factory PurgeRevisionResponse.fromJson(Map<String, dynamic> json) => PurgeRevisionResponse();
+  factory PurgeRevisionResponse.fromMap(Map<String, dynamic> data) => PurgeRevisionResponse();
 }

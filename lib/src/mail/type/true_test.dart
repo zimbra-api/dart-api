@@ -7,5 +7,5 @@ import 'filter_test.dart';
 class TrueTest extends FilterTest {
   TrueTest({super.index, super.negative});
 
-  factory TrueTest.fromJson(Map<String, dynamic> json) => TrueTest(index: json['index'], negative: json['negative']);
+  factory TrueTest.fromMap(Map<String, dynamic> data) => TrueTest(index: data['index'], negative: data['negative']);
 }

@@ -11,10 +11,10 @@ class GranteeChooser {
 
   GranteeChooser({this.type, this.id, this.name});
 
-  factory GranteeChooser.fromJson(Map<String, dynamic> json) =>
-      GranteeChooser(type: json['type'], id: json['id'], name: json['name']);
+  factory GranteeChooser.fromMap(Map<String, dynamic> data) =>
+      GranteeChooser(type: data['type'], id: data['id'], name: data['name']);
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (type != null) 'type': type,
         if (id != null) 'id': id,
         if (name != null) 'name': name,

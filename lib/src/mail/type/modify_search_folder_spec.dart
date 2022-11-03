@@ -20,16 +20,16 @@ class ModifySearchFolderSpec {
 
   ModifySearchFolderSpec({this.id = '', this.query = '', this.searchTypes, this.sortBy});
 
-  factory ModifySearchFolderSpec.fromJson(Map<String, dynamic> json) => ModifySearchFolderSpec(
-      id: json['id'] ?? '',
-      query: json['query'] ?? '',
-      searchTypes: json['types'],
+  factory ModifySearchFolderSpec.fromMap(Map<String, dynamic> data) => ModifySearchFolderSpec(
+      id: data['id'] ?? '',
+      query: data['query'] ?? '',
+      searchTypes: data['types'],
       sortBy: SearchSortBy.values.firstWhere(
-        (sortBy) => sortBy.name == json['sortBy'],
+        (sortBy) => sortBy.name == data['sortBy'],
         orElse: () => SearchSortBy.none,
       ));
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'id': id,
         'query': query,
         if (searchTypes != null) 'types': searchTypes,

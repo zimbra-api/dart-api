@@ -486,7 +486,7 @@ void main() {
           fragment: fragment,
         ),
       );
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'DeclineCounterAppointmentRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -988,14 +988,14 @@ void main() {
     }));
 
     test('Decline counter appointment response', (() {
-      final json = {
+      final data = {
         'Body': {
           'DeclineCounterAppointmentResponse': {
             '_jsns': 'urn:zimbraMail',
           }
         }
       };
-      final envelope = DeclineCounterAppointmentEnvelope.fromJson(json);
+      final envelope = DeclineCounterAppointmentEnvelope.fromMap(data);
       expect(envelope.declineCounterAppointmentBody.declineCounterAppointmentResponse, isNotNull);
       expect(envelope.declineCounterAppointmentBody.declineCounterAppointmentResponse,
           isA<DeclineCounterAppointmentResponse>());

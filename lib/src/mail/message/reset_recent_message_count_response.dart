@@ -7,5 +7,5 @@ import 'package:zimbra_api/src/common/type/soap_response.dart';
 class ResetRecentMessageCountResponse extends SoapResponse {
   ResetRecentMessageCountResponse();
 
-  factory ResetRecentMessageCountResponse.fromJson(Map<String, dynamic> json) => ResetRecentMessageCountResponse();
+  factory ResetRecentMessageCountResponse.fromMap(Map<String, dynamic> data) => ResetRecentMessageCountResponse();
 }

@@ -12,18 +12,18 @@ class GetWorkingHoursBody extends SoapBody {
   GetWorkingHoursBody({GetWorkingHoursRequest? request, GetWorkingHoursResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory GetWorkingHoursBody.fromJson(Map<String, dynamic> json) => GetWorkingHoursBody(
-      response: json['GetWorkingHoursResponse'] != null
-          ? GetWorkingHoursResponse.fromJson(json['GetWorkingHoursResponse'])
+  factory GetWorkingHoursBody.fromMap(Map<String, dynamic> data) => GetWorkingHoursBody(
+      response: data['GetWorkingHoursResponse'] != null
+          ? GetWorkingHoursResponse.fromMap(data['GetWorkingHoursResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   GetWorkingHoursRequest? get getWorkingHoursRequest => request as GetWorkingHoursRequest?;
 
   GetWorkingHoursResponse? get getWorkingHoursResponse => response as GetWorkingHoursResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'GetWorkingHoursRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'GetWorkingHoursRequest': request!.toMap(),
       };
 }

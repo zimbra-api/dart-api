@@ -19,7 +19,7 @@ void main() {
       final request = CreateSignatureRequest(
           Signature(name: name, id: id, cid: cid, contents: [SignatureContent(ContentType.textHtml, value: value)]));
 
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'CreateSignatureRequest': {
             '_jsns': 'urn:zimbraAccount',
@@ -45,7 +45,7 @@ void main() {
       final cid = faker.guid.guid();
       final value = faker.lorem.word();
 
-      final json = {
+      final data = {
         'Body': {
           'CreateSignatureResponse': {
             '_jsns': 'urn:zimbraAccount',
@@ -63,7 +63,7 @@ void main() {
           }
         }
       };
-      final envelope = CreateSignatureEnvelope.fromJson(json);
+      final envelope = CreateSignatureEnvelope.fromMap(data);
       final response = envelope.createSignatureBody.createSignatureResponse!;
       final signature = response.signature!;
 

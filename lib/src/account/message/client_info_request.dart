@@ -21,8 +21,8 @@ class ClientInfoRequest extends SoapRequest {
   SoapEnvelope getEnvelope({SoapHeader? header}) => ClientInfoEnvelope(ClientInfoBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraAccount',
-        'domain': domain.toJson(),
+        'domain': domain.toMap(),
       };
 }

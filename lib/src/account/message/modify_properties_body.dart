@@ -12,18 +12,18 @@ class ModifyPropertiesBody extends SoapBody {
   ModifyPropertiesBody({ModifyPropertiesRequest? request, ModifyPropertiesResponse? response, super.fault})
       : super(request: request, response: response);
 
-  factory ModifyPropertiesBody.fromJson(Map<String, dynamic> json) => ModifyPropertiesBody(
-      response: json['ModifyPropertiesResponse'] != null
-          ? ModifyPropertiesResponse.fromJson(json['ModifyPropertiesResponse'])
+  factory ModifyPropertiesBody.fromMap(Map<String, dynamic> data) => ModifyPropertiesBody(
+      response: data['ModifyPropertiesResponse'] != null
+          ? ModifyPropertiesResponse.fromMap(data['ModifyPropertiesResponse'])
           : null,
-      fault: json['Fault'] != null ? SoapFault.fromJson(json['Fault']) : null);
+      fault: data['Fault'] != null ? SoapFault.fromMap(data['Fault']) : null);
 
   ModifyPropertiesRequest? get modifyPropertiesRequest => request as ModifyPropertiesRequest?;
 
   ModifyPropertiesResponse? get modifyPropertiesResponse => response as ModifyPropertiesResponse?;
 
   @override
-  Map<String, dynamic> toJson() => {
-        if (request != null) 'ModifyPropertiesRequest': request!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (request != null) 'ModifyPropertiesRequest': request!.toMap(),
       };
 }

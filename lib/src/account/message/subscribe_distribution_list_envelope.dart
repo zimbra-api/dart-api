@@ -10,9 +10,9 @@ import 'subscribe_distribution_list_body.dart';
 class SubscribeDistributionListEnvelope extends SoapEnvelope {
   SubscribeDistributionListEnvelope(SubscribeDistributionListBody body, {super.header}) : super(body);
 
-  factory SubscribeDistributionListEnvelope.fromJson(Map<String, dynamic> json) =>
-      SubscribeDistributionListEnvelope(SubscribeDistributionListBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory SubscribeDistributionListEnvelope.fromMap(Map<String, dynamic> data) =>
+      SubscribeDistributionListEnvelope(SubscribeDistributionListBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   SubscribeDistributionListBody get subscribeDistributionListBody => body as SubscribeDistributionListBody;
 }

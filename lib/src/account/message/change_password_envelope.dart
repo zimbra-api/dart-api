@@ -10,9 +10,9 @@ import 'change_password_body.dart';
 class ChangePasswordEnvelope extends SoapEnvelope {
   ChangePasswordEnvelope(ChangePasswordBody body, {super.header}) : super(body);
 
-  factory ChangePasswordEnvelope.fromJson(Map<String, dynamic> json) =>
-      ChangePasswordEnvelope(ChangePasswordBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory ChangePasswordEnvelope.fromMap(Map<String, dynamic> data) =>
+      ChangePasswordEnvelope(ChangePasswordBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   ChangePasswordBody get changePasswordBody => body as ChangePasswordBody;
 }

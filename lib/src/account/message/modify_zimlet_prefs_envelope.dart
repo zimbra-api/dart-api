@@ -10,9 +10,9 @@ import 'modify_zimlet_prefs_body.dart';
 class ModifyZimletPrefsEnvelope extends SoapEnvelope {
   ModifyZimletPrefsEnvelope(ModifyZimletPrefsBody body, {super.header}) : super(body);
 
-  factory ModifyZimletPrefsEnvelope.fromJson(Map<String, dynamic> json) =>
-      ModifyZimletPrefsEnvelope(ModifyZimletPrefsBody.fromJson(json['Body']),
-          header: json['Header'] != null ? SoapHeader.fromJson(json['Header']) : null);
+  factory ModifyZimletPrefsEnvelope.fromMap(Map<String, dynamic> data) =>
+      ModifyZimletPrefsEnvelope(ModifyZimletPrefsBody.fromMap(data['Body']),
+          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
 
   ModifyZimletPrefsBody get modifyZimletPrefsBody => body as ModifyZimletPrefsBody;
 }

@@ -22,7 +22,7 @@ void main() {
         ),
         id: id,
       );
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'SetCustomMetadataRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -43,7 +43,7 @@ void main() {
 
     test('Set custom metadata response', (() {
       final id = faker.guid.guid();
-      final json = {
+      final data = {
         'Body': {
           'SetCustomMetadataResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -51,7 +51,7 @@ void main() {
           }
         }
       };
-      final envelope = SetCustomMetadataEnvelope.fromJson(json);
+      final envelope = SetCustomMetadataEnvelope.fromMap(data);
       final response = envelope.setCustomMetadataBody.setCustomMetadataResponse!;
       expect(response.id, id);
     }));

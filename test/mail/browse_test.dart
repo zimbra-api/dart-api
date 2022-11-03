@@ -13,7 +13,7 @@ void main() {
       final max = faker.randomGenerator.integer(100);
       final request = BrowseRequest(BrowseBy.domains, regex: regex, max: max);
 
-      expect(request.getEnvelope().toJson(), {
+      expect(request.getEnvelope().toMap(), {
         'Body': {
           'BrowseRequest': {
             '_jsns': 'urn:zimbraMail',
@@ -28,9 +28,9 @@ void main() {
     test('Browse response', (() {
       final browseDomainHeader = faker.lorem.word();
       final frequency = faker.randomGenerator.integer(100);
-      final data = faker.lorem.word();
+      final content = faker.lorem.word();
 
-      final json = {
+      final data = {
         'Body': {
           'BrowseResponse': {
             '_jsns': 'urn:zimbraMail',
@@ -38,19 +38,19 @@ void main() {
               {
                 'h': browseDomainHeader,
                 'freq': frequency,
-                '_content': data,
+                '_content': content,
               }
             ],
           }
         }
       };
-      final envelope = BrowseEnvelope.fromJson(json);
+      final envelope = BrowseEnvelope.fromMap(data);
       final response = envelope.browseBody.browseResponse!;
       final bd = response.browseDatas.first;
 
       expect(bd.browseDomainHeader, browseDomainHeader);
       expect(bd.frequency, frequency);
-      expect(bd.data, data);
+      expect(bd.data, content);
     }));
   }));
 }

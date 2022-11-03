@@ -31,11 +31,11 @@ class ApplyFilterRulesRequest extends SoapRequest {
       ApplyFilterRulesEnvelope(ApplyFilterRulesBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
         if (filterRules.isNotEmpty)
-          'filterRules': {'filterRule': filterRules.map((filterRule) => filterRule.toJson()).toList()},
-        if (msgIds != null) 'm': msgIds!.toJson(),
+          'filterRules': {'filterRule': filterRules.map((filterRule) => filterRule.toMap()).toList()},
+        if (msgIds != null) 'm': msgIds!.toMap(),
         if (query != null) 'query': {'_content': query},
       };
 }

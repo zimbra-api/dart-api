@@ -33,35 +33,35 @@ class ConversationHitInfo extends ConversationSummary {
       super.fragment,
       super.emails = const []});
 
-  factory ConversationHitInfo.fromJson(Map<String, dynamic> json) => ConversationHitInfo(
-      sortField: json['sf'],
-      messageHits: (json['m'] is Iterable)
-          ? List.from((json['m'] as Iterable).map<ConversationMsgHitInfo>((m) => ConversationMsgHitInfo.fromJson(m)))
+  factory ConversationHitInfo.fromMap(Map<String, dynamic> data) => ConversationHitInfo(
+      sortField: data['sf'],
+      messageHits: (data['m'] is Iterable)
+          ? List.from((data['m'] as Iterable).map<ConversationMsgHitInfo>((m) => ConversationMsgHitInfo.fromMap(m)))
           : [],
-      id: json['id'],
-      numMsg: json['n'],
-      numUnread: json['u'],
-      totalSize: json['total'],
-      flags: json['f'],
-      tags: json['t'],
-      tagNames: json['tn'],
-      date: json['d'],
-      elided: json['elided'],
-      changeDate: json['md'],
-      modifiedSequence: json['ms'],
-      metadatas: (json['meta'] is Iterable)
-          ? List.from((json['meta'] as Iterable).map<MailCustomMetadata>((meta) => MailCustomMetadata.fromJson(meta)))
+      id: data['id'],
+      numMsg: data['n'],
+      numUnread: data['u'],
+      totalSize: data['total'],
+      flags: data['f'],
+      tags: data['t'],
+      tagNames: data['tn'],
+      date: data['d'],
+      elided: data['elided'],
+      changeDate: data['md'],
+      modifiedSequence: data['ms'],
+      metadatas: (data['meta'] is Iterable)
+          ? List.from((data['meta'] as Iterable).map<MailCustomMetadata>((meta) => MailCustomMetadata.fromMap(meta)))
           : [],
-      subject: json['su']?['_content'],
-      fragment: json['fr']?['_content'],
-      emails: (json['e'] is Iterable)
-          ? List.from((json['e'] as Iterable).map<EmailInfo>((e) => EmailInfo.fromJson(e)))
+      subject: data['su']?['_content'],
+      fragment: data['fr']?['_content'],
+      emails: (data['e'] is Iterable)
+          ? List.from((data['e'] as Iterable).map<EmailInfo>((e) => EmailInfo.fromMap(e)))
           : []);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (sortField != null) 'sf': sortField,
-        if (messageHits.isNotEmpty) 'm': messageHits.map((m) => m.toJson()).toList(),
+        if (messageHits.isNotEmpty) 'm': messageHits.map((m) => m.toMap()).toList(),
         if (id != null) 'id': id,
         if (numMsg != null) 'n': numMsg,
         if (numUnread != null) 'u': numUnread,
@@ -73,9 +73,9 @@ class ConversationHitInfo extends ConversationSummary {
         if (elided != null) 'elided': elided,
         if (changeDate != null) 'md': changeDate,
         if (modifiedSequence != null) 'ms': modifiedSequence,
-        if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toJson()).toList(),
+        if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toMap()).toList(),
         if (subject != null) 'su': {'_content': subject},
         if (fragment != null) 'fr': {'_content': fragment},
-        if (emails.isNotEmpty) 'e': emails.map((e) => e.toJson()).toList(),
+        if (emails.isNotEmpty) 'e': emails.map((e) => e.toMap()).toList(),
       };
 }

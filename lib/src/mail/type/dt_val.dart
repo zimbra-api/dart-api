@@ -18,14 +18,14 @@ class DtVal {
 
   DtVal({this.startTime, this.endTime, this.duration});
 
-  factory DtVal.fromJson(Map<String, dynamic> json) => DtVal(
-      startTime: json['s'] is Map ? DtTimeInfo.fromJson(json['s']) : null,
-      endTime: json['e'] is Map ? DtTimeInfo.fromJson(json['e']) : null,
-      duration: json['dur'] is Map ? DurationInfo.fromJson(json['dur']) : null);
+  factory DtVal.fromMap(Map<String, dynamic> data) => DtVal(
+      startTime: data['s'] is Map ? DtTimeInfo.fromMap(data['s']) : null,
+      endTime: data['e'] is Map ? DtTimeInfo.fromMap(data['e']) : null,
+      duration: data['dur'] is Map ? DurationInfo.fromMap(data['dur']) : null);
 
-  Map<String, dynamic> toJson() => {
-        if (startTime != null) 's': startTime!.toJson(),
-        if (endTime != null) 'e': endTime!.toJson(),
-        if (duration != null) 'dur': duration!.toJson(),
+  Map<String, dynamic> toMap() => {
+        if (startTime != null) 's': startTime!.toMap(),
+        if (endTime != null) 'e': endTime!.toMap(),
+        if (duration != null) 'dur': duration!.toMap(),
       };
 }

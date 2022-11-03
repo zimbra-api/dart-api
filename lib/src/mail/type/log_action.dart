@@ -15,16 +15,16 @@ class LogAction extends FilterAction {
 
   LogAction({this.level, this.content, super.index});
 
-  factory LogAction.fromJson(Map<String, dynamic> json) => LogAction(
+  factory LogAction.fromMap(Map<String, dynamic> data) => LogAction(
       level: LoggingLevel.values.firstWhere(
-        (level) => level.name == json['level'],
+        (level) => level.name == data['level'],
         orElse: () => LoggingLevel.info,
       ),
-      content: json['_content'],
-      index: json['index']);
+      content: data['_content'],
+      index: data['index']);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         if (level != null) 'level': level!.name,
         if (content != null) '_content': content,
         if (index != null) 'index': index,

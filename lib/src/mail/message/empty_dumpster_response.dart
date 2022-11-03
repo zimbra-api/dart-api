@@ -7,5 +7,5 @@ import 'package:zimbra_api/src/common/type/soap_response.dart';
 class EmptyDumpsterResponse extends SoapResponse {
   EmptyDumpsterResponse();
 
-  factory EmptyDumpsterResponse.fromJson(Map<String, dynamic> json) => EmptyDumpsterResponse();
+  factory EmptyDumpsterResponse.fromMap(Map<String, dynamic> data) => EmptyDumpsterResponse();
 }

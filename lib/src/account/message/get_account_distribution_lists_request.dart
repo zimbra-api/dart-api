@@ -34,7 +34,7 @@ class GetAccountDistributionListsRequest extends SoapRequest {
       GetAccountDistributionListsEnvelope(GetAccountDistributionListsBody(request: this), header: header);
 
   @override
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraAccount',
         if (ownerOf != null) 'ownerOf': ownerOf,
         if (memberOf != null) 'memberOf': memberOf!.name,

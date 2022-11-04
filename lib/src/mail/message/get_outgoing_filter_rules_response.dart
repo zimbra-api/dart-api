@@ -10,8 +10,8 @@ class GetOutgoingFilterRulesResponse extends GetFilterRulesResponse {
   GetOutgoingFilterRulesResponse({super.filterRules = const []});
 
   factory GetOutgoingFilterRulesResponse.fromMap(Map<String, dynamic> data) => GetOutgoingFilterRulesResponse(
-      filterRules: (data['filterRules']?['filterRule'] is Iterable)
-          ? List.from((data['filterRules']['filterRule'] as Iterable)
+      filterRules: (data['filterRules']?[0]['filterRule'] is Iterable)
+          ? List.from((data['filterRules'][0]['filterRule'] as Iterable)
               .map<FilterRule>((filterRule) => FilterRule.fromMap(filterRule)))
           : []);
 }

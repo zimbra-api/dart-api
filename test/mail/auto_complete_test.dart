@@ -61,7 +61,7 @@ void main() {
               {
                 'email': email,
                 'type': AutoCompleteMatchType.contact.name,
-                'ranking': ranking,
+                'ranking': ranking.toString(),
                 'isGroup': isGroup,
                 'exp': canExpandGroupMembers,
                 'id': id,
@@ -87,7 +87,7 @@ void main() {
       final match = response.matches.first;
       expect(match.email, email);
       expect(match.matchType, AutoCompleteMatchType.contact);
-      expect(match.ranking, ranking);
+      expect(match.ranking, ranking.toString());
       expect(match.isGroup, isGroup);
       expect(match.canExpandGroupMembers, canExpandGroupMembers);
       expect(match.id, id);

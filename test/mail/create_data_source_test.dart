@@ -624,14 +624,30 @@ void main() {
         'Body': {
           'CreateDataSourceResponse': {
             '_jsns': 'urn:zimbraMail',
-            'imap': {'id': id},
-            'pop3': {'id': id},
-            'caldav': {'id': id},
-            'yab': {'id': id},
-            'rss': {'id': id},
-            'gal': {'id': id},
-            'cal': {'id': id},
-            'unknown': {'id': id},
+            'imap': [
+              {'id': id}
+            ],
+            'pop3': [
+              {'id': id}
+            ],
+            'caldav': [
+              {'id': id}
+            ],
+            'yab': [
+              {'id': id}
+            ],
+            'rss': [
+              {'id': id}
+            ],
+            'gal': [
+              {'id': id}
+            ],
+            'cal': [
+              {'id': id}
+            ],
+            'unknown': [
+              {'id': id}
+            ],
           }
         }
       };

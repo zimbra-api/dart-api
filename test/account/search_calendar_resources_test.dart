@@ -79,38 +79,42 @@ void main() {
             'galAcctId': galAccountId,
             'name': {'_content': name},
             'searchFilter': {
-              'cond': {
-                'attr': attr,
-                'op': ConditionOperator.equal.name,
-                'value': value,
-                'not': isNot,
-              },
-              'conds': {
-                'not': isNot,
-                'or': isOr,
-                'cond': [
-                  {
-                    'attr': attr,
-                    'op': ConditionOperator.equal.name,
-                    'value': value,
-                    'not': isNot,
-                  }
-                ],
-                'conds': [
-                  {
-                    'not': isNot,
-                    'or': isOr,
-                    'cond': [
-                      {
-                        'attr': attr,
-                        'op': ConditionOperator.equal.name,
-                        'value': value,
-                        'not': isNot,
-                      }
-                    ]
-                  }
-                ],
-              }
+              'cond': [
+                {
+                  'attr': attr,
+                  'op': ConditionOperator.equal.name,
+                  'value': value,
+                  'not': isNot,
+                }
+              ],
+              'conds': [
+                {
+                  'not': isNot,
+                  'or': isOr,
+                  'cond': [
+                    {
+                      'attr': attr,
+                      'op': ConditionOperator.equal.name,
+                      'value': value,
+                      'not': isNot,
+                    }
+                  ],
+                  'conds': [
+                    {
+                      'not': isNot,
+                      'or': isOr,
+                      'cond': [
+                        {
+                          'attr': attr,
+                          'op': ConditionOperator.equal.name,
+                          'value': value,
+                          'not': isNot,
+                        }
+                      ]
+                    }
+                  ],
+                }
+              ],
             },
             'attrs': attrs,
           }

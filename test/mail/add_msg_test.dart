@@ -181,400 +181,404 @@ void main() {
         'Body': {
           'AddMsgResponse': {
             '_jsns': 'urn:zimbraAccount',
-            'm': {
-              'id': id,
-              'autoSendTime': autoSendTime,
-              'e': [
-                {
-                  'a': address,
-                  'd': display,
-                  'p': personal,
-                  't': AddressType.from.name,
-                  'isGroup': isGroup,
-                  'exp': canExpandGroupMembers,
-                }
-              ],
-              'su': {'_content': subject},
-              'fr': {'_content': fragment},
-              'inv': {
-                'type': InviteType.appt.name,
-                'tz': [
+            'm': [
+              {
+                'id': id,
+                'autoSendTime': autoSendTime,
+                'e': [
                   {
-                    'id': id,
-                    'stdoff': tzStdOffset,
-                    'dayoff': tzDayOffset,
-                    'standard': {
-                      'mon': month,
-                      'hour': hour,
-                      'min': minute,
-                      'sec': second,
-                      'mday': dayOfMonth,
-                      'week': week,
-                      'wkday': dayOfWeek,
-                    },
-                    'daylight': {
-                      'mon': month,
-                      'hour': hour,
-                      'min': minute,
-                      'sec': second,
-                      'mday': dayOfMonth,
-                      'week': week,
-                      'wkday': dayOfWeek,
-                    },
-                    'stdname': standardTZName,
-                    'dayname': daylightTZName,
+                    'a': address,
+                    'd': display,
+                    'p': personal,
+                    't': AddressType.from.name,
+                    'isGroup': isGroup,
+                    'exp': canExpandGroupMembers,
                   }
                 ],
-                'comp': {
-                  'category': [
-                    {'_content': category}
-                  ],
-                  'comment': [
-                    {'_content': comment}
-                  ],
-                  'contact': [
-                    {'_content': contact}
-                  ],
-                  'geo': {
-                    'lat': latitude,
-                    'lon': longitude,
-                  },
-                  'at': [
+                'su': {'_content': subject},
+                'fr': {'_content': fragment},
+                'inv': {
+                  'type': InviteType.appt.name,
+                  'tz': [
                     {
+                      'id': id,
+                      'stdoff': tzStdOffset,
+                      'dayoff': tzDayOffset,
+                      'standard': {
+                        'mon': month,
+                        'hour': hour,
+                        'min': minute,
+                        'sec': second,
+                        'mday': dayOfMonth,
+                        'week': week,
+                        'wkday': dayOfWeek,
+                      },
+                      'daylight': {
+                        'mon': month,
+                        'hour': hour,
+                        'min': minute,
+                        'sec': second,
+                        'mday': dayOfMonth,
+                        'week': week,
+                        'wkday': dayOfWeek,
+                      },
+                      'stdname': standardTZName,
+                      'dayname': daylightTZName,
+                    }
+                  ],
+                  'comp': {
+                    'category': [
+                      {'_content': category}
+                    ],
+                    'comment': [
+                      {'_content': comment}
+                    ],
+                    'contact': [
+                      {'_content': contact}
+                    ],
+                    'geo': {
+                      'lat': latitude,
+                      'lon': longitude,
+                    },
+                    'at': [
+                      {
+                        'a': address,
+                        'url': url,
+                        'd': displayName,
+                        'sentBy': sentBy,
+                        'dir': dir,
+                        'lang': language,
+                        'cutype': cuType,
+                        'role': role,
+                        'ptst': partStat.name,
+                        'rsvp': rsvp,
+                        'member': member,
+                        'delegatedTo': delegatedTo,
+                        'delegatedFrom': delegatedFrom,
+                        'xparam': [
+                          {
+                            'name': name,
+                            '_content': value,
+                          }
+                        ],
+                      }
+                    ],
+                    'alarm': [
+                      {
+                        'action': AlarmAction.display.name,
+                        'trigger': {
+                          'abs': {
+                            'd': dateString,
+                          },
+                          'rel': {
+                            'd': dateString,
+                          },
+                        },
+                        'repeat': {
+                          'neg': durationNegative,
+                          'w': weeks,
+                          'd': days,
+                          'h': hours,
+                          'm': minutes,
+                          's': seconds,
+                          'related': AlarmRelated.start.name,
+                          'count': repeatCount,
+                        },
+                        'desc': {'_content': description},
+                        'attach': {
+                          'uri': uri,
+                          'ct': contentType,
+                          '_content': binaryB64Data,
+                        },
+                        'summary': {'_content': summary},
+                        'at': [
+                          {
+                            'a': address,
+                            'url': url,
+                            'd': displayName,
+                            'sentBy': sentBy,
+                            'dir': dir,
+                            'lang': language,
+                            'cutype': cuType,
+                            'role': role,
+                            'ptst': partStat.name,
+                            'rsvp': rsvp,
+                            'member': member,
+                            'delegatedTo': delegatedTo,
+                            'delegatedFrom': delegatedFrom,
+                            'xparam': [
+                              {
+                                'name': name,
+                                '_content': value,
+                              }
+                            ],
+                          }
+                        ],
+                        'xprop': [
+                          {
+                            'name': name,
+                            '_content': value,
+                            'xparam': [
+                              {
+                                'name': name,
+                                '_content': value,
+                              }
+                            ],
+                          }
+                        ],
+                      }
+                    ],
+                    'xprop': [
+                      {
+                        'name': name,
+                        '_content': value,
+                        'xparam': [
+                          {
+                            'name': name,
+                            '_content': value,
+                          }
+                        ],
+                      }
+                    ],
+                    'fr': {'_content': fragment},
+                    'desc': {'_content': description},
+                    'descHtml': {'_content': htmlDescription},
+                    'or': {
                       'a': address,
                       'url': url,
                       'd': displayName,
                       'sentBy': sentBy,
                       'dir': dir,
                       'lang': language,
-                      'cutype': cuType,
-                      'role': role,
-                      'ptst': partStat.name,
-                      'rsvp': rsvp,
-                      'member': member,
-                      'delegatedTo': delegatedTo,
-                      'delegatedFrom': delegatedFrom,
                       'xparam': [
                         {
                           'name': name,
                           '_content': value,
                         }
                       ],
-                    }
-                  ],
-                  'alarm': [
-                    {
-                      'action': AlarmAction.display.name,
-                      'trigger': {
-                        'abs': {
-                          'd': dateString,
-                        },
-                        'rel': {
-                          'd': dateString,
-                        },
-                      },
-                      'repeat': {
-                        'neg': durationNegative,
-                        'w': weeks,
-                        'd': days,
-                        'h': hours,
-                        'm': minutes,
-                        's': seconds,
-                        'related': AlarmRelated.start.name,
-                        'count': repeatCount,
-                      },
-                      'desc': {'_content': description},
-                      'attach': {
-                        'uri': uri,
-                        'ct': contentType,
-                        '_content': binaryB64Data,
-                      },
-                      'summary': {'_content': summary},
-                      'at': [
+                    },
+                    'recur': {
+                      'add': [
+                        {'add': []}
+                      ],
+                      'exclude': [
+                        {'exclude': []}
+                      ],
+                      'except': [
                         {
-                          'a': address,
-                          'url': url,
-                          'd': displayName,
-                          'sentBy': sentBy,
-                          'dir': dir,
-                          'lang': language,
-                          'cutype': cuType,
-                          'role': role,
-                          'ptst': partStat.name,
-                          'rsvp': rsvp,
-                          'member': member,
-                          'delegatedTo': delegatedTo,
-                          'delegatedFrom': delegatedFrom,
-                          'xparam': [
+                          'rangeType': recurrenceRangeType,
+                          'recurId': recurrenceId,
+                          'tz': timezone,
+                          'ridZ': recurIdZ,
+                          'add': {'add': []},
+                          'exclude': {'exclude': []},
+                        }
+                      ],
+                      'cancel': [
+                        {
+                          'rangeType': recurrenceRangeType,
+                          'recurId': recurrenceId,
+                          'tz': timezone,
+                          'ridZ': recurIdZ,
+                        }
+                      ],
+                      'dates': [
+                        {
+                          'tz': timezone,
+                          'dtval': [
                             {
-                              'name': name,
-                              '_content': value,
+                              's': {
+                                'd': dateString,
+                                'tz': timezone,
+                                'u': utcTime,
+                              },
+                              'e': {
+                                'd': dateString,
+                                'tz': timezone,
+                                'u': utcTime,
+                              },
+                              'dur': {
+                                'neg': durationNegative,
+                                'w': weeks,
+                                'd': days,
+                                'h': hours,
+                                'm': minutes,
+                                's': seconds,
+                                'related': AlarmRelated.start.name,
+                                'count': repeatCount,
+                              },
                             }
                           ],
                         }
                       ],
-                      'xprop': [
+                      'rule': [
                         {
-                          'name': name,
-                          '_content': value,
-                          'xparam': [
+                          'freq': Frequency.second.name,
+                          'until': {
+                            'd': dateString,
+                          },
+                          'count': {
+                            'num': num,
+                          },
+                          'interval': {
+                            'ival': ival,
+                          },
+                          'bysecond': {
+                            'seclist': list,
+                          },
+                          'byminute': {
+                            'minlist': list,
+                          },
+                          'byhour': {
+                            'hrlist': list,
+                          },
+                          'byday': {
+                            'wkday': [
+                              {
+                                'day': WeekDay.sunday.name,
+                                'ordWk': ordWk,
+                              }
+                            ],
+                          },
+                          'bymonthday': {
+                            'modaylist': list,
+                          },
+                          'byyearday': {
+                            'yrdaylist': list,
+                          },
+                          'byweekno': {
+                            'wklist': list,
+                          },
+                          'bymonth': {
+                            'molist': list,
+                          },
+                          'bysetpos': {
+                            'poslist': list,
+                          },
+                          'wkst': {
+                            'day': WeekDay.sunday.name,
+                          },
+                          'rule-x-name': [
                             {
                               'name': name,
-                              '_content': value,
+                              'value': value,
                             }
                           ],
                         }
                       ],
-                    }
-                  ],
-                  'xprop': [
-                    {
-                      'name': name,
-                      '_content': value,
-                      'xparam': [
-                        {
-                          'name': name,
-                          '_content': value,
-                        }
-                      ],
-                    }
-                  ],
-                  'fr': {'_content': fragment},
-                  'desc': {'_content': description},
-                  'descHtml': {'_content': htmlDescription},
-                  'or': {
-                    'a': address,
+                    },
+                    'exceptId': {
+                      'd': dateString,
+                      'tz': timezone,
+                      'rangeType': recurrenceRangeType,
+                    },
+                    's': {
+                      'd': dateString,
+                      'tz': timezone,
+                      'u': utcTime,
+                    },
+                    'e': {
+                      'd': dateString,
+                      'tz': timezone,
+                      'u': utcTime,
+                    },
+                    'dur': {
+                      'neg': durationNegative,
+                      'w': weeks,
+                      'd': days,
+                      'h': hours,
+                      'm': minutes,
+                      's': seconds,
+                      'related': AlarmRelated.start.name,
+                      'count': repeatCount,
+                    },
+                    'method': method,
+                    'compNum': componentNum,
+                    'rsvp': rsvp,
+                    'priority': priority,
+                    'name': name,
+                    'loc': location,
+                    'percentComplete': percentComplete,
+                    'completed': completed,
+                    'noBlob': noBlob,
+                    'fba': FreeBusyStatus.free.name,
+                    'fb': FreeBusyStatus.free.name,
+                    'transp': Transparency.opaque.name,
+                    'isOrg': isOrganizer,
+                    'x_uid': xUid,
+                    'uid': uid,
+                    'seq': sequence,
+                    'd': dateTime,
+                    'calItemId': calItemId,
+                    'apptId': deprecatedApptId,
+                    'ciFolder': calItemFolder,
+                    'status': InviteStatus.completed.name,
+                    'class': InviteClass.public.name,
                     'url': url,
-                    'd': displayName,
-                    'sentBy': sentBy,
-                    'dir': dir,
-                    'lang': language,
-                    'xparam': [
+                    'ex': isException,
+                    'ridZ': recurIdZ,
+                    'allDay': isAllDay,
+                    'draft': isDraft,
+                    'neverSent': neverSent,
+                    'changes': changes,
+                  },
+                  'replies': {
+                    'reply': [
                       {
-                        'name': name,
+                        'rangeType': recurrenceRangeType,
+                        'recurId': recurrenceId,
+                        'seq': seq,
+                        'd': date,
+                        'at': attendee,
+                        'sentBy': sentBy,
+                        'ptst': partStat.name,
+                        'tz': timezone,
+                        'ridZ': recurIdZ,
+                      }
+                    ]
+                  },
+                },
+                's': size,
+                'd': date,
+                'l': folder,
+                'cid': conversationId,
+                'f': flags,
+                't': tags,
+                'tn': tagNames,
+                'rev': revision,
+                'md': changeDate,
+                'ms': modifiedSequence,
+                'meta': [
+                  {
+                    'section': section,
+                    'a': [
+                      {
+                        'n': key,
                         '_content': value,
                       }
                     ],
-                  },
-                  'recur': {
-                    'add': [
-                      {'add': []}
-                    ],
-                    'exclude': [
-                      {'exclude': []}
-                    ],
-                    'except': [
-                      {
-                        'rangeType': recurrenceRangeType,
-                        'recurId': recurrenceId,
-                        'tz': timezone,
-                        'ridZ': recurIdZ,
-                        'add': {'add': []},
-                        'exclude': {'exclude': []},
-                      }
-                    ],
-                    'cancel': [
-                      {
-                        'rangeType': recurrenceRangeType,
-                        'recurId': recurrenceId,
-                        'tz': timezone,
-                        'ridZ': recurIdZ,
-                      }
-                    ],
-                    'dates': [
-                      {
-                        'tz': timezone,
-                        'dtval': [
-                          {
-                            's': {
-                              'd': dateString,
-                              'tz': timezone,
-                              'u': utcTime,
-                            },
-                            'e': {
-                              'd': dateString,
-                              'tz': timezone,
-                              'u': utcTime,
-                            },
-                            'dur': {
-                              'neg': durationNegative,
-                              'w': weeks,
-                              'd': days,
-                              'h': hours,
-                              'm': minutes,
-                              's': seconds,
-                              'related': AlarmRelated.start.name,
-                              'count': repeatCount,
-                            },
-                          }
-                        ],
-                      }
-                    ],
-                    'rule': [
-                      {
-                        'freq': Frequency.second.name,
-                        'until': {
-                          'd': dateString,
-                        },
-                        'count': {
-                          'num': num,
-                        },
-                        'interval': {
-                          'ival': ival,
-                        },
-                        'bysecond': {
-                          'seclist': list,
-                        },
-                        'byminute': {
-                          'minlist': list,
-                        },
-                        'byhour': {
-                          'hrlist': list,
-                        },
-                        'byday': {
-                          'wkday': [
-                            {
-                              'day': WeekDay.sunday.name,
-                              'ordWk': ordWk,
-                            }
-                          ],
-                        },
-                        'bymonthday': {
-                          'modaylist': list,
-                        },
-                        'byyearday': {
-                          'yrdaylist': list,
-                        },
-                        'byweekno': {
-                          'wklist': list,
-                        },
-                        'bymonth': {
-                          'molist': list,
-                        },
-                        'bysetpos': {
-                          'poslist': list,
-                        },
-                        'wkst': {
-                          'day': WeekDay.sunday.name,
-                        },
-                        'rule-x-name': [
-                          {
-                            'name': name,
-                            'value': value,
-                          }
-                        ],
-                      }
-                    ],
-                  },
-                  'exceptId': {
-                    'd': dateString,
-                    'tz': timezone,
-                    'rangeType': recurrenceRangeType,
-                  },
-                  's': {
-                    'd': dateString,
-                    'tz': timezone,
-                    'u': utcTime,
-                  },
-                  'e': {
-                    'd': dateString,
-                    'tz': timezone,
-                    'u': utcTime,
-                  },
-                  'dur': {
-                    'neg': durationNegative,
-                    'w': weeks,
-                    'd': days,
-                    'h': hours,
-                    'm': minutes,
-                    's': seconds,
-                    'related': AlarmRelated.start.name,
-                    'count': repeatCount,
-                  },
-                  'method': method,
-                  'compNum': componentNum,
-                  'rsvp': rsvp,
-                  'priority': priority,
-                  'name': name,
-                  'loc': location,
-                  'percentComplete': percentComplete,
-                  'completed': completed,
-                  'noBlob': noBlob,
-                  'fba': FreeBusyStatus.free.name,
-                  'fb': FreeBusyStatus.free.name,
-                  'transp': Transparency.opaque.name,
-                  'isOrg': isOrganizer,
-                  'x_uid': xUid,
-                  'uid': uid,
-                  'seq': sequence,
-                  'd': dateTime,
-                  'calItemId': calItemId,
-                  'apptId': deprecatedApptId,
-                  'ciFolder': calItemFolder,
-                  'status': InviteStatus.completed.name,
-                  'class': InviteClass.public.name,
-                  'url': url,
-                  'ex': isException,
-                  'ridZ': recurIdZ,
-                  'allDay': isAllDay,
-                  'draft': isDraft,
-                  'neverSent': neverSent,
-                  'changes': changes,
-                },
-                'replies': {
-                  'reply': [
-                    {
-                      'rangeType': recurrenceRangeType,
-                      'recurId': recurrenceId,
-                      'seq': seq,
-                      'd': date,
-                      'at': attendee,
-                      'sentBy': sentBy,
-                      'ptst': partStat.name,
-                      'tz': timezone,
-                      'ridZ': recurIdZ,
-                    }
-                  ]
-                },
-              },
-              's': size,
-              'd': date,
-              'l': folder,
-              'cid': conversationId,
-              'f': flags,
-              't': tags,
-              'tn': tagNames,
-              'rev': revision,
-              'md': changeDate,
-              'ms': modifiedSequence,
-              'meta': [
-                {
-                  'section': section,
-                  'a': [
-                    {
-                      'n': key,
-                      '_content': value,
-                    }
-                  ],
-                }
-              ],
-            },
-            'chat': {
-              'id': id,
-              'autoSendTime': autoSendTime,
-              'su': {'_content': subject},
-              'fr': {'_content': fragment},
-              's': size,
-              'd': date,
-              'l': folder,
-              'cid': conversationId,
-              'f': flags,
-              't': tags,
-              'tn': tagNames,
-              'rev': revision,
-              'md': changeDate,
-              'ms': modifiedSequence,
-            },
+                  }
+                ],
+              }
+            ],
+            'chat': [
+              {
+                'id': id,
+                'autoSendTime': autoSendTime,
+                'su': {'_content': subject},
+                'fr': {'_content': fragment},
+                's': size,
+                'd': date,
+                'l': folder,
+                'cid': conversationId,
+                'f': flags,
+                't': tags,
+                'tn': tagNames,
+                'rev': revision,
+                'md': changeDate,
+                'ms': modifiedSequence,
+              }
+            ],
           }
         }
       };

@@ -25,7 +25,7 @@ void main() {
       final id = faker.guid.guid();
       final name = faker.lorem.word();
       final value = faker.lorem.word();
-      final permDenied = faker.randomGenerator.boolean();
+      // final permDenied = faker.randomGenerator.boolean();
 
       final data = {
         'Body': {
@@ -35,13 +35,9 @@ void main() {
               {
                 'name': email,
                 'id': id,
-                'a': [
-                  {
-                    'name': name,
-                    'pd': permDenied,
-                    '_content': value,
-                  },
-                ],
+                '_attrs': {
+                  name: value,
+                },
               }
             ],
           }
@@ -56,7 +52,7 @@ void main() {
 
       final attr = identity.attrs.first;
       expect(attr.name, name);
-      expect(attr.permDenied, permDenied);
+      // expect(attr.permDenied, permDenied);
       expect(attr.value, value);
     }));
   }));

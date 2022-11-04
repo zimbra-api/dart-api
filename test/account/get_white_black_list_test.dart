@@ -26,16 +26,12 @@ void main() {
         'Body': {
           'GetWhiteBlackListResponse': {
             '_jsns': 'urn:zimbraAccount',
-            'whiteList': {
-              'addr': [
-                {'_content': whiteEntry}
-              ]
-            },
-            'blackList': {
-              'addr': [
-                {'_content': blackEntry}
-              ]
-            },
+            'whiteList': [
+              {'_content': whiteEntry}
+            ],
+            'blackList': [
+              {'_content': blackEntry}
+            ],
           }
         }
       };

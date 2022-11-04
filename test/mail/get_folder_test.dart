@@ -109,130 +109,136 @@ void main() {
         'Body': {
           'GetFolderResponse': {
             '_jsns': 'urn:zimbraMail',
-            'folder': {
-              'id': id,
-              'uuid': uuid,
-              'name': name,
-              'absFolderPath': absoluteFolderPath,
-              'l': parentId,
-              'luuid': folderUuid,
-              'f': flags,
-              'color': color,
-              'rgb': rgb,
-              'u': unreadCount,
-              'i4u': imapUnreadCount,
-              'view': ViewType.conversation.name,
-              'rev': revision,
-              'ms': modifiedSequence,
-              'md': changeDate,
-              'n': itemCount,
-              'i4n': imapItemCount,
-              's': totalSize,
-              'i4ms': imapModifiedSequence,
-              'i4next': imapUidNext,
-              'url': url,
-              'activesyncdisabled': activeSyncDisabled,
-              'webOfflineSyncDays': webOfflineSyncDays,
-              'perm': perm,
-              'recursive': recursive,
-              'rest': restUrl,
-              'deletable': deletable,
-              'meta': [
-                {
-                  'section': section,
-                  'a': [
-                    {
-                      'n': key,
-                      '_content': value,
-                    }
-                  ],
-                }
-              ],
-              'acl': {
-                'internalGrantExpiry': internalGrantExpiry,
-                'guestGrantExpiry': guestGrantExpiry,
-                'grant': [
+            'folder': [
+              {
+                'id': id,
+                'uuid': uuid,
+                'name': name,
+                'absFolderPath': absoluteFolderPath,
+                'l': parentId,
+                'luuid': folderUuid,
+                'f': flags,
+                'color': color,
+                'rgb': rgb,
+                'u': unreadCount,
+                'i4u': imapUnreadCount,
+                'view': ViewType.conversation.name,
+                'rev': revision,
+                'ms': modifiedSequence,
+                'md': changeDate,
+                'n': itemCount,
+                'i4n': imapItemCount,
+                's': totalSize,
+                'i4ms': imapModifiedSequence,
+                'i4next': imapUidNext,
+                'url': url,
+                'activesyncdisabled': activeSyncDisabled,
+                'webOfflineSyncDays': webOfflineSyncDays,
+                'perm': perm,
+                'recursive': recursive,
+                'rest': restUrl,
+                'deletable': deletable,
+                'meta': [
                   {
-                    'perm': perm,
-                    'gt': GrantGranteeType.all.name,
-                    'zid': granteeId,
-                    'expiry': expiry,
-                    'd': granteeName,
-                    'pw': guestPassword,
-                    'key': accessKey,
+                    'section': section,
+                    'a': [
+                      {
+                        'n': key,
+                        '_content': value,
+                      }
+                    ],
                   }
                 ],
-              },
-              'folder': [
-                {
-                  'id': id,
-                  'uuid': uuid,
-                  'name': name,
-                }
-              ],
-              'link': [
-                {
-                  'id': id,
-                  'name': name,
-                  'owner': ownerEmail,
-                  'zid': ownerAccountId,
-                  'rid': remoteFolderId,
-                  'ruuid': remoteUuid,
-                  'oname': remoteFolderName,
-                  'reminder': reminderEnabled,
-                  'broken': broken,
-                }
-              ],
-              'search': [
-                {
-                  'id': id,
-                  'name': name,
-                  'query': query,
-                  'sortBy': SearchSortBy.none.name,
-                  'types': types,
-                }
-              ],
-              'retentionPolicy': {
-                'keep': {
-                  'policy': [
+                'acl': {
+                  'internalGrantExpiry': internalGrantExpiry,
+                  'guestGrantExpiry': guestGrantExpiry,
+                  'grant': [
                     {
-                      'type': PolicyType.user.name,
-                      'id': id,
-                      'name': name,
-                      'lifetime': lifetime,
+                      'perm': perm,
+                      'gt': GrantGranteeType.all.name,
+                      'zid': granteeId,
+                      'expiry': expiry,
+                      'd': granteeName,
+                      'pw': guestPassword,
+                      'key': accessKey,
                     }
                   ],
                 },
-                'purge': {
-                  'policy': [
-                    {
-                      'type': PolicyType.user.name,
-                      'id': id,
-                      'name': name,
-                      'lifetime': lifetime,
-                    }
-                  ],
+                'folder': [
+                  {
+                    'id': id,
+                    'uuid': uuid,
+                    'name': name,
+                  }
+                ],
+                'link': [
+                  {
+                    'id': id,
+                    'name': name,
+                    'owner': ownerEmail,
+                    'zid': ownerAccountId,
+                    'rid': remoteFolderId,
+                    'ruuid': remoteUuid,
+                    'oname': remoteFolderName,
+                    'reminder': reminderEnabled,
+                    'broken': broken,
+                  }
+                ],
+                'search': [
+                  {
+                    'id': id,
+                    'name': name,
+                    'query': query,
+                    'sortBy': SearchSortBy.none.name,
+                    'types': types,
+                  }
+                ],
+                'retentionPolicy': {
+                  'keep': {
+                    'policy': [
+                      {
+                        'type': PolicyType.user.name,
+                        'id': id,
+                        'name': name,
+                        'lifetime': lifetime,
+                      }
+                    ],
+                  },
+                  'purge': {
+                    'policy': [
+                      {
+                        'type': PolicyType.user.name,
+                        'id': id,
+                        'name': name,
+                        'lifetime': lifetime,
+                      }
+                    ],
+                  },
                 },
-              },
-            },
-            'link': {
-              'id': id,
-              'name': name,
-              'owner': ownerEmail,
-              'zid': ownerAccountId,
-              'rid': remoteFolderId,
-              'ruuid': remoteUuid,
-              'oname': remoteFolderName,
-              'reminder': reminderEnabled,
-              'broken': broken,
-            },
-            'search': {
-              'id': id,
-              'name': name,
-              'query': query,
-              'sortBy': SearchSortBy.none.name,
-              'types': types,
-            },
+              }
+            ],
+            'link': [
+              {
+                'id': id,
+                'name': name,
+                'owner': ownerEmail,
+                'zid': ownerAccountId,
+                'rid': remoteFolderId,
+                'ruuid': remoteUuid,
+                'oname': remoteFolderName,
+                'reminder': reminderEnabled,
+                'broken': broken,
+              }
+            ],
+            'search': [
+              {
+                'id': id,
+                'name': name,
+                'query': query,
+                'sortBy': SearchSortBy.none.name,
+                'types': types,
+              }
+            ],
           }
         }
       };

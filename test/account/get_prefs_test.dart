@@ -34,19 +34,15 @@ void main() {
     test('Get prefs response', (() {
       final name = faker.lorem.word();
       final value = faker.lorem.word();
-      final modified = faker.randomGenerator.integer(100);
+      // final modified = faker.randomGenerator.integer(100);
 
       final data = {
         'Body': {
           'GetPrefsResponse': {
             '_jsns': 'urn:zimbraAccount',
-            'pref': [
-              {
-                'name': name,
-                'modified': modified,
-                '_content': value,
-              }
-            ],
+            '_attrs': {
+              name: value,
+            },
           }
         },
       };
@@ -54,7 +50,7 @@ void main() {
       final response = envelope.body.response as GetPrefsResponse;
       final pref = response.prefs.first;
       expect(pref.name, name);
-      expect(pref.modified, modified);
+      // expect(pref.modified, modified);
       expect(pref.value, value);
     }));
   }));

@@ -54,7 +54,7 @@ void main() {
       final id = faker.guid.guid();
       final name = faker.lorem.word();
       final value = faker.lorem.word();
-      final modified = faker.randomGenerator.integer(100);
+      // final modified = faker.randomGenerator.integer(100);
       final permDenied = faker.randomGenerator.boolean();
 
       final zimletBaseUrl = faker.internet.httpsUrl();
@@ -150,22 +150,14 @@ void main() {
               'name': name,
             },
             'prefs': {
-              '_attrs': [
-                {
-                  'name': name,
-                  'modified': modified,
-                  '_content': value,
-                }
-              ]
+              '_attrs': {
+                name: value,
+              }
             },
             'attrs': {
-              '_attrs': [
-                {
-                  'name': name,
-                  'pd': permDenied,
-                  '_content': value,
-                }
-              ]
+              '_attrs': {
+                name: value,
+              }
             },
             'zimlets': {
               'zimlet': [
@@ -239,13 +231,9 @@ void main() {
                 {
                   'name': email,
                   'id': id,
-                  'a': [
-                    {
-                      'name': name,
-                      'pd': permDenied,
-                      '_content': value,
-                    },
-                  ],
+                  '_attrs': {
+                    name: value,
+                  },
                 }
               ],
             },
@@ -366,11 +354,11 @@ void main() {
       expect(unknown.toMap(), dataSource);
 
       expect(response.prefs.first.name, name);
-      expect(response.prefs.first.modified, modified);
+      // expect(response.prefs.first.modified, modified);
       expect(response.prefs.first.value, value);
 
       expect(response.attrs.first.name, name);
-      expect(response.attrs.first.permDenied, permDenied);
+      // expect(response.attrs.first.permDenied, permDenied);
       expect(response.attrs.first.value, value);
 
       final zimletInfo = response.zimlets.first;
@@ -411,7 +399,7 @@ void main() {
 
       final attr = response.identities.first.attrs.first;
       expect(attr.name, name);
-      expect(attr.permDenied, permDenied);
+      // expect(attr.permDenied, permDenied);
       expect(attr.value, value);
 
       final signature = response.signatures.first;

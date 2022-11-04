@@ -68,238 +68,12 @@ void main() {
         'Body': {
           'GetOutgoingFilterRulesResponse': {
             '_jsns': 'urn:zimbraMail',
-            'filterRules': {
-              'filterRule': [
-                {
-                  'name': name,
-                  'active': active,
-                  'filterVariables': {
-                    'index': index,
-                    'filterVariable': [
-                      {
-                        'name': name,
-                        'value': value,
-                      }
-                    ],
-                  },
-                  'filterTests': {
-                    'condition': FilterCondition.allof.name,
-                    'addressBookTest': [
-                      {
-                        'header': header,
-                        'index': index,
-                        'negative': negative,
-                      }
-                    ],
-                    'addressTest': [
-                      {
-                        'header': header,
-                        'part': AddressPart.all.name,
-                        'stringComparison': StringComparison.contains.name,
-                        'caseSensitive': caseSensitive,
-                        'value': value,
-                        'valueComparison': ValueComparison.equal.name,
-                        'countComparison': CountComparison.equal.name,
-                        'valueComparisonComparator': ComparisonComparator.asciiNumeric.name,
-                        'index': index,
-                        'negative': negative,
-                      }
-                    ],
-                    'envelopeTest': [
-                      {
-                        'header': header,
-                        'part': AddressPart.all.name,
-                        'stringComparison': StringComparison.contains.name,
-                        'caseSensitive': caseSensitive,
-                        'value': value,
-                        'valueComparison': ValueComparison.equal.name,
-                        'countComparison': CountComparison.equal.name,
-                        'valueComparisonComparator': ComparisonComparator.asciiNumeric.name,
-                        'index': index,
-                        'negative': negative,
-                      }
-                    ],
-                    'attachmentTest': [
-                      {
-                        'index': index,
-                        'negative': negative,
-                      }
-                    ],
-                    'bodyTest': [
-                      {
-                        'value': value,
-                        'caseSensitive': caseSensitive,
-                        'index': index,
-                        'negative': negative,
-                      }
-                    ],
-                    'bulkTest': [
-                      {
-                        'index': index,
-                        'negative': negative,
-                      }
-                    ],
-                    'contactRankingTest': [
-                      {
-                        'header': header,
-                        'index': index,
-                        'negative': negative,
-                      }
-                    ],
-                    'conversationTest': [
-                      {
-                        'where': WhereSetting.started.name,
-                        'index': index,
-                        'negative': negative,
-                      }
-                    ],
-                    'currentDayOfWeekTest': [
-                      {
-                        'value': value,
-                        'index': index,
-                        'negative': negative,
-                      }
-                    ],
-                    'currentTimeTest': [
-                      {
-                        'dateComparison': DateComparison.before.name,
-                        'time': time,
-                        'index': index,
-                        'negative': negative,
-                      }
-                    ],
-                    'dateTest': [
-                      {
-                        'dateComparison': DateComparison.before.name,
-                        'date': date,
-                        'index': index,
-                        'negative': negative,
-                      }
-                    ],
-                    'facebookTest': [
-                      {
-                        'index': index,
-                        'negative': negative,
-                      }
-                    ],
-                    'flaggedTest': [
-                      {
-                        'flagName': FilterFlagName.flagged.name,
-                        'index': index,
-                        'negative': negative,
-                      }
-                    ],
-                    'headerExistsTest': [
-                      {
-                        'header': header,
-                        'index': index,
-                        'negative': negative,
-                      }
-                    ],
-                    'headerTest': [
-                      {
-                        'header': header,
-                        'stringComparison': StringComparison.contains.name,
-                        'valueComparison': ValueComparison.equal.name,
-                        'countComparison': CountComparison.equal.name,
-                        'valueComparisonComparator': ComparisonComparator.asciiNumeric.name,
-                        'value': value,
-                        'caseSensitive': caseSensitive,
-                        'index': index,
-                        'negative': negative,
-                      }
-                    ],
-                    'importanceTest': [
-                      {
-                        'imp': Importance.normal.name,
-                        'index': index,
-                        'negative': negative,
-                      }
-                    ],
-                    'inviteTest': [
-                      {
-                        'method': [
-                          {'_content': method}
-                        ],
-                        'index': index,
-                        'negative': negative,
-                      },
-                    ],
-                    'linkedinTest': [
-                      {
-                        'index': index,
-                        'negative': negative,
-                      }
-                    ],
-                    'listTest': [
-                      {
-                        'index': index,
-                        'negative': negative,
-                      }
-                    ],
-                    'meTest': [
-                      {
-                        'header': header,
-                        'index': index,
-                        'negative': negative,
-                      }
-                    ],
-                    'mimeHeaderTest': [
-                      {
-                        'header': header,
-                        'stringComparison': StringComparison.contains.name,
-                        'value': value,
-                        'caseSensitive': caseSensitive,
-                        'index': index,
-                        'negative': negative,
-                      }
-                    ],
-                    'sizeTest': [
-                      {
-                        'numberComparison': NumberComparison.over.name,
-                        's': size,
-                        'index': index,
-                        'negative': negative,
-                      }
-                    ],
-                    'socialcastTest': [
-                      {
-                        'index': index,
-                        'negative': negative,
-                      }
-                    ],
-                    'trueTest': [
-                      {
-                        'index': index,
-                        'negative': negative,
-                      }
-                    ],
-                    'twitterTest': [
-                      {
-                        'index': index,
-                        'negative': negative,
-                      }
-                    ],
-                    'communityRequestsTest': [
-                      {
-                        'index': index,
-                        'negative': negative,
-                      }
-                    ],
-                    'communityContentTest': [
-                      {
-                        'index': index,
-                        'negative': negative,
-                      }
-                    ],
-                    'communityConnectionsTest': [
-                      {
-                        'index': index,
-                        'negative': negative,
-                      }
-                    ],
-                  },
-                  'filterActions': {
+            'filterRules': [
+              {
+                'filterRule': [
+                  {
+                    'name': name,
+                    'active': active,
                     'filterVariables': [
                       {
                         'index': index,
@@ -311,170 +85,404 @@ void main() {
                         ],
                       }
                     ],
-                    'actionKeep': [
+                    'filterTests': [
                       {
-                        'index': index,
+                        'condition': FilterCondition.allof.name,
+                        'addressBookTest': [
+                          {
+                            'header': header,
+                            'index': index,
+                            'negative': negative,
+                          }
+                        ],
+                        'addressTest': [
+                          {
+                            'header': header,
+                            'part': AddressPart.all.name,
+                            'stringComparison': StringComparison.contains.name,
+                            'caseSensitive': caseSensitive,
+                            'value': value,
+                            'valueComparison': ValueComparison.equal.name,
+                            'countComparison': CountComparison.equal.name,
+                            'valueComparisonComparator': ComparisonComparator.asciiNumeric.name,
+                            'index': index,
+                            'negative': negative,
+                          }
+                        ],
+                        'envelopeTest': [
+                          {
+                            'header': header,
+                            'part': AddressPart.all.name,
+                            'stringComparison': StringComparison.contains.name,
+                            'caseSensitive': caseSensitive,
+                            'value': value,
+                            'valueComparison': ValueComparison.equal.name,
+                            'countComparison': CountComparison.equal.name,
+                            'valueComparisonComparator': ComparisonComparator.asciiNumeric.name,
+                            'index': index,
+                            'negative': negative,
+                          }
+                        ],
+                        'attachmentTest': [
+                          {
+                            'index': index,
+                            'negative': negative,
+                          }
+                        ],
+                        'bodyTest': [
+                          {
+                            'value': value,
+                            'caseSensitive': caseSensitive,
+                            'index': index,
+                            'negative': negative,
+                          }
+                        ],
+                        'bulkTest': [
+                          {
+                            'index': index,
+                            'negative': negative,
+                          }
+                        ],
+                        'contactRankingTest': [
+                          {
+                            'header': header,
+                            'index': index,
+                            'negative': negative,
+                          }
+                        ],
+                        'conversationTest': [
+                          {
+                            'where': WhereSetting.started.name,
+                            'index': index,
+                            'negative': negative,
+                          }
+                        ],
+                        'currentDayOfWeekTest': [
+                          {
+                            'value': value,
+                            'index': index,
+                            'negative': negative,
+                          }
+                        ],
+                        'currentTimeTest': [
+                          {
+                            'dateComparison': DateComparison.before.name,
+                            'time': time,
+                            'index': index,
+                            'negative': negative,
+                          }
+                        ],
+                        'dateTest': [
+                          {
+                            'dateComparison': DateComparison.before.name,
+                            'date': date,
+                            'index': index,
+                            'negative': negative,
+                          }
+                        ],
+                        'facebookTest': [
+                          {
+                            'index': index,
+                            'negative': negative,
+                          }
+                        ],
+                        'flaggedTest': [
+                          {
+                            'flagName': FilterFlagName.flagged.name,
+                            'index': index,
+                            'negative': negative,
+                          }
+                        ],
+                        'headerExistsTest': [
+                          {
+                            'header': header,
+                            'index': index,
+                            'negative': negative,
+                          }
+                        ],
+                        'headerTest': [
+                          {
+                            'header': header,
+                            'stringComparison': StringComparison.contains.name,
+                            'valueComparison': ValueComparison.equal.name,
+                            'countComparison': CountComparison.equal.name,
+                            'valueComparisonComparator': ComparisonComparator.asciiNumeric.name,
+                            'value': value,
+                            'caseSensitive': caseSensitive,
+                            'index': index,
+                            'negative': negative,
+                          }
+                        ],
+                        'importanceTest': [
+                          {
+                            'imp': Importance.normal.name,
+                            'index': index,
+                            'negative': negative,
+                          }
+                        ],
+                        'inviteTest': [
+                          {
+                            'method': [
+                              {'_content': method}
+                            ],
+                            'index': index,
+                            'negative': negative,
+                          },
+                        ],
+                        'linkedinTest': [
+                          {
+                            'index': index,
+                            'negative': negative,
+                          }
+                        ],
+                        'listTest': [
+                          {
+                            'index': index,
+                            'negative': negative,
+                          }
+                        ],
+                        'meTest': [
+                          {
+                            'header': header,
+                            'index': index,
+                            'negative': negative,
+                          }
+                        ],
+                        'mimeHeaderTest': [
+                          {
+                            'header': header,
+                            'stringComparison': StringComparison.contains.name,
+                            'value': value,
+                            'caseSensitive': caseSensitive,
+                            'index': index,
+                            'negative': negative,
+                          }
+                        ],
+                        'sizeTest': [
+                          {
+                            'numberComparison': NumberComparison.over.name,
+                            's': size,
+                            'index': index,
+                            'negative': negative,
+                          }
+                        ],
+                        'socialcastTest': [
+                          {
+                            'index': index,
+                            'negative': negative,
+                          }
+                        ],
+                        'trueTest': [
+                          {
+                            'index': index,
+                            'negative': negative,
+                          }
+                        ],
+                        'twitterTest': [
+                          {
+                            'index': index,
+                            'negative': negative,
+                          }
+                        ],
+                        'communityRequestsTest': [
+                          {
+                            'index': index,
+                            'negative': negative,
+                          }
+                        ],
+                        'communityContentTest': [
+                          {
+                            'index': index,
+                            'negative': negative,
+                          }
+                        ],
+                        'communityConnectionsTest': [
+                          {
+                            'index': index,
+                            'negative': negative,
+                          }
+                        ],
                       }
                     ],
-                    'actionDiscard': [
+                    'filterActions': [
                       {
-                        'index': index,
+                        'filterVariables': [
+                          {
+                            'index': index,
+                            'filterVariable': [
+                              {
+                                'name': name,
+                                'value': value,
+                              }
+                            ],
+                          }
+                        ],
+                        'actionKeep': [
+                          {
+                            'index': index,
+                          }
+                        ],
+                        'actionDiscard': [
+                          {
+                            'index': index,
+                          }
+                        ],
+                        'actionFileInto': [
+                          {
+                            'folderPath': folder,
+                            'copy': copy,
+                            'index': index,
+                          }
+                        ],
+                        'actionFlag': [
+                          {
+                            'flagName': FilterFlagName.flagged.name,
+                            'index': index,
+                          }
+                        ],
+                        'actionTag': [
+                          {
+                            'tagName': tag,
+                            'index': index,
+                          }
+                        ],
+                        'actionRedirect': [
+                          {
+                            'a': address,
+                            'copy': copy,
+                            'index': index,
+                          }
+                        ],
+                        'actionReply': [
+                          {
+                            'content': {'_content': content},
+                            'index': index,
+                          }
+                        ],
+                        'actionNotify': [
+                          {
+                            'a': address,
+                            'su': subject,
+                            'maxBodySize': maxBodySize,
+                            'content': {'_content': content},
+                            'origHeaders': origHeaders,
+                            'index': index,
+                          }
+                        ],
+                        'actionRFCCompliantNotify': [
+                          {
+                            'from': from,
+                            'importance': importance,
+                            'options': options,
+                            'message': message,
+                            'method': {'_content': method},
+                            'index': index,
+                          }
+                        ],
+                        'actionStop': [
+                          {
+                            'index': index,
+                          }
+                        ],
+                        'actionReject': [
+                          {
+                            '_content': content,
+                            'index': index,
+                          }
+                        ],
+                        'actionEreject': [
+                          {
+                            '_content': content,
+                            'index': index,
+                          }
+                        ],
+                        'actionLog': [
+                          {
+                            'level': LoggingLevel.info.name,
+                            '_content': content,
+                            'index': index,
+                          }
+                        ],
+                        'actionAddheader': [
+                          {
+                            'headerName': {'_content': header},
+                            'headerValue': {'_content': value},
+                            'last': last,
+                            'index': index,
+                          }
+                        ],
+                        'actionDeleteheader': [
+                          {
+                            'last': last,
+                            'offset': offset,
+                            'test': {
+                              'matchType': MatchType.value.name,
+                              'countComparator': countComparator,
+                              'valueComparator': valueComparator,
+                              'relationalComparator': RelationalComparator.equal.name,
+                              'comparator': ComparisonComparator.asciiNumeric.name,
+                              'headerName': {'_content': header},
+                              'headerValue': [
+                                {'_content': value}
+                              ],
+                            },
+                            'index': index,
+                          }
+                        ],
+                        'actionReplaceheader': [
+                          {
+                            'newName': {'_content': name},
+                            'newValue': {'_content': value},
+                            'last': last,
+                            'offset': offset,
+                            'test': {
+                              'matchType': MatchType.value.name,
+                              'countComparator': countComparator,
+                              'valueComparator': valueComparator,
+                              'relationalComparator': RelationalComparator.equal.name,
+                              'comparator': ComparisonComparator.asciiNumeric.name,
+                              'headerName': {'_content': header},
+                              'headerValue': [
+                                {'_content': value}
+                              ],
+                            },
+                            'index': index,
+                          }
+                        ],
                       }
                     ],
-                    'actionFileInto': [
-                      {
-                        'folderPath': folder,
-                        'copy': copy,
+                    'nestedRule': {
+                      'filterVariables': {
                         'index': index,
-                      }
-                    ],
-                    'actionFlag': [
-                      {
-                        'flagName': FilterFlagName.flagged.name,
-                        'index': index,
-                      }
-                    ],
-                    'actionTag': [
-                      {
-                        'tagName': tag,
-                        'index': index,
-                      }
-                    ],
-                    'actionRedirect': [
-                      {
-                        'a': address,
-                        'copy': copy,
-                        'index': index,
-                      }
-                    ],
-                    'actionReply': [
-                      {
-                        'content': {'_content': content},
-                        'index': index,
-                      }
-                    ],
-                    'actionNotify': [
-                      {
-                        'a': address,
-                        'su': subject,
-                        'maxBodySize': maxBodySize,
-                        'content': {'_content': content},
-                        'origHeaders': origHeaders,
-                        'index': index,
-                      }
-                    ],
-                    'actionRFCCompliantNotify': [
-                      {
-                        'from': from,
-                        'importance': importance,
-                        'options': options,
-                        'message': message,
-                        'method': {'_content': method},
-                        'index': index,
-                      }
-                    ],
-                    'actionStop': [
-                      {
-                        'index': index,
-                      }
-                    ],
-                    'actionReject': [
-                      {
-                        '_content': content,
-                        'index': index,
-                      }
-                    ],
-                    'actionEreject': [
-                      {
-                        '_content': content,
-                        'index': index,
-                      }
-                    ],
-                    'actionLog': [
-                      {
-                        'level': LoggingLevel.info.name,
-                        '_content': content,
-                        'index': index,
-                      }
-                    ],
-                    'actionAddheader': [
-                      {
-                        'headerName': {'_content': header},
-                        'headerValue': {'_content': value},
-                        'last': last,
-                        'index': index,
-                      }
-                    ],
-                    'actionDeleteheader': [
-                      {
-                        'last': last,
-                        'offset': offset,
-                        'test': {
-                          'matchType': MatchType.value.name,
-                          'countComparator': countComparator,
-                          'valueComparator': valueComparator,
-                          'relationalComparator': RelationalComparator.equal.name,
-                          'comparator': ComparisonComparator.asciiNumeric.name,
-                          'headerName': {'_content': header},
-                          'headerValue': [
-                            {'_content': value}
-                          ],
-                        },
-                        'index': index,
-                      }
-                    ],
-                    'actionReplaceheader': [
-                      {
-                        'newName': {'_content': name},
-                        'newValue': {'_content': value},
-                        'last': last,
-                        'offset': offset,
-                        'test': {
-                          'matchType': MatchType.value.name,
-                          'countComparator': countComparator,
-                          'valueComparator': valueComparator,
-                          'relationalComparator': RelationalComparator.equal.name,
-                          'comparator': ComparisonComparator.asciiNumeric.name,
-                          'headerName': {'_content': header},
-                          'headerValue': [
-                            {'_content': value}
-                          ],
-                        },
-                        'index': index,
-                      }
-                    ],
-                  },
-                  'nestedRule': {
-                    'filterVariables': {
-                      'index': index,
-                      'filterVariable': [
-                        {
-                          'name': name,
-                          'value': value,
-                        }
-                      ],
+                        'filterVariable': [
+                          {
+                            'name': name,
+                            'value': value,
+                          }
+                        ],
+                      },
+                      'filterTests': {
+                        'condition': FilterCondition.allof.name,
+                      },
+                      'filterActions': {
+                        'filterVariables': [
+                          {
+                            'index': index,
+                            'filterVariable': [
+                              {
+                                'name': name,
+                                'value': value,
+                              }
+                            ],
+                          }
+                        ]
+                      },
+                      'nestedRule': {'nestedRule': null},
                     },
-                    'filterTests': {
-                      'condition': FilterCondition.allof.name,
-                    },
-                    'filterActions': {
-                      'filterVariables': [
-                        {
-                          'index': index,
-                          'filterVariable': [
-                            {
-                              'name': name,
-                              'value': value,
-                            }
-                          ],
-                        }
-                      ]
-                    },
-                    'nestedRule': {'nestedRule': null},
-                  },
-                }
-              ]
-            },
+                  }
+                ]
+              }
+            ],
           }
         }
       };

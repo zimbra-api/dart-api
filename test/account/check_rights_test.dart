@@ -62,9 +62,7 @@ void main() {
       };
       final envelope = CheckRightsEnvelope.fromMap(data);
 
-      expect(envelope.body, isNotNull);
-      expect(envelope.body.request, isNull);
-      expect(envelope.body.request, isNotNull);
+      expect(envelope.body.response, isNotNull);
     });
 
     test('From data test', (() {

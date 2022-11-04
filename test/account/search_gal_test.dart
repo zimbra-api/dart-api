@@ -95,38 +95,42 @@ void main() {
               'includeOffset': includeOffset,
             },
             'searchFilter': {
-              'cond': {
-                'attr': attr,
-                'op': ConditionOperator.equal.name,
-                'value': value,
-                'not': isNot,
-              },
-              'conds': {
-                'not': isNot,
-                'or': isOr,
-                'cond': [
-                  {
-                    'attr': attr,
-                    'op': ConditionOperator.equal.name,
-                    'value': value,
-                    'not': isNot,
-                  }
-                ],
-                'conds': [
-                  {
-                    'not': isNot,
-                    'or': isOr,
-                    'cond': [
-                      {
-                        'attr': attr,
-                        'op': ConditionOperator.equal.name,
-                        'value': value,
-                        'not': isNot,
-                      }
-                    ]
-                  }
-                ],
-              }
+              'cond': [
+                {
+                  'attr': attr,
+                  'op': ConditionOperator.equal.name,
+                  'value': value,
+                  'not': isNot,
+                }
+              ],
+              'conds': [
+                {
+                  'not': isNot,
+                  'or': isOr,
+                  'cond': [
+                    {
+                      'attr': attr,
+                      'op': ConditionOperator.equal.name,
+                      'value': value,
+                      'not': isNot,
+                    }
+                  ],
+                  'conds': [
+                    {
+                      'not': isNot,
+                      'or': isOr,
+                      'cond': [
+                        {
+                          'attr': attr,
+                          'op': ConditionOperator.equal.name,
+                          'value': value,
+                          'not': isNot,
+                        }
+                      ]
+                    }
+                  ],
+                }
+              ],
             },
           }
         },
@@ -166,10 +170,10 @@ void main() {
       final key = faker.lorem.word();
       final value = faker.lorem.word();
 
-      final part = faker.lorem.word();
-      final contentType = faker.lorem.word();
-      final size = faker.randomGenerator.integer(100);
-      final contentFilename = faker.lorem.word();
+      // final part = faker.lorem.word();
+      // final contentType = faker.lorem.word();
+      // final size = faker.randomGenerator.integer(100);
+      // final contentFilename = faker.lorem.word();
 
       final data = {
         'Body': {
@@ -214,16 +218,9 @@ void main() {
                     ],
                   },
                 ],
-                'a': [
-                  {
-                    'n': key,
-                    '_content': value,
-                    'part': part,
-                    'ct': contentType,
-                    's': size,
-                    'filename': contentFilename,
-                  },
-                ],
+                '_attrs': {
+                  key: value,
+                },
                 'm': [
                   {
                     'type': type,
@@ -276,10 +273,10 @@ void main() {
       final attr = contact.attrs.first;
       expect(attr.key, key);
       expect(attr.value, value);
-      expect(attr.contentFilename, contentFilename);
-      expect(attr.contentType, contentType);
-      expect(attr.part, part);
-      expect(attr.size, size);
+      // expect(attr.contentFilename, contentFilename);
+      // expect(attr.contentType, contentType);
+      // expect(attr.part, part);
+      // expect(attr.size, size);
 
       final member = contact.contactGroupMembers.first;
       expect(member.type, type);

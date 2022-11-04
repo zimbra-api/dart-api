@@ -168,32 +168,34 @@ void main() {
 
       final name = faker.lorem.word();
       final value = faker.lorem.word();
-      final modified = faker.randomGenerator.integer(100);
-      final permDenied = faker.randomGenerator.boolean();
+      // final modified = faker.randomGenerator.integer(100);
+      // final permDenied = faker.randomGenerator.boolean();
 
       final data = {
         'Body': {
           'AuthResponse': {
             '_jsns': 'urn:zimbraAccount',
-            'authToken': {
-              '_content': authToken,
-            },
-            'lifetime': {
-              '_content': lifetime,
-            },
-            'trustLifetime': {
-              '_content': trustLifetime,
-            },
+            'authToken': [
+              {
+                '_content': authToken,
+              }
+            ],
+            'lifetime': lifetime,
+            'trustLifetime': trustLifetime,
             'session': {
               'id': sessionId,
               'type': sessionType,
             },
-            'refer': {
-              '_content': refer,
-            },
-            'skin': {
-              '_content': skin,
-            },
+            'refer': [
+              {
+                '_content': refer,
+              }
+            ],
+            'skin': [
+              {
+                '_content': skin,
+              }
+            ],
             'csrfToken': {
               '_content': csrfToken,
             },
@@ -204,29 +206,17 @@ void main() {
               '_content': trustedToken,
             },
             'zmgProxy': zmgProxy,
-            'twoFactorAuthRequired': {
-              '_content': twoFactorAuthRequired,
-            },
-            'trustedDevicesEnabled': {
-              '_content': trustedDevicesEnabled,
-            },
+            'twoFactorAuthRequired': twoFactorAuthRequired,
+            'trustedDevicesEnabled': trustedDevicesEnabled,
             'prefs': {
-              '_attrs': [
-                {
-                  'name': name,
-                  'modified': modified,
-                  '_content': value,
-                }
-              ]
+              '_attrs': {
+                name: value,
+              },
             },
             'attrs': {
-              '_attrs': [
-                {
-                  'name': name,
-                  'pd': permDenied,
-                  '_content': value,
-                }
-              ]
+              '_attrs': {
+                name: value,
+              },
             },
           },
         },
@@ -250,12 +240,12 @@ void main() {
 
       expect(response.prefs.isNotEmpty, isTrue);
       expect(response.prefs.first.name, name);
-      expect(response.prefs.first.modified, modified);
+      // expect(response.prefs.first.modified, modified);
       expect(response.prefs.first.value, value);
 
       expect(response.attrs.isNotEmpty, isTrue);
       expect(response.attrs.first.name, name);
-      expect(response.attrs.first.permDenied, permDenied);
+      // expect(response.attrs.first.permDenied, permDenied);
       expect(response.attrs.first.value, value);
     }));
   });

@@ -37,9 +37,9 @@ class FilterRule {
   Map<String, dynamic> toMap() => {
         'name': name,
         'active': active,
-        if (filterVariables != null) 'filterVariables': filterVariables!.toMap(),
-        if (filterTests != null) 'filterTests': filterTests!.toMap(),
-        if (filterActions != null) 'filterActions': filterActions!.toMap(),
+        if (filterVariables != null) 'filterVariables': [filterVariables!.toMap()],
+        if (filterTests != null) 'filterTests': [filterTests!.toMap()],
+        if (filterActions != null) 'filterActions': [filterActions!.toMap()],
         if (child != null) 'nestedRule': child!.toMap(),
       };
 }

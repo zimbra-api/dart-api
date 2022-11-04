@@ -36,12 +36,9 @@ void main() {
             '_jsns': 'urn:zimbraMail',
             'meta': {
               'section': section,
-              'a': [
-                {
-                  'n': key,
-                  '_content': value,
-                }
-              ],
+              '_attrs': {
+                key: value,
+              },
             },
           }
         }

@@ -145,12 +145,9 @@ void main() {
               {
                 'name': name,
                 'id': id,
-                'a': [
-                  {
-                    'n': key,
-                    '_content': value,
-                  }
-                ],
+                '_attrs': {
+                  key: value,
+                },
               }
             ],
           }

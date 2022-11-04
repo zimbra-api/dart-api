@@ -12,10 +12,10 @@ class XParam {
 
   XParam(this.name, {this.value});
 
-  factory XParam.fromMap(Map<String, dynamic> data) => XParam(data['name'] ?? '', value: data['_content']);
+  factory XParam.fromMap(Map<String, dynamic> data) => XParam(data['name'] ?? '', value: data['value']);
 
   Map<String, dynamic> toMap() => {
         'name': name,
-        if (value != null) '_content': value,
+        if (value != null) 'value': value,
       };
 }

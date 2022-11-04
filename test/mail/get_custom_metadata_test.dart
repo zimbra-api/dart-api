@@ -40,12 +40,9 @@ void main() {
             'id': id,
             'meta': {
               'section': section,
-              'a': [
-                {
-                  'n': key,
-                  '_content': value,
-                }
-              ],
+              '_attrs': {
+                key: value,
+              },
             },
           }
         }

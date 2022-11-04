@@ -758,7 +758,7 @@ void main() {
                     'xparam': [
                       {
                         'name': name,
-                        '_content': value,
+                        'value': value,
                       }
                     ],
                   }
@@ -809,7 +809,7 @@ void main() {
                         'xparam': [
                           {
                             'name': name,
-                            '_content': value,
+                            'value': value,
                           }
                         ],
                       }
@@ -817,11 +817,11 @@ void main() {
                     'xprop': [
                       {
                         'name': name,
-                        '_content': value,
+                        'value': value,
                         'xparam': [
                           {
                             'name': name,
-                            '_content': value,
+                            'value': value,
                           }
                         ],
                       }
@@ -831,11 +831,11 @@ void main() {
                 'xprop': [
                   {
                     'name': name,
-                    '_content': value,
+                    'value': value,
                     'xparam': [
                       {
                         'name': name,
-                        '_content': value,
+                        'value': value,
                       }
                     ],
                   }
@@ -853,7 +853,7 @@ void main() {
                   'xparam': [
                     {
                       'name': name,
-                      '_content': value,
+                      'value': value,
                     }
                   ],
                 },
@@ -1285,7 +1285,7 @@ void main() {
                           'xparam': [
                             {
                               'name': name,
-                              '_content': value,
+                              'value': value,
                             }
                           ],
                         }
@@ -1336,7 +1336,7 @@ void main() {
                               'xparam': [
                                 {
                                   'name': name,
-                                  '_content': value,
+                                  'value': value,
                                 }
                               ],
                             }
@@ -1344,11 +1344,11 @@ void main() {
                           'xprop': [
                             {
                               'name': name,
-                              '_content': value,
+                              'value': value,
                               'xparam': [
                                 {
                                   'name': name,
-                                  '_content': value,
+                                  'value': value,
                                 }
                               ],
                             }
@@ -1358,11 +1358,11 @@ void main() {
                       'xprop': [
                         {
                           'name': name,
-                          '_content': value,
+                          'value': value,
                           'xparam': [
                             {
                               'name': name,
-                              '_content': value,
+                              'value': value,
                             }
                           ],
                         }
@@ -1380,7 +1380,7 @@ void main() {
                         'xparam': [
                           {
                             'name': name,
-                            '_content': value,
+                            'value': value,
                           }
                         ],
                       },
@@ -1610,12 +1610,9 @@ void main() {
                 'meta': [
                   {
                     'section': section,
-                    'a': [
-                      {
-                        'n': key,
-                        '_content': value,
-                      }
-                    ]
+                    '_attrs': {
+                      key: value,
+                    },
                   }
                 ],
               },

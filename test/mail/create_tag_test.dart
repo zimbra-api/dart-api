@@ -65,12 +65,9 @@ void main() {
               'meta': [
                 {
                   'section': section,
-                  'a': [
-                    {
-                      'n': key,
-                      '_content': value,
-                    }
-                  ],
+                  '_attrs': {
+                    key: value,
+                  },
                 }
               ],
               'retentionPolicy': {

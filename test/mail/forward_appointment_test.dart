@@ -749,7 +749,7 @@ void main() {
                     'xparam': [
                       {
                         'name': name,
-                        '_content': value,
+                        'value': value,
                       }
                     ],
                   }
@@ -800,7 +800,7 @@ void main() {
                         'xparam': [
                           {
                             'name': name,
-                            '_content': value,
+                            'value': value,
                           }
                         ],
                       }
@@ -808,11 +808,11 @@ void main() {
                     'xprop': [
                       {
                         'name': name,
-                        '_content': value,
+                        'value': value,
                         'xparam': [
                           {
                             'name': name,
-                            '_content': value,
+                            'value': value,
                           }
                         ],
                       }
@@ -822,11 +822,11 @@ void main() {
                 'xprop': [
                   {
                     'name': name,
-                    '_content': value,
+                    'value': value,
                     'xparam': [
                       {
                         'name': name,
-                        '_content': value,
+                        'value': value,
                       }
                     ],
                   }
@@ -844,7 +844,7 @@ void main() {
                   'xparam': [
                     {
                       'name': name,
-                      '_content': value,
+                      'value': value,
                     }
                   ],
                 },

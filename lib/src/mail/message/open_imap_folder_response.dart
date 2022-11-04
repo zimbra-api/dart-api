@@ -20,8 +20,8 @@ class OpenIMAPFolderResponse extends SoapResponse {
 
   factory OpenIMAPFolderResponse.fromMap(Map<String, dynamic> data) => OpenIMAPFolderResponse(
         hasMore: data['more'],
-        messages: (data['folder']?['m'] is Iterable)
-            ? List.from((data['folder']['m'] as Iterable).map<ImapMessageInfo>((m) => ImapMessageInfo.fromMap(m)))
+        messages: (data['folder']?[0]['m'] is Iterable)
+            ? List.from((data['folder'][0]['m'] as Iterable).map<ImapMessageInfo>((m) => ImapMessageInfo.fromMap(m)))
             : [],
         cursor: data['cursor'] is Map ? ImapCursorInfo.fromMap(data['cursor']) : null,
       );

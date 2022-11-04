@@ -28,8 +28,12 @@ class ModifyWhiteBlackListRequest extends SoapRequest {
   Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraAccount',
         if (whiteListEntries.isNotEmpty)
-          'whiteList': {'addr': whiteListEntries.map((entry) => entry.toMap()).toList()},
+          'whiteList': [
+            {'addr': whiteListEntries.map((entry) => entry.toMap()).toList()}
+          ],
         if (blackListEntries.isNotEmpty)
-          'blackList': {'addr': blackListEntries.map((entry) => entry.toMap()).toList()},
+          'blackList': [
+            {'addr': blackListEntries.map((entry) => entry.toMap()).toList()}
+          ],
       };
 }

@@ -67,35 +67,41 @@ void main() {
             'defTypes': defaultInterests,
             'timeout': timeout,
             'expand': expand,
-            'add': {
-              'a': [
-                {
-                  'name': name,
-                  'id': id,
-                  'token': token,
-                  'types': interests,
-                  'folderInterests': folderInterests,
-                }
-              ]
-            },
-            'update': {
-              'a': [
-                {
-                  'name': name,
-                  'id': id,
-                  'token': token,
-                  'types': interests,
-                  'folderInterests': folderInterests,
-                }
-              ]
-            },
-            'remove': {
-              'a': [
-                {
-                  'id': id,
-                }
-              ]
-            },
+            'add': [
+              {
+                'a': [
+                  {
+                    'name': name,
+                    'id': id,
+                    'token': token,
+                    'types': interests,
+                    'folderInterests': folderInterests,
+                  }
+                ]
+              }
+            ],
+            'update': [
+              {
+                'a': [
+                  {
+                    'name': name,
+                    'id': id,
+                    'token': token,
+                    'types': interests,
+                    'folderInterests': folderInterests,
+                  }
+                ]
+              }
+            ],
+            'remove': [
+              {
+                'a': [
+                  {
+                    'id': id,
+                  }
+                ]
+              }
+            ],
           }
         },
       });

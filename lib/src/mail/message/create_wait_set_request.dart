@@ -57,6 +57,9 @@ class CreateWaitSetRequest extends SoapRequest {
               .where((type) => InterestType.values.any((element) => element.name == type))
               .join(','),
         if (allAccounts != null) 'allAccounts': allAccounts,
-        if (accounts.isNotEmpty) 'add': {'a': accounts.map((a) => a.toMap()).toList()},
+        if (accounts.isNotEmpty)
+          'add': [
+            {'a': accounts.map((a) => a.toMap()).toList()}
+          ],
       };
 }

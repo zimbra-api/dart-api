@@ -121,8 +121,14 @@ class AuthRequest extends SoapRequest {
         if (authToken != null) 'authToken': authToken!.toMap(),
         if (jwtToken != null) 'jwtToken': {'_content': jwtToken},
         if (virtualHost != null) 'virtualHost': {'_content': virtualHost},
-        if (prefs.isNotEmpty) 'prefs': {'pref': prefs.map((pref) => pref.toMap()).toList()},
-        if (attrs.isNotEmpty) 'attrs': {'attr': attrs.map((attr) => attr.toMap()).toList()},
+        if (prefs.isNotEmpty)
+          'prefs': [
+            {'pref': prefs.map((pref) => pref.toMap()).toList()}
+          ],
+        if (attrs.isNotEmpty)
+          'attrs': [
+            {'attr': attrs.map((attr) => attr.toMap()).toList()}
+          ],
         if (requestedSkin != null) 'requestedSkin': {'_content': requestedSkin},
         if (twoFactorCode != null) 'twoFactorCode': {'_content': twoFactorCode},
         if (deviceTrusted != null) 'deviceTrusted': deviceTrusted,

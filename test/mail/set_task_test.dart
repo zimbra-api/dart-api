@@ -1089,21 +1089,23 @@ void main() {
                 },
               }
             ],
-            'replies': {
-              'reply': [
-                {
-                  'rangeType': recurrenceRangeType,
-                  'recurId': recurrenceId,
-                  'at': attendee,
-                  'sentBy': sentBy,
-                  'ptst': partStat.name,
-                  'seq': sequence,
-                  'd': date,
-                  'tz': timezone,
-                  'ridZ': recurIdZ,
-                }
-              ]
-            },
+            'replies': [
+              {
+                'reply': [
+                  {
+                    'rangeType': recurrenceRangeType,
+                    'recurId': recurrenceId,
+                    'at': attendee,
+                    'sentBy': sentBy,
+                    'ptst': partStat.name,
+                    'seq': sequence,
+                    'd': date,
+                    'tz': timezone,
+                    'ridZ': recurIdZ,
+                  }
+                ]
+              }
+            ],
           }
         },
       });

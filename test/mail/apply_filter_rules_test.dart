@@ -24,13 +24,15 @@ void main() {
         'Body': {
           'ApplyFilterRulesRequest': {
             '_jsns': 'urn:zimbraMail',
-            'filterRules': {
-              'filterRule': [
-                {
-                  'name': name,
-                }
-              ]
-            },
+            'filterRules': [
+              {
+                'filterRule': [
+                  {
+                    'name': name,
+                  }
+                ]
+              }
+            ],
             'm': {
               'ids': ids,
             },

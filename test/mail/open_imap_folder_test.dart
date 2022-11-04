@@ -40,17 +40,19 @@ void main() {
           'OpenIMAPFolderResponse': {
             '_jsns': 'urn:zimbraMail',
             'more': hasMore,
-            'folder': {
-              'm': [
-                {
-                  'id': id,
-                  'i4uid': imapUid,
-                  't': type,
-                  'f': flags,
-                  'tn': tags,
-                }
-              ]
-            },
+            'folder': [
+              {
+                'm': [
+                  {
+                    'id': id,
+                    'i4uid': imapUid,
+                    't': type,
+                    'f': flags,
+                    'tn': tags,
+                  }
+                ]
+              }
+            ],
             'cursor': {'id': id.toString()},
           }
         }

@@ -21,22 +21,26 @@ void main() {
         'Body': {
           'ModifyWhiteBlackListRequest': {
             '_jsns': 'urn:zimbraAccount',
-            'whiteList': {
-              'addr': [
-                {
-                  'op': op,
-                  '_content': whiteEntry,
-                }
-              ]
-            },
-            'blackList': {
-              'addr': [
-                {
-                  'op': op,
-                  '_content': blackEntry,
-                }
-              ]
-            },
+            'whiteList': [
+              {
+                'addr': [
+                  {
+                    'op': op,
+                    '_content': whiteEntry,
+                  }
+                ]
+              }
+            ],
+            'blackList': [
+              {
+                'addr': [
+                  {
+                    'op': op,
+                    '_content': blackEntry,
+                  }
+                ]
+              }
+            ],
           }
         }
       });

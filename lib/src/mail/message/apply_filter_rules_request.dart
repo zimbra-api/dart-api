@@ -34,7 +34,9 @@ class ApplyFilterRulesRequest extends SoapRequest {
   Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
         if (filterRules.isNotEmpty)
-          'filterRules': {'filterRule': filterRules.map((filterRule) => filterRule.toMap()).toList()},
+          'filterRules': [
+            {'filterRule': filterRules.map((filterRule) => filterRule.toMap()).toList()}
+          ],
         if (msgIds != null) 'm': msgIds!.toMap(),
         if (query != null) 'query': {'_content': query},
       };

@@ -88,8 +88,17 @@ class WaitSetRequest extends SoapRequest {
         if (defaultInterests != null) 'defTypes': defaultInterests,
         if (timeout != null) 'timeout': timeout,
         if (expand != null) 'expand': expand,
-        if (addAccounts.isNotEmpty) 'add': {'a': addAccounts.map((a) => a.toMap()).toList()},
-        if (updateAccounts.isNotEmpty) 'update': {'a': updateAccounts.map((a) => a.toMap()).toList()},
-        if (removeAccounts.isNotEmpty) 'remove': {'a': removeAccounts.map((a) => a.toMap()).toList()},
+        if (addAccounts.isNotEmpty)
+          'add': [
+            {'a': addAccounts.map((a) => a.toMap()).toList()}
+          ],
+        if (updateAccounts.isNotEmpty)
+          'update': [
+            {'a': updateAccounts.map((a) => a.toMap()).toList()}
+          ],
+        if (removeAccounts.isNotEmpty)
+          'remove': [
+            {'a': removeAccounts.map((a) => a.toMap()).toList()}
+          ],
       };
 }

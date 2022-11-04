@@ -82,6 +82,9 @@ class SetAppointmentRequest extends SoapRequest {
         if (defaultId != null) 'default': defaultId!.toMap(),
         if (exceptions.isNotEmpty) 'except': exceptions.map((except) => except.toMap()).toList(),
         if (cancellations.isNotEmpty) 'cancel': cancellations.map((cancel) => cancel.toMap()).toList(),
-        if (replies.isNotEmpty) 'replies': {'reply': replies.map((reply) => reply.toMap()).toList()},
+        if (replies.isNotEmpty)
+          'replies': [
+            {'reply': replies.map((reply) => reply.toMap()).toList()}
+          ],
       };
 }

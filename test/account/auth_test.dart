@@ -105,24 +105,28 @@ void main() {
         },
         'jwtToken': {'_content': jwtToken},
         'virtualHost': {'_content': virtualHost},
-        'prefs': {
-          'pref': [
-            {
-              'name': name,
-              'modified': modified,
-              '_content': value,
-            }
-          ]
-        },
-        'attrs': {
-          'attr': [
-            {
-              'name': name,
-              'pd': permDenied,
-              '_content': value,
-            }
-          ]
-        },
+        'prefs': [
+          {
+            'pref': [
+              {
+                'name': name,
+                'modified': modified,
+                '_content': value,
+              }
+            ]
+          }
+        ],
+        'attrs': [
+          {
+            'attr': [
+              {
+                'name': name,
+                'pd': permDenied,
+                '_content': value,
+              }
+            ]
+          }
+        ],
         'requestedSkin': {'_content': requestedSkin},
         'twoFactorCode': {'_content': twoFactorCode},
         'deviceTrusted': deviceTrusted,

@@ -44,17 +44,19 @@ void main() {
             '_jsns': 'urn:zimbraMail',
             'defTypes': defaultInterests,
             'allAccounts': allAccounts,
-            'add': {
-              'a': [
-                {
-                  'name': name,
-                  'id': id,
-                  'token': token,
-                  'types': interests,
-                  'folderInterests': folderInterests,
-                }
-              ]
-            },
+            'add': [
+              {
+                'a': [
+                  {
+                    'name': name,
+                    'id': id,
+                    'token': token,
+                    'types': interests,
+                    'folderInterests': folderInterests,
+                  }
+                ]
+              }
+            ],
           }
         },
       });

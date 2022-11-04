@@ -2,8 +2,6 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
-import 'package:zimbra_api/src/common/type/key_value_pair.dart';
-
 import 'object_info.dart';
 
 class DLInfo extends ObjectInfo {
@@ -29,21 +27,15 @@ class DLInfo extends ObjectInfo {
   final bool? isMember;
 
   DLInfo(super.name, super.id, this.ref,
-      {super.attrList, this.displayName, this.isDynamic, this.via, this.isOwner, this.isMember});
+      {this.displayName, this.isDynamic, this.via, this.isOwner, this.isMember, super.attrList});
 
-  factory DLInfo.fromMap(Map<String, dynamic> data) => DLInfo(
-        data['name'],
-        data['id'],
-        data['ref'],
-        displayName: data['d'],
-        isDynamic: data['dynamic'],
-        via: data['via'],
-        isOwner: data['isOwner'],
-        isMember: data['isMember'],
-        attrList: (data['a'] is Iterable)
-            ? List.from((data['a'] as Iterable).map<KeyValuePair>((attr) => KeyValuePair.fromMap(attr)))
-            : [],
-      );
+  factory DLInfo.fromMap(Map<String, dynamic> data) => DLInfo(data['name'], data['id'], data['ref'],
+      displayName: data['d'],
+      isDynamic: data['dynamic'],
+      via: data['via'],
+      isOwner: data['isOwner'],
+      isMember: data['isMember'],
+      attrList: ObjectInfo.attrListFromJson(data));
 
   Map<String, dynamic> toMap() => {
         'name': name,

@@ -60,12 +60,9 @@ void main() {
               'via': via,
               'isOwner': isOwner,
               'isMember': isMember,
-              'a': [
-                {
-                  'n': key,
-                  '_content': value,
-                },
-              ],
+              '_attrs': {
+                key: value,
+              },
             },
           },
         },

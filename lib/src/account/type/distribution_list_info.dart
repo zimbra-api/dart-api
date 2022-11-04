@@ -33,25 +33,25 @@ class DistributionListInfo extends ObjectInfo {
       this.isDynamic,
       this.members = const [],
       this.owners = const [],
-      this.rights = const []});
+      this.rights = const [],
+      super.attrList = const []});
 
   factory DistributionListInfo.fromMap(Map<String, dynamic> data) => DistributionListInfo(
-      data['name'] ?? '',
-      data['id'] ?? '',
+      data['name'] ?? '', data['id'] ?? '',
       isOwner: data['isOwner'],
       isMember: data['isMember'],
       isDynamic: data['dynamic'],
-        members:
-            (data['dlm'] is Iterable) ? List.from((data['dlm'] as Iterable).map<String>((dlm) => dlm['_content'])) : [],
-        owners: (data['owners']?['owner'] is Iterable)
-            ? List.from((data['owners']['owner'] as Iterable)
-                .map<DistributionListGranteeInfo>((owner) => DistributionListGranteeInfo.fromMap(owner)))
-            : [],
-        rights: (data['rights']?['right'] is Iterable)
-            ? List.from((data['rights']['right'] as Iterable)
-                .map<DistributionListRightInfo>((right) => DistributionListRightInfo.fromMap(right)))
-            : [],
-      );
+      members:
+          (data['dlm'] is Iterable) ? List.from((data['dlm'] as Iterable).map<String>((dlm) => dlm['_content'])) : [],
+      owners: (data['owners']?['owner'] is Iterable)
+          ? List.from((data['owners']['owner'] as Iterable)
+              .map<DistributionListGranteeInfo>((owner) => DistributionListGranteeInfo.fromMap(owner)))
+          : [],
+      rights: (data['rights']?['right'] is Iterable)
+          ? List.from((data['rights']['right'] as Iterable)
+              .map<DistributionListRightInfo>((right) => DistributionListRightInfo.fromMap(right)))
+          : [],
+      attrList: ObjectInfo.attrListFromJson(data));
 
   Map<String, dynamic> toMap() => {
         'name': name,
@@ -62,5 +62,6 @@ class DistributionListInfo extends ObjectInfo {
         if (members.isNotEmpty) 'dlm': members.map((dlm) => {'_content': dlm}).toList(),
         if (owners.isNotEmpty) 'owners': {'owner': owners.map((owner) => owner.toMap()).toList()},
         if (rights.isNotEmpty) 'rights': {'right': rights.map((right) => right.toMap()).toList()},
+        if (attrList.isNotEmpty) 'a': attrList.map((attr) => attr.toMap()).toList(),
       };
 }

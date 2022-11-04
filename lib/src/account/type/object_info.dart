@@ -15,4 +15,10 @@ abstract class ObjectInfo {
   final List<KeyValuePair> attrList;
 
   ObjectInfo(this.name, this.id, {this.attrList = const []});
+
+  static List<KeyValuePair> attrListFromJson(Map<String, dynamic> data) {
+    return (data['_attrs'] is Map)
+        ? List.from((data['_attrs'] as Map).entries.map<KeyValuePair>((kvp) => KeyValuePair(kvp.key, value: kvp.value)))
+        : [];
+  }
 }

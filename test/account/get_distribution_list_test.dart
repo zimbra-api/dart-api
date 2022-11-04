@@ -37,8 +37,10 @@ void main() {
     }));
 
     test('Get distribution list response', (() {
-      final name = faker.internet.email();
       final id = faker.guid.guid();
+      final name = faker.internet.email();
+      final key = faker.lorem.word();
+      final value = faker.lorem.word();
       final isOwner = faker.randomGenerator.boolean();
       final isMember = faker.randomGenerator.boolean();
       final isDynamic = faker.randomGenerator.boolean();
@@ -81,6 +83,9 @@ void main() {
                   }
                 ],
               },
+              '_attrs': {
+                key: value,
+              },
             },
           }
         }
@@ -108,6 +113,10 @@ void main() {
       expect(grantee.type, GranteeType.usr);
       expect(grantee.id, id);
       expect(grantee.name, name);
+
+      final attr = dl.attrList.first;
+      expect(attr.key, key);
+      expect(attr.value, value);
     }));
   }));
 }

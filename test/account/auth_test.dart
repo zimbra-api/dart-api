@@ -186,11 +186,7 @@ void main() {
               'id': sessionId,
               'type': sessionType,
             },
-            'refer': [
-              {
-                '_content': refer,
-              }
-            ],
+            'refer': refer,
             'skin': [
               {
                 '_content': skin,

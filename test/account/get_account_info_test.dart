@@ -43,12 +43,9 @@ void main() {
           'GetAccountInfoResponse': {
             '_jsns': 'urn:zimbraAccount',
             'name': email,
-            'attr': [
-              {
-                'name': name,
-                '_content': value,
-              }
-            ],
+            '_attrs': {
+              name: value,
+            },
             'soapURL': soapURL,
             'publicURL': publicURL,
             'changePasswordURL': changePasswordURL,

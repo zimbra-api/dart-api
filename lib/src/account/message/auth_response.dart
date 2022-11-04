@@ -70,7 +70,7 @@ class AuthResponse extends SoapResponse {
         lifetime: data['lifetime'],
         trustLifetime: data['trustLifetime'],
         session: data['session'] is Map ? Session.fromMap(data['session']) : null,
-        refer: data['refer']?[0]['_content'],
+        refer: data['refer'],
         skin: data['skin']?[0]['_content'],
         csrfToken: data['csrfToken']?['_content'],
         deviceId: data['deviceId']?['_content'],

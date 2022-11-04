@@ -11,6 +11,7 @@ import 'reset_password_envelope.dart';
 
 /// Reset password
 class ResetPasswordRequest extends SoapRequest {
+  /// New password to assign
   final String password;
 
   ResetPasswordRequest(this.password);

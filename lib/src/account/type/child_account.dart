@@ -22,8 +22,8 @@ class ChildAccount {
         name: data['name'],
         isVisible: data['visible'],
         isActive: data['active'],
-        attrs: (data['attrs']?['attr'] is Iterable)
-            ? List.from((data['attrs']['attr'] as Iterable).map<Attr>((attr) => Attr.fromMap(attr)))
+        attrs: (data['attrs']?[0]['attr'] is Iterable)
+            ? List.from((data['attrs'][0]['attr'] as Iterable).map<Attr>((attr) => Attr.fromMap(attr)))
             : [],
       );
 

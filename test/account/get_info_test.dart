@@ -269,15 +269,17 @@ void main() {
                   'name': name,
                   'visible': isVisible,
                   'active': isActive,
-                  'attrs': {
-                    'attr': [
+                  'attrs': [
+                    {
+                      'attr': [
                       {
                         'name': name,
                         'pd': permDenied,
                         '_content': value,
                       }
-                    ]
-                  },
+                      ]
+                    }
+                  ],
                 }
               ],
             },

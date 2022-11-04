@@ -60,29 +60,25 @@ void main() {
               'dlm': [
                 {'_content': member}
               ],
-              'owners': {
-                'owner': [
-                  {
-                    'type': GranteeType.usr.name,
-                    'id': id,
-                    'name': name,
-                  }
-                ],
-              },
-              'rights': {
-                'right': [
-                  {
-                    'right': rightName,
-                    'grantee': [
-                      {
-                        'type': GranteeType.usr.name,
-                        'id': id,
-                        'name': name,
-                      }
-                    ],
-                  }
-                ],
-              },
+              'owner': [
+                {
+                  'type': GranteeType.usr.name,
+                  'id': id,
+                  'name': name,
+                }
+              ],
+              'right': [
+                {
+                  'right': rightName,
+                  'grantee': [
+                    {
+                      'type': GranteeType.usr.name,
+                      'id': id,
+                      'name': name,
+                    }
+                  ],
+                }
+              ],
               '_attrs': {
                 key: value,
               },

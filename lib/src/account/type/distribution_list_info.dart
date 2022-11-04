@@ -43,12 +43,12 @@ class DistributionListInfo extends ObjectInfo {
       isDynamic: data['dynamic'],
       members:
           (data['dlm'] is Iterable) ? List.from((data['dlm'] as Iterable).map<String>((dlm) => dlm['_content'])) : [],
-      owners: (data['owners']?['owner'] is Iterable)
-          ? List.from((data['owners']['owner'] as Iterable)
+      owners: (data['owner'] is Iterable)
+          ? List.from((data['owner'] as Iterable)
               .map<DistributionListGranteeInfo>((owner) => DistributionListGranteeInfo.fromMap(owner)))
           : [],
-      rights: (data['rights']?['right'] is Iterable)
-          ? List.from((data['rights']['right'] as Iterable)
+      rights: (data['right'] is Iterable)
+          ? List.from((data['right'] as Iterable)
               .map<DistributionListRightInfo>((right) => DistributionListRightInfo.fromMap(right)))
           : [],
       attrList: ObjectInfo.attrListFromJson(data));

@@ -16,7 +16,7 @@ import 'package:zimbra_api/src/common/type/soap_response.dart';
 import 'client.dart';
 import 'client_exception.dart';
 
-typedef FromMapConverter<T> = T? Function(Map<String, dynamic> data);
+typedef FromMapConverter<T extends SoapResponse> = T? Function(Map<String, dynamic> data);
 
 abstract class Api {
   final Client _soapClient;

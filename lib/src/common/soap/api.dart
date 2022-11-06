@@ -11,9 +11,12 @@ import 'package:zimbra_api/src/common/type/header/user_agent_info.dart';
 import 'package:zimbra_api/src/common/type/soap_fault.dart';
 import 'package:zimbra_api/src/common/type/soap_header.dart';
 import 'package:zimbra_api/src/common/type/soap_request.dart';
+import 'package:zimbra_api/src/common/type/soap_response.dart';
 
 import 'client.dart';
 import 'client_exception.dart';
+
+typedef FromMapConverter<T> = T? Function(Map<String, dynamic> data);
 
 abstract class Api {
   final Client _soapClient;
@@ -30,7 +33,7 @@ abstract class Api {
 
   Api(String serviceHost) : _soapClient = Client(serviceHost);
 
-  Future<Map<String, dynamic>> invoke(SoapRequest request) {
+  Future<T?> invoke<T extends SoapResponse>(SoapRequest request, {required FromMapConverter<T> fromMap}) {
     return _soapClient
         .sendRequest(request
             .getEnvelope(
@@ -47,8 +50,8 @@ abstract class Api {
               ),
             )
             .toJson())
-        .onError<ClientException>((e, _) => throw SoapFault.fromMap(e.response.json['Body']?['Fault'] ?? {}))
-        .then((response) => response.json);
+        .onError<ClientException>((e, _) => throw SoapFault.fromMap(e.response.mapData['Body']?['Fault'] ?? {}))
+        .then((response) => fromMap(response.mapData));
   }
 
   void setAuthToken(String authToken) {

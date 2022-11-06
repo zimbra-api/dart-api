@@ -196,26 +196,30 @@ void main() {
                 }
               ],
               'retentionPolicy': {
-                'keep': {
-                  'policy': [
-                    {
-                      'type': PolicyType.user.name,
-                      'id': id,
-                      'name': name,
-                      'lifetime': lifetime,
-                    }
-                  ],
-                },
-                'purge': {
-                  'policy': [
-                    {
-                      'type': PolicyType.user.name,
-                      'id': id,
-                      'name': name,
-                      'lifetime': lifetime,
-                    }
-                  ],
-                },
+                'keep': [
+                  {
+                    'policy': [
+                      {
+                        'type': PolicyType.user.name,
+                        'id': id,
+                        'name': name,
+                        'lifetime': lifetime,
+                      }
+                    ],
+                  }
+                ],
+                'purge': [
+                  {
+                    'policy': [
+                      {
+                        'type': PolicyType.user.name,
+                        'id': id,
+                        'name': name,
+                        'lifetime': lifetime,
+                      }
+                    ],
+                  }
+                ],
               },
             },
           }

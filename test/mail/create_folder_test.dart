@@ -75,19 +75,21 @@ void main() {
               'l': parentFolderId,
               'fie': fetchIfExists,
               'sync': syncToUrl,
-              'acl': {
-                'grant': [
-                  {
-                    'perm': rights,
-                    'gt': GranteeType.all.name,
-                    'zid': zimbraId,
-                    'd': displayName,
-                    'args': args,
-                    'pw': password,
-                    'key': accessKey,
-                  }
-                ]
-              },
+              'acl': [
+                {
+                  'grant': [
+                    {
+                      'perm': rights,
+                      'gt': GranteeType.all.name,
+                      'zid': zimbraId,
+                      'd': displayName,
+                      'args': args,
+                      'pw': password,
+                      'key': accessKey,
+                    }
+                  ]
+                }
+              ],
             },
           }
         },
@@ -231,28 +233,34 @@ void main() {
                   'types': types,
                 }
               ],
-              'retentionPolicy': {
-                'keep': {
-                  'policy': [
+              'retentionPolicy': [
+                {
+                  'keep': [
                     {
-                      'type': PolicyType.user.name,
-                      'id': id,
-                      'name': name,
-                      'lifetime': lifetime,
+                      'policy': [
+                        {
+                          'type': PolicyType.user.name,
+                          'id': id,
+                          'name': name,
+                          'lifetime': lifetime,
+                        }
+                      ],
                     }
                   ],
-                },
-                'purge': {
-                  'policy': [
+                  'purge': [
                     {
-                      'type': PolicyType.user.name,
-                      'id': id,
-                      'name': name,
-                      'lifetime': lifetime,
+                      'policy': [
+                        {
+                          'type': PolicyType.user.name,
+                          'id': id,
+                          'name': name,
+                          'lifetime': lifetime,
+                        }
+                      ],
                     }
                   ],
-                },
-              },
+                }
+              ],
             },
             'link': {
               'id': id,

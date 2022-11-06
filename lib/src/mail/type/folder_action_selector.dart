@@ -86,8 +86,8 @@ class FolderActionSelector extends ActionSelector {
           ),
           view: data['view'],
           grant: data['grant'] is Map ? ActionGrantSelector.fromMap(data['grant']) : null,
-          grants: (data['acl']?['grant'] is Iterable)
-              ? List.from((data['acl']['grant'] as Iterable)
+          grants: (data['acl']?[0]['grant'] is Iterable)
+              ? List.from((data['acl'][0]['grant'] as Iterable)
                   .map<ActionGrantSelector>((grant) => ActionGrantSelector.fromMap(grant)))
               : [],
           retentionPolicy: data['retentionPolicy'] is Map ? RetentionPolicy.fromMap(data['retentionPolicy']) : null,
@@ -115,7 +115,10 @@ class FolderActionSelector extends ActionSelector {
         if (grantType != null) 'gt': grantType!.name,
         if (view != null) 'view': view,
         if (grant != null) 'grant': grant!.toMap(),
-        if (grants.isNotEmpty) 'acl': {'grant': grants.map((grant) => grant.toMap()).toList()},
+        if (grants.isNotEmpty)
+          'acl': [
+            {'grant': grants.map((grant) => grant.toMap()).toList()}
+          ],
         if (retentionPolicy != null) 'retentionPolicy': retentionPolicy!.toMap(),
         if (numDays != null) 'numDays': numDays,
       };

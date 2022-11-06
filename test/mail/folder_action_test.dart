@@ -147,40 +147,46 @@ void main() {
                 'pw': password,
                 'key': accessKey,
               },
-              'acl': {
-                'grant': [
+              'acl': [
+                {
+                  'grant': [
+                    {
+                      'perm': rights,
+                      'gt': GranteeType.all.name,
+                      'zid': zimbraId,
+                      'd': displayName,
+                      'args': args,
+                      'pw': password,
+                      'key': accessKey,
+                    }
+                  ],
+                }
+              ],
+              'retentionPolicy': {
+                'keep': [
                   {
-                    'perm': rights,
-                    'gt': GranteeType.all.name,
-                    'zid': zimbraId,
-                    'd': displayName,
-                    'args': args,
-                    'pw': password,
-                    'key': accessKey,
+                    'policy': [
+                      {
+                        'type': PolicyType.user.name,
+                        'id': id,
+                        'name': name,
+                        'lifetime': lifetime,
+                      }
+                    ]
                   }
                 ],
-              },
-              'retentionPolicy': {
-                'keep': {
-                  'policy': [
-                    {
-                      'type': PolicyType.user.name,
-                      'id': id,
-                      'name': name,
-                      'lifetime': lifetime,
-                    }
-                  ]
-                },
-                'purge': {
-                  'policy': [
-                    {
-                      'type': PolicyType.user.name,
-                      'id': id,
-                      'name': name,
-                      'lifetime': lifetime,
-                    }
-                  ]
-                },
+                'purge': [
+                  {
+                    'policy': [
+                      {
+                        'type': PolicyType.user.name,
+                        'id': id,
+                        'name': name,
+                        'lifetime': lifetime,
+                      }
+                    ]
+                  }
+                ],
               },
               'numDays': numDays,
             },

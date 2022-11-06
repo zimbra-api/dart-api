@@ -54,7 +54,7 @@ class NestedSearchConversation {
         messages: (data['m'] is Iterable)
             ? List.from((data['m'] as Iterable).map<MessageHitInfo>((m) => MessageHitInfo.fromMap(m)))
             : [],
-        queryInfo: data['info'] is Map ? SearchQueryInfo.fromMap(data['info']) : null,
+        queryInfo: data['info']?[0] is Map ? SearchQueryInfo.fromMap(data['info'][0]) : null,
       );
 
   Map<String, dynamic> toMap() => {
@@ -65,6 +65,6 @@ class NestedSearchConversation {
         if (tags != null) 't': tags,
         if (tagNames != null) 'tn': tagNames,
         if (messages.isNotEmpty) 'm': messages.map((m) => m.toMap()).toList(),
-        if (queryInfo != null) 'info': queryInfo!.toMap(),
+        if (queryInfo != null) 'info': [queryInfo!.toMap()],
       };
 }

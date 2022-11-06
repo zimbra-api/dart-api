@@ -194,7 +194,7 @@ class Folder {
       searchFolders: (data['search'] is Iterable)
           ? List.from((data['search'] as Iterable).map<SearchFolder>((search) => SearchFolder.fromMap(search)))
           : [],
-      retentionPolicy: data['retentionPolicy'] is Map ? RetentionPolicy.fromMap(data['retentionPolicy']) : null);
+      retentionPolicy: data['retentionPolicy']?[0] is Map ? RetentionPolicy.fromMap(data['retentionPolicy'][0]) : null);
 
   Map<String, dynamic> toMap() => {
         if (id != null) 'id': id,

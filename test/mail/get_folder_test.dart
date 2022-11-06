@@ -190,28 +190,34 @@ void main() {
                     'types': types,
                   }
                 ],
-                'retentionPolicy': {
-                  'keep': {
-                    'policy': [
+                'retentionPolicy': [
+                  {
+                    'keep': [
                       {
-                        'type': PolicyType.user.name,
-                        'id': id,
-                        'name': name,
-                        'lifetime': lifetime,
+                        'policy': [
+                          {
+                            'type': PolicyType.user.name,
+                            'id': id,
+                            'name': name,
+                            'lifetime': lifetime,
+                          }
+                        ],
                       }
                     ],
-                  },
-                  'purge': {
-                    'policy': [
+                    'purge': [
                       {
-                        'type': PolicyType.user.name,
-                        'id': id,
-                        'name': name,
-                        'lifetime': lifetime,
+                        'policy': [
+                          {
+                            'type': PolicyType.user.name,
+                            'id': id,
+                            'name': name,
+                            'lifetime': lifetime,
+                          }
+                        ],
                       }
                     ],
-                  },
-                },
+                  }
+                ],
               }
             ],
             'link': [

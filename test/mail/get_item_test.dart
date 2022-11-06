@@ -338,28 +338,34 @@ void main() {
                   'types': types,
                 }
               ],
-              'retentionPolicy': {
-                'keep': {
-                  'policy': [
+              'retentionPolicy': [
+                {
+                  'keep': [
                     {
-                      'type': PolicyType.user.name,
-                      'id': id,
-                      'name': name,
-                      'lifetime': lifetime,
+                      'policy': [
+                        {
+                          'type': PolicyType.user.name,
+                          'id': id,
+                          'name': name,
+                          'lifetime': lifetime,
+                        }
+                      ],
                     }
                   ],
-                },
-                'purge': {
-                  'policy': [
+                  'purge': [
                     {
-                      'type': PolicyType.user.name,
-                      'id': id,
-                      'name': name,
-                      'lifetime': lifetime,
+                      'policy': [
+                        {
+                          'type': PolicyType.user.name,
+                          'id': id,
+                          'name': name,
+                          'lifetime': lifetime,
+                        }
+                      ],
                     }
                   ],
-                },
-              },
+                }
+              ],
             },
             'tag': {
               'id': id,
@@ -381,26 +387,30 @@ void main() {
                 }
               ],
               'retentionPolicy': {
-                'keep': {
-                  'policy': [
-                    {
-                      'type': PolicyType.user.name,
-                      'id': id,
-                      'name': name,
-                      'lifetime': lifetime,
-                    }
-                  ]
-                },
-                'purge': {
-                  'policy': [
-                    {
-                      'type': PolicyType.user.name,
-                      'id': id,
-                      'name': name,
-                      'lifetime': lifetime,
-                    }
-                  ]
-                },
+                'keep': [
+                  {
+                    'policy': [
+                      {
+                        'type': PolicyType.user.name,
+                        'id': id,
+                        'name': name,
+                        'lifetime': lifetime,
+                      }
+                    ]
+                  }
+                ],
+                'purge': [
+                  {
+                    'policy': [
+                      {
+                        'type': PolicyType.user.name,
+                        'id': id,
+                        'name': name,
+                        'lifetime': lifetime,
+                      }
+                    ]
+                  }
+                ],
               },
             },
             'note': {

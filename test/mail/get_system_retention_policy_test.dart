@@ -29,28 +29,34 @@ void main() {
         'Body': {
           'GetSystemRetentionPolicyResponse': {
             '_jsns': 'urn:zimbraMail',
-            'retentionPolicy': {
-              'keep': {
-                'policy': [
+            'retentionPolicy': [
+              {
+                'keep': [
                   {
-                    'type': PolicyType.system.name,
-                    'id': id,
-                    'name': name,
-                    'lifetime': lifetime,
+                    'policy': [
+                      {
+                        'type': PolicyType.system.name,
+                        'id': id,
+                        'name': name,
+                        'lifetime': lifetime,
+                      }
+                    ]
                   }
-                ]
-              },
-              'purge': {
-                'policy': [
+                ],
+                'purge': [
                   {
-                    'type': PolicyType.system.name,
-                    'id': id,
-                    'name': name,
-                    'lifetime': lifetime,
+                    'policy': [
+                      {
+                        'type': PolicyType.system.name,
+                        'id': id,
+                        'name': name,
+                        'lifetime': lifetime,
+                      }
+                    ]
                   }
-                ]
-              },
-            },
+                ],
+              }
+            ],
           }
         }
       };

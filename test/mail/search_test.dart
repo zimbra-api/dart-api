@@ -1790,20 +1790,22 @@ void main() {
                 'tzoDue': taskTzOffsetDue,
               }
             ],
-            'info': {
-              'suggest': [
-                {
-                  '_content': suggestedQueryString,
-                }
-              ],
-              'wildcard': [
-                {
-                  'str': wildcardString,
-                  'expanded': expanded,
-                  'numExpanded': numExpanded,
-                }
-              ],
-            }
+            'info': [
+              {
+                'suggest': [
+                  {
+                    '_content': suggestedQueryString,
+                  }
+                ],
+                'wildcard': [
+                  {
+                    'str': wildcardString,
+                    'expanded': expanded,
+                    'numExpanded': numExpanded,
+                  }
+                ],
+              }
+            ],
           }
         }
       };

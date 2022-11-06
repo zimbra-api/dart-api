@@ -49,5 +49,5 @@ extension ResponseExtension on http.Response {
 
   bool get success => !hasError;
 
-  dynamic get json => convert.jsonDecode(body);
+  Map<String, dynamic> get mapData => convert.jsonDecode(body);
 }

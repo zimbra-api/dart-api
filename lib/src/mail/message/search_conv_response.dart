@@ -54,5 +54,5 @@ class SearchConvResponse extends SoapResponse {
       messages: (data['m'] is Iterable)
           ? List.from((data['m'] as Iterable).map<MessageHitInfo>((m) => MessageHitInfo.fromMap(m)))
           : [],
-      queryInfo: data['info'] is Map ? SearchQueryInfo.fromMap(data['info']) : null);
+      queryInfo: data['info']?[0] is Map ? SearchQueryInfo.fromMap(data['info'][0]) : null);
 }

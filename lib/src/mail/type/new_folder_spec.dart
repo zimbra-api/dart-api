@@ -63,8 +63,8 @@ class NewFolderSpec {
       parentFolderId: data['l'],
       fetchIfExists: data['fie'],
       syncToUrl: data['sync'],
-      grants: data['acl']?['grant'] is Iterable
-          ? List.from((data['acl']['grant'] as Iterable)
+      grants: data['acl']?[0]['grant'] is Iterable
+          ? List.from((data['acl'][0]['grant'] as Iterable)
               .map<ActionGrantSelector>((grant) => ActionGrantSelector.fromMap(grant)))
           : []);
 
@@ -78,6 +78,9 @@ class NewFolderSpec {
         if (parentFolderId != null) 'l': parentFolderId,
         if (fetchIfExists != null) 'fie': fetchIfExists,
         if (syncToUrl != null) 'sync': syncToUrl,
-        if (grants.isNotEmpty) 'acl': {'grant': grants.map((grant) => grant.toMap()).toList()},
+        if (grants.isNotEmpty)
+          'acl': [
+            {'grant': grants.map((grant) => grant.toMap()).toList()}
+          ],
       };
 }

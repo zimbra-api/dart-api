@@ -136,5 +136,5 @@ class SearchResponse extends SoapResponse {
       taskHits: (data['task'] is Iterable)
           ? List.from((data['task'] as Iterable).map<CalendarItemHitInfo>((task) => CalendarItemHitInfo.fromMap(task)))
           : [],
-      queryInfo: data['info'] is Map ? SearchQueryInfo.fromMap(data['info']) : null);
+      queryInfo: data['info']?[0] is Map ? SearchQueryInfo.fromMap(data['info'][0]) : null);
 }

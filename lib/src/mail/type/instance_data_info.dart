@@ -72,7 +72,7 @@ class InstanceDataInfo extends InstanceDataAttrs {
           ? List.from((data['category'] as Iterable).map<String>((category) => category['_content']))
           : [],
       geo: (data['geo'] is Map) ? GeoInfo.fromMap(data['geo']) : null,
-      fragment: data['fr']?['_content'],
+      fragment: data['fr'],
       duration: data['dur'],
       partStat: ParticipationStatus.values.firstWhere(
         (ptst) => ptst.name == data['ptst'],
@@ -124,7 +124,7 @@ class InstanceDataInfo extends InstanceDataAttrs {
         if (organizer != null) 'or': organizer!.toMap(),
         if (categories.isNotEmpty) 'category': categories.map((category) => {'_content': category}).toList(),
         if (geo != null) 'geo': geo!.toMap(),
-        if (fragment != null) 'fr': {'_content': fragment},
+        if (fragment != null) 'fr': fragment,
         if (duration != null) 'dur': duration,
         if (partStat != null) 'ptst': partStat!.name,
         if (recurIdZ != null) 'ridZ': recurIdZ,

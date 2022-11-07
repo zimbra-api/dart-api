@@ -328,7 +328,7 @@ void main() {
                         ],
                       }
                     ],
-                    'fr': {'_content': fragment},
+                    'fr': fragment,
                     'desc': {'_content': description},
                     'descHtml': {'_content': htmlDescription},
                     'or': {
@@ -541,13 +541,13 @@ void main() {
                   'shr': [
                     {
                       'truncated': truncatedContent,
-                      'content': {'_content': content},
+                      'content': content,
                     }
                   ],
                   'dlSubs': [
                     {
                       'truncated': truncatedContent,
-                      'content': {'_content': content},
+                      'content': content,
                     }
                   ],
                 }

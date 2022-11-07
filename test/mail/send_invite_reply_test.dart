@@ -840,7 +840,7 @@ void main() {
                     ],
                   }
                 ],
-                'fr': {'_content': fragment},
+                'fr': fragment,
                 'desc': {'_content': description},
                 'descHtml': {'_content': htmlDescription},
                 'or': {
@@ -1052,7 +1052,7 @@ void main() {
                   'dayname': daylightTZName,
                 }
               ],
-              'fr': {'_content': fragment},
+              'fr': fragment,
             },
           }
         },
@@ -1206,8 +1206,8 @@ void main() {
                     'exp': canExpandGroupMembers,
                   }
                 ],
-                'su': {'_content': subject},
-                'mid': {'_content': messageIdHeader},
+                'su': subject,
+                'mid': messageIdHeader,
                 'inv': {
                   'type': InviteType.appt.name,
                   'tz': [
@@ -1367,7 +1367,7 @@ void main() {
                           ],
                         }
                       ],
-                      'fr': {'_content': fragment},
+                      'fr': fragment,
                       'desc': {'_content': description},
                       'descHtml': {'_content': htmlDescription},
                       'or': {
@@ -1588,13 +1588,13 @@ void main() {
                 'shr': [
                   {
                     'truncated': truncatedContent,
-                    'content': {'_content': content},
+                    'content': content,
                   }
                 ],
                 'dlSubs': [
                   {
                     'truncated': truncatedContent,
-                    'content': {'_content': content},
+                    'content': content,
                   }
                 ],
                 's': size,

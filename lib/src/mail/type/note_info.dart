@@ -77,7 +77,7 @@ class NoteInfo {
       rgb: data['rgb'],
       changeDate: data['md'],
       modifiedSequence: data['ms'],
-      content: data['content']?['_content'],
+      content: data['content'],
       metadatas: (data['meta'] is Iterable)
           ? List.from((data['meta'] as Iterable).map<MailCustomMetadata>((meta) => MailCustomMetadata.fromMap(meta)))
           : []);
@@ -95,7 +95,7 @@ class NoteInfo {
         if (rgb != null) 'rgb': rgb,
         if (changeDate != null) 'md': changeDate,
         if (modifiedSequence != null) 'ms': modifiedSequence,
-        if (content != null) 'content': {'_content': content},
+        if (content != null) 'content': content,
         if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toMap()).toList(),
       };
 }

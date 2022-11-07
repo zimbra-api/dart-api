@@ -791,7 +791,7 @@ void main() {
                     ],
                   }
                 ],
-                'fr': {'_content': fragment},
+                'fr': fragment,
                 'desc': {'_content': description},
                 'descHtml': {'_content': htmlDescription},
                 'or': {
@@ -1003,7 +1003,7 @@ void main() {
                   'dayname': daylightTZName,
                 }
               ],
-              'fr': {'_content': fragment},
+              'fr': fragment,
             },
             'needCalendarSentByFixup': needCalendarSentByFixup,
             'isCalendarForward': isCalendarForward,
@@ -1163,7 +1163,7 @@ void main() {
               'sd': sentDate,
               'rd': resentDate,
               'part': part,
-              'fr': {'_content': fragment},
+              'fr': fragment,
               'e': [
                 {
                   'a': address,
@@ -1174,9 +1174,9 @@ void main() {
                   'exp': canExpandGroupMembers,
                 }
               ],
-              'su': {'_content': subject},
-              'mid': {'_content': messageIdHeader},
-              'irt': {'_content': inReplyTo},
+              'su': subject,
+              'mid': messageIdHeader,
+              'irt': inReplyTo,
               'inv': {
                 'type': calItemType.name,
                 'tz': [
@@ -1321,7 +1321,7 @@ void main() {
                         ],
                       }
                     ],
-                    'fr': {'_content': fragment},
+                    'fr': fragment,
                     'desc': {'_content': description},
                     'descHtml': {'_content': htmlDescription},
                     'or': {
@@ -1570,11 +1570,11 @@ void main() {
               },
               'shr': {
                 'truncated': truncatedContent,
-                'content': {'_content': content},
+                'content': content,
               },
               'dlSubs': {
                 'truncated': truncatedContent,
-                'content': {'_content': content},
+                'content': content,
               },
               'content': {
                 'url': url,

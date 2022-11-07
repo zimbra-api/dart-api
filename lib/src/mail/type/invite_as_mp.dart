@@ -78,8 +78,8 @@ class InviteAsMP extends MessageCommon {
       emails: (data['e'] is Iterable)
           ? List.from((data['e'] as Iterable).map<EmailInfo>((e) => EmailInfo.fromMap(e)))
           : [],
-      subject: data['su']?['_content'],
-      messageIdHeader: data['mid']?['_content'],
+      subject: data['su'],
+      messageIdHeader: data['mid'],
       invite: (data['inv'] is Map) ? MPInviteInfo.fromMap(data['inv']) : null,
       headers: (data['header'] is Iterable)
           ? List.from((data['header'] as Iterable).map<KeyValuePair>((header) => KeyValuePair.fromMap(header)))
@@ -114,8 +114,8 @@ class InviteAsMP extends MessageCommon {
         if (part != null) 'part': part,
         if (sentDate != null) 'sd': sentDate,
         if (emails.isNotEmpty) 'e': emails.map((e) => e.toMap()).toList(),
-        if (subject != null) 'su': {'_content': subject},
-        if (messageIdHeader != null) 'mid': {'_content': messageIdHeader},
+        if (subject != null) 'su': subject,
+        if (messageIdHeader != null) 'mid': messageIdHeader,
         if (invite != null) 'inv': invite!.toMap(),
         if (headers.isNotEmpty) 'header': headers.map((header) => header.toMap()).toList(),
         if (mpContentElems.isNotEmpty) 'mp': mpContentElems.map((mp) => mp.toMap()).toList(),

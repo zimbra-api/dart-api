@@ -797,7 +797,7 @@ void main() {
                     ],
                   }
                 ],
-                'fr': {'_content': fragment},
+                'fr': fragment,
                 'desc': {'_content': description},
                 'descHtml': {'_content': htmlDescription},
                 'or': {
@@ -1009,7 +1009,7 @@ void main() {
                   'dayname': daylightTZName,
                 }
               ],
-              'fr': {'_content': fragment},
+              'fr': fragment,
             },
             'wantImapUid': wantImapUid,
             'wantModSeq': wantModifiedSequence,
@@ -1161,7 +1161,7 @@ void main() {
               'sd': sentDate,
               'rd': resentDate,
               'part': part,
-              'fr': {'_content': fragment},
+              'fr': fragment,
               'e': [
                 {
                   'a': address,
@@ -1172,8 +1172,8 @@ void main() {
                   'exp': canExpandGroupMembers,
                 }
               ],
-              'su': {'_content': subject},
-              'mid': {'_content': messageIdHeader},
+              'su': subject,
+              'mid': messageIdHeader,
               'irt': inReplyTo,
               's': size,
               'd': date,
@@ -1328,7 +1328,7 @@ void main() {
                       ],
                     }
                   ],
-                  'fr': {'_content': fragment},
+                  'fr': fragment,
                   'desc': {'_content': description},
                   'descHtml': {'_content': htmlDescription},
                   'or': {
@@ -1563,13 +1563,13 @@ void main() {
               'shr': [
                 {
                   'truncated': truncatedContent,
-                  'content': {'_content': content},
+                  'content': content,
                 }
               ],
               'dlSubs': [
                 {
                   'truncated': truncatedContent,
-                  'content': {'_content': content},
+                  'content': content,
                 }
               ],
               'meta': [
@@ -1593,9 +1593,9 @@ void main() {
               'sd': sentDate,
               'rd': resentDate,
               'part': part,
-              'fr': {'_content': fragment},
-              'su': {'_content': subject},
-              'mid': {'_content': messageIdHeader},
+              'fr': fragment,
+              'su': subject,
+              'mid': messageIdHeader,
               'irt': inReplyTo,
               's': size,
               'd': date,

@@ -83,7 +83,7 @@ class LegacyCalendaringData extends CommonCalendaringData {
           ? List.from((data['category'] as Iterable).map<String>((category) => category['_content']))
           : [],
       geo: data['geo'] is Map ? GeoInfo.fromMap(data['geo']) : null,
-      fragment: data['fr']?['_content'],
+      fragment: data['fr'],
       instances: (data['inst'] is Iterable)
           ? List.from(
               (data['inst'] as Iterable).map<LegacyInstanceDataInfo>((inst) => LegacyInstanceDataInfo.fromMap(inst)))
@@ -149,7 +149,7 @@ class LegacyCalendaringData extends CommonCalendaringData {
         if (organizer != null) 'or': organizer!.toMap(),
         if (categories.isNotEmpty) 'category': categories.map((category) => {'_content': category}).toList(),
         if (geo != null) 'geo': geo!.toMap(),
-        if (fragment != null) 'fr': {'_content': fragment},
+        if (fragment != null) 'fr': fragment,
         if (instances.isNotEmpty) 'inst': instances.map((inst) => inst.toMap()).toList(),
         if (alarmData != null) 'alarmData': alarmData!.toMap(),
         if (xUid != null) 'x_uid': xUid,

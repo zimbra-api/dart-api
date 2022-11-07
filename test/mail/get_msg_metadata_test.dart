@@ -168,8 +168,8 @@ void main() {
                   'exp': canExpandGroupMembers,
                 }
               ],
-              'su': {'_content': subject},
-              'fr': {'_content': fragment},
+              'su': subject,
+              'fr': fragment,
               'inv': {
                 'type': InviteType.appt.name,
                 'tz': [
@@ -313,7 +313,7 @@ void main() {
                       ],
                     }
                   ],
-                  'fr': {'_content': fragment},
+                  'fr': fragment,
                   'desc': {'_content': description},
                   'descHtml': {'_content': htmlDescription},
                   'or': {
@@ -533,8 +533,8 @@ void main() {
             'chat': {
               'id': id,
               'autoSendTime': autoSendTime,
-              'su': {'_content': subject},
-              'fr': {'_content': fragment},
+              'su': subject,
+              'fr': fragment,
               's': size,
               'd': date,
               'l': folder,

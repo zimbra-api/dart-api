@@ -60,7 +60,7 @@ class MessagePartHitInfo {
       contentName: data['name'],
       part: data['part'],
       email: data['e'] is Map ? EmailInfo.fromMap(data['e']) : null,
-      subject: data['su']?['_content']);
+      subject: data['su']);
 
   Map<String, dynamic> toMap() => {
         if (id != null) 'id': id,
@@ -73,6 +73,6 @@ class MessagePartHitInfo {
         if (contentName != null) 'name': contentName,
         if (part != null) 'part': part,
         if (email != null) 'e': email!.toMap(),
-        if (subject != null) 'su': {'_content': subject},
+        if (subject != null) 'su': subject,
       };
 }

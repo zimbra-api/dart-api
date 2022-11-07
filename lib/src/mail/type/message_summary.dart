@@ -49,8 +49,8 @@ class MessageSummary extends MessageCommon {
       emails: (data['e'] is Iterable)
           ? List.from((data['e'] as Iterable).map<EmailInfo>((e) => EmailInfo.fromMap(e)))
           : [],
-      subject: data['su']?['_content'],
-      fragment: data['fr']?['_content'],
+      subject: data['su'],
+      fragment: data['fr'],
       invite: data['inv'] is Map ? InviteInfo.fromMap(data['inv']) : null,
       size: data['s'],
       date: data['d'],
@@ -71,8 +71,8 @@ class MessageSummary extends MessageCommon {
         'id': id,
         if (autoSendTime != null) 'autoSendTime': autoSendTime,
         if (emails.isNotEmpty) 'e': emails.map((e) => e.toMap()).toList(),
-        if (subject != null) 'su': {'_content': subject},
-        if (fragment != null) 'fr': {'_content': fragment},
+        if (subject != null) 'su': subject,
+        if (fragment != null) 'fr': fragment,
         if (invite != null) 'inv': invite!.toMap(),
         if (size != null) 's': size,
         if (date != null) 'd': date,

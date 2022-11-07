@@ -116,7 +116,7 @@ void main() {
                     },
                   }
                 ],
-                'fr': {'_content': fragment},
+                'fr': fragment,
                 'acl': {
                   'internalGrantExpiry': internalGrantExpiry,
                   'guestGrantExpiry': guestGrantExpiry,

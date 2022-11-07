@@ -8,5 +8,5 @@ class DLSubscriptionNotification extends Notification {
   DLSubscriptionNotification({super.truncatedContent, super.content});
 
   factory DLSubscriptionNotification.fromMap(Map<String, dynamic> data) =>
-      DLSubscriptionNotification(truncatedContent: data['truncated'], content: data['content']?['_content']);
+      DLSubscriptionNotification(truncatedContent: data['truncated'], content: data['content']);
 }

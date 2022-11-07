@@ -440,11 +440,11 @@ void main() {
                 'm': [
                   {
                     'id': id,
-                    's': size,
+                    's': size.toString(),
                     'l': folderId,
                     'f': flags,
                     'autoSendTime': autoSendTime,
-                    'd': date,
+                    'd': date.toString(),
                   }
                 ],
                 'id': id,
@@ -466,8 +466,8 @@ void main() {
                     },
                   }
                 ],
-                'su': {'_content': subject},
-                'fr': {'_content': fragment},
+                'su': subject,
+                'fr': fragment,
                 'e': [
                   {
                     'a': address,
@@ -500,7 +500,7 @@ void main() {
                 'sd': sentDate,
                 'rd': resentDate,
                 'part': part,
-                'fr': {'_content': fragment},
+                'fr': fragment,
                 'e': [
                   {
                     'a': address,
@@ -511,8 +511,8 @@ void main() {
                     'exp': canExpandGroupMembers,
                   }
                 ],
-                'su': {'_content': subject},
-                'mid': {'_content': messageIdHeader},
+                'su': subject,
+                'mid': messageIdHeader,
                 'irt': inReplyTo,
                 's': size,
                 'd': date,
@@ -667,7 +667,7 @@ void main() {
                         ],
                       }
                     ],
-                    'fr': {'_content': fragment},
+                    'fr': fragment,
                     'desc': {'_content': description},
                     'descHtml': {'_content': htmlDescription},
                     'or': {
@@ -894,7 +894,7 @@ void main() {
                         'cl': location,
                         'body': body,
                         'truncated': truncatedContent,
-                        'content': {'_content': content},
+                        'content': {'_content': content}
                       }
                     ],
                   }
@@ -902,13 +902,13 @@ void main() {
                 'shr': [
                   {
                     'truncated': truncatedContent,
-                    'content': {'_content': content},
+                    'content': content,
                   }
                 ],
                 'dlSubs': [
                   {
                     'truncated': truncatedContent,
-                    'content': {'_content': content},
+                    'content': content,
                   }
                 ],
                 'meta': [
@@ -936,9 +936,9 @@ void main() {
                 'sd': sentDate,
                 'rd': resentDate,
                 'part': part,
-                'fr': {'_content': fragment},
-                'su': {'_content': subject},
-                'mid': {'_content': messageIdHeader},
+                'fr': fragment,
+                'su': subject,
+                'mid': messageIdHeader,
                 'irt': inReplyTo,
                 's': size,
                 'd': date,
@@ -971,7 +971,7 @@ void main() {
                   'isGroup': isGroup,
                   'exp': canExpandGroupMembers,
                 },
-                'su': {'_content': subject},
+                'su': subject,
               }
             ],
             'cn': [
@@ -1054,7 +1054,7 @@ void main() {
                 'rgb': rgb,
                 'md': changeDate,
                 'ms': modifiedSequence,
-                'content': {'_content': content},
+                'content': content,
                 'meta': [
                   {
                     'section': section,
@@ -1100,7 +1100,7 @@ void main() {
                     },
                   }
                 ],
-                'fr': {'_content': fragment},
+                'fr': fragment,
                 'acl': {
                   'internalGrantExpiry': internalGrantExpiry,
                   'guestGrantExpiry': guestGrantExpiry,
@@ -1150,7 +1150,7 @@ void main() {
                     },
                   }
                 ],
-                'fr': {'_content': fragment},
+                'fr': fragment,
                 'acl': {
                   'internalGrantExpiry': internalGrantExpiry,
                   'guestGrantExpiry': guestGrantExpiry,
@@ -1195,7 +1195,7 @@ void main() {
                   'lat': latitude,
                   'lon': longitude,
                 },
-                'fr': {'_content': fragment},
+                'fr': fragment,
                 'inst': [
                   {
                     's': startTime,
@@ -1221,7 +1221,7 @@ void main() {
                       'lat': latitude,
                       'lon': longitude,
                     },
-                    'fr': {'_content': fragment},
+                    'fr': fragment,
                     'dur': duration,
                     'ptst': partStat.name,
                     'ridZ': recurIdZ,
@@ -1468,7 +1468,7 @@ void main() {
                           ],
                         }
                       ],
-                      'fr': {'_content': fragment},
+                      'fr': fragment,
                       'desc': {'_content': description},
                       'descHtml': {'_content': htmlDescription},
                       'or': {
@@ -1681,13 +1681,13 @@ void main() {
                     'shr': [
                       {
                         'truncated': truncatedContent,
-                        'content': {'_content': content},
+                        'content': content,
                       }
                     ],
                     'dlSubs': [
                       {
                         'truncated': truncatedContent,
-                        'content': {'_content': content},
+                        'content': content,
                       }
                     ],
                   }
@@ -1751,7 +1751,7 @@ void main() {
                 'd': date,
                 'cm': contentMatched,
                 'nextAlarm': nextAlarm,
-                'fr': {'_content': fragment},
+                'fr': fragment,
                 'x_uid': xUid,
                 'uid': uid,
                 'f': flags,

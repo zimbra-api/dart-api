@@ -104,7 +104,7 @@ class Msg {
       timezones: (data['tz'] is Iterable)
           ? List.from((data['tz'] as Iterable).map<CalTZInfo>((tz) => CalTZInfo.fromMap(tz)))
           : [],
-      fragment: data['fr']?['_content']);
+      fragment: data['fr']);
 
   Map<String, dynamic> toMap() => {
         if (attachmentId != null) 'aid': attachmentId,
@@ -122,6 +122,6 @@ class Msg {
         if (invite != null) 'inv': invite!.toMap(),
         if (emailAddresses.isNotEmpty) 'e': emailAddresses.map((e) => e.toMap()).toList(),
         if (timezones.isNotEmpty) 'tz': timezones.map((tz) => tz.toMap()).toList(),
-        if (fragment != null) 'fr': {'_content': fragment},
+        if (fragment != null) 'fr': fragment,
       };
 }

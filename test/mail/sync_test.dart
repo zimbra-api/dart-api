@@ -561,7 +561,7 @@ void main() {
                 'rgb': rgb,
                 'md': changeDate,
                 'ms': modifiedSequence,
-                'content': {'_content': content},
+                'content': content,
                 'meta': [
                   {
                     'section': section,
@@ -800,7 +800,7 @@ void main() {
                           ],
                         }
                       ],
-                      'fr': {'_content': fragment},
+                      'fr': fragment,
                       'desc': {'_content': description},
                       'descHtml': {'_content': htmlDescription},
                       'or': {
@@ -1013,13 +1013,13 @@ void main() {
                     'shr': [
                       {
                         'truncated': truncatedContent,
-                        'content': {'_content': content},
+                        'content': content,
                       }
                     ],
                     'dlSubs': [
                       {
                         'truncated': truncatedContent,
-                        'content': {'_content': content},
+                        'content': content,
                       }
                     ],
                   }
@@ -1087,8 +1087,8 @@ void main() {
                     },
                   }
                 ],
-                'su': {'_content': subject},
-                'fr': {'_content': fragment},
+                'su': subject,
+                'fr': fragment,
                 'e': [
                   {
                     'a': address,
@@ -1132,7 +1132,7 @@ void main() {
                     },
                   }
                 ],
-                'fr': {'_content': fragment},
+                'fr': fragment,
                 'acl': {
                   'internalGrantExpiry': internalGrantExpiry,
                   'guestGrantExpiry': guestGrantExpiry,
@@ -1184,7 +1184,7 @@ void main() {
                     },
                   }
                 ],
-                'fr': {'_content': fragment},
+                'fr': fragment,
                 'acl': {
                   'internalGrantExpiry': internalGrantExpiry,
                   'guestGrantExpiry': guestGrantExpiry,
@@ -1216,8 +1216,8 @@ void main() {
                     'exp': canExpandGroupMembers,
                   }
                 ],
-                'su': {'_content': subject},
-                'fr': {'_content': fragment},
+                'su': subject,
+                'fr': fragment,
                 'inv': {
                   'type': InviteType.appt.name,
                   'tz': [
@@ -1361,7 +1361,7 @@ void main() {
                         ],
                       }
                     ],
-                    'fr': {'_content': fragment},
+                    'fr': fragment,
                     'desc': {'_content': description},
                     'descHtml': {'_content': htmlDescription},
                     'or': {
@@ -1583,8 +1583,8 @@ void main() {
               {
                 'id': id,
                 'autoSendTime': autoSendTime,
-                'su': {'_content': subject},
-                'fr': {'_content': fragment},
+                'su': subject,
+                'fr': fragment,
                 's': size,
                 'd': date,
                 'l': folder,

@@ -32,8 +32,8 @@ class ChatSummary extends MessageSummary {
         emails: (data['e'] is Iterable)
             ? List.from((data['e'] as Iterable).map<EmailInfo>((e) => EmailInfo.fromMap(e)))
             : [],
-        subject: data['su']?['_content'],
-        fragment: data['fr']?['_content'],
+        subject: data['su'],
+        fragment: data['fr'],
         invite: data['inv'] is Map ? InviteInfo.fromMap(data['inv']) : null,
         size: data['s'],
         date: data['d'],

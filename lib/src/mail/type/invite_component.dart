@@ -135,7 +135,7 @@ class InviteComponent extends InviteComponentCommon {
       xProps: (data['xprop'] is Iterable)
           ? List.from((data['xprop'] as Iterable).map<XProp>((xprop) => XProp.fromMap(xprop)))
           : [],
-      fragment: data['fr']?['_content'],
+      fragment: data['fr'],
       description: data['desc']?['_content'],
       htmlDescription: data['descHtml']?['_content'],
       organizer: data['or'] is Map ? CalOrganizer.fromMap(data['or']) : null,
@@ -198,7 +198,7 @@ class InviteComponent extends InviteComponentCommon {
         if (attendees.isNotEmpty) 'at': attendees.map((at) => at.toMap()).toList(),
         if (alarms.isNotEmpty) 'alarm': alarms.map((alarm) => alarm.toMap()).toList(),
         if (xProps.isNotEmpty) 'xprop': xProps.map((xprop) => xprop.toMap()).toList(),
-        if (fragment != null) 'fr': {'_content': fragment},
+        if (fragment != null) 'fr': fragment,
         if (description != null) 'desc': {'_content': description},
         if (htmlDescription != null) 'descHtml': {'_content': htmlDescription},
         if (organizer != null) 'or': organizer!.toMap(),

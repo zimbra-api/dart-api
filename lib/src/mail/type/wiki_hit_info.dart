@@ -63,7 +63,7 @@ class WikiHitInfo extends CommonDocumentInfo {
       metadatas: (data['meta'] is Iterable)
           ? List.from((data['meta'] as Iterable).map<MailCustomMetadata>((meta) => MailCustomMetadata.fromMap(meta)))
           : [],
-      fragment: data['fr']?['_content'],
+      fragment: data['fr'],
       acl: (data['acl'] is Map) ? Acl.fromMap(data['acl']) : null);
 
   @override
@@ -91,7 +91,7 @@ class WikiHitInfo extends CommonDocumentInfo {
         if (creator != null) 'cr': creator,
         if (createdDate != null) 'cd': createdDate,
         if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toMap()).toList(),
-        if (fragment != null) 'fr': {'_content': fragment},
+        if (fragment != null) 'fr': fragment,
         if (acl != null) 'acl': acl!.toMap(),
       };
 }

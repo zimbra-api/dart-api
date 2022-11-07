@@ -57,7 +57,7 @@ void main() {
               'rgb': rgb,
               'md': changeDate,
               'ms': modifiedSequence,
-              'content': {'_content': content},
+              'content': content,
               'meta': [
                 {
                   'section': section,

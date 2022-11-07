@@ -874,8 +874,7 @@ class MailApi extends AccountApi {
 
   /// Get message
   Future<GetMsgResponse?> getMsg(MsgSpec msg) {
-    return invoke(GetMsgRequest(msg),
-        fromMap: (data) => GetMsgEnvelope.fromMap(data).body.response as GetMsgResponse?);
+    return invoke(GetMsgRequest(msg), fromMap: (data) => GetMsgEnvelope.fromMap(data).body.response as GetMsgResponse?);
   }
 
   /// Get note
@@ -1825,16 +1824,18 @@ class MailApi extends AccountApi {
       List<WaitSetAddSpec> addAccounts = const [],
       List<WaitSetAddSpec> updateAccounts = const [],
       List<Id> removeAccounts = const []}) {
-    return invoke(WaitSetRequest(
-      waitSetId,
-      lastKnownSeqNo: lastKnownSeqNo,
-      block: block,
-      defaultInterests: defaultInterests,
-      timeout: timeout,
-      expand: expand,
-      addAccounts: addAccounts,
-      updateAccounts: updateAccounts,
-      removeAccounts: removeAccounts,
-    ), fromMap: (data) => WaitSetEnvelope.fromMap(data).body.response as WaitSetResponse?);
+    return invoke(
+        WaitSetRequest(
+          waitSetId,
+          lastKnownSeqNo: lastKnownSeqNo,
+          block: block,
+          defaultInterests: defaultInterests,
+          timeout: timeout,
+          expand: expand,
+          addAccounts: addAccounts,
+          updateAccounts: updateAccounts,
+          removeAccounts: removeAccounts,
+        ),
+        fromMap: (data) => WaitSetEnvelope.fromMap(data).body.response as WaitSetResponse?);
   }
 }

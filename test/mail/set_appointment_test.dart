@@ -840,7 +840,7 @@ void main() {
                       ],
                     }
                   ],
-                  'fr': {'_content': fragment},
+                  'fr': fragment,
                   'desc': {'_content': description},
                   'descHtml': {'_content': htmlDescription},
                   'or': {
@@ -1052,7 +1052,7 @@ void main() {
                     'dayname': daylightTZName,
                   }
                 ],
-                'fr': {'_content': fragment},
+                'fr': fragment,
               },
             },
             'except': [
@@ -1068,7 +1068,7 @@ void main() {
                   'l': folderId,
                   'f': flags,
                   'content': {'_content': content},
-                  'fr': {'_content': fragment},
+                  'fr': fragment,
                 },
               }
             ],
@@ -1085,7 +1085,7 @@ void main() {
                   'l': folderId,
                   'f': flags,
                   'content': {'_content': content},
-                  'fr': {'_content': fragment},
+                  'fr': fragment,
                 },
               }
             ],

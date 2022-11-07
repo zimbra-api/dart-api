@@ -831,7 +831,7 @@ void main() {
                     ],
                   }
                 ],
-                'fr': {'_content': fragment},
+                'fr': fragment,
                 'desc': {'_content': description},
                 'descHtml': {'_content': htmlDescription},
                 'or': {
@@ -1043,7 +1043,7 @@ void main() {
                   'dayname': daylightTZName,
                 }
               ],
-              'fr': {'_content': fragment},
+              'fr': fragment,
             },
           }
         },

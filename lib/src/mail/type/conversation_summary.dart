@@ -84,8 +84,8 @@ class ConversationSummary {
       metadatas: (data['meta'] is Iterable)
           ? List.from((data['meta'] as Iterable).map<MailCustomMetadata>((meta) => MailCustomMetadata.fromMap(meta)))
           : [],
-      subject: data['su']?['_content'],
-      fragment: data['fr']?['_content'],
+      subject: data['su'],
+      fragment: data['fr'],
       emails: (data['e'] is Iterable)
           ? List.from((data['e'] as Iterable).map<EmailInfo>((e) => EmailInfo.fromMap(e)))
           : []);
@@ -103,8 +103,8 @@ class ConversationSummary {
         if (changeDate != null) 'md': changeDate,
         if (modifiedSequence != null) 'ms': modifiedSequence,
         if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toMap()).toList(),
-        if (subject != null) 'su': {'_content': subject},
-        if (fragment != null) 'fr': {'_content': fragment},
+        if (subject != null) 'su': subject,
+        if (fragment != null) 'fr': fragment,
         if (emails.isNotEmpty) 'e': emails.map((e) => e.toMap()).toList(),
       };
 }

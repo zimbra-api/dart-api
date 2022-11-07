@@ -59,7 +59,7 @@ class ConversationInfo {
       metadatas: (data['meta'] is Iterable)
           ? List.from((data['meta'] as Iterable).map<MailCustomMetadata>((meta) => MailCustomMetadata.fromMap(meta)))
           : [],
-      subject: data['su']?['_content'],
+      subject: data['su'],
       chatMessages: (data['chat'] is Iterable)
           ? List.from((data['chat'] as Iterable).map<MessageInfo>((chat) => MessageInfo.fromMap(chat)))
           : [],
@@ -75,7 +75,7 @@ class ConversationInfo {
         if (tags != null) 't': tags,
         if (tagNames != null) 'tn': tagNames,
         if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toMap()).toList(),
-        if (subject != null) 'su': {'_content': subject},
+        if (subject != null) 'su': subject,
         if (chatMessages.isNotEmpty) 'chat': chatMessages.map((chat) => chat.toMap()).toList(),
         if (messages.isNotEmpty) 'm': messages.map((m) => m.toMap()).toList(),
       };

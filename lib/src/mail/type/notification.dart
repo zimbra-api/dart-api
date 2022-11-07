@@ -12,10 +12,10 @@ class Notification {
   Notification({this.truncatedContent, this.content});
 
   factory Notification.fromMap(Map<String, dynamic> data) =>
-      Notification(truncatedContent: data['truncated'], content: data['content']?['_content']);
+      Notification(truncatedContent: data['truncated'], content: data['content']);
 
   Map<String, dynamic> toMap() => {
         if (truncatedContent != null) 'truncated': truncatedContent,
-        if (content != null) 'content': {'_content': content},
+        if (content != null) 'content': content,
       };
 }

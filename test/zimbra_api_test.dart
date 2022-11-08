@@ -41,7 +41,7 @@ void main() {
       expect(uri.query, 'fmt=${Uri.encodeQueryComponent(Client.queryFormat)}');
 
       final content =
-          '200,"{requestId}",[{"aid":"$attachmentId","ct":"$contentType","filename":"$fileName","s":$size}]';
+          '200,"$requestId",[{"aid":"$attachmentId","ct":"$contentType","filename":"$fileName","s":$size}]';
 
       final attachments = Client.jsonDecode(content).map((data) => Attachment.fromMap(data)).toList();
       expect(attachments.first.attachmentId, attachmentId);

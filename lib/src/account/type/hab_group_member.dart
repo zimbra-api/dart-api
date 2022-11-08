@@ -8,20 +8,24 @@ import 'hab_member.dart';
 
 class HABGroupMember extends HABMember {
   /// Member attributes. Currently only these attributes are returned: zimbraId, displayName
+  /// zimbraId: the unique UUID of the hab member
+  /// displayName: display name for the member
   final List<NamedValue> attrs;
 
   HABGroupMember(super.name, {super.seniorityIndex, this.attrs = const []});
 
   factory HABGroupMember.fromMap(Map<String, dynamic> data) => HABGroupMember(
-        data['name']?['_content'] ?? '',
+        data['name'] ?? '',
         seniorityIndex: data['seniorityIndex'],
-        attrs: (data['attr'] is Iterable)
-            ? List.from((data['attr'] as Iterable).map<NamedValue>((attr) => NamedValue.fromMap(attr)))
+        attrs: (data['_attrs'] is Map)
+            ? List.from((data['_attrs'] as Map<String, dynamic>)
+                .entries
+                .map<NamedValue>((attr) => NamedValue(attr.key, value: attr.value)))
             : [],
       );
 
   Map<String, dynamic> toMap() => {
-        'name': {'_content': name},
+        'name': name,
         if (seniorityIndex != null) 'seniorityIndex': seniorityIndex,
         if (attrs.isNotEmpty) 'attr': attrs.map((attr) => attr.toMap()).toList(),
       };

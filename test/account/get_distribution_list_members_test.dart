@@ -45,14 +45,11 @@ void main() {
             ],
             'groupMember': [
               {
-                'name': {'_content': member},
+                'name': member,
                 'seniorityIndex': seniorityIndex,
-                'attr': [
-                  {
-                    'name': name,
-                    '_content': value,
-                  }
-                ],
+                '_attrs': {
+                  name: value,
+                },
               }
             ],
           }

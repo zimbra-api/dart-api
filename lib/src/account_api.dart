@@ -72,20 +72,17 @@ class AccountApi extends Api {
 
   /// Authenticate by account name
   Future<AuthResponse?> authByAccountName(String name, String password) {
-    final account = AccountSelector(AccountBy.name, name);
-    return auth(account: account, password: password);
+    return auth(account: AccountSelector(AccountBy.name, name), password: password);
   }
 
   /// Authenticate by account id
   Future<AuthResponse?> authByAccountId(String id, String password) {
-    final account = AccountSelector(AccountBy.id, id);
-    return auth(account: account, password: password);
+    return auth(account: AccountSelector(AccountBy.id, id), password: password);
   }
 
   /// Authenticate by auth token
   Future<AuthResponse?> authByToken(String token) {
-    final authToken = AuthToken(token);
-    return auth(authToken: authToken);
+    return auth(authToken: AuthToken(token));
   }
 
   /// Authenticate by preauth

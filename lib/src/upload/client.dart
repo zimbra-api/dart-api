@@ -2,48 +2,48 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
-import 'dart:convert';
-
+import 'dart:convert' as convert;
 import 'package:http/http.dart' as http;
 
 import 'attachment.dart';
 import 'request.dart';
 
 class Client {
-  static const _userAgent = 'Dart Upload Client';
-  static const _serviceUri = 'service/upload';
-  static const _queryFormat = 'raw,extended';
+  static const userAgent = 'Dart Upload Client';
+  static const servicePath = '/service/upload';
+  static const queryFormat = 'raw,extended';
 
   /// `multipart/form-data` http request.
-  final http.MultipartRequest _httpRequest;
+  final http.MultipartRequest multipartRequest;
 
   Client(String serviceHost)
-      : _httpRequest = http.MultipartRequest('POST', Uri.https(serviceHost, _serviceUri, {'fmt': _queryFormat}));
+      : multipartRequest = http.MultipartRequest('POST', Uri.https(serviceHost, servicePath, {'fmt': queryFormat}));
 
   Future<List<Attachment>> upload(Request request) {
-    _httpRequest
-      ..headers['User-Agent'] = _userAgent
-      ..headers['Cookie'] = request.authTokenCookie
+    multipartRequest
+      ..headers['user-agent'] = userAgent
+      ..headers['cookie'] = request.authTokenCookie
       ..fields['requestId'] = request.requestId
       ..files.addAll(request.files);
-    return _httpRequest.send().then((response) {
-      return http.Response.fromStream(response).then((response) => _parseResponse(response));
+    return multipartRequest.send().then((stream) {
+      return http.Response.fromStream(stream).then((response) => _parseResponse(response));
     });
   }
 
   List<Attachment> _parseResponse(http.Response response) {
     if (response.statusCode == 200) {
-      return bodyToJson(response.body)
-          .map<Attachment>((element) =>
-              Attachment(element['aid'] ?? '', element['filename'] ?? '', element['ct'] ?? '', element['s'] ?? 0))
-          .toList();
+      return jsonDecode(response.body).map<Attachment>((data) => Attachment.fromMap(data)).toList();
+    } else {
+      throw http.ClientException(
+        'An error is encountered with response status code ${response.statusCode}',
+        response.request?.url,
+      );
     }
-    return [];
   }
 
-  static List<dynamic> bodyToJson(String body) {
+  static List<dynamic> jsonDecode(String content) {
     final exp = RegExp(r'\[\{(.*)\}\]');
-    final match = exp.firstMatch(body);
-    return jsonDecode(match?.group(0) ?? '[]');
+    final match = exp.firstMatch(content);
+    return convert.jsonDecode(match?.group(0) ?? '[]');
   }
 }

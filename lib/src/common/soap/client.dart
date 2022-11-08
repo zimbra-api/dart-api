@@ -7,9 +7,9 @@ import 'package:http/http.dart' as http;
 import 'client_exception.dart';
 
 class Client {
-  static const _contentType = 'application/json; charset=utf-8';
-  static const _userAgent = 'Dart Soap Client';
-  static const _serviceUri = 'service/soap';
+  static const contentType = 'application/json; charset=utf-8';
+  static const userAgent = 'Dart Soap Client';
+  static const servicePath = '/service/soap';
 
   final String _serviceHost;
 
@@ -21,10 +21,10 @@ class Client {
 
   Future<http.Response> sendRequest(String soapMessage) {
     return _httpClient
-        .post(Uri.https(_serviceHost, _serviceUri),
+        .post(Uri.https(_serviceHost, servicePath),
             headers: {
-              'content-type': _contentType,
-              'user-agent': _userAgent,
+              'content-type': contentType,
+              'user-agent': userAgent,
               if (_cookie != null) 'cookie': _cookie!,
             },
             body: soapMessage)

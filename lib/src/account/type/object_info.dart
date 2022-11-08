@@ -18,7 +18,9 @@ abstract class ObjectInfo {
 
   static List<KeyValuePair> attrListFromJson(Map<String, dynamic> data) {
     return (data['_attrs'] is Map)
-        ? List.from((data['_attrs'] as Map).entries.map<KeyValuePair>((kvp) => KeyValuePair(kvp.key, value: kvp.value)))
+        ? List.from((data['_attrs'] as Map<String, dynamic>)
+            .entries
+            .map<KeyValuePair>((kvp) => KeyValuePair(kvp.key, value: kvp.value)))
         : [];
   }
 }

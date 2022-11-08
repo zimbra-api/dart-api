@@ -8,4 +8,11 @@ abstract class Attrs {
   final List<Attr> attrs;
 
   Attrs({this.attrs = const []});
+
+  static List<Attr> attrsFromJson(Map<String, dynamic> data) {
+    return (data['_attrs'] is Map)
+        ? List.from(
+            (data['_attrs'] as Map<String, dynamic>).entries.map<Attr>((kvp) => Attr(kvp.key, value: kvp.value)))
+        : [];
+  }
 }

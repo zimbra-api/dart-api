@@ -2,7 +2,6 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
-import 'attr.dart';
 import 'attrs.dart';
 
 class Identity extends Attrs {
@@ -12,14 +11,8 @@ class Identity extends Attrs {
 
   Identity({this.name, this.id, super.attrs});
 
-  factory Identity.fromMap(Map<String, dynamic> data) => Identity(
-        name: data['name'],
-        id: data['id'],
-        attrs: (data['_attrs'] is Map)
-            ? List.from(
-                (data['_attrs'] as Map<String, dynamic>).entries.map<Attr>((attr) => Attr(attr.key, value: attr.value)))
-            : [],
-      );
+  factory Identity.fromMap(Map<String, dynamic> data) =>
+      Identity(name: data['name'], id: data['id'], attrs: Attrs.attrsFromJson(data));
 
   Map<String, dynamic> toMap() => {
         if (name != null) 'name': name,

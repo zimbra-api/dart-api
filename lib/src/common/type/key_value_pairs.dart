@@ -10,11 +10,19 @@ class KeyValuePairs {
   KeyValuePairs({this.keyValuePairs = const []});
 
   static List<KeyValuePair> keyValuePairsFromMap(Map<String, dynamic> data) {
-    return (data['_attrs'] is Map)
-        ? List.from((data['_attrs'] as Map<String, dynamic>)
-            .entries
-            .map<KeyValuePair>((kvp) => KeyValuePair(kvp.key, value: kvp.value)))
-        : [];
+    return (data['_attrs'] is Map) ? _attrsFromMap(data['_attrs'] as Map<String, dynamic>) : [];
+  }
+
+  static List<KeyValuePair> _attrsFromMap(Map<String, dynamic> data) {
+    final attrs = <KeyValuePair>[];
+    for (final entry in data.entries) {
+      if (entry.value is Iterable) {
+        attrs.addAll((entry.value as Iterable).map<KeyValuePair>((value) => KeyValuePair(entry.key, value: value)));
+      } else {
+        attrs.add(KeyValuePair(entry.key, value: entry.value));
+      }
+    }
+    return attrs;
   }
 
   Map<String, dynamic> toMap() => {

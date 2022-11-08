@@ -6,6 +6,8 @@ import 'dart:convert' as convert;
 import 'package:http/http.dart' as http;
 import 'client_exception.dart';
 
+typedef HttpClientFactory<T extends http.Client> = T Function();
+
 class Client {
   static const contentType = 'application/json; charset=utf-8';
   static const userAgent = 'Dart Soap Client';
@@ -15,9 +17,10 @@ class Client {
 
   String? _cookie;
 
-  final http.Client _httpClient = http.Client();
+  final http.Client _httpClient;
 
-  Client(this._serviceHost);
+  Client(this._serviceHost, {final HttpClientFactory? httpClientFactory})
+      : _httpClient = httpClientFactory != null ? httpClientFactory() : http.Client();
 
   Future<http.Response> sendRequest(String soapMessage) {
     return _httpClient

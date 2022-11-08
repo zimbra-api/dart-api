@@ -31,7 +31,8 @@ abstract class Api {
 
   String? _userAgentVersion;
 
-  Api(String serviceHost) : _soapClient = Client(serviceHost);
+  Api(final String serviceHost, {final HttpClientFactory? httpClientFactory})
+      : _soapClient = Client(serviceHost, httpClientFactory: httpClientFactory);
 
   Future<T?> invoke<T extends SoapResponse>(SoapRequest request, {required FromMapConverter<T> fromMap}) {
     return _soapClient

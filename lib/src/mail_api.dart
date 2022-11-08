@@ -28,7 +28,7 @@ import 'mail/message.dart';
 import 'mail/type.dart';
 
 class MailApi extends AccountApi {
-  MailApi(super.serviceHost);
+  MailApi(super.serviceHost, {super.httpClientFactory});
 
   /// Add an invite to an appointment.
   /// The invite corresponds to a VEVENT component.

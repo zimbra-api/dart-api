@@ -18,7 +18,7 @@ import 'common/type/key_value_pair.dart';
 import 'common/type/op_value.dart';
 
 class AccountApi extends Api {
-  AccountApi(super.serviceHost);
+  AccountApi(super.serviceHost, {super.httpClientFactory});
 
   /// Authenticate for an account
   /// when specifying an account, one of <password> or <preauth> or <recoveryCode> must be specified. See preauth.txt for a discussion of preauth.

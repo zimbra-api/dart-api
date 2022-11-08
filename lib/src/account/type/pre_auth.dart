@@ -19,9 +19,8 @@ class PreAuth {
 
   static String computeValue(AccountSelector account, String preauthKey,
       {int expiresTimestamp = 0, int timestamp = 0}) {
-    final preauth = "${account.value}|${account.by}|$expiresTimestamp|$timestamp";
     final hmac = Hmac(sha1, utf8.encode(preauthKey));
-    final digest = hmac.convert(utf8.encode(preauth));
+    final digest = hmac.convert(utf8.encode("${account.value}|${account.by.name}|$expiresTimestamp|$timestamp"));
     return digest.toString();
   }
 

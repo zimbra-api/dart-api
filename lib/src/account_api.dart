@@ -90,7 +90,11 @@ class AccountApi extends Api {
 
   /// Authenticate by preauth
   Future<AuthResponse?> authByPreauth(String name, String preauthKey) {
-    return auth(preauth: PreAuth(AccountSelector(AccountBy.name, name), preauthKey));
+    final account = AccountSelector(AccountBy.name, name);
+    return auth(
+      account: account,
+      preauth: PreAuth(account, preauthKey, timestamp: DateTime.now().millisecondsSinceEpoch),
+    );
   }
 
   /// Perform an autocomplete for a name against the Global Address List
@@ -98,8 +102,7 @@ class AccountApi extends Api {
   /// default value of 20.
   Future<AutoCompleteGalResponse?> autoCompleteGal(String name,
       {GalSearchType? type, bool? needCanExpand, String? galAccountId, int? limit}) {
-    return invoke(
-        AutoCompleteGalRequest(name, needCanExpand: needCanExpand, galAccountId: galAccountId, limit: limit),
+    return invoke(AutoCompleteGalRequest(name, needCanExpand: needCanExpand, galAccountId: galAccountId, limit: limit),
         fromMap: (data) => AutoCompleteGalEnvelope.fromMap(data).body.response as AutoCompleteGalResponse?);
   }
 

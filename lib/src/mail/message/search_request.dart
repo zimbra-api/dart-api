@@ -68,7 +68,7 @@ class SearchRequest extends MailSearchParams {
         if (allowableTaskStatus != null) 'allowableTaskStatus': allowableTaskStatus,
         if (calItemExpandStart != null) 'calExpandInstStart': calItemExpandStart,
         if (calItemExpandEnd != null) 'calExpandInstEnd': calItemExpandEnd,
-        if (query != null) 'query': {'_content': query},
+        if (query != null) 'query': query,
         if (inDumpster != null) 'inDumpster': inDumpster,
         if (searchTypes != null) 'types': searchTypes,
         if (groupBy != null) 'groupBy': groupBy,

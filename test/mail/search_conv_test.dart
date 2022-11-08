@@ -153,7 +153,7 @@ void main() {
             'allowableTaskStatus': allowableTaskStatus,
             'calExpandInstStart': calItemExpandStart,
             'calExpandInstEnd': calItemExpandEnd,
-            'query': {'_content': query},
+            'query': query,
             'inDumpster': inDumpster,
             'types': searchTypes,
             'groupBy': groupBy,

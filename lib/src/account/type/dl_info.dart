@@ -35,7 +35,7 @@ class DLInfo extends ObjectInfo {
       via: data['via'],
       isOwner: data['isOwner'],
       isMember: data['isMember'],
-      attrList: ObjectInfo.attrListFromJson(data));
+      attrList: ObjectInfo.attrListFromMap(data));
 
   Map<String, dynamic> toMap() => {
         'name': name,

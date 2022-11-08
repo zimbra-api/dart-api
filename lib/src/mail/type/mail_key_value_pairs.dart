@@ -8,5 +8,5 @@ class MailKeyValuePairs extends KeyValuePairs {
   MailKeyValuePairs({super.keyValuePairs});
 
   factory MailKeyValuePairs.fromMap(Map<String, dynamic> data) =>
-      MailKeyValuePairs(keyValuePairs: KeyValuePairs.keyValuePairsFromJson(data));
+      MailKeyValuePairs(keyValuePairs: KeyValuePairs.keyValuePairsFromMap(data));
 }

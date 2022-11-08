@@ -17,7 +17,7 @@ class CalendarResourceInfo extends AccountKeyValuePairs {
 
   factory CalendarResourceInfo.fromMap(Map<String, dynamic> data) =>
       CalendarResourceInfo(data['name'] ?? '', data['id'] ?? '',
-          keyValuePairs: KeyValuePairs.keyValuePairsFromJson(data));
+          keyValuePairs: KeyValuePairs.keyValuePairsFromMap(data));
 
   @override
   Map<String, dynamic> toMap() => {

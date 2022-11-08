@@ -9,7 +9,7 @@ class KeyValuePairs {
 
   KeyValuePairs({this.keyValuePairs = const []});
 
-  static List<KeyValuePair> keyValuePairsFromJson(Map<String, dynamic> data) {
+  static List<KeyValuePair> keyValuePairsFromMap(Map<String, dynamic> data) {
     return (data['_attrs'] is Map)
         ? List.from((data['_attrs'] as Map<String, dynamic>)
             .entries

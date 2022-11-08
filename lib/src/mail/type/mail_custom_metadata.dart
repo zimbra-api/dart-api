@@ -15,7 +15,7 @@ class MailCustomMetadata extends MailKeyValuePairs {
   MailCustomMetadata({this.section, super.keyValuePairs});
 
   factory MailCustomMetadata.fromMap(Map<String, dynamic> data) =>
-      MailCustomMetadata(section: data['section'], keyValuePairs: KeyValuePairs.keyValuePairsFromJson(data));
+      MailCustomMetadata(section: data['section'], keyValuePairs: KeyValuePairs.keyValuePairsFromMap(data));
 
   @override
   Map<String, dynamic> toMap() => {

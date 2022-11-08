@@ -77,10 +77,10 @@ class AuthResponse extends SoapResponse {
         trustedToken: data['trustedToken']?['_content'],
         zmgProxy: data['zmgProxy'],
         prefs: (data['prefs']?['_attrs'] is Map)
-            ? List.from(Utils.prefsFromJson(data['prefs']['_attrs'] as Map<String, dynamic>))
+            ? List.from(Utils.prefsFromMap(data['prefs']['_attrs'] as Map<String, dynamic>))
             : [],
         attrs: (data['attrs']?['_attrs'] is Map)
-            ? List.from(Utils.attrsFromJson(data['attrs']['_attrs'] as Map<String, dynamic>))
+            ? List.from(Utils.attrsFromMap(data['attrs']['_attrs'] as Map<String, dynamic>))
             : [],
         twoFactorAuthRequired: data['twoFactorAuthRequired'],
         trustedDevicesEnabled: data['trustedDevicesEnabled'],

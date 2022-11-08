@@ -51,7 +51,7 @@ class DistributionListInfo extends ObjectInfo {
           ? List.from((data['right'] as Iterable)
               .map<DistributionListRightInfo>((right) => DistributionListRightInfo.fromMap(right)))
           : [],
-      attrList: ObjectInfo.attrListFromJson(data));
+      attrList: ObjectInfo.attrListFromMap(data));
 
   Map<String, dynamic> toMap() => {
         'name': name,

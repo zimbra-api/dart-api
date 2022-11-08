@@ -8,5 +8,5 @@ class AccountKeyValuePairs extends KeyValuePairs {
   AccountKeyValuePairs({super.keyValuePairs});
 
   factory AccountKeyValuePairs.fromMap(Map<String, dynamic> data) =>
-      AccountKeyValuePairs(keyValuePairs: KeyValuePairs.keyValuePairsFromJson(data));
+      AccountKeyValuePairs(keyValuePairs: KeyValuePairs.keyValuePairsFromMap(data));
 }

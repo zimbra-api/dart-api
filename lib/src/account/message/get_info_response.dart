@@ -176,10 +176,10 @@ class GetInfoResponse extends SoapResponse {
         license: data['license'] is Map ? LicenseInfo.fromMap(data['license']) : null,
         isTrackingIMAP: data['isTrackingIMAP'],
         prefs: (data['prefs']?['_attrs'] is Map)
-            ? List.from(Utils.prefsFromJson(data['prefs']['_attrs'] as Map<String, dynamic>))
+            ? List.from(Utils.prefsFromMap(data['prefs']['_attrs'] as Map<String, dynamic>))
             : [],
         attrs: (data['attrs']?['_attrs'] is Map)
-            ? List.from(Utils.attrsFromJson(data['attrs']['_attrs'] as Map<String, dynamic>))
+            ? List.from(Utils.attrsFromMap(data['attrs']['_attrs'] as Map<String, dynamic>))
             : [],
         zimlets: (data['zimlets']?['zimlet'] is Iterable)
             ? List.from((data['zimlets']['zimlet'] as Iterable)

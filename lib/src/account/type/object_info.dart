@@ -16,7 +16,7 @@ abstract class ObjectInfo {
 
   ObjectInfo(this.name, this.id, {this.attrList = const []});
 
-  static List<KeyValuePair> attrListFromJson(Map<String, dynamic> data) {
+  static List<KeyValuePair> attrListFromMap(Map<String, dynamic> data) {
     return (data['_attrs'] is Map)
         ? List.from((data['_attrs'] as Map<String, dynamic>)
             .entries

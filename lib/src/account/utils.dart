@@ -8,9 +8,9 @@ import 'type/attr.dart';
 import 'type/pref.dart';
 
 class Utils {
-  static List<Attr> attrsFromJson(Map<String, dynamic> json) {
+  static List<Attr> attrsFromMap(Map<String, dynamic> data) {
     final attrs = <Attr>[];
-    for (final entry in json.entries) {
+    for (final entry in data.entries) {
       if (entry.value is Iterable) {
         attrs.addAll((entry.value as Iterable).map<Attr>((value) => Attr(entry.key, value: value)));
       } else {
@@ -20,9 +20,9 @@ class Utils {
     return attrs;
   }
 
-  static List<Pref> prefsFromJson(Map<String, dynamic> json) {
+  static List<Pref> prefsFromMap(Map<String, dynamic> data) {
     final prefs = <Pref>[];
-    for (final entry in json.entries) {
+    for (final entry in data.entries) {
       if (entry.value is Iterable) {
         prefs.addAll((entry.value as Iterable).map<Pref>((value) => Pref(entry.key, value: value)));
       } else {
@@ -32,9 +32,9 @@ class Utils {
     return prefs;
   }
 
-  static List<ContactAttr> contactAttrsFromJson(Map<String, dynamic> json) {
+  static List<ContactAttr> contactAttrsFromMap(Map<String, dynamic> data) {
     final attrs = <ContactAttr>[];
-    for (final entry in json.entries) {
+    for (final entry in data.entries) {
       if (entry.value is Iterable) {
         attrs.addAll((entry.value as Iterable).map<ContactAttr>((value) => ContactAttr(entry.key, value: value)));
       } else {

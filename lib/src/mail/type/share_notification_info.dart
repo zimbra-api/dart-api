@@ -27,7 +27,7 @@ class ShareNotificationInfo {
   factory ShareNotificationInfo.fromMap(Map<String, dynamic> data) => ShareNotificationInfo(
       status: data['status'],
       id: data['id'],
-      date: data['d'],
+      date: int.tryParse(data['d']?.toString() ?? ''),
       grantor: data['grantor'] is Map ? Grantor.fromMap(data['grantor']) : null,
       link: data['link'] is Map ? LinkInfo.fromMap(data['link']) : null);
 

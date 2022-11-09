@@ -34,7 +34,7 @@ class NoteActionSelector extends ActionSelector {
           tag: data['tag'],
           folder: data['l'],
           rgb: data['rgb'],
-          color: data['color'],
+          color: int.tryParse(data['color']?.toString() ?? ''),
           name: data['name'],
           flags: data['f'],
           tags: data['t'],

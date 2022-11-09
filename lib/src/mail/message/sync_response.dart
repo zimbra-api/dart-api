@@ -85,9 +85,9 @@ class SyncResponse extends SoapResponse {
       this.chatItems = const []});
 
   factory SyncResponse.fromMap(Map<String, dynamic> data) => SyncResponse(
-      changeDate: data['md'],
+      changeDate: int.tryParse(data['md']?.toString() ?? ''),
       token: data['token'],
-      size: data['s'],
+      size: int.tryParse(data['s']?.toString() ?? ''),
       more: data['more'],
       deleted: data['deleted'] is Map ? SyncDeletedInfo.fromMap(data['deleted']) : null,
       folderItems: (data['folder'] is Iterable)

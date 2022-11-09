@@ -8,5 +8,5 @@ class LinkedInTest extends FilterTest {
   LinkedInTest({super.index, super.negative});
 
   factory LinkedInTest.fromMap(Map<String, dynamic> data) =>
-      LinkedInTest(index: data['index'], negative: data['negative']);
+      LinkedInTest(index: int.tryParse(data['index']?.toString() ?? ''), negative: data['negative']);
 }

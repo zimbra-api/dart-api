@@ -7,5 +7,6 @@ import 'filter_test.dart';
 class TrueTest extends FilterTest {
   TrueTest({super.index, super.negative});
 
-  factory TrueTest.fromMap(Map<String, dynamic> data) => TrueTest(index: data['index'], negative: data['negative']);
+  factory TrueTest.fromMap(Map<String, dynamic> data) =>
+      TrueTest(index: int.tryParse(data['index']?.toString() ?? ''), negative: data['negative']);
 }

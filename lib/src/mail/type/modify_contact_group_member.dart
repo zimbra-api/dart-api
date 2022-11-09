@@ -12,8 +12,11 @@ class ModifyContactGroupMember extends NewContactGroupMember {
   /// Operation: +|-|reset
   final ModifyMemberOperation operation;
 
-  ModifyContactGroupMember(
-      {this.operation = ModifyMemberOperation.reset, super.type = MemberType.contact, super.value});
+  ModifyContactGroupMember({
+    this.operation = ModifyMemberOperation.reset,
+    super.type = MemberType.contact,
+    super.value,
+  });
 
   factory ModifyContactGroupMember.fromMap(Map<String, dynamic> data) => ModifyContactGroupMember(
       operation: ModifyMemberOperation.values

@@ -59,9 +59,9 @@ class CommentInfo {
       flags: data['f'],
       tags: data['t'],
       tagNames: data['tn'],
-      color: data['color'],
+      color: int.tryParse(data['color']?.toString() ?? ''),
       rgb: data['rgb'],
-      date: data['d'],
+      date: int.tryParse(data['d']?.toString() ?? ''),
       metadatas: (data['meta'] is Iterable)
           ? List.from((data['meta'] as Iterable).map<MailCustomMetadata>((meta) => MailCustomMetadata.fromMap(meta)))
           : []);

@@ -18,7 +18,7 @@ class WkDay {
         (item) => item.name == data['day'],
         orElse: () => WeekDay.sunday,
       ),
-      ordWk: data['ordWk']);
+      ordWk: int.tryParse(data['ordWk']?.toString() ?? ''));
 
   Map<String, dynamic> toMap() => {
         'day': day.name,

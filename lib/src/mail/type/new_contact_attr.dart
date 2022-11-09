@@ -24,7 +24,10 @@ class NewContactAttr {
   NewContactAttr(this.name, {this.attachId, this.id, this.part, this.value});
 
   factory NewContactAttr.fromMap(Map<String, dynamic> data) => NewContactAttr(data['n'] ?? '',
-      attachId: data['aid'], id: data['id'], part: data['part'], value: data['_content']);
+      attachId: data['aid'],
+      id: int.tryParse(data['id']?.toString() ?? ''),
+      part: data['part'],
+      value: data['_content']);
 
   Map<String, dynamic> toMap() => {
         'n': name,

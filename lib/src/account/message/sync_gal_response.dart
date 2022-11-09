@@ -48,7 +48,7 @@ class SyncGalResponse extends SoapResponse {
         galDefinitionLastModified: data['galDefinitionLastModified'],
         throttled: data['throttled'],
         fullSyncRecommended: data['fullSyncRecommended'],
-        remain: data['remain'],
+        remain: int.tryParse(data['remain']?.toString() ?? ''),
         contacts: (data['cn'] is Iterable)
             ? List.from((data['cn'] as Iterable).map<ContactInfo>((cn) => ContactInfo.fromMap(cn)))
             : [],

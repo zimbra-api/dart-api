@@ -46,8 +46,8 @@ class NestedSearchConversation {
 
   factory NestedSearchConversation.fromMap(Map<String, dynamic> data) => NestedSearchConversation(
         id: data['id'],
-        num: data['n'],
-        totalSize: data['total'],
+        num: int.tryParse(data['n']?.toString() ?? ''),
+        totalSize: int.tryParse(data['total']?.toString() ?? ''),
         flags: data['f'],
         tags: data['t'],
         tagNames: data['tn'],

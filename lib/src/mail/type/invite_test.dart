@@ -14,7 +14,7 @@ class InviteTest extends FilterTest {
       methods: (data['method'] is Iterable)
           ? List.from((data['method'] as Iterable).map<String>((method) => method['_content']))
           : [],
-      index: data['index'],
+      index: int.tryParse(data['index']?.toString() ?? ''),
       negative: data['negative']);
 
   @override

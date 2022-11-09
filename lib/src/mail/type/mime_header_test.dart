@@ -29,7 +29,7 @@ class MimeHeaderTest extends FilterTest {
       ),
       value: data['value'],
       caseSensitive: data['caseSensitive'],
-      index: data['index'],
+      index: int.tryParse(data['index']?.toString() ?? ''),
       negative: data['negative']);
 
   @override

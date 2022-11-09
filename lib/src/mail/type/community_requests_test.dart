@@ -8,5 +8,5 @@ class CommunityRequestsTest extends FilterTest {
   CommunityRequestsTest({super.index, super.negative});
 
   factory CommunityRequestsTest.fromMap(Map<String, dynamic> data) =>
-      CommunityRequestsTest(index: data['index'], negative: data['negative']);
+      CommunityRequestsTest(index: int.tryParse(data['index']?.toString() ?? ''), negative: data['negative']);
 }

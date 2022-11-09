@@ -28,23 +28,23 @@ class ChatSummary extends MessageSummary {
 
   factory ChatSummary.fromMap(Map<String, dynamic> data) => ChatSummary(
         data['id'] ?? '',
-        autoSendTime: data['autoSendTime'],
+        autoSendTime: int.tryParse(data['autoSendTime']?.toString() ?? ''),
         emails: (data['e'] is Iterable)
             ? List.from((data['e'] as Iterable).map<EmailInfo>((e) => EmailInfo.fromMap(e)))
             : [],
         subject: data['su'],
         fragment: data['fr'],
         invite: data['inv'] is Map ? InviteInfo.fromMap(data['inv']) : null,
-        size: data['s'],
-        date: data['d'],
+        size: int.tryParse(data['s']?.toString() ?? ''),
+        date: int.tryParse(data['d']?.toString() ?? ''),
         folder: data['l'],
         conversationId: data['cid'],
         flags: data['f'],
         tags: data['t'],
         tagNames: data['tn'],
-        revision: data['rev'],
-        changeDate: data['md'],
-        modifiedSequence: data['ms'],
+        revision: int.tryParse(data['rev']?.toString() ?? ''),
+        changeDate: int.tryParse(data['md']?.toString() ?? ''),
+        modifiedSequence: int.tryParse(data['ms']?.toString() ?? ''),
         metadatas: (data['meta'] is Iterable)
             ? List.from((data['meta'] as Iterable).map<MailCustomMetadata>((meta) => MailCustomMetadata.fromMap(meta)))
             : [],

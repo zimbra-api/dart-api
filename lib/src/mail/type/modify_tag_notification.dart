@@ -14,7 +14,9 @@ class ModifyTagNotification extends ModifyNotification {
   ModifyTagNotification({this.id = 0, this.name = '', super.changeBitmask});
 
   factory ModifyTagNotification.fromMap(Map<String, dynamic> data) => ModifyTagNotification(
-      id: data['id']?['_content'] ?? 0, name: data['name']?['_content'] ?? 0, changeBitmask: data['change'] ?? 0);
+      id: int.tryParse(data['id']?['_content']?.toString() ?? '') ?? 0,
+      name: data['name']?['_content'] ?? '',
+      changeBitmask: data['change'] ?? 0);
 
   @override
   Map<String, dynamic> toMap() => {

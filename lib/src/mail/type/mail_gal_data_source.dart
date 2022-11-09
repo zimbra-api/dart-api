@@ -47,7 +47,7 @@ class MailGalDataSource extends MailDataSource {
       isEnabled: data['isEnabled'],
       importOnly: data['importOnly'],
       host: data['host'],
-      port: data['port'],
+      port: int.tryParse(data['port']?.toString() ?? ''),
       connectionType: ConnectionType.values.firstWhere(
         (item) => item.name == data['connectionType'],
         orElse: () => ConnectionType.clearText,
@@ -58,7 +58,7 @@ class MailGalDataSource extends MailDataSource {
       emailAddress: data['emailAddress'],
       smtpEnabled: data['smtpEnabled'],
       smtpHost: data['smtpHost'],
-      smtpPort: data['smtpPort'],
+      smtpPort: int.tryParse(data['smtpPort']?.toString() ?? ''),
       smtpConnectionType: ConnectionType.values.firstWhere(
         (item) => item.name == data['smtpConnectionType'],
         orElse: () => ConnectionType.clearText,
@@ -73,7 +73,7 @@ class MailGalDataSource extends MailDataSource {
       replyToAddress: data['replyToAddress'],
       replyToDisplay: data['replyToDisplay'],
       importClass: data['importClass'],
-      failingSince: data['failingSince'],
+      failingSince: int.tryParse(data['failingSince']?.toString() ?? ''),
       lastError: data['lastError']?['_content'],
       refreshToken: data['refreshToken'],
       refreshTokenUrl: data['refreshTokenUrl'],

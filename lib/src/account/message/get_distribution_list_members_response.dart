@@ -19,7 +19,7 @@ class GetDistributionListMembersResponse extends SoapResponse {
 
   factory GetDistributionListMembersResponse.fromMap(Map<String, dynamic> data) => GetDistributionListMembersResponse(
         more: data['more'],
-        total: data['total'],
+        total: int.tryParse(data['total']?.toString() ?? ''),
         dlMembers:
             (data['dlm'] is Iterable) ? List.from((data['dlm'] as Iterable).map<String>((dlm) => dlm['_content'])) : [],
         habGroupMembers: (data['groupMember'] is Iterable)

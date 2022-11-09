@@ -42,18 +42,17 @@ class DurationInfo {
       this.repeatCount});
 
   factory DurationInfo.fromMap(Map<String, dynamic> data) => DurationInfo(
-        durationNegative: data['neg'],
-        weeks: data['w'],
-        days: data['d'],
-        hours: data['h'],
-        minutes: data['m'],
-        seconds: data['s'],
-        related: AlarmRelated.values.firstWhere(
-          (related) => related.name == data['related'],
-          orElse: () => AlarmRelated.start,
-        ),
-        repeatCount: data['count'],
-      );
+      durationNegative: data['neg'],
+      weeks: int.tryParse(data['w']?.toString() ?? ''),
+      days: int.tryParse(data['d']?.toString() ?? ''),
+      hours: int.tryParse(data['h']?.toString() ?? ''),
+      minutes: int.tryParse(data['m']?.toString() ?? ''),
+      seconds: int.tryParse(data['s']?.toString() ?? ''),
+      related: AlarmRelated.values.firstWhere(
+        (related) => related.name == data['related'],
+        orElse: () => AlarmRelated.start,
+      ),
+      repeatCount: int.tryParse(data['count']?.toString() ?? ''));
 
   Map<String, dynamic> toMap() => {
         if (durationNegative != null) 'neg': durationNegative,

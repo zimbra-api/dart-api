@@ -14,8 +14,8 @@ class DiffDocumentVersionSpec {
 
   DiffDocumentVersionSpec(this.id, {this.version1, this.version2});
 
-  factory DiffDocumentVersionSpec.fromMap(Map<String, dynamic> data) =>
-      DiffDocumentVersionSpec(data['id'] ?? '', version1: data['v1'], version2: data['v2']);
+  factory DiffDocumentVersionSpec.fromMap(Map<String, dynamic> data) => DiffDocumentVersionSpec(data['id'] ?? '',
+      version1: int.tryParse(data['v1']?.toString() ?? ''), version2: int.tryParse(data['v2']?.toString() ?? ''));
 
   Map<String, dynamic> toMap() => {
         'id': id,

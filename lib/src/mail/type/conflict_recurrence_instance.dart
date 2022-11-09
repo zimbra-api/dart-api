@@ -14,10 +14,10 @@ class ConflictRecurrenceInstance extends ExpandedRecurrenceInstance {
       {super.startTime, super.duration, super.allDay, super.tzOffset, super.recurIdZ, this.freebusyUsers = const []});
 
   factory ConflictRecurrenceInstance.fromMap(Map<String, dynamic> data) => ConflictRecurrenceInstance(
-      startTime: data['s'],
-      duration: data['dur'],
+      startTime: int.tryParse(data['s']?.toString() ?? ''),
+      duration: int.tryParse(data['dur']?.toString() ?? ''),
       allDay: data['allDay'],
-      tzOffset: data['tzo'],
+      tzOffset: int.tryParse(data['tzo']?.toString() ?? ''),
       recurIdZ: data['ridZ'],
       freebusyUsers: (data['usr'] is Iterable)
           ? List.from((data['usr'] as Iterable).map<FreeBusyUserStatus>((usr) => FreeBusyUserStatus.fromMap(usr)))

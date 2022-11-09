@@ -65,7 +65,7 @@ class LegacyInstanceDataInfo extends LegacyInstanceDataAttrs {
       super.taskTzOffsetDue});
 
   factory LegacyInstanceDataInfo.fromMap(Map<String, dynamic> data) => LegacyInstanceDataInfo(
-      startTime: data['s'],
+      startTime: int.tryParse(data['s']?.toString() ?? ''),
       isException: data['ex'],
       organizer: data['or'] is Map ? CalOrganizer.fromMap(data['or']) : null,
       categories: (data['category'] is Iterable)
@@ -73,13 +73,13 @@ class LegacyInstanceDataInfo extends LegacyInstanceDataAttrs {
           : [],
       geo: data['geo'] is Map ? GeoInfo.fromMap(data['geo']) : null,
       fragment: data['fr'],
-      duration: data['d'],
+      duration: int.tryParse(data['d']?.toString() ?? ''),
       partStat: ParticipationStatus.values.firstWhere(
         (ptst) => ptst.name == data['ptst'],
         orElse: () => ParticipationStatus.accept,
       ),
       recurIdZ: data['ridZ'],
-      tzOffset: data['tzo'],
+      tzOffset: int.tryParse(data['tzo']?.toString() ?? ''),
       freeBusyActual: FreeBusyStatus.values.firstWhere(
         (fba) => fba.name == data['fba'],
         orElse: () => FreeBusyStatus.free,
@@ -102,7 +102,7 @@ class LegacyInstanceDataInfo extends LegacyInstanceDataAttrs {
       hasAlarm: data['alarm'],
       isOrganizer: data['isOrg'],
       invId: data['invId'],
-      componentNum: data['compNum'],
+      componentNum: int.tryParse(data['compNum']?.toString() ?? ''),
       status: InviteStatus.values.firstWhere(
         (status) => status.name == data['status'],
         orElse: () => InviteStatus.completed,
@@ -114,8 +114,8 @@ class LegacyInstanceDataInfo extends LegacyInstanceDataAttrs {
       allDay: data['allDay'],
       draft: data['draft'],
       neverSent: data['neverSent'],
-      taskDueDate: data['dueDate'],
-      taskTzOffsetDue: data['tzoDue']);
+      taskDueDate: int.tryParse(data['dueDate']?.toString() ?? ''),
+      taskTzOffsetDue: int.tryParse(data['tzoDue']?.toString() ?? ''));
 
   @override
   Map<String, dynamic> toMap() => {

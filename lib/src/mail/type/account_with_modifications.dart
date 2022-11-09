@@ -17,12 +17,12 @@ class AccountWithModifications {
   AccountWithModifications({this.id, this.modifications = const [], this.lastChangeId});
 
   factory AccountWithModifications.fromMap(Map<String, dynamic> data) => AccountWithModifications(
-      id: data['id'],
+      id: int.tryParse(data['id']?.toString() ?? ''),
       modifications: (data['mods'] is Iterable)
           ? List.from((data['mods'] as Iterable)
               .map<PendingFolderModifications>((mods) => PendingFolderModifications.fromMap(mods)))
           : [],
-      lastChangeId: data['changeid']);
+      lastChangeId: int.tryParse(data['changeid']?.toString() ?? ''));
 
   Map<String, dynamic> toMap() => {
         if (id != null) 'id': id,

@@ -39,16 +39,16 @@ class ConversationHitInfo extends ConversationSummary {
           ? List.from((data['m'] as Iterable).map<ConversationMsgHitInfo>((m) => ConversationMsgHitInfo.fromMap(m)))
           : [],
       id: data['id'],
-      numMsg: data['n'],
-      numUnread: data['u'],
-      totalSize: data['total'],
+      numMsg: int.tryParse(data['n']?.toString() ?? ''),
+      numUnread: int.tryParse(data['u']?.toString() ?? ''),
+      totalSize: int.tryParse(data['total']?.toString() ?? ''),
       flags: data['f'],
       tags: data['t'],
       tagNames: data['tn'],
-      date: data['d'],
+      date: int.tryParse(data['d']?.toString() ?? ''),
       elided: data['elided'],
-      changeDate: data['md'],
-      modifiedSequence: data['ms'],
+      changeDate: int.tryParse(data['md']?.toString() ?? ''),
+      modifiedSequence: int.tryParse(data['ms']?.toString() ?? ''),
       metadatas: (data['meta'] is Iterable)
           ? List.from((data['meta'] as Iterable).map<MailCustomMetadata>((meta) => MailCustomMetadata.fromMap(meta)))
           : [],

@@ -17,7 +17,7 @@ class ImportanceTest extends FilterTest {
         (imp) => imp.name == data['imp'],
         orElse: () => Importance.normal,
       ),
-      index: data['index'],
+      index: int.tryParse(data['index']?.toString() ?? ''),
       negative: data['negative']);
 
   @override

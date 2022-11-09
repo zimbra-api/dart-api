@@ -8,5 +8,5 @@ class CommunityContentTest extends FilterTest {
   CommunityContentTest({super.index, super.negative});
 
   factory CommunityContentTest.fromMap(Map<String, dynamic> data) =>
-      CommunityContentTest(index: data['index'], negative: data['negative']);
+      CommunityContentTest(index: int.tryParse(data['index']?.toString() ?? ''), negative: data['negative']);
 }

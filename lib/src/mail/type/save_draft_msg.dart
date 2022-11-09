@@ -61,13 +61,13 @@ class SaveDraftMsg extends Msg {
   });
 
   factory SaveDraftMsg.fromMap(Map<String, dynamic> data) => SaveDraftMsg(
-      id: data['id'],
+      id: int.tryParse(data['id']?.toString() ?? ''),
       draftAccountId: data['forAcct'],
       tags: data['t'],
       tagNames: data['tn'],
       rgb: data['rgb'],
-      color: data['color'],
-      autoSendTime: data['autoSendTime'],
+      color: int.tryParse(data['color']?.toString() ?? ''),
+      autoSendTime: int.tryParse(data['autoSendTime']?.toString() ?? ''),
       attachmentId: data['aid'],
       origId: data['origid'],
       replyType: ReplyType.values.firstWhere(

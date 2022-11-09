@@ -23,12 +23,17 @@ class SearchCalendarResourcesResponse extends SoapResponse {
   /// Matching calendar resources
   final List<CalendarResourceInfo> calendarResources;
 
-  SearchCalendarResourcesResponse(
-      {this.sortBy, this.offset, this.more, this.pagingSupported, this.calendarResources = const []});
+  SearchCalendarResourcesResponse({
+    this.sortBy,
+    this.offset,
+    this.more,
+    this.pagingSupported,
+    this.calendarResources = const [],
+  });
 
   factory SearchCalendarResourcesResponse.fromMap(Map<String, dynamic> data) => SearchCalendarResourcesResponse(
         sortBy: data['sortBy'],
-        offset: data['offset'],
+        offset: int.tryParse(data['offset']?.toString() ?? ''),
         more: data['more'],
         pagingSupported: data['paginationSupported'],
         calendarResources: (data['calresource'] is Iterable)

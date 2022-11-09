@@ -65,7 +65,7 @@ class DocumentSpec {
         description: data['desc'],
         folderId: data['l'],
         id: data['id'],
-        version: data['ver'],
+        version: int.tryParse(data['ver']?.toString() ?? ''),
         content: data['content'],
         descEnabled: data['descEnabled'],
         flags: data['f'],

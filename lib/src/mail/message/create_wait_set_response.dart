@@ -32,7 +32,7 @@ class CreateWaitSetResponse extends SoapResponse {
   factory CreateWaitSetResponse.fromMap(Map<String, dynamic> data) => CreateWaitSetResponse(
       waitSetId: data['waitSet'],
       defaultInterests: data['defTypes'],
-      sequence: data['seq'],
+      sequence: int.tryParse(data['seq']?.toString() ?? ''),
       errors: (data['error'] is Iterable)
           ? List.from((data['error'] as Iterable).map<IdAndType>((error) => IdAndType.fromMap(error)))
           : []);

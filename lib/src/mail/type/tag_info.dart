@@ -56,14 +56,14 @@ class TagInfo {
       this.retentionPolicy});
 
   factory TagInfo.fromMap(Map<String, dynamic> data) => TagInfo(data['id'] ?? '', data['name'] ?? '',
-      color: data['color'],
+      color: int.tryParse(data['color']?.toString() ?? ''),
       rgb: data['rgb'],
-      unread: data['u'],
+      unread: int.tryParse(data['u']?.toString() ?? ''),
       count: data['n'],
-      date: data['d'],
-      revision: data['rev'],
-      changeDate: data['md'],
-      modifiedSequence: data['ms'],
+      date: int.tryParse(data['d']?.toString() ?? ''),
+      revision: int.tryParse(data['rev']?.toString() ?? ''),
+      changeDate: int.tryParse(data['md']?.toString() ?? ''),
+      modifiedSequence: int.tryParse(data['ms']?.toString() ?? ''),
       metadatas: (data['meta'] is Iterable)
           ? List.from((data['meta'] as Iterable).map<MailCustomMetadata>((meta) => MailCustomMetadata.fromMap(meta)))
           : [],

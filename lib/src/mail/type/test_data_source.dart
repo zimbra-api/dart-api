@@ -12,7 +12,7 @@ class TestDataSource {
   TestDataSource(this.success, {this.error});
 
   factory TestDataSource.fromMap(Map<String, dynamic> data) =>
-      TestDataSource(data['success'] ?? 0, error: data['error']);
+      TestDataSource(int.tryParse(data['success']?.toString() ?? '') ?? 0, error: data['error']);
 
   Map<String, dynamic> toMap() => {
         'success': success,

@@ -20,6 +20,6 @@ class GetDataSourceUsageResponse extends SoapResponse {
           ? List.from(
               (data['dataSourceUsage'] as Iterable).map<DataSourceUsage>((usage) => DataSourceUsage.fromMap(usage)))
           : [],
-      dataSourceQuota: data['dsQuota'] ?? 0,
-      totalQuota: data['dsTotalQuota'] ?? 0);
+      dataSourceQuota: int.tryParse(data['dsQuota']?.toString() ?? '0'),
+      totalQuota: int.tryParse(data['dsTotalQuota']?.toString() ?? '0'));
 }

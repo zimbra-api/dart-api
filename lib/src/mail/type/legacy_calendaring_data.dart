@@ -95,18 +95,18 @@ class LegacyCalendaringData extends CommonCalendaringData {
       tags: data['t'],
       tagNames: data['tn'],
       folderId: data['l'],
-      size: data['s'],
-      changeDate: data['md'],
-      modifiedSequence: data['ms'],
-      revision: data['rev'],
+      size: int.tryParse(data['s']?.toString() ?? ''),
+      changeDate: int.tryParse(data['md']?.toString() ?? ''),
+      modifiedSequence: int.tryParse(data['ms']?.toString() ?? ''),
+      revision: int.tryParse(data['rev']?.toString() ?? ''),
       id: data['id'],
-      duration: data['dur'],
+      duration: int.tryParse(data['dur']?.toString() ?? ''),
       partStat: ParticipationStatus.values.firstWhere(
         (ptst) => ptst.name == data['ptst'],
         orElse: () => ParticipationStatus.accept,
       ),
       recurIdZ: data['ridZ'],
-      tzOffset: data['tzo'],
+      tzOffset: int.tryParse(data['tzo']?.toString() ?? ''),
       freeBusyActual: FreeBusyStatus.values.firstWhere(
         (fba) => fba.name == data['fba'],
         orElse: () => FreeBusyStatus.free,
@@ -129,7 +129,7 @@ class LegacyCalendaringData extends CommonCalendaringData {
       hasAlarm: data['alarm'],
       isOrganizer: data['isOrg'],
       invId: data['invId'],
-      componentNum: data['compNum'],
+      componentNum: int.tryParse(data['compNum']?.toString() ?? ''),
       status: InviteStatus.values.firstWhere(
         (status) => status.name == data['status'],
         orElse: () => InviteStatus.completed,
@@ -141,8 +141,8 @@ class LegacyCalendaringData extends CommonCalendaringData {
       allDay: data['allDay'],
       draft: data['draft'],
       neverSent: data['neverSent'],
-      taskDueDate: data['dueDate'],
-      taskTzOffsetDue: data['tzoDue']);
+      taskDueDate: int.tryParse(data['dueDate']?.toString() ?? ''),
+      taskTzOffsetDue: int.tryParse(data['tzoDue']?.toString() ?? ''));
 
   @override
   Map<String, dynamic> toMap() => {

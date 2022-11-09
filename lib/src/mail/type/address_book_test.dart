@@ -11,7 +11,8 @@ class AddressBookTest extends FilterTest {
   AddressBookTest({this.header, super.index, super.negative});
 
   factory AddressBookTest.fromMap(Map<String, dynamic> data) =>
-      AddressBookTest(header: data['header'], index: data['index'], negative: data['negative']);
+      AddressBookTest(
+      header: data['header'], index: int.tryParse(data['index']?.toString() ?? ''), negative: data['negative']);
 
   @override
   Map<String, dynamic> toMap() => {

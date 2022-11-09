@@ -36,7 +36,7 @@ class PendingFolderModifications {
       this.modifiedFolders = const []});
 
   factory PendingFolderModifications.fromMap(Map<String, dynamic> data) => PendingFolderModifications(
-      folderId: data['id'] ?? 0,
+      folderId: int.tryParse(data['id']?.toString() ?? '') ?? 0,
       created: (data['created'] is Iterable)
           ? List.from((data['created'] as Iterable)
               .map<CreateItemNotification>((created) => CreateItemNotification.fromMap(created)))

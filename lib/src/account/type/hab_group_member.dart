@@ -16,7 +16,7 @@ class HABGroupMember extends HABMember {
 
   factory HABGroupMember.fromMap(Map<String, dynamic> data) => HABGroupMember(
         data['name'] ?? '',
-        seniorityIndex: data['seniorityIndex'],
+        seniorityIndex: int.tryParse(data['seniorityIndex']?.toString() ?? ''),
         attrs: (data['_attrs'] is Map)
             ? List.from((data['_attrs'] as Map<String, dynamic>)
                 .entries

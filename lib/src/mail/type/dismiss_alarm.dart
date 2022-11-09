@@ -11,7 +11,8 @@ class DismissAlarm {
 
   DismissAlarm(this.id, this.dismissedAt);
 
-  factory DismissAlarm.fromMap(Map<String, dynamic> data) => DismissAlarm(data['id'] ?? '', data['dismissedAt'] ?? 0);
+  factory DismissAlarm.fromMap(Map<String, dynamic> data) =>
+      DismissAlarm(data['id'] ?? '', int.tryParse(data['dismissedAt']?.toString() ?? '') ?? 0);
 
   Map<String, dynamic> toMap() => {
         'id': id,

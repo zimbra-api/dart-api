@@ -21,7 +21,7 @@ class DateTest extends FilterTest {
         orElse: () => DateComparison.before,
       ),
       date: data['date'],
-      index: data['index'],
+      index: int.tryParse(data['index']?.toString() ?? ''),
       negative: data['negative']);
 
   @override

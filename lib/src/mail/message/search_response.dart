@@ -100,9 +100,9 @@ class SearchResponse extends SoapResponse {
         (sortBy) => sortBy.name == data['sortBy'],
         orElse: () => SearchSortBy.dateDesc,
       ),
-      queryOffset: data['offset'],
+      queryOffset: int.tryParse(data['offset']?.toString() ?? ''),
       queryMore: data['more'],
-      totalSize: data['total'],
+      totalSize: int.tryParse(data['total']?.toString() ?? ''),
       simpleHits: (data['hit'] is Iterable)
           ? List.from((data['hit'] as Iterable).map<SimpleSearchHit>((hit) => SimpleSearchHit.fromMap(hit)))
           : [],

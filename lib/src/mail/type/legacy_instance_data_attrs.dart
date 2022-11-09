@@ -42,13 +42,13 @@ class LegacyInstanceDataAttrs extends CommonInstanceDataAttrs {
       super.taskTzOffsetDue});
 
   factory LegacyInstanceDataAttrs.fromMap(Map<String, dynamic> data) => LegacyInstanceDataAttrs(
-      duration: data['d'],
+      duration: int.tryParse(data['d']?.toString() ?? ''),
       partStat: ParticipationStatus.values.firstWhere(
         (ptst) => ptst.name == data['ptst'],
         orElse: () => ParticipationStatus.accept,
       ),
       recurIdZ: data['ridZ'],
-      tzOffset: data['tzo'],
+      tzOffset: int.tryParse(data['tzo']?.toString() ?? ''),
       freeBusyActual: FreeBusyStatus.values.firstWhere(
         (fba) => fba.name == data['fba'],
         orElse: () => FreeBusyStatus.free,
@@ -71,7 +71,7 @@ class LegacyInstanceDataAttrs extends CommonInstanceDataAttrs {
       hasAlarm: data['alarm'],
       isOrganizer: data['isOrg'],
       invId: data['invId'],
-      componentNum: data['compNum'],
+      componentNum: int.tryParse(data['compNum']?.toString() ?? ''),
       status: InviteStatus.values.firstWhere(
         (status) => status.name == data['status'],
         orElse: () => InviteStatus.completed,
@@ -83,8 +83,8 @@ class LegacyInstanceDataAttrs extends CommonInstanceDataAttrs {
       allDay: data['allDay'],
       draft: data['draft'],
       neverSent: data['neverSent'],
-      taskDueDate: data['dueDate'],
-      taskTzOffsetDue: data['tzoDue']);
+      taskDueDate: int.tryParse(data['dueDate']?.toString() ?? ''),
+      taskTzOffsetDue: int.tryParse(data['tzoDue']?.toString() ?? ''));
 
   @override
   Map<String, dynamic> toMap() => {

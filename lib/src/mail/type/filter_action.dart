@@ -8,7 +8,8 @@ class FilterAction {
 
   FilterAction({this.index});
 
-  factory FilterAction.fromMap(Map<String, dynamic> data) => FilterAction(index: data['index']);
+  factory FilterAction.fromMap(Map<String, dynamic> data) =>
+      FilterAction(index: int.tryParse(data['index']?.toString() ?? ''));
 
   Map<String, dynamic> toMap() => {
         if (index != null) 'index': index,

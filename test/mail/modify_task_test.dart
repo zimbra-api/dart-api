@@ -1520,7 +1520,7 @@ void main() {
                     'cl': location,
                     'body': body,
                     'truncated': truncatedContent,
-                    'content': {'_content': content},
+                    'content': content,
                     'mp': [
                       {
                         'part': part,
@@ -1532,7 +1532,7 @@ void main() {
                         'cl': location,
                         'body': body,
                         'truncated': truncatedContent,
-                        'content': {'_content': content},
+                        'content': content,
                       }
                     ],
                   }

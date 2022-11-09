@@ -19,7 +19,11 @@ class NewNoteSpec {
   NewNoteSpec({this.folder, this.content, this.color, this.bounds});
 
   factory NewNoteSpec.fromMap(Map<String, dynamic> data) =>
-      NewNoteSpec(folder: data['l'], content: data['content'], color: data['color'], bounds: data['pos']);
+      NewNoteSpec(
+      folder: data['l'],
+      content: data['content'],
+      color: int.tryParse(data['color']?.toString() ?? ''),
+      bounds: data['pos']);
 
   Map<String, dynamic> toMap() => {
         if (folder != null) 'l': folder,

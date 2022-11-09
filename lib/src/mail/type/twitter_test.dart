@@ -8,5 +8,5 @@ class TwitterTest extends FilterTest {
   TwitterTest({super.index, super.negative});
 
   factory TwitterTest.fromMap(Map<String, dynamic> data) =>
-      TwitterTest(index: data['index'], negative: data['negative']);
+      TwitterTest(index: int.tryParse(data['index']?.toString() ?? ''), negative: data['negative']);
 }

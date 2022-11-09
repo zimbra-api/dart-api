@@ -21,10 +21,10 @@ class ExpandedRecurrenceInstance {
   ExpandedRecurrenceInstance({this.startTime, this.duration, this.allDay, this.tzOffset, this.recurIdZ});
 
   factory ExpandedRecurrenceInstance.fromMap(Map<String, dynamic> data) => ExpandedRecurrenceInstance(
-      startTime: data['s'],
-      duration: data['dur'],
+      startTime: int.tryParse(data['s']?.toString() ?? ''),
+      duration: int.tryParse(data['dur']?.toString() ?? ''),
       allDay: data['allDay'],
-      tzOffset: data['tzo'],
+      tzOffset: int.tryParse(data['tzo']?.toString() ?? ''),
       recurIdZ: data['ridZ']);
 
   Map<String, dynamic> toMap() => {

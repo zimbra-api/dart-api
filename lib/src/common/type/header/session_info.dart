@@ -16,7 +16,7 @@ class SessionInfo {
   factory SessionInfo.fromMap(Map<String, dynamic> data) => SessionInfo(
         sessionProxied: data['proxy'],
         sessionId: data['proxy'],
-        sequenceNum: data['seq'],
+        sequenceNum: int.tryParse(data['seq']?.toString() ?? ''),
         value: data['_content'],
       );
 

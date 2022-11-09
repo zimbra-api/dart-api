@@ -51,8 +51,8 @@ class ConversationInfo {
 
   factory ConversationInfo.fromMap(Map<String, dynamic> data) => ConversationInfo(
       id: data['id'],
-      num: data['n'],
-      totalSize: data['total'],
+      num: int.tryParse(data['n']?.toString() ?? ''),
+      totalSize: int.tryParse(data['total']?.toString() ?? ''),
       flags: data['f'],
       tags: data['t'],
       tagNames: data['tn'],

@@ -41,7 +41,7 @@ class Grant {
         orElse: () => GrantGranteeType.all,
       ),
       granteeId: data['zid'],
-      expiry: data['expiry'],
+      expiry: int.tryParse(data['expiry']?.toString() ?? ''),
       granteeName: data['d'],
       guestPassword: data['pw'],
       accessKey: data['key']);

@@ -37,10 +37,10 @@ class AlarmDataInfo {
   });
 
   factory AlarmDataInfo.fromMap(Map<String, dynamic> data) => AlarmDataInfo(
-      nextAlarm: data['nextAlarm'],
-      alarmInstanceStart: data['alarmInstStart'],
-      invId: data['invId'],
-      componentNum: data['compNum'],
+      nextAlarm: int.tryParse(data['nextAlarm']?.toString() ?? ''),
+      alarmInstanceStart: int.tryParse(data['alarmInstStart']?.toString() ?? ''),
+      invId: int.tryParse(data['invId']?.toString() ?? ''),
+      componentNum: int.tryParse(data['compNum']?.toString() ?? ''),
       name: data['name'],
       location: data['loc'],
       alarm: data['alarm'] is Map ? AlarmInfo.fromMap(data['alarm']) : null);

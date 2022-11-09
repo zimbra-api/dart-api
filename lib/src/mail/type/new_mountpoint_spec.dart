@@ -66,7 +66,7 @@ class NewMountpointSpec {
         orElse: () => ViewType.conversation,
       ),
       flags: data['f'],
-      color: data['color'],
+      color: int.tryParse(data['color']?.toString() ?? ''),
       rgb: data['rgb'],
       url: data['url'],
       folderId: data['l'],
@@ -74,7 +74,7 @@ class NewMountpointSpec {
       reminderEnabled: data['reminder'],
       ownerId: data['zid'],
       ownerName: data['owner'],
-      remoteId: data['rid'],
+      remoteId: int.tryParse(data['rid']?.toString() ?? ''),
       path: data['path']);
 
   Map<String, dynamic> toMap() => {

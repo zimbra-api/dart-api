@@ -21,7 +21,7 @@ class SizeTest extends FilterTest {
         orElse: () => NumberComparison.over,
       ),
       size: data['s'],
-      index: data['index'],
+      index: int.tryParse(data['index']?.toString() ?? ''),
       negative: data['negative']);
 
   @override

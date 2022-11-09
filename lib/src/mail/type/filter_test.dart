@@ -12,7 +12,7 @@ class FilterTest {
   FilterTest({this.index, this.negative});
 
   factory FilterTest.fromMap(Map<String, dynamic> data) =>
-      FilterTest(index: data['index'], negative: data['negative']);
+      FilterTest(index: int.tryParse(data['index']?.toString() ?? ''), negative: data['negative']);
 
   Map<String, dynamic> toMap() => {
         if (index != null) 'index': index,

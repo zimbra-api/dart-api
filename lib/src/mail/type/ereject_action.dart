@@ -8,5 +8,5 @@ class ErejectAction extends RejectAction {
   ErejectAction({super.content, super.index});
 
   factory ErejectAction.fromMap(Map<String, dynamic> data) =>
-      ErejectAction(content: data['_content'], index: data['index']);
+      ErejectAction(content: data['_content'], index: int.tryParse(data['index']?.toString() ?? ''));
 }

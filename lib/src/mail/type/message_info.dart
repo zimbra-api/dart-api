@@ -114,7 +114,7 @@ class MessageInfo extends MessageCommon {
 
   factory MessageInfo.fromMap(Map<String, dynamic> data) => MessageInfo(
       id: data['id'],
-      imapUid: data['i4uid'],
+      imapUid: int.tryParse(data['i4uid']?.toString() ?? ''),
       calendarIntendedFor: data['cif'],
       origId: data['origid'],
       draftReplyType: ReplyType.values.firstWhere(
@@ -123,9 +123,9 @@ class MessageInfo extends MessageCommon {
       ),
       identityId: data['idnt'],
       draftAccountId: data['forAcct'],
-      draftAutoSendTime: data['autoSendTime'],
-      sentDate: data['sd'],
-      resentDate: data['rd'],
+      draftAutoSendTime: int.tryParse(data['autoSendTime']?.toString() ?? ''),
+      sentDate: int.tryParse(data['sd']?.toString() ?? ''),
+      resentDate: int.tryParse(data['rd']?.toString() ?? ''),
       part: data['part'],
       fragment: data['fr'],
       emails: (data['e'] is Iterable)
@@ -148,16 +148,16 @@ class MessageInfo extends MessageCommon {
           ? List.from((data['dlSubs'] as Iterable)
               .map<DLSubscriptionNotification>((dlSubs) => DLSubscriptionNotification.fromMap(dlSubs)))
           : [],
-      size: data['s'],
-      date: data['d'],
+      size: int.tryParse(data['s']?.toString() ?? ''),
+      date: int.tryParse(data['d']?.toString() ?? ''),
       folder: data['l'],
       conversationId: data['cid'],
       flags: data['f'],
       tags: data['t'],
       tagNames: data['tn'],
-      revision: data['rev'],
-      changeDate: data['md'],
-      modifiedSequence: data['ms'],
+      revision: int.tryParse(data['rev']?.toString() ?? ''),
+      changeDate: int.tryParse(data['md']?.toString() ?? ''),
+      modifiedSequence: int.tryParse(data['ms']?.toString() ?? ''),
       metadatas: (data['meta'] is Iterable)
           ? List.from((data['meta'] as Iterable).map<MailCustomMetadata>((meta) => MailCustomMetadata.fromMap(meta)))
           : []);

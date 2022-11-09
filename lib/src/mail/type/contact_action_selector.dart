@@ -27,10 +27,10 @@ class ContactActionSelector extends ActionSelector {
   factory ContactActionSelector.fromMap(Map<String, dynamic> data) =>
       ContactActionSelector(data['id'] ?? '', data['op'] ?? '',
           constraint: data['tcon'],
-          tag: data['tag'],
+          tag: int.tryParse(data['tag']?.toString() ?? ''),
           folder: data['l'],
           rgb: data['rgb'],
-          color: data['color'],
+          color: int.tryParse(data['color']?.toString() ?? ''),
           name: data['name'],
           flags: data['f'],
           tags: data['t'],

@@ -57,7 +57,7 @@ class NewFolderSpec {
         orElse: () => ViewType.conversation,
       ),
       flags: data['f'],
-      color: data['color'],
+      color: int.tryParse(data['color']?.toString() ?? ''),
       rgb: data['rgb'],
       url: data['url'],
       parentFolderId: data['l'],

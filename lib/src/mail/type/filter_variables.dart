@@ -12,7 +12,7 @@ class FilterVariables extends FilterAction {
   FilterVariables({super.index, this.variables = const []});
 
   factory FilterVariables.fromMap(Map<String, dynamic> data) => FilterVariables(
-      index: data['index'],
+      index: int.tryParse(data['index']?.toString() ?? ''),
       variables: (data['filterVariable'] is Iterable)
           ? List.from(
               (data['filterVariable'] as Iterable).map<FilterVariable>((variable) => FilterVariable.fromMap(variable)))

@@ -29,17 +29,17 @@ class NoteHitInfo extends NoteInfo {
   factory NoteHitInfo.fromMap(Map<String, dynamic> data) => NoteHitInfo(
       sortField: data['sf'],
       id: data['id'],
-      revision: data['rev'],
+      revision: int.tryParse(data['rev']?.toString() ?? ''),
       folder: data['l'],
-      date: data['d'],
+      date: int.tryParse(data['d']?.toString() ?? ''),
       flags: data['f'],
       tags: data['t'],
       tagNames: data['tn'],
       bounds: data['pos'],
-      color: data['color'],
+      color: int.tryParse(data['color']?.toString() ?? ''),
       rgb: data['rgb'],
-      changeDate: data['md'],
-      modifiedSequence: data['ms'],
+      changeDate: int.tryParse(data['md']?.toString() ?? ''),
+      modifiedSequence: int.tryParse(data['ms']?.toString() ?? ''),
       content: data['content'],
       metadatas: (data['meta'] is Iterable)
           ? List.from((data['meta'] as Iterable).map<MailCustomMetadata>((meta) => MailCustomMetadata.fromMap(meta)))

@@ -17,7 +17,8 @@ class WildcardExpansionQueryInfo {
   WildcardExpansionQueryInfo(this.wildcardString, {this.expanded, this.numExpanded});
 
   factory WildcardExpansionQueryInfo.fromMap(Map<String, dynamic> data) =>
-      WildcardExpansionQueryInfo(data['str'] ?? '', expanded: data['expanded'], numExpanded: data['numExpanded']);
+      WildcardExpansionQueryInfo(data['str'] ?? '',
+      expanded: data['expanded'], numExpanded: int.tryParse(data['numExpanded']?.toString() ?? ''));
 
   Map<String, dynamic> toMap() => {
         'str': wildcardString,

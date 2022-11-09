@@ -55,7 +55,7 @@ class PartInfo {
       location: data['cl'],
       body: data['body'],
       truncatedContent: data['truncated'],
-      content: data['content']?['_content'],
+      content: data['content'],
       mimeParts: (data['mp'] is Iterable)
           ? List.from((data['mp'] as Iterable).map<PartInfo>((mp) => PartInfo.fromMap(mp)))
           : []);
@@ -70,7 +70,7 @@ class PartInfo {
         if (location != null) 'cl': location,
         if (body != null) 'body': body,
         if (truncatedContent != null) 'truncated': truncatedContent,
-        if (content != null) 'content': {'_content': content},
+        if (content != null) 'content': content,
         if (mimeParts.isNotEmpty) 'mp': mimeParts.map((mp) => mp.toMap()).toList(),
       };
 }

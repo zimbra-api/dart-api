@@ -8,5 +8,5 @@ class FacebookTest extends FilterTest {
   FacebookTest({super.index, super.negative});
 
   factory FacebookTest.fromMap(Map<String, dynamic> data) =>
-      FacebookTest(index: data['index'], negative: data['negative']);
+      FacebookTest(index: int.tryParse(data['index']?.toString() ?? ''), negative: data['negative']);
 }

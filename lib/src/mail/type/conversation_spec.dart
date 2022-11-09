@@ -32,7 +32,7 @@ class ConversationSpec {
       id: data['id'],
       inlineRule: data['fetch'],
       wantHtml: data['html'],
-      maxInlinedLength: data['max'],
+      maxInlinedLength: int.tryParse(data['max']?.toString() ?? ''),
       needCanExpand: data['needExp'],
       headers: (data['header'] is Iterable)
           ? List.from((data['header'] as Iterable).map<AttributeName>((header) => AttributeName.fromMap(header)))

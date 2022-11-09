@@ -49,7 +49,7 @@ class NewSearchFolderSpec {
             orElse: () => SearchSortBy.none,
           ),
           flags: data['f'],
-          color: data['color'],
+          color: int.tryParse(data['color']?.toString() ?? ''),
           rgb: data['rgb'],
           parentFolderId: data['l']);
 

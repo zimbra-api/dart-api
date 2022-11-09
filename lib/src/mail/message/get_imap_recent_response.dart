@@ -10,5 +10,6 @@ class GetIMAPRecentResponse extends SoapResponse {
 
   GetIMAPRecentResponse(this.num);
 
-  factory GetIMAPRecentResponse.fromMap(Map<String, dynamic> data) => GetIMAPRecentResponse(data['n'] ?? 0);
+  factory GetIMAPRecentResponse.fromMap(Map<String, dynamic> data) =>
+      GetIMAPRecentResponse(int.tryParse(data['n']?.toString() ?? '') ?? 0);
 }

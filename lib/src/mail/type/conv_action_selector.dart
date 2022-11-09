@@ -29,10 +29,10 @@ class ConvActionSelector extends ActionSelector {
   factory ConvActionSelector.fromMap(Map<String, dynamic> data) =>
       ConvActionSelector(data['id'] ?? '', data['op'] ?? '',
           constraint: data['tcon'],
-          tag: data['tag'],
+          tag: int.tryParse(data['tag']?.toString() ?? ''),
           folder: data['l'],
           rgb: data['rgb'],
-          color: data['color'],
+          color: int.tryParse(data['color']?.toString() ?? ''),
           name: data['name'],
           flags: data['f'],
           tags: data['t'],

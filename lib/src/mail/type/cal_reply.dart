@@ -30,7 +30,7 @@ class CalReply extends RecurIdInfo {
       {this.attendee, this.sentBy, this.partStat, this.sequence, this.date, super.timezone, super.recurIdZ});
 
   factory CalReply.fromMap(Map<String, dynamic> data) => CalReply(
-        data['rangeType'] ?? 1,
+        int.tryParse(data['rangeType']?.toString() ?? '') ?? 1,
         data['recurId'] ?? '',
         attendee: data['at'],
         sentBy: data['sentBy'],
@@ -38,8 +38,8 @@ class CalReply extends RecurIdInfo {
           (ptst) => ptst.name == data['ptst'],
           orElse: () => ParticipationStatus.inProcess,
         ),
-        sequence: data['seq'],
-        date: data['d'],
+        sequence: int.tryParse(data['seq']?.toString() ?? ''),
+        date: int.tryParse(data['d']?.toString() ?? ''),
         timezone: data['tz'],
         recurIdZ: data['ridZ'],
       );

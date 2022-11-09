@@ -29,7 +29,7 @@ class WaitSetResponse extends SoapResponse {
   factory WaitSetResponse.fromMap(Map<String, dynamic> data) => WaitSetResponse(
       waitSetId: data['waitSet'] ?? '',
       canceled: data['canceled'],
-      seqNo: data['seq'],
+      seqNo: int.tryParse(data['seq']?.toString() ?? ''),
       signalledAccounts: (data['a'] is Iterable)
           ? List.from(
               (data['a'] as Iterable).map<AccountWithModifications>((a) => AccountWithModifications.fromMap(a)))

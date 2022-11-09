@@ -134,7 +134,7 @@ class InviteComponentCommon {
 
   factory InviteComponentCommon.fromMap(Map<String, dynamic> data) => InviteComponentCommon(
       method: data['method'],
-      componentNum: data['compNum'],
+      componentNum: int.tryParse(data['compNum']?.toString() ?? ''),
       rsvp: data['rsvp'],
       priority: data['priority'],
       name: data['name'],
@@ -157,8 +157,8 @@ class InviteComponentCommon {
       isOrganizer: data['isOrg'],
       xUid: data['x_uid'],
       uid: data['uid'],
-      sequence: data['seq'],
-      dateTime: data['d'],
+      sequence: int.tryParse(data['seq']?.toString() ?? ''),
+      dateTime: int.tryParse(data['d']?.toString() ?? ''),
       calItemId: data['calItemId'],
       deprecatedApptId: data['apptId'],
       calItemFolder: data['ciFolder'],

@@ -45,7 +45,7 @@ class AddMsgSpec {
       tagNames: data['tn'],
       folder: data['l'],
       noICal: data['noICal'],
-      dateReceived: data['d'],
+      dateReceived: int.tryParse(data['d']?.toString() ?? ''),
       attachmentId: data['aid'],
       content: data['content']?['_content']);
 

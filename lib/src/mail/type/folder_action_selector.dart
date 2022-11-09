@@ -66,10 +66,10 @@ class FolderActionSelector extends ActionSelector {
   factory FolderActionSelector.fromMap(Map<String, dynamic> data) =>
       FolderActionSelector(data['id'] ?? '', data['op'] ?? '',
           constraint: data['tcon'],
-          tag: data['tag'],
+          tag: int.tryParse(data['tag']?.toString() ?? ''),
           folder: data['l'],
           rgb: data['rgb'],
-          color: data['color'],
+          color: int.tryParse(data['color']?.toString() ?? ''),
           name: data['name'],
           flags: data['f'],
           tags: data['t'],
@@ -91,7 +91,7 @@ class FolderActionSelector extends ActionSelector {
                   .map<ActionGrantSelector>((grant) => ActionGrantSelector.fromMap(grant)))
               : [],
           retentionPolicy: data['retentionPolicy'] is Map ? RetentionPolicy.fromMap(data['retentionPolicy']) : null,
-          numDays: data['numDays']);
+          numDays: int.tryParse(data['numDays']?.toString() ?? ''));
 
   @override
   Map<String, dynamic> toMap() => {

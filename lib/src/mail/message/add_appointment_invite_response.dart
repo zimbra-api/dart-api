@@ -17,5 +17,8 @@ class AddAppointmentInviteResponse extends SoapResponse {
   AddAppointmentInviteResponse({this.calItemId, this.invId, this.componentNum});
 
   factory AddAppointmentInviteResponse.fromMap(Map<String, dynamic> data) =>
-      AddAppointmentInviteResponse(calItemId: data['calItemId'], invId: data['invId'], componentNum: data['compNum']);
+      AddAppointmentInviteResponse(
+      calItemId: int.tryParse(data['calItemId']?.toString() ?? ''),
+      invId: int.tryParse(data['invId']?.toString() ?? ''),
+      componentNum: int.tryParse(data['compNum']?.toString() ?? ''));
 }

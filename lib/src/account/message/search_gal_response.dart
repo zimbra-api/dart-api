@@ -30,12 +30,18 @@ class SearchGalResponse extends SoapResponse {
   /// Matching contacts
   final List<ContactInfo> contacts;
 
-  SearchGalResponse(
-      {this.sortBy, this.offset, this.more, this.pagingSupported, this.tokenizeKey, this.contacts = const []});
+  SearchGalResponse({
+    this.sortBy,
+    this.offset,
+    this.more,
+    this.pagingSupported,
+    this.tokenizeKey,
+    this.contacts = const [],
+  });
 
   factory SearchGalResponse.fromMap(Map<String, dynamic> data) => SearchGalResponse(
         sortBy: data['sortBy'],
-        offset: data['offset'],
+        offset: int.tryParse(data['offset']?.toString() ?? ''),
         more: data['more'],
         pagingSupported: data['paginationSupported'],
         tokenizeKey: data['tokenizeKey'],

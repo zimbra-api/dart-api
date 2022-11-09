@@ -14,7 +14,10 @@ class BodyTest extends FilterTest {
   BodyTest({this.value, this.caseSensitive, super.index, super.negative});
 
   factory BodyTest.fromMap(Map<String, dynamic> data) => BodyTest(
-      value: data['value'], caseSensitive: data['caseSensitive'], index: data['index'], negative: data['negative']);
+      value: data['value'],
+      caseSensitive: data['caseSensitive'],
+      index: int.tryParse(data['index']?.toString() ?? ''),
+      negative: data['negative']);
 
   @override
   Map<String, dynamic> toMap() => {

@@ -12,7 +12,8 @@ class AuthToken {
   AuthToken(this.value, {this.lifetime, this.verifyAccount});
 
   factory AuthToken.fromMap(Map<String, dynamic> data) {
-    return AuthToken(data['_content'] ?? '', lifetime: data['lifetime'], verifyAccount: data['verifyAccount']);
+    return AuthToken(data['_content'] ?? '',
+        lifetime: int.tryParse(data['lifetime']?.toString() ?? ''), verifyAccount: data['verifyAccount']);
   }
 
   Map<String, dynamic> toMap() => {

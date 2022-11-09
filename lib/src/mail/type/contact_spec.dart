@@ -39,7 +39,7 @@ class ContactSpec {
       this.contactGroupMembers = const []});
 
   factory ContactSpec.fromMap(Map<String, dynamic> data) => ContactSpec(
-      id: data['id'],
+      id: int.tryParse(data['id']?.toString() ?? ''),
       folder: data['l'],
       tags: data['t'],
       tagNames: data['tn'],

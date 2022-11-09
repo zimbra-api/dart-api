@@ -14,5 +14,5 @@ class ImportAppointmentsResponse extends SoapResponse {
   ImportAppointmentsResponse({this.ids, this.num});
 
   factory ImportAppointmentsResponse.fromMap(Map<String, dynamic> data) =>
-      ImportAppointmentsResponse(ids: data['ids'], num: data['n']);
+      ImportAppointmentsResponse(ids: data['ids'], num: int.tryParse(data['n']?.toString() ?? ''));
 }

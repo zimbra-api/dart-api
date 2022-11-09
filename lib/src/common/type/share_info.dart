@@ -60,7 +60,7 @@ class ShareInfo {
         data['ownerId'],
         data['ownerEmail'],
         ownerDisplayName: data['ownerName'],
-        folderId: data['folderId'],
+        folderId: int.tryParse(data['folderId']?.toString() ?? ''),
         folderUuid: data['folderUuid'],
         folderPath: data['folderPath'],
         defaultView: data['view'],

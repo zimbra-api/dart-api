@@ -8,5 +8,5 @@ class AttachmentTest extends FilterTest {
   AttachmentTest({super.index, super.negative});
 
   factory AttachmentTest.fromMap(Map<String, dynamic> data) =>
-      AttachmentTest(index: data['index'], negative: data['negative']);
+      AttachmentTest(index: int.tryParse(data['index']?.toString() ?? ''), negative: data['negative']);
 }

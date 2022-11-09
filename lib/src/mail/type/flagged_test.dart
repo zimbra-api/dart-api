@@ -17,7 +17,7 @@ class FlaggedTest extends FilterTest {
         (flagName) => flagName.name == data['flagName'],
         orElse: () => FilterFlagName.flagged,
       ),
-      index: data['index'],
+      index: int.tryParse(data['index']?.toString() ?? ''),
       negative: data['negative']);
 
   @override

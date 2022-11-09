@@ -48,7 +48,7 @@ class SearchConvResponse extends SoapResponse {
         (sortBy) => sortBy.name == data['sortBy'],
         orElse: () => SearchSortBy.dateDesc,
       ),
-      queryOffset: data['offset'],
+      queryOffset: int.tryParse(data['offset']?.toString() ?? ''),
       queryMore: data['more'],
       conversation: data['c'] is Map ? NestedSearchConversation.fromMap(data['c']) : null,
       messages: (data['m'] is Iterable)

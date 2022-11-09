@@ -40,7 +40,7 @@ class AccountGalDataSource extends AccountDataSource {
         isEnabled: data['isEnabled'],
         importOnly: data['importOnly'],
         host: data['host'],
-        port: data['port'],
+        port: int.tryParse(data['port']?.toString() ?? ''),
         connectionType: ConnectionType.values.firstWhere(
           (item) => item.name == data['connectionType'],
           orElse: () => ConnectionType.clearText,
@@ -56,7 +56,7 @@ class AccountGalDataSource extends AccountDataSource {
         replyToAddress: data['replyToAddress'],
         replyToDisplay: data['replyToDisplay'],
         importClass: data['importClass'],
-        failingSince: data['failingSince'],
+        failingSince: int.tryParse(data['failingSince']?.toString() ?? ''),
         lastError: data['lastError']?['_content'],
         attributes: (data['a'] is Iterable) ? List.from((data['a'] as Iterable).map((a) => a['_content'])) : [],
         refreshToken: data['refreshToken'],

@@ -58,9 +58,9 @@ class Invitation {
         (type) => type.name == data['type'],
         orElse: () => InviteType.appt,
       ),
-      sequence: data['seq'],
+      sequence: int.tryParse(data['seq']?.toString() ?? ''),
       id: data['id'],
-      componentNum: data['compNum'],
+      componentNum: int.tryParse(data['compNum']?.toString() ?? ''),
       recurrenceId: data['recurId'],
       timezones: (data['tz'] is Iterable)
           ? List.from((data['tz'] as Iterable).map<CalTZInfo>((tz) => CalTZInfo.fromMap(tz)))

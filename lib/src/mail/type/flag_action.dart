@@ -17,7 +17,7 @@ class FlagAction extends FilterAction {
         (flagName) => flagName.name == data['flagName'],
         orElse: () => FilterFlagName.flagged,
       ),
-      index: data['index']);
+      index: int.tryParse(data['index']?.toString() ?? ''));
 
   @override
   Map<String, dynamic> toMap() => {

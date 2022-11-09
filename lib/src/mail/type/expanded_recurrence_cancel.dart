@@ -13,8 +13,8 @@ class ExpandedRecurrenceCancel extends ExpandedRecurrenceComponent {
 
   factory ExpandedRecurrenceCancel.fromMap(Map<String, dynamic> data) => ExpandedRecurrenceCancel(
       exceptionId: data['exceptId'] is Map ? InstanceRecurIdInfo.fromMap(data['exceptId']) : null,
-      startTime: data['s'],
-      endTime: data['e'],
+      startTime: int.tryParse(data['s']?.toString() ?? ''),
+      endTime: int.tryParse(data['e']?.toString() ?? ''),
       duration: data['dur'] is Map ? DurationInfo.fromMap(data['dur']) : null,
       recurrence: data['recur'] is Map ? RecurrenceInfo.fromMap(data['recur']) : null);
 }

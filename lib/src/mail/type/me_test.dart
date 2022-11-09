@@ -11,7 +11,7 @@ class MeTest extends FilterTest {
   MeTest({this.header, super.index, super.negative});
 
   factory MeTest.fromMap(Map<String, dynamic> data) =>
-      MeTest(header: data['header'], index: data['index'], negative: data['negative']);
+      MeTest(header: data['header'], index: int.tryParse(data['index']?.toString() ?? ''), negative: data['negative']);
 
   @override
   Map<String, dynamic> toMap() => {

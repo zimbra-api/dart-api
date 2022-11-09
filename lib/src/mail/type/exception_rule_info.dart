@@ -17,7 +17,7 @@ class ExceptionRuleInfo extends RecurIdInfo {
       {this.add, this.exclude, super.timezone, super.recurIdZ});
 
   factory ExceptionRuleInfo.fromMap(Map<String, dynamic> data) =>
-      ExceptionRuleInfo(data['rangeType'] ?? 1, data['recurId'] ?? '',
+      ExceptionRuleInfo(int.tryParse(data['rangeType']?.toString() ?? '') ?? 1, data['recurId'] ?? '',
           timezone: data['tz'],
           recurIdZ: data['ridZ'],
           add: data['add'] is Map ? RecurrenceInfo.fromMap(data['add']) : null,

@@ -89,7 +89,7 @@ class MsgSpec {
       part: data['part'],
       raw: data['raw'],
       markRead: data['read'],
-      maxInlinedLength: data['max'],
+      maxInlinedLength: int.tryParse(data['max']?.toString() ?? ''),
       useContentUrl: data['useContentUrl'],
       wantHtml: data['html'],
       wantImapUid: data['wantImapUid'],

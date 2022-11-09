@@ -31,7 +31,12 @@ class CalendarReply extends RecurIdInfo {
       {this.sentBy, this.partStat, super.timezone, super.recurIdZ});
 
   factory CalendarReply.fromMap(Map<String, dynamic> data) =>
-      CalendarReply(data['rangeType'] ?? 1, data['recurId'] ?? '', data['seq'] ?? 0, data['d'] ?? 0, data['at'] ?? '',
+      CalendarReply(
+      int.tryParse(data['rangeType']?.toString() ?? '') ?? 1,
+      data['recurId'] ?? '',
+      int.tryParse(data['seq']?.toString() ?? '') ?? 0,
+      int.tryParse(data['d']?.toString() ?? '') ?? 0,
+      data['at'] ?? '',
           sentBy: data['sentBy'],
           partStat: ParticipationStatus.values.firstWhere(
             (item) => item.name == data['ptst'],

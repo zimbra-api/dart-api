@@ -47,6 +47,6 @@ class EnvelopeTest extends AddressTest {
         (comparator) => comparator.name == data['valueComparisonComparator'],
         orElse: () => ComparisonComparator.asciiNumeric,
       ),
-      index: data['index'],
+      index: int.tryParse(data['index']?.toString() ?? ''),
       negative: data['negative']);
 }

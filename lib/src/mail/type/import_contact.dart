@@ -12,7 +12,7 @@ class ImportContact {
   ImportContact({this.listOfCreatedIds, this.numImported});
 
   factory ImportContact.fromMap(Map<String, dynamic> data) =>
-      ImportContact(listOfCreatedIds: data['ids'], numImported: data['n']);
+      ImportContact(listOfCreatedIds: data['ids'], numImported: int.tryParse(data['n']?.toString() ?? ''));
 
   Map<String, dynamic> toMap() => {
         if (listOfCreatedIds != null) 'ids': listOfCreatedIds,

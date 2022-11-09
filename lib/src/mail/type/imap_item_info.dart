@@ -11,7 +11,8 @@ class IMAPItemInfo {
 
   IMAPItemInfo({this.id, this.imapUid});
 
-  factory IMAPItemInfo.fromMap(Map<String, dynamic> data) => IMAPItemInfo(id: data['id'], imapUid: data['i4uid']);
+  factory IMAPItemInfo.fromMap(Map<String, dynamic> data) =>
+      IMAPItemInfo(id: data['id'], imapUid: int.tryParse(data['i4uid']?.toString() ?? ''));
 
   Map<String, dynamic> toMap() => {
         if (id != null) 'id': id,

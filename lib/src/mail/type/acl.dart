@@ -18,8 +18,8 @@ class Acl {
   Acl({this.internalGrantExpiry, this.guestGrantExpiry, this.grants = const []});
 
   factory Acl.fromMap(Map<String, dynamic> data) => Acl(
-      internalGrantExpiry: data['internalGrantExpiry'],
-      guestGrantExpiry: data['guestGrantExpiry'],
+      internalGrantExpiry: int.tryParse(data['internalGrantExpiry']?.toString() ?? ''),
+      guestGrantExpiry: int.tryParse(data['guestGrantExpiry']?.toString() ?? ''),
       grants: (data['grant'] is Iterable)
           ? List.from((data['grant'] as Iterable).map<Grant>((grant) => Grant.fromMap(grant)))
           : []);

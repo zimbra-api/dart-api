@@ -8,5 +8,5 @@ class CommunityConnectionsTest extends FilterTest {
   CommunityConnectionsTest({super.index, super.negative});
 
   factory CommunityConnectionsTest.fromMap(Map<String, dynamic> data) =>
-      CommunityConnectionsTest(index: data['index'], negative: data['negative']);
+      CommunityConnectionsTest(index: int.tryParse(data['index']?.toString() ?? ''), negative: data['negative']);
 }

@@ -27,13 +27,13 @@ class TzOnsetInfo {
   TzOnsetInfo(this.month, this.hour, this.minute, this.second, {this.dayOfMonth, this.week, this.dayOfWeek});
 
   factory TzOnsetInfo.fromMap(Map<String, dynamic> data) => TzOnsetInfo(
-        data['mon'] ?? 1,
-        data['hour'] ?? 0,
-        data['min'] ?? 0,
-        data['sec'] ?? 0,
-        dayOfMonth: data['mday'],
-        week: data['week'],
-        dayOfWeek: data['wkday'],
+        int.tryParse(data['mon']?.toString() ?? '1') ?? 1,
+        int.tryParse(data['hour']?.toString() ?? '0') ?? 0,
+        int.tryParse(data['min']?.toString() ?? '0') ?? 0,
+        int.tryParse(data['sec']?.toString() ?? '0') ?? 0,
+        dayOfMonth: int.tryParse(data['mday']?.toString() ?? ''),
+        week: int.tryParse(data['week']?.toString() ?? ''),
+        dayOfWeek: int.tryParse(data['wkday']?.toString() ?? ''),
       );
 
   Map<String, dynamic> toMap() => {

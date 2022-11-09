@@ -67,8 +67,8 @@ class AuthResponse extends SoapResponse {
 
   factory AuthResponse.fromMap(Map<String, dynamic> data) => AuthResponse(
         authToken: data['authToken']?[0]['_content'],
-        lifetime: data['lifetime'],
-        trustLifetime: data['trustLifetime'],
+        lifetime: int.tryParse(data['lifetime']?.toString() ?? ''),
+        trustLifetime: int.tryParse(data['trustLifetime']?.toString() ?? ''),
         session: data['session'] is Map ? Session.fromMap(data['session']) : null,
         refer: data['refer'],
         skin: data['skin']?[0]['_content'],

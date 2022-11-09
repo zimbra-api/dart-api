@@ -66,7 +66,7 @@ class Context {
       this.csrfToken});
 
   factory Context.fromMap(Map<String, dynamic> data) => Context(
-        hopCount: data['hops'],
+        hopCount: int.tryParse(data['hops']?.toString() ?? ''),
         authToken: data['authToken'],
         session: data['session'] is Map ? SessionInfo.fromMap(data['session']) : null,
         legacySessionId: data['sessionId'] is Map ? SessionInfo.fromMap(data['sessionId']) : null,

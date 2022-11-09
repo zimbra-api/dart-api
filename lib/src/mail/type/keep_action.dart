@@ -7,5 +7,6 @@ import 'filter_action.dart';
 class KeepAction extends FilterAction {
   KeepAction({super.index});
 
-  factory KeepAction.fromMap(Map<String, dynamic> data) => KeepAction(index: data['index']);
+  factory KeepAction.fromMap(Map<String, dynamic> data) =>
+      KeepAction(index: int.tryParse(data['index']?.toString() ?? ''));
 }

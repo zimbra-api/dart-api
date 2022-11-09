@@ -18,9 +18,9 @@ class ReplaceheaderAction extends DeleteheaderAction {
       newName: data['newName']?['_content'],
       newValue: data['newValue']?['_content'],
       last: data['last'],
-      offset: data['offset'],
+      offset: int.tryParse(data['offset']?.toString() ?? ''),
       test: data['test'] is Map ? EditheaderTest.fromMap(data['test']) : null,
-      index: data['index']);
+      index: int.tryParse(data['index']?.toString() ?? ''));
 
   @override
   Map<String, dynamic> toMap() => {

@@ -21,7 +21,7 @@ class CurrentTimeTest extends FilterTest {
         orElse: () => DateComparison.before,
       ),
       time: data['time'],
-      index: data['index'],
+      index: int.tryParse(data['index']?.toString() ?? ''),
       negative: data['negative']);
 
   @override

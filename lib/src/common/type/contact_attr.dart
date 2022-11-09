@@ -19,7 +19,7 @@ class ContactAttr extends KeyValuePair {
       value: data['_content'],
       part: data['part'],
       contentType: data['ct'],
-      size: data['s'],
+      size: int.tryParse(data['s']?.toString() ?? ''),
       contentFilename: data['filename']);
 
   @override

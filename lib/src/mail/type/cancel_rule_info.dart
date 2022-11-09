@@ -9,5 +9,6 @@ class CancelRuleInfo extends RecurIdInfo {
   CancelRuleInfo(super.recurrenceRangeType, super.recurrenceId, {super.timezone, super.recurIdZ});
 
   factory CancelRuleInfo.fromMap(Map<String, dynamic> data) =>
-      CancelRuleInfo(data['rangeType'] ?? 1, data['recurId'] ?? '', timezone: data['tz'], recurIdZ: data['ridZ']);
+      CancelRuleInfo(int.tryParse(data['rangeType']?.toString() ?? '') ?? 1, data['recurId'] ?? '',
+          timezone: data['tz'], recurIdZ: data['ridZ']);
 }

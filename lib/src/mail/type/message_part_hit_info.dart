@@ -49,13 +49,14 @@ class MessagePartHitInfo {
       this.part,
       this.email,
       this.subject});
+
   factory MessagePartHitInfo.fromMap(Map<String, dynamic> data) => MessagePartHitInfo(
       id: data['id'],
       sortField: data['sf'],
-      size: data['s'],
-      date: data['d'],
-      conversationId: data['cid'],
-      messageId: data['mid'],
+      size: int.tryParse(data['s']?.toString() ?? ''),
+      date: int.tryParse(data['d']?.toString() ?? ''),
+      conversationId: int.tryParse(data['cid']?.toString() ?? ''),
+      messageId: int.tryParse(data['mid']?.toString() ?? ''),
       contentType: data['ct'],
       contentName: data['name'],
       part: data['part'],

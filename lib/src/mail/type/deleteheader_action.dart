@@ -19,9 +19,9 @@ class DeleteheaderAction extends FilterAction {
 
   factory DeleteheaderAction.fromMap(Map<String, dynamic> data) => DeleteheaderAction(
       last: data['last'],
-      offset: data['offset'],
+      offset: int.tryParse(data['offset']?.toString() ?? ''),
       test: data['test'] is Map ? EditheaderTest.fromMap(data['test']) : null,
-      index: data['index']);
+      index: int.tryParse(data['index']?.toString() ?? ''));
 
   @override
   Map<String, dynamic> toMap() => {

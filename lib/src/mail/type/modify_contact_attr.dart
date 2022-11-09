@@ -11,8 +11,14 @@ class ModifyContactAttr extends NewContactAttr {
   /// Operation: "+" or "-"
   final ModifyAttributeOperation operation;
 
-  ModifyContactAttr(super.name,
-      {this.operation = ModifyAttributeOperation.add, super.attachId, super.id, super.part, super.value});
+  ModifyContactAttr(
+    super.name, {
+    this.operation = ModifyAttributeOperation.add,
+    super.attachId,
+    super.id,
+    super.part,
+    super.value,
+  });
 
   factory ModifyContactAttr.fromMap(Map<String, dynamic> data) => ModifyContactAttr(data['n'] ?? '',
       operation: ModifyAttributeOperation.values

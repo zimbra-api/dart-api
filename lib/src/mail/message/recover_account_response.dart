@@ -14,5 +14,6 @@ class RecoverAccountResponse extends SoapResponse {
   RecoverAccountResponse({this.recoveryAccount, this.recoveryAttemptsLeft});
 
   factory RecoverAccountResponse.fromMap(Map<String, dynamic> data) => RecoverAccountResponse(
-      recoveryAccount: data['recoveryAccount'], recoveryAttemptsLeft: data['recoveryAttemptsLeft']);
+      recoveryAccount: data['recoveryAccount'],
+      recoveryAttemptsLeft: int.tryParse(data['recoveryAttemptsLeft']?.toString() ?? ''));
 }

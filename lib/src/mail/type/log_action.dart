@@ -21,7 +21,7 @@ class LogAction extends FilterAction {
         orElse: () => LoggingLevel.info,
       ),
       content: data['_content'],
-      index: data['index']);
+      index: int.tryParse(data['index']?.toString() ?? ''));
 
   @override
   Map<String, dynamic> toMap() => {

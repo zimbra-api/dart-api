@@ -15,7 +15,8 @@ class PurgeRevisionSpec {
   PurgeRevisionSpec(this.id, this.version, {this.includeOlderRevisions});
 
   factory PurgeRevisionSpec.fromMap(Map<String, dynamic> data) =>
-      PurgeRevisionSpec(data['id'] ?? '', data['ver'] ?? 0, includeOlderRevisions: data['includeOlderRevisions']);
+      PurgeRevisionSpec(data['id'] ?? '', int.tryParse(data['ver']?.toString() ?? '') ?? 0,
+          includeOlderRevisions: data['includeOlderRevisions']);
 
   Map<String, dynamic> toMap() => {
         'id': id,

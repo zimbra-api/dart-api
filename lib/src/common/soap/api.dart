@@ -21,17 +21,23 @@ typedef FromMapConverter<T extends SoapResponse> = T? Function(Map<String, dynam
 abstract class Api {
   final Client _soapClient;
 
-  String? _authToken;
+  final String? authToken;
 
-  String? _targetAccount;
+  final String? targetAccount;
 
-  String? _sessionId;
+  final String? sessionId;
 
-  String? _userAgentName;
+  final String? userAgentName;
 
-  String? _userAgentVersion;
+  final String? userAgentVersion;
 
-  Api(final String serviceHost, {final HttpClientFactory? httpClientFactory})
+  Api(final String serviceHost,
+      {final HttpClientFactory? httpClientFactory,
+      this.authToken,
+      this.targetAccount,
+      this.sessionId,
+      this.userAgentName,
+      this.userAgentVersion})
       : _soapClient = Client(serviceHost, httpClientFactory: httpClientFactory);
 
   Future<T?> invoke<T extends SoapResponse>(SoapRequest request, {required FromMapConverter<T> fromMap}) {
@@ -40,11 +46,11 @@ abstract class Api {
             .getEnvelope(
               header: SoapHeader(
                 context: Context(
-                  authToken: _authToken,
-                  account: _targetAccount != null ? AccountInfo(AccountBy.name, _targetAccount!) : null,
-                  session: _sessionId != null ? SessionInfo(sessionId: _sessionId, value: _sessionId) : null,
-                  userAgent: (_userAgentName != null || _userAgentVersion != null)
-                      ? UserAgentInfo(name: _userAgentName, version: _userAgentVersion)
+                  authToken: authToken,
+                  account: targetAccount != null ? AccountInfo(AccountBy.name, targetAccount!) : null,
+                  session: sessionId != null ? SessionInfo(sessionId: sessionId, value: sessionId) : null,
+                  userAgent: (userAgentName != null || userAgentVersion != null)
+                      ? UserAgentInfo(name: userAgentName, version: userAgentVersion)
                       : null,
                   format: FormatInfo(),
                 ),
@@ -53,23 +59,6 @@ abstract class Api {
             .toJson())
         .onError<ClientException>((e, _) => throw SoapFault.fromMap(e.response.mapData['Body']?['Fault'] ?? {}))
         .then((response) => fromMap(response.mapData));
-  }
-
-  void setAuthToken(String authToken) {
-    _authToken = authToken;
-  }
-
-  void setTargetAccount(String account) {
-    _targetAccount = account;
-  }
-
-  void setSession(String sessionId) {
-    _sessionId = sessionId;
-  }
-
-  void setUserAgent(String name, {String? version}) {
-    _userAgentName = name;
-    _userAgentVersion = version;
   }
 
   void close() {

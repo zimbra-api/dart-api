@@ -4,6 +4,7 @@
 
 import 'package:zimbra_api/src/common/enum/reply_type.dart';
 import 'package:zimbra_api/src/common/type/key_value_pair.dart';
+import 'package:zimbra_api/src/common/type/key_value_pairs.dart';
 
 import 'dl_subscription_notification.dart';
 import 'email_info.dart';
@@ -135,11 +136,7 @@ class MessageInfo extends MessageCommon {
       messageIdHeader: data['mid'],
       inReplyTo: data['irt'],
       invite: data['inv'] is Map ? InviteInfo.fromMap(data['inv']) : null,
-      headers: (data['header'] is Iterable)
-          ? (data['header'] as Iterable)
-              .map<KeyValuePair>((header) => KeyValuePair.fromMap(header))
-              .toList(growable: false)
-          : const [],
+      headers: KeyValuePairs.keyValuePairsFromMap(data),
       partInfos: (data['mp'] is Iterable)
           ? (data['mp'] as Iterable).map<PartInfo>((mp) => PartInfo.fromMap(mp)).toList(growable: false)
           : const [],

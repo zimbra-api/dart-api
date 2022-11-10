@@ -589,12 +589,9 @@ void main() {
                   ]
                 },
               },
-              'header': [
-                {
-                  'n': key,
-                  '_content': value,
-                }
-              ],
+              '_attrs': {
+                key: value,
+              },
               'mp': {
                 'ct': contentType,
                 'content': content,

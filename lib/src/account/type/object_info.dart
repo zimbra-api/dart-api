@@ -15,13 +15,4 @@ abstract class ObjectInfo {
   final List<KeyValuePair> attrList;
 
   ObjectInfo(this.name, this.id, {this.attrList = const []});
-
-  static List<KeyValuePair> attrListFromMap(Map<String, dynamic> data) {
-    return (data['_attrs'] is Map)
-        ? (data['_attrs'] as Map<String, dynamic>)
-            .entries
-            .map<KeyValuePair>((kvp) => KeyValuePair(kvp.key, value: kvp.value))
-            .toList(growable: false)
-        : const [];
-  }
 }

@@ -3,6 +3,7 @@
 // file that was distributed with this source code.
 
 import 'package:zimbra_api/src/common/type/key_value_pair.dart';
+import 'package:zimbra_api/src/common/type/key_value_pairs.dart';
 import 'package:zimbra_api/src/mail/type/part_info.dart';
 
 import 'dl_subscription_notification.dart';
@@ -81,11 +82,7 @@ class InviteAsMP extends MessageCommon {
       subject: data['su'],
       messageIdHeader: data['mid'],
       invite: (data['inv'] is Map) ? MPInviteInfo.fromMap(data['inv']) : null,
-      headers: (data['header'] is Iterable)
-          ? (data['header'] as Iterable)
-              .map<KeyValuePair>((header) => KeyValuePair.fromMap(header))
-              .toList(growable: false)
-          : const [],
+      headers: KeyValuePairs.keyValuePairsFromMap(data),
       mpContentElems: (data['mp'] is Iterable)
           ? (data['mp'] as Iterable).map<PartInfo>((mp) => PartInfo.fromMap(mp)).toList(growable: false)
           : const [],

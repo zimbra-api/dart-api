@@ -1493,12 +1493,9 @@ void main() {
                     }
                   ],
                 },
-                'header': [
-                  {
-                    'n': key,
-                    '_content': value,
-                  }
-                ],
+                '_attrs': {
+                  key: value,
+                },
                 'mp': [
                   {
                     'part': part,

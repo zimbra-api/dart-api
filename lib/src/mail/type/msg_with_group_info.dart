@@ -4,6 +4,7 @@
 
 import 'package:zimbra_api/src/common/enum/reply_type.dart';
 import 'package:zimbra_api/src/common/type/key_value_pair.dart';
+import 'package:zimbra_api/src/common/type/key_value_pairs.dart';
 import 'package:zimbra_api/src/common/type/url_and_value.dart';
 
 import 'dl_subscription_notification.dart';
@@ -139,11 +140,7 @@ class MsgWithGroupInfo extends MessageCommon {
       messageIdHeader: data['mid'],
       inReplyTo: data['irt'],
       invite: data['inv'] is Map ? InviteWithGroupInfo.fromMap(data['inv']) : null,
-      headers: (data['header'] is Iterable)
-          ? (data['header'] as Iterable)
-              .map<KeyValuePair>((header) => KeyValuePair.fromMap(header))
-              .toList(growable: false)
-          : const [],
+      headers: KeyValuePairs.keyValuePairsFromMap(data),
       mimePart: data['mp'] is Map ? MimePartInfo.fromMap(data['mp']) : null,
       shrNotification: data['shr'] is Map ? ShareNotification.fromMap(data['shr']) : null,
       dlSubsNotification: data['dlSubs'] is Map ? DLSubscriptionNotification.fromMap(data['dlSubs']) : null,

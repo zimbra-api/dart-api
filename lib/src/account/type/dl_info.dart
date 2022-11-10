@@ -2,6 +2,8 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
+import 'package:zimbra_api/src/common/type/key_value_pairs.dart';
+
 import 'object_info.dart';
 
 class DLInfo extends ObjectInfo {
@@ -35,7 +37,7 @@ class DLInfo extends ObjectInfo {
       via: data['via'],
       isOwner: data['isOwner'],
       isMember: data['isMember'],
-      attrList: ObjectInfo.attrListFromMap(data));
+      attrList: KeyValuePairs.keyValuePairsFromMap(data));
 
   Map<String, dynamic> toMap() => {
         'name': name,

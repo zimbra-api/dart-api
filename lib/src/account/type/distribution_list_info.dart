@@ -2,6 +2,8 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
+import 'package:zimbra_api/src/common/type/key_value_pairs.dart';
+
 import 'distribution_list_grantee_info.dart';
 import 'distribution_list_right_info.dart';
 import 'object_info.dart';
@@ -54,7 +56,7 @@ class DistributionListInfo extends ObjectInfo {
                   .map<DistributionListRightInfo>((right) => DistributionListRightInfo.fromMap(right))
                   .toList(growable: false)
               : const [],
-          attrList: ObjectInfo.attrListFromMap(data));
+          attrList: KeyValuePairs.keyValuePairsFromMap(data));
 
   Map<String, dynamic> toMap() => {
         'name': name,

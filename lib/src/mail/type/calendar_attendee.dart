@@ -88,8 +88,8 @@ class CalendarAttendee {
         delegatedTo: data['delegatedTo'],
         delegatedFrom: data['delegatedFrom'],
         xParams: (data['xparam'] is Iterable)
-            ? List.from((data['xparam'] as Iterable).map<XParam>((xparam) => XParam.fromMap(xparam)))
-            : [],
+            ? (data['xparam'] as Iterable).map<XParam>((xparam) => XParam.fromMap(xparam)).toList(growable: false)
+            : const [],
       );
 
   Map<String, dynamic> toMap() => {
@@ -106,6 +106,6 @@ class CalendarAttendee {
         if (member != null) 'member': member,
         if (delegatedTo != null) 'delegatedTo': delegatedTo,
         if (delegatedFrom != null) 'delegatedFrom': delegatedFrom,
-        if (xParams.isNotEmpty) 'xparam': xParams.map((xparam) => xparam.toMap()).toList(),
+        if (xParams.isNotEmpty) 'xparam': xParams.map((xparam) => xparam.toMap()).toList(growable: false),
       };
 }

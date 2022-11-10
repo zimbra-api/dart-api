@@ -42,8 +42,10 @@ class NoteHitInfo extends NoteInfo {
       modifiedSequence: int.tryParse(data['ms']?.toString() ?? ''),
       content: data['content'],
       metadatas: (data['meta'] is Iterable)
-          ? List.from((data['meta'] as Iterable).map<MailCustomMetadata>((meta) => MailCustomMetadata.fromMap(meta)))
-          : []);
+          ? (data['meta'] as Iterable)
+              .map<MailCustomMetadata>((meta) => MailCustomMetadata.fromMap(meta))
+              .toList(growable: false)
+          : const []);
 
   @override
   Map<String, dynamic> toMap() => {
@@ -61,6 +63,6 @@ class NoteHitInfo extends NoteInfo {
         if (changeDate != null) 'md': changeDate,
         if (modifiedSequence != null) 'ms': modifiedSequence,
         if (content != null) 'content': content,
-        if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toMap()).toList(),
+        if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toMap()).toList(growable: false),
       };
 }

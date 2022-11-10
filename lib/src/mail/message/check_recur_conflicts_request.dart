@@ -68,10 +68,12 @@ class CheckRecurConflictsRequest extends SoapRequest {
         if (endTime != null) 'e': endTime,
         if (allInstances != null) 'all': allInstances,
         if (excludeUid != null) 'excludeUid': excludeUid,
-        if (timezones.isNotEmpty) 'tz': timezones.map((tz) => tz.toMap()).toList(),
-        if (cancelComponents.isNotEmpty) 'cancel': cancelComponents.map((cancel) => cancel.toMap()).toList(),
-        if (inviteComponents.isNotEmpty) 'comp': inviteComponents.map((comp) => comp.toMap()).toList(),
-        if (exceptComponents.isNotEmpty) 'except': exceptComponents.map((except) => except.toMap()).toList(),
-        if (freebusyUsers.isNotEmpty) 'usr': freebusyUsers.map((usr) => usr.toMap()).toList(),
+        if (timezones.isNotEmpty) 'tz': timezones.map((tz) => tz.toMap()).toList(growable: false),
+        if (cancelComponents.isNotEmpty)
+          'cancel': cancelComponents.map((cancel) => cancel.toMap()).toList(growable: false),
+        if (inviteComponents.isNotEmpty) 'comp': inviteComponents.map((comp) => comp.toMap()).toList(growable: false),
+        if (exceptComponents.isNotEmpty)
+          'except': exceptComponents.map((except) => except.toMap()).toList(growable: false),
+        if (freebusyUsers.isNotEmpty) 'usr': freebusyUsers.map((usr) => usr.toMap()).toList(growable: false),
       };
 }

@@ -34,6 +34,6 @@ class CreateWaitSetResponse extends SoapResponse {
       defaultInterests: data['defTypes'],
       sequence: int.tryParse(data['seq']?.toString() ?? ''),
       errors: (data['error'] is Iterable)
-          ? List.from((data['error'] as Iterable).map<IdAndType>((error) => IdAndType.fromMap(error)))
-          : []);
+          ? (data['error'] as Iterable).map<IdAndType>((error) => IdAndType.fromMap(error)).toList(growable: false)
+          : const []);
 }

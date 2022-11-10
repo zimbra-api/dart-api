@@ -13,7 +13,8 @@ class GetOAuthConsumersResponse extends SoapResponse {
 
   factory GetOAuthConsumersResponse.fromMap(Map<String, dynamic> data) => GetOAuthConsumersResponse(
       consumers: (data['OAuthConsumer'] is Iterable)
-          ? List.from(
-              (data['OAuthConsumer'] as Iterable).map<OAuthConsumer>((consumer) => OAuthConsumer.fromMap(consumer)))
-          : []);
+          ? (data['OAuthConsumer'] as Iterable)
+              .map<OAuthConsumer>((consumer) => OAuthConsumer.fromMap(consumer))
+              .toList(growable: false)
+          : const []);
 }

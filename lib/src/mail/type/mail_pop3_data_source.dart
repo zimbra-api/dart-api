@@ -53,7 +53,7 @@ class MailPop3DataSource extends MailDataSource {
       host: data['host'],
       port: int.tryParse(data['port']?.toString() ?? ''),
       connectionType: ConnectionType.values.firstWhere(
-        (item) => item.name == data['connectionType'],
+        (type) => type.name == data['connectionType'],
         orElse: () => ConnectionType.clearText,
       ),
       username: data['username'],
@@ -64,7 +64,7 @@ class MailPop3DataSource extends MailDataSource {
       smtpHost: data['smtpHost'],
       smtpPort: int.tryParse(data['smtpPort']?.toString() ?? ''),
       smtpConnectionType: ConnectionType.values.firstWhere(
-        (item) => item.name == data['smtpConnectionType'],
+        (type) => type.name == data['smtpConnectionType'],
         orElse: () => ConnectionType.clearText,
       ),
       smtpAuthRequired: data['smtpAuthRequired'],
@@ -82,7 +82,9 @@ class MailPop3DataSource extends MailDataSource {
       refreshToken: data['refreshToken'],
       refreshTokenUrl: data['refreshTokenUrl'],
       leaveOnServer: data['leaveOnServer'],
-      attributes: (data['a'] is Iterable) ? List.from((data['a'] as Iterable).map((a) => a['_content'])) : []);
+      attributes: (data['a'] is Iterable)
+          ? (data['a'] as Iterable).map<String>((a) => a['_content']).toList(growable: false)
+          : const []);
 
   @override
   Map<String, dynamic> toMap() => {
@@ -117,6 +119,6 @@ class MailPop3DataSource extends MailDataSource {
         if (refreshToken != null) 'refreshToken': refreshToken,
         if (refreshTokenUrl != null) 'refreshTokenUrl': refreshTokenUrl,
         if (leaveOnServer != null) 'leaveOnServer': leaveOnServer,
-        if (attributes.isNotEmpty) 'a': attributes.map((a) => {'_content': a}),
+        if (attributes.isNotEmpty) 'a': attributes.map((a) => {'_content': a}).toList(growable: false),
       };
 }

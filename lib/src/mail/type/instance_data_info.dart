@@ -69,8 +69,8 @@ class InstanceDataInfo extends InstanceDataAttrs {
       isException: data['ex'],
       organizer: (data['or'] is Map) ? CalOrganizer.fromMap(data['or']) : null,
       categories: (data['category'] is Iterable)
-          ? List.from((data['category'] as Iterable).map<String>((category) => category['_content']))
-          : [],
+          ? (data['category'] as Iterable).map<String>((category) => category['_content']).toList(growable: false)
+          : const [],
       geo: (data['geo'] is Map) ? GeoInfo.fromMap(data['geo']) : null,
       fragment: data['fr'],
       duration: int.tryParse(data['dur']?.toString() ?? ''),
@@ -122,7 +122,8 @@ class InstanceDataInfo extends InstanceDataAttrs {
         if (startTime != null) 's': startTime,
         if (isException != null) 'ex': isException,
         if (organizer != null) 'or': organizer!.toMap(),
-        if (categories.isNotEmpty) 'category': categories.map((category) => {'_content': category}).toList(),
+        if (categories.isNotEmpty)
+          'category': categories.map((category) => {'_content': category}).toList(growable: false),
         if (geo != null) 'geo': geo!.toMap(),
         if (fragment != null) 'fr': fragment,
         if (duration != null) 'dur': duration,

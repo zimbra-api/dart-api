@@ -13,6 +13,6 @@ class GrantRightsResponse extends SoapResponse {
 
   factory GrantRightsResponse.fromMap(Map<String, dynamic> data) => GrantRightsResponse(
       aces: (data['ace'] is Iterable)
-          ? List.from((data['ace'] as Iterable).map<AccountACEInfo>((ace) => AccountACEInfo.fromMap(ace)))
-          : []);
+          ? (data['ace'] as Iterable).map<AccountACEInfo>((ace) => AccountACEInfo.fromMap(ace)).toList(growable: false)
+          : const []);
 }

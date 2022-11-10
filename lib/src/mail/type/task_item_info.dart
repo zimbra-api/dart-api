@@ -41,13 +41,16 @@ class TaskItemInfo extends CalendarItemInfo {
       nextAlarm: int.tryParse(data['nextAlarm']?.toString() ?? ''),
       orphan: data['orphan'],
       invites: (data['inv'] is Iterable)
-          ? List.from((data['inv'] as Iterable).map<Invitation>((inv) => Invitation.fromMap(inv)))
-          : [],
+          ? (data['inv'] as Iterable).map<Invitation>((inv) => Invitation.fromMap(inv)).toList(growable: false)
+          : const [],
       calendarReplies: (data['replies']?['reply'] is Iterable)
-          ? List.from(
-              (data['replies']['reply'] as Iterable).map<CalendarReply>((reply) => CalendarReply.fromMap(reply)))
-          : [],
+          ? (data['replies']['reply'] as Iterable)
+              .map<CalendarReply>((reply) => CalendarReply.fromMap(reply))
+              .toList(growable: false)
+          : const [],
       metadatas: (data['meta'] is Iterable)
-          ? List.from((data['meta'] as Iterable).map<MailCustomMetadata>((meta) => MailCustomMetadata.fromMap(meta)))
-          : []);
+          ? (data['meta'] as Iterable)
+              .map<MailCustomMetadata>((meta) => MailCustomMetadata.fromMap(meta))
+              .toList(growable: false)
+          : const []);
 }

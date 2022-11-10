@@ -110,20 +110,24 @@ class CalendarItemHitInfo extends CommonCalendaringData {
       nextAlarm: int.tryParse(data['nextAlarm']?.toString() ?? ''),
       organizer: (data['or'] is Map) ? CalOrganizer.fromMap(data['or']) : null,
       categories: (data['category'] is Iterable)
-          ? List.from((data['category'] as Iterable).map<String>((category) => category['_content']))
-          : [],
+          ? (data['category'] as Iterable).map<String>((category) => category['_content']).toList(growable: false)
+          : const [],
       geo: (data['geo'] is Map) ? GeoInfo.fromMap(data['geo']) : null,
       fragment: data['fr'],
       instances: (data['inst'] is Iterable)
-          ? List.from((data['inst'] as Iterable).map<InstanceDataInfo>((inst) => InstanceDataInfo.fromMap(inst)))
-          : [],
+          ? (data['inst'] as Iterable)
+              .map<InstanceDataInfo>((inst) => InstanceDataInfo.fromMap(inst))
+              .toList(growable: false)
+          : const [],
       alarmData: (data['alarmData'] is Map) ? AlarmDataInfo.fromMap(data['alarmData']) : null,
       invites: (data['inv'] is Iterable)
           ? List.from((data['inv'] as Iterable).map<Invitation>((inv) => Invitation.fromMap(inv)))
-          : [],
+          : const [],
       replies: (data['replies']?['reply'] is Iterable)
-          ? List.from((data['replies']['reply'] as Iterable).map<CalReply>((reply) => CalReply.fromMap(reply)))
-          : [],
+          ? (data['replies']['reply'] as Iterable)
+              .map<CalReply>((reply) => CalReply.fromMap(reply))
+              .toList(growable: false)
+          : const [],
       xUid: data['x_uid'],
       uid: data['uid'],
       flags: data['f'],
@@ -186,13 +190,14 @@ class CalendarItemHitInfo extends CommonCalendaringData {
         if (contentMatched != null) 'cm': contentMatched,
         if (nextAlarm != null) 'nextAlarm': nextAlarm,
         if (organizer != null) 'or': organizer!.toMap(),
-        if (categories.isNotEmpty) 'category': categories.map((category) => {'_content': category}).toList(),
+        if (categories.isNotEmpty)
+          'category': categories.map((category) => {'_content': category}).toList(growable: false),
         if (geo != null) 'geo': geo!.toMap(),
         if (fragment != null) 'fr': fragment,
-        if (instances.isNotEmpty) 'inst': instances.map((inst) => inst.toMap()).toList(),
+        if (instances.isNotEmpty) 'inst': instances.map((inst) => inst.toMap()).toList(growable: false),
         if (alarmData != null) 'alarmData': alarmData!.toMap(),
-        if (invites.isNotEmpty) 'inv': invites.map((inv) => inv.toMap()).toList(),
-        if (replies.isNotEmpty) 'replies': {'reply': replies.map((reply) => reply.toMap()).toList()},
+        if (invites.isNotEmpty) 'inv': invites.map((inv) => inv.toMap()).toList(growable: false),
+        if (replies.isNotEmpty) 'replies': {'reply': replies.map((reply) => reply.toMap()).toList(growable: false)},
         if (xUid != null) 'x_uid': xUid,
         if (uid != null) 'uid': uid,
         if (flags != null) 'f': flags,

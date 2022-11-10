@@ -28,14 +28,14 @@ class MimePartInfo {
       contentId: data['ci'],
       attachments: data['attach'] is Map ? AttachmentsInfo.fromMap(data['attach']) : null,
       mimeParts: (data['mp'] is Iterable)
-          ? List.from((data['mp'] as Iterable).map<MimePartInfo>((mp) => MimePartInfo.fromMap(mp)))
-          : []);
+          ? (data['mp'] as Iterable).map<MimePartInfo>((mp) => MimePartInfo.fromMap(mp)).toList(growable: false)
+          : const []);
 
   Map<String, dynamic> toMap() => {
         if (contentType != null) 'ct': contentType,
         if (content != null) 'content': content,
         if (contentId != null) 'ci': contentId,
         if (attachments != null) 'attach': attachments!.toMap(),
-        if (mimeParts.isNotEmpty) 'mp': mimeParts.map((mp) => mp.toMap()).toList(),
+        if (mimeParts.isNotEmpty) 'mp': mimeParts.map((mp) => mp.toMap()).toList(growable: false),
       };
 }

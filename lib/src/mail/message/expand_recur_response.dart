@@ -13,7 +13,8 @@ class ExpandRecurResponse extends SoapResponse {
 
   factory ExpandRecurResponse.fromMap(Map<String, dynamic> data) => ExpandRecurResponse(
       instances: (data['inst'] is Iterable)
-          ? List.from((data['inst'] as Iterable)
-              .map<ExpandedRecurrenceInstance>((inst) => ExpandedRecurrenceInstance.fromMap(inst)))
-          : []);
+          ? (data['inst'] as Iterable)
+              .map<ExpandedRecurrenceInstance>((inst) => ExpandedRecurrenceInstance.fromMap(inst))
+              .toList(growable: false)
+          : const []);
 }

@@ -59,7 +59,7 @@ class CreateWaitSetRequest extends SoapRequest {
         if (allAccounts != null) 'allAccounts': allAccounts,
         if (accounts.isNotEmpty)
           'add': [
-            {'a': accounts.map((a) => a.toMap()).toList()}
+            {'a': accounts.map((a) => a.toMap()).toList(growable: false)}
           ],
       };
 }

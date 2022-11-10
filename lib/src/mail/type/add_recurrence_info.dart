@@ -20,24 +20,31 @@ class AddRecurrenceInfo extends RecurrenceInfo {
 
   factory AddRecurrenceInfo.fromMap(Map<String, dynamic> data) => AddRecurrenceInfo(
       add: (data['add'] is Iterable)
-          ? List.from((data['add'] as Iterable).map<AddRecurrenceInfo>((add) => AddRecurrenceInfo.fromMap(add)))
-          : [],
+          ? (data['add'] as Iterable)
+              .map<AddRecurrenceInfo>((add) => AddRecurrenceInfo.fromMap(add))
+              .toList(growable: false)
+          : const [],
       exclude: (data['exclude'] is Iterable)
-          ? List.from((data['exclude'] as Iterable)
-              .map<ExcludeRecurrenceInfo>((exclude) => ExcludeRecurrenceInfo.fromMap(exclude)))
-          : [],
+          ? (data['exclude'] as Iterable)
+              .map<ExcludeRecurrenceInfo>((exclude) => ExcludeRecurrenceInfo.fromMap(exclude))
+              .toList(growable: false)
+          : const [],
       except: (data['except'] is Iterable)
-          ? List.from(
-              (data['except'] as Iterable).map<ExceptionRuleInfo>((except) => ExceptionRuleInfo.fromMap(except)))
-          : [],
+          ? (data['except'] as Iterable)
+              .map<ExceptionRuleInfo>((except) => ExceptionRuleInfo.fromMap(except))
+              .toList(growable: false)
+          : const [],
       cancel: (data['cancel'] is Iterable)
-          ? List.from((data['cancel'] as Iterable).map<CancelRuleInfo>((cancel) => CancelRuleInfo.fromMap(cancel)))
-          : [],
+          ? (data['cancel'] as Iterable)
+              .map<CancelRuleInfo>((cancel) => CancelRuleInfo.fromMap(cancel))
+              .toList(growable: false)
+          : const [],
       dates: (data['dates'] is Iterable)
-          ? List.from((data['dates'] as Iterable).map<SingleDates>((dates) => SingleDates.fromMap(dates)))
-          : [],
+          ? (data['dates'] as Iterable).map<SingleDates>((dates) => SingleDates.fromMap(dates)).toList(growable: false)
+          : const [],
       simple: (data['simple'] is Iterable)
-          ? List.from(
-              (data['simple'] as Iterable).map<SimpleRepeatingRule>((simple) => SimpleRepeatingRule.fromMap(simple)))
-          : []);
+          ? (data['simple'] as Iterable)
+              .map<SimpleRepeatingRule>((simple) => SimpleRepeatingRule.fromMap(simple))
+              .toList(growable: false)
+          : const []);
 }

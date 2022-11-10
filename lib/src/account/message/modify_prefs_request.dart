@@ -27,6 +27,6 @@ class ModifyPrefsRequest extends SoapRequest {
   @override
   Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraAccount',
-        if (prefs.isNotEmpty) 'pref': prefs.map((pref) => pref.toMap()).toList(),
+        if (prefs.isNotEmpty) 'pref': prefs.map((pref) => pref.toMap()).toList(growable: false),
       };
 }

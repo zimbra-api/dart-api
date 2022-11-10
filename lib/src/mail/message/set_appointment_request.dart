@@ -80,11 +80,11 @@ class SetAppointmentRequest extends SoapRequest {
         if (noNextAlarm != null) 'noNextAlarm': noNextAlarm,
         if (nextAlarm != null) 'nextAlarm': nextAlarm,
         if (defaultId != null) 'default': defaultId!.toMap(),
-        if (exceptions.isNotEmpty) 'except': exceptions.map((except) => except.toMap()).toList(),
-        if (cancellations.isNotEmpty) 'cancel': cancellations.map((cancel) => cancel.toMap()).toList(),
+        if (exceptions.isNotEmpty) 'except': exceptions.map((except) => except.toMap()).toList(growable: false),
+        if (cancellations.isNotEmpty) 'cancel': cancellations.map((cancel) => cancel.toMap()).toList(growable: false),
         if (replies.isNotEmpty)
           'replies': [
-            {'reply': replies.map((reply) => reply.toMap()).toList()}
+            {'reply': replies.map((reply) => reply.toMap()).toList(growable: false)}
           ],
       };
 }

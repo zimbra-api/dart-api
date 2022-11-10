@@ -11,17 +11,18 @@ import 'package:zimbra_api/src/common/enum/value_comparison.dart';
 import 'address_test.dart';
 
 class EnvelopeTest extends AddressTest {
-  EnvelopeTest(
-      {super.header,
-      super.part,
-      super.stringComparison,
-      super.caseSensitive,
-      super.value,
-      super.valueComparison,
-      super.countComparison,
-      super.valueComparisonComparator,
-      super.index,
-      super.negative});
+  EnvelopeTest({
+    super.header,
+    super.part,
+    super.stringComparison,
+    super.caseSensitive,
+    super.value,
+    super.valueComparison,
+    super.countComparison,
+    super.valueComparisonComparator,
+    super.index,
+    super.negative,
+  });
 
   factory EnvelopeTest.fromMap(Map<String, dynamic> data) => EnvelopeTest(
       header: data['header'],

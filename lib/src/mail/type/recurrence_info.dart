@@ -39,33 +39,40 @@ class RecurrenceInfo {
 
   factory RecurrenceInfo.fromMap(Map<String, dynamic> data) => RecurrenceInfo(
       add: (data['add'] is Iterable)
-          ? List.from((data['add'] as Iterable).map<AddRecurrenceInfo>((add) => AddRecurrenceInfo.fromMap(add)))
-          : [],
+          ? (data['add'] as Iterable)
+              .map<AddRecurrenceInfo>((add) => AddRecurrenceInfo.fromMap(add))
+              .toList(growable: false)
+          : const [],
       exclude: (data['exclude'] is Iterable)
-          ? List.from((data['exclude'] as Iterable)
-              .map<ExcludeRecurrenceInfo>((exclude) => ExcludeRecurrenceInfo.fromMap(exclude)))
-          : [],
+          ? (data['exclude'] as Iterable)
+              .map<ExcludeRecurrenceInfo>((exclude) => ExcludeRecurrenceInfo.fromMap(exclude))
+              .toList(growable: false)
+          : const [],
       except: (data['except'] is Iterable)
-          ? List.from(
-              (data['except'] as Iterable).map<ExceptionRuleInfo>((except) => ExceptionRuleInfo.fromMap(except)))
-          : [],
+          ? (data['except'] as Iterable)
+              .map<ExceptionRuleInfo>((except) => ExceptionRuleInfo.fromMap(except))
+              .toList(growable: false)
+          : const [],
       cancel: (data['cancel'] is Iterable)
-          ? List.from((data['cancel'] as Iterable).map<CancelRuleInfo>((cancel) => CancelRuleInfo.fromMap(cancel)))
-          : [],
+          ? (data['cancel'] as Iterable)
+              .map<CancelRuleInfo>((cancel) => CancelRuleInfo.fromMap(cancel))
+              .toList(growable: false)
+          : const [],
       dates: (data['dates'] is Iterable)
-          ? List.from((data['dates'] as Iterable).map<SingleDates>((dates) => SingleDates.fromMap(dates)))
-          : [],
+          ? (data['dates'] as Iterable).map<SingleDates>((dates) => SingleDates.fromMap(dates)).toList(growable: false)
+          : const [],
       simple: (data['rule'] is Iterable)
-          ? List.from(
-              (data['rule'] as Iterable).map<SimpleRepeatingRule>((simple) => SimpleRepeatingRule.fromMap(simple)))
-          : []);
+          ? (data['rule'] as Iterable)
+              .map<SimpleRepeatingRule>((simple) => SimpleRepeatingRule.fromMap(simple))
+              .toList(growable: false)
+          : const []);
 
   Map<String, dynamic> toMap() => {
-        if (add.isNotEmpty) 'add': add.map((rule) => rule.toMap()).toList(),
-        if (exclude.isNotEmpty) 'exclude': exclude.map((rule) => rule.toMap()).toList(),
-        if (except.isNotEmpty) 'except': except.map((rule) => rule.toMap()).toList(),
-        if (cancel.isNotEmpty) 'cancel': cancel.map((rule) => rule.toMap()).toList(),
-        if (dates.isNotEmpty) 'dates': dates.map((rule) => rule.toMap()).toList(),
-        if (simple.isNotEmpty) 'rule': simple.map((rule) => rule.toMap()).toList(),
+        if (add.isNotEmpty) 'add': add.map((rule) => rule.toMap()).toList(growable: false),
+        if (exclude.isNotEmpty) 'exclude': exclude.map((rule) => rule.toMap()).toList(growable: false),
+        if (except.isNotEmpty) 'except': except.map((rule) => rule.toMap()).toList(growable: false),
+        if (cancel.isNotEmpty) 'cancel': cancel.map((rule) => rule.toMap()).toList(growable: false),
+        if (dates.isNotEmpty) 'dates': dates.map((rule) => rule.toMap()).toList(growable: false),
+        if (simple.isNotEmpty) 'rule': simple.map((rule) => rule.toMap()).toList(growable: false),
       };
 }

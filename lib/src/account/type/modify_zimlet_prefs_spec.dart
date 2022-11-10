@@ -17,7 +17,7 @@ class ModifyZimletPrefsSpec {
   factory ModifyZimletPrefsSpec.fromMap(Map<String, dynamic> data) => ModifyZimletPrefsSpec(
       data['name'] ?? '',
       ZimletStatus.values.firstWhere(
-        (item) => item.name == data['presence'],
+        (presence) => presence.name == data['presence'],
         orElse: () => ZimletStatus.enabled,
       ));
 

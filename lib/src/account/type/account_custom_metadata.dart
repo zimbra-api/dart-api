@@ -17,6 +17,6 @@ class AccountCustomMetadata extends AccountKeyValuePairs {
   @override
   Map<String, dynamic> toMap() => {
         if (section != null) 'section': section,
-        if (keyValuePairs.isNotEmpty) 'a': keyValuePairs.map((kvp) => kvp.toMap()),
+        if (keyValuePairs.isNotEmpty) 'a': keyValuePairs.map((kvp) => kvp.toMap()).toList(growable: false),
       };
 }

@@ -23,6 +23,6 @@ class SaveIMAPSubscriptionsRequest extends SoapRequest {
   @override
   Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
-        if (subscriptions.isNotEmpty) 'sub': subscriptions.map((sub) => {'_content': sub}),
+        if (subscriptions.isNotEmpty) 'sub': subscriptions.map((sub) => {'_content': sub}).toList(growable: false),
       };
 }

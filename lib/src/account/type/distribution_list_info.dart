@@ -36,22 +36,25 @@ class DistributionListInfo extends ObjectInfo {
       this.rights = const [],
       super.attrList = const []});
 
-  factory DistributionListInfo.fromMap(Map<String, dynamic> data) => DistributionListInfo(
-      data['name'] ?? '', data['id'] ?? '',
-      isOwner: data['isOwner'],
-      isMember: data['isMember'],
-      isDynamic: data['dynamic'],
-      members:
-          (data['dlm'] is Iterable) ? List.from((data['dlm'] as Iterable).map<String>((dlm) => dlm['_content'])) : [],
-      owners: (data['owner'] is Iterable)
-          ? List.from((data['owner'] as Iterable)
-              .map<DistributionListGranteeInfo>((owner) => DistributionListGranteeInfo.fromMap(owner)))
-          : [],
-      rights: (data['right'] is Iterable)
-          ? List.from((data['right'] as Iterable)
-              .map<DistributionListRightInfo>((right) => DistributionListRightInfo.fromMap(right)))
-          : [],
-      attrList: ObjectInfo.attrListFromMap(data));
+  factory DistributionListInfo.fromMap(Map<String, dynamic> data) =>
+      DistributionListInfo(data['name'] ?? '', data['id'] ?? '',
+          isOwner: data['isOwner'],
+          isMember: data['isMember'],
+          isDynamic: data['dynamic'],
+          members: (data['dlm'] is Iterable)
+              ? (data['dlm'] as Iterable).map<String>((dlm) => dlm['_content']).toList(growable: false)
+              : const [],
+          owners: (data['owner'] is Iterable)
+              ? (data['owner'] as Iterable)
+                  .map<DistributionListGranteeInfo>((owner) => DistributionListGranteeInfo.fromMap(owner))
+                  .toList(growable: false)
+              : const [],
+          rights: (data['right'] is Iterable)
+              ? (data['right'] as Iterable)
+                  .map<DistributionListRightInfo>((right) => DistributionListRightInfo.fromMap(right))
+                  .toList(growable: false)
+              : const [],
+          attrList: ObjectInfo.attrListFromMap(data));
 
   Map<String, dynamic> toMap() => {
         'name': name,
@@ -59,9 +62,9 @@ class DistributionListInfo extends ObjectInfo {
         if (isOwner != null) 'isOwner': isOwner,
         if (isMember != null) 'isMember': isMember,
         if (isDynamic != null) 'dynamic': isDynamic,
-        if (members.isNotEmpty) 'dlm': members.map((dlm) => {'_content': dlm}).toList(),
-        if (owners.isNotEmpty) 'owners': {'owner': owners.map((owner) => owner.toMap()).toList()},
-        if (rights.isNotEmpty) 'rights': {'right': rights.map((right) => right.toMap()).toList()},
-        if (attrList.isNotEmpty) 'a': attrList.map((attr) => attr.toMap()).toList(),
+        if (members.isNotEmpty) 'dlm': members.map((dlm) => {'_content': dlm}).toList(growable: false),
+        if (owners.isNotEmpty) 'owners': {'owner': owners.map((owner) => owner.toMap()).toList(growable: false)},
+        if (rights.isNotEmpty) 'rights': {'right': rights.map((right) => right.toMap()).toList(growable: false)},
+        if (attrList.isNotEmpty) 'a': attrList.map((attr) => attr.toMap()).toList(growable: false),
       };
 }

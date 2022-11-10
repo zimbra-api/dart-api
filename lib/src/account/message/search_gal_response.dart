@@ -46,7 +46,7 @@ class SearchGalResponse extends SoapResponse {
         pagingSupported: data['paginationSupported'],
         tokenizeKey: data['tokenizeKey'],
         contacts: (data['cn'] is Iterable)
-            ? List.from((data['cn'] as Iterable).map<ContactInfo>((cn) => ContactInfo.fromMap(cn)))
-            : [],
+            ? (data['cn'] as Iterable).map<ContactInfo>((cn) => ContactInfo.fromMap(cn)).toList(growable: false)
+            : const [],
       );
 }

@@ -17,11 +17,11 @@ class SingleDates {
   factory SingleDates.fromMap(Map<String, dynamic> data) => SingleDates(
       timezone: data['tz'],
       dtVals: (data['dtval'] is Iterable)
-          ? List.from((data['dtval'] as Iterable).map<DtVal>((dtval) => DtVal.fromMap(dtval)))
-          : []);
+          ? (data['dtval'] as Iterable).map<DtVal>((dtval) => DtVal.fromMap(dtval)).toList(growable: false)
+          : const []);
 
   Map<String, dynamic> toMap() => {
         if (timezone != null) 'tz': timezone,
-        if (dtVals.isNotEmpty) 'dtval': dtVals.map((dtval) => dtval.toMap()).toList(),
+        if (dtVals.isNotEmpty) 'dtval': dtVals.map((dtval) => dtval.toMap()).toList(growable: false),
       };
 }

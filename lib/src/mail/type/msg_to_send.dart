@@ -57,8 +57,8 @@ class MsgToSend extends Msg {
       identityId: data['idnt'],
       subject: data['su'],
       headers: (data['header'] is Iterable)
-          ? List.from((data['header'] as Iterable).map<Header>((header) => Header.fromMap(header)))
-          : [],
+          ? (data['header'] as Iterable).map<Header>((header) => Header.fromMap(header)).toList(growable: false)
+          : const [],
       inReplyTo: data['irt'],
       folderId: data['l'],
       flags: data['f'],
@@ -67,11 +67,11 @@ class MsgToSend extends Msg {
       attachments: (data['attach'] is Map) ? AttachmentsInfo.fromMap(data['attach']) : null,
       invite: (data['inv'] is Map) ? InvitationInfo.fromMap(data['inv']) : null,
       emailAddresses: (data['e'] is Iterable)
-          ? List.from((data['e'] as Iterable).map<EmailAddrInfo>((e) => EmailAddrInfo.fromMap(e)))
-          : [],
+          ? (data['e'] as Iterable).map<EmailAddrInfo>((e) => EmailAddrInfo.fromMap(e)).toList(growable: false)
+          : const [],
       timezones: (data['tz'] is Iterable)
-          ? List.from((data['tz'] as Iterable).map<CalTZInfo>((tz) => CalTZInfo.fromMap(tz)))
-          : [],
+          ? (data['tz'] as Iterable).map<CalTZInfo>((tz) => CalTZInfo.fromMap(tz)).toList(growable: false)
+          : const [],
       fragment: data['fr']);
 
   @override
@@ -84,7 +84,7 @@ class MsgToSend extends Msg {
         if (replyType != null) 'rt': replyType!.name,
         if (identityId != null) 'idnt': identityId,
         if (subject != null) 'su': subject,
-        if (headers.isNotEmpty) 'header': headers.map((header) => header.toMap()).toList(),
+        if (headers.isNotEmpty) 'header': headers.map((header) => header.toMap()).toList(growable: false),
         if (inReplyTo != null) 'irt': inReplyTo,
         if (folderId != null) 'l': folderId,
         if (flags != null) 'f': flags,
@@ -92,8 +92,8 @@ class MsgToSend extends Msg {
         if (mimePart != null) 'mp': mimePart!.toMap(),
         if (attachments != null) 'attach': attachments!.toMap(),
         if (invite != null) 'inv': invite!.toMap(),
-        if (emailAddresses.isNotEmpty) 'e': emailAddresses.map((e) => e.toMap()).toList(),
-        if (timezones.isNotEmpty) 'tz': timezones.map((tz) => tz.toMap()).toList(),
+        if (emailAddresses.isNotEmpty) 'e': emailAddresses.map((e) => e.toMap()).toList(growable: false),
+        if (timezones.isNotEmpty) 'tz': timezones.map((tz) => tz.toMap()).toList(growable: false),
         if (fragment != null) 'fr': fragment,
       };
 }

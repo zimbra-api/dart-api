@@ -13,6 +13,6 @@ class DistributionListRightSpec {
 
   Map<String, dynamic> toMap() => {
         'right': right,
-        if (grantees.isNotEmpty) 'grantee': grantees.map((grantee) => grantee.toMap()).toList(),
+        if (grantees.isNotEmpty) 'grantee': grantees.map((grantee) => grantee.toMap()).toList(growable: false),
       };
 }

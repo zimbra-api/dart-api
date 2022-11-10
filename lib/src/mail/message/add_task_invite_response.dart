@@ -7,6 +7,8 @@ import 'add_appointment_invite_response.dart';
 class AddTaskInviteResponse extends AddAppointmentInviteResponse {
   AddTaskInviteResponse({super.calItemId, super.invId, super.componentNum});
 
-  factory AddTaskInviteResponse.fromMap(Map<String, dynamic> data) =>
-      AddTaskInviteResponse(calItemId: data['calItemId'], invId: data['invId'], componentNum: data['compNum']);
+  factory AddTaskInviteResponse.fromMap(Map<String, dynamic> data) => AddTaskInviteResponse(
+      calItemId: int.tryParse(data['calItemId']?.toString() ?? ''),
+      invId: int.tryParse(data['invId']?.toString() ?? ''),
+      componentNum: int.tryParse(data['compNum']?.toString() ?? ''));
 }

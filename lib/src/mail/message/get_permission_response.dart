@@ -13,6 +13,8 @@ class GetPermissionResponse extends SoapResponse {
 
   factory GetPermissionResponse.fromMap(Map<String, dynamic> data) => GetPermissionResponse(
       aces: (data['ace'] is Iterable)
-          ? List.from((data['ace'] as Iterable).map<AccountACEinfo>((aces) => AccountACEinfo.fromMap(aces)))
-          : []);
+          ? (data['ace'] as Iterable)
+              .map<AccountACEinfo>((aces) => AccountACEinfo.fromMap(aces))
+              .toList(growable: false)
+          : const []);
 }

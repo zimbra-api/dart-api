@@ -80,14 +80,15 @@ class LegacyCalendaringData extends CommonCalendaringData {
   factory LegacyCalendaringData.fromMap(Map<String, dynamic> data) => LegacyCalendaringData(
       organizer: data['or'] is Map ? CalOrganizer.fromMap(data['or']) : null,
       categories: (data['category'] is Iterable)
-          ? List.from((data['category'] as Iterable).map<String>((category) => category['_content']))
-          : [],
+          ? (data['category'] as Iterable).map<String>((category) => category['_content']).toList(growable: false)
+          : const [],
       geo: data['geo'] is Map ? GeoInfo.fromMap(data['geo']) : null,
       fragment: data['fr'],
       instances: (data['inst'] is Iterable)
-          ? List.from(
-              (data['inst'] as Iterable).map<LegacyInstanceDataInfo>((inst) => LegacyInstanceDataInfo.fromMap(inst)))
-          : [],
+          ? (data['inst'] as Iterable)
+              .map<LegacyInstanceDataInfo>((inst) => LegacyInstanceDataInfo.fromMap(inst))
+              .toList(growable: false)
+          : const [],
       alarmData: data['alarmData'] is Map ? AlarmDataInfo.fromMap(data['alarmData']) : null,
       xUid: data['x_uid'],
       uid: data['uid'],
@@ -147,10 +148,11 @@ class LegacyCalendaringData extends CommonCalendaringData {
   @override
   Map<String, dynamic> toMap() => {
         if (organizer != null) 'or': organizer!.toMap(),
-        if (categories.isNotEmpty) 'category': categories.map((category) => {'_content': category}).toList(),
+        if (categories.isNotEmpty)
+          'category': categories.map((category) => {'_content': category}).toList(growable: false),
         if (geo != null) 'geo': geo!.toMap(),
         if (fragment != null) 'fr': fragment,
-        if (instances.isNotEmpty) 'inst': instances.map((inst) => inst.toMap()).toList(),
+        if (instances.isNotEmpty) 'inst': instances.map((inst) => inst.toMap()).toList(growable: false),
         if (alarmData != null) 'alarmData': alarmData!.toMap(),
         if (xUid != null) 'x_uid': xUid,
         if (uid != null) 'uid': uid,

@@ -14,13 +14,14 @@ class DistributionListRightInfo {
   factory DistributionListRightInfo.fromMap(Map<String, dynamic> data) => DistributionListRightInfo(
         data['right'] ?? '',
         grantees: (data['grantee'] is Iterable)
-            ? List.from((data['grantee'] as Iterable)
-                .map<DistributionListGranteeInfo>((grantee) => DistributionListGranteeInfo.fromMap(grantee)))
-            : [],
+            ? (data['grantee'] as Iterable)
+                .map<DistributionListGranteeInfo>((grantee) => DistributionListGranteeInfo.fromMap(grantee))
+                .toList(growable: false)
+            : const [],
       );
 
   Map<String, dynamic> toMap() => {
         'right': right,
-        if (grantees.isNotEmpty) 'grantee': grantees.map((grantee) => grantee.toMap()).toList(),
+        if (grantees.isNotEmpty) 'grantee': grantees.map((grantee) => grantee.toMap()).toList(growable: false),
       };
 }

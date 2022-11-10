@@ -38,8 +38,8 @@ class CalOrganizer {
       dir: data['dir'],
       language: data['lang'],
       xParams: (data['xparam'] is Iterable)
-          ? List.from((data['xparam'] as Iterable).map<XParam>((xparam) => XParam.fromMap(xparam)))
-          : []);
+          ? (data['xparam'] as Iterable).map<XParam>((xparam) => XParam.fromMap(xparam)).toList(growable: false)
+          : const []);
 
   Map<String, dynamic> toMap() => {
         if (address != null) 'a': address,
@@ -48,6 +48,6 @@ class CalOrganizer {
         if (sentBy != null) 'sentBy': sentBy,
         if (dir != null) 'dir': dir,
         if (language != null) 'lang': language,
-        if (xParams.isNotEmpty) 'xparam': xParams.map((xparam) => xparam.toMap()).toList(),
+        if (xParams.isNotEmpty) 'xparam': xParams.map((xparam) => xparam.toMap()).toList(growable: false),
       };
 }

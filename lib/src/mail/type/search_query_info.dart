@@ -17,16 +17,18 @@ class SearchQueryInfo {
 
   factory SearchQueryInfo.fromMap(Map<String, dynamic> data) => SearchQueryInfo(
       suggests: (data['suggest'] is Iterable)
-          ? List.from((data['suggest'] as Iterable)
-              .map<SuggestedQueryString>((suggest) => SuggestedQueryString.fromMap(suggest)))
-          : [],
+          ? (data['suggest'] as Iterable)
+              .map<SuggestedQueryString>((suggest) => SuggestedQueryString.fromMap(suggest))
+              .toList(growable: false)
+          : const [],
       wildcards: (data['wildcard'] is Iterable)
-          ? List.from((data['wildcard'] as Iterable)
-              .map<WildcardExpansionQueryInfo>((wildcard) => WildcardExpansionQueryInfo.fromMap(wildcard)))
-          : []);
+          ? (data['wildcard'] as Iterable)
+              .map<WildcardExpansionQueryInfo>((wildcard) => WildcardExpansionQueryInfo.fromMap(wildcard))
+              .toList(growable: false)
+          : const []);
 
   Map<String, dynamic> toMap() => {
-        if (suggests.isNotEmpty) 'suggest': suggests.map((suggest) => suggest.toMap()).toList(),
-        if (wildcards.isNotEmpty) 'wildcard': wildcards.map((wildcard) => wildcard.toMap()).toList(),
+        if (suggests.isNotEmpty) 'suggest': suggests.map((suggest) => suggest.toMap()).toList(growable: false),
+        if (wildcards.isNotEmpty) 'wildcard': wildcards.map((wildcard) => wildcard.toMap()).toList(growable: false),
       };
 }

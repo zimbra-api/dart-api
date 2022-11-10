@@ -101,8 +101,8 @@ class SimpleRepeatingRule {
       bySetPose: data['bysetpos'] is Map ? BySetPosRule.fromMap(data['bysetpos']) : null,
       weekStart: data['wkst'] is Map ? WkstRule.fromMap(data['wkst']) : null,
       xNames: (data['rule-x-name'] is Iterable)
-          ? List.from((data['rule-x-name'] as Iterable).map<XNameRule>((rule) => XNameRule.fromMap(rule)))
-          : []);
+          ? (data['rule-x-name'] as Iterable).map<XNameRule>((rule) => XNameRule.fromMap(rule)).toList(growable: false)
+          : const []);
 
   Map<String, dynamic> toMap() => {
         'freq': frequency.name,
@@ -119,6 +119,6 @@ class SimpleRepeatingRule {
         if (byMonth != null) 'bymonth': byMonth!.toMap(),
         if (bySetPose != null) 'bysetpos': bySetPose!.toMap(),
         if (weekStart != null) 'wkst': weekStart!.toMap(),
-        if (xNames.isNotEmpty) 'rule-x-name': xNames.map((rule) => rule.toMap()).toList(),
+        if (xNames.isNotEmpty) 'rule-x-name': xNames.map((rule) => rule.toMap()).toList(growable: false),
       };
 }

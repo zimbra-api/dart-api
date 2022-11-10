@@ -82,13 +82,15 @@ class ConversationSummary {
       changeDate: int.tryParse(data['md']?.toString() ?? ''),
       modifiedSequence: int.tryParse(data['ms']?.toString() ?? ''),
       metadatas: (data['meta'] is Iterable)
-          ? List.from((data['meta'] as Iterable).map<MailCustomMetadata>((meta) => MailCustomMetadata.fromMap(meta)))
-          : [],
+          ? (data['meta'] as Iterable)
+              .map<MailCustomMetadata>((meta) => MailCustomMetadata.fromMap(meta))
+              .toList(growable: false)
+          : const [],
       subject: data['su'],
       fragment: data['fr'],
       emails: (data['e'] is Iterable)
-          ? List.from((data['e'] as Iterable).map<EmailInfo>((e) => EmailInfo.fromMap(e)))
-          : []);
+          ? (data['e'] as Iterable).map<EmailInfo>((e) => EmailInfo.fromMap(e)).toList(growable: false)
+          : const []);
 
   Map<String, dynamic> toMap() => {
         if (id != null) 'id': id,
@@ -102,9 +104,9 @@ class ConversationSummary {
         if (elided != null) 'elided': elided,
         if (changeDate != null) 'md': changeDate,
         if (modifiedSequence != null) 'ms': modifiedSequence,
-        if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toMap()).toList(),
+        if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toMap()).toList(growable: false),
         if (subject != null) 'su': subject,
         if (fragment != null) 'fr': fragment,
-        if (emails.isNotEmpty) 'e': emails.map((e) => e.toMap()).toList(),
+        if (emails.isNotEmpty) 'e': emails.map((e) => e.toMap()).toList(growable: false),
       };
 }

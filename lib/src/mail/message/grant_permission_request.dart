@@ -26,6 +26,6 @@ class GrantPermissionRequest extends SoapRequest {
   @override
   Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
-        if (aces.isNotEmpty) 'ace': aces.map((ace) => ace.toMap()).toList(),
+        if (aces.isNotEmpty) 'ace': aces.map((ace) => ace.toMap()).toList(growable: false),
       };
 }

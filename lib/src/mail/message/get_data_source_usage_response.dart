@@ -17,9 +17,10 @@ class GetDataSourceUsageResponse extends SoapResponse {
 
   factory GetDataSourceUsageResponse.fromMap(Map<String, dynamic> data) => GetDataSourceUsageResponse(
       usages: (data['dataSourceUsage'] is Iterable)
-          ? List.from(
-              (data['dataSourceUsage'] as Iterable).map<DataSourceUsage>((usage) => DataSourceUsage.fromMap(usage)))
-          : [],
+          ? (data['dataSourceUsage'] as Iterable)
+              .map<DataSourceUsage>((usage) => DataSourceUsage.fromMap(usage))
+              .toList(growable: false)
+          : const [],
       dataSourceQuota: int.tryParse(data['dsQuota']?.toString() ?? '0'),
       totalQuota: int.tryParse(data['dsTotalQuota']?.toString() ?? '0'));
 }

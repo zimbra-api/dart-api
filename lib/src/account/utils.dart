@@ -17,7 +17,7 @@ class Utils {
         attrs.add(Attr(entry.key, value: entry.value));
       }
     }
-    return attrs;
+    return attrs.toList(growable: false);
   }
 
   static List<Pref> prefsFromMap(Map<String, dynamic> data) {
@@ -29,7 +29,7 @@ class Utils {
         prefs.add(Pref(entry.key, value: entry.value));
       }
     }
-    return prefs;
+    return prefs.toList(growable: false);
   }
 
   static List<ContactAttr> contactAttrsFromMap(Map<String, dynamic> data) {
@@ -41,6 +41,6 @@ class Utils {
         attrs.add(ContactAttr(entry.key, value: entry.value));
       }
     }
-    return attrs;
+    return attrs.toList(growable: false);
   }
 }

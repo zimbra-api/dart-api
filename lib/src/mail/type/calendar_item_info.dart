@@ -88,15 +88,18 @@ class CalendarItemInfo {
       nextAlarm: int.tryParse(data['nextAlarm']?.toString() ?? ''),
       orphan: data['orphan'],
       invites: (data['inv'] is Iterable)
-          ? List.from((data['inv'] as Iterable).map<Invitation>((inv) => Invitation.fromMap(inv)))
-          : [],
+          ? (data['inv'] as Iterable).map<Invitation>((inv) => Invitation.fromMap(inv)).toList(growable: false)
+          : const [],
       calendarReplies: (data['replies']?['reply'] is Iterable)
-          ? List.from(
-              (data['replies']['reply'] as Iterable).map<CalendarReply>((reply) => CalendarReply.fromMap(reply)))
-          : [],
+          ? (data['replies']['reply'] as Iterable)
+              .map<CalendarReply>((reply) => CalendarReply.fromMap(reply))
+              .toList(growable: false)
+          : const [],
       metadatas: (data['meta'] is Iterable)
-          ? List.from((data['meta'] as Iterable).map<MailCustomMetadata>((meta) => MailCustomMetadata.fromMap(meta)))
-          : []);
+          ? (data['meta'] as Iterable)
+              .map<MailCustomMetadata>((meta) => MailCustomMetadata.fromMap(meta))
+              .toList(growable: false)
+          : const []);
 
   Map<String, dynamic> toMap() => {
         if (flags != null) 'f': flags,
@@ -112,8 +115,9 @@ class CalendarItemInfo {
         if (modifiedSequence != null) 'ms': modifiedSequence,
         if (nextAlarm != null) 'nextAlarm': nextAlarm,
         if (orphan != null) 'orphan': orphan,
-        if (invites.isNotEmpty) 'inv': invites.map((inv) => inv.toMap()).toList(),
-        if (calendarReplies.isNotEmpty) 'replies': {'reply': calendarReplies.map((reply) => reply.toMap()).toList()},
-        if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toMap()).toList(),
+        if (invites.isNotEmpty) 'inv': invites.map((inv) => inv.toMap()).toList(growable: false),
+        if (calendarReplies.isNotEmpty)
+          'replies': {'reply': calendarReplies.map((reply) => reply.toMap()).toList(growable: false)},
+        if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toMap()).toList(growable: false),
       };
 }

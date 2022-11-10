@@ -18,7 +18,7 @@ class EntrySearchFilterSingleCond {
   factory EntrySearchFilterSingleCond.fromMap(Map<String, dynamic> data) => EntrySearchFilterSingleCond(
       data['attr'] ?? '',
       ConditionOperator.values.firstWhere(
-        (item) => item.name == data['op'],
+        (op) => op.name == data['op'],
         orElse: () => ConditionOperator.equal,
       ),
       value: data['value'],

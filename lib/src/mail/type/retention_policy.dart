@@ -15,20 +15,24 @@ class RetentionPolicy {
 
   factory RetentionPolicy.fromMap(Map<String, dynamic> data) => RetentionPolicy(
       keep: (data['keep']?[0]['policy'] is Iterable)
-          ? List.from((data['keep'][0]['policy'] as Iterable).map<Policy>((policy) => Policy.fromMap(policy)))
-          : [],
+          ? (data['keep'][0]['policy'] as Iterable)
+              .map<Policy>((policy) => Policy.fromMap(policy))
+              .toList(growable: false)
+          : const [],
       purge: (data['purge']?[0]['policy'] is Iterable)
-          ? List.from((data['purge'][0]['policy'] as Iterable).map<Policy>((policy) => Policy.fromMap(policy)))
-          : []);
+          ? (data['purge'][0]['policy'] as Iterable)
+              .map<Policy>((policy) => Policy.fromMap(policy))
+              .toList(growable: false)
+          : const []);
 
   Map<String, dynamic> toMap() => {
         if (keep.isNotEmpty)
           'keep': [
-            {'policy': keep.map((policy) => policy.toMap()).toList()}
+            {'policy': keep.map((policy) => policy.toMap()).toList(growable: false)}
           ],
         if (purge.isNotEmpty)
           'purge': [
-            {'policy': purge.map((policy) => policy.toMap()).toList()}
+            {'policy': purge.map((policy) => policy.toMap()).toList(growable: false)}
           ],
       };
 }

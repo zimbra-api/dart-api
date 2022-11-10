@@ -54,13 +54,15 @@ class DeleteDataSourceRequest extends SoapRequest {
   @override
   Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
-        if (imapDataSources.isNotEmpty) 'imap': imapDataSources.map((imap) => imap.toMap()).toList(),
-        if (pop3DataSources.isNotEmpty) 'pop3': pop3DataSources.map((pop3) => pop3.toMap()).toList(),
-        if (caldavDataSources.isNotEmpty) 'caldav': caldavDataSources.map((caldav) => caldav.toMap()).toList(),
-        if (yabDataSources.isNotEmpty) 'yab': yabDataSources.map((yab) => yab.toMap()).toList(),
-        if (rssDataSources.isNotEmpty) 'rss': rssDataSources.map((rss) => rss.toMap()).toList(),
-        if (galDataSources.isNotEmpty) 'gal': galDataSources.map((gal) => gal.toMap()).toList(),
-        if (calDataSources.isNotEmpty) 'cal': calDataSources.map((cal) => cal.toMap()).toList(),
-        if (unknownDataSources.isNotEmpty) 'unknown': unknownDataSources.map((imap) => imap.toMap()).toList(),
+        if (imapDataSources.isNotEmpty) 'imap': imapDataSources.map((imap) => imap.toMap()).toList(growable: false),
+        if (pop3DataSources.isNotEmpty) 'pop3': pop3DataSources.map((pop3) => pop3.toMap()).toList(growable: false),
+        if (caldavDataSources.isNotEmpty)
+          'caldav': caldavDataSources.map((caldav) => caldav.toMap()).toList(growable: false),
+        if (yabDataSources.isNotEmpty) 'yab': yabDataSources.map((yab) => yab.toMap()).toList(growable: false),
+        if (rssDataSources.isNotEmpty) 'rss': rssDataSources.map((rss) => rss.toMap()).toList(growable: false),
+        if (galDataSources.isNotEmpty) 'gal': galDataSources.map((gal) => gal.toMap()).toList(growable: false),
+        if (calDataSources.isNotEmpty) 'cal': calDataSources.map((cal) => cal.toMap()).toList(growable: false),
+        if (unknownDataSources.isNotEmpty)
+          'unknown': unknownDataSources.map((imap) => imap.toMap()).toList(growable: false),
       };
 }

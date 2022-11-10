@@ -12,6 +12,8 @@ class GetSignaturesResponse extends SoapResponse {
 
   factory GetSignaturesResponse.fromMap(Map<String, dynamic> data) => GetSignaturesResponse(
       signatures: (data['signature'] is Iterable)
-          ? List.from((data['signature'] as Iterable).map<Signature>((signature) => Signature.fromMap(signature)))
-          : []);
+          ? (data['signature'] as Iterable)
+              .map<Signature>((signature) => Signature.fromMap(signature))
+              .toList(growable: false)
+          : const []);
 }

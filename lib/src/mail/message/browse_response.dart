@@ -13,6 +13,6 @@ class BrowseResponse extends SoapResponse {
 
   factory BrowseResponse.fromMap(Map<String, dynamic> data) => BrowseResponse(
       browseDatas: (data['bd'] is Iterable)
-          ? List.from((data['bd'] as Iterable).map<BrowseData>((bd) => BrowseData.fromMap(bd)))
-          : []);
+          ? (data['bd'] as Iterable).map<BrowseData>((bd) => BrowseData.fromMap(bd)).toList(growable: false)
+          : const []);
 }

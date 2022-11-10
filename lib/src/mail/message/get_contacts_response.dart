@@ -13,6 +13,6 @@ class GetContactsResponse extends SoapResponse {
 
   factory GetContactsResponse.fromMap(Map<String, dynamic> data) => GetContactsResponse(
       contacts: (data['cn'] is Iterable)
-          ? List.from((data['cn'] as Iterable).map<ContactInfo>((cn) => ContactInfo.fromMap(cn)))
-          : []);
+          ? (data['cn'] as Iterable).map<ContactInfo>((cn) => ContactInfo.fromMap(cn)).toList(growable: false)
+          : const []);
 }

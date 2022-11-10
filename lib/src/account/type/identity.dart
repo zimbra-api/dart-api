@@ -17,6 +17,6 @@ class Identity extends Attrs {
   Map<String, dynamic> toMap() => {
         if (name != null) 'name': name,
         if (id != null) 'id': id,
-        if (attrs.isNotEmpty) 'a': attrs.map((a) => a.toMap()).toList(),
+        if (attrs.isNotEmpty) 'a': attrs.map((a) => a.toMap()).toList(growable: false),
       };
 }

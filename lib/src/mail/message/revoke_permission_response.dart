@@ -11,6 +11,8 @@ class RevokePermissionResponse extends GetPermissionResponse {
 
   factory RevokePermissionResponse.fromMap(Map<String, dynamic> data) => RevokePermissionResponse(
       aces: (data['ace'] is Iterable)
-          ? List.from((data['ace'] as Iterable).map<AccountACEinfo>((aces) => AccountACEinfo.fromMap(aces)))
-          : []);
+          ? (data['ace'] as Iterable)
+              .map<AccountACEinfo>((aces) => AccountACEinfo.fromMap(aces))
+              .toList(growable: false)
+          : const []);
 }

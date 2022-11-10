@@ -13,7 +13,7 @@ class SubscribeDistributionListResponse extends SoapResponse {
 
   factory SubscribeDistributionListResponse.fromMap(Map<String, dynamic> data) =>
       SubscribeDistributionListResponse(DistributionListSubscribeStatus.values.firstWhere(
-        (item) => item.name == data['status'],
+        (status) => status.name == data['status'],
         orElse: () => DistributionListSubscribeStatus.awaitingApproval,
       ));
 }

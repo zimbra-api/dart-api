@@ -13,6 +13,8 @@ class GetFreeBusyResponse extends SoapResponse {
 
   factory GetFreeBusyResponse.fromMap(Map<String, dynamic> data) => GetFreeBusyResponse(
       freebusyUsers: (data['usr'] is Iterable)
-          ? List.from((data['usr'] as Iterable).map<FreeBusyUserInfo>((usr) => FreeBusyUserInfo.fromMap(usr)))
-          : []);
+          ? (data['usr'] as Iterable)
+              .map<FreeBusyUserInfo>((usr) => FreeBusyUserInfo.fromMap(usr))
+              .toList(growable: false)
+          : const []);
 }

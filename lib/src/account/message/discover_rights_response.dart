@@ -13,7 +13,8 @@ class DiscoverRightsResponse extends SoapResponse {
 
   factory DiscoverRightsResponse.fromMap(Map<String, dynamic> data) => DiscoverRightsResponse(
       discoveredRights: (data['targets'] is Iterable)
-          ? List.from(
-              (data['targets'] as Iterable).map<DiscoverRightsInfo>((info) => DiscoverRightsInfo.fromMap(info)))
-          : []);
+          ? (data['targets'] as Iterable)
+              .map<DiscoverRightsInfo>((info) => DiscoverRightsInfo.fromMap(info))
+              .toList(growable: false)
+          : const []);
 }

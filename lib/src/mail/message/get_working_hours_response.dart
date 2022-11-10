@@ -13,6 +13,8 @@ class GetWorkingHoursResponse extends SoapResponse {
 
   factory GetWorkingHoursResponse.fromMap(Map<String, dynamic> data) => GetWorkingHoursResponse(
       freebusyUsers: (data['usr'] is Iterable)
-          ? List.from((data['usr'] as Iterable).map<FreeBusyUserInfo>((usr) => FreeBusyUserInfo.fromMap(usr)))
-          : []);
+          ? (data['usr'] as Iterable)
+              .map<FreeBusyUserInfo>((usr) => FreeBusyUserInfo.fromMap(usr))
+              .toList(growable: false)
+          : const []);
 }

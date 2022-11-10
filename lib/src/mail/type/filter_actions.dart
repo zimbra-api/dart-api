@@ -93,88 +93,121 @@ class FilterActions {
 
   factory FilterActions.fromMap(Map<String, dynamic> data) => FilterActions(
         filterVariables: (data['filterVariables'] is Iterable)
-            ? List.from((data['filterVariables'] as Iterable)
-                .map<FilterVariables>((action) => FilterVariables.fromMap(action)))
-            : [],
+            ? (data['filterVariables'] as Iterable)
+                .map<FilterVariables>((action) => FilterVariables.fromMap(action))
+                .toList(growable: false)
+            : const [],
         keepActions: (data['actionKeep'] is Iterable)
-            ? List.from((data['actionKeep'] as Iterable).map<KeepAction>((action) => KeepAction.fromMap(action)))
-            : [],
+            ? (data['actionKeep'] as Iterable)
+                .map<KeepAction>((action) => KeepAction.fromMap(action))
+                .toList(growable: false)
+            : const [],
         discardActions: (data['actionDiscard'] is Iterable)
-            ? List.from(
-                (data['actionDiscard'] as Iterable).map<DiscardAction>((action) => DiscardAction.fromMap(action)))
-            : [],
+            ? (data['actionDiscard'] as Iterable)
+                .map<DiscardAction>((action) => DiscardAction.fromMap(action))
+                .toList(growable: false)
+            : const [],
         fileIntoActions: (data['actionFileInto'] is Iterable)
-            ? List.from(
-                (data['actionFileInto'] as Iterable).map<FileIntoAction>((action) => FileIntoAction.fromMap(action)))
-            : [],
+            ? (data['actionFileInto'] as Iterable)
+                .map<FileIntoAction>((action) => FileIntoAction.fromMap(action))
+                .toList(growable: false)
+            : const [],
         flagActions: (data['actionFlag'] is Iterable)
-            ? List.from((data['actionFlag'] as Iterable).map<FlagAction>((action) => FlagAction.fromMap(action)))
-            : [],
+            ? (data['actionFlag'] as Iterable)
+                .map<FlagAction>((action) => FlagAction.fromMap(action))
+                .toList(growable: false)
+            : const [],
         tagActions: (data['actionTag'] is Iterable)
-            ? List.from((data['actionTag'] as Iterable).map<TagAction>((action) => TagAction.fromMap(action)))
-            : [],
+            ? (data['actionTag'] as Iterable)
+                .map<TagAction>((action) => TagAction.fromMap(action))
+                .toList(growable: false)
+            : const [],
         redirectActions: (data['actionRedirect'] is Iterable)
-            ? List.from(
-                (data['actionRedirect'] as Iterable).map<RedirectAction>((action) => RedirectAction.fromMap(action)))
-            : [],
+            ? (data['actionRedirect'] as Iterable)
+                .map<RedirectAction>((action) => RedirectAction.fromMap(action))
+                .toList(growable: false)
+            : const [],
         replyActions: (data['actionReply'] is Iterable)
-            ? List.from((data['actionReply'] as Iterable).map<ReplyAction>((action) => ReplyAction.fromMap(action)))
-            : [],
+            ? (data['actionReply'] as Iterable)
+                .map<ReplyAction>((action) => ReplyAction.fromMap(action))
+                .toList(growable: false)
+            : const [],
         notifyActions: (data['actionNotify'] is Iterable)
-            ? List.from((data['actionNotify'] as Iterable).map<NotifyAction>((action) => NotifyAction.fromMap(action)))
-            : [],
+            ? (data['actionNotify'] as Iterable)
+                .map<NotifyAction>((action) => NotifyAction.fromMap(action))
+                .toList(growable: false)
+            : const [],
         rfcCompliantNotifyActions: (data['actionRFCCompliantNotify'] is Iterable)
-            ? List.from((data['actionRFCCompliantNotify'] as Iterable)
-                .map<RFCCompliantNotifyAction>((action) => RFCCompliantNotifyAction.fromMap(action)))
-            : [],
+            ? (data['actionRFCCompliantNotify'] as Iterable)
+                .map<RFCCompliantNotifyAction>((action) => RFCCompliantNotifyAction.fromMap(action))
+                .toList(growable: false)
+            : const [],
         stopActions: (data['actionStop'] is Iterable)
-            ? List.from((data['actionStop'] as Iterable).map<StopAction>((action) => StopAction.fromMap(action)))
-            : [],
+            ? (data['actionStop'] as Iterable)
+                .map<StopAction>((action) => StopAction.fromMap(action))
+                .toList(growable: false)
+            : const [],
         rejectActions: (data['actionReject'] is Iterable)
-            ? List.from((data['actionReject'] as Iterable).map<RejectAction>((action) => RejectAction.fromMap(action)))
-            : [],
+            ? (data['actionReject'] as Iterable)
+                .map<RejectAction>((action) => RejectAction.fromMap(action))
+                .toList(growable: false)
+            : const [],
         erejectActions: (data['actionEreject'] is Iterable)
-            ? List.from(
-                (data['actionEreject'] as Iterable).map<ErejectAction>((action) => ErejectAction.fromMap(action)))
-            : [],
+            ? (data['actionEreject'] as Iterable)
+                .map<ErejectAction>((action) => ErejectAction.fromMap(action))
+                .toList(growable: false)
+            : const [],
         logActions: (data['actionLog'] is Iterable)
-            ? List.from((data['actionLog'] as Iterable).map<LogAction>((action) => LogAction.fromMap(action)))
-            : [],
+            ? (data['actionLog'] as Iterable)
+                .map<LogAction>((action) => LogAction.fromMap(action))
+                .toList(growable: false)
+            : const [],
         addheaderActions: (data['actionAddheader'] is Iterable)
-            ? List.from((data['actionAddheader'] as Iterable)
-                .map<AddheaderAction>((action) => AddheaderAction.fromMap(action)))
-            : [],
+            ? (data['actionAddheader'] as Iterable)
+                .map<AddheaderAction>((action) => AddheaderAction.fromMap(action))
+                .toList(growable: false)
+            : const [],
         deleteheaderActions: (data['actionDeleteheader'] is Iterable)
-            ? List.from((data['actionDeleteheader'] as Iterable)
-                .map<DeleteheaderAction>((action) => DeleteheaderAction.fromMap(action)))
-            : [],
+            ? (data['actionDeleteheader'] as Iterable)
+                .map<DeleteheaderAction>((action) => DeleteheaderAction.fromMap(action))
+                .toList(growable: false)
+            : const [],
         replaceheaderActions: (data['actionReplaceheader'] is Iterable)
-            ? List.from((data['actionReplaceheader'] as Iterable)
-                .map<ReplaceheaderAction>((action) => ReplaceheaderAction.fromMap(action)))
-            : [],
+            ? (data['actionReplaceheader'] as Iterable)
+                .map<ReplaceheaderAction>((action) => ReplaceheaderAction.fromMap(action))
+                .toList(growable: false)
+            : const [],
       );
 
   Map<String, dynamic> toMap() => {
         if (filterVariables.isNotEmpty)
-          'filterVariables': filterVariables.map((variable) => variable.toMap()).toList(),
-        if (keepActions.isNotEmpty) 'actionKeep': keepActions.map((action) => action.toMap()).toList(),
-        if (discardActions.isNotEmpty) 'actionDiscard': discardActions.map((action) => action.toMap()).toList(),
-        if (fileIntoActions.isNotEmpty) 'actionFileInto': fileIntoActions.map((action) => action.toMap()).toList(),
-        if (flagActions.isNotEmpty) 'actionFlag': flagActions.map((action) => action.toMap()).toList(),
-        if (tagActions.isNotEmpty) 'actionTag': tagActions.map((action) => action.toMap()).toList(),
-        if (redirectActions.isNotEmpty) 'actionRedirect': redirectActions.map((action) => action.toMap()).toList(),
-        if (replyActions.isNotEmpty) 'actionReply': replyActions.map((action) => action.toMap()).toList(),
-        if (notifyActions.isNotEmpty) 'actionNotify': notifyActions.map((action) => action.toMap()).toList(),
+          'filterVariables': filterVariables.map((variable) => variable.toMap()).toList(growable: false),
+        if (keepActions.isNotEmpty) 'actionKeep': keepActions.map((action) => action.toMap()).toList(growable: false),
+        if (discardActions.isNotEmpty)
+          'actionDiscard': discardActions.map((action) => action.toMap()).toList(growable: false),
+        if (fileIntoActions.isNotEmpty)
+          'actionFileInto': fileIntoActions.map((action) => action.toMap()).toList(growable: false),
+        if (flagActions.isNotEmpty) 'actionFlag': flagActions.map((action) => action.toMap()).toList(growable: false),
+        if (tagActions.isNotEmpty) 'actionTag': tagActions.map((action) => action.toMap()).toList(growable: false),
+        if (redirectActions.isNotEmpty)
+          'actionRedirect': redirectActions.map((action) => action.toMap()).toList(growable: false),
+        if (replyActions.isNotEmpty)
+          'actionReply': replyActions.map((action) => action.toMap()).toList(growable: false),
+        if (notifyActions.isNotEmpty)
+          'actionNotify': notifyActions.map((action) => action.toMap()).toList(growable: false),
         if (rfcCompliantNotifyActions.isNotEmpty)
-          'actionRFCCompliantNotify': rfcCompliantNotifyActions.map((action) => action.toMap()).toList(),
-        if (stopActions.isNotEmpty) 'actionStop': stopActions.map((action) => action.toMap()).toList(),
-        if (rejectActions.isNotEmpty) 'actionReject': rejectActions.map((action) => action.toMap()).toList(),
-        if (erejectActions.isNotEmpty) 'actionEreject': erejectActions.map((action) => action.toMap()).toList(),
-        if (logActions.isNotEmpty) 'actionLog': logActions.map((action) => action.toMap()).toList(),
-        if (addheaderActions.isNotEmpty) 'actionAddheader': addheaderActions.map((action) => action.toMap()).toList(),
+          'actionRFCCompliantNotify': rfcCompliantNotifyActions.map((action) => action.toMap()).toList(growable: false),
+        if (stopActions.isNotEmpty) 'actionStop': stopActions.map((action) => action.toMap()).toList(growable: false),
+        if (rejectActions.isNotEmpty)
+          'actionReject': rejectActions.map((action) => action.toMap()).toList(growable: false),
+        if (erejectActions.isNotEmpty)
+          'actionEreject': erejectActions.map((action) => action.toMap()).toList(growable: false),
+        if (logActions.isNotEmpty) 'actionLog': logActions.map((action) => action.toMap()).toList(growable: false),
+        if (addheaderActions.isNotEmpty)
+          'actionAddheader': addheaderActions.map((action) => action.toMap()).toList(growable: false),
         if (deleteheaderActions.isNotEmpty)
-          'actionDeleteheader': deleteheaderActions.map((action) => action.toMap()).toList(),
+          'actionDeleteheader': deleteheaderActions.map((action) => action.toMap()).toList(growable: false),
         if (replaceheaderActions.isNotEmpty)
-          'actionReplaceheader': replaceheaderActions.map((action) => action.toMap()).toList(),
+          'actionReplaceheader': replaceheaderActions.map((action) => action.toMap()).toList(growable: false),
       };
 }

@@ -110,31 +110,33 @@ class InvitationInfo extends InviteComponent {
         content: data['content'] != null ? RawInvite.fromMap(data['content']) : null,
         inviteComponent: data['comp'] != null ? InviteComponent.fromMap(data['comp']) : null,
         timezones: (data['tz'] is Iterable)
-            ? List.from((data['tz'] as Iterable).map<CalTZInfo>((tz) => CalTZInfo.fromMap(tz)))
-            : [],
+            ? (data['tz'] as Iterable).map<CalTZInfo>((tz) => CalTZInfo.fromMap(tz)).toList(growable: false)
+            : const [],
         mimeParts: (data['mp'] is Iterable)
-            ? List.from((data['mp'] as Iterable).map<MimePartInfo>((mp) => MimePartInfo.fromMap(mp)))
-            : [],
+            ? (data['mp'] as Iterable).map<MimePartInfo>((mp) => MimePartInfo.fromMap(mp)).toList(growable: false)
+            : const [],
         attachments: data['attach'] != null ? AttachmentsInfo.fromMap(data['attach']) : null,
         categories: (data['category'] is Iterable)
-            ? List.from((data['category'] as Iterable).map<String>((category) => category['_content']))
-            : [],
+            ? (data['category'] as Iterable).map<String>((category) => category['_content']).toList(growable: false)
+            : const [],
         comments: (data['comment'] is Iterable)
-            ? List.from((data['comment'] as Iterable).map<String>((comment) => comment['_content']))
-            : [],
+            ? (data['comment'] as Iterable).map<String>((comment) => comment['_content']).toList(growable: false)
+            : const [],
         contacts: (data['contact'] is Iterable)
-            ? List.from((data['contact'] as Iterable).map<String>((contact) => contact['_content']))
-            : [],
+            ? (data['contact'] as Iterable).map<String>((contact) => contact['_content']).toList(growable: false)
+            : const [],
         geo: data['geo'] is Map ? GeoInfo.fromMap(data['geo']) : null,
         attendees: (data['at'] is Iterable)
-            ? List.from((data['at'] as Iterable).map<CalendarAttendee>((at) => CalendarAttendee.fromMap(at)))
-            : [],
+            ? (data['at'] as Iterable)
+                .map<CalendarAttendee>((at) => CalendarAttendee.fromMap(at))
+                .toList(growable: false)
+            : const [],
         alarms: (data['alarm'] is Iterable)
-            ? List.from((data['alarm'] as Iterable).map<AlarmInfo>((alarm) => AlarmInfo.fromMap(alarm)))
-            : [],
+            ? (data['alarm'] as Iterable).map<AlarmInfo>((alarm) => AlarmInfo.fromMap(alarm)).toList(growable: false)
+            : const [],
         xProps: (data['xprop'] is Iterable)
-            ? List.from((data['xprop'] as Iterable).map<XProp>((xprop) => XProp.fromMap(xprop)))
-            : [],
+            ? (data['xprop'] as Iterable).map<XProp>((xprop) => XProp.fromMap(xprop)).toList(growable: false)
+            : const [],
         fragment: data['fr'],
         description: data['desc']?['_content'],
         htmlDescription: data['descHtml']?['_content'],
@@ -197,16 +199,17 @@ class InvitationInfo extends InviteComponent {
         if (contentId != null) 'ci': contentId,
         if (content != null) 'content': content!.toMap(),
         if (inviteComponent != null) 'comp': inviteComponent!.toMap(),
-        if (timezones.isNotEmpty) 'tz': timezones.map((tz) => tz.toMap()).toList(),
-        if (mimeParts.isNotEmpty) 'mp': mimeParts.map((mp) => mp.toMap()).toList(),
+        if (timezones.isNotEmpty) 'tz': timezones.map((tz) => tz.toMap()).toList(growable: false),
+        if (mimeParts.isNotEmpty) 'mp': mimeParts.map((mp) => mp.toMap()).toList(growable: false),
         if (attachments != null) 'attach': attachments!.toMap(),
-        if (categories.isNotEmpty) 'category': categories.map((category) => {'_content': category}).toList(),
-        if (comments.isNotEmpty) 'comment': comments.map((comment) => {'_content': comment}).toList(),
-        if (contacts.isNotEmpty) 'contact': contacts.map((contact) => {'_content': contact}).toList(),
+        if (categories.isNotEmpty)
+          'category': categories.map((category) => {'_content': category}).toList(growable: false),
+        if (comments.isNotEmpty) 'comment': comments.map((comment) => {'_content': comment}).toList(growable: false),
+        if (contacts.isNotEmpty) 'contact': contacts.map((contact) => {'_content': contact}).toList(growable: false),
         if (geo != null) 'geo': geo!.toMap(),
-        if (attendees.isNotEmpty) 'at': attendees.map((at) => at.toMap()).toList(),
-        if (alarms.isNotEmpty) 'alarm': alarms.map((alarm) => alarm.toMap()).toList(),
-        if (xProps.isNotEmpty) 'xprop': xProps.map((xprop) => xprop.toMap()).toList(),
+        if (attendees.isNotEmpty) 'at': attendees.map((at) => at.toMap()).toList(growable: false),
+        if (alarms.isNotEmpty) 'alarm': alarms.map((alarm) => alarm.toMap()).toList(growable: false),
+        if (xProps.isNotEmpty) 'xprop': xProps.map((xprop) => xprop.toMap()).toList(growable: false),
         if (fragment != null) 'fr': fragment,
         if (description != null) 'desc': {'_content': description},
         if (htmlDescription != null) 'descHtml': {'_content': htmlDescription},

@@ -57,8 +57,8 @@ class PartInfo {
       truncatedContent: data['truncated'],
       content: data['content'],
       mimeParts: (data['mp'] is Iterable)
-          ? List.from((data['mp'] as Iterable).map<PartInfo>((mp) => PartInfo.fromMap(mp)))
-          : []);
+          ? (data['mp'] as Iterable).map<PartInfo>((mp) => PartInfo.fromMap(mp)).toList(growable: false)
+          : const []);
 
   Map<String, dynamic> toMap() => {
         'part': part,
@@ -71,6 +71,6 @@ class PartInfo {
         if (body != null) 'body': body,
         if (truncatedContent != null) 'truncated': truncatedContent,
         if (content != null) 'content': content,
-        if (mimeParts.isNotEmpty) 'mp': mimeParts.map((mp) => mp.toMap()).toList(),
+        if (mimeParts.isNotEmpty) 'mp': mimeParts.map((mp) => mp.toMap()).toList(growable: false),
       };
 }

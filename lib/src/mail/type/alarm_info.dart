@@ -60,11 +60,13 @@ class AlarmInfo {
         attach: data['attach'] is Map ? CalendarAttach.fromMap(data['attach']) : null,
         summary: data['summary']?['_content'],
         attendees: (data['at'] is Iterable)
-            ? List.from((data['at'] as Iterable).map<CalendarAttendee>((at) => CalendarAttendee.fromMap(at)))
-            : [],
+            ? (data['at'] as Iterable)
+                .map<CalendarAttendee>((at) => CalendarAttendee.fromMap(at))
+                .toList(growable: false)
+            : const [],
         xProps: (data['xprop'] is Iterable)
-            ? List.from((data['xprop'] as Iterable).map<XProp>((xprop) => XProp.fromMap(xprop)))
-            : [],
+            ? (data['xprop'] as Iterable).map<XProp>((xprop) => XProp.fromMap(xprop)).toList(growable: false)
+            : const [],
       );
 
   Map<String, dynamic> toMap() => {
@@ -74,7 +76,7 @@ class AlarmInfo {
         if (description != null) 'desc': {'_content': description},
         if (attach != null) 'attach': attach!.toMap(),
         if (summary != null) 'summary': {'_content': summary},
-        if (attendees.isNotEmpty) 'at': attendees.map((at) => at.toMap()).toList(),
-        if (xProps.isNotEmpty) 'xprop': xProps.map((xprop) => xprop.toMap()).toList(),
+        if (attendees.isNotEmpty) 'at': attendees.map((at) => at.toMap()).toList(growable: false),
+        if (xProps.isNotEmpty) 'xprop': xProps.map((xprop) => xprop.toMap()).toList(growable: false),
       };
 }

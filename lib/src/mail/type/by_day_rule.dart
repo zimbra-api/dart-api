@@ -13,10 +13,10 @@ class ByDayRule {
 
   factory ByDayRule.fromMap(Map<String, dynamic> data) => ByDayRule(
       days: (data['wkday'] is Iterable)
-          ? List.from((data['wkday'] as Iterable).map<WkDay>((wkday) => WkDay.fromMap(wkday)))
-          : []);
+          ? (data['wkday'] as Iterable).map<WkDay>((wkday) => WkDay.fromMap(wkday)).toList(growable: false)
+          : const []);
 
   Map<String, dynamic> toMap() => {
-        if (days.isNotEmpty) 'wkday': days.map((wkday) => wkday.toMap()).toList(),
+        if (days.isNotEmpty) 'wkday': days.map((wkday) => wkday.toMap()).toList(growable: false),
       };
 }

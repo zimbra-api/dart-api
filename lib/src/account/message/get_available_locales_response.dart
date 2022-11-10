@@ -13,6 +13,6 @@ class GetAvailableLocalesResponse extends SoapResponse {
 
   factory GetAvailableLocalesResponse.fromMap(Map<String, dynamic> data) => GetAvailableLocalesResponse(
       locales: (data['locale'] is Iterable)
-          ? List.from((data['locale'] as Iterable).map<LocaleInfo>((locale) => LocaleInfo.fromMap(locale)))
-          : []);
+          ? (data['locale'] as Iterable).map<LocaleInfo>((locale) => LocaleInfo.fromMap(locale)).toList(growable: false)
+          : const []);
 }

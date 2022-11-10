@@ -98,18 +98,22 @@ class SearchFolder extends Folder {
       restUrl: data['rest'],
       deletable: data['deletable'],
       metadatas: (data['meta'] is Iterable)
-          ? List.from((data['meta'] as Iterable).map<MailCustomMetadata>((meta) => MailCustomMetadata.fromMap(meta)))
-          : [],
+          ? (data['meta'] as Iterable)
+              .map<MailCustomMetadata>((meta) => MailCustomMetadata.fromMap(meta))
+              .toList(growable: false)
+          : const [],
       acl: data['acl'] is Map ? Acl.fromMap(data['acl']) : null,
       subFolders: (data['folder'] is Iterable)
-          ? List.from((data['folder'] as Iterable).map<Folder>((folder) => Folder.fromMap(folder)))
-          : [],
+          ? (data['folder'] as Iterable).map<Folder>((folder) => Folder.fromMap(folder)).toList(growable: false)
+          : const [],
       mountpoints: (data['link'] is Iterable)
-          ? List.from((data['link'] as Iterable).map<Mountpoint>((link) => Mountpoint.fromMap(link)))
-          : [],
+          ? (data['link'] as Iterable).map<Mountpoint>((link) => Mountpoint.fromMap(link)).toList(growable: false)
+          : const [],
       searchFolders: (data['search'] is Iterable)
-          ? List.from((data['search'] as Iterable).map<SearchFolder>((search) => SearchFolder.fromMap(search)))
-          : [],
+          ? (data['search'] as Iterable)
+              .map<SearchFolder>((search) => SearchFolder.fromMap(search))
+              .toList(growable: false)
+          : const [],
       retentionPolicy: data['retentionPolicy'] is Map ? RetentionPolicy.fromMap(data['retentionPolicy']) : null);
 
   @override
@@ -144,11 +148,11 @@ class SearchFolder extends Folder {
         if (recursive != null) 'recursive': recursive,
         if (restUrl != null) 'rest': restUrl,
         if (deletable != null) 'deletable': deletable,
-        if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toMap()).toList(),
+        if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toMap()).toList(growable: false),
         if (acl != null) 'acl': acl!.toMap(),
-        if (subFolders.isNotEmpty) 'folder': subFolders.map((folder) => folder.toMap()).toList(),
-        if (mountpoints.isNotEmpty) 'link': mountpoints.map((link) => link.toMap()).toList(),
-        if (searchFolders.isNotEmpty) 'search': searchFolders.map((search) => search.toMap()).toList(),
+        if (subFolders.isNotEmpty) 'folder': subFolders.map((folder) => folder.toMap()).toList(growable: false),
+        if (mountpoints.isNotEmpty) 'link': mountpoints.map((link) => link.toMap()).toList(growable: false),
+        if (searchFolders.isNotEmpty) 'search': searchFolders.map((search) => search.toMap()).toList(growable: false),
         if (retentionPolicy != null) 'retentionPolicy': retentionPolicy!.toMap(),
       };
 }

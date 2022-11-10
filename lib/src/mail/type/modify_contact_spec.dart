@@ -25,17 +25,18 @@ class ModifyContactSpec {
       id: data['id'],
       tagNames: data['tn'],
       attributes: (data['a'] is Iterable)
-          ? List.from((data['a'] as Iterable).map<ModifyContactAttr>((a) => ModifyContactAttr.fromMap(a)))
-          : [],
+          ? (data['a'] as Iterable).map<ModifyContactAttr>((a) => ModifyContactAttr.fromMap(a)).toList(growable: false)
+          : const [],
       contactGroupMembers: (data['m'] is Iterable)
-          ? List.from(
-              (data['m'] as Iterable).map<ModifyContactGroupMember>((m) => ModifyContactGroupMember.fromMap(m)))
-          : []);
+          ? (data['m'] as Iterable)
+              .map<ModifyContactGroupMember>((m) => ModifyContactGroupMember.fromMap(m))
+              .toList(growable: false)
+          : const []);
 
   Map<String, dynamic> toMap() => {
         if (id != null) 'id': id,
         if (tagNames != null) 'tn': tagNames,
-        if (attributes.isNotEmpty) 'a': attributes.map((a) => a.toMap()).toList(),
-        if (contactGroupMembers.isNotEmpty) 'm': contactGroupMembers.map((m) => m.toMap()).toList(),
+        if (attributes.isNotEmpty) 'a': attributes.map((a) => a.toMap()).toList(growable: false),
+        if (contactGroupMembers.isNotEmpty) 'm': contactGroupMembers.map((m) => m.toMap()).toList(growable: false),
       };
 }

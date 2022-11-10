@@ -35,7 +35,7 @@ class ApplyFilterRulesRequest extends SoapRequest {
         '_jsns': 'urn:zimbraMail',
         if (filterRules.isNotEmpty)
           'filterRules': [
-            {'filterRule': filterRules.map((filterRule) => filterRule.toMap()).toList()}
+            {'filterRule': filterRules.map((filterRule) => filterRule.toMap()).toList(growable: false)}
           ],
         if (msgIds != null) 'm': msgIds!.toMap(),
         if (query != null) 'query': {'_content': query},

@@ -11,11 +11,13 @@ class GetTaskSummariesResponse extends GetApptSummariesResponse {
 
   factory GetTaskSummariesResponse.fromMap(Map<String, dynamic> data) => GetTaskSummariesResponse(
       apptEntries: (data['appt'] is Iterable)
-          ? List.from(
-              (data['appt'] as Iterable).map<LegacyCalendaringData>((appt) => LegacyCalendaringData.fromMap(appt)))
-          : [],
+          ? (data['appt'] as Iterable)
+              .map<LegacyCalendaringData>((appt) => LegacyCalendaringData.fromMap(appt))
+              .toList(growable: true)
+          : const [],
       taskEntries: (data['task'] is Iterable)
-          ? List.from(
-              (data['task'] as Iterable).map<LegacyCalendaringData>((task) => LegacyCalendaringData.fromMap(task)))
-          : []);
+          ? (data['task'] as Iterable)
+              .map<LegacyCalendaringData>((task) => LegacyCalendaringData.fromMap(task))
+              .toList(growable: false)
+          : const []);
 }

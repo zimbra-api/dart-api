@@ -89,8 +89,8 @@ class GetContactsRequest extends SoapRequest {
         if (returnCertInfo != null) 'returnCertInfo': returnCertInfo,
         if (wantImapUid != null) 'wantImapUid': wantImapUid,
         if (maxMembers != null) 'maxMembers': maxMembers,
-        if (attributes.isNotEmpty) 'a': attributes.map((a) => a.toMap()).toList(),
-        if (memberAttributes.isNotEmpty) 'ma': memberAttributes.map((ma) => ma.toMap()).toList(),
-        if (contacts.isNotEmpty) 'cn': contacts.map((cn) => cn.toMap()).toList(),
+        if (attributes.isNotEmpty) 'a': attributes.map((a) => a.toMap()).toList(growable: false),
+        if (memberAttributes.isNotEmpty) 'ma': memberAttributes.map((ma) => ma.toMap()).toList(growable: false),
+        if (contacts.isNotEmpty) 'cn': contacts.map((cn) => cn.toMap()).toList(growable: false),
       };
 }

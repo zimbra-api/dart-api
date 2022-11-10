@@ -18,9 +18,10 @@ abstract class ObjectInfo {
 
   static List<KeyValuePair> attrListFromMap(Map<String, dynamic> data) {
     return (data['_attrs'] is Map)
-        ? List.from((data['_attrs'] as Map<String, dynamic>)
+        ? (data['_attrs'] as Map<String, dynamic>)
             .entries
-            .map<KeyValuePair>((kvp) => KeyValuePair(kvp.key, value: kvp.value)))
-        : [];
+            .map<KeyValuePair>((kvp) => KeyValuePair(kvp.key, value: kvp.value))
+            .toList(growable: false)
+        : const [];
   }
 }

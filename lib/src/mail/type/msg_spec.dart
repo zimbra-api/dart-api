@@ -102,8 +102,10 @@ class MsgSpec {
         orElse: () => MsgContent.full,
       ),
       headers: (data['header'] is Iterable)
-          ? List.from((data['header'] as Iterable).map<AttributeName>((header) => AttributeName.fromMap(header)))
-          : []);
+          ? (data['header'] as Iterable)
+              .map<AttributeName>((header) => AttributeName.fromMap(header))
+              .toList(growable: false)
+          : const []);
 
   Map<String, dynamic> toMap() => {
         if (id != null) 'id': id,
@@ -119,6 +121,6 @@ class MsgSpec {
         if (recurIdZ != null) 'ridZ': recurIdZ,
         if (needCanExpand != null) 'needExp': needCanExpand,
         if (wantContent != null) 'wantContent': wantContent!.name,
-        if (headers.isNotEmpty) 'header': headers.map((header) => header.toMap()).toList(),
+        if (headers.isNotEmpty) 'header': headers.map((header) => header.toMap()).toList(growable: false),
       };
 }

@@ -67,8 +67,10 @@ class DocumentHitInfo extends DocumentInfo {
       creator: data['cr'],
       createdDate: int.tryParse(data['cd']?.toString() ?? ''),
       metadatas: (data['meta'] is Iterable)
-          ? List.from((data['meta'] as Iterable).map<MailCustomMetadata>((meta) => MailCustomMetadata.fromMap(meta)))
-          : [],
+          ? (data['meta'] as Iterable)
+              .map<MailCustomMetadata>((meta) => MailCustomMetadata.fromMap(meta))
+              .toList(growable: false)
+          : const [],
       fragment: data['fr'],
       acl: (data['acl'] is Map) ? Acl.fromMap(data['acl']) : null);
 
@@ -99,7 +101,7 @@ class DocumentHitInfo extends DocumentInfo {
         if (lastEditedBy != null) 'leb': lastEditedBy,
         if (creator != null) 'cr': creator,
         if (createdDate != null) 'cd': createdDate,
-        if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toMap()).toList(),
+        if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toMap()).toList(growable: false),
         if (fragment != null) 'fr': fragment,
         if (acl != null) 'acl': acl!.toMap(),
       };

@@ -90,15 +90,15 @@ class WaitSetRequest extends SoapRequest {
         if (expand != null) 'expand': expand,
         if (addAccounts.isNotEmpty)
           'add': [
-            {'a': addAccounts.map((a) => a.toMap()).toList()}
+            {'a': addAccounts.map((a) => a.toMap()).toList(growable: false)}
           ],
         if (updateAccounts.isNotEmpty)
           'update': [
-            {'a': updateAccounts.map((a) => a.toMap()).toList()}
+            {'a': updateAccounts.map((a) => a.toMap()).toList(growable: false)}
           ],
         if (removeAccounts.isNotEmpty)
           'remove': [
-            {'a': removeAccounts.map((a) => a.toMap()).toList()}
+            {'a': removeAccounts.map((a) => a.toMap()).toList(growable: false)}
           ],
       };
 }

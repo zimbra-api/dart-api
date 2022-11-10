@@ -37,8 +37,9 @@ class SearchCalendarResourcesResponse extends SoapResponse {
         more: data['more'],
         pagingSupported: data['paginationSupported'],
         calendarResources: (data['calresource'] is Iterable)
-            ? List.from((data['calresource'] as Iterable)
-                .map<CalendarResourceInfo>((resource) => CalendarResourceInfo.fromMap(resource)))
-            : [],
+            ? (data['calresource'] as Iterable)
+                .map<CalendarResourceInfo>((resource) => CalendarResourceInfo.fromMap(resource))
+                .toList(growable: false)
+            : const [],
       );
 }

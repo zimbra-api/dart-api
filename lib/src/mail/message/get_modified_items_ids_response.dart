@@ -11,5 +11,9 @@ class GetModifiedItemsIDsResponse extends SoapResponse {
   GetModifiedItemsIDsResponse({this.ids = const []});
 
   factory GetModifiedItemsIDsResponse.fromMap(Map<String, dynamic> data) => GetModifiedItemsIDsResponse(
-      ids: (data['ids'] is Iterable) ? List.from((data['ids'] as Iterable).map<int>((id) => id['_content'])) : []);
+      ids: (data['ids'] is Iterable)
+          ? (data['ids'] as Iterable)
+              .map<int>((id) => int.parse(id['_content']?.toString() ?? '0'))
+              .toList(growable: false)
+          : const []);
 }

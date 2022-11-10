@@ -37,9 +37,10 @@ class CheckRightsTargetInfo {
         targetKey: data['key'] ?? '',
         allow: data['allow'] ?? false,
         rights: (data['right'] is Iterable)
-            ? List.from(
-                (data['right'] as Iterable).map<CheckRightsRightInfo>((right) => CheckRightsRightInfo.fromMap(right)))
-            : [],
+            ? (data['right'] as Iterable)
+                .map<CheckRightsRightInfo>((right) => CheckRightsRightInfo.fromMap(right))
+                .toList(growable: false)
+            : const [],
       );
 
   Map<String, dynamic> toMap() => {
@@ -47,6 +48,6 @@ class CheckRightsTargetInfo {
         'by': targetBy.name,
         'key': targetKey,
         'allow': allow,
-        if (rights.isNotEmpty) 'right': rights.map((right) => right.toMap()).toList(),
+        if (rights.isNotEmpty) 'right': rights.map((right) => right.toMap()).toList(growable: false),
       };
 }

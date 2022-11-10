@@ -14,13 +14,15 @@ class FilterVariables extends FilterAction {
   factory FilterVariables.fromMap(Map<String, dynamic> data) => FilterVariables(
       index: int.tryParse(data['index']?.toString() ?? ''),
       variables: (data['filterVariable'] is Iterable)
-          ? List.from(
-              (data['filterVariable'] as Iterable).map<FilterVariable>((variable) => FilterVariable.fromMap(variable)))
-          : []);
+          ? (data['filterVariable'] as Iterable)
+              .map<FilterVariable>((variable) => FilterVariable.fromMap(variable))
+              .toList(growable: false)
+          : const []);
 
   @override
   Map<String, dynamic> toMap() => {
         if (index != null) 'index': index,
-        if (variables.isNotEmpty) 'filterVariable': variables.map((variable) => variable.toMap()).toList(),
+        if (variables.isNotEmpty)
+          'filterVariable': variables.map((variable) => variable.toMap()).toList(growable: false),
       };
 }

@@ -39,7 +39,7 @@ class GetMiniCalRequest extends SoapRequest {
         '_jsns': 'urn:zimbraMail',
         's': startTime,
         'e': endTime,
-        if (folders.isNotEmpty) 'folder': folders.map((folder) => folder.toMap()).toList(),
+        if (folders.isNotEmpty) 'folder': folders.map((folder) => folder.toMap()).toList(growable: false),
         if (timezone != null) 'tz': timezone!.toMap(),
       };
 }

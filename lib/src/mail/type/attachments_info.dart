@@ -32,24 +32,28 @@ class AttachmentsInfo {
   factory AttachmentsInfo.fromMap(Map<String, dynamic> data) => AttachmentsInfo(
         data['aid'] ?? '',
         mpAttachments: (data['mp'] is Iterable)
-            ? List.from((data['mp'] as Iterable).map<MimePartAttachSpec>((mp) => MimePartAttachSpec.fromMap(mp)))
-            : [],
+            ? (data['mp'] as Iterable)
+                .map<MimePartAttachSpec>((mp) => MimePartAttachSpec.fromMap(mp))
+                .toList(growable: false)
+            : const [],
         msgAttachments: (data['m'] is Iterable)
-            ? List.from((data['m'] as Iterable).map<MsgAttachSpec>((m) => MsgAttachSpec.fromMap(m)))
-            : [],
+            ? (data['m'] as Iterable).map<MsgAttachSpec>((m) => MsgAttachSpec.fromMap(m)).toList(growable: false)
+            : const [],
         cnAttachments: (data['cn'] is Iterable)
-            ? List.from((data['cn'] as Iterable).map<ContactAttachSpec>((cn) => ContactAttachSpec.fromMap(cn)))
-            : [],
+            ? (data['cn'] as Iterable)
+                .map<ContactAttachSpec>((cn) => ContactAttachSpec.fromMap(cn))
+                .toList(growable: false)
+            : const [],
         docAttachments: (data['doc'] is Iterable)
-            ? List.from((data['doc'] as Iterable).map<DocAttachSpec>((doc) => DocAttachSpec.fromMap(doc)))
-            : [],
+            ? (data['doc'] as Iterable).map<DocAttachSpec>((doc) => DocAttachSpec.fromMap(doc)).toList(growable: false)
+            : const [],
       );
 
   Map<String, dynamic> toMap() => {
         'aid': attachmentId,
-        if (mpAttachments.isNotEmpty) 'mp': mpAttachments.map((mp) => mp.toMap()).toList(),
-        if (msgAttachments.isNotEmpty) 'm': msgAttachments.map((m) => m.toMap()).toList(),
-        if (cnAttachments.isNotEmpty) 'cn': cnAttachments.map((cn) => cn.toMap()).toList(),
-        if (docAttachments.isNotEmpty) 'doc': docAttachments.map((doc) => doc.toMap()).toList(),
+        if (mpAttachments.isNotEmpty) 'mp': mpAttachments.map((mp) => mp.toMap()).toList(growable: false),
+        if (msgAttachments.isNotEmpty) 'm': msgAttachments.map((m) => m.toMap()).toList(growable: false),
+        if (cnAttachments.isNotEmpty) 'cn': cnAttachments.map((cn) => cn.toMap()).toList(growable: false),
+        if (docAttachments.isNotEmpty) 'doc': docAttachments.map((doc) => doc.toMap()).toList(growable: false),
       };
 }

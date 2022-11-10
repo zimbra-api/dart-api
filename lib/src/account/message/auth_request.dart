@@ -123,11 +123,11 @@ class AuthRequest extends SoapRequest {
         if (virtualHost != null) 'virtualHost': {'_content': virtualHost},
         if (prefs.isNotEmpty)
           'prefs': [
-            {'pref': prefs.map((pref) => pref.toMap()).toList()}
+            {'pref': prefs.map((pref) => pref.toMap()).toList(growable: false)}
           ],
         if (attrs.isNotEmpty)
           'attrs': [
-            {'attr': attrs.map((attr) => attr.toMap()).toList()}
+            {'attr': attrs.map((attr) => attr.toMap()).toList(growable: false)}
           ],
         if (requestedSkin != null) 'requestedSkin': {'_content': requestedSkin},
         if (twoFactorCode != null) 'twoFactorCode': {'_content': twoFactorCode},

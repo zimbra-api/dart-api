@@ -26,7 +26,7 @@ class AccountACEInfo {
 
   factory AccountACEInfo.fromMap(Map<String, dynamic> data) => AccountACEInfo(
         GranteeType.values.firstWhere(
-          (item) => item.name == data['gt'],
+          (gt) => gt.name == data['gt'],
           orElse: () => GranteeType.all,
         ),
         data['right'] ?? '',

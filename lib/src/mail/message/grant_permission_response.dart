@@ -11,6 +11,8 @@ class GrantPermissionResponse extends GetPermissionResponse {
 
   factory GrantPermissionResponse.fromMap(Map<String, dynamic> data) => GrantPermissionResponse(
       aces: (data['ace'] is Iterable)
-          ? List.from((data['ace'] as Iterable).map<AccountACEinfo>((aces) => AccountACEinfo.fromMap(aces)))
-          : []);
+          ? (data['ace'] as Iterable)
+              .map<AccountACEinfo>((aces) => AccountACEinfo.fromMap(aces))
+              .toList(growable: false)
+          : const []);
 }

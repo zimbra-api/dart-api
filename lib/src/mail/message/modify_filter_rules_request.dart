@@ -26,7 +26,7 @@ class ModifyFilterRulesRequest extends SoapRequest {
         '_jsns': 'urn:zimbraMail',
         if (filterRules.isNotEmpty)
           'filterRules': [
-            {'filterRule': filterRules.map((filterRule) => filterRule.toMap()).toList()}
+            {'filterRule': filterRules.map((filterRule) => filterRule.toMap()).toList(growable: false)}
           ],
       };
 }

@@ -23,8 +23,8 @@ class ChildAccount {
         isVisible: data['visible'],
         isActive: data['active'],
         attrs: (data['attrs']?[0]['attr'] is Iterable)
-            ? List.from((data['attrs'][0]['attr'] as Iterable).map<Attr>((attr) => Attr.fromMap(attr)))
-            : [],
+            ? (data['attrs'][0]['attr'] as Iterable).map<Attr>((attr) => Attr.fromMap(attr)).toList(growable: false)
+            : const [],
       );
 
   Map<String, dynamic> toMap() => {
@@ -32,6 +32,6 @@ class ChildAccount {
         if (name != null) 'name': name,
         if (isVisible != null) 'visible': isVisible,
         if (isActive != null) 'active': isActive,
-        if (attrs.isNotEmpty) 'attrs': {'attr': attrs.map((attr) => attr.toMap()).toList()},
+        if (attrs.isNotEmpty) 'attrs': {'attr': attrs.map((attr) => attr.toMap()).toList(growable: false)},
       };
 }

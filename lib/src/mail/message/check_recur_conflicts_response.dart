@@ -13,7 +13,8 @@ class CheckRecurConflictsResponse extends SoapResponse {
 
   factory CheckRecurConflictsResponse.fromMap(Map<String, dynamic> data) => CheckRecurConflictsResponse(
       instances: (data['inst'] is Iterable)
-          ? List.from((data['inst'] as Iterable)
-              .map<ConflictRecurrenceInstance>((inst) => ConflictRecurrenceInstance.fromMap(inst)))
-          : []);
+          ? (data['inst'] as Iterable)
+              .map<ConflictRecurrenceInstance>((inst) => ConflictRecurrenceInstance.fromMap(inst))
+              .toList(growable: false)
+          : const []);
 }

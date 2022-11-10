@@ -176,33 +176,38 @@ class GetInfoResponse extends SoapResponse {
         license: data['license'] is Map ? LicenseInfo.fromMap(data['license']) : null,
         isTrackingIMAP: data['isTrackingIMAP'],
         prefs: (data['prefs']?['_attrs'] is Map)
-            ? List.from(Utils.prefsFromMap(data['prefs']['_attrs'] as Map<String, dynamic>))
-            : [],
+            ? Utils.prefsFromMap(data['prefs']['_attrs'] as Map<String, dynamic>)
+            : const [],
         attrs: (data['attrs']?['_attrs'] is Map)
-            ? List.from(Utils.attrsFromMap(data['attrs']['_attrs'] as Map<String, dynamic>))
-            : [],
+            ? Utils.attrsFromMap(data['attrs']['_attrs'] as Map<String, dynamic>)
+            : const [],
         zimlets: (data['zimlets']?['zimlet'] is Iterable)
-            ? List.from((data['zimlets']['zimlet'] as Iterable)
-                .map<AccountZimletInfo>((zimlet) => AccountZimletInfo.fromMap(zimlet)))
-            : [],
+            ? (data['zimlets']['zimlet'] as Iterable)
+                .map<AccountZimletInfo>((zimlet) => AccountZimletInfo.fromMap(zimlet))
+                .toList(growable: false)
+            : const [],
         props: (data['props']?['prop'] is Iterable)
-            ? List.from((data['props']['prop'] as Iterable).map<Prop>((prop) => Prop.fromMap(prop)))
-            : [],
+            ? (data['props']['prop'] as Iterable).map<Prop>((prop) => Prop.fromMap(prop)).toList(growable: false)
+            : const [],
         identities: (data['identities']?['identity'] is Iterable)
-            ? List.from(
-                (data['identities']['identity'] as Iterable).map<Identity>((identity) => Identity.fromMap(identity)))
-            : [],
+            ? (data['identities']['identity'] as Iterable)
+                .map<Identity>((identity) => Identity.fromMap(identity))
+                .toList(growable: false)
+            : const [],
         signatures: (data['signatures']?['signature'] is Iterable)
-            ? List.from((data['signatures']['signature'] as Iterable)
-                .map<Signature>((signature) => Signature.fromMap(signature)))
-            : [],
+            ? (data['signatures']['signature'] as Iterable)
+                .map<Signature>((signature) => Signature.fromMap(signature))
+                .toList(growable: false)
+            : const [],
         childAccounts: (data['childAccounts']?['childAccount'] is Iterable)
-            ? List.from((data['childAccounts']['childAccount'] as Iterable)
-                .map<ChildAccount>((childAccount) => ChildAccount.fromMap(childAccount)))
-            : [],
+            ? (data['childAccounts']['childAccount'] as Iterable)
+                .map<ChildAccount>((childAccount) => ChildAccount.fromMap(childAccount))
+                .toList(growable: false)
+            : const [],
         discoveredRights: (data['rights']?['targets'] is Iterable)
-            ? List.from((data['rights']['targets'] as Iterable)
-                .map<DiscoverRightsInfo>((targets) => DiscoverRightsInfo.fromMap(targets)))
-            : [],
+            ? (data['rights']['targets'] as Iterable)
+                .map<DiscoverRightsInfo>((targets) => DiscoverRightsInfo.fromMap(targets))
+                .toList(growable: false)
+            : const [],
       );
 }

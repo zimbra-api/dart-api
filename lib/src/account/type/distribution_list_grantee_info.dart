@@ -18,7 +18,7 @@ class DistributionListGranteeInfo {
 
   factory DistributionListGranteeInfo.fromMap(Map<String, dynamic> data) => DistributionListGranteeInfo(
       GranteeType.values.firstWhere(
-        (item) => item.name == data['type']?.toString(),
+        (type) => type.name == data['type'],
         orElse: () => GranteeType.all,
       ),
       id: data['id'],

@@ -16,7 +16,9 @@ class AutoCompleteResponse extends SoapResponse {
 
   factory AutoCompleteResponse.fromMap(Map<String, dynamic> data) => AutoCompleteResponse(
       matches: (data['match'] is Iterable)
-          ? List.from((data['match'] as Iterable).map<AutoCompleteMatch>((match) => AutoCompleteMatch.fromMap(match)))
-          : [],
+          ? (data['match'] as Iterable)
+              .map<AutoCompleteMatch>((match) => AutoCompleteMatch.fromMap(match))
+              .toList(growable: false)
+          : const [],
       canBeCached: data['canBeCached']);
 }

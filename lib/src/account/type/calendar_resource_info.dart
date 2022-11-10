@@ -23,6 +23,6 @@ class CalendarResourceInfo extends AccountKeyValuePairs {
   Map<String, dynamic> toMap() => {
         'name': name,
         'id': id,
-        if (keyValuePairs.isNotEmpty) 'a': keyValuePairs.map((kvp) => kvp.toMap()),
+        if (keyValuePairs.isNotEmpty) 'a': keyValuePairs.map((kvp) => kvp.toMap()).toList(growable: false),
       };
 }

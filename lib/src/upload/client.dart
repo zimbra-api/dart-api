@@ -32,7 +32,7 @@ class Client {
 
   List<Attachment> _parseResponse(http.Response response) {
     if (response.statusCode == 200) {
-      return jsonDecode(response.body).map<Attachment>((data) => Attachment.fromMap(data)).toList();
+      return jsonDecode(response.body).map<Attachment>((data) => Attachment.fromMap(data)).toList(growable: false);
     } else {
       throw http.ClientException(
         'An error is encountered with response status code ${response.statusCode}',

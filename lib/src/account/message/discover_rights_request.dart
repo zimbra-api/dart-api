@@ -34,6 +34,6 @@ class DiscoverRightsRequest extends SoapRequest {
   @override
   Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraAccount',
-        if (rights.isNotEmpty) 'right': rights.map((right) => {'_content': right}).toList(),
+        if (rights.isNotEmpty) 'right': rights.map((right) => {'_content': right}).toList(growable: false),
       };
 }

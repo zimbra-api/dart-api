@@ -12,6 +12,6 @@ class ListIMAPSubscriptionsResponse extends SoapResponse {
 
   factory ListIMAPSubscriptionsResponse.fromMap(Map<String, dynamic> data) => ListIMAPSubscriptionsResponse(
       subscriptions: (data['sub'] is Iterable)
-          ? List.from((data['sub'] as Iterable).map<String>((dictionary) => dictionary['_content']))
-          : []);
+          ? (data['sub'] as Iterable).map<String>((dictionary) => dictionary['_content']).toList(growable: false)
+          : const []);
 }

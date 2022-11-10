@@ -52,8 +52,8 @@ class NestedSearchConversation {
         tags: data['t'],
         tagNames: data['tn'],
         messages: (data['m'] is Iterable)
-            ? List.from((data['m'] as Iterable).map<MessageHitInfo>((m) => MessageHitInfo.fromMap(m)))
-            : [],
+            ? (data['m'] as Iterable).map<MessageHitInfo>((m) => MessageHitInfo.fromMap(m)).toList(growable: false)
+            : const [],
         queryInfo: data['info']?[0] is Map ? SearchQueryInfo.fromMap(data['info'][0]) : null,
       );
 
@@ -64,7 +64,7 @@ class NestedSearchConversation {
         if (flags != null) 'f': flags,
         if (tags != null) 't': tags,
         if (tagNames != null) 'tn': tagNames,
-        if (messages.isNotEmpty) 'm': messages.map((m) => m.toMap()).toList(),
+        if (messages.isNotEmpty) 'm': messages.map((m) => m.toMap()).toList(growable: false),
         if (queryInfo != null) 'info': [queryInfo!.toMap()],
       };
 }

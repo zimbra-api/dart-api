@@ -19,14 +19,15 @@ class AccountWithModifications {
   factory AccountWithModifications.fromMap(Map<String, dynamic> data) => AccountWithModifications(
       id: int.tryParse(data['id']?.toString() ?? ''),
       modifications: (data['mods'] is Iterable)
-          ? List.from((data['mods'] as Iterable)
-              .map<PendingFolderModifications>((mods) => PendingFolderModifications.fromMap(mods)))
-          : [],
+          ? (data['mods'] as Iterable)
+              .map<PendingFolderModifications>((mods) => PendingFolderModifications.fromMap(mods))
+              .toList(growable: false)
+          : const [],
       lastChangeId: int.tryParse(data['changeid']?.toString() ?? ''));
 
   Map<String, dynamic> toMap() => {
         if (id != null) 'id': id,
-        if (modifications.isNotEmpty) 'mods': modifications.map((mods) => mods.toMap()).toList(),
+        if (modifications.isNotEmpty) 'mods': modifications.map((mods) => mods.toMap()).toList(growable: false),
         if (lastChangeId != null) 'changeid': lastChangeId,
       };
 }

@@ -104,37 +104,51 @@ class SearchResponse extends SoapResponse {
       queryMore: data['more'],
       totalSize: int.tryParse(data['total']?.toString() ?? ''),
       simpleHits: (data['hit'] is Iterable)
-          ? List.from((data['hit'] as Iterable).map<SimpleSearchHit>((hit) => SimpleSearchHit.fromMap(hit)))
-          : [],
+          ? (data['hit'] as Iterable)
+              .map<SimpleSearchHit>((hit) => SimpleSearchHit.fromMap(hit))
+              .toList(growable: false)
+          : const [],
       conversationHits: (data['c'] is Iterable)
-          ? List.from((data['c'] as Iterable).map<ConversationHitInfo>((c) => ConversationHitInfo.fromMap(c)))
-          : [],
+          ? (data['c'] as Iterable)
+              .map<ConversationHitInfo>((c) => ConversationHitInfo.fromMap(c))
+              .toList(growable: false)
+          : const [],
       messageHits: (data['m'] is Iterable)
-          ? List.from((data['m'] as Iterable).map<MessageHitInfo>((m) => MessageHitInfo.fromMap(m)))
-          : [],
+          ? (data['m'] as Iterable).map<MessageHitInfo>((m) => MessageHitInfo.fromMap(m)).toList(growable: false)
+          : const [],
       chatHits: (data['chat'] is Iterable)
-          ? List.from((data['chat'] as Iterable).map<MessageHitInfo>((chat) => MessageHitInfo.fromMap(chat)))
-          : [],
+          ? (data['chat'] as Iterable)
+              .map<MessageHitInfo>((chat) => MessageHitInfo.fromMap(chat))
+              .toList(growable: false)
+          : const [],
       messagePartHits: (data['mp'] is Iterable)
-          ? List.from((data['mp'] as Iterable).map<MessagePartHitInfo>((mp) => MessagePartHitInfo.fromMap(mp)))
-          : [],
+          ? (data['mp'] as Iterable)
+              .map<MessagePartHitInfo>((mp) => MessagePartHitInfo.fromMap(mp))
+              .toList(growable: false)
+          : const [],
       contactHits: (data['cn'] is Iterable)
-          ? List.from((data['cn'] as Iterable).map<ContactInfo>((cn) => ContactInfo.fromMap(cn)))
-          : [],
+          ? (data['cn'] as Iterable).map<ContactInfo>((cn) => ContactInfo.fromMap(cn)).toList(growable: false)
+          : const [],
       noteHits: (data['note'] is Iterable)
-          ? List.from((data['note'] as Iterable).map<NoteHitInfo>((note) => NoteHitInfo.fromMap(note)))
-          : [],
+          ? (data['note'] as Iterable).map<NoteHitInfo>((note) => NoteHitInfo.fromMap(note)).toList(growable: false)
+          : const [],
       documentHits: (data['doc'] is Iterable)
-          ? List.from((data['doc'] as Iterable).map<DocumentHitInfo>((doc) => DocumentHitInfo.fromMap(doc)))
-          : [],
+          ? (data['doc'] as Iterable)
+              .map<DocumentHitInfo>((doc) => DocumentHitInfo.fromMap(doc))
+              .toList(growable: false)
+          : const [],
       wikiHits: (data['w'] is Iterable)
-          ? List.from((data['w'] as Iterable).map<WikiHitInfo>((w) => WikiHitInfo.fromMap(w)))
-          : [],
+          ? (data['w'] as Iterable).map<WikiHitInfo>((w) => WikiHitInfo.fromMap(w)).toList(growable: false)
+          : const [],
       appointmentHits: (data['appt'] is Iterable)
-          ? List.from((data['appt'] as Iterable).map<CalendarItemHitInfo>((appt) => CalendarItemHitInfo.fromMap(appt)))
-          : [],
+          ? (data['appt'] as Iterable)
+              .map<CalendarItemHitInfo>((appt) => CalendarItemHitInfo.fromMap(appt))
+              .toList(growable: false)
+          : const [],
       taskHits: (data['task'] is Iterable)
-          ? List.from((data['task'] as Iterable).map<CalendarItemHitInfo>((task) => CalendarItemHitInfo.fromMap(task)))
-          : [],
+          ? (data['task'] as Iterable)
+              .map<CalendarItemHitInfo>((task) => CalendarItemHitInfo.fromMap(task))
+              .toList(growable: false)
+          : const [],
       queryInfo: data['info']?[0] is Map ? SearchQueryInfo.fromMap(data['info'][0]) : null);
 }

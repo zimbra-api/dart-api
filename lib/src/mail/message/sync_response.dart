@@ -91,36 +91,42 @@ class SyncResponse extends SoapResponse {
       more: data['more'],
       deleted: data['deleted'] is Map ? SyncDeletedInfo.fromMap(data['deleted']) : null,
       folderItems: (data['folder'] is Iterable)
-          ? List.from((data['folder'] as Iterable).map<SyncFolder>((folder) => SyncFolder.fromMap(folder)))
-          : [],
+          ? (data['folder'] as Iterable).map<SyncFolder>((folder) => SyncFolder.fromMap(folder)).toList(growable: false)
+          : const [],
       tagItems: (data['tag'] is Iterable)
-          ? List.from((data['tag'] as Iterable).map<TagInfo>((tag) => TagInfo.fromMap(tag)))
-          : [],
+          ? (data['tag'] as Iterable).map<TagInfo>((tag) => TagInfo.fromMap(tag)).toList(growable: false)
+          : const [],
       noteItems: (data['note'] is Iterable)
-          ? List.from((data['note'] as Iterable).map<NoteInfo>((note) => NoteInfo.fromMap(note)))
-          : [],
+          ? (data['note'] as Iterable).map<NoteInfo>((note) => NoteInfo.fromMap(note)).toList(growable: false)
+          : const [],
       contactItems: (data['cn'] is Iterable)
-          ? List.from((data['cn'] as Iterable).map<ContactInfo>((cn) => ContactInfo.fromMap(cn)))
-          : [],
+          ? (data['cn'] as Iterable).map<ContactInfo>((cn) => ContactInfo.fromMap(cn)).toList(growable: false)
+          : const [],
       apptItems: (data['appt'] is Iterable)
-          ? List.from((data['appt'] as Iterable).map<CalendarItemInfo>((appt) => CalendarItemInfo.fromMap(appt)))
-          : [],
+          ? (data['appt'] as Iterable)
+              .map<CalendarItemInfo>((appt) => CalendarItemInfo.fromMap(appt))
+              .toList(growable: false)
+          : const [],
       taskItems: (data['task'] is Iterable)
-          ? List.from((data['task'] as Iterable).map<TaskItemInfo>((task) => TaskItemInfo.fromMap(task)))
-          : [],
+          ? (data['task'] as Iterable).map<TaskItemInfo>((task) => TaskItemInfo.fromMap(task)).toList(growable: false)
+          : const [],
       convItems: (data['c'] is Iterable)
-          ? List.from((data['c'] as Iterable).map<ConversationSummary>((conv) => ConversationSummary.fromMap(conv)))
-          : [],
+          ? (data['c'] as Iterable)
+              .map<ConversationSummary>((conv) => ConversationSummary.fromMap(conv))
+              .toList(growable: false)
+          : const [],
       wikiItems: (data['w'] is Iterable)
-          ? List.from((data['w'] as Iterable).map<CommonDocumentInfo>((wiki) => CommonDocumentInfo.fromMap(wiki)))
-          : [],
+          ? (data['w'] as Iterable)
+              .map<CommonDocumentInfo>((wiki) => CommonDocumentInfo.fromMap(wiki))
+              .toList(growable: false)
+          : const [],
       docItems: (data['doc'] is Iterable)
-          ? List.from((data['doc'] as Iterable).map<DocumentInfo>((doc) => DocumentInfo.fromMap(doc)))
-          : [],
+          ? (data['doc'] as Iterable).map<DocumentInfo>((doc) => DocumentInfo.fromMap(doc)).toList(growable: false)
+          : const [],
       msgItems: (data['m'] is Iterable)
-          ? List.from((data['m'] as Iterable).map<MessageSummary>((msg) => MessageSummary.fromMap(msg)))
-          : [],
+          ? (data['m'] as Iterable).map<MessageSummary>((msg) => MessageSummary.fromMap(msg)).toList(growable: false)
+          : const [],
       chatItems: (data['chat'] is Iterable)
-          ? List.from((data['chat'] as Iterable).map<ChatSummary>((chat) => ChatSummary.fromMap(chat)))
-          : []);
+          ? (data['chat'] as Iterable).map<ChatSummary>((chat) => ChatSummary.fromMap(chat)).toList(growable: false)
+          : const []);
 }

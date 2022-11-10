@@ -51,6 +51,6 @@ class GetFreeBusyRequest extends SoapRequest {
         if (id != null) 'id': id,
         if (name != null) 'name': name,
         if (excludeUid != null) 'excludeUid': excludeUid,
-        if (freebusyUsers.isNotEmpty) 'usr': freebusyUsers.map((usr) => usr.toMap()).toList(),
+        if (freebusyUsers.isNotEmpty) 'usr': freebusyUsers.map((usr) => usr.toMap()).toList(growable: false),
       };
 }

@@ -47,9 +47,11 @@ class GetAccountInfoResponse extends SoapResponse {
   factory GetAccountInfoResponse.fromMap(Map<String, dynamic> data) => GetAccountInfoResponse(
         data['name'],
         attrs: (data['_attrs'] is Map)
-            ? List.from(
-                (data['_attrs'] as Map).entries.map<NamedValue>((attr) => NamedValue(attr.key, value: attr.value)))
-            : [],
+            ? (data['_attrs'] as Map)
+                .entries
+                .map<NamedValue>((attr) => NamedValue(attr.key, value: attr.value))
+                .toList(growable: false)
+            : const [],
         soapURL: data['soapURL'],
         publicURL: data['publicURL'],
         changePasswordURL: data['changePasswordURL'],

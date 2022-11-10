@@ -13,7 +13,8 @@ class GetFilterRulesResponse extends SoapResponse {
 
   factory GetFilterRulesResponse.fromMap(Map<String, dynamic> data) => GetFilterRulesResponse(
       filterRules: (data['filterRules']?[0]['filterRule'] is Iterable)
-          ? List.from((data['filterRules'][0]['filterRule'] as Iterable)
-              .map<FilterRule>((filterRule) => FilterRule.fromMap(filterRule)))
-          : []);
+          ? (data['filterRules'][0]['filterRule'] as Iterable)
+              .map<FilterRule>((filterRule) => FilterRule.fromMap(filterRule))
+              .toList(growable: false)
+          : const []);
 }

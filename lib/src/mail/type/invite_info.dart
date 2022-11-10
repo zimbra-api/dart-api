@@ -30,17 +30,20 @@ class InviteInfo {
         orElse: () => InviteType.appt,
       ),
       timezones: (data['tz'] is Iterable)
-          ? List.from((data['tz'] as Iterable).map<CalTZInfo>((tz) => CalTZInfo.fromMap(tz)))
-          : [],
+          ? (data['tz'] as Iterable).map<CalTZInfo>((tz) => CalTZInfo.fromMap(tz)).toList(growable: false)
+          : const [],
       inviteComponent: data['comp'] is Map ? InviteComponent.fromMap(data['comp']) : null,
       calendarReplies: (data['replies']?['reply'] is Iterable)
-          ? List.from((data['replies']['reply'] as Iterable).map<CalendarReply>((at) => CalendarReply.fromMap(at)))
-          : []);
+          ? (data['replies']['reply'] as Iterable)
+              .map<CalendarReply>((at) => CalendarReply.fromMap(at))
+              .toList(growable: false)
+          : const []);
 
   Map<String, dynamic> toMap() => {
         'type': calItemType.name,
-        if (timezones.isNotEmpty) 'tz': timezones.map((tz) => tz.toMap()).toList(),
+        if (timezones.isNotEmpty) 'tz': timezones.map((tz) => tz.toMap()).toList(growable: false),
         if (inviteComponent != null) 'comp': inviteComponent!.toMap(),
-        if (calendarReplies.isNotEmpty) 'replies': {'reply': calendarReplies.map((reply) => reply.toMap()).toList()},
+        if (calendarReplies.isNotEmpty)
+          'replies': {'reply': calendarReplies.map((reply) => reply.toMap()).toList(growable: false)},
       };
 }

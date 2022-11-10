@@ -54,8 +54,8 @@ class EditheaderTest {
         ),
         headerName: data['headerName']?['_content'],
         headerValue: (data['headerValue'] is Iterable)
-            ? List.from((data['headerValue'] as Iterable).map<String>((value) => value['_content']))
-            : [],
+            ? (data['headerValue'] as Iterable).map<String>((value) => value['_content']).toList(growable: false)
+            : const [],
       );
 
   Map<String, dynamic> toMap() => {
@@ -65,6 +65,7 @@ class EditheaderTest {
         if (relationalComparator != null) 'relationalComparator': relationalComparator!.name,
         if (comparator != null) 'comparator': comparator!.name,
         if (headerName != null) 'headerName': {'_content': headerName},
-        if (headerValue.isNotEmpty) 'headerValue': headerValue.map((headerValue) => {'_content': headerValue}).toList(),
+        if (headerValue.isNotEmpty)
+          'headerValue': headerValue.map((headerValue) => {'_content': headerValue}).toList(growable: false),
       };
 }

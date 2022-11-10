@@ -12,6 +12,6 @@ class GetSpellDictionariesResponse extends SoapResponse {
 
   factory GetSpellDictionariesResponse.fromMap(Map<String, dynamic> data) => GetSpellDictionariesResponse(
       dictionaries: (data['dictionary'] is Iterable)
-          ? List.from((data['dictionary'] as Iterable).map<String>((dictionary) => dictionary['_content']))
-          : []);
+          ? (data['dictionary'] as Iterable).map<String>((dictionary) => dictionary['_content']).toList(growable: true)
+          : const []);
 }

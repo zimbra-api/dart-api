@@ -15,11 +15,11 @@ class BounceMsgSpec {
 
   factory BounceMsgSpec.fromMap(Map<String, dynamic> data) => BounceMsgSpec(data['id'] ?? '',
       emailAddresses: (data['e'] is Iterable)
-          ? List.from((data['e'] as Iterable).map<EmailAddrInfo>((e) => EmailAddrInfo.fromMap(e)))
-          : []);
+          ? (data['e'] as Iterable).map<EmailAddrInfo>((e) => EmailAddrInfo.fromMap(e)).toList(growable: false)
+          : const []);
 
   Map<String, dynamic> toMap() => {
         'id': id,
-        if (emailAddresses.isNotEmpty) 'e': emailAddresses.map((e) => e.toMap()).toList(),
+        if (emailAddresses.isNotEmpty) 'e': emailAddresses.map((e) => e.toMap()).toList(growable: false),
       };
 }

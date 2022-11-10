@@ -52,7 +52,7 @@ class SearchConvResponse extends SoapResponse {
       queryMore: data['more'],
       conversation: data['c'] is Map ? NestedSearchConversation.fromMap(data['c']) : null,
       messages: (data['m'] is Iterable)
-          ? List.from((data['m'] as Iterable).map<MessageHitInfo>((m) => MessageHitInfo.fromMap(m)))
-          : [],
+          ? (data['m'] as Iterable).map<MessageHitInfo>((m) => MessageHitInfo.fromMap(m)).toList(growable: false)
+          : const [],
       queryInfo: data['info']?[0] is Map ? SearchQueryInfo.fromMap(data['info'][0]) : null);
 }

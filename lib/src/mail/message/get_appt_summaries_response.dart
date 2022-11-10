@@ -16,11 +16,13 @@ class GetApptSummariesResponse extends SoapResponse {
 
   factory GetApptSummariesResponse.fromMap(Map<String, dynamic> data) => GetApptSummariesResponse(
       apptEntries: (data['appt'] is Iterable)
-          ? List.from(
-              (data['appt'] as Iterable).map<LegacyCalendaringData>((appt) => LegacyCalendaringData.fromMap(appt)))
-          : [],
+          ? (data['appt'] as Iterable)
+              .map<LegacyCalendaringData>((appt) => LegacyCalendaringData.fromMap(appt))
+              .toList(growable: false)
+          : const [],
       taskEntries: (data['task'] is Iterable)
-          ? List.from(
-              (data['task'] as Iterable).map<LegacyCalendaringData>((task) => LegacyCalendaringData.fromMap(task)))
-          : []);
+          ? (data['task'] as Iterable)
+              .map<LegacyCalendaringData>((task) => LegacyCalendaringData.fromMap(task))
+              .toList(growable: false)
+          : const []);
 }

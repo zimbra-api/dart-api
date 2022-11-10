@@ -46,6 +46,6 @@ class DLInfo extends ObjectInfo {
         if (via != null) 'via': via,
         if (isOwner != null) 'isOwner': isOwner,
         if (isMember != null) 'isMember': isMember,
-        if (attrList.isNotEmpty) 'a': attrList.map((a) => a.toMap()).toList(),
+        if (attrList.isNotEmpty) 'a': attrList.map((a) => a.toMap()).toList(growable: false),
       };
 }

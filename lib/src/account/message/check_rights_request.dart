@@ -23,6 +23,6 @@ class CheckRightsRequest extends SoapRequest {
   @override
   Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraAccount',
-        if (targets.isNotEmpty) 'target': targets.map((pref) => pref.toMap()).toList(),
+        if (targets.isNotEmpty) 'target': targets.map((pref) => pref.toMap()).toList(growable: false),
       };
 }

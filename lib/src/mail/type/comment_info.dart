@@ -63,8 +63,10 @@ class CommentInfo {
       rgb: data['rgb'],
       date: int.tryParse(data['d']?.toString() ?? ''),
       metadatas: (data['meta'] is Iterable)
-          ? List.from((data['meta'] as Iterable).map<MailCustomMetadata>((meta) => MailCustomMetadata.fromMap(meta)))
-          : []);
+          ? (data['meta'] as Iterable)
+              .map<MailCustomMetadata>((meta) => MailCustomMetadata.fromMap(meta))
+              .toList(growable: false)
+          : const []);
 
   Map<String, dynamic> toMap() => {
         if (parentId != null) 'parentId': parentId,
@@ -77,6 +79,6 @@ class CommentInfo {
         if (color != null) 'color': color,
         if (rgb != null) 'rgb': rgb,
         if (date != null) 'd': date,
-        if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toMap()).toList(),
+        if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toMap()).toList(growable: false),
       };
 }

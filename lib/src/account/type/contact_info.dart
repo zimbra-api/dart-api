@@ -104,15 +104,17 @@ class ContactInfo {
         reference: data['ref'],
         tooManyMembers: data['tooManyMembers'],
         metadatas: (data['meta'] is Iterable)
-            ? List.from(
-                (data['meta'] as Iterable).map<AccountCustomMetadata>((meta) => AccountCustomMetadata.fromMap(meta)))
-            : [],
+            ? (data['meta'] as Iterable)
+                .map<AccountCustomMetadata>((meta) => AccountCustomMetadata.fromMap(meta))
+                .toList(growable: false)
+            : const [],
         attrs: (data['_attrs'] is Map)
-            ? List.from(Utils.contactAttrsFromMap(data['_attrs'] as Map<String, dynamic>))
-            : [],
+            ? Utils.contactAttrsFromMap(data['_attrs'] as Map<String, dynamic>) : const [],
         contactGroupMembers: (data['m'] is Iterable)
-            ? List.from((data['m'] as Iterable).map<ContactGroupMember>((m) => ContactGroupMember.fromMap(m)))
-            : [],
+            ? (data['m'] as Iterable)
+                .map<ContactGroupMember>((m) => ContactGroupMember.fromMap(m))
+                .toList(growable: false)
+            : const [],
         isOwner: data['isOwner'],
         isMember: data['isMember'],
       );
@@ -137,9 +139,9 @@ class ContactInfo {
         if (dlist != null) 'dlist': dlist,
         if (reference != null) 'ref': reference,
         if (tooManyMembers != null) 'tooManyMembers': tooManyMembers,
-        if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toMap()).toList(),
-        if (attrs.isNotEmpty) 'a': attrs.map((a) => a.toMap()).toList(),
-        if (contactGroupMembers.isNotEmpty) 'm': contactGroupMembers.map((m) => m.toMap()).toList(),
+        if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toMap()).toList(growable: false),
+        if (attrs.isNotEmpty) 'a': attrs.map((a) => a.toMap()).toList(growable: false),
+        if (contactGroupMembers.isNotEmpty) 'm': contactGroupMembers.map((m) => m.toMap()).toList(growable: false),
         if (isOwner != null) 'isOwner': isOwner,
         if (isMember != null) 'isMember': isMember,
       };

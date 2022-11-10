@@ -40,37 +40,45 @@ class AccountDataSources {
 
   factory AccountDataSources.fromMap(Map<String, dynamic> data) => AccountDataSources(
         imapDataSources: (data['imap'] is Iterable)
-            ? List.from(
-                (data['imap'] as Iterable).map<AccountImapDataSource>((imap) => AccountImapDataSource.fromMap(imap)))
-            : [],
+            ? (data['imap'] as Iterable)
+                .map<AccountImapDataSource>((imap) => AccountImapDataSource.fromMap(imap))
+                .toList(growable: false)
+            : const [],
         pop3DataSources: (data['pop3'] is Iterable)
-            ? List.from(
-                (data['pop3'] as Iterable).map<AccountPop3DataSource>((pop3) => AccountPop3DataSource.fromMap(pop3)))
-            : [],
+            ? (data['pop3'] as Iterable)
+                .map<AccountPop3DataSource>((pop3) => AccountPop3DataSource.fromMap(pop3))
+                .toList(growable: false)
+            : const [],
         caldavDataSources: (data['caldav'] is Iterable)
-            ? List.from((data['caldav'] as Iterable)
-                .map<AccountCaldavDataSource>((caldav) => AccountCaldavDataSource.fromMap(caldav)))
-            : [],
+            ? (data['caldav'] as Iterable)
+                .map<AccountCaldavDataSource>((caldav) => AccountCaldavDataSource.fromMap(caldav))
+                .toList(growable: false)
+            : const [],
         yabDataSources: (data['yab'] is Iterable)
-            ? List.from(
-                (data['yab'] as Iterable).map<AccountYabDataSource>((yab) => AccountYabDataSource.fromMap(yab)))
-            : [],
+            ? (data['yab'] as Iterable)
+                .map<AccountYabDataSource>((yab) => AccountYabDataSource.fromMap(yab))
+                .toList(growable: false)
+            : const [],
         rssDataSources: (data['rss'] is Iterable)
-            ? List.from(
-                (data['rss'] as Iterable).map<AccountRssDataSource>((rss) => AccountRssDataSource.fromMap(rss)))
-            : [],
+            ? (data['rss'] as Iterable)
+                .map<AccountRssDataSource>((rss) => AccountRssDataSource.fromMap(rss))
+                .toList(growable: false)
+            : const [],
         galDataSources: (data['gal'] is Iterable)
-            ? List.from(
-                (data['gal'] as Iterable).map<AccountGalDataSource>((gal) => AccountGalDataSource.fromMap(gal)))
-            : [],
+            ? (data['gal'] as Iterable)
+                .map<AccountGalDataSource>((gal) => AccountGalDataSource.fromMap(gal))
+                .toList(growable: false)
+            : const [],
         calDataSources: (data['cal'] is Iterable)
-            ? List.from(
-                (data['cal'] as Iterable).map<AccountCalDataSource>((cal) => AccountCalDataSource.fromMap(cal)))
-            : [],
+            ? (data['cal'] as Iterable)
+                .map<AccountCalDataSource>((cal) => AccountCalDataSource.fromMap(cal))
+                .toList(growable: false)
+            : const [],
         unknownDataSources: (data['unknown'] is Iterable)
-            ? List.from((data['unknown'] as Iterable)
-                .map<AccountUnknownDataSource>((unknown) => AccountUnknownDataSource.fromMap(unknown)))
-            : [],
+            ? (data['unknown'] as Iterable)
+                .map<AccountUnknownDataSource>((unknown) => AccountUnknownDataSource.fromMap(unknown))
+                .toList(growable: false)
+            : const [],
       );
 
   Map<String, dynamic> toMap() => {

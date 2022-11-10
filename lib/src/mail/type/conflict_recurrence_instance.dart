@@ -20,8 +20,10 @@ class ConflictRecurrenceInstance extends ExpandedRecurrenceInstance {
       tzOffset: int.tryParse(data['tzo']?.toString() ?? ''),
       recurIdZ: data['ridZ'],
       freebusyUsers: (data['usr'] is Iterable)
-          ? List.from((data['usr'] as Iterable).map<FreeBusyUserStatus>((usr) => FreeBusyUserStatus.fromMap(usr)))
-          : []);
+          ? (data['usr'] as Iterable)
+              .map<FreeBusyUserStatus>((usr) => FreeBusyUserStatus.fromMap(usr))
+              .toList(growable: false)
+          : const []);
 
   @override
   Map<String, dynamic> toMap() => {
@@ -30,6 +32,6 @@ class ConflictRecurrenceInstance extends ExpandedRecurrenceInstance {
         if (allDay != null) 'allDay': allDay,
         if (tzOffset != null) 'tzo': tzOffset,
         if (recurIdZ != null) 'ridZ': recurIdZ,
-        if (freebusyUsers.isNotEmpty) 'usr': freebusyUsers.map((usr) => usr.toMap()).toList(),
+        if (freebusyUsers.isNotEmpty) 'usr': freebusyUsers.map((usr) => usr.toMap()).toList(growable: false),
       };
 }

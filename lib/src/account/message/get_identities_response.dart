@@ -13,6 +13,8 @@ class GetIdentitiesResponse extends SoapResponse {
 
   factory GetIdentitiesResponse.fromMap(Map<String, dynamic> data) => GetIdentitiesResponse(
       identities: (data['identity'] is Iterable)
-          ? List.from((data['identity'] as Iterable).map<Identity>((identity) => Identity.fromMap(identity)))
-          : []);
+          ? (data['identity'] as Iterable)
+              .map<Identity>((identity) => Identity.fromMap(identity))
+              .toList(growable: false)
+          : const []);
 }

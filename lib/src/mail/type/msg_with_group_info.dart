@@ -133,15 +133,17 @@ class MsgWithGroupInfo extends MessageCommon {
       part: data['part'],
       fragment: data['fr'],
       emails: (data['e'] is Iterable)
-          ? List.from((data['e'] as Iterable).map<EmailInfo>((e) => EmailInfo.fromMap(e)))
-          : [],
+          ? (data['e'] as Iterable).map<EmailInfo>((e) => EmailInfo.fromMap(e)).toList(growable: false)
+          : const [],
       subject: data['su'],
       messageIdHeader: data['mid'],
       inReplyTo: data['irt'],
       invite: data['inv'] is Map ? InviteWithGroupInfo.fromMap(data['inv']) : null,
       headers: (data['header'] is Iterable)
-          ? List.from((data['header'] as Iterable).map<KeyValuePair>((header) => KeyValuePair.fromMap(header)))
-          : [],
+          ? (data['header'] as Iterable)
+              .map<KeyValuePair>((header) => KeyValuePair.fromMap(header))
+              .toList(growable: false)
+          : const [],
       mimePart: data['mp'] is Map ? MimePartInfo.fromMap(data['mp']) : null,
       shrNotification: data['shr'] is Map ? ShareNotification.fromMap(data['shr']) : null,
       dlSubsNotification: data['dlSubs'] is Map ? DLSubscriptionNotification.fromMap(data['dlSubs']) : null,
@@ -157,8 +159,10 @@ class MsgWithGroupInfo extends MessageCommon {
       changeDate: int.tryParse(data['md']?.toString() ?? ''),
       modifiedSequence: int.tryParse(data['ms']?.toString() ?? ''),
       metadatas: (data['meta'] is Iterable)
-          ? List.from((data['meta'] as Iterable).map<MailCustomMetadata>((meta) => MailCustomMetadata.fromMap(meta)))
-          : []);
+          ? (data['meta'] as Iterable)
+              .map<MailCustomMetadata>((meta) => MailCustomMetadata.fromMap(meta))
+              .toList(growable: false)
+          : const []);
 
   @override
   Map<String, dynamic> toMap() => {
@@ -174,12 +178,12 @@ class MsgWithGroupInfo extends MessageCommon {
         if (resentDate != null) 'rd': resentDate,
         if (part != null) 'part': part,
         if (fragment != null) 'fr': fragment,
-        if (emails.isNotEmpty) 'e': emails.map((e) => e.toMap()).toList(),
+        if (emails.isNotEmpty) 'e': emails.map((e) => e.toMap()).toList(growable: false),
         if (subject != null) 'su': subject,
         if (messageIdHeader != null) 'mid': messageIdHeader,
         if (inReplyTo != null) 'irt': inReplyTo,
         if (invite != null) 'inv': invite!.toMap(),
-        if (headers.isNotEmpty) 'header': headers.map((header) => header.toMap()).toList(),
+        if (headers.isNotEmpty) 'header': headers.map((header) => header.toMap()).toList(growable: false),
         if (mimePart != null) 'mp': mimePart!.toMap(),
         if (shrNotification != null) 'shr': shrNotification!.toMap(),
         if (dlSubsNotification != null) 'dlSubs': dlSubsNotification!.toMap(),
@@ -194,6 +198,6 @@ class MsgWithGroupInfo extends MessageCommon {
         if (revision != null) 'rev': revision,
         if (changeDate != null) 'md': changeDate,
         if (modifiedSequence != null) 'ms': modifiedSequence,
-        if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toMap()).toList(),
+        if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toMap()).toList(growable: false),
       };
 }

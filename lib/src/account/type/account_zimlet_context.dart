@@ -17,7 +17,7 @@ class AccountZimletContext {
         data['baseUrl'],
         zimletPriority: int.tryParse(data['priority']?.toString() ?? ''),
         zimletPresence: ZimletPresence.values.firstWhere(
-          (item) => item.name == data['by'],
+          (presence) => presence.name == data['presence'],
           orElse: () => ZimletPresence.enabled,
         ),
       );

@@ -31,10 +31,11 @@ class WaitSetResponse extends SoapResponse {
       canceled: data['canceled'],
       seqNo: int.tryParse(data['seq']?.toString() ?? ''),
       signalledAccounts: (data['a'] is Iterable)
-          ? List.from(
-              (data['a'] as Iterable).map<AccountWithModifications>((a) => AccountWithModifications.fromMap(a)))
-          : [],
+          ? (data['a'] as Iterable)
+              .map<AccountWithModifications>((a) => AccountWithModifications.fromMap(a))
+              .toList(growable: false)
+          : const [],
       errors: (data['error'] is Iterable)
-          ? List.from((data['error'] as Iterable).map<IdAndType>((error) => IdAndType.fromMap(error)))
-          : []);
+          ? (data['error'] as Iterable).map<IdAndType>((error) => IdAndType.fromMap(error)).toList(growable: false)
+          : const []);
 }

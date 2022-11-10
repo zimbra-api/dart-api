@@ -29,6 +29,6 @@ class CheckPermissionRequest extends SoapRequest {
   Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
         'target': target.toMap(),
-        if (rights.isNotEmpty) 'right': rights.map((right) => {'_content': right}).toList(),
+        if (rights.isNotEmpty) 'right': rights.map((right) => {'_content': right}).toList(growable: false),
       };
 }

@@ -13,6 +13,6 @@ class GetTagResponse extends SoapResponse {
 
   factory GetTagResponse.fromMap(Map<String, dynamic> data) => GetTagResponse(
       tags: (data['tag'] is Iterable)
-          ? List.from((data['tag'] as Iterable).map<TagInfo>((tag) => TagInfo.fromMap(tag)))
-          : []);
+          ? (data['tag'] as Iterable).map<TagInfo>((tag) => TagInfo.fromMap(tag)).toList(growable: false)
+          : const []);
 }

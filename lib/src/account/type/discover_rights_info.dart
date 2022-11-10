@@ -16,13 +16,14 @@ class DiscoverRightsInfo {
   factory DiscoverRightsInfo.fromMap(Map<String, dynamic> data) => DiscoverRightsInfo(
         data['right'],
         targets: (data['target'] is Iterable)
-            ? List.from((data['target'] as Iterable)
-                .map<DiscoverRightsTarget>((target) => DiscoverRightsTarget.fromMap(target)))
-            : [],
+            ? (data['target'] as Iterable)
+                .map<DiscoverRightsTarget>((target) => DiscoverRightsTarget.fromMap(target))
+                .toList(growable: false)
+            : const [],
       );
 
   Map<String, dynamic> toMap() => {
         'right': right,
-        if (targets.isNotEmpty) 'target': targets.map((target) => target.toMap()),
+        if (targets.isNotEmpty) 'target': targets.map((target) => target.toMap()).toList(growable: false),
       };
 }

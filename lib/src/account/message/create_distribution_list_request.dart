@@ -33,6 +33,6 @@ class CreateDistributionListRequest extends SoapRequest {
         '_jsns': 'urn:zimbraAccount',
         'name': name,
         if (isDynamic != null) 'dynamic': isDynamic,
-        if (keyValuePairs.isNotEmpty) 'a': keyValuePairs.map((a) => a.toMap()).toList(),
+        if (keyValuePairs.isNotEmpty) 'a': keyValuePairs.map((a) => a.toMap()).toList(growable: false),
       };
 }

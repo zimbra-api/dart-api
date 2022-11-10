@@ -18,7 +18,8 @@ class CheckSpellingResponse extends SoapResponse {
   factory CheckSpellingResponse.fromMap(Map<String, dynamic> data) => CheckSpellingResponse(
       available: data['available'] ?? false,
       misspelledWords: (data['misspelled'] is Iterable)
-          ? List.from(
-              (data['misspelled'] as Iterable).map<Misspelling>((misspelled) => Misspelling.fromMap(misspelled)))
-          : []);
+          ? (data['misspelled'] as Iterable)
+              .map<Misspelling>((misspelled) => Misspelling.fromMap(misspelled))
+              .toList(growable: false)
+          : const []);
 }

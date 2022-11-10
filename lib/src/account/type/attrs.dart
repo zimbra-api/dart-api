@@ -11,8 +11,10 @@ abstract class Attrs {
 
   static List<Attr> attrsFromMap(Map<String, dynamic> data) {
     return (data['_attrs'] is Map)
-        ? List.from(
-            (data['_attrs'] as Map<String, dynamic>).entries.map<Attr>((kvp) => Attr(kvp.key, value: kvp.value)))
-        : [];
+        ? (data['_attrs'] as Map<String, dynamic>)
+            .entries
+            .map<Attr>((kvp) => Attr(kvp.key, value: kvp.value))
+            .toList(growable: false)
+        : const [];
   }
 }

@@ -15,6 +15,8 @@ class SetTaskResponse extends SetAppointmentResponse {
       deprecatedApptId: data['apptId'],
       defaultId: data['default'] is Map ? Id.fromMap(data['default']) : null,
       exceptions: (data['except'] is Iterable)
-          ? List.from((data['except'] as Iterable).map<ExceptIdInfo>((except) => ExceptIdInfo.fromMap(except)))
-          : []);
+          ? (data['except'] as Iterable)
+              .map<ExceptIdInfo>((except) => ExceptIdInfo.fromMap(except))
+              .toList(growable: false)
+          : const []);
 }

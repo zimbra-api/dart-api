@@ -18,15 +18,16 @@ class HABGroupMember extends HABMember {
         data['name'] ?? '',
         seniorityIndex: int.tryParse(data['seniorityIndex']?.toString() ?? ''),
         attrs: (data['_attrs'] is Map)
-            ? List.from((data['_attrs'] as Map<String, dynamic>)
+            ? (data['_attrs'] as Map<String, dynamic>)
                 .entries
-                .map<NamedValue>((attr) => NamedValue(attr.key, value: attr.value)))
-            : [],
+                .map<NamedValue>((attr) => NamedValue(attr.key, value: attr.value))
+                .toList(growable: false)
+            : const [],
       );
 
   Map<String, dynamic> toMap() => {
         'name': name,
         if (seniorityIndex != null) 'seniorityIndex': seniorityIndex,
-        if (attrs.isNotEmpty) 'attr': attrs.map((attr) => attr.toMap()).toList(),
+        if (attrs.isNotEmpty) 'attr': attrs.map((attr) => attr.toMap()).toList(growable: false),
       };
 }

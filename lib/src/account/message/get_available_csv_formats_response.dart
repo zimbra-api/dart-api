@@ -13,6 +13,6 @@ class GetAvailableCsvFormatsResponse extends SoapResponse {
 
   factory GetAvailableCsvFormatsResponse.fromMap(Map<String, dynamic> data) => GetAvailableCsvFormatsResponse(
       csvFormats: (data['csv'] is Iterable)
-          ? List.from((data['csv'] as Iterable).map<NamedElement>((csv) => NamedElement.fromMap(csv)))
-          : []);
+          ? (data['csv'] as Iterable).map<NamedElement>((csv) => NamedElement.fromMap(csv)).toList(growable: false)
+          : const []);
 }

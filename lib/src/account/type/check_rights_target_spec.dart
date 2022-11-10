@@ -22,23 +22,23 @@ class CheckRightsTargetSpec {
 
   factory CheckRightsTargetSpec.fromMap(Map<String, dynamic> data) => CheckRightsTargetSpec(
         targetType: TargetType.values.firstWhere(
-          (item) => item.name == data['type']?.toString(),
+          (type) => type.name == data['type'],
           orElse: () => TargetType.account,
         ),
         targetBy: TargetBy.values.firstWhere(
-          (item) => item.name == data['by']?.toString(),
+          (by) => by.name == data['by'],
           orElse: () => TargetBy.name,
         ),
         targetKey: data['key'] ?? '',
         rights: (data['right'] is Iterable)
-            ? List.from((data['right'] as Iterable).map<String>((right) => right['_content']))
-            : [],
+            ? (data['right'] as Iterable).map<String>((right) => right['_content']).toList(growable: false)
+            : const [],
       );
 
   Map<String, dynamic> toMap() => {
         'type': targetType.name,
         'by': targetBy.name,
         'key': targetKey,
-        if (rights.isNotEmpty) 'right': rights.map((right) => {'_content': right}).toList(),
+        if (rights.isNotEmpty) 'right': rights.map((right) => {'_content': right}).toList(growable: false),
       };
 }

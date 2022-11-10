@@ -21,14 +21,15 @@ class Signature {
       id: data['id'],
       cid: data['cid'],
       contents: (data['content'] is Iterable)
-          ? List.from(
-              (data['content'] as Iterable).map<SignatureContent>((content) => SignatureContent.fromMap(content)))
-          : []);
+          ? (data['content'] as Iterable)
+              .map<SignatureContent>((content) => SignatureContent.fromMap(content))
+              .toList(growable: false)
+          : const []);
 
   Map<String, dynamic> toMap() => {
         if (name != null) 'name': name,
         if (id != null) 'id': id,
         if (cid != null) 'cid': cid,
-        if (contents.isNotEmpty) 'content': contents.map((content) => content.toMap()).toList(),
+        if (contents.isNotEmpty) 'content': contents.map((content) => content.toMap()).toList(growable: false),
       };
 }

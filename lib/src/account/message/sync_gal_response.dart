@@ -50,10 +50,10 @@ class SyncGalResponse extends SoapResponse {
         fullSyncRecommended: data['fullSyncRecommended'],
         remain: int.tryParse(data['remain']?.toString() ?? ''),
         contacts: (data['cn'] is Iterable)
-            ? List.from((data['cn'] as Iterable).map<ContactInfo>((cn) => ContactInfo.fromMap(cn)))
-            : [],
+            ? (data['cn'] as Iterable).map<ContactInfo>((cn) => ContactInfo.fromMap(cn)).toList(growable: false)
+            : const [],
         deleted: (data['deleted'] is Iterable)
-            ? List.from((data['deleted'] as Iterable).map<Id>((deleted) => Id.fromMap(deleted)))
-            : [],
+            ? (data['deleted'] as Iterable).map<Id>((deleted) => Id.fromMap(deleted)).toList(growable: false)
+            : const [],
       );
 }

@@ -64,9 +64,10 @@ class NewFolderSpec {
       fetchIfExists: data['fie'],
       syncToUrl: data['sync'],
       grants: data['acl']?[0]['grant'] is Iterable
-          ? List.from((data['acl'][0]['grant'] as Iterable)
-              .map<ActionGrantSelector>((grant) => ActionGrantSelector.fromMap(grant)))
-          : []);
+          ? (data['acl'][0]['grant'] as Iterable)
+              .map<ActionGrantSelector>((grant) => ActionGrantSelector.fromMap(grant))
+              .toList(growable: false)
+          : const []);
 
   Map<String, dynamic> toMap() => {
         'name': name,
@@ -80,7 +81,7 @@ class NewFolderSpec {
         if (syncToUrl != null) 'sync': syncToUrl,
         if (grants.isNotEmpty)
           'acl': [
-            {'grant': grants.map((grant) => grant.toMap()).toList()}
+            {'grant': grants.map((grant) => grant.toMap()).toList(growable: false)}
           ],
       };
 }

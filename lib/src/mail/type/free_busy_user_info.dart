@@ -33,27 +33,27 @@ class FreeBusyUserInfo {
 
   factory FreeBusyUserInfo.fromMap(Map<String, dynamic> data) => FreeBusyUserInfo(data['id'] ?? '',
       freeSlots: (data['f'] is Iterable)
-          ? List.from((data['f'] as Iterable).map<FreeBusySlot>((slot) => FreeBusySlot.fromMap(slot)))
-          : [],
+          ? (data['f'] as Iterable).map<FreeBusySlot>((slot) => FreeBusySlot.fromMap(slot)).toList(growable: false)
+          : const [],
       busySlots: (data['b'] is Iterable)
-          ? List.from((data['b'] as Iterable).map<FreeBusySlot>((slot) => FreeBusySlot.fromMap(slot)))
-          : [],
+          ? (data['b'] as Iterable).map<FreeBusySlot>((slot) => FreeBusySlot.fromMap(slot)).toList(growable: false)
+          : const [],
       tentativeSlots: (data['t'] is Iterable)
-          ? List.from((data['t'] as Iterable).map<FreeBusySlot>((slot) => FreeBusySlot.fromMap(slot)))
-          : [],
+          ? (data['t'] as Iterable).map<FreeBusySlot>((slot) => FreeBusySlot.fromMap(slot)).toList(growable: false)
+          : const [],
       unavailableSlots: (data['u'] is Iterable)
-          ? List.from((data['u'] as Iterable).map<FreeBusySlot>((slot) => FreeBusySlot.fromMap(slot)))
-          : [],
+          ? (data['u'] as Iterable).map<FreeBusySlot>((slot) => FreeBusySlot.fromMap(slot)).toList(growable: false)
+          : const [],
       nodataSlots: (data['n'] is Iterable)
-          ? List.from((data['n'] as Iterable).map<FreeBusySlot>((slot) => FreeBusySlot.fromMap(slot)))
+          ? (data['n'] as Iterable).map<FreeBusySlot>((slot) => FreeBusySlot.fromMap(slot)).toList(growable: false)
           : []);
 
   Map<String, dynamic> toMap() => {
         'id': id,
-        if (freeSlots.isNotEmpty) 'f': freeSlots.map((slot) => slot.toMap()).toList(),
-        if (busySlots.isNotEmpty) 'b': busySlots.map((slot) => slot.toMap()).toList(),
-        if (tentativeSlots.isNotEmpty) 't': tentativeSlots.map((slot) => slot.toMap()).toList(),
-        if (unavailableSlots.isNotEmpty) 'u': unavailableSlots.map((slot) => slot.toMap()).toList(),
-        if (nodataSlots.isNotEmpty) 'n': nodataSlots.map((slot) => slot.toMap()).toList(),
+        if (freeSlots.isNotEmpty) 'f': freeSlots.map((slot) => slot.toMap()).toList(growable: false),
+        if (busySlots.isNotEmpty) 'b': busySlots.map((slot) => slot.toMap()).toList(growable: false),
+        if (tentativeSlots.isNotEmpty) 't': tentativeSlots.map((slot) => slot.toMap()).toList(growable: false),
+        if (unavailableSlots.isNotEmpty) 'u': unavailableSlots.map((slot) => slot.toMap()).toList(growable: false),
+        if (nodataSlots.isNotEmpty) 'n': nodataSlots.map((slot) => slot.toMap()).toList(growable: false),
       };
 }

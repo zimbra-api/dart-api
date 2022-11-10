@@ -72,7 +72,7 @@ class AutoCompleteMatch {
   factory AutoCompleteMatch.fromMap(Map<String, dynamic> data) => AutoCompleteMatch(
         email: data['email'],
         matchType: AutoCompleteMatchType.values.firstWhere(
-          (item) => item.name == data['type'],
+          (type) => type.name == data['type'],
           orElse: () => AutoCompleteMatchType.contact,
         ),
         ranking: data['ranking'],

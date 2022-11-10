@@ -131,12 +131,16 @@ class ContactInfo {
       reference: data['ref'],
       tooManyMembers: data['tooManyMembers'],
       metadatas: (data['meta'] is Iterable)
-          ? List.from((data['meta'] as Iterable).map<MailCustomMetadata>((meta) => MailCustomMetadata.fromMap(meta)))
-          : [],
-      attrs: (data['_attrs'] is Map) ? List.from(_attrsFromJson(data['_attrs'] as Map<String, dynamic>)) : [],
+          ? (data['meta'] as Iterable)
+              .map<MailCustomMetadata>((meta) => MailCustomMetadata.fromMap(meta))
+              .toList(growable: false)
+          : const [],
+      attrs: (data['_attrs'] is Map) ? List.from(_attrsFromJson(data['_attrs'] as Map<String, dynamic>)) : const [],
       contactGroupMembers: (data['m'] is Iterable)
-          ? List.from((data['m'] as Iterable).map<ContactGroupMember>((m) => ContactGroupMember.fromMap(m)))
-          : [],
+          ? (data['m'] as Iterable)
+              .map<ContactGroupMember>((m) => ContactGroupMember.fromMap(m))
+              .toList(growable: false)
+          : const [],
       memberOf: data['memberOf']?['_content']);
 
   Map<String, dynamic> toMap() => {
@@ -160,9 +164,9 @@ class ContactInfo {
         if (dlist != null) 'dlist': dlist,
         if (reference != null) 'ref': reference,
         if (tooManyMembers != null) 'tooManyMembers': tooManyMembers,
-        if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toMap()).toList(),
-        if (attrs.isNotEmpty) 'a': attrs.map((a) => a.toMap()).toList(),
-        if (contactGroupMembers.isNotEmpty) 'm': contactGroupMembers.map((m) => m.toMap()).toList(),
+        if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toMap()).toList(growable: false),
+        if (attrs.isNotEmpty) 'a': attrs.map((a) => a.toMap()).toList(growable: false),
+        if (contactGroupMembers.isNotEmpty) 'm': contactGroupMembers.map((m) => m.toMap()).toList(growable: false),
         if (memberOf != null) 'memberOf': {'_content': memberOf},
       };
 
@@ -175,6 +179,6 @@ class ContactInfo {
         attrs.add(ContactAttr(entry.key, value: entry.value));
       }
     }
-    return attrs;
+    return attrs.toList(growable: false);
   }
 }

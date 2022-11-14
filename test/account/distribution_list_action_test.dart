@@ -28,43 +28,43 @@ void main() {
       final member = faker.internet.email();
       final right = faker.lorem.word();
 
-      final dl = DistributionListSelector(DistributionListBy.name, name);
-      final action = DistributionListAction(
-        Operation.modify,
-        newName: newName,
-        subsReq: DistributionListSubscribeReq(
-          op: DistributionListSubscribeOp.subscribe,
-          value: value,
-          bccOwners: bccOwners,
-        ),
-        members: [member],
-        owners: [
-          DistributionListGranteeSelector(
-            type: GranteeType.usr,
-            by: DistributionListGranteeBy.name,
-            value: value,
-          )
-        ],
-        rights: [
-          DistributionListRightSpec(
-            right,
-            grantees: [
+      final request = DistributionListActionRequest(
+          DistributionListSelector(DistributionListBy.name, name),
+          DistributionListAction(
+            Operation.modify,
+            newName: newName,
+            subsReq: DistributionListSubscribeReq(
+              op: DistributionListSubscribeOp.subscribe,
+              value: value,
+              bccOwners: bccOwners,
+            ),
+            members: [member],
+            owners: [
               DistributionListGranteeSelector(
                 type: GranteeType.usr,
                 by: DistributionListGranteeBy.name,
                 value: value,
               )
             ],
-          )
-        ],
-        keyValuePairs: [
-          KeyValuePair(
-            key,
-            value: value,
-          )
-        ],
-      );
-      final request = DistributionListActionRequest(dl, action);
+            rights: [
+              DistributionListRightSpec(
+                right,
+                grantees: [
+                  DistributionListGranteeSelector(
+                    type: GranteeType.usr,
+                    by: DistributionListGranteeBy.name,
+                    value: value,
+                  )
+                ],
+              )
+            ],
+            keyValuePairs: [
+              KeyValuePair(
+                key,
+                value: value,
+              )
+            ],
+          ));
       expect(request.getEnvelope().toMap(), {
         'Body': {
           'DistributionListActionRequest': {

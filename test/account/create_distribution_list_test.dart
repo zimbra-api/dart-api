@@ -69,9 +69,9 @@ void main() {
       };
       final envelope = CreateDistributionListEnvelope.fromMap(data);
       final response = envelope.body.response as CreateDistributionListResponse;
-      final dl = response.dl;
+      final dl = response.dl!;
 
-      expect(dl!.name, name);
+      expect(dl.name, name);
       expect(dl.id, id);
       expect(dl.ref, ref);
       expect(dl.displayName, displayName);

@@ -37,7 +37,6 @@ void main() {
       final envelope = GetAvailableCsvFormatsEnvelope.fromMap(data);
       final response = envelope.body.response as GetAvailableCsvFormatsResponse;
       final csv = response.csvFormats.first;
-
       expect(csv.name, name);
     }));
   }));

@@ -57,7 +57,6 @@ void main() {
       };
       final envelope = GetAccountInfoEnvelope.fromMap(data);
       final response = envelope.body.response as GetAccountInfoResponse;
-      final attr = response.attrs.first;
 
       expect(response.name, email);
       expect(response.soapURL, soapURL);
@@ -66,6 +65,8 @@ void main() {
       expect(response.communityURL, communityURL);
       expect(response.adminURL, adminURL);
       expect(response.boshURL, boshURL);
+
+      final attr = response.attrs.first;
       expect(attr.name, name);
       expect(attr.value, value);
     }));

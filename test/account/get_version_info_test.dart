@@ -22,7 +22,7 @@ void main() {
     test(' Get version info resonse', (() {
       final fullVersion = faker.lorem.word();
       final release = faker.lorem.word();
-      final date = faker.date.dateTime().toString();
+      final buildDate = faker.date.dateTime().toString();
       final host = faker.internet.ipv4Address();
 
       final data = {
@@ -32,7 +32,7 @@ void main() {
             'info': {
               'version': fullVersion,
               'release': release,
-              'buildDate': date,
+              'buildDate': buildDate,
               'host': host,
             },
           }
@@ -44,7 +44,7 @@ void main() {
 
       expect(versionInfo.fullVersion, fullVersion);
       expect(versionInfo.release, release);
-      expect(versionInfo.date, date);
+      expect(versionInfo.date, buildDate);
       expect(versionInfo.host, host);
     }));
   }));

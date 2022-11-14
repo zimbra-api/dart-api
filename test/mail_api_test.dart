@@ -10,27 +10,29 @@ import 'package:zimbra_api/src/mail/type/msg.dart';
 import 'package:zimbra_api/src/mail_api.dart';
 
 void main() {
-  final faker = Faker();
+  // final faker = Faker();
 
   group('Mail api tests', (() {
     test('Add pppointment invite', (() async {
-      final api = MailApi(
-        faker.internet.domainName(),
-        httpClientFactory: () => MockClient((request) async {
-          return http.Response(
-              jsonEncode({
-                'Body': {
-                  'AddAppointmentInviteResponse': {
-                    '_jsns': 'urn:zimbraMail',
-                  },
-                },
-              }),
-              200);
-        }),
-      );
+      final api = mockApi({
+        'Body': {
+          'AddAppointmentInviteResponse': {
+            '_jsns': 'urn:zimbraMail',
+          },
+        },
+      });
 
       final response = await api.addAppointmentInvite(ParticipationStatus.accept, Msg());
       expect(response, isA<AddAppointmentInviteResponse>());
     }));
   }));
+}
+
+MailApi mockApi(Map<String, dynamic> responseData) {
+  return MailApi(
+    Faker().internet.domainName(),
+    httpClientFactory: () => MockClient((request) async {
+      return http.Response(jsonEncode(responseData), 200);
+    }),
+  );
 }

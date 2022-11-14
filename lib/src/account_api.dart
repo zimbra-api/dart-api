@@ -205,8 +205,12 @@ class AccountApi extends Api {
   /// End the current session, removing it from all caches.
   /// Called when the browser app (or other session-using app) shuts down.
   /// Has no effect if called in a <nosession> context.
-  Future<EndSessionResponse?> endSession(
-      {bool? logoff, bool? clearAllSoapSessions, bool? excludeCurrentSession, String? sessionId}) {
+  Future<EndSessionResponse?> endSession({
+    bool? logoff,
+    bool? clearAllSoapSessions,
+    bool? excludeCurrentSession,
+    String? sessionId,
+  }) {
     return invoke(
         EndSessionRequest(
           logoff: logoff,
@@ -221,8 +225,11 @@ class AccountApi extends Api {
   /// Notes:
   ///   - isOwner is returned only if ownerOf on the request is 1 (true).
   ///   - isMember is returned only if memberOf on the request is not "none".
-  Future<GetAccountDistributionListsResponse?> getAccountDistributionLists(
-      {bool? ownerOf, MemberOfSelector? memberOf, String? attrs}) {
+  Future<GetAccountDistributionListsResponse?> getAccountDistributionLists({
+    bool? ownerOf,
+    MemberOfSelector? memberOf,
+    String? attrs,
+  }) {
     return invoke(
       GetAccountDistributionListsRequest(
         ownerOf: ownerOf,

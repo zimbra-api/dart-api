@@ -37,12 +37,9 @@ void main() {
         'Body': {
           'ClientInfoResponse': {
             '_jsns': 'urn:zimbraAccount',
-            'a': [
-              {
-                'n': key,
-                '_content': value,
-              },
-            ],
+            '_attrs': {
+              key: value,
+            },
           },
         },
       };

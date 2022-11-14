@@ -2,17 +2,16 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
-import 'package:zimbra_api/src/common/type/attr.dart';
+import 'package:zimbra_api/src/common/type/key_value_pair.dart';
+import 'package:zimbra_api/src/common/type/key_value_pairs.dart';
 import 'package:zimbra_api/src/common/type/soap_response.dart';
 
 class ClientInfoResponse extends SoapResponse {
   /// Attributes
-  final List<Attr> attrs;
+  final List<KeyValuePair> attrs;
 
   ClientInfoResponse({this.attrs = const []});
 
   factory ClientInfoResponse.fromMap(Map<String, dynamic> data) => ClientInfoResponse(
-      attrs: (data['a'] is Iterable)
-          ? (data['a'] as Iterable).map<Attr>((a) => Attr.fromMap(a)).toList(growable: false)
-          : const []);
+      attrs: KeyValuePairs.keyValuePairsFromMap(data));
 }

@@ -10,9 +10,11 @@ void main() {
 
   final client = Client('mail.domain.com');
   client.upload(Request('requestId', 'authToken', files)).then((attachments) {
-    for (var attachment in attachments) {
-      print(
-          'attachmentId: ${attachment.attachmentId}, fileName: ${attachment.fileName}, contentType: ${attachment.contentType}, size: ${attachment.size}');
+    for (final attachment in attachments) {
+      print('Attachment id: ${attachment.attachmentId}');
+      print('File name: ${attachment.fileName}');
+      print('Content type: ${attachment.contentType}');
+      print('Size: ${attachment.size}');
     }
   });
 }

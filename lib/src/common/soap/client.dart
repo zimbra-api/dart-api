@@ -52,5 +52,9 @@ extension ResponseExtension on http.Response {
 
   bool get success => !hasError;
 
-  Map<String, dynamic> get mapData => convert.jsonDecode(body);
+  bool get isJson =>
+      (headers['content-type'] ?? '').contains('text/javascript') ||
+      (headers['content-type'] ?? '').contains('application/json');
+
+  Map<String, dynamic> get mapData => isJson ? convert.jsonDecode(body) : {};
 }

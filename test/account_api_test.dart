@@ -2116,7 +2116,11 @@ AccountApi mockApi(Map<String, dynamic> responseData) {
   return AccountApi(
     Faker().internet.domainName(),
     httpClientFactory: () => MockClient((request) async {
-      return http.Response(jsonEncode(responseData), 200);
+      return http.Response(
+        jsonEncode(responseData),
+        200,
+        headers: {'content-type': 'text/javascript; charset=utf-8'},
+      );
     }),
   );
 }

@@ -71,8 +71,8 @@ void main() {
         }
       };
       final envelope = GetNoteEnvelope.fromMap(data);
-      final respnose = envelope.body.response as GetNoteResponse;
-      final note = respnose.note!;
+      final response = envelope.body.response as GetNoteResponse;
+      final note = response.note!;
 
       expect(note.id, id);
       expect(note.revision, revision);

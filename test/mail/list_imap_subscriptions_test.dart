@@ -35,9 +35,7 @@ void main() {
       };
       final envelope = ListIMAPSubscriptionsEnvelope.fromMap(data);
       final response = envelope.body.response as ListIMAPSubscriptionsResponse;
-
-      expect(response.subscriptions.first, sub1);
-      expect(response.subscriptions.last, sub2);
+      expect(response.subscriptions, [sub1, sub2]);
     }));
   }));
 }

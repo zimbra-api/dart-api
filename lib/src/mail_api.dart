@@ -42,8 +42,8 @@ class MailApi extends AccountApi {
   /// If an appointment with the same UID exists, the appointment is updated with the new invite only
   /// if the invite is not outdated, according to the iCalendar sequencing rule
   /// (based on SEQUENCE, RECURRENCE-ID and DTSTAMP).
-  Future<AddAppointmentInviteResponse?> addAppointmentInvite(ParticipationStatus? partStat, Msg? msg) {
-    return invoke(AddAppointmentInviteRequest(partStat: partStat, msg: msg),
+  Future<AddAppointmentInviteResponse?> addAppointmentInvite(Msg msg, {ParticipationStatus? partStat}) {
+    return invoke(AddAppointmentInviteRequest(msg, partStat: partStat),
         fromMap: (data) => AddAppointmentInviteEnvelope.fromMap(data).body.response as AddAppointmentInviteResponse?);
   }
 
@@ -61,8 +61,8 @@ class MailApi extends AccountApi {
   }
 
   /// Add a task invite
-  Future<AddTaskInviteResponse?> addTaskInvite(ParticipationStatus? partStat, Msg? msg) {
-    return invoke(AddTaskInviteRequest(partStat: partStat, msg: msg),
+  Future<AddTaskInviteResponse?> addTaskInvite(Msg msg, {ParticipationStatus? partStat}) {
+    return invoke(AddTaskInviteRequest(msg, partStat: partStat),
         fromMap: (data) => AddTaskInviteEnvelope.fromMap(data).body.response as AddTaskInviteResponse?);
   }
 
@@ -77,8 +77,11 @@ class MailApi extends AccountApi {
   /// One or the other can be specified, but not both.
   /// Returns the list of ids of existing messages that were affected.
   /// Note that redirect actions are ignored when applying filter rules to existing messages.
-  Future<ApplyFilterRulesResponse?> applyFilterRules(
-      {List<NamedElement> filterRules = const [], IdsAttr? msgIds, String? query}) {
+  Future<ApplyFilterRulesResponse?> applyFilterRules({
+    List<NamedElement> filterRules = const [],
+    IdsAttr? msgIds,
+    String? query,
+  }) {
     return invoke(ApplyFilterRulesRequest(filterRules: filterRules, msgIds: msgIds, query: query),
         fromMap: (data) => ApplyFilterRulesEnvelope.fromMap(data).body.response as ApplyFilterRulesResponse?);
   }
@@ -87,16 +90,24 @@ class MailApi extends AccountApi {
   /// One or the other can be specified, but not both.
   /// Returns the list of ids of existing messages that were affected.
   /// Note that redirect actions are ignored when applying filter rules to existing messages.
-  Future<ApplyOutgoingFilterRulesResponse?> applyOutgoingFilterRules(
-      {List<NamedElement> filterRules = const [], IdsAttr? msgIds, String? query}) {
+  Future<ApplyOutgoingFilterRulesResponse?> applyOutgoingFilterRules({
+    List<NamedElement> filterRules = const [],
+    IdsAttr? msgIds,
+    String? query,
+  }) {
     return invoke(ApplyOutgoingFilterRulesRequest(filterRules: filterRules, msgIds: msgIds, query: query),
         fromMap: (data) =>
             ApplyOutgoingFilterRulesEnvelope.fromMap(data).body.response as ApplyOutgoingFilterRulesResponse?);
   }
 
   /// Auto complete
-  Future<AutoCompleteResponse?> autoComplete(String name,
-      {GalSearchType? type, bool? needCanExpand, String? folderList, bool? includeGal}) {
+  Future<AutoCompleteResponse?> autoComplete(
+    String name, {
+    GalSearchType? type,
+    bool? needCanExpand,
+    String? folderList,
+    bool? includeGal,
+  }) {
     return invoke(
         AutoCompleteRequest(
           name,
@@ -220,7 +231,7 @@ class MailApi extends AccountApi {
   }
 
   /// Complete a task instance
-  Future<CompleteTaskInstanceResponse?> completeTaskInstance(String id, DtTimeInfo exceptionId, CalTZInfo? timezone) {
+  Future<CompleteTaskInstanceResponse?> completeTaskInstance(String id, DtTimeInfo exceptionId, {CalTZInfo? timezone}) {
     return invoke(CompleteTaskInstanceRequest(id, exceptionId, timezone: timezone),
         fromMap: (data) => CompleteTaskInstanceEnvelope.fromMap(data).body.response as CompleteTaskInstanceResponse?);
   }
@@ -241,8 +252,13 @@ class MailApi extends AccountApi {
   /// Sent by meeting attendee to organizer.
   /// The syntax is very similar to CreateAppointmentRequest.
   /// Should include an <inv> element which encodes an iCalendar COUNTER object
-  Future<CounterAppointmentResponse?> counterAppointment(
-      {String? id, int? componentNum, int? modifiedSequence, int? revision, Msg? msg}) {
+  Future<CounterAppointmentResponse?> counterAppointment({
+    String? id,
+    int? componentNum,
+    int? modifiedSequence,
+    int? revision,
+    Msg? msg,
+  }) {
     return invoke(
         CounterAppointmentRequest(
           id: id,
@@ -284,8 +300,14 @@ class MailApi extends AccountApi {
   }
 
   /// This is the API to create a new appointment, optionally sending out meeting onvitations to other people.
-  Future<CreateAppointmentResponse?> createAppointment(
-      {bool? echo, int? maxSize, bool? wantHtml, bool? neuter, bool? forceSend, Msg? msg}) {
+  Future<CreateAppointmentResponse?> createAppointment({
+    bool? echo,
+    int? maxSize,
+    bool? wantHtml,
+    bool? neuter,
+    bool? forceSend,
+    Msg? msg,
+  }) {
     return invoke(
         CreateAppointmentRequest(
           echo: echo,
@@ -299,8 +321,12 @@ class MailApi extends AccountApi {
   }
 
   /// Create a contact
-  Future<CreateContactResponse?> createContact(ContactSpec contact,
-      {bool? verbose, bool? wantImapUid, bool? wantModifiedSequence}) {
+  Future<CreateContactResponse?> createContact(
+    ContactSpec contact, {
+    bool? verbose,
+    bool? wantImapUid,
+    bool? wantModifiedSequence,
+  }) {
     return invoke(
         CreateContactRequest(
           contact,
@@ -361,6 +387,12 @@ class MailApi extends AccountApi {
         fromMap: (data) => CreateSearchFolderEnvelope.fromMap(data).body.response as CreateSearchFolderResponse?);
   }
 
+  /// Create a tag
+  Future<CreateTagResponse?> createTag(TagSpec tag) {
+    return invoke(CreateTagRequest(tag),
+        fromMap: (data) => CreateTagEnvelope.fromMap(data).body.response as CreateTagResponse?);
+  }
+
   /// Create task exception.
   Future<CreateTaskExceptionResponse?> createTaskException(
       {String? id,
@@ -390,8 +422,14 @@ class MailApi extends AccountApi {
   }
 
   /// This is the API to create a new task
-  Future<CreateTaskResponse?> createTask(
-      {bool? echo, int? maxSize, bool? wantHtml, bool? neuter, bool? forceSend, Msg? msg}) {
+  Future<CreateTaskResponse?> createTask({
+    bool? echo,
+    int? maxSize,
+    bool? wantHtml,
+    bool? neuter,
+    bool? forceSend,
+    Msg? msg,
+  }) {
     return invoke(
         CreateTaskRequest(
           echo: echo,
@@ -407,8 +445,11 @@ class MailApi extends AccountApi {
   /// Create a waitset to listen for changes on one or more accounts
   /// Called once to initialize a WaitSet and to set its "default interest types"
   /// WaitSet: scalable mechanism for listening for changes to one or more accounts
-  Future<CreateWaitSetResponse?> createWaitSet(
-      {String? defaultInterests, bool? allAccounts, List<WaitSetAddSpec> accounts = const []}) {
+  Future<CreateWaitSetResponse?> createWaitSet({
+    String? defaultInterests,
+    bool? allAccounts,
+    List<WaitSetAddSpec> accounts = const [],
+  }) {
     return invoke(
         CreateWaitSetRequest(
           defaultInterests: defaultInterests,
@@ -470,8 +511,10 @@ class MailApi extends AccountApi {
   }
 
   /// Dismiss calendar item alarm
-  Future<DismissCalendarItemAlarmResponse?> dismissCalendarItemAlarm(
-      {List<DismissAlarm> apptAlarms = const [], List<DismissAlarm> taskAlarms = const []}) {
+  Future<DismissCalendarItemAlarmResponse?> dismissCalendarItemAlarm({
+    List<DismissAlarm> apptAlarms = const [],
+    List<DismissAlarm> taskAlarms = const [],
+  }) {
     return invoke(DismissCalendarItemAlarmRequest(apptAlarms: apptAlarms, taskAlarms: taskAlarms),
         fromMap: (data) =>
             DismissCalendarItemAlarmEnvelope.fromMap(data).body.response as DismissCalendarItemAlarmResponse?);
@@ -620,6 +663,25 @@ class MailApi extends AccountApi {
         fromMap: (data) => FolderActionEnvelope.fromMap(data).body.response as FolderActionResponse?);
   }
 
+  /// Used by an attendee to forward an appointment invite email to another user who is not already an attendee.
+  /// To forward an appointment item, use ForwardAppointmentRequest instead.
+  Future<ForwardAppointmentInviteResponse?> forwardAppointmentInvite({String? id, Msg? msg}) {
+    return invoke(ForwardAppointmentInviteRequest(id: id, msg: msg),
+        fromMap: (data) =>
+            ForwardAppointmentInviteEnvelope.fromMap(data).body.response as ForwardAppointmentInviteResponse?);
+  }
+
+  /// Used by an attendee to forward an instance or entire appointment to another user who is not already an attendee.
+  Future<ForwardAppointmentResponse?> forwardAppointment({
+    String? id,
+    DtTimeInfo? exceptionId,
+    CalTZInfo? timezone,
+    Msg? msg,
+  }) {
+    return invoke(ForwardAppointmentRequest(id: id, exceptionId: exceptionId, timezone: timezone, msg: msg),
+        fromMap: (data) => ForwardAppointmentEnvelope.fromMap(data).body.response as ForwardAppointmentResponse?);
+  }
+
   /// Ajax client can use this request to ask the server for help in generating a proper, globally unique UUID.
   Future<GenerateUUIDResponse?> generateUUID() {
     return invoke(GenerateUUIDRequest(),
@@ -628,8 +690,13 @@ class MailApi extends AccountApi {
 
   /// Get appointment.
   /// Returns the metadata info for each invite that makes up this appointment.
-  Future<GetAppointmentResponse?> getAppointment(
-      {String? uid, String? id, bool? sync, bool? includeContent, bool? includeInvites}) {
+  Future<GetAppointmentResponse?> getAppointment({
+    String? uid,
+    String? id,
+    bool? sync,
+    bool? includeContent,
+    bool? includeInvites,
+  }) {
     return invoke(
         GetAppointmentRequest(
           uid: uid,
@@ -767,8 +834,14 @@ class MailApi extends AccountApi {
   /// If {fully-qualified-path} is present and {base-folder-id} or {base-folder-uuid} is also present,
   /// the path is treated as relative to the folder that was specified by id/uuid.
   /// {base-folder-id} is ignored if {base-folder-uuid} is present.
-  Future<GetFolderResponse?> getFolder(GetFolderSpec folder,
-      {bool? isVisible, bool? needGranteeName, String? viewConstraint, int? treeDepth, bool? traverseMountpoints}) {
+  Future<GetFolderResponse?> getFolder(
+    GetFolderSpec folder, {
+    bool? isVisible,
+    bool? needGranteeName,
+    String? viewConstraint,
+    int? treeDepth,
+    bool? traverseMountpoints,
+  }) {
     return invoke(
         GetFolderRequest(
           folder,
@@ -784,8 +857,15 @@ class MailApi extends AccountApi {
   /// Get Free/Busy information.
   /// For freebusyUsers listed using uid,id or name attributes, f/b search will be done for all calendar folders.
   /// To view free/busy for a single folder in a particular account, use <usr>
-  Future<GetFreeBusyResponse?> getFreeBusy(int startTime, int endTime,
-      {String? uid, String? id, String? name, String? excludeUid, List<FreeBusyUserSpec> freebusyUsers = const []}) {
+  Future<GetFreeBusyResponse?> getFreeBusy(
+    int startTime,
+    int endTime, {
+    String? uid,
+    String? id,
+    String? name,
+    String? excludeUid,
+    List<FreeBusyUserSpec> freebusyUsers = const [],
+  }) {
     return invoke(
         GetFreeBusyRequest(
           startTime,
@@ -854,8 +934,12 @@ class MailApi extends AccountApi {
   /// Date is returned if there is at least one appointment on that date.
   /// The date computation uses the requesting (authenticated) account's time zone,
   /// not the time zone of the account that owns the calendar folder.
-  Future<GetMiniCalResponse?> getMiniCal(int startTime, int endTime,
-      {List<Id> folders = const [], CalTZInfo? timezone}) {
+  Future<GetMiniCalResponse?> getMiniCal(
+    int startTime,
+    int endTime, {
+    List<Id> folders = const [],
+    CalTZInfo? timezone,
+  }) {
     return invoke(
         GetMiniCalRequest(
           startTime,
@@ -942,7 +1026,13 @@ class MailApi extends AccountApi {
 
   /// Get task
   /// Similar to GetAppointmentRequest/GetAppointmentResponse
-  Future<GetTaskResponse?> getTask({String? uid, String? id, bool? sync, bool? includeContent, bool? includeInvites}) {
+  Future<GetTaskResponse?> getTask({
+    String? uid,
+    String? id,
+    bool? sync,
+    bool? includeContent,
+    bool? includeInvites,
+  }) {
     return invoke(
         GetTaskRequest(
           uid: uid,
@@ -1001,8 +1091,11 @@ class MailApi extends AccountApi {
   }
 
   /// Import appointments
-  Future<ImportAppointmentsResponse?> importAppointments(ContentSpec content,
-      {String contentType = 'text/calendar', String? folderId}) {
+  Future<ImportAppointmentsResponse?> importAppointments(
+    ContentSpec content, {
+    String contentType = 'text/calendar',
+    String? folderId,
+  }) {
     return invoke(
         ImportAppointmentsRequest(
           content,
@@ -1013,8 +1106,13 @@ class MailApi extends AccountApi {
   }
 
   /// Import contacts
-  Future<ImportContactsResponse?> importContacts(Content content,
-      {String contentType = 'text/csv', String? folderId, String? csvFormat, String? csvLocale}) {
+  Future<ImportContactsResponse?> importContacts(
+    Content content, {
+    String contentType = 'text/csv',
+    String? folderId,
+    String? csvFormat,
+    String? csvLocale,
+  }) {
     return invoke(
         ImportContactsRequest(
           content,
@@ -1116,8 +1214,13 @@ class MailApi extends AccountApi {
   /// Modify contact
   /// When modifying tags, all specified tags are set and all others are unset.
   /// If tn="{tag-names}" is NOT specified then any existing tags will remain set.
-  Future<ModifyContactResponse?> modifyContact(ModifyContactSpec contact,
-      {bool? replace, bool? verbose, bool? wantImapUid, bool? wantModifiedSequence}) {
+  Future<ModifyContactResponse?> modifyContact(
+    ModifyContactSpec contact, {
+    bool? replace,
+    bool? verbose,
+    bool? wantImapUid,
+    bool? wantModifiedSequence,
+  }) {
     return invoke(
         ModifyContactRequest(
           contact,
@@ -1251,7 +1354,12 @@ class MailApi extends AccountApi {
   /// The client may specify a custom timeout-length for their request if they know something about the particular
   /// underlying network.  The server may or may not honor this request (depending on server configured max/min values:
   /// see LocalConfig variables zimbra_noop_default_timeout, zimbra_noop_min_timeout and zimbra_noop_max_timeout)
-  Future<NoOpResponse?> noOp({bool? wait, bool? includeDelegates, bool? enforceLimit, int? timeout}) {
+  Future<NoOpResponse?> noOp({
+    bool? wait,
+    bool? includeDelegates,
+    bool? enforceLimit,
+    int? timeout,
+  }) {
     return invoke(
         NoOpRequest(
           wait: wait,
@@ -1611,8 +1719,12 @@ class MailApi extends AccountApi {
 
   /// Send share notification
   /// The client can list the recipient email addresses for the share, along with the itemId of the item being shared.
-  Future<SendShareNotificationResponse?> sendShareNotification(Id item,
-      {List<EmailAddrInfo> emailAddresses = const [], ShareAction? action, String? notes}) {
+  Future<SendShareNotificationResponse?> sendShareNotification(
+    Id item, {
+    List<EmailAddrInfo> emailAddresses = const [],
+    ShareAction? action,
+    String? notes,
+  }) {
     return invoke(
         SendShareNotificationRequest(
           item,
@@ -1681,8 +1793,11 @@ class MailApi extends AccountApi {
 
   /// Set recover account
   Future<SetRecoveryAccountResponse?> setRecoveryAccount(
-      RecoveryAccountOperation operation, String recoveryAccount, String verificationCode,
-      {Channel? channel}) {
+    RecoveryAccountOperation operation,
+    String recoveryAccount,
+    String verificationCode, {
+    Channel? channel,
+  }) {
     return invoke(
         SetRecoveryAccountRequest(
           operation,

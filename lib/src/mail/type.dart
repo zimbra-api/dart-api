@@ -60,4 +60,5 @@ export 'type/set_calendar_item_info.dart';
 export 'type/shared_reminder_mount.dart';
 export 'type/snooze_alarm.dart';
 export 'type/tag_action_selector.dart';
+export 'type/tag_spec.dart';
 export 'type/target_spec.dart';

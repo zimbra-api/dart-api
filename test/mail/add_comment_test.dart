@@ -42,7 +42,6 @@ void main() {
       final envelope = AddCommentEnvelope.fromMap(data);
       final response = envelope.body.response as AddCommentResponse;
       final comment = response.comment!;
-
       expect(comment.id, id);
     });
   }));

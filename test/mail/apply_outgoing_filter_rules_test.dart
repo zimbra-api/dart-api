@@ -9,8 +9,8 @@ import 'package:zimbra_api/src/mail/type/ids_attr.dart';
 void main() {
   final faker = Faker();
 
-  group('Apply filter rules test', (() {
-    test('Apply filter rules request', (() {
+  group('Apply outgoing filter rules tests', (() {
+    test('Apply outgoing filter rules request', (() {
       final name = faker.lorem.word();
       final ids = faker.lorem.words(3).join(',');
       final query = faker.lorem.word();
@@ -42,7 +42,7 @@ void main() {
       });
     }));
 
-    test('Apply filter rules response', (() {
+    test('Apply outgoing filter rules response', (() {
       final ids = faker.lorem.words(3).join(',');
       final data = {
         'Body': {

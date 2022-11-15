@@ -7,8 +7,8 @@ import 'package:zimbra_api/src/mail/message/get_yahoo_auth_token_response.dart';
 void main() {
   final faker = Faker();
 
-  group('Get Yahoo Auth Token tests', (() {
-    test('Get Yahoo Auth Token request', (() {
+  group('Get Yahoo auth token tests', (() {
+    test('Get Yahoo auth token request', (() {
       final user = faker.internet.userName();
       final password = faker.internet.password();
       final request = GetYahooAuthTokenRequest(user, password);
@@ -23,7 +23,7 @@ void main() {
       });
     }));
 
-    test('Get Yahoo Auth Token response', (() {
+    test('Get Yahoo auth token response', (() {
       final failed = faker.randomGenerator.boolean();
       final data = {
         'Body': {

@@ -56,8 +56,8 @@ void main() {
         }
       };
       final envelope = GetShareNotificationsEnvelope.fromMap(data);
-      final respnse = envelope.body.response as GetShareNotificationsResponse;
-      final share = respnse.shares.first;
+      final response = envelope.body.response as GetShareNotificationsResponse;
+      final share = response.shares.first;
 
       expect(share.status, status);
       expect(share.id, id);

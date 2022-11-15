@@ -9,7 +9,7 @@ import 'package:zimbra_api/src/mail/type/ids_attr.dart';
 void main() {
   final faker = Faker();
 
-  group('Apply filter rules test', (() {
+  group('Apply filter rules tests', (() {
     test('Apply filter rules request', (() {
       final name = faker.lorem.word();
       final ids = faker.lorem.words(3).join(',');

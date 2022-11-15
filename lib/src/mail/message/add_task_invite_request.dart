@@ -11,7 +11,7 @@ import 'add_task_invite_envelope.dart';
 
 /// Add a task invite
 class AddTaskInviteRequest extends AddAppointmentInviteRequest {
-  AddTaskInviteRequest({super.partStat, super.msg});
+  AddTaskInviteRequest(super.msg, {super.partStat});
 
   @override
   SoapEnvelope getEnvelope({SoapHeader? header}) =>
@@ -21,6 +21,6 @@ class AddTaskInviteRequest extends AddAppointmentInviteRequest {
   Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
         if (partStat != null) 'ptst': partStat!.name,
-        if (msg != null) 'm': msg!.toMap(),
+        'm': msg.toMap(),
       };
 }

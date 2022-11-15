@@ -1014,7 +1014,7 @@ void main() {
       });
     }));
 
-    test('Modify appointment response', (() {
+    test('Modify task response', (() {
       final id = faker.guid.guid();
       final uid = faker.guid.guid();
       final name = faker.lorem.word();

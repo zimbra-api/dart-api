@@ -9,7 +9,7 @@ import 'package:zimbra_api/src/mail/type/mail_custom_metadata.dart';
 void main() {
   final faker = Faker();
 
-  group('Modify mailbox metadata test', (() {
+  group('Modify mailbox metadata tests', (() {
     test('Modify mailbox metadata request', (() {
       final section = faker.lorem.word();
       final key = faker.lorem.word();

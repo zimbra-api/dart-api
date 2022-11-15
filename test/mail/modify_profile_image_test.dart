@@ -7,7 +7,7 @@ import 'package:zimbra_api/src/mail/message/modify_profile_image_response.dart';
 void main() {
   final faker = Faker();
 
-  group('Modify profile image test', (() {
+  group('Modify profile image tests', (() {
     test('Modify profile image request', (() {
       final uploadId = faker.guid.guid();
       final imageB64Data = faker.lorem.word();

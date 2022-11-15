@@ -125,7 +125,7 @@ void main() {
       };
       final envelope = GetMiniCalEnvelope.fromMap(data);
       final response = envelope.body.response as GetMiniCalResponse;
-      expect(response.busyDates.first, busyDate);
+      expect(response.busyDates, [busyDate]);
 
       final error = response.errors.first;
       expect(error.id, id);

@@ -173,8 +173,7 @@ void main() {
       final changes = faker.lorem.words(3).join(',');
 
       final request = AddAppointmentInviteRequest(
-        partStat: partStat,
-        msg: Msg(
+        Msg(
           attachmentId: attachmentId,
           origId: origId,
           replyType: ReplyType.replied,
@@ -482,6 +481,7 @@ void main() {
           ],
           fragment: fragment,
         ),
+        partStat: partStat,
       );
 
       expect(request.getEnvelope().toMap(), {

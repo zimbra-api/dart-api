@@ -9,7 +9,7 @@ import 'package:zimbra_api/src/mail/message/get_permission_request.dart';
 void main() {
   final faker = Faker();
 
-  group('Get permissions test', (() {
+  group('Get permissions tests', (() {
     test('Get permissions request', (() {
       final right = faker.lorem.word();
       final request = GetPermissionRequest(aces: [Right(right: right)]);

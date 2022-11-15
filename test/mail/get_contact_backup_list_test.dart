@@ -41,8 +41,7 @@ void main() {
       };
       final envelope = GetContactBackupListEnvelope.fromMap(data);
       final response = envelope.body.response as GetContactBackupListResponse;
-      expect(response.backups.first, backup1);
-      expect(response.backups.last, backup2);
+      expect(response.backups, [backup1, backup2]);
     }));
   }));
 }

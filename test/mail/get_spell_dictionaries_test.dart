@@ -36,8 +36,7 @@ void main() {
       };
       final envelope = GetSpellDictionariesEnvelope.fromMap(data);
       final response = envelope.body.response as GetSpellDictionariesResponse;
-      expect(response.dictionaries.first, dictionary1);
-      expect(response.dictionaries.last, dictionary2);
+      expect(response.dictionaries, [dictionary1, dictionary2]);
     }));
   }));
 }

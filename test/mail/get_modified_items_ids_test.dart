@@ -39,8 +39,7 @@ void main() {
       };
       final envelope = GetModifiedItemsIDsEnvelope.fromMap(data);
       final response = envelope.body.response as GetModifiedItemsIDsResponse;
-      expect(response.ids.first, id1);
-      expect(response.ids.last, id2);
+      expect(response.ids, [id1, id2]);
     }));
   }));
 }

@@ -7,8 +7,8 @@ import 'package:zimbra_api/src/mail/message/ical_reply_response.dart';
 void main() {
   final faker = Faker();
 
-  group('iCalendar Reply tests', (() {
-    test('iCalendar Reply request', (() {
+  group('iCalendar reply tests', (() {
+    test('iCalendar reply request', (() {
       final ical = faker.lorem.word();
       final request = ICalReplyRequest(ical);
       expect(request.getEnvelope().toMap(), {
@@ -21,7 +21,7 @@ void main() {
       });
     }));
 
-    test('iCalendar Reply response', (() {
+    test('iCalendar reply response', (() {
       final data = {
         'Body': {
           'ICalReplyResponse': {

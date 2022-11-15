@@ -9,8 +9,8 @@ import 'package:zimbra_api/src/mail/type/mail_custom_metadata.dart';
 void main() {
   final faker = Faker();
 
-  group('Set custom metadata tests', (() {
-    test('Set custom metadata request', (() {
+  group('Set mailbox metadata tests', (() {
+    test('Set mailbox metadata request', (() {
       final section = faker.lorem.word();
       final key = faker.lorem.word();
       final value = faker.lorem.word();
@@ -39,7 +39,7 @@ void main() {
       });
     }));
 
-    test('Set custom metadata response', (() {
+    test('Set mailbox metadata response', (() {
       final data = {
         'Body': {
           'SetMailboxMetadataResponse': {

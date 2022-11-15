@@ -25,9 +25,9 @@ class AddAppointmentInviteRequest extends SoapRequest {
   final ParticipationStatus? partStat;
 
   /// Message
-  final Msg? msg;
+  final Msg msg;
 
-  AddAppointmentInviteRequest({this.partStat, this.msg});
+  AddAppointmentInviteRequest(this.msg, {this.partStat});
 
   @override
   SoapEnvelope getEnvelope({SoapHeader? header}) =>
@@ -37,6 +37,6 @@ class AddAppointmentInviteRequest extends SoapRequest {
   Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
         if (partStat != null) 'ptst': partStat!.name,
-        if (msg != null) 'm': msg!.toMap(),
+        'm': msg.toMap(),
       };
 }

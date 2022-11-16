@@ -3759,32 +3759,34 @@ void main() {
                   'types': types,
                 }
               ],
-              'retentionPolicy': {
-                'keep': [
-                  {
-                    'policy': [
-                      {
-                        'type': PolicyType.user.name,
-                        'id': id,
-                        'name': name,
-                        'lifetime': lifetime,
-                      }
-                    ],
-                  }
-                ],
-                'purge': [
-                  {
-                    'policy': [
-                      {
-                        'type': PolicyType.user.name,
-                        'id': id,
-                        'name': name,
-                        'lifetime': lifetime,
-                      }
-                    ],
-                  }
-                ],
-              },
+              'retentionPolicy': [
+                {
+                  'keep': [
+                    {
+                      'policy': [
+                        {
+                          'type': PolicyType.user.name,
+                          'id': id,
+                          'name': name,
+                          'lifetime': lifetime,
+                        }
+                      ],
+                    }
+                  ],
+                  'purge': [
+                    {
+                      'policy': [
+                        {
+                          'type': PolicyType.user.name,
+                          'id': id,
+                          'name': name,
+                          'lifetime': lifetime,
+                        }
+                      ],
+                    }
+                  ],
+                }
+              ],
             },
           }
         }
@@ -4098,32 +4100,34 @@ void main() {
                   'types': types,
                 }
               ],
-              'retentionPolicy': {
-                'keep': [
-                  {
-                    'policy': [
-                      {
-                        'type': PolicyType.user.name,
-                        'id': id,
-                        'name': name,
-                        'lifetime': lifetime,
-                      }
-                    ],
-                  }
-                ],
-                'purge': [
-                  {
-                    'policy': [
-                      {
-                        'type': PolicyType.user.name,
-                        'id': id,
-                        'name': name,
-                        'lifetime': lifetime,
-                      }
-                    ],
-                  }
-                ],
-              },
+              'retentionPolicy': [
+                {
+                  'keep': [
+                    {
+                      'policy': [
+                        {
+                          'type': PolicyType.user.name,
+                          'id': id,
+                          'name': name,
+                          'lifetime': lifetime,
+                        }
+                      ],
+                    }
+                  ],
+                  'purge': [
+                    {
+                      'policy': [
+                        {
+                          'type': PolicyType.user.name,
+                          'id': id,
+                          'name': name,
+                          'lifetime': lifetime,
+                        }
+                      ],
+                    }
+                  ],
+                }
+              ],
             },
           }
         }
@@ -4260,32 +4264,34 @@ void main() {
                   },
                 }
               ],
-              'retentionPolicy': {
-                'keep': [
-                  {
-                    'policy': [
-                      {
-                        'type': PolicyType.user.name,
-                        'id': id,
-                        'name': name,
-                        'lifetime': lifetime,
-                      }
-                    ]
-                  }
-                ],
-                'purge': [
-                  {
-                    'policy': [
-                      {
-                        'type': PolicyType.user.name,
-                        'id': id,
-                        'name': name,
-                        'lifetime': lifetime,
-                      }
-                    ]
-                  }
-                ],
-              },
+              'retentionPolicy': [
+                {
+                  'keep': [
+                    {
+                      'policy': [
+                        {
+                          'type': PolicyType.user.name,
+                          'id': id,
+                          'name': name,
+                          'lifetime': lifetime,
+                        }
+                      ],
+                    }
+                  ],
+                  'purge': [
+                    {
+                      'policy': [
+                        {
+                          'type': PolicyType.user.name,
+                          'id': id,
+                          'name': name,
+                          'lifetime': lifetime,
+                        }
+                      ],
+                    }
+                  ],
+                }
+              ],
             },
           }
         }
@@ -11997,32 +12003,34 @@ void main() {
                   },
                 }
               ],
-              'retentionPolicy': {
-                'keep': [
-                  {
-                    'policy': [
-                      {
-                        'type': PolicyType.user.name,
-                        'id': id,
-                        'name': name,
-                        'lifetime': lifetime,
-                      }
-                    ]
-                  }
-                ],
-                'purge': [
-                  {
-                    'policy': [
-                      {
-                        'type': PolicyType.user.name,
-                        'id': id,
-                        'name': name,
-                        'lifetime': lifetime,
-                      }
-                    ]
-                  }
-                ],
-              },
+              'retentionPolicy': [
+                {
+                  'keep': [
+                    {
+                      'policy': [
+                        {
+                          'type': PolicyType.user.name,
+                          'id': id,
+                          'name': name,
+                          'lifetime': lifetime,
+                        }
+                      ],
+                    }
+                  ],
+                  'purge': [
+                    {
+                      'policy': [
+                        {
+                          'type': PolicyType.user.name,
+                          'id': id,
+                          'name': name,
+                          'lifetime': lifetime,
+                        }
+                      ],
+                    }
+                  ],
+                }
+              ],
             },
             'note': {
               'id': id,
@@ -17104,32 +17112,34 @@ void main() {
                     'types': types,
                   }
                 ],
-                'retentionPolicy': {
-                  'keep': [
-                    {
-                      'policy': [
-                        {
-                          'type': PolicyType.user.name,
-                          'id': id,
-                          'name': name,
-                          'lifetime': lifetime,
-                        }
-                      ],
-                    }
-                  ],
-                  'purge': [
-                    {
-                      'policy': [
-                        {
-                          'type': PolicyType.user.name,
-                          'id': id,
-                          'name': name,
-                          'lifetime': lifetime,
-                        }
-                      ],
-                    }
-                  ],
-                },
+                'retentionPolicy': [
+                  {
+                    'keep': [
+                      {
+                        'policy': [
+                          {
+                            'type': PolicyType.user.name,
+                            'id': id,
+                            'name': name,
+                            'lifetime': lifetime,
+                          }
+                        ],
+                      }
+                    ],
+                    'purge': [
+                      {
+                        'policy': [
+                          {
+                            'type': PolicyType.user.name,
+                            'id': id,
+                            'name': name,
+                            'lifetime': lifetime,
+                          }
+                        ],
+                      }
+                    ],
+                  }
+                ],
               },
             ],
           }
@@ -17402,32 +17412,34 @@ void main() {
                     },
                   }
                 ],
-                'retentionPolicy': {
-                  'keep': [
-                    {
-                      'policy': [
-                        {
-                          'type': PolicyType.user.name,
-                          'id': id,
-                          'name': name,
-                          'lifetime': lifetime,
-                        }
-                      ]
-                    }
-                  ],
-                  'purge': [
-                    {
-                      'policy': [
-                        {
-                          'type': PolicyType.user.name,
-                          'id': id,
-                          'name': name,
-                          'lifetime': lifetime,
-                        }
-                      ]
-                    }
-                  ],
-                },
+                'retentionPolicy': [
+                  {
+                    'keep': [
+                      {
+                        'policy': [
+                          {
+                            'type': PolicyType.user.name,
+                            'id': id,
+                            'name': name,
+                            'lifetime': lifetime,
+                          }
+                        ],
+                      }
+                    ],
+                    'purge': [
+                      {
+                        'policy': [
+                          {
+                            'type': PolicyType.user.name,
+                            'id': id,
+                            'name': name,
+                            'lifetime': lifetime,
+                          }
+                        ],
+                      }
+                    ],
+                  }
+                ],
               },
             ],
           }
@@ -20625,32 +20637,34 @@ void main() {
                   'types': types,
                 }
               ],
-              'retentionPolicy': {
-                'keep': [
-                  {
-                    'policy': [
-                      {
-                        'type': PolicyType.user.name,
-                        'id': id,
-                        'name': name,
-                        'lifetime': lifetime,
-                      }
-                    ],
-                  }
-                ],
-                'purge': [
-                  {
-                    'policy': [
-                      {
-                        'type': PolicyType.user.name,
-                        'id': id,
-                        'name': name,
-                        'lifetime': lifetime,
-                      }
-                    ],
-                  }
-                ],
-              },
+              'retentionPolicy': [
+                {
+                  'keep': [
+                    {
+                      'policy': [
+                        {
+                          'type': PolicyType.user.name,
+                          'id': id,
+                          'name': name,
+                          'lifetime': lifetime,
+                        }
+                      ],
+                    }
+                  ],
+                  'purge': [
+                    {
+                      'policy': [
+                        {
+                          'type': PolicyType.user.name,
+                          'id': id,
+                          'name': name,
+                          'lifetime': lifetime,
+                        }
+                      ],
+                    }
+                  ],
+                }
+              ],
             },
           }
         }
@@ -30592,32 +30606,34 @@ void main() {
                     'types': types,
                   }
                 ],
-                'retentionPolicy': {
-                  'keep': [
-                    {
-                      'policy': [
-                        {
-                          'type': PolicyType.user.name,
-                          'id': id,
-                          'name': name,
-                          'lifetime': lifetime,
-                        }
-                      ],
-                    }
-                  ],
-                  'purge': [
-                    {
-                      'policy': [
-                        {
-                          'type': PolicyType.user.name,
-                          'id': id,
-                          'name': name,
-                          'lifetime': lifetime,
-                        }
-                      ],
-                    }
-                  ],
-                },
+                'retentionPolicy': [
+                  {
+                    'keep': [
+                      {
+                        'policy': [
+                          {
+                            'type': PolicyType.user.name,
+                            'id': id,
+                            'name': name,
+                            'lifetime': lifetime,
+                          }
+                        ],
+                      }
+                    ],
+                    'purge': [
+                      {
+                        'policy': [
+                          {
+                            'type': PolicyType.user.name,
+                            'id': id,
+                            'name': name,
+                            'lifetime': lifetime,
+                          }
+                        ],
+                      }
+                    ],
+                  }
+                ],
               }
             ],
             'tag': [
@@ -30640,32 +30656,34 @@ void main() {
                     },
                   }
                 ],
-                'retentionPolicy': {
-                  'keep': [
-                    {
-                      'policy': [
-                        {
-                          'type': PolicyType.user.name,
-                          'id': id,
-                          'name': name,
-                          'lifetime': lifetime,
-                        }
-                      ]
-                    }
-                  ],
-                  'purge': [
-                    {
-                      'policy': [
-                        {
-                          'type': PolicyType.user.name,
-                          'id': id,
-                          'name': name,
-                          'lifetime': lifetime,
-                        }
-                      ]
-                    }
-                  ],
-                },
+                'retentionPolicy': [
+                  {
+                    'keep': [
+                      {
+                        'policy': [
+                          {
+                            'type': PolicyType.user.name,
+                            'id': id,
+                            'name': name,
+                            'lifetime': lifetime,
+                          }
+                        ],
+                      }
+                    ],
+                    'purge': [
+                      {
+                        'policy': [
+                          {
+                            'type': PolicyType.user.name,
+                            'id': id,
+                            'name': name,
+                            'lifetime': lifetime,
+                          }
+                        ],
+                      }
+                    ],
+                  }
+                ],
               },
             ],
             'note': [

@@ -24,7 +24,7 @@ class TagActionSelector extends ActionSelector {
       super.newlyCreatedIds});
 
   factory TagActionSelector.fromMap(Map<String, dynamic> data) => TagActionSelector(data['id'] ?? '', data['op'] ?? '',
-      retentionPolicy: data['retentionPolicy'] is Map ? RetentionPolicy.fromMap(data['retentionPolicy']) : null,
+      retentionPolicy: data['retentionPolicy']?[0] is Map ? RetentionPolicy.fromMap(data['retentionPolicy'][0]) : null,
       constraint: data['tcon'],
       tag: data['tag'],
       folder: data['l'],

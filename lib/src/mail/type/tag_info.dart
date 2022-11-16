@@ -69,7 +69,7 @@ class TagInfo {
               .map<MailCustomMetadata>((meta) => MailCustomMetadata.fromMap(meta))
               .toList(growable: false)
           : const [],
-      retentionPolicy: data['retentionPolicy'] is Map ? RetentionPolicy.fromMap(data['retentionPolicy']) : null);
+      retentionPolicy: data['retentionPolicy']?[0] is Map ? RetentionPolicy.fromMap(data['retentionPolicy'][0]) : null);
 
   Map<String, dynamic> toMap() => {
         'id': id,

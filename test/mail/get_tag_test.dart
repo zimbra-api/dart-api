@@ -61,7 +61,8 @@ void main() {
                     },
                   }
                 ],
-                'retentionPolicy': {
+                'retentionPolicy': [
+                  {
                   'keep': [
                     {
                       'policy': [
@@ -71,7 +72,7 @@ void main() {
                           'name': name,
                           'lifetime': lifetime,
                         }
-                      ]
+                        ],
                     }
                   ],
                   'purge': [
@@ -83,10 +84,11 @@ void main() {
                           'name': name,
                           'lifetime': lifetime,
                         }
-                      ]
+                        ],
                     }
                   ],
-                },
+                  }
+                ],
               },
             ],
           }

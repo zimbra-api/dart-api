@@ -386,32 +386,34 @@ void main() {
                   },
                 }
               ],
-              'retentionPolicy': {
-                'keep': [
-                  {
-                    'policy': [
-                      {
-                        'type': PolicyType.user.name,
-                        'id': id,
-                        'name': name,
-                        'lifetime': lifetime,
-                      }
-                    ]
-                  }
-                ],
-                'purge': [
-                  {
-                    'policy': [
-                      {
-                        'type': PolicyType.user.name,
-                        'id': id,
-                        'name': name,
-                        'lifetime': lifetime,
-                      }
-                    ]
-                  }
-                ],
-              },
+              'retentionPolicy': [
+                {
+                  'keep': [
+                    {
+                      'policy': [
+                        {
+                          'type': PolicyType.user.name,
+                          'id': id,
+                          'name': name,
+                          'lifetime': lifetime,
+                        }
+                      ],
+                    }
+                  ],
+                  'purge': [
+                    {
+                      'policy': [
+                        {
+                          'type': PolicyType.user.name,
+                          'id': id,
+                          'name': name,
+                          'lifetime': lifetime,
+                        }
+                      ],
+                    }
+                  ],
+                }
+              ],
             },
             'note': {
               'id': id,

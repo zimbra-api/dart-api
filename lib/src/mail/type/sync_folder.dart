@@ -166,7 +166,7 @@ class SyncFolder extends Folder {
               .map<SearchFolder>((search) => SearchFolder.fromMap(search))
               .toList(growable: false)
           : const [],
-      retentionPolicy: data['retentionPolicy'] is Map ? RetentionPolicy.fromMap(data['retentionPolicy']) : null);
+      retentionPolicy: data['retentionPolicy']?[0] is Map ? RetentionPolicy.fromMap(data['retentionPolicy'][0]) : null);
 
   @override
   Map<String, dynamic> toMap() => {

@@ -165,7 +165,8 @@ void main() {
                     'types': types,
                   }
                 ],
-                'retentionPolicy': {
+                'retentionPolicy': [
+                  {
                   'keep': [
                     {
                       'policy': [
@@ -190,7 +191,8 @@ void main() {
                       ],
                     }
                   ],
-                },
+                  }
+                ],
               },
             ],
           }

@@ -63,36 +63,36 @@ class FolderActionSelector extends ActionSelector {
       this.retentionPolicy,
       this.numDays});
 
-  factory FolderActionSelector.fromMap(Map<String, dynamic> data) =>
-      FolderActionSelector(data['id'] ?? '', data['op'] ?? '',
-          constraint: data['tcon'],
-          tag: int.tryParse(data['tag']?.toString() ?? ''),
-          folder: data['l'],
-          rgb: data['rgb'],
-          color: int.tryParse(data['color']?.toString() ?? ''),
-          name: data['name'],
-          flags: data['f'],
-          tags: data['t'],
-          tagNames: data['tn'],
-          nonExistentIds: data['nei'],
-          newlyCreatedIds: data['nci'],
-          recursive: data['recursive'],
-          url: data['url'],
-          excludeFreeBusy: data['excludeFreeBusy'],
-          zimbraId: data['zid'],
-          grantType: GranteeType.values.firstWhere(
-            (gt) => gt.name == data['gt'],
-            orElse: () => GranteeType.all,
-          ),
-          view: data['view'],
-          grant: data['grant'] is Map ? ActionGrantSelector.fromMap(data['grant']) : null,
-          grants: (data['acl']?[0]['grant'] is Iterable)
-              ? (data['acl'][0]['grant'] as Iterable)
-                  .map<ActionGrantSelector>((grant) => ActionGrantSelector.fromMap(grant))
-                  .toList(growable: false)
-              : const [],
-          retentionPolicy: data['retentionPolicy'] is Map ? RetentionPolicy.fromMap(data['retentionPolicy']) : null,
-          numDays: int.tryParse(data['numDays']?.toString() ?? ''));
+  factory FolderActionSelector.fromMap(Map<String, dynamic> data) => FolderActionSelector(
+      data['id'] ?? '', data['op'] ?? '',
+      constraint: data['tcon'],
+      tag: int.tryParse(data['tag']?.toString() ?? ''),
+      folder: data['l'],
+      rgb: data['rgb'],
+      color: int.tryParse(data['color']?.toString() ?? ''),
+      name: data['name'],
+      flags: data['f'],
+      tags: data['t'],
+      tagNames: data['tn'],
+      nonExistentIds: data['nei'],
+      newlyCreatedIds: data['nci'],
+      recursive: data['recursive'],
+      url: data['url'],
+      excludeFreeBusy: data['excludeFreeBusy'],
+      zimbraId: data['zid'],
+      grantType: GranteeType.values.firstWhere(
+        (gt) => gt.name == data['gt'],
+        orElse: () => GranteeType.all,
+      ),
+      view: data['view'],
+      grant: data['grant'] is Map ? ActionGrantSelector.fromMap(data['grant']) : null,
+      grants: (data['acl']?[0]['grant'] is Iterable)
+          ? (data['acl'][0]['grant'] as Iterable)
+              .map<ActionGrantSelector>((grant) => ActionGrantSelector.fromMap(grant))
+              .toList(growable: false)
+          : const [],
+      retentionPolicy: data['retentionPolicy']?[0] is Map ? RetentionPolicy.fromMap(data['retentionPolicy'][0]) : null,
+      numDays: int.tryParse(data['numDays']?.toString() ?? ''));
 
   @override
   Map<String, dynamic> toMap() => {

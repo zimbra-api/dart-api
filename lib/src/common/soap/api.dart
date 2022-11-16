@@ -31,16 +31,17 @@ abstract class Api {
 
   final String? userAgentVersion;
 
-  Api(final String serviceHost,
-      {final HttpClientFactory? httpClientFactory,
-      this.authToken,
-      this.targetAccount,
-      this.sessionId,
-      this.userAgentName,
-      this.userAgentVersion})
-      : _soapClient = Client(serviceHost, httpClientFactory: httpClientFactory);
+  Api(
+    final String serviceHost, {
+    final HttpClientFactory? httpClientFactory,
+    this.authToken,
+    this.targetAccount,
+    this.sessionId,
+    this.userAgentName,
+    this.userAgentVersion,
+  }) : _soapClient = Client(serviceHost, httpClientFactory: httpClientFactory);
 
-  Future<T?> invoke<T extends SoapResponse>(SoapRequest request, {required FromMapConverter<T> fromMap}) {
+  Future<T?> invoke<T extends SoapResponse>(final SoapRequest request, {required final FromMapConverter<T> fromMap}) {
     return _soapClient
         .sendRequest(request
             .getEnvelope(

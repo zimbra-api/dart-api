@@ -15,28 +15,25 @@ class Client {
 
   final String _serviceHost;
 
-  String? _cookie;
+  final _headers = {
+    'content-type': contentType,
+    'user-agent': userAgent,
+  };
 
   final http.Client _httpClient;
 
   Client(this._serviceHost, {final HttpClientFactory? httpClientFactory})
       : _httpClient = httpClientFactory != null ? httpClientFactory() : http.Client();
 
-  Future<http.Response> sendRequest(String soapMessage) {
+  Future<http.Response> sendRequest(final String soapMessage) {
     return _httpClient
-        .post(Uri.https(_serviceHost, servicePath),
-            headers: {
-              'content-type': contentType,
-              'user-agent': userAgent,
-              if (_cookie != null) 'cookie': _cookie!,
-            },
-            body: soapMessage)
+        .post(Uri.https(_serviceHost, servicePath), headers: _headers, body: soapMessage)
         .then((response) {
       if (response.hasError) {
         throw ClientException(response, 'An error is encountered with response status code ${response.statusCode}');
       }
       if (response.headers.containsKey('set-cookie')) {
-        _cookie = response.headers['set-cookie'];
+        _headers['cookie'] = response.headers['set-cookie']!;
       }
       return response;
     });

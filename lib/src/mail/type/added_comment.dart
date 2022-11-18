@@ -9,7 +9,7 @@ class AddedComment {
   /// Comment text
   final String text;
 
-  AddedComment(this.parentId, this.text);
+  const AddedComment(this.parentId, this.text);
 
   factory AddedComment.fromMap(Map<String, dynamic> data) => AddedComment(data['parentId'] ?? '', data['text'] ?? '');
 

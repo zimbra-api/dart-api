@@ -29,14 +29,15 @@ class ContactSpec {
   /// (has attribute type="group")
   final List<NewContactGroupMember> contactGroupMembers;
 
-  ContactSpec(
-      {this.id,
-      this.folder,
-      this.tags,
-      this.tagNames,
-      this.vcard,
-      this.attrs = const [],
-      this.contactGroupMembers = const []});
+  const ContactSpec({
+    this.id,
+    this.folder,
+    this.tags,
+    this.tagNames,
+    this.vcard,
+    this.attrs = const [],
+    this.contactGroupMembers = const [],
+  });
 
   factory ContactSpec.fromMap(Map<String, dynamic> data) => ContactSpec(
       id: int.tryParse(data['id']?.toString() ?? ''),

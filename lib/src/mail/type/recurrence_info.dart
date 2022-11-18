@@ -29,13 +29,14 @@ class RecurrenceInfo {
   /// Simple recurrence rules
   final List<SimpleRepeatingRule> simple;
 
-  RecurrenceInfo(
-      {this.add = const [],
-      this.exclude = const [],
-      this.except = const [],
-      this.cancel = const [],
-      this.dates = const [],
-      this.simple = const []});
+  const RecurrenceInfo({
+    this.add = const [],
+    this.exclude = const [],
+    this.except = const [],
+    this.cancel = const [],
+    this.dates = const [],
+    this.simple = const [],
+  });
 
   factory RecurrenceInfo.fromMap(Map<String, dynamic> data) => RecurrenceInfo(
       add: (data['add'] is Iterable)

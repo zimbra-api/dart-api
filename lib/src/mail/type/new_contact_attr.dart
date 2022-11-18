@@ -21,7 +21,7 @@ class NewContactAttr {
   /// if the year isn't specified "--MM-dd" format
   final String? value;
 
-  NewContactAttr(this.name, {this.attachId, this.id, this.part, this.value});
+  const NewContactAttr(this.name, {this.attachId, this.id, this.part, this.value});
 
   factory NewContactAttr.fromMap(Map<String, dynamic> data) => NewContactAttr(data['n'] ?? '',
       attachId: data['aid'],

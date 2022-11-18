@@ -7,7 +7,7 @@ class Session {
 
   final String? type;
 
-  Session(this.id, {this.type});
+  const Session(this.id, {this.type});
 
   factory Session.fromMap(Map<String, dynamic> data) => Session(data['id'], type: data['type']);
 

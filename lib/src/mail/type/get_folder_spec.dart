@@ -13,7 +13,7 @@ class GetFolderSpec {
   /// Base folder fully qualified path
   final String? path;
 
-  GetFolderSpec({this.uuid, this.folderId, this.path});
+  const GetFolderSpec({this.uuid, this.folderId, this.path});
 
   factory GetFolderSpec.fromMap(Map<String, dynamic> data) =>
       GetFolderSpec(uuid: data['uuid'], folderId: data['l'], path: data['path']);

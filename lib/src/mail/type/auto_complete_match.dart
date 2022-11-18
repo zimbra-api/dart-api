@@ -52,22 +52,23 @@ class AutoCompleteMatch {
   /// FileAs
   final String? fileAs;
 
-  AutoCompleteMatch(
-      {this.email,
-      this.matchType,
-      this.ranking,
-      this.isGroup,
-      this.canExpandGroupMembers,
-      this.id,
-      this.folder,
-      this.displayName,
-      this.firstName,
-      this.middleName,
-      this.lastName,
-      this.fullName,
-      this.nickName,
-      this.company,
-      this.fileAs});
+  const AutoCompleteMatch({
+    this.email,
+    this.matchType,
+    this.ranking,
+    this.isGroup,
+    this.canExpandGroupMembers,
+    this.id,
+    this.folder,
+    this.displayName,
+    this.firstName,
+    this.middleName,
+    this.lastName,
+    this.fullName,
+    this.nickName,
+    this.company,
+    this.fileAs,
+  });
 
   factory AutoCompleteMatch.fromMap(Map<String, dynamic> data) => AutoCompleteMatch(
         email: data['email'],

@@ -26,7 +26,7 @@ class AlarmDataInfo {
   /// Details of the alarm
   final AlarmInfo? alarm;
 
-  AlarmDataInfo({
+  const AlarmDataInfo({
     this.nextAlarm,
     this.alarmInstanceStart,
     this.invId,

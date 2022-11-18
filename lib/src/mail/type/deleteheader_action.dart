@@ -15,7 +15,7 @@ class DeleteheaderAction extends FilterAction {
   /// tests
   final EditheaderTest? test;
 
-  DeleteheaderAction({this.last, this.offset, this.test, super.index});
+  const DeleteheaderAction({this.last, this.offset, this.test, super.index});
 
   factory DeleteheaderAction.fromMap(Map<String, dynamic> data) => DeleteheaderAction(
       last: data['last'],

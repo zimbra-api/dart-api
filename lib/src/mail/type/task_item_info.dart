@@ -8,23 +8,24 @@ import 'invitation.dart';
 import 'mail_custom_metadata.dart';
 
 class TaskItemInfo extends CalendarItemInfo {
-  TaskItemInfo(
-      {super.flags,
-      super.tags,
-      super.tagNames,
-      super.uid,
-      super.id,
-      super.revision,
-      super.size,
-      super.date,
-      super.folder,
-      super.changeDate,
-      super.modifiedSequence,
-      super.nextAlarm,
-      super.orphan,
-      super.invites = const [],
-      super.calendarReplies = const [],
-      super.metadatas = const []});
+  const TaskItemInfo({
+    super.flags,
+    super.tags,
+    super.tagNames,
+    super.uid,
+    super.id,
+    super.revision,
+    super.size,
+    super.date,
+    super.folder,
+    super.changeDate,
+    super.modifiedSequence,
+    super.nextAlarm,
+    super.orphan,
+    super.invites = const [],
+    super.calendarReplies = const [],
+    super.metadatas = const [],
+  });
 
   factory TaskItemInfo.fromMap(Map<String, dynamic> data) => TaskItemInfo(
       flags: data['f'],

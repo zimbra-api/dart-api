@@ -7,7 +7,7 @@ class UrlAndValue {
 
   final String? value;
 
-  UrlAndValue({this.url, this.value});
+  const UrlAndValue({this.url, this.value});
 
   factory UrlAndValue.fromMap(Map<String, dynamic> data) => UrlAndValue(url: data['url'], value: data['_content']);
 

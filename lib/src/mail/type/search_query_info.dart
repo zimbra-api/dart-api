@@ -13,7 +13,7 @@ class SearchQueryInfo {
   /// Wildcard query info
   final List<WildcardExpansionQueryInfo> wildcards;
 
-  SearchQueryInfo({this.suggests = const [], this.wildcards = const []});
+  const SearchQueryInfo({this.suggests = const [], this.wildcards = const []});
 
   factory SearchQueryInfo.fromMap(Map<String, dynamic> data) => SearchQueryInfo(
       suggests: (data['suggest'] is Iterable)

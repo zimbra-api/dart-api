@@ -6,7 +6,7 @@ class AccountZimletIncludeCSS {
   /// Included Cascading Style Sheet (CSS)
   final String? value;
 
-  AccountZimletIncludeCSS({this.value});
+  const AccountZimletIncludeCSS({this.value});
 
   factory AccountZimletIncludeCSS.fromMap(Map<String, dynamic> data) =>
       AccountZimletIncludeCSS(value: data['_content']);

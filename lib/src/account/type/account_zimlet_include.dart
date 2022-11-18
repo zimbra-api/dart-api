@@ -5,7 +5,7 @@
 class AccountZimletInclude {
   final String? value;
 
-  AccountZimletInclude({this.value});
+  const AccountZimletInclude({this.value});
 
   factory AccountZimletInclude.fromMap(Map<String, dynamic> data) => AccountZimletInclude(value: data['_content']);
 

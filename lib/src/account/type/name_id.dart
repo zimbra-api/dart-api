@@ -7,7 +7,7 @@ class NameId {
 
   final String? id;
 
-  NameId({this.name, this.id});
+  const NameId({this.name, this.id});
 
   factory NameId.fromMap(Map<String, dynamic> data) => NameId(name: data['name'], id: data['id']);
 

@@ -46,19 +46,21 @@ class NewMountpointSpec {
   /// Path to shared item
   final String? path;
 
-  NewMountpointSpec(this.name,
-      {this.defaultView,
-      this.flags,
-      this.color,
-      this.rgb,
-      this.url,
-      this.folderId,
-      this.fetchIfExists,
-      this.reminderEnabled,
-      this.ownerId,
-      this.ownerName,
-      this.remoteId,
-      this.path});
+  const NewMountpointSpec(
+    this.name, {
+    this.defaultView,
+    this.flags,
+    this.color,
+    this.rgb,
+    this.url,
+    this.folderId,
+    this.fetchIfExists,
+    this.reminderEnabled,
+    this.ownerId,
+    this.ownerName,
+    this.remoteId,
+    this.path,
+  });
 
   factory NewMountpointSpec.fromMap(Map<String, dynamic> data) => NewMountpointSpec(data['name'] ?? '',
       defaultView: ViewType.values.firstWhere(

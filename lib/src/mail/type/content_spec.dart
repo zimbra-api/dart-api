@@ -15,7 +15,7 @@ class ContentSpec {
   /// Inlined content data. Ignored if "aid" or "mid"/"part" specified
   final String? text;
 
-  ContentSpec({this.attachmentId, this.messageId, this.part, this.text});
+  const ContentSpec({this.attachmentId, this.messageId, this.part, this.text});
 
   factory ContentSpec.fromMap(Map<String, dynamic> data) =>
       ContentSpec(attachmentId: data['aid'], messageId: data['mid'], part: data['part'], text: data['_content']);

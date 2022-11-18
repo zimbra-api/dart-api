@@ -28,15 +28,16 @@ class AccountDataSources {
 
   final List<AccountUnknownDataSource> unknownDataSources;
 
-  AccountDataSources(
-      {this.imapDataSources = const [],
-      this.pop3DataSources = const [],
-      this.caldavDataSources = const [],
-      this.yabDataSources = const [],
-      this.rssDataSources = const [],
-      this.galDataSources = const [],
-      this.calDataSources = const [],
-      this.unknownDataSources = const []});
+  const AccountDataSources({
+    this.imapDataSources = const [],
+    this.pop3DataSources = const [],
+    this.caldavDataSources = const [],
+    this.yabDataSources = const [],
+    this.rssDataSources = const [],
+    this.galDataSources = const [],
+    this.calDataSources = const [],
+    this.unknownDataSources = const [],
+  });
 
   factory AccountDataSources.fromMap(Map<String, dynamic> data) => AccountDataSources(
         imapDataSources: (data['imap'] is Iterable)

@@ -5,7 +5,7 @@
 import 'key_value_pair.dart';
 
 class Attr extends KeyValuePair {
-  Attr(super.key, {super.value});
+  const Attr(super.key, {super.value});
 
   factory Attr.fromMap(Map<String, dynamic> data) => Attr(data['n'], value: data['_content']);
 }

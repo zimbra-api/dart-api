@@ -34,17 +34,18 @@ class AccountZimletDesc {
 
   final AccountZimletTarget? zimletTarget;
 
-  AccountZimletDesc(
-      {this.name,
-      this.version,
-      this.description,
-      this.extension,
-      this.target,
-      this.label,
-      this.serverExtension,
-      this.include,
-      this.includeCSS,
-      this.zimletTarget});
+  const AccountZimletDesc({
+    this.name,
+    this.version,
+    this.description,
+    this.extension,
+    this.target,
+    this.label,
+    this.serverExtension,
+    this.include,
+    this.includeCSS,
+    this.zimletTarget,
+  });
 
   factory AccountZimletDesc.fromMap(Map<String, dynamic> data) => AccountZimletDesc(
         name: data['name'],
@@ -53,8 +54,7 @@ class AccountZimletDesc {
         extension: data['extension'],
         target: data['target'],
         label: data['label'],
-        serverExtension:
-            data['serverExtension'] is Map ? ZimletServerExtension.fromMap(data['serverExtension']) : null,
+        serverExtension: data['serverExtension'] is Map ? ZimletServerExtension.fromMap(data['serverExtension']) : null,
         include: data['include'] is Map ? AccountZimletInclude.fromMap(data['include']) : null,
         includeCSS: data['includeCSS'] is Map ? AccountZimletIncludeCSS.fromMap(data['includeCSS']) : null,
         zimletTarget: data['zimletTarget'] is Map ? AccountZimletTarget.fromMap(data['zimletTarget']) : null,

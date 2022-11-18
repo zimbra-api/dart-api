@@ -7,7 +7,7 @@ class NumAttr {
   /// Number
   final int num;
 
-  NumAttr(this.num);
+  const NumAttr(this.num);
 
   factory NumAttr.fromMap(Map<String, dynamic> data) => NumAttr(int.tryParse(data['num']?.toString() ?? '') ?? 0);
 

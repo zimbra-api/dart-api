@@ -5,7 +5,7 @@
 import 'filter_test.dart';
 
 class AttachmentTest extends FilterTest {
-  AttachmentTest({super.index, super.negative});
+  const AttachmentTest({super.index, super.negative});
 
   factory AttachmentTest.fromMap(Map<String, dynamic> data) =>
       AttachmentTest(index: int.tryParse(data['index']?.toString() ?? ''), negative: data['negative']);

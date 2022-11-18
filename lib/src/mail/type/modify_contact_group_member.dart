@@ -12,7 +12,7 @@ class ModifyContactGroupMember extends NewContactGroupMember {
   /// Operation: +|-|reset
   final ModifyMemberOperation operation;
 
-  ModifyContactGroupMember({
+  const ModifyContactGroupMember({
     this.operation = ModifyMemberOperation.reset,
     super.type = MemberType.contact,
     super.value,

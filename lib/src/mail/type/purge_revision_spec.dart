@@ -12,7 +12,7 @@ class PurgeRevisionSpec {
   /// When set, the server will purge all the old revisions inclusive of the revision specified in the request.
   final bool? includeOlderRevisions;
 
-  PurgeRevisionSpec(this.id, this.version, {this.includeOlderRevisions});
+  const PurgeRevisionSpec(this.id, this.version, {this.includeOlderRevisions});
 
   factory PurgeRevisionSpec.fromMap(Map<String, dynamic> data) =>
       PurgeRevisionSpec(data['id'] ?? '', int.tryParse(data['ver']?.toString() ?? '') ?? 0,

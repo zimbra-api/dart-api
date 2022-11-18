@@ -9,7 +9,7 @@ class CheckRightsRightInfo {
   /// Name of right
   final String right;
 
-  CheckRightsRightInfo({this.right = '', this.allow = false});
+  const CheckRightsRightInfo({this.right = '', this.allow = false});
 
   factory CheckRightsRightInfo.fromMap(Map<String, dynamic> data) =>
       CheckRightsRightInfo(allow: data['allow'], right: data['_content']);

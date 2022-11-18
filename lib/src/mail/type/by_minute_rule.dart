@@ -7,7 +7,7 @@ class ByMinuteRule {
   /// Comma separated list of minutes where minute is a number between 0 and 59
   final String list;
 
-  ByMinuteRule(this.list);
+  const ByMinuteRule(this.list);
 
   factory ByMinuteRule.fromMap(Map<String, dynamic> data) => ByMinuteRule(data['minlist'] ?? '');
 

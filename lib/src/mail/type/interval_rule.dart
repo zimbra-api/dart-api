@@ -7,7 +7,7 @@ class IntervalRule {
   /// Rule interval count - a positive int
   final int ival;
 
-  IntervalRule(this.ival);
+  const IntervalRule(this.ival);
 
   factory IntervalRule.fromMap(Map<String, dynamic> data) =>
       IntervalRule(int.tryParse(data['ival']?.toString() ?? '') ?? 0);

@@ -31,15 +31,16 @@ class DurationInfo {
   /// Alarm repeat count
   final int? repeatCount;
 
-  DurationInfo(
-      {this.durationNegative,
-      this.weeks,
-      this.days,
-      this.hours,
-      this.minutes,
-      this.seconds,
-      this.related,
-      this.repeatCount});
+  const DurationInfo({
+    this.durationNegative,
+    this.weeks,
+    this.days,
+    this.hours,
+    this.minutes,
+    this.seconds,
+    this.related,
+    this.repeatCount,
+  });
 
   factory DurationInfo.fromMap(Map<String, dynamic> data) => DurationInfo(
       durationNegative: data['neg'],

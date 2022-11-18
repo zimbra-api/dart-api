@@ -7,7 +7,7 @@ import 'package:zimbra_api/src/common/enum/connection_type.dart';
 import 'account_data_source.dart';
 
 class AccountCalDataSource extends AccountDataSource {
-  AccountCalDataSource(
+  const AccountCalDataSource(
       {super.id,
       super.name,
       super.folderId,

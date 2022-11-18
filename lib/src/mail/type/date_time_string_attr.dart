@@ -7,7 +7,7 @@ class DateTimeStringAttr {
   /// Date in format : YYYYMMDD[ThhmmssZ]
   final String dateTime;
 
-  DateTimeStringAttr(this.dateTime);
+  const DateTimeStringAttr(this.dateTime);
 
   factory DateTimeStringAttr.fromMap(Map<String, dynamic> data) => DateTimeStringAttr(data['d'] ?? '');
 

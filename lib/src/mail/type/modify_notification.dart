@@ -6,7 +6,7 @@ class ModifyNotification {
   /// Bitmask of modification change
   final int changeBitmask;
 
-  ModifyNotification({this.changeBitmask = 0});
+  const ModifyNotification({this.changeBitmask = 0});
 
   factory ModifyNotification.fromMap(Map<String, dynamic> data) =>
       ModifyNotification(changeBitmask: int.tryParse(data['change']?.toString() ?? '') ?? 0);

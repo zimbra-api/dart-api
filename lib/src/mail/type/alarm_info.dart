@@ -39,15 +39,16 @@ class AlarmInfo {
   /// Non-standard properties (see RFC2445 section 4.8.8.1)
   final List<XProp> xProps;
 
-  AlarmInfo(
-      {this.action,
-      this.trigger,
-      this.repeat,
-      this.description,
-      this.attach,
-      this.summary,
-      this.attendees = const [],
-      this.xProps = const []});
+  const AlarmInfo({
+    this.action,
+    this.trigger,
+    this.repeat,
+    this.description,
+    this.attach,
+    this.summary,
+    this.attendees = const [],
+    this.xProps = const [],
+  });
 
   factory AlarmInfo.fromMap(Map<String, dynamic> data) => AlarmInfo(
         action: AlarmAction.values.firstWhere(

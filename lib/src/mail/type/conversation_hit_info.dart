@@ -14,24 +14,25 @@ class ConversationHitInfo extends ConversationSummary {
 
   final List<ConversationMsgHitInfo> messageHits;
 
-  ConversationHitInfo(
-      {this.sortField,
-      this.messageHits = const [],
-      super.id,
-      super.numMsg,
-      super.numUnread,
-      super.totalSize,
-      super.flags,
-      super.tags,
-      super.tagNames,
-      super.date,
-      super.elided,
-      super.changeDate,
-      super.modifiedSequence,
-      super.metadatas = const [],
-      super.subject,
-      super.fragment,
-      super.emails = const []});
+  const ConversationHitInfo({
+    this.sortField,
+    this.messageHits = const [],
+    super.id,
+    super.numMsg,
+    super.numUnread,
+    super.totalSize,
+    super.flags,
+    super.tags,
+    super.tagNames,
+    super.date,
+    super.elided,
+    super.changeDate,
+    super.modifiedSequence,
+    super.metadatas = const [],
+    super.subject,
+    super.fragment,
+    super.emails = const [],
+  });
 
   factory ConversationHitInfo.fromMap(Map<String, dynamic> data) => ConversationHitInfo(
       sortField: data['sf'],

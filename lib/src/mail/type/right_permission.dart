@@ -10,7 +10,7 @@ class RightPermission {
   /// Right name
   final String? rightName;
 
-  RightPermission({this.allow = false, this.rightName});
+  const RightPermission({this.allow = false, this.rightName});
 
   factory RightPermission.fromMap(Map<String, dynamic> data) =>
       RightPermission(allow: data['allow'] ?? false, rightName: data['_content']);

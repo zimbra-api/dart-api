@@ -22,8 +22,12 @@ class MPInviteInfo {
   /// Invite components
   final List<InviteComponent> inviteComponents;
 
-  MPInviteInfo(
-      {this.calItemType, this.timezones = const [], this.calendarReplies = const [], this.inviteComponents = const []});
+  const MPInviteInfo({
+    this.calItemType,
+    this.timezones = const [],
+    this.calendarReplies = const [],
+    this.inviteComponents = const [],
+  });
 
   factory MPInviteInfo.fromMap(Map<String, dynamic> data) => MPInviteInfo(
       calItemType: InviteType.values.firstWhere(

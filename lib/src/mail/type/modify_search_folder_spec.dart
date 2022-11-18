@@ -18,7 +18,7 @@ class ModifySearchFolderSpec {
   /// Sort order for
   final SearchSortBy? sortBy;
 
-  ModifySearchFolderSpec({this.id = '', this.query = '', this.searchTypes, this.sortBy});
+  const ModifySearchFolderSpec({this.id = '', this.query = '', this.searchTypes, this.sortBy});
 
   factory ModifySearchFolderSpec.fromMap(Map<String, dynamic> data) => ModifySearchFolderSpec(
       id: data['id'] ?? '',

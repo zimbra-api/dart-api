@@ -11,7 +11,7 @@ class RawInvite {
   /// Raw iCalendar data
   final String? content;
 
-  RawInvite({this.uid, this.summary, this.content});
+  const RawInvite({this.uid, this.summary, this.content});
 
   factory RawInvite.fromMap(Map<String, dynamic> data) =>
       RawInvite(uid: data['uid'], summary: data['summary'], content: data['_content']);

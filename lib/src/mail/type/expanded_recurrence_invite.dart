@@ -9,7 +9,7 @@ import 'recurrence_info.dart';
 
 /// Comp expanded recurrence
 class ExpandedRecurrenceInvite extends ExpandedRecurrenceComponent {
-  ExpandedRecurrenceInvite({super.exceptionId, super.startTime, super.endTime, super.duration, super.recurrence});
+  const ExpandedRecurrenceInvite({super.exceptionId, super.startTime, super.endTime, super.duration, super.recurrence});
 
   factory ExpandedRecurrenceInvite.fromMap(Map<String, dynamic> data) => ExpandedRecurrenceInvite(
       exceptionId: data['exceptId'] is Map ? InstanceRecurIdInfo.fromMap(data['exceptId']) : null,

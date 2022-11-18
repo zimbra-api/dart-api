@@ -5,7 +5,7 @@
 import 'filter_action.dart';
 
 class DiscardAction extends FilterAction {
-  DiscardAction({super.index});
+  const DiscardAction({super.index});
 
   factory DiscardAction.fromMap(Map<String, dynamic> data) =>
       DiscardAction(index: int.tryParse(data['index']?.toString() ?? ''));

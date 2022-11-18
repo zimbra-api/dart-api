@@ -16,7 +16,7 @@ class EmailAddrInfo {
   /// The comment/name part of an address
   final String? personal;
 
-  EmailAddrInfo(this.address, {this.addressType, this.personal});
+  const EmailAddrInfo(this.address, {this.addressType, this.personal});
 
   factory EmailAddrInfo.fromMap(Map<String, dynamic> data) => EmailAddrInfo(data['a'] ?? '',
       addressType: AddressType.values.firstWhere(

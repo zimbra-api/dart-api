@@ -13,7 +13,7 @@ class RankingActionSpec {
   /// Email
   final String? email;
 
-  RankingActionSpec({this.operation = RankingActionOp.reset, this.email});
+  const RankingActionSpec({this.operation = RankingActionOp.reset, this.email});
 
   factory RankingActionSpec.fromMap(Map<String, dynamic> data) => RankingActionSpec(
       operation: RankingActionOp.values.firstWhere(

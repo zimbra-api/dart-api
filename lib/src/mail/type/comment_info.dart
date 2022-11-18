@@ -38,18 +38,19 @@ class CommentInfo {
   /// Metadata and the subject as text
   final List<MailCustomMetadata> metadatas;
 
-  CommentInfo(
-      {this.parentId,
-      this.id,
-      this.uuid,
-      this.creatorEmail,
-      this.flags,
-      this.tags,
-      this.tagNames,
-      this.color,
-      this.rgb,
-      this.date,
-      this.metadatas = const []});
+  const CommentInfo({
+    this.parentId,
+    this.id,
+    this.uuid,
+    this.creatorEmail,
+    this.flags,
+    this.tags,
+    this.tagNames,
+    this.color,
+    this.rgb,
+    this.date,
+    this.metadatas = const [],
+  });
 
   factory CommentInfo.fromMap(Map<String, dynamic> data) => CommentInfo(
       parentId: data['parentId'],

@@ -15,7 +15,7 @@ class BulkAction {
   /// Required if op="move". Folder pathname where all matching items should be moved.
   final String? folder;
 
-  BulkAction({this.operation = BulkOperation.read, this.folder});
+  const BulkAction({this.operation = BulkOperation.read, this.folder});
 
   factory BulkAction.fromMap(Map<String, dynamic> data) => BulkAction(
       operation: BulkOperation.values.firstWhere(

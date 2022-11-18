@@ -6,7 +6,7 @@ class AttributeName {
   /// Attribute name
   final String name;
 
-  AttributeName({this.name = ''});
+  const AttributeName({this.name = ''});
 
   factory AttributeName.fromMap(Map<String, dynamic> data) => AttributeName(name: data['n'] ?? '');
 

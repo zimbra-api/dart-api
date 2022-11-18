@@ -13,7 +13,7 @@ class FreeBusyUserSpec {
   /// Email address.  Either "name" or "id" must be specified
   final String? name;
 
-  FreeBusyUserSpec({this.folderId, this.id, this.name});
+  const FreeBusyUserSpec({this.folderId, this.id, this.name});
 
   factory FreeBusyUserSpec.fromMap(Map<String, dynamic> data) =>
       FreeBusyUserSpec(folderId: int.tryParse(data['l']?.toString() ?? ''), id: data['id'], name: data['name']);

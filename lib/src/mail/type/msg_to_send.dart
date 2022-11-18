@@ -23,26 +23,27 @@ class MsgToSend extends Msg {
   /// Id of the data source in case SMTP settings of that data source must be used for sending the message.
   final String? dataSourceId;
 
-  MsgToSend(
-      {this.draftId,
-      this.sendFromDraft,
-      this.dataSourceId,
-      super.attachmentId,
-      super.origId,
-      super.replyType,
-      super.identityId,
-      super.subject,
-      super.headers = const [],
-      super.inReplyTo,
-      super.folderId,
-      super.flags,
-      super.content,
-      super.mimePart,
-      super.attachments,
-      super.invite,
-      super.emailAddresses = const [],
-      super.timezones = const [],
-      super.fragment});
+  const MsgToSend({
+    this.draftId,
+    this.sendFromDraft,
+    this.dataSourceId,
+    super.attachmentId,
+    super.origId,
+    super.replyType,
+    super.identityId,
+    super.subject,
+    super.headers = const [],
+    super.inReplyTo,
+    super.folderId,
+    super.flags,
+    super.content,
+    super.mimePart,
+    super.attachments,
+    super.invite,
+    super.emailAddresses = const [],
+    super.timezones = const [],
+    super.fragment,
+  });
 
   factory MsgToSend.fromMap(Map<String, dynamic> data) => MsgToSend(
       draftId: data['did'],

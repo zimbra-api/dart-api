@@ -14,7 +14,7 @@ class Signature {
   /// Content of the signature
   final List<SignatureContent> contents;
 
-  Signature({this.name, this.id, this.cid, this.contents = const []});
+  const Signature({this.name, this.id, this.cid, this.contents = const []});
 
   factory Signature.fromMap(Map<String, dynamic> data) => Signature(
       name: data['name'],

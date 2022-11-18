@@ -48,21 +48,22 @@ class NoteInfo {
   /// Custom metadata information
   final List<MailCustomMetadata> metadatas;
 
-  NoteInfo(
-      {this.id,
-      this.revision,
-      this.folder,
-      this.date,
-      this.flags,
-      this.tags,
-      this.tagNames,
-      this.bounds,
-      this.color,
-      this.rgb,
-      this.changeDate,
-      this.modifiedSequence,
-      this.content,
-      this.metadatas = const []});
+  const NoteInfo({
+    this.id,
+    this.revision,
+    this.folder,
+    this.date,
+    this.flags,
+    this.tags,
+    this.tagNames,
+    this.bounds,
+    this.color,
+    this.rgb,
+    this.changeDate,
+    this.modifiedSequence,
+    this.content,
+    this.metadatas = const [],
+  });
 
   factory NoteInfo.fromMap(Map<String, dynamic> data) => NoteInfo(
       id: data['id'],

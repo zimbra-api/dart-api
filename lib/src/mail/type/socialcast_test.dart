@@ -5,7 +5,7 @@
 import 'filter_test.dart';
 
 class SocialcastTest extends FilterTest {
-  SocialcastTest({super.index, super.negative});
+  const SocialcastTest({super.index, super.negative});
 
   factory SocialcastTest.fromMap(Map<String, dynamic> data) =>
       SocialcastTest(index: int.tryParse(data['index']?.toString() ?? ''), negative: data['negative']);

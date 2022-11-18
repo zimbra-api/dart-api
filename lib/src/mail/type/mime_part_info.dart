@@ -20,7 +20,7 @@ class MimePartInfo {
   /// MIME Parts
   final List<MimePartInfo> mimeParts;
 
-  MimePartInfo({this.contentType, this.content, this.contentId, this.attachments, this.mimeParts = const []});
+  const MimePartInfo({this.contentType, this.content, this.contentId, this.attachments, this.mimeParts = const []});
 
   factory MimePartInfo.fromMap(Map<String, dynamic> data) => MimePartInfo(
       contentType: data['ct'],

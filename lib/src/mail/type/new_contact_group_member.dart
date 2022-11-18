@@ -13,7 +13,7 @@ class NewContactGroupMember {
 
   final String? value;
 
-  NewContactGroupMember({this.type = MemberType.contact, this.value});
+  const NewContactGroupMember({this.type = MemberType.contact, this.value});
 
   factory NewContactGroupMember.fromMap(Map<String, dynamic> data) => NewContactGroupMember(
       type: MemberType.values.firstWhere((type) => type.name == data['type'], orElse: () => MemberType.contact),

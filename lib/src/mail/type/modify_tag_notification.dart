@@ -11,7 +11,7 @@ class ModifyTagNotification extends ModifyNotification {
   /// Name of modified tag
   final String name;
 
-  ModifyTagNotification({this.id = 0, this.name = '', super.changeBitmask});
+  const ModifyTagNotification({this.id = 0, this.name = '', super.changeBitmask});
 
   factory ModifyTagNotification.fromMap(Map<String, dynamic> data) => ModifyTagNotification(
       id: int.tryParse(data['id']?['_content']?.toString() ?? '') ?? 0,

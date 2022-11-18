@@ -22,7 +22,13 @@ class DiscoverRightsTarget {
   /// Email addresses
   final List<DiscoverRightsEmail> emails;
 
-  DiscoverRightsTarget({this.type = TargetType.account, this.id, this.name, this.displayName, this.emails = const []});
+  const DiscoverRightsTarget({
+    this.type = TargetType.account,
+    this.id,
+    this.name,
+    this.displayName,
+    this.emails = const [],
+  });
 
   factory DiscoverRightsTarget.fromMap(Map<String, dynamic> data) => DiscoverRightsTarget(
         type: TargetType.values.firstWhere(

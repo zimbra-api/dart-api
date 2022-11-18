@@ -7,7 +7,7 @@ import 'header/context.dart';
 class SoapHeader {
   final Context? context;
 
-  SoapHeader({this.context});
+  const SoapHeader({this.context});
 
   factory SoapHeader.fromMap(Map<String, dynamic> data) =>
       SoapHeader(context: data['context'] is Map ? Context.fromMap(data['context']) : null);

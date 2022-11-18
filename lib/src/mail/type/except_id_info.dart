@@ -9,7 +9,7 @@ class ExceptIdInfo {
   /// Invite ID of exception
   final String id;
 
-  ExceptIdInfo(this.recurrenceId, this.id);
+  const ExceptIdInfo(this.recurrenceId, this.id);
 
   factory ExceptIdInfo.fromMap(Map<String, dynamic> data) => ExceptIdInfo(data['recurId'] ?? '', data['id'] ?? '');
 

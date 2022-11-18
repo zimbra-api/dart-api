@@ -13,7 +13,7 @@ class DateTest extends FilterTest {
   /// Date
   final int? date;
 
-  DateTest({this.dateComparison, this.date, super.index, super.negative});
+  const DateTest({this.dateComparison, this.date, super.index, super.negative});
 
   factory DateTest.fromMap(Map<String, dynamic> data) => DateTest(
       dateComparison: DateComparison.values.firstWhere(

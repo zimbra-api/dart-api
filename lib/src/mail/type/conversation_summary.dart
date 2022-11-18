@@ -52,22 +52,23 @@ class ConversationSummary {
   /// Email addresses
   final List<EmailInfo> emails;
 
-  ConversationSummary(
-      {this.id,
-      this.numMsg,
-      this.numUnread,
-      this.totalSize,
-      this.flags,
-      this.tags,
-      this.tagNames,
-      this.date,
-      this.elided,
-      this.changeDate,
-      this.modifiedSequence,
-      this.metadatas = const [],
-      this.subject,
-      this.fragment,
-      this.emails = const []});
+  const ConversationSummary({
+    this.id,
+    this.numMsg,
+    this.numUnread,
+    this.totalSize,
+    this.flags,
+    this.tags,
+    this.tagNames,
+    this.date,
+    this.elided,
+    this.changeDate,
+    this.modifiedSequence,
+    this.metadatas = const [],
+    this.subject,
+    this.fragment,
+    this.emails = const [],
+  });
 
   factory ConversationSummary.fromMap(Map<String, dynamic> data) => ConversationSummary(
       id: data['id'],

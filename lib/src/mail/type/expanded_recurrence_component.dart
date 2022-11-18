@@ -23,7 +23,7 @@ class ExpandedRecurrenceComponent {
   /// RRULE/RDATE/EXDATE information
   final RecurrenceInfo? recurrence;
 
-  ExpandedRecurrenceComponent({this.exceptionId, this.startTime, this.endTime, this.duration, this.recurrence});
+  const ExpandedRecurrenceComponent({this.exceptionId, this.startTime, this.endTime, this.duration, this.recurrence});
 
   factory ExpandedRecurrenceComponent.fromMap(Map<String, dynamic> data) => ExpandedRecurrenceComponent(
       exceptionId: data['exceptId'] is Map ? InstanceRecurIdInfo.fromMap(data['exceptId']) : null,

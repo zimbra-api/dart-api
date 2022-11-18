@@ -21,8 +21,16 @@ class AccountACEInfo {
 
   final bool? checkGranteeType;
 
-  AccountACEInfo(this.granteeType, this.right,
-      {this.zimbraId, this.displayName, this.accessKey, this.password, this.deny, this.checkGranteeType});
+  const AccountACEInfo(
+    this.granteeType,
+    this.right, {
+    this.zimbraId,
+    this.displayName,
+    this.accessKey,
+    this.password,
+    this.deny,
+    this.checkGranteeType,
+  });
 
   factory AccountACEInfo.fromMap(Map<String, dynamic> data) => AccountACEInfo(
         GranteeType.values.firstWhere(

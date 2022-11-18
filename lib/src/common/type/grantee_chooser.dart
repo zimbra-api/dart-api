@@ -9,7 +9,7 @@ class GranteeChooser {
 
   final String? name;
 
-  GranteeChooser({this.type, this.id, this.name});
+  const GranteeChooser({this.type, this.id, this.name});
 
   factory GranteeChooser.fromMap(Map<String, dynamic> data) =>
       GranteeChooser(type: data['type'], id: data['id'], name: data['name']);

@@ -11,7 +11,7 @@ class RetentionPolicy {
   /// 'Purge' retention policies
   final List<Policy> purge;
 
-  RetentionPolicy({this.keep = const [], this.purge = const []});
+  const RetentionPolicy({this.keep = const [], this.purge = const []});
 
   factory RetentionPolicy.fromMap(Map<String, dynamic> data) => RetentionPolicy(
       keep: (data['keep']?[0]['policy'] is Iterable)

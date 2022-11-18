@@ -10,13 +10,14 @@ import 'simple_repeating_rule.dart';
 import 'single_dates.dart';
 
 class ExcludeRecurrenceInfo extends RecurrenceInfo {
-  ExcludeRecurrenceInfo(
-      {super.add = const [],
-      super.exclude = const [],
-      super.except = const [],
-      super.cancel = const [],
-      super.dates = const [],
-      super.simple = const []});
+  const ExcludeRecurrenceInfo({
+    super.add = const [],
+    super.exclude = const [],
+    super.except = const [],
+    super.cancel = const [],
+    super.dates = const [],
+    super.simple = const [],
+  });
 
   factory ExcludeRecurrenceInfo.fromMap(Map<String, dynamic> data) => ExcludeRecurrenceInfo(
       add: (data['add'] is Iterable)

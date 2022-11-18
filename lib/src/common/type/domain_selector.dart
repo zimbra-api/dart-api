@@ -9,7 +9,7 @@ class DomainSelector {
 
   final String value;
 
-  DomainSelector(this.by, this.value);
+  const DomainSelector(this.by, this.value);
 
   factory DomainSelector.fromMap(Map<String, dynamic> data) => DomainSelector(
         DomainBy.values.firstWhere(

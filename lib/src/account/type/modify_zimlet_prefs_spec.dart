@@ -12,7 +12,7 @@ class ModifyZimletPrefsSpec {
   /// Valid values : "enabled" | "disabled"
   final ZimletStatus presence;
 
-  ModifyZimletPrefsSpec(this.name, this.presence);
+  const ModifyZimletPrefsSpec(this.name, this.presence);
 
   factory ModifyZimletPrefsSpec.fromMap(Map<String, dynamic> data) => ModifyZimletPrefsSpec(
       data['name'] ?? '',

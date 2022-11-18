@@ -28,7 +28,7 @@ class ActionGrantSelector {
   /// Optional argument. Access key when granteeType is "key"
   final String? accessKey;
 
-  ActionGrantSelector(
+  const ActionGrantSelector(
     this.rights, {
     this.grantType = GranteeType.all,
     this.zimbraId,

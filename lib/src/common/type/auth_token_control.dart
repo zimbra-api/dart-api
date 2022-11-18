@@ -5,7 +5,7 @@
 class AuthTokenControl {
   final bool? voidOnExpired;
 
-  AuthTokenControl({this.voidOnExpired});
+  const AuthTokenControl({this.voidOnExpired});
 
   factory AuthTokenControl.fromMap(Map<String, dynamic> data) =>
       AuthTokenControl(voidOnExpired: data['voidOnExpired']);

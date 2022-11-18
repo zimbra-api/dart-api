@@ -11,20 +11,23 @@ class NoteActionSelector extends ActionSelector {
   /// Bounds - x,y[width,height] where x,y,width and height are all ints
   final String? bounds;
 
-  NoteActionSelector(super.ids, super.operation,
-      {this.content,
-      this.bounds,
-      super.constraint,
-      super.tag,
-      super.folder,
-      super.rgb,
-      super.color,
-      super.name,
-      super.flags,
-      super.tags,
-      super.tagNames,
-      super.nonExistentIds,
-      super.newlyCreatedIds});
+  const NoteActionSelector(
+    super.ids,
+    super.operation, {
+    this.content,
+    this.bounds,
+    super.constraint,
+    super.tag,
+    super.folder,
+    super.rgb,
+    super.color,
+    super.name,
+    super.flags,
+    super.tags,
+    super.tagNames,
+    super.nonExistentIds,
+    super.newlyCreatedIds,
+  });
 
   factory NoteActionSelector.fromMap(Map<String, dynamic> data) =>
       NoteActionSelector(data['id'] ?? '', data['op'] ?? '',

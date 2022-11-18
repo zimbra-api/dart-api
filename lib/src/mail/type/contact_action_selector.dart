@@ -10,19 +10,22 @@ class ContactActionSelector extends ActionSelector {
   /// New contact attributes
   final List<NewContactAttr> attrs;
 
-  ContactActionSelector(super.ids, super.operation,
-      {super.constraint,
-      super.tag,
-      super.folder,
-      super.rgb,
-      super.color,
-      super.name,
-      super.flags,
-      super.tags,
-      super.tagNames,
-      super.nonExistentIds,
-      super.newlyCreatedIds,
-      this.attrs = const []});
+  const ContactActionSelector(
+    super.ids,
+    super.operation, {
+    super.constraint,
+    super.tag,
+    super.folder,
+    super.rgb,
+    super.color,
+    super.name,
+    super.flags,
+    super.tags,
+    super.tagNames,
+    super.nonExistentIds,
+    super.newlyCreatedIds,
+    this.attrs = const [],
+  });
 
   factory ContactActionSelector.fromMap(Map<String, dynamic> data) =>
       ContactActionSelector(data['id'] ?? '', data['op'] ?? '',

@@ -61,23 +61,24 @@ class Msg {
   /// First few bytes of the message (probably between 40 and 100 bytes)
   final String? fragment;
 
-  Msg(
-      {this.attachmentId,
-      this.origId,
-      this.replyType,
-      this.identityId,
-      this.subject,
-      this.headers = const [],
-      this.inReplyTo,
-      this.folderId,
-      this.flags,
-      this.content,
-      this.mimePart,
-      this.attachments,
-      this.invite,
-      this.emailAddresses = const [],
-      this.timezones = const [],
-      this.fragment});
+  const Msg({
+    this.attachmentId,
+    this.origId,
+    this.replyType,
+    this.identityId,
+    this.subject,
+    this.headers = const [],
+    this.inReplyTo,
+    this.folderId,
+    this.flags,
+    this.content,
+    this.mimePart,
+    this.attachments,
+    this.invite,
+    this.emailAddresses = const [],
+    this.timezones = const [],
+    this.fragment,
+  });
 
   factory Msg.fromMap(Map<String, dynamic> data) => Msg(
       attachmentId: data['aid'],

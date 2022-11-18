@@ -9,7 +9,7 @@ class MessagePartSpec {
   /// Message ID
   final String? id;
 
-  MessagePartSpec({this.part, this.id});
+  const MessagePartSpec({this.part, this.id});
 
   factory MessagePartSpec.fromMap(Map<String, dynamic> data) => MessagePartSpec(part: data['part'], id: data['id']);
 

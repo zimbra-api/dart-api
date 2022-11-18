@@ -11,7 +11,7 @@ class OAuthConsumer {
 
   final String? device;
 
-  OAuthConsumer({this.accessToken, this.approvedOn, this.applicationName, this.device});
+  const OAuthConsumer({this.accessToken, this.approvedOn, this.applicationName, this.device});
 
   factory OAuthConsumer.fromMap(Map<String, dynamic> data) => OAuthConsumer(
       accessToken: data['accessToken'],

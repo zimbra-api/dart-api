@@ -7,7 +7,7 @@ import 'key_value_pair.dart';
 class KeyValuePairs {
   final List<KeyValuePair> keyValuePairs;
 
-  KeyValuePairs({this.keyValuePairs = const []});
+  const KeyValuePairs({this.keyValuePairs = const []});
 
   static List<KeyValuePair> keyValuePairsFromMap(Map<String, dynamic> data) {
     return (data['_attrs'] is Map) ? attrsFromMap(data['_attrs'] as Map<String, dynamic>) : const [];

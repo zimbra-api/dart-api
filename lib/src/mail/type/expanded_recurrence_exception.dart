@@ -9,7 +9,13 @@ import 'recurrence_info.dart';
 
 /// Except expanded recurrence
 class ExpandedRecurrenceException extends ExpandedRecurrenceComponent {
-  ExpandedRecurrenceException({super.exceptionId, super.startTime, super.endTime, super.duration, super.recurrence});
+  const ExpandedRecurrenceException({
+    super.exceptionId,
+    super.startTime,
+    super.endTime,
+    super.duration,
+    super.recurrence,
+  });
 
   factory ExpandedRecurrenceException.fromMap(Map<String, dynamic> data) => ExpandedRecurrenceException(
       exceptionId: data['exceptId'] is Map ? InstanceRecurIdInfo.fromMap(data['exceptId']) : null,

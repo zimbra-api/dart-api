@@ -24,12 +24,14 @@ class FreeBusyUserInfo {
   /// No data slots
   final List<FreeBusySlot> nodataSlots;
 
-  FreeBusyUserInfo(this.id,
-      {this.freeSlots = const [],
-      this.busySlots = const [],
-      this.tentativeSlots = const [],
-      this.unavailableSlots = const [],
-      this.nodataSlots = const []});
+  const FreeBusyUserInfo(
+    this.id, {
+    this.freeSlots = const [],
+    this.busySlots = const [],
+    this.tentativeSlots = const [],
+    this.unavailableSlots = const [],
+    this.nodataSlots = const [],
+  });
 
   factory FreeBusyUserInfo.fromMap(Map<String, dynamic> data) => FreeBusyUserInfo(data['id'] ?? '',
       freeSlots: (data['f'] is Iterable)

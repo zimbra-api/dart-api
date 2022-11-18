@@ -14,7 +14,7 @@ class XProp {
 
   final List<XParam> xParams;
 
-  XProp(this.name, {this.value, this.xParams = const []});
+  const XProp(this.name, {this.value, this.xParams = const []});
 
   factory XProp.fromMap(Map<String, dynamic> data) => XProp(data['name'] ?? '',
       value: data['value'],

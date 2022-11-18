@@ -15,7 +15,7 @@ class ItemSpec {
   /// Fully qualified path
   final String? path;
 
-  ItemSpec({this.id, this.folder, this.name, this.path});
+  const ItemSpec({this.id, this.folder, this.name, this.path});
 
   factory ItemSpec.fromMap(Map<String, dynamic> data) =>
       ItemSpec(id: data['id'], folder: data['l'], name: data['name'], path: data['path']);

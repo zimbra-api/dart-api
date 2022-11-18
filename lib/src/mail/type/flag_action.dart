@@ -10,7 +10,7 @@ class FlagAction extends FilterAction {
   /// Flag name - flagged|read|priority
   final FilterFlagName? flag;
 
-  FlagAction({this.flag, super.index});
+  const FlagAction({this.flag, super.index});
 
   factory FlagAction.fromMap(Map<String, dynamic> data) => FlagAction(
       flag: FilterFlagName.values.firstWhere(

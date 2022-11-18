@@ -9,7 +9,7 @@ class ImportContact {
   // Number imported
   final int? numImported;
 
-  ImportContact({this.listOfCreatedIds, this.numImported});
+  const ImportContact({this.listOfCreatedIds, this.numImported});
 
   factory ImportContact.fromMap(Map<String, dynamic> data) =>
       ImportContact(listOfCreatedIds: data['ids'], numImported: int.tryParse(data['n']?.toString() ?? ''));

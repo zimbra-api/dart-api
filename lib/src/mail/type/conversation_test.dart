@@ -10,7 +10,7 @@ class ConversationTest extends FilterTest {
   /// Where setting - started|participated
   final WhereSetting? where;
 
-  ConversationTest({this.where, super.index, super.negative});
+  const ConversationTest({this.where, super.index, super.negative});
 
   factory ConversationTest.fromMap(Map<String, dynamic> data) => ConversationTest(
       where: WhereSetting.values.firstWhere(

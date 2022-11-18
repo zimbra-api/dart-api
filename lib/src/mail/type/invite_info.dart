@@ -22,7 +22,12 @@ class InviteInfo {
   /// List of replies received from attendees.
   final List<CalendarReply> calendarReplies;
 
-  InviteInfo(this.calItemType, {this.timezones = const [], this.inviteComponent, this.calendarReplies = const []});
+  const InviteInfo(
+    this.calItemType, {
+    this.timezones = const [],
+    this.inviteComponent,
+    this.calendarReplies = const [],
+  });
 
   factory InviteInfo.fromMap(Map<String, dynamic> data) => InviteInfo(
       InviteType.values.firstWhere(

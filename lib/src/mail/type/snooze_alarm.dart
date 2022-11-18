@@ -9,7 +9,7 @@ class SnoozeAlarm {
   /// When to show the alarm again in milliseconds since the epoch
   final int snoozeUntil;
 
-  SnoozeAlarm(this.id, this.snoozeUntil);
+  const SnoozeAlarm(this.id, this.snoozeUntil);
 
   factory SnoozeAlarm.fromMap(Map<String, dynamic> data) =>
       SnoozeAlarm(data['id'] ?? '', int.tryParse(data['until']?.toString() ?? '') ?? 0);

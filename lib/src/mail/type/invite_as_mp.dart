@@ -48,29 +48,30 @@ class InviteAsMP extends MessageCommon {
   /// Distribution list subscription notifications
   final List<DLSubscriptionNotification> dlSubsContentElems;
 
-  InviteAsMP(
-      {this.id,
-      this.part,
-      this.sentDate,
-      this.emails = const [],
-      this.subject,
-      this.messageIdHeader,
-      this.invite,
-      this.headers = const [],
-      this.mpContentElems = const [],
-      this.shrContentElems = const [],
-      this.dlSubsContentElems = const [],
-      super.size,
-      super.date,
-      super.folder,
-      super.conversationId,
-      super.flags,
-      super.tags,
-      super.tagNames,
-      super.revision,
-      super.changeDate,
-      super.modifiedSequence,
-      super.metadatas = const []});
+  const InviteAsMP({
+    this.id,
+    this.part,
+    this.sentDate,
+    this.emails = const [],
+    this.subject,
+    this.messageIdHeader,
+    this.invite,
+    this.headers = const [],
+    this.mpContentElems = const [],
+    this.shrContentElems = const [],
+    this.dlSubsContentElems = const [],
+    super.size,
+    super.date,
+    super.folder,
+    super.conversationId,
+    super.flags,
+    super.tags,
+    super.tagNames,
+    super.revision,
+    super.changeDate,
+    super.modifiedSequence,
+    super.metadatas = const [],
+  });
 
   factory InviteAsMP.fromMap(Map<String, dynamic> data) => InviteAsMP(
       id: data['id'],

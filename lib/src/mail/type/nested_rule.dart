@@ -19,7 +19,7 @@ class NestedRule {
   /// NestedRule child
   final NestedRule? child;
 
-  NestedRule({this.filterVariables, this.filterTests, this.filterActions, this.child});
+  const NestedRule({this.filterVariables, this.filterTests, this.filterActions, this.child});
 
   factory NestedRule.fromMap(Map<String, dynamic> data) => NestedRule(
         filterVariables: data['filterVariables'] is Map ? FilterVariables.fromMap(data['filterVariables']) : null,

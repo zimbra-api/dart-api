@@ -9,7 +9,7 @@ class ModifyItemNotification extends ModifyNotification {
   /// Modified IMAP message
   final ImapMessageInfo? messageInfo;
 
-  ModifyItemNotification({this.messageInfo, super.changeBitmask});
+  const ModifyItemNotification({this.messageInfo, super.changeBitmask});
 
   factory ModifyItemNotification.fromMap(Map<String, dynamic> data) => ModifyItemNotification(
       changeBitmask: data['change'] ?? 0, messageInfo: data['m'] is Map ? ImapMessageInfo.fromMap(data['m']) : null);

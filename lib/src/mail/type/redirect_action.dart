@@ -12,7 +12,7 @@ class RedirectAction extends FilterAction {
   /// See https://tools.ietf.org/html/rfc3894 "Sieve Extension: Copying Without Side Effects"
   final bool? copy;
 
-  RedirectAction({this.address, this.copy, super.index});
+  const RedirectAction({this.address, this.copy, super.index});
 
   factory RedirectAction.fromMap(Map<String, dynamic> data) =>
       RedirectAction(address: data['a'], copy: data['copy'], index: int.tryParse(data['index']?.toString() ?? ''));

@@ -11,7 +11,7 @@ class AccountZimletContext {
 
   final ZimletPresence? zimletPresence;
 
-  AccountZimletContext(this.zimletBaseUrl, {this.zimletPriority, this.zimletPresence});
+  const AccountZimletContext(this.zimletBaseUrl, {this.zimletPriority, this.zimletPresence});
 
   factory AccountZimletContext.fromMap(Map<String, dynamic> data) => AccountZimletContext(
         data['baseUrl'],

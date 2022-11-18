@@ -12,7 +12,7 @@ class FreeBusyUserStatus {
   /// Free/Busy status - B|T|O (Busy, Tentative or Out-of-office)
   final FreeBusyStatus? freebusyStatus;
 
-  FreeBusyUserStatus({this.name, this.freebusyStatus});
+  const FreeBusyUserStatus({this.name, this.freebusyStatus});
 
   factory FreeBusyUserStatus.fromMap(Map<String, dynamic> data) => FreeBusyUserStatus(
       name: data['name'],

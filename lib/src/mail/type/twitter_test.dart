@@ -5,7 +5,7 @@
 import 'filter_test.dart';
 
 class TwitterTest extends FilterTest {
-  TwitterTest({super.index, super.negative});
+  const TwitterTest({super.index, super.negative});
 
   factory TwitterTest.fromMap(Map<String, dynamic> data) =>
       TwitterTest(index: int.tryParse(data['index']?.toString() ?? ''), negative: data['negative']);

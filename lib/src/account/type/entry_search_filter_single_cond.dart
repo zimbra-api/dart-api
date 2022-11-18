@@ -13,7 +13,7 @@ class EntrySearchFilterSingleCond {
 
   final bool? isNot;
 
-  EntrySearchFilterSingleCond(this.attr, this.op, {this.value, this.isNot});
+  const EntrySearchFilterSingleCond(this.attr, this.op, {this.value, this.isNot});
 
   factory EntrySearchFilterSingleCond.fromMap(Map<String, dynamic> data) => EntrySearchFilterSingleCond(
       data['attr'] ?? '',

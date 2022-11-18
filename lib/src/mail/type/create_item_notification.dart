@@ -8,7 +8,7 @@ class CreateItemNotification {
   /// Message info of created item
   final ImapMessageInfo? messageInfo;
 
-  CreateItemNotification({this.messageInfo});
+  const CreateItemNotification({this.messageInfo});
 
   factory CreateItemNotification.fromMap(Map<String, dynamic> data) =>
       CreateItemNotification(messageInfo: data['m'] is Map ? ImapMessageInfo.fromMap(data['m']) : null);

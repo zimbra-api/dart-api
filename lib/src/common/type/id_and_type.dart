@@ -9,7 +9,7 @@ class IdAndType {
   /// The type
   final String? type;
 
-  IdAndType({this.id, this.type});
+  const IdAndType({this.id, this.type});
 
   factory IdAndType.fromMap(Map<String, dynamic> data) => IdAndType(id: data['id'], type: data['type']);
 

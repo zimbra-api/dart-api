@@ -14,7 +14,7 @@ class AddheaderAction extends FilterAction {
   /// Last header
   final bool? last;
 
-  AddheaderAction({this.headerName, this.headerValue, this.last, super.index});
+  const AddheaderAction({this.headerName, this.headerValue, this.last, super.index});
 
   factory AddheaderAction.fromMap(Map<String, dynamic> data) => AddheaderAction(
       headerName: data['headerName']?['_content'],

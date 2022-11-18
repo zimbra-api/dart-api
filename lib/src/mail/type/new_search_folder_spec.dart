@@ -30,7 +30,7 @@ class NewSearchFolderSpec {
   /// Parent folder ID
   final String? parentFolderId;
 
-  NewSearchFolderSpec(
+  const NewSearchFolderSpec(
     this.name,
     this.query, {
     this.searchTypes,

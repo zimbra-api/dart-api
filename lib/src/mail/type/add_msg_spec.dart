@@ -29,15 +29,16 @@ class AddMsgSpec {
   /// No <mp> elements should be provided within <m>.
   final String? content;
 
-  AddMsgSpec(
-      {this.flags,
-      this.tags,
-      this.tagNames,
-      this.folder,
-      this.noICal,
-      this.dateReceived,
-      this.attachmentId,
-      this.content});
+  const AddMsgSpec({
+    this.flags,
+    this.tags,
+    this.tagNames,
+    this.folder,
+    this.noICal,
+    this.dateReceived,
+    this.attachmentId,
+    this.content,
+  });
 
   factory AddMsgSpec.fromMap(Map<String, dynamic> data) => AddMsgSpec(
       flags: data['f'],

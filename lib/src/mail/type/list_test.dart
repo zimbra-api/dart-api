@@ -5,7 +5,7 @@
 import 'filter_test.dart';
 
 class ListTest extends FilterTest {
-  ListTest({super.index, super.negative});
+  const ListTest({super.index, super.negative});
 
   factory ListTest.fromMap(Map<String, dynamic> data) =>
       ListTest(index: int.tryParse(data['index']?.toString() ?? ''), negative: data['negative']);

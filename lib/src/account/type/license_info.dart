@@ -14,7 +14,7 @@ class LicenseInfo {
   /// License attributes
   final List<LicenseAttr> attrs;
 
-  LicenseInfo(this.status, {this.attrs = const []});
+  const LicenseInfo(this.status, {this.attrs = const []});
 
   factory LicenseInfo.fromMap(Map<String, dynamic> data) => LicenseInfo(
       LicenseStatus.values.firstWhere(

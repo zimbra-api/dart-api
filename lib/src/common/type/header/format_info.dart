@@ -7,7 +7,7 @@ import 'package:zimbra_api/src/common/enum/request_format.dart';
 class FormatInfo {
   final RequestFormat format = RequestFormat.js;
 
-  FormatInfo();
+  const FormatInfo();
 
   factory FormatInfo.fromMap(Map<String, dynamic> data) => FormatInfo();
 

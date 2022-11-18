@@ -9,7 +9,7 @@ class ByDayRule {
   /// By day weekday rule specification
   final List<WkDay> days;
 
-  ByDayRule({this.days = const []});
+  const ByDayRule({this.days = const []});
 
   factory ByDayRule.fromMap(Map<String, dynamic> data) => ByDayRule(
       days: (data['wkday'] is Iterable)

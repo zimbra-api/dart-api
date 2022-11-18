@@ -17,8 +17,12 @@ class EntrySearchFilterMultiCond {
   /// The list of compound conditions
   final List<EntrySearchFilterMultiCond> compoundConditions;
 
-  EntrySearchFilterMultiCond(
-      {this.isNot, this.isOr, this.singleConditions = const [], this.compoundConditions = const []});
+  const EntrySearchFilterMultiCond({
+    this.isNot,
+    this.isOr,
+    this.singleConditions = const [],
+    this.compoundConditions = const [],
+  });
 
   factory EntrySearchFilterMultiCond.fromMap(Map<String, dynamic> data) => EntrySearchFilterMultiCond(
         isNot: data['not'],

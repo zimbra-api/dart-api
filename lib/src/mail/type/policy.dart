@@ -17,7 +17,7 @@ class Policy {
   /// The duration
   final String? lifetime;
 
-  Policy({this.type, this.id, this.name, this.lifetime});
+  const Policy({this.type, this.id, this.name, this.lifetime});
 
   factory Policy.fromMap(Map<String, dynamic> data) => Policy(
       type: PolicyType.values.firstWhere(

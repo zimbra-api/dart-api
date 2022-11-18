@@ -34,7 +34,7 @@ class SaveDraftMsg extends Msg {
   /// Auto send time in milliseconds since the epoch
   final int? autoSendTime;
 
-  SaveDraftMsg({
+  const SaveDraftMsg({
     this.id,
     this.draftAccountId,
     this.tags,

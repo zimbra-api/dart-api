@@ -27,8 +27,17 @@ class CalendarReply extends RecurIdInfo {
   /// "WA"iting (custom value only for todo), "DF" (deferred; custom value only for todo)
   final ParticipationStatus? partStat;
 
-  CalendarReply(super.recurrenceRangeType, super.recurrenceId, this.seq, this.date, this.attendee,
-      {this.sentBy, this.partStat, super.timezone, super.recurIdZ});
+  const CalendarReply(
+    super.recurrenceRangeType,
+    super.recurrenceId,
+    this.seq,
+    this.date,
+    this.attendee, {
+    this.sentBy,
+    this.partStat,
+    super.timezone,
+    super.recurIdZ,
+  });
 
   factory CalendarReply.fromMap(Map<String, dynamic> data) => CalendarReply(
       int.tryParse(data['rangeType']?.toString() ?? '') ?? 1,

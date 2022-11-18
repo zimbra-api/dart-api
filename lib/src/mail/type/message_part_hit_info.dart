@@ -37,18 +37,19 @@ class MessagePartHitInfo {
   /// Subject
   final String? subject;
 
-  MessagePartHitInfo(
-      {this.id,
-      this.sortField,
-      this.size,
-      this.date,
-      this.conversationId,
-      this.messageId,
-      this.contentType,
-      this.contentName,
-      this.part,
-      this.email,
-      this.subject});
+  const MessagePartHitInfo({
+    this.id,
+    this.sortField,
+    this.size,
+    this.date,
+    this.conversationId,
+    this.messageId,
+    this.contentType,
+    this.contentName,
+    this.part,
+    this.email,
+    this.subject,
+  });
 
   factory MessagePartHitInfo.fromMap(Map<String, dynamic> data) => MessagePartHitInfo(
       id: data['id'],

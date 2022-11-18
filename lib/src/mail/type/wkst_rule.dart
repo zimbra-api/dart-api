@@ -9,7 +9,7 @@ class WkstRule {
   /// Weekday -  SU|MO|TU|WE|TH|FR|SA
   final WeekDay day;
 
-  WkstRule(this.day);
+  const WkstRule(this.day);
 
   factory WkstRule.fromMap(Map<String, dynamic> data) => WkstRule(WeekDay.values.firstWhere(
         (item) => item.name == data['day'],

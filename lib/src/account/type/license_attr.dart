@@ -10,7 +10,7 @@ class LicenseAttr {
   /// Value - value is "TRUE" or "FALSE"
   final String? content;
 
-  LicenseAttr(this.name, {this.content});
+  const LicenseAttr(this.name, {this.content});
 
   factory LicenseAttr.fromMap(Map<String, dynamic> data) => LicenseAttr(data['name'], content: data['_content']);
 

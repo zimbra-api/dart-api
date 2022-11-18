@@ -10,7 +10,7 @@ class FlaggedTest extends FilterTest {
   /// Flag name - flagged|read|priority
   final FilterFlagName? flag;
 
-  FlaggedTest({this.flag, super.index, super.negative});
+  const FlaggedTest({this.flag, super.index, super.negative});
 
   factory FlaggedTest.fromMap(Map<String, dynamic> data) => FlaggedTest(
       flag: FilterFlagName.values.firstWhere(

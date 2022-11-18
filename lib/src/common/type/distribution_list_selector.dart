@@ -9,7 +9,7 @@ class DistributionListSelector {
 
   final String value;
 
-  DistributionListSelector(this.by, this.value);
+  const DistributionListSelector(this.by, this.value);
 
   factory DistributionListSelector.fromMap(Map<String, dynamic> data) => DistributionListSelector(
         DistributionListBy.values.firstWhere(

@@ -12,7 +12,7 @@ class LocaleInfo {
   /// Name of the locale in the users' locale
   final String? localName;
 
-  LocaleInfo(this.id, this.name, {this.localName});
+  const LocaleInfo(this.id, this.name, {this.localName});
 
   factory LocaleInfo.fromMap(Map<String, dynamic> data) =>
       LocaleInfo(data['id'], data['name'], localName: data['localName']);

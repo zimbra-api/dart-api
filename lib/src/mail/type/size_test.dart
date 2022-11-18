@@ -13,7 +13,7 @@ class SizeTest extends FilterTest {
   /// Size value. Value can be specified in bytes (no suffix), kilobytes (50K), megabytes (50M) or gigabytes (2G)
   final String? size;
 
-  SizeTest({this.numberComparison, this.size, super.index, super.negative});
+  const SizeTest({this.numberComparison, this.size, super.index, super.negative});
 
   factory SizeTest.fromMap(Map<String, dynamic> data) => SizeTest(
       numberComparison: NumberComparison.values.firstWhere(

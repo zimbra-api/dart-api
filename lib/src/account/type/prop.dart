@@ -9,7 +9,7 @@ class Prop {
 
   final String? value;
 
-  Prop(this.zimlet, this.name, {this.value});
+  const Prop(this.zimlet, this.name, {this.value});
 
   factory Prop.fromMap(Map<String, dynamic> data) => Prop(data['zimlet'], data['name'], value: data['_content']);
 

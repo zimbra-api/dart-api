@@ -18,12 +18,13 @@ class CheckRightsTargetInfo {
 
   final List<CheckRightsRightInfo> rights;
 
-  CheckRightsTargetInfo(
-      {this.targetType = TargetType.account,
-      this.targetBy = TargetBy.name,
-      this.targetKey = '',
-      this.allow = false,
-      this.rights = const []});
+  const CheckRightsTargetInfo({
+    this.targetType = TargetType.account,
+    this.targetBy = TargetBy.name,
+    this.targetKey = '',
+    this.allow = false,
+    this.rights = const [],
+  });
 
   factory CheckRightsTargetInfo.fromMap(Map<String, dynamic> data) => CheckRightsTargetInfo(
         targetType: TargetType.values.firstWhere(

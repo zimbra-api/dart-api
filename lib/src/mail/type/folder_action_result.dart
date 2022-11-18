@@ -15,8 +15,15 @@ class FolderActionResult extends ActionResult {
   /// Access key (Password)
   final String? accessKey;
 
-  FolderActionResult(super.id, super.operation,
-      {super.nonExistentIds, super.newlyCreatedIds, this.zimbraId, this.displayName, this.accessKey});
+  const FolderActionResult(
+    super.id,
+    super.operation, {
+    super.nonExistentIds,
+    super.newlyCreatedIds,
+    this.zimbraId,
+    this.displayName,
+    this.accessKey,
+  });
 
   factory FolderActionResult.fromMap(Map<String, dynamic> data) =>
       FolderActionResult(data['id'] ?? '', data['op'] ?? '',

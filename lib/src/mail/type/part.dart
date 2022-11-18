@@ -6,7 +6,7 @@ class Part {
   /// part
   final String part;
 
-  Part(this.part);
+  const Part(this.part);
 
   factory Part.fromMap(Map<String, dynamic> data) => Part(data['part'] ?? '');
 

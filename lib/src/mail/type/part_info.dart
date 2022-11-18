@@ -36,16 +36,19 @@ class PartInfo {
   /// Mime parts
   final List<PartInfo> mimeParts;
 
-  PartInfo(this.part, this.contentType,
-      {this.size,
-      this.contentDisposition,
-      this.contentFilename,
-      this.contentId,
-      this.location,
-      this.body,
-      this.truncatedContent,
-      this.content,
-      this.mimeParts = const []});
+  const PartInfo(
+    this.part,
+    this.contentType, {
+    this.size,
+    this.contentDisposition,
+    this.contentFilename,
+    this.contentId,
+    this.location,
+    this.body,
+    this.truncatedContent,
+    this.content,
+    this.mimeParts = const [],
+  });
 
   factory PartInfo.fromMap(Map<String, dynamic> data) => PartInfo(data['part'] ?? '', data['ct'] ?? '',
       size: data['s'],

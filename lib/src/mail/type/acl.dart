@@ -15,7 +15,7 @@ class Acl {
   /// Grants
   final List<Grant> grants;
 
-  Acl({this.internalGrantExpiry, this.guestGrantExpiry, this.grants = const []});
+  const Acl({this.internalGrantExpiry, this.guestGrantExpiry, this.grants = const []});
 
   factory Acl.fromMap(Map<String, dynamic> data) => Acl(
       internalGrantExpiry: int.tryParse(data['internalGrantExpiry']?.toString() ?? ''),

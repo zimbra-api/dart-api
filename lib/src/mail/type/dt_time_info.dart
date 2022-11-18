@@ -27,7 +27,7 @@ class DtTimeInfo {
   /// UTC time as milliseconds since the epoch. Set if non-all-day
   final int? utcTime;
 
-  DtTimeInfo({this.dateTime, this.timezone, this.utcTime});
+  const DtTimeInfo({this.dateTime, this.timezone, this.utcTime});
 
   factory DtTimeInfo.fromMap(Map<String, dynamic> data) =>
       DtTimeInfo(dateTime: data['d'], timezone: data['tz'], utcTime: int.tryParse(data['u']?.toString() ?? ''));

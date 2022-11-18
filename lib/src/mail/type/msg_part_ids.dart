@@ -9,7 +9,7 @@ class MsgPartIds {
   /// Comma separated list of part IDs to remove
   final String? partIds;
 
-  MsgPartIds({this.id, this.partIds});
+  const MsgPartIds({this.id, this.partIds});
 
   factory MsgPartIds.fromMap(Map<String, dynamic> data) => MsgPartIds(id: data['id'], partIds: data['part']);
 

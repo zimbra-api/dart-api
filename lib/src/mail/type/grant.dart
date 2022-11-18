@@ -27,13 +27,15 @@ class Grant {
   /// Access key when granteeType is key
   final String? accessKey;
 
-  Grant(this.perm,
-      {this.granteeType = GrantGranteeType.all,
-      this.granteeId,
-      this.expiry,
-      this.granteeName,
-      this.guestPassword,
-      this.accessKey});
+  const Grant(
+    this.perm, {
+    this.granteeType = GrantGranteeType.all,
+    this.granteeId,
+    this.expiry,
+    this.granteeName,
+    this.guestPassword,
+    this.accessKey,
+  });
 
   factory Grant.fromMap(Map<String, dynamic> data) => Grant(data['perm'] ?? '',
       granteeType: GrantGranteeType.values.firstWhere(

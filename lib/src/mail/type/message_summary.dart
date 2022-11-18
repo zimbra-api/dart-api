@@ -26,28 +26,29 @@ class MessageSummary extends MessageCommon {
   /// Invite information
   final InviteInfo? invite;
 
-  MessageSummary(this.id,
-      {this.autoSendTime,
-      this.emails = const [],
-      this.subject,
-      this.fragment,
-      this.invite,
-      super.size,
-      super.date,
-      super.folder,
-      super.conversationId,
-      super.flags,
-      super.tags,
-      super.tagNames,
-      super.revision,
-      super.changeDate,
-      super.modifiedSequence,
-      super.metadatas = const []});
+  const MessageSummary(
+    this.id, {
+    this.autoSendTime,
+    this.emails = const [],
+    this.subject,
+    this.fragment,
+    this.invite,
+    super.size,
+    super.date,
+    super.folder,
+    super.conversationId,
+    super.flags,
+    super.tags,
+    super.tagNames,
+    super.revision,
+    super.changeDate,
+    super.modifiedSequence,
+    super.metadatas = const [],
+  });
 
   factory MessageSummary.fromMap(Map<String, dynamic> data) => MessageSummary(data['id'] ?? '',
       autoSendTime: int.tryParse(data['autoSendTime']?.toString() ?? ''),
-      emails:
-          (data['e'] is Iterable)
+      emails: (data['e'] is Iterable)
           ? (data['e'] as Iterable).map<EmailInfo>((e) => EmailInfo.fromMap(e)).toList(growable: false)
           : const [],
       subject: data['su'],

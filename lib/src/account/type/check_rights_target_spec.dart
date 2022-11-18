@@ -14,11 +14,12 @@ class CheckRightsTargetSpec {
 
   final List<String> rights;
 
-  CheckRightsTargetSpec(
-      {this.targetType = TargetType.account,
-      this.targetBy = TargetBy.name,
-      this.targetKey = '',
-      this.rights = const []});
+  const CheckRightsTargetSpec({
+    this.targetType = TargetType.account,
+    this.targetBy = TargetBy.name,
+    this.targetKey = '',
+    this.rights = const [],
+  });
 
   factory CheckRightsTargetSpec.fromMap(Map<String, dynamic> data) => CheckRightsTargetSpec(
         targetType: TargetType.values.firstWhere(

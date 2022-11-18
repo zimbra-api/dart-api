@@ -6,7 +6,7 @@ import 'recur_id_info.dart';
 
 /// Cancel rule information
 class CancelRuleInfo extends RecurIdInfo {
-  CancelRuleInfo(super.recurrenceRangeType, super.recurrenceId, {super.timezone, super.recurIdZ});
+  const CancelRuleInfo(super.recurrenceRangeType, super.recurrenceId, {super.timezone, super.recurIdZ});
 
   factory CancelRuleInfo.fromMap(Map<String, dynamic> data) =>
       CancelRuleInfo(int.tryParse(data['rangeType']?.toString() ?? '') ?? 1, data['recurId'] ?? '',

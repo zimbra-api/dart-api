@@ -8,23 +8,25 @@ import 'mail_custom_metadata.dart';
 import 'message_summary.dart';
 
 class ChatSummary extends MessageSummary {
-  ChatSummary(super.id,
-      {super.autoSendTime,
-      super.emails = const [],
-      super.subject,
-      super.fragment,
-      super.invite,
-      super.size,
-      super.date,
-      super.folder,
-      super.conversationId,
-      super.flags,
-      super.tags,
-      super.tagNames,
-      super.revision,
-      super.changeDate,
-      super.modifiedSequence,
-      super.metadatas = const []});
+  const ChatSummary(
+    super.id, {
+    super.autoSendTime,
+    super.emails = const [],
+    super.subject,
+    super.fragment,
+    super.invite,
+    super.size,
+    super.date,
+    super.folder,
+    super.conversationId,
+    super.flags,
+    super.tags,
+    super.tagNames,
+    super.revision,
+    super.changeDate,
+    super.modifiedSequence,
+    super.metadatas = const [],
+  });
 
   factory ChatSummary.fromMap(Map<String, dynamic> data) => ChatSummary(
         data['id'] ?? '',

@@ -37,16 +37,19 @@ class FreeBusySlot {
   /// Returns a bool indicating hasPermission to view FreeBusy information
   final bool? hasPermission;
 
-  FreeBusySlot(this.startTime, this.endTime,
-      {this.eventId,
-      this.subject,
-      this.location,
-      this.isMeeting,
-      this.isRecurring,
-      this.isException,
-      this.isReminderSet,
-      this.isPrivate,
-      this.hasPermission});
+  const FreeBusySlot(
+    this.startTime,
+    this.endTime, {
+    this.eventId,
+    this.subject,
+    this.location,
+    this.isMeeting,
+    this.isRecurring,
+    this.isException,
+    this.isReminderSet,
+    this.isPrivate,
+    this.hasPermission,
+  });
 
   factory FreeBusySlot.fromMap(Map<String, dynamic> data) =>
       FreeBusySlot(int.tryParse(data['s']?.toString() ?? '') ?? 0, int.tryParse(data['e']?.toString() ?? '') ?? 0,

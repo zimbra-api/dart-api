@@ -9,7 +9,7 @@ class FilterVariable {
   /// Value
   final String? value;
 
-  FilterVariable({this.name, this.value});
+  const FilterVariable({this.name, this.value});
 
   factory FilterVariable.fromMap(Map<String, dynamic> data) =>
       FilterVariable(name: data['name'], value: data['value']);

@@ -13,7 +13,7 @@ class TagSpec {
   /// Color numeric; range 0-127; defaults to 0 if not present; client can display only 0-7
   final int? color;
 
-  TagSpec(this.name, {this.rgb, this.color});
+  const TagSpec(this.name, {this.rgb, this.color});
 
   factory TagSpec.fromMap(Map<String, dynamic> data) =>
       TagSpec(data['name'] ?? '', rgb: data['rgb'], color: int.tryParse(data['color']?.toString() ?? ''));

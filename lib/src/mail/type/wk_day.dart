@@ -11,7 +11,7 @@ class WkDay {
   /// Week number.  [[+]|-]num: 1 to 53
   final int? ordWk;
 
-  WkDay(this.day, {this.ordWk});
+  const WkDay(this.day, {this.ordWk});
 
   factory WkDay.fromMap(Map<String, dynamic> data) => WkDay(
       WeekDay.values.firstWhere(

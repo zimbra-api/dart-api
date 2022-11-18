@@ -7,7 +7,7 @@ class OpValue {
 
   final String? value;
 
-  OpValue({this.op = '+', this.value});
+  const OpValue({this.op = '+', this.value});
 
   factory OpValue.fromMap(Map<String, dynamic> data) => OpValue(op: data['op'] ?? '+', value: data['_content']);
 

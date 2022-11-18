@@ -26,7 +26,7 @@ class FilterRule {
   /// Nested rule
   final NestedRule? child;
 
-  FilterRule(this.name, this.active, {this.filterVariables, this.filterTests, this.filterActions, this.child});
+  const FilterRule(this.name, this.active, {this.filterVariables, this.filterTests, this.filterActions, this.child});
 
   factory FilterRule.fromMap(Map<String, dynamic> data) => FilterRule(data['name'] ?? '', data['active'] ?? false,
       filterVariables: data['filterVariables']?[0] is Map ? FilterVariables.fromMap(data['filterVariables'][0]) : null,

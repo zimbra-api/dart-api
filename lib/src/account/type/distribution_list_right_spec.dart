@@ -9,7 +9,7 @@ class DistributionListRightSpec {
 
   final List<DistributionListGranteeSelector> grantees;
 
-  DistributionListRightSpec(this.right, {this.grantees = const []});
+  const DistributionListRightSpec(this.right, {this.grantees = const []});
 
   Map<String, dynamic> toMap() => {
         'right': right,

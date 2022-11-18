@@ -9,7 +9,7 @@ class FilterVariables extends FilterAction {
   /// Filter variables
   final List<FilterVariable> variables;
 
-  FilterVariables({super.index, this.variables = const []});
+  const FilterVariables({super.index, this.variables = const []});
 
   factory FilterVariables.fromMap(Map<String, dynamic> data) => FilterVariables(
       index: int.tryParse(data['index']?.toString() ?? ''),

@@ -37,17 +37,18 @@ class ConversationInfo {
   /// Messages
   final List<MessageInfo> messages;
 
-  ConversationInfo(
-      {this.id,
-      this.num,
-      this.totalSize,
-      this.flags,
-      this.tags,
-      this.tagNames,
-      this.metadatas = const [],
-      this.subject,
-      this.chatMessages = const [],
-      this.messages = const []});
+  const ConversationInfo({
+    this.id,
+    this.num,
+    this.totalSize,
+    this.flags,
+    this.tags,
+    this.tagNames,
+    this.metadatas = const [],
+    this.subject,
+    this.chatMessages = const [],
+    this.messages = const [],
+  });
 
   factory ConversationInfo.fromMap(Map<String, dynamic> data) => ConversationInfo(
       id: data['id'],

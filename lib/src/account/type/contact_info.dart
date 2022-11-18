@@ -57,31 +57,32 @@ class ContactInfo {
 
   final bool? isMember;
 
-  ContactInfo(
-      {this.sortField,
-      this.canExpand,
-      this.id,
-      this.folder,
-      this.flags,
-      this.tags,
-      this.tagNames,
-      this.changeDate,
-      this.modifiedSequenceId,
-      this.date,
-      this.revisionId,
-      this.fileAs,
-      this.email,
-      this.email2,
-      this.email3,
-      this.type,
-      this.dlist,
-      this.reference,
-      this.tooManyMembers,
-      this.metadatas = const [],
-      this.attrs = const [],
-      this.contactGroupMembers = const [],
-      this.isOwner,
-      this.isMember});
+  const ContactInfo({
+    this.sortField,
+    this.canExpand,
+    this.id,
+    this.folder,
+    this.flags,
+    this.tags,
+    this.tagNames,
+    this.changeDate,
+    this.modifiedSequenceId,
+    this.date,
+    this.revisionId,
+    this.fileAs,
+    this.email,
+    this.email2,
+    this.email3,
+    this.type,
+    this.dlist,
+    this.reference,
+    this.tooManyMembers,
+    this.metadatas = const [],
+    this.attrs = const [],
+    this.contactGroupMembers = const [],
+    this.isOwner,
+    this.isMember,
+  });
 
   factory ContactInfo.fromMap(Map<String, dynamic> data) => ContactInfo(
         sortField: data['sf'],
@@ -108,8 +109,7 @@ class ContactInfo {
                 .map<AccountCustomMetadata>((meta) => AccountCustomMetadata.fromMap(meta))
                 .toList(growable: false)
             : const [],
-        attrs: (data['_attrs'] is Map)
-            ? Utils.contactAttrsFromMap(data['_attrs'] as Map<String, dynamic>) : const [],
+        attrs: (data['_attrs'] is Map) ? Utils.contactAttrsFromMap(data['_attrs'] as Map<String, dynamic>) : const [],
         contactGroupMembers: (data['m'] is Iterable)
             ? (data['m'] as Iterable)
                 .map<ContactGroupMember>((m) => ContactGroupMember.fromMap(m))

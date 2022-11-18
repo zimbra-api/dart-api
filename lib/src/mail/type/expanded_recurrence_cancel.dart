@@ -9,7 +9,7 @@ import 'recurrence_info.dart';
 
 /// Cancel expanded recurrence
 class ExpandedRecurrenceCancel extends ExpandedRecurrenceComponent {
-  ExpandedRecurrenceCancel({super.exceptionId, super.startTime, super.endTime, super.duration, super.recurrence});
+  const ExpandedRecurrenceCancel({super.exceptionId, super.startTime, super.endTime, super.duration, super.recurrence});
 
   factory ExpandedRecurrenceCancel.fromMap(Map<String, dynamic> data) => ExpandedRecurrenceCancel(
       exceptionId: data['exceptId'] is Map ? InstanceRecurIdInfo.fromMap(data['exceptId']) : null,

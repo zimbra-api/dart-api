@@ -14,7 +14,7 @@ class DistributionListGranteeInfo {
   /// Grantee name
   final String? name;
 
-  DistributionListGranteeInfo(this.type, {this.id, this.name});
+  const DistributionListGranteeInfo(this.type, {this.id, this.name});
 
   factory DistributionListGranteeInfo.fromMap(Map<String, dynamic> data) => DistributionListGranteeInfo(
       GranteeType.values.firstWhere(

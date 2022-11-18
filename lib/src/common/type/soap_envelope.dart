@@ -12,7 +12,7 @@ abstract class SoapEnvelope {
 
   final SoapBody body;
 
-  SoapEnvelope(this.body, {this.header});
+  const SoapEnvelope(this.body, {this.header});
 
   Map<String, dynamic> toMap() => {
         'Body': body.toMap(),

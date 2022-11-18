@@ -11,7 +11,7 @@ import 'package:zimbra_api/src/common/enum/value_comparison.dart';
 import 'address_test.dart';
 
 class EnvelopeTest extends AddressTest {
-  EnvelopeTest({
+  const EnvelopeTest({
     super.header,
     super.part,
     super.stringComparison,

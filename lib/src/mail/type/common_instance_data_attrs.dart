@@ -94,31 +94,32 @@ class CommonInstanceDataAttrs {
   /// "tzo" if start date and due date lie on different sides of a daylight savings transition
   final int? taskTzOffsetDue;
 
-  CommonInstanceDataAttrs(
-      {this.partStat,
-      this.recurIdZ,
-      this.tzOffset,
-      this.freeBusyActual,
-      this.taskPercentComplete,
-      this.isRecurring,
-      this.hasExceptions,
-      this.priority,
-      this.freeBusyIntended,
-      this.transparency,
-      this.name,
-      this.location,
-      this.hasOtherAttendees,
-      this.hasAlarm,
-      this.isOrganizer,
-      this.invId,
-      this.componentNum,
-      this.status,
-      this.calClass,
-      this.allDay,
-      this.draft,
-      this.neverSent,
-      this.taskDueDate,
-      this.taskTzOffsetDue});
+  const CommonInstanceDataAttrs({
+    this.partStat,
+    this.recurIdZ,
+    this.tzOffset,
+    this.freeBusyActual,
+    this.taskPercentComplete,
+    this.isRecurring,
+    this.hasExceptions,
+    this.priority,
+    this.freeBusyIntended,
+    this.transparency,
+    this.name,
+    this.location,
+    this.hasOtherAttendees,
+    this.hasAlarm,
+    this.isOrganizer,
+    this.invId,
+    this.componentNum,
+    this.status,
+    this.calClass,
+    this.allDay,
+    this.draft,
+    this.neverSent,
+    this.taskDueDate,
+    this.taskTzOffsetDue,
+  });
 
   factory CommonInstanceDataAttrs.fromMap(Map<String, dynamic> data) => CommonInstanceDataAttrs(
       partStat: ParticipationStatus.values.firstWhere(

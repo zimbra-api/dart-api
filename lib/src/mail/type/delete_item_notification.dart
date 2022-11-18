@@ -9,7 +9,7 @@ class DeleteItemNotification {
   /// Type of deleted item
   final String? type;
 
-  DeleteItemNotification({this.id, this.type});
+  const DeleteItemNotification({this.id, this.type});
 
   factory DeleteItemNotification.fromMap(Map<String, dynamic> data) =>
       DeleteItemNotification(id: int.tryParse(data['id']?.toString() ?? ''), type: data['t']);

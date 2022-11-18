@@ -12,7 +12,7 @@ class ReplaceheaderAction extends DeleteheaderAction {
   /// New value
   final String? newValue;
 
-  ReplaceheaderAction({this.newName, this.newValue, super.last, super.offset, super.test, super.index});
+  const ReplaceheaderAction({this.newName, this.newValue, super.last, super.offset, super.test, super.index});
 
   factory ReplaceheaderAction.fromMap(Map<String, dynamic> data) => ReplaceheaderAction(
       newName: data['newName']?['_content'],

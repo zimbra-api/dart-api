@@ -68,21 +68,22 @@ class MsgSpec {
   /// inlined into the response (not available when raw is set)
   final List<AttributeName> headers;
 
-  MsgSpec(
-      {this.id,
-      this.part,
-      this.raw,
-      this.markRead,
-      this.maxInlinedLength,
-      this.useContentUrl,
-      this.wantHtml,
-      this.wantImapUid,
-      this.wantModifiedSequence,
-      this.neuter,
-      this.recurIdZ,
-      this.needCanExpand,
-      this.wantContent,
-      this.headers = const []});
+  const MsgSpec({
+    this.id,
+    this.part,
+    this.raw,
+    this.markRead,
+    this.maxInlinedLength,
+    this.useContentUrl,
+    this.wantHtml,
+    this.wantImapUid,
+    this.wantModifiedSequence,
+    this.neuter,
+    this.recurIdZ,
+    this.needCanExpand,
+    this.wantContent,
+    this.headers = const [],
+  });
 
   factory MsgSpec.fromMap(Map<String, dynamic> data) => MsgSpec(
       id: data['id'],

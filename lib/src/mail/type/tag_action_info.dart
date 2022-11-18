@@ -13,7 +13,7 @@ class TagActionInfo {
   /// Operation - "read|!read|color|delete|rename|update|retentionpolicy"
   final String? operation;
 
-  TagActionInfo(this.successes, {this.successNames, this.operation});
+  const TagActionInfo(this.successes, {this.successNames, this.operation});
 
   factory TagActionInfo.fromMap(Map<String, dynamic> data) =>
       TagActionInfo(data['id'] ?? '', successNames: data['tn'], operation: data['op']);

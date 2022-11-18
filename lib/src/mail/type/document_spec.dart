@@ -45,19 +45,20 @@ class DocumentSpec {
   /// Information on document version to restore to
   final IdVersion? docRevision;
 
-  DocumentSpec(
-      {this.name,
-      this.contentType,
-      this.description,
-      this.folderId,
-      this.id,
-      this.version,
-      this.content,
-      this.descEnabled,
-      this.flags,
-      this.upload,
-      this.messagePart,
-      this.docRevision});
+  const DocumentSpec({
+    this.name,
+    this.contentType,
+    this.description,
+    this.folderId,
+    this.id,
+    this.version,
+    this.content,
+    this.descEnabled,
+    this.flags,
+    this.upload,
+    this.messagePart,
+    this.docRevision,
+  });
 
   factory DocumentSpec.fromMap(Map<String, dynamic> data) => DocumentSpec(
         name: data['name'],

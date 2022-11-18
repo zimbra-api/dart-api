@@ -6,7 +6,7 @@ class IdsAttr {
   /// IDs
   final String ids;
 
-  IdsAttr(this.ids);
+  const IdsAttr(this.ids);
 
   factory IdsAttr.fromMap(Map<String, dynamic> data) => IdsAttr(data['ids'] ?? '');
 

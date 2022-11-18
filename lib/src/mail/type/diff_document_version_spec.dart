@@ -12,7 +12,7 @@ class DiffDocumentVersionSpec {
   /// Revision 2
   final int? version2;
 
-  DiffDocumentVersionSpec(this.id, {this.version1, this.version2});
+  const DiffDocumentVersionSpec(this.id, {this.version1, this.version2});
 
   factory DiffDocumentVersionSpec.fromMap(Map<String, dynamic> data) => DiffDocumentVersionSpec(data['id'] ?? '',
       version1: int.tryParse(data['v1']?.toString() ?? ''), version2: int.tryParse(data['v2']?.toString() ?? ''));

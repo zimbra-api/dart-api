@@ -30,8 +30,15 @@ class CalTZInfo {
   /// Daylight Saving Time component's timezone name
   final String? daylightTZName;
 
-  CalTZInfo(this.id, this.tzStdOffset, this.tzDayOffset,
-      {this.standardTzOnset, this.daylightTzOnset, this.standardTZName, this.daylightTZName});
+  const CalTZInfo(
+    this.id,
+    this.tzStdOffset,
+    this.tzDayOffset, {
+    this.standardTzOnset,
+    this.daylightTzOnset,
+    this.standardTZName,
+    this.daylightTZName,
+  });
 
   factory CalTZInfo.fromMap(Map<String, dynamic> data) =>
       CalTZInfo(data['id'] ?? '',

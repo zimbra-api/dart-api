@@ -19,7 +19,14 @@ class MimeHeaderTest extends FilterTest {
   /// Case sensitive setting
   final bool? caseSensitive;
 
-  MimeHeaderTest({this.headers, this.stringComparison, this.value, this.caseSensitive, super.index, super.negative});
+  const MimeHeaderTest({
+    this.headers,
+    this.stringComparison,
+    this.value,
+    this.caseSensitive,
+    super.index,
+    super.negative,
+  });
 
   factory MimeHeaderTest.fromMap(Map<String, dynamic> data) => MimeHeaderTest(
       headers: data['header'],

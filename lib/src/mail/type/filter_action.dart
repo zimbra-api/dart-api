@@ -6,7 +6,7 @@ class FilterAction {
   /// Index - specifies a guaranteed order for the action elements
   final int? index;
 
-  FilterAction({this.index});
+  const FilterAction({this.index});
 
   factory FilterAction.fromMap(Map<String, dynamic> data) =>
       FilterAction(index: int.tryParse(data['index']?.toString() ?? ''));

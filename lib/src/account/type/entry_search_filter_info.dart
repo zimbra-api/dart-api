@@ -12,7 +12,7 @@ class EntrySearchFilterInfo {
   /// Search filter compound condition
   final EntrySearchFilterMultiCond? conditions;
 
-  EntrySearchFilterInfo({this.condition, this.conditions});
+  const EntrySearchFilterInfo({this.condition, this.conditions});
 
   factory EntrySearchFilterInfo.fromMap(Map<String, dynamic> data) => EntrySearchFilterInfo(
       condition: data['cond']?[0] is Map ? EntrySearchFilterSingleCond.fromMap(data['cond'][0]) : null,

@@ -9,7 +9,7 @@ class AuthToken {
 
   final bool? verifyAccount;
 
-  AuthToken(this.value, {this.lifetime, this.verifyAccount});
+  const AuthToken(this.value, {this.lifetime, this.verifyAccount});
 
   factory AuthToken.fromMap(Map<String, dynamic> data) {
     return AuthToken(data['_content'] ?? '',

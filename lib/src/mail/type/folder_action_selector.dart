@@ -40,28 +40,31 @@ class FolderActionSelector extends ActionSelector {
   /// Number of days for which web client would sync folder data for offline use
   final int? numDays;
 
-  FolderActionSelector(super.ids, super.operation,
-      {super.constraint,
-      super.tag,
-      super.folder,
-      super.rgb,
-      super.color,
-      super.name,
-      super.flags,
-      super.tags,
-      super.tagNames,
-      super.nonExistentIds,
-      super.newlyCreatedIds,
-      this.recursive,
-      this.url,
-      this.excludeFreeBusy,
-      this.zimbraId,
-      this.grantType,
-      this.view,
-      this.grant,
-      this.grants = const [],
-      this.retentionPolicy,
-      this.numDays});
+  const FolderActionSelector(
+    super.ids,
+    super.operation, {
+    super.constraint,
+    super.tag,
+    super.folder,
+    super.rgb,
+    super.color,
+    super.name,
+    super.flags,
+    super.tags,
+    super.tagNames,
+    super.nonExistentIds,
+    super.newlyCreatedIds,
+    this.recursive,
+    this.url,
+    this.excludeFreeBusy,
+    this.zimbraId,
+    this.grantType,
+    this.view,
+    this.grant,
+    this.grants = const [],
+    this.retentionPolicy,
+    this.numDays,
+  });
 
   factory FolderActionSelector.fromMap(Map<String, dynamic> data) => FolderActionSelector(
       data['id'] ?? '', data['op'] ?? '',

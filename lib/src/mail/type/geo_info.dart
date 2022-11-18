@@ -10,7 +10,7 @@ class GeoInfo {
   /// Longitude (float value)
   final String? longitude;
 
-  GeoInfo({this.latitude, this.longitude});
+  const GeoInfo({this.latitude, this.longitude});
 
   factory GeoInfo.fromMap(Map<String, dynamic> data) => GeoInfo(latitude: data['lat'], longitude: data['lon']);
 

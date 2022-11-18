@@ -9,7 +9,7 @@ class Notification {
   /// Content
   final String? content;
 
-  Notification({this.truncatedContent, this.content});
+  const Notification({this.truncatedContent, this.content});
 
   factory Notification.fromMap(Map<String, dynamic> data) =>
       Notification(truncatedContent: data['truncated'], content: data['content']);

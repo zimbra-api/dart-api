@@ -22,8 +22,12 @@ class InviteWithGroupInfo {
   /// Replies
   final List<CalendarReply> calendarReplies;
 
-  InviteWithGroupInfo(this.calItemType,
-      {this.timezones = const [], this.inviteComponents = const [], this.calendarReplies = const []});
+  const InviteWithGroupInfo(
+    this.calItemType, {
+    this.timezones = const [],
+    this.inviteComponents = const [],
+    this.calendarReplies = const [],
+  });
 
   factory InviteWithGroupInfo.fromMap(Map<String, dynamic> data) => InviteWithGroupInfo(
       InviteType.values.firstWhere(

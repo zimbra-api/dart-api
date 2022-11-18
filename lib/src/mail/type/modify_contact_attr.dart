@@ -11,7 +11,7 @@ class ModifyContactAttr extends NewContactAttr {
   /// Operation: "+" or "-"
   final ModifyAttributeOperation operation;
 
-  ModifyContactAttr(
+  const ModifyContactAttr(
     super.name, {
     this.operation = ModifyAttributeOperation.add,
     super.attachId,

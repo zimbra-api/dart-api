@@ -9,7 +9,7 @@ class SignatureContent {
 
   final String? value;
 
-  SignatureContent(this.type, {this.value});
+  const SignatureContent(this.type, {this.value});
 
   factory SignatureContent.fromMap(Map<String, dynamic> data) => SignatureContent(
       ContentType.values.firstWhere(

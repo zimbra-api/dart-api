@@ -12,7 +12,7 @@ class SingleDates {
   /// Information on start date/time and end date/time or duration
   final List<DtVal> dtVals;
 
-  SingleDates({this.timezone, this.dtVals = const []});
+  const SingleDates({this.timezone, this.dtVals = const []});
 
   factory SingleDates.fromMap(Map<String, dynamic> data) => SingleDates(
       timezone: data['tz'],

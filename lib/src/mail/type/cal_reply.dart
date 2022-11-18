@@ -26,8 +26,17 @@ class CalReply extends RecurIdInfo {
   /// Timestamp of reply
   final int? date;
 
-  CalReply(super.recurrenceRangeType, super.recurrenceId,
-      {this.attendee, this.sentBy, this.partStat, this.sequence, this.date, super.timezone, super.recurIdZ});
+  const CalReply(
+    super.recurrenceRangeType,
+    super.recurrenceId, {
+    this.attendee,
+    this.sentBy,
+    this.partStat,
+    this.sequence,
+    this.date,
+    super.timezone,
+    super.recurIdZ,
+  });
 
   factory CalReply.fromMap(Map<String, dynamic> data) => CalReply(
         int.tryParse(data['rangeType']?.toString() ?? '') ?? 1,

@@ -17,7 +17,7 @@ class SetCalendarItemInfo {
   /// Message
   final Msg? msg;
 
-  SetCalendarItemInfo({this.partStat, this.msg});
+  const SetCalendarItemInfo({this.partStat, this.msg});
 
   factory SetCalendarItemInfo.fromMap(Map<String, dynamic> data) => SetCalendarItemInfo(
       partStat: ParticipationStatus.values.firstWhere(

@@ -6,7 +6,7 @@ class Right {
   /// Name for right
   final String right;
 
-  Right({this.right = ''});
+  const Right({this.right = ''});
 
   factory Right.fromMap(Map<String, dynamic> data) => Right(right: data['right'] ?? '');
 

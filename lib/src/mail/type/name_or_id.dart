@@ -9,7 +9,7 @@ class NameOrId {
   /// The id
   final String? id;
 
-  NameOrId({this.name, this.id});
+  const NameOrId({this.name, this.id});
 
   factory NameOrId.fromMap(Map<String, dynamic> data) => NameOrId(name: data['name'], id: data['id']);
 

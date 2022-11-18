@@ -9,7 +9,7 @@ class AccountSelector {
 
   final String value;
 
-  AccountSelector(this.by, this.value);
+  const AccountSelector(this.by, this.value);
 
   factory AccountSelector.fromMap(Map<String, dynamic> data) => AccountSelector(
         AccountBy.values.firstWhere(

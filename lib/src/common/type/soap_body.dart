@@ -10,7 +10,7 @@ abstract class SoapBody {
 
   final SoapResponse? response;
 
-  SoapBody({this.request, this.response});
+  const SoapBody({this.request, this.response});
 
   Map<String, dynamic> toMap();
 }

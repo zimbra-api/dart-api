@@ -14,7 +14,7 @@ class DocAttachSpec extends AttachSpec {
   /// Optional version.
   final int? version;
 
-  DocAttachSpec({this.path, this.id, this.version, super.optional});
+  const DocAttachSpec({this.path, this.id, this.version, super.optional});
 
   factory DocAttachSpec.fromMap(Map<String, dynamic> data) =>
       DocAttachSpec(

@@ -29,14 +29,17 @@ class DistributionListInfo extends ObjectInfo {
   /// Rights
   final List<DistributionListRightInfo> rights;
 
-  DistributionListInfo(super.name, super.id,
-      {this.isOwner,
-      this.isMember,
-      this.isDynamic,
-      this.members = const [],
-      this.owners = const [],
-      this.rights = const [],
-      super.attrList = const []});
+  const DistributionListInfo(
+    super.name,
+    super.id, {
+    this.isOwner,
+    this.isMember,
+    this.isDynamic,
+    this.members = const [],
+    this.owners = const [],
+    this.rights = const [],
+    super.attrList = const [],
+  });
 
   factory DistributionListInfo.fromMap(Map<String, dynamic> data) =>
       DistributionListInfo(data['name'] ?? '', data['id'] ?? '',

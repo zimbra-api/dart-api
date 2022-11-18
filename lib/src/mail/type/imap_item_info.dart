@@ -9,7 +9,7 @@ class IMAPItemInfo {
   /// IMAP UID
   final int? imapUid;
 
-  IMAPItemInfo({this.id, this.imapUid});
+  const IMAPItemInfo({this.id, this.imapUid});
 
   factory IMAPItemInfo.fromMap(Map<String, dynamic> data) =>
       IMAPItemInfo(id: data['id'], imapUid: int.tryParse(data['i4uid']?.toString() ?? ''));

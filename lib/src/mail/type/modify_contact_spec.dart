@@ -19,7 +19,7 @@ class ModifyContactSpec {
   /// (has attribute type="group")
   final List<ModifyContactGroupMember> contactGroupMembers;
 
-  ModifyContactSpec({this.id, this.tagNames, this.attributes = const [], this.contactGroupMembers = const []});
+  const ModifyContactSpec({this.id, this.tagNames, this.attributes = const [], this.contactGroupMembers = const []});
 
   factory ModifyContactSpec.fromMap(Map<String, dynamic> data) => ModifyContactSpec(
       id: data['id'],

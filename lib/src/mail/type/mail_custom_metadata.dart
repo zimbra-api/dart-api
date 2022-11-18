@@ -12,7 +12,7 @@ class MailCustomMetadata extends MailKeyValuePairs {
   /// If absent this indicates that CustomMetadata info is present but there are no sections to report on.
   final String? section;
 
-  MailCustomMetadata({this.section, super.keyValuePairs});
+  const MailCustomMetadata({this.section, super.keyValuePairs});
 
   factory MailCustomMetadata.fromMap(Map<String, dynamic> data) =>
       MailCustomMetadata(section: data['section'], keyValuePairs: KeyValuePairs.keyValuePairsFromMap(data));

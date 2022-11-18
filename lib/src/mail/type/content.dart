@@ -9,7 +9,7 @@ class Content {
   /// Inlined content data. Ignored if "aid" is specified
   final String? value;
 
-  Content({this.attachUploadId, this.value});
+  const Content({this.attachUploadId, this.value});
 
   factory Content.fromMap(Map<String, dynamic> data) => Content(attachUploadId: data['aid'], value: data['_content']);
 

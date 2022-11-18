@@ -9,22 +9,23 @@ class NoteHitInfo extends NoteInfo {
   /// Sort field value
   final String? sortField;
 
-  NoteHitInfo(
-      {this.sortField,
-      super.id,
-      super.revision,
-      super.folder,
-      super.date,
-      super.flags,
-      super.tags,
-      super.tagNames,
-      super.bounds,
-      super.color,
-      super.rgb,
-      super.changeDate,
-      super.modifiedSequence,
-      super.content,
-      super.metadatas = const []});
+  const NoteHitInfo({
+    this.sortField,
+    super.id,
+    super.revision,
+    super.folder,
+    super.date,
+    super.flags,
+    super.tags,
+    super.tagNames,
+    super.bounds,
+    super.color,
+    super.rgb,
+    super.changeDate,
+    super.modifiedSequence,
+    super.content,
+    super.metadatas = const [],
+  });
 
   factory NoteHitInfo.fromMap(Map<String, dynamic> data) => NoteHitInfo(
       sortField: data['sf'],

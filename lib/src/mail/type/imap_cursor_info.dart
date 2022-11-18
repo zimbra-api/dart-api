@@ -7,7 +7,7 @@ class ImapCursorInfo {
   /// If this item is deleted, the cursor is cleared.
   final String id;
 
-  ImapCursorInfo(this.id);
+  const ImapCursorInfo(this.id);
 
   factory ImapCursorInfo.fromMap(Map<String, dynamic> data) => ImapCursorInfo(data['id'] ?? '');
 

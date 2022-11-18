@@ -6,7 +6,7 @@ class FolderSpec {
   ///Folder ID
   final String folder;
 
-  FolderSpec({this.folder = ''});
+  const FolderSpec({this.folder = ''});
 
   factory FolderSpec.fromMap(Map<String, dynamic> data) => FolderSpec(folder: data['l'] ?? '');
 

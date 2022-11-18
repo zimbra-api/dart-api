@@ -6,7 +6,7 @@ class SuggestedQueryString {
   /// Suggested query string
   final String suggestedQueryString;
 
-  SuggestedQueryString(this.suggestedQueryString);
+  const SuggestedQueryString(this.suggestedQueryString);
 
   factory SuggestedQueryString.fromMap(Map<String, dynamic> data) => SuggestedQueryString(data['_content'] ?? '');
 

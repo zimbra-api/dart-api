@@ -7,5 +7,5 @@ abstract class HABMember {
 
   final int? seniorityIndex;
 
-  HABMember(this.name, {this.seniorityIndex});
+  const HABMember(this.name, {this.seniorityIndex});
 }

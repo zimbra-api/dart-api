@@ -9,7 +9,7 @@ class Pref {
 
   final int? modified;
 
-  Pref(this.name, {this.value, this.modified});
+  const Pref(this.name, {this.value, this.modified});
 
   factory Pref.fromMap(Map<String, dynamic> data) =>
       Pref(data['name'], value: data['_content'], modified: int.tryParse(data['modified']?.toString() ?? ''));

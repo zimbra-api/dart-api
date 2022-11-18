@@ -9,7 +9,7 @@ import 'account_key_value_pairs.dart';
 class AccountCustomMetadata extends AccountKeyValuePairs {
   final String? section;
 
-  AccountCustomMetadata({this.section, super.keyValuePairs});
+  const AccountCustomMetadata({this.section, super.keyValuePairs});
 
   factory AccountCustomMetadata.fromMap(Map<String, dynamic> data) =>
       AccountCustomMetadata(section: data['section'], keyValuePairs: KeyValuePairs.keyValuePairsFromMap(data));

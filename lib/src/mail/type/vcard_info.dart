@@ -16,7 +16,7 @@ class VCardInfo {
   /// Inlined VCARD data
   final String? value;
 
-  VCardInfo({this.messageId, this.part, this.attachId, this.value});
+  const VCardInfo({this.messageId, this.part, this.attachId, this.value});
 
   factory VCardInfo.fromMap(Map<String, dynamic> data) =>
       VCardInfo(messageId: data['mid'], part: data['part'], attachId: data['aid'], value: data['_content']);

@@ -12,7 +12,11 @@ class DistributionListGranteeSelector {
 
   final String? value;
 
-  DistributionListGranteeSelector({this.type = GranteeType.all, this.by = DistributionListGranteeBy.name, this.value});
+  const DistributionListGranteeSelector({
+    this.type = GranteeType.all,
+    this.by = DistributionListGranteeBy.name,
+    this.value,
+  });
 
   Map<String, dynamic> toMap() => {
         'type': type.name,

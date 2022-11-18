@@ -7,18 +7,21 @@ import 'package:crypto/crypto.dart';
 import 'package:zimbra_api/src/common/type/account_selector.dart';
 
 class PreAuth {
-  late final String value;
+  final String value;
 
   final int timestamp;
 
   final int expiresTimestamp;
 
-  PreAuth(AccountSelector account, String preauthKey, {this.timestamp = 0, this.expiresTimestamp = 0}) {
-    value = computeValue(account, preauthKey, timestamp: timestamp, expiresTimestamp: expiresTimestamp);
-  }
+  PreAuth(AccountSelector account, String preauthKey, {this.timestamp = 0, this.expiresTimestamp = 0})
+      : value = computeValue(account, preauthKey, timestamp: timestamp, expiresTimestamp: expiresTimestamp);
 
-  static String computeValue(AccountSelector account, String preauthKey,
-      {int expiresTimestamp = 0, int timestamp = 0}) {
+  static String computeValue(
+    AccountSelector account,
+    String preauthKey, {
+    int expiresTimestamp = 0,
+    int timestamp = 0,
+  }) {
     final hmac = Hmac(sha1, utf8.encode(preauthKey));
     final digest = hmac.convert(utf8.encode("${account.value}|${account.by.name}|$expiresTimestamp|$timestamp"));
     return digest.toString();

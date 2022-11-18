@@ -6,7 +6,7 @@ class SectionAttr {
   /// Metadata section key
   final String section;
 
-  SectionAttr({this.section = ''});
+  const SectionAttr({this.section = ''});
 
   factory SectionAttr.fromMap(Map<String, dynamic> data) => SectionAttr(section: data['section'] ?? '');
 

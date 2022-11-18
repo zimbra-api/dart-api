@@ -5,7 +5,7 @@
 class FaultDetail {
   final Map<String, dynamic> error;
 
-  FaultDetail(this.error);
+  const FaultDetail(this.error);
 
   factory FaultDetail.fromMap(Map<String, dynamic> data) => FaultDetail(data['Error'] ?? {});
 

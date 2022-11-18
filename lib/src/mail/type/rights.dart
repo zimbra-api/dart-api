@@ -6,7 +6,7 @@ class Rights {
   ///The effective permissions of the specified folder
   final String effectivePermissions;
 
-  Rights({this.effectivePermissions = ''});
+  const Rights({this.effectivePermissions = ''});
 
   factory Rights.fromMap(Map<String, dynamic> data) => Rights(effectivePermissions: data['perm'] ?? '');
 

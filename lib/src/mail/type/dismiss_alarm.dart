@@ -9,7 +9,7 @@ class DismissAlarm {
   /// Time alarm was dismissed, in millis
   final int dismissedAt;
 
-  DismissAlarm(this.id, this.dismissedAt);
+  const DismissAlarm(this.id, this.dismissedAt);
 
   factory DismissAlarm.fromMap(Map<String, dynamic> data) =>
       DismissAlarm(data['id'] ?? '', int.tryParse(data['dismissedAt']?.toString() ?? '') ?? 0);

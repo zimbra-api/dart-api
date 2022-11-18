@@ -5,7 +5,7 @@
 class FaultCode {
   final String value;
 
-  FaultCode(this.value);
+  const FaultCode(this.value);
 
   factory FaultCode.fromMap(Map<String, dynamic> data) =>
       FaultCode(data['Value'] ?? '');

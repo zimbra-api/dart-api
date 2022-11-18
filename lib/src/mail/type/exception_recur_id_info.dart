@@ -29,7 +29,7 @@ class ExceptionRecurIdInfo {
   /// Range type - 1 means NONE, 2 means THISANDFUTURE, 3 means THISANDPRIOR
   final int? recurrenceRangeType;
 
-  ExceptionRecurIdInfo({this.dateTime, this.timezone, this.recurrenceRangeType});
+  const ExceptionRecurIdInfo({this.dateTime, this.timezone, this.recurrenceRangeType});
 
   factory ExceptionRecurIdInfo.fromMap(Map<String, dynamic> data) => ExceptionRecurIdInfo(
       dateTime: data['d'],

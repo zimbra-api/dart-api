@@ -16,7 +16,7 @@ class AccountZimletInfo {
   /// Zimlet config
   final AccountZimletConfigInfo? zimletConfig;
 
-  AccountZimletInfo({this.zimletContext, this.zimlet, this.zimletConfig});
+  const AccountZimletInfo({this.zimletContext, this.zimlet, this.zimletConfig});
 
   factory AccountZimletInfo.fromMap(Map<String, dynamic> data) => AccountZimletInfo(
       zimletContext: (data['zimletContext'] is Map) ? AccountZimletContext.fromMap(data['zimletContext']) : null,

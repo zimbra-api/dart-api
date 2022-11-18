@@ -43,34 +43,34 @@ class ShareInfo {
   /// Contains the folder id of the mountpoint in the local mailbox.
   final String? mountpointId;
 
-  ShareInfo(this.ownerId, this.ownerEmail,
-      {this.ownerDisplayName,
-      this.folderId,
-      this.folderUuid,
-      this.folderPath,
-      this.defaultView,
-      this.rights,
-      this.granteeType,
-      this.granteeId,
-      this.granteeName,
-      this.granteeDisplayName,
-      this.mountpointId});
+  const ShareInfo(
+    this.ownerId,
+    this.ownerEmail, {
+    this.ownerDisplayName,
+    this.folderId,
+    this.folderUuid,
+    this.folderPath,
+    this.defaultView,
+    this.rights,
+    this.granteeType,
+    this.granteeId,
+    this.granteeName,
+    this.granteeDisplayName,
+    this.mountpointId,
+  });
 
-  factory ShareInfo.fromMap(Map<String, dynamic> data) => ShareInfo(
-        data['ownerId'],
-        data['ownerEmail'],
-        ownerDisplayName: data['ownerName'],
-        folderId: int.tryParse(data['folderId']?.toString() ?? ''),
-        folderUuid: data['folderUuid'],
-        folderPath: data['folderPath'],
-        defaultView: data['view'],
-        rights: data['rights'],
-        granteeType: data['granteeType'],
-        granteeId: data['granteeId'],
-        granteeName: data['granteeName'],
-        granteeDisplayName: data['granteeDisplayName'],
-        mountpointId: data['mid'],
-      );
+  factory ShareInfo.fromMap(Map<String, dynamic> data) => ShareInfo(data['ownerId'], data['ownerEmail'],
+      ownerDisplayName: data['ownerName'],
+      folderId: int.tryParse(data['folderId']?.toString() ?? ''),
+      folderUuid: data['folderUuid'],
+      folderPath: data['folderPath'],
+      defaultView: data['view'],
+      rights: data['rights'],
+      granteeType: data['granteeType'],
+      granteeId: data['granteeId'],
+      granteeName: data['granteeName'],
+      granteeDisplayName: data['granteeDisplayName'],
+      mountpointId: data['mid']);
 
   Map<String, dynamic> toMap() => {
         'ownerId': ownerId,

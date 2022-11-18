@@ -11,7 +11,7 @@ class DispositionAndText {
   /// Text
   final String? text;
 
-  DispositionAndText({this.disposition, this.text});
+  const DispositionAndText({this.disposition, this.text});
 
   factory DispositionAndText.fromMap(Map<String, dynamic> data) =>
       DispositionAndText(disposition: data['disp'], text: data['_content']);

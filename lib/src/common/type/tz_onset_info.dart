@@ -24,7 +24,7 @@ class TzOnsetInfo {
   /// Day of week; 1=Sunday, 2=Monday, etc.
   final int? dayOfWeek;
 
-  TzOnsetInfo(this.month, this.hour, this.minute, this.second, {this.dayOfMonth, this.week, this.dayOfWeek});
+  const TzOnsetInfo(this.month, this.hour, this.minute, this.second, {this.dayOfMonth, this.week, this.dayOfWeek});
 
   factory TzOnsetInfo.fromMap(Map<String, dynamic> data) => TzOnsetInfo(
         int.tryParse(data['mon']?.toString() ?? '1') ?? 1,

@@ -10,7 +10,7 @@ class XNameRule {
   /// XNAME value
   final String? value;
 
-  XNameRule({this.name, this.value});
+  const XNameRule({this.name, this.value});
 
   factory XNameRule.fromMap(Map<String, dynamic> data) => XNameRule(name: data['name'], value: data['value']);
 

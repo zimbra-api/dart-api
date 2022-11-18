@@ -5,7 +5,7 @@
 import 'package:zimbra_api/src/common/type/key_value_pairs.dart';
 
 class AccountKeyValuePairs extends KeyValuePairs {
-  AccountKeyValuePairs({super.keyValuePairs});
+  const AccountKeyValuePairs({super.keyValuePairs});
 
   factory AccountKeyValuePairs.fromMap(Map<String, dynamic> data) =>
       AccountKeyValuePairs(keyValuePairs: KeyValuePairs.keyValuePairsFromMap(data));

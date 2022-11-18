@@ -5,7 +5,7 @@
 class Id {
   final String? id;
 
-  Id({this.id});
+  const Id({this.id});
 
   factory Id.fromMap(Map<String, dynamic> data) => Id(id: data['id']);
 

@@ -9,7 +9,7 @@ class DistributionListRightInfo {
 
   final List<DistributionListGranteeInfo> grantees;
 
-  DistributionListRightInfo(this.right, {this.grantees = const []});
+  const DistributionListRightInfo(this.right, {this.grantees = const []});
 
   factory DistributionListRightInfo.fromMap(Map<String, dynamic> data) => DistributionListRightInfo(
         data['right'] ?? '',

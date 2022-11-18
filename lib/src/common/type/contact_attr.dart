@@ -13,7 +13,7 @@ class ContactAttr extends KeyValuePair {
 
   final String? contentFilename;
 
-  ContactAttr(super.key, {super.value, this.part, this.contentType, this.size, this.contentFilename});
+  const ContactAttr(super.key, {super.value, this.part, this.contentType, this.size, this.contentFilename});
 
   factory ContactAttr.fromMap(Map<String, dynamic> data) => ContactAttr(data['n'],
       value: data['_content'],

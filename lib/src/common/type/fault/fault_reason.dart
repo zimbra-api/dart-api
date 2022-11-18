@@ -5,7 +5,7 @@
 class FaultReason {
   final String text;
 
-  FaultReason(this.text);
+  const FaultReason(this.text);
 
   factory FaultReason.fromMap(Map<String, dynamic> data) =>
       FaultReason(data['Text'] ?? '');

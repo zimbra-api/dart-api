@@ -23,11 +23,13 @@ class AttachmentsInfo {
   /// Doc attachment details
   final List<DocAttachSpec> docAttachments;
 
-  AttachmentsInfo(this.attachmentId,
-      {this.mpAttachments = const [],
-      this.msgAttachments = const [],
-      this.cnAttachments = const [],
-      this.docAttachments = const []});
+  const AttachmentsInfo(
+    this.attachmentId, {
+    this.mpAttachments = const [],
+    this.msgAttachments = const [],
+    this.cnAttachments = const [],
+    this.docAttachments = const [],
+  });
 
   factory AttachmentsInfo.fromMap(Map<String, dynamic> data) => AttachmentsInfo(
         data['aid'] ?? '',

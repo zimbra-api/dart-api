@@ -9,7 +9,7 @@ class TestDataSource {
   /// error message passed by DatImport::test method of the datasource being tested
   final String? error;
 
-  TestDataSource(this.success, {this.error});
+  const TestDataSource(this.success, {this.error});
 
   factory TestDataSource.fromMap(Map<String, dynamic> data) =>
       TestDataSource(int.tryParse(data['success']?.toString() ?? '') ?? 0, error: data['error']);

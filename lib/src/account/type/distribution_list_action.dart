@@ -22,13 +22,15 @@ class DistributionListAction extends AccountKeyValuePairs {
 
   final List<DistributionListRightSpec> rights;
 
-  DistributionListAction(this.op,
-      {this.newName,
-      this.subsReq,
-      this.members = const [],
-      this.owners = const [],
-      this.rights = const [],
-      super.keyValuePairs});
+  const DistributionListAction(
+    this.op, {
+    this.newName,
+    this.subsReq,
+    this.members = const [],
+    this.owners = const [],
+    this.rights = const [],
+    super.keyValuePairs,
+  });
 
   @override
   Map<String, dynamic> toMap() => {

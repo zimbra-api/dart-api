@@ -10,7 +10,7 @@ class ImportanceTest extends FilterTest {
   /// Importance - high|normal|low
   final Importance? importance;
 
-  ImportanceTest({this.importance, super.index, super.negative});
+  const ImportanceTest({this.importance, super.index, super.negative});
 
   factory ImportanceTest.fromMap(Map<String, dynamic> data) => ImportanceTest(
       importance: Importance.values.firstWhere(

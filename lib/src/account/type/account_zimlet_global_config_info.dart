@@ -8,7 +8,7 @@ class AccountZimletGlobalConfigInfo {
   /// Global zimlet configuration property
   final List<AccountZimletProperty> properties;
 
-  AccountZimletGlobalConfigInfo({this.properties = const []});
+  const AccountZimletGlobalConfigInfo({this.properties = const []});
 
   factory AccountZimletGlobalConfigInfo.fromMap(Map<String, dynamic> data) => AccountZimletGlobalConfigInfo(
       properties: (data['property'] is Iterable)

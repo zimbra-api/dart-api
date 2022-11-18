@@ -8,7 +8,7 @@ class ByWeekNoRule {
   /// e.g. wklist="1,+2,-1" means first week, 2nd week, and last week of the year.
   final String list;
 
-  ByWeekNoRule(this.list);
+  const ByWeekNoRule(this.list);
 
   factory ByWeekNoRule.fromMap(Map<String, dynamic> data) => ByWeekNoRule(data['wklist'] ?? '');
 

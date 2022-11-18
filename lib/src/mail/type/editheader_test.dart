@@ -28,14 +28,15 @@ class EditheaderTest {
   /// Value of the header to be compared
   final List<String> headerValue;
 
-  EditheaderTest(
-      {this.matchType,
-      this.countComparator,
-      this.valueComparator,
-      this.relationalComparator,
-      this.comparator,
-      this.headerName,
-      this.headerValue = const []});
+  const EditheaderTest({
+    this.matchType,
+    this.countComparator,
+    this.valueComparator,
+    this.relationalComparator,
+    this.comparator,
+    this.headerName,
+    this.headerValue = const [],
+  });
 
   factory EditheaderTest.fromMap(Map<String, dynamic> data) => EditheaderTest(
         matchType: MatchType.values.firstWhere(

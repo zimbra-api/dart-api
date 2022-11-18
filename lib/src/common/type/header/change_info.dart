@@ -7,7 +7,7 @@ class ChangeInfo {
 
   final String? changeType;
 
-  ChangeInfo({this.changeId, this.changeType});
+  const ChangeInfo({this.changeId, this.changeType});
 
   factory ChangeInfo.fromMap(Map<String, dynamic> data) =>
       ChangeInfo(changeId: int.tryParse(data['token']?.toString() ?? ''), changeType: data['type']);

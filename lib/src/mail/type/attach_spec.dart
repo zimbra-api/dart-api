@@ -5,5 +5,5 @@
 abstract class AttachSpec {
   final bool? optional;
 
-  AttachSpec({this.optional});
+  const AttachSpec({this.optional});
 }

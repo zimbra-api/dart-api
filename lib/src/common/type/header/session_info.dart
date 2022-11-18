@@ -11,7 +11,7 @@ class SessionInfo {
 
   final String? value;
 
-  SessionInfo({this.sessionProxied, this.sessionId, this.sequenceNum, this.value});
+  const SessionInfo({this.sessionProxied, this.sessionId, this.sequenceNum, this.value});
 
   factory SessionInfo.fromMap(Map<String, dynamic> data) => SessionInfo(
         sessionProxied: data['proxy'],

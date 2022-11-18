@@ -5,7 +5,7 @@
 class NotifyInfo {
   final int? sequenceNum;
 
-  NotifyInfo({this.sequenceNum});
+  const NotifyInfo({this.sequenceNum});
 
   factory NotifyInfo.fromMap(Map<String, dynamic> data) =>
       NotifyInfo(sequenceNum: int.tryParse(data['seq']?.toString() ?? ''));

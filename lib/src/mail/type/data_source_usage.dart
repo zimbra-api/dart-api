@@ -7,7 +7,7 @@ class DataSourceUsage {
 
   final int usage;
 
-  DataSourceUsage({this.id = '', this.usage = 0});
+  const DataSourceUsage({this.id = '', this.usage = 0});
 
   factory DataSourceUsage.fromMap(Map<String, dynamic> data) =>
       DataSourceUsage(id: data['id'] ?? '', usage: int.tryParse(data['usage']?.toString() ?? '') ?? 0);

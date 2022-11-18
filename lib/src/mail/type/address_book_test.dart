@@ -8,7 +8,7 @@ class AddressBookTest extends FilterTest {
   /// Header name
   final String? header;
 
-  AddressBookTest({this.header, super.index, super.negative});
+  const AddressBookTest({this.header, super.index, super.negative});
 
   factory AddressBookTest.fromMap(Map<String, dynamic> data) =>
       AddressBookTest(

@@ -41,17 +41,18 @@ class Invitation {
   /// Distribution list subscription notifications
   final List<DLSubscriptionNotification> dlSubsNotifications;
 
-  Invitation(
-      {this.calItemType,
-      this.sequence,
-      this.id,
-      this.componentNum,
-      this.recurrenceId,
-      this.timezones = const [],
-      this.inviteComponent,
-      this.partInfos = const [],
-      this.shareNotifications = const [],
-      this.dlSubsNotifications = const []});
+  const Invitation({
+    this.calItemType,
+    this.sequence,
+    this.id,
+    this.componentNum,
+    this.recurrenceId,
+    this.timezones = const [],
+    this.inviteComponent,
+    this.partInfos = const [],
+    this.shareNotifications = const [],
+    this.dlSubsNotifications = const [],
+  });
 
   factory Invitation.fromMap(Map<String, dynamic> data) => Invitation(
       calItemType: InviteType.values.firstWhere(

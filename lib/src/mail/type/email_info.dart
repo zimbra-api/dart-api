@@ -26,7 +26,14 @@ class EmailInfo {
   /// Flags whether can expand group members
   final bool? canExpandGroupMembers;
 
-  EmailInfo({this.address, this.display, this.personal, this.addressType, this.isGroup, this.canExpandGroupMembers});
+  const EmailInfo({
+    this.address,
+    this.display,
+    this.personal,
+    this.addressType,
+    this.isGroup,
+    this.canExpandGroupMembers,
+  });
 
   factory EmailInfo.fromMap(Map<String, dynamic> data) => EmailInfo(
         address: data['a'],

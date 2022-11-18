@@ -46,24 +46,25 @@ class Context {
 
   final String? csrfToken;
 
-  Context(
-      {this.hopCount,
-      this.authToken,
-      this.session,
-      this.legacySessionId,
-      this.noSession,
-      this.account,
-      this.change,
-      this.targetServer,
-      this.userAgent,
-      this.authTokenControl,
-      this.format,
-      this.notify,
-      this.noNotify,
-      this.noQualify,
-      this.via,
-      this.soapRequestId,
-      this.csrfToken});
+  const Context({
+    this.hopCount,
+    this.authToken,
+    this.session,
+    this.legacySessionId,
+    this.noSession,
+    this.account,
+    this.change,
+    this.targetServer,
+    this.userAgent,
+    this.authTokenControl,
+    this.format,
+    this.notify,
+    this.noNotify,
+    this.noQualify,
+    this.via,
+    this.soapRequestId,
+    this.csrfToken,
+  });
 
   factory Context.fromMap(Map<String, dynamic> data) => Context(
         hopCount: int.tryParse(data['hops']?.toString() ?? ''),

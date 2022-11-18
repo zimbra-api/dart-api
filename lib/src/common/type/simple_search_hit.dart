@@ -9,7 +9,7 @@ class SimpleSearchHit {
   /// Sort field value
   final String? sortField;
 
-  SimpleSearchHit({this.id, this.sortField});
+  const SimpleSearchHit({this.id, this.sortField});
 
   factory SimpleSearchHit.fromMap(Map<String, dynamic> data) => SimpleSearchHit(id: data['id'], sortField: data['sf']);
 

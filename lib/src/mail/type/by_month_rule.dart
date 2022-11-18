@@ -7,7 +7,7 @@ class ByMonthRule {
   /// Comma separated list of months where month is a number between 1 and 12
   final String list;
 
-  ByMonthRule(this.list);
+  const ByMonthRule(this.list);
 
   factory ByMonthRule.fromMap(Map<String, dynamic> data) => ByMonthRule(data['molist'] ?? '');
 

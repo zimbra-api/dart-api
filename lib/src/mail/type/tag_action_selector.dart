@@ -9,19 +9,22 @@ class TagActionSelector extends ActionSelector {
   /// Retention policy
   final RetentionPolicy? retentionPolicy;
 
-  TagActionSelector(super.ids, super.operation,
-      {this.retentionPolicy,
-      super.constraint,
-      super.tag,
-      super.folder,
-      super.rgb,
-      super.color,
-      super.name,
-      super.flags,
-      super.tags,
-      super.tagNames,
-      super.nonExistentIds,
-      super.newlyCreatedIds});
+  const TagActionSelector(
+    super.ids,
+    super.operation, {
+    this.retentionPolicy,
+    super.constraint,
+    super.tag,
+    super.folder,
+    super.rgb,
+    super.color,
+    super.name,
+    super.flags,
+    super.tags,
+    super.tagNames,
+    super.nonExistentIds,
+    super.newlyCreatedIds,
+  });
 
   factory TagActionSelector.fromMap(Map<String, dynamic> data) => TagActionSelector(data['id'] ?? '', data['op'] ?? '',
       retentionPolicy: data['retentionPolicy']?[0] is Map ? RetentionPolicy.fromMap(data['retentionPolicy'][0]) : null,

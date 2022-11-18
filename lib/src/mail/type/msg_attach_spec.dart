@@ -7,7 +7,7 @@ import 'attach_spec.dart';
 class MsgAttachSpec extends AttachSpec {
   final String id;
 
-  MsgAttachSpec(this.id, {super.optional});
+  const MsgAttachSpec(this.id, {super.optional});
 
   factory MsgAttachSpec.fromMap(Map<String, dynamic> data) =>
       MsgAttachSpec(data['id'] ?? '', optional: data['optional']);

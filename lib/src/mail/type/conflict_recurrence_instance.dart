@@ -10,8 +10,14 @@ class ConflictRecurrenceInstance extends ExpandedRecurrenceInstance {
   /// Free/Busy user status
   final List<FreeBusyUserStatus> freebusyUsers;
 
-  ConflictRecurrenceInstance(
-      {super.startTime, super.duration, super.allDay, super.tzOffset, super.recurIdZ, this.freebusyUsers = const []});
+  const ConflictRecurrenceInstance({
+    super.startTime,
+    super.duration,
+    super.allDay,
+    super.tzOffset,
+    super.recurIdZ,
+    this.freebusyUsers = const [],
+  });
 
   factory ConflictRecurrenceInstance.fromMap(Map<String, dynamic> data) => ConflictRecurrenceInstance(
       startTime: int.tryParse(data['s']?.toString() ?? ''),

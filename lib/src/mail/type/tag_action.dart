@@ -8,7 +8,7 @@ class TagAction extends FilterAction {
   /// Tag name
   final String? tag;
 
-  TagAction({this.tag, super.index});
+  const TagAction({this.tag, super.index});
 
   factory TagAction.fromMap(Map<String, dynamic> data) =>
       TagAction(tag: data['tagName'], index: int.tryParse(data['index']?.toString() ?? ''));

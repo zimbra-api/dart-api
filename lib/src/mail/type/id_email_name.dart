@@ -12,7 +12,7 @@ class IdEmailName {
   /// The name
   final String? name;
 
-  IdEmailName({this.id, this.email, this.name});
+  const IdEmailName({this.id, this.email, this.name});
 
   factory IdEmailName.fromMap(Map<String, dynamic> data) =>
       IdEmailName(id: data['id'], email: data['email'], name: data['name']);

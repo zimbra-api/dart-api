@@ -28,8 +28,17 @@ class DLInfo extends ObjectInfo {
   /// Only returned if memberOf on the request is true
   final bool? isMember;
 
-  DLInfo(super.name, super.id, this.ref,
-      {this.displayName, this.isDynamic, this.via, this.isOwner, this.isMember, super.attrList});
+  const DLInfo(
+    super.name,
+    super.id,
+    this.ref, {
+    this.displayName,
+    this.isDynamic,
+    this.via,
+    this.isOwner,
+    this.isMember,
+    super.attrList,
+  });
 
   factory DLInfo.fromMap(Map<String, dynamic> data) => DLInfo(data['name'], data['id'], data['ref'],
       displayName: data['d'],

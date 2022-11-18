@@ -10,7 +10,7 @@ class Header {
   /// Header value
   final String? value;
 
-  Header(this.name, {this.value});
+  const Header(this.name, {this.value});
 
   factory Header.fromMap(Map<String, dynamic> data) => Header(data['name'] ?? '', value: data['_content']);
 

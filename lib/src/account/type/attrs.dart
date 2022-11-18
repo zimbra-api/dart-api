@@ -7,7 +7,7 @@ import 'attr.dart';
 abstract class Attrs {
   final List<Attr> attrs;
 
-  Attrs({this.attrs = const []});
+  const Attrs({this.attrs = const []});
 
   static List<Attr> attrsFromMap(Map<String, dynamic> data) {
     return (data['_attrs'] is Map)

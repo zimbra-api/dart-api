@@ -65,22 +65,23 @@ class SimpleRepeatingRule {
 
   final List<XNameRule> xNames;
 
-  SimpleRepeatingRule(
-      {this.frequency = Frequency.second,
-      this.until,
-      this.count,
-      this.interval,
-      this.bySecond,
-      this.byMinute,
-      this.byHour,
-      this.byDay,
-      this.byMonthDay,
-      this.byYearDay,
-      this.byWeekNo,
-      this.byMonth,
-      this.bySetPose,
-      this.weekStart,
-      this.xNames = const []});
+  const SimpleRepeatingRule({
+    this.frequency = Frequency.second,
+    this.until,
+    this.count,
+    this.interval,
+    this.bySecond,
+    this.byMinute,
+    this.byHour,
+    this.byDay,
+    this.byMonthDay,
+    this.byYearDay,
+    this.byWeekNo,
+    this.byMonth,
+    this.bySetPose,
+    this.weekStart,
+    this.xNames = const [],
+  });
 
   factory SimpleRepeatingRule.fromMap(Map<String, dynamic> data) => SimpleRepeatingRule(
       frequency: Frequency.values.firstWhere(

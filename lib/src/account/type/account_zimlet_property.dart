@@ -7,7 +7,7 @@ class AccountZimletProperty {
 
   final String? value;
 
-  AccountZimletProperty({this.name, this.value});
+  const AccountZimletProperty({this.name, this.value});
 
   factory AccountZimletProperty.fromMap(Map<String, dynamic> data) =>
       AccountZimletProperty(name: data['name'], value: data['_content']);

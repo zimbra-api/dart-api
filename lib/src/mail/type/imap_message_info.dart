@@ -14,7 +14,7 @@ class ImapMessageInfo extends IMAPItemInfo {
   /// Comma separated list of name of tags associated with this item
   final String? tags;
 
-  ImapMessageInfo({super.id, super.imapUid, this.type, this.flags, this.tags});
+  const ImapMessageInfo({super.id, super.imapUid, this.type, this.flags, this.tags});
 
   factory ImapMessageInfo.fromMap(Map<String, dynamic> data) => ImapMessageInfo(
       id: data['id'],

@@ -12,7 +12,7 @@ class HABGroupMember extends HABMember {
   /// displayName: display name for the member
   final List<NamedValue> attrs;
 
-  HABGroupMember(super.name, {super.seniorityIndex, this.attrs = const []});
+  const HABGroupMember(super.name, {super.seniorityIndex, this.attrs = const []});
 
   factory HABGroupMember.fromMap(Map<String, dynamic> data) => HABGroupMember(
         data['name'] ?? '',

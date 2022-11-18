@@ -8,7 +8,7 @@ class BySetPosRule {
   /// <bysetpos> MUST only be used in conjunction with another <byXXX> element.
   final String list;
 
-  BySetPosRule(this.list);
+  const BySetPosRule(this.list);
 
   factory BySetPosRule.fromMap(Map<String, dynamic> data) => BySetPosRule(data['poslist'] ?? '');
 

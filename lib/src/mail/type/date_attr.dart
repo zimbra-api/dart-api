@@ -6,7 +6,7 @@ class DateAttr {
   /// Date in format : YYYYMMDDThhmmssZ
   final String date;
 
-  DateAttr(this.date);
+  const DateAttr(this.date);
 
   factory DateAttr.fromMap(Map<String, dynamic> data) => DateAttr(data['d'] ?? '');
 

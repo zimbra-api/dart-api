@@ -29,7 +29,7 @@ class InstanceRecurIdInfo {
   /// Java timezone identifier
   final String? timezone;
 
-  InstanceRecurIdInfo({this.range, this.dateTime, this.timezone});
+  const InstanceRecurIdInfo({this.range, this.dateTime, this.timezone});
 
   factory InstanceRecurIdInfo.fromMap(Map<String, dynamic> data) => InstanceRecurIdInfo(
       range: RecurrenceRange.values.firstWhere(

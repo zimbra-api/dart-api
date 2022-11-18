@@ -13,8 +13,14 @@ class ExceptionRuleInfo extends RecurIdInfo {
   /// Dates or rules which EXCLUDE instances
   final RecurrenceInfo? exclude;
 
-  ExceptionRuleInfo(super.recurrenceRangeType, super.recurrenceId,
-      {this.add, this.exclude, super.timezone, super.recurIdZ});
+  const ExceptionRuleInfo(
+    super.recurrenceRangeType,
+    super.recurrenceId, {
+    this.add,
+    this.exclude,
+    super.timezone,
+    super.recurIdZ,
+  });
 
   factory ExceptionRuleInfo.fromMap(Map<String, dynamic> data) =>
       ExceptionRuleInfo(int.tryParse(data['rangeType']?.toString() ?? '') ?? 1, data['recurId'] ?? '',

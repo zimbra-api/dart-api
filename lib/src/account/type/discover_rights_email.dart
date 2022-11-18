@@ -6,7 +6,7 @@ class DiscoverRightsEmail {
   /// Email address
   final String addr;
 
-  DiscoverRightsEmail(this.addr);
+  const DiscoverRightsEmail(this.addr);
 
   factory DiscoverRightsEmail.fromMap(Map<String, dynamic> data) => DiscoverRightsEmail(data['addr'] ?? '');
 

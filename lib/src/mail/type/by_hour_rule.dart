@@ -7,7 +7,7 @@ class ByHourRule {
   /// Comma separated list of hours where hour is a number between 0 and 23
   final String list;
 
-  ByHourRule(this.list);
+  const ByHourRule(this.list);
 
   factory ByHourRule.fromMap(Map<String, dynamic> data) => ByHourRule(data['hrlist'] ?? '');
 

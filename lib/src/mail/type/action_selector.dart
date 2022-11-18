@@ -71,18 +71,21 @@ class ActionSelector {
   /// Flag to signify that ids of new items should be returned applies to COPY action
   final bool? newlyCreatedIds;
 
-  ActionSelector(this.ids, this.operation,
-      {this.constraint,
-      this.tag,
-      this.folder,
-      this.rgb,
-      this.color,
-      this.name,
-      this.flags,
-      this.tags,
-      this.tagNames,
-      this.nonExistentIds,
-      this.newlyCreatedIds});
+  const ActionSelector(
+    this.ids,
+    this.operation, {
+    this.constraint,
+    this.tag,
+    this.folder,
+    this.rgb,
+    this.color,
+    this.name,
+    this.flags,
+    this.tags,
+    this.tagNames,
+    this.nonExistentIds,
+    this.newlyCreatedIds,
+  });
 
   factory ActionSelector.fromMap(Map<String, dynamic> data) => ActionSelector(data['id'] ?? '', data['op'] ?? '',
       constraint: data['tcon'],

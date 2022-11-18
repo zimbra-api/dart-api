@@ -11,7 +11,7 @@ class Misspelling {
   /// Suggested words are listed in decreasing order of their match score.
   final String? suggestions;
 
-  Misspelling({this.word, this.suggestions});
+  const Misspelling({this.word, this.suggestions});
 
   factory Misspelling.fromMap(Map<String, dynamic> data) =>
       Misspelling(word: data['word'], suggestions: data['suggestions']);

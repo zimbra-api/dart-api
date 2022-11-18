@@ -9,7 +9,7 @@ class Cos {
   /// Class of Service (COS) name
   final String? name;
 
-  Cos({this.id, this.name});
+  const Cos({this.id, this.name});
 
   factory Cos.fromMap(Map<String, dynamic> data) => Cos(id: data['id'], name: data['name']);
 

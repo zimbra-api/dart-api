@@ -40,18 +40,19 @@ class MessageCommon {
   /// Custom metadata information
   final List<MailCustomMetadata> metadatas;
 
-  MessageCommon(
-      {this.size,
-      this.date,
-      this.folder,
-      this.conversationId,
-      this.flags,
-      this.tags,
-      this.tagNames,
-      this.revision,
-      this.changeDate,
-      this.modifiedSequence,
-      this.metadatas = const []});
+  const MessageCommon({
+    this.size,
+    this.date,
+    this.folder,
+    this.conversationId,
+    this.flags,
+    this.tags,
+    this.tagNames,
+    this.revision,
+    this.changeDate,
+    this.modifiedSequence,
+    this.metadatas = const [],
+  });
 
   factory MessageCommon.fromMap(Map<String, dynamic> data) => MessageCommon(
       size: int.tryParse(data['s']?.toString() ?? ''),

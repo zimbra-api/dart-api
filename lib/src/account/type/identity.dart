@@ -9,7 +9,7 @@ class Identity extends Attrs {
 
   final String? id;
 
-  Identity({this.name, this.id, super.attrs});
+  const Identity({this.name, this.id, super.attrs});
 
   factory Identity.fromMap(Map<String, dynamic> data) =>
       Identity(name: data['name'], id: data['id'], attrs: Attrs.attrsFromMap(data));

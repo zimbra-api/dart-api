@@ -16,7 +16,7 @@ class NewNoteSpec {
   /// Bounds - x,y[width,height] where x,y,width and height are all ints
   final String? bounds;
 
-  NewNoteSpec({this.folder, this.content, this.color, this.bounds});
+  const NewNoteSpec({this.folder, this.content, this.color, this.bounds});
 
   factory NewNoteSpec.fromMap(Map<String, dynamic> data) =>
       NewNoteSpec(

@@ -12,7 +12,7 @@ class FileIntoAction extends FilterAction {
   /// See https://tools.ietf.org/html/rfc3894 "Sieve Extension: Copying Without Side Effects"
   final bool? copy;
 
-  FileIntoAction({this.folder, this.copy, super.index});
+  const FileIntoAction({this.folder, this.copy, super.index});
 
   factory FileIntoAction.fromMap(Map<String, dynamic> data) => FileIntoAction(
       folder: data['folderPath'], copy: data['copy'], index: int.tryParse(data['index']?.toString() ?? ''));

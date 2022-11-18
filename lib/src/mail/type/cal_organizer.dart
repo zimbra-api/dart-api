@@ -27,8 +27,15 @@ class CalOrganizer {
   /// Non-standard parameters (XPARAMs)
   final List<XParam> xParams;
 
-  CalOrganizer(
-      {this.address, this.url, this.displayName, this.sentBy, this.dir, this.language, this.xParams = const []});
+  const CalOrganizer({
+    this.address,
+    this.url,
+    this.displayName,
+    this.sentBy,
+    this.dir,
+    this.language,
+    this.xParams = const [],
+  });
 
   factory CalOrganizer.fromMap(Map<String, dynamic> data) => CalOrganizer(
       address: data['a'],

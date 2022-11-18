@@ -9,7 +9,7 @@ class AccountZimletHostConfigInfo {
 
   final List<AccountZimletProperty> properties;
 
-  AccountZimletHostConfigInfo({this.name, this.properties = const []});
+  const AccountZimletHostConfigInfo({this.name, this.properties = const []});
 
   factory AccountZimletHostConfigInfo.fromMap(Map<String, dynamic> data) => AccountZimletHostConfigInfo(
         name: data['name'],

@@ -72,24 +72,25 @@ class FilterActions {
   /// Replace header filter actions
   final List<ReplaceheaderAction> replaceheaderActions;
 
-  FilterActions(
-      {this.filterVariables = const [],
-      this.keepActions = const [],
-      this.discardActions = const [],
-      this.fileIntoActions = const [],
-      this.flagActions = const [],
-      this.tagActions = const [],
-      this.redirectActions = const [],
-      this.replyActions = const [],
-      this.notifyActions = const [],
-      this.rfcCompliantNotifyActions = const [],
-      this.stopActions = const [],
-      this.rejectActions = const [],
-      this.erejectActions = const [],
-      this.logActions = const [],
-      this.addheaderActions = const [],
-      this.deleteheaderActions = const [],
-      this.replaceheaderActions = const []});
+  const FilterActions({
+    this.filterVariables = const [],
+    this.keepActions = const [],
+    this.discardActions = const [],
+    this.fileIntoActions = const [],
+    this.flagActions = const [],
+    this.tagActions = const [],
+    this.redirectActions = const [],
+    this.replyActions = const [],
+    this.notifyActions = const [],
+    this.rfcCompliantNotifyActions = const [],
+    this.stopActions = const [],
+    this.rejectActions = const [],
+    this.erejectActions = const [],
+    this.logActions = const [],
+    this.addheaderActions = const [],
+    this.deleteheaderActions = const [],
+    this.replaceheaderActions = const [],
+  });
 
   factory FilterActions.fromMap(Map<String, dynamic> data) => FilterActions(
         filterVariables: (data['filterVariables'] is Iterable)

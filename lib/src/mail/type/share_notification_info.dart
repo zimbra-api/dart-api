@@ -22,7 +22,7 @@ class ShareNotificationInfo {
   /// Link information
   final LinkInfo? link;
 
-  ShareNotificationInfo({this.status, this.id, this.date, this.grantor, this.link});
+  const ShareNotificationInfo({this.status, this.id, this.date, this.grantor, this.link});
 
   factory ShareNotificationInfo.fromMap(Map<String, dynamic> data) => ShareNotificationInfo(
       status: data['status'],

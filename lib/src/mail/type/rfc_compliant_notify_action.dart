@@ -20,7 +20,7 @@ class RFCCompliantNotifyAction extends FilterAction {
   /// Notify Parameter "method"
   final String? method;
 
-  RFCCompliantNotifyAction({this.from, this.importance, this.options, this.message, this.method, super.index});
+  const RFCCompliantNotifyAction({this.from, this.importance, this.options, this.message, this.method, super.index});
 
   factory RFCCompliantNotifyAction.fromMap(Map<String, dynamic> data) => RFCCompliantNotifyAction(
       from: data['from'],

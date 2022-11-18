@@ -12,7 +12,7 @@ class ListDocumentRevisionsSpec {
   /// Maximum number of revisions to return starting from <version>
   final int? count;
 
-  ListDocumentRevisionsSpec({this.id, this.version, this.count});
+  const ListDocumentRevisionsSpec({this.id, this.version, this.count});
 
   factory ListDocumentRevisionsSpec.fromMap(Map<String, dynamic> data) => ListDocumentRevisionsSpec(
       id: data['id'],

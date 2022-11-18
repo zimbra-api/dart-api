@@ -13,7 +13,7 @@ class LogAction extends FilterAction {
   /// message text
   final String? content;
 
-  LogAction({this.level, this.content, super.index});
+  const LogAction({this.level, this.content, super.index});
 
   factory LogAction.fromMap(Map<String, dynamic> data) => LogAction(
       level: LoggingLevel.values.firstWhere(

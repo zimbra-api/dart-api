@@ -11,7 +11,7 @@ class UpdatedAlarmInfo {
   /// Updated alarm information
   final AlarmDataInfo? alarmData;
 
-  UpdatedAlarmInfo(this.calItemId, {this.alarmData});
+  const UpdatedAlarmInfo(this.calItemId, {this.alarmData});
 
   factory UpdatedAlarmInfo.fromMap(Map<String, dynamic> data) => UpdatedAlarmInfo(data['calItemId'],
       alarmData: data['alarmData'] is Map ? AlarmDataInfo.fromMap(data['alarmData']) : null);

@@ -10,7 +10,7 @@ class ByMonthDayRule {
   /// means first day of the month, plus the 2nd day of the month, plus the 7th from last day of the month.
   final String list;
 
-  ByMonthDayRule(this.list);
+  const ByMonthDayRule(this.list);
 
   factory ByMonthDayRule.fromMap(Map<String, dynamic> data) => ByMonthDayRule(data['modaylist'] ?? '');
 

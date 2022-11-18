@@ -13,7 +13,7 @@ class BrowseData {
   /// Browse data.
   final String? data;
 
-  BrowseData(this.browseDomainHeader, this.frequency, {this.data});
+  const BrowseData(this.browseDomainHeader, this.frequency, {this.data});
 
   factory BrowseData.fromMap(Map<String, dynamic> data) =>
       BrowseData(data['h'] ?? '', int.tryParse(data['freq']?.toString() ?? '') ?? 0, data: data['_content']);

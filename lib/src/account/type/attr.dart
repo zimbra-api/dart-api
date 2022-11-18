@@ -9,7 +9,7 @@ class Attr {
 
   final bool? permDenied;
 
-  Attr(this.name, {this.value, this.permDenied});
+  const Attr(this.name, {this.value, this.permDenied});
 
   factory Attr.fromMap(Map<String, dynamic> data) =>
       Attr(data['name'], value: data['_content'], permDenied: data['pd']);

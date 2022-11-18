@@ -8,7 +8,7 @@ class MeTest extends FilterTest {
   /// Header name
   final String? header;
 
-  MeTest({this.header, super.index, super.negative});
+  const MeTest({this.header, super.index, super.negative});
 
   factory MeTest.fromMap(Map<String, dynamic> data) =>
       MeTest(header: data['header'], index: int.tryParse(data['index']?.toString() ?? ''), negative: data['negative']);

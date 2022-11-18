@@ -13,7 +13,7 @@ class CalendarResourceInfo extends AccountKeyValuePairs {
   /// ID of calendar resource
   final String id;
 
-  CalendarResourceInfo(this.name, this.id, {super.keyValuePairs});
+  const CalendarResourceInfo(this.name, this.id, {super.keyValuePairs});
 
   factory CalendarResourceInfo.fromMap(Map<String, dynamic> data) =>
       CalendarResourceInfo(data['name'] ?? '', data['id'] ?? '',

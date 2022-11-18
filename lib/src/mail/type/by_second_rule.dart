@@ -7,7 +7,7 @@ class BySecondRule {
   /// Comma separated list of seconds where second is a number between 0 and 59
   final String list;
 
-  BySecondRule(this.list);
+  const BySecondRule(this.list);
 
   factory BySecondRule.fromMap(Map<String, dynamic> data) => BySecondRule(data['seclist'] ?? '');
 

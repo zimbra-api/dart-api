@@ -12,7 +12,7 @@ class MiniCalError {
   /// Error message from the exception (but no stack trace)
   final String? errorMessage;
 
-  MiniCalError({this.id, this.code, this.errorMessage});
+  const MiniCalError({this.id, this.code, this.errorMessage});
 
   factory MiniCalError.fromMap(Map<String, dynamic> data) =>
       MiniCalError(id: data['id'], code: data['code'], errorMessage: data['_content']);

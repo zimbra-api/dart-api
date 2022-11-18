@@ -9,7 +9,7 @@ class ByYearDayRule {
   /// e.g. yrdaylist="1,+2,-1" means January 1st, January 2nd, and December 31st.
   final String list;
 
-  ByYearDayRule(this.list);
+  const ByYearDayRule(this.list);
 
   factory ByYearDayRule.fromMap(Map<String, dynamic> data) => ByYearDayRule(data['yrdaylist'] ?? '');
 

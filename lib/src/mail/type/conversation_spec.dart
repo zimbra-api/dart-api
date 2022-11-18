@@ -25,7 +25,7 @@ class ConversationSpec {
   /// inlined into the response (not available when raw is set)
   final List<AttributeName> headers;
 
-  ConversationSpec({
+  const ConversationSpec({
     this.id,
     this.inlineRule,
     this.wantHtml,

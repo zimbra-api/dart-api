@@ -9,7 +9,7 @@ class SharedReminderMount {
   /// Set to enable (or unset to disable) reminders for shared appointments/tasks
   final bool? showReminders;
 
-  SharedReminderMount(this.id, {this.showReminders});
+  const SharedReminderMount(this.id, {this.showReminders});
 
   factory SharedReminderMount.fromMap(Map<String, dynamic> data) =>
       SharedReminderMount(data['id'] ?? '', showReminders: data['reminder']);

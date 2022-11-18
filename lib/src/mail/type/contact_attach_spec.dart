@@ -7,7 +7,7 @@ import 'attach_spec.dart';
 class ContactAttachSpec extends AttachSpec {
   final String id;
 
-  ContactAttachSpec(this.id, {super.optional});
+  const ContactAttachSpec(this.id, {super.optional});
 
   factory ContactAttachSpec.fromMap(Map<String, dynamic> data) =>
       ContactAttachSpec(data['id'] ?? '', optional: data['optional']);

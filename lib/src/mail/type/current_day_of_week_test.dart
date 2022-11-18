@@ -8,7 +8,7 @@ class CurrentDayOfWeekTest extends FilterTest {
   /// Comma separated day of week indices
   final String? values;
 
-  CurrentDayOfWeekTest({this.values, super.index, super.negative});
+  const CurrentDayOfWeekTest({this.values, super.index, super.negative});
 
   factory CurrentDayOfWeekTest.fromMap(Map<String, dynamic> data) =>
       CurrentDayOfWeekTest(values: data['value'], index: data['index'], negative: data['negative']);

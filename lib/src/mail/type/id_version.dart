@@ -9,10 +9,7 @@ class IdVersion {
   /// The email
   final int? version;
 
-  IdVersion({
-    this.id,
-    this.version,
-  });
+  const IdVersion({this.id, this.version});
 
   factory IdVersion.fromMap(Map<String, dynamic> data) =>
       IdVersion(id: data['id'], version: int.tryParse(data['ver']?.toString() ?? ''));

@@ -27,13 +27,14 @@ class PendingFolderModifications {
   /// list of renamed folders
   final List<RenameFolderNotification> modifiedFolders;
 
-  PendingFolderModifications(
-      {this.folderId = 0,
-      this.created = const [],
-      this.deleted = const [],
-      this.modifiedMsgs = const [],
-      this.modifiedTags = const [],
-      this.modifiedFolders = const []});
+  const PendingFolderModifications({
+    this.folderId = 0,
+    this.created = const [],
+    this.deleted = const [],
+    this.modifiedMsgs = const [],
+    this.modifiedTags = const [],
+    this.modifiedFolders = const [],
+  });
 
   factory PendingFolderModifications.fromMap(Map<String, dynamic> data) => PendingFolderModifications(
       folderId: int.tryParse(data['id']?.toString() ?? '') ?? 0,

@@ -43,17 +43,20 @@ class TagInfo {
   /// Retention policy
   final RetentionPolicy? retentionPolicy;
 
-  TagInfo(this.id, this.name,
-      {this.color,
-      this.rgb,
-      this.unread,
-      this.count,
-      this.date,
-      this.revision,
-      this.changeDate,
-      this.modifiedSequence,
-      this.metadatas = const [],
-      this.retentionPolicy});
+  const TagInfo(
+    this.id,
+    this.name, {
+    this.color,
+    this.rgb,
+    this.unread,
+    this.count,
+    this.date,
+    this.revision,
+    this.changeDate,
+    this.modifiedSequence,
+    this.metadatas = const [],
+    this.retentionPolicy,
+  });
 
   factory TagInfo.fromMap(Map<String, dynamic> data) => TagInfo(data['id'] ?? '', data['name'] ?? '',
       color: int.tryParse(data['color']?.toString() ?? ''),

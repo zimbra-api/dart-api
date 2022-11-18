@@ -34,17 +34,18 @@ class AddressTest extends FilterTest {
 
   final ComparisonComparator? valueComparisonComparator;
 
-  AddressTest(
-      {this.header,
-      this.part,
-      this.stringComparison,
-      this.caseSensitive,
-      this.value,
-      this.valueComparison,
-      this.countComparison,
-      this.valueComparisonComparator,
-      super.index,
-      super.negative});
+  const AddressTest({
+    this.header,
+    this.part,
+    this.stringComparison,
+    this.caseSensitive,
+    this.value,
+    this.valueComparison,
+    this.countComparison,
+    this.valueComparisonComparator,
+    super.index,
+    super.negative,
+  });
 
   factory AddressTest.fromMap(Map<String, dynamic> data) => AddressTest(
       header: data['header'],

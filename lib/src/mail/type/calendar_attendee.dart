@@ -54,21 +54,22 @@ class CalendarAttendee {
   /// Non-standard parameters (XPARAMs)
   final List<XParam> xParams;
 
-  CalendarAttendee(
-      {this.address,
-      this.url,
-      this.displayName,
-      this.sentBy,
-      this.dir,
-      this.language,
-      this.cuType,
-      this.role,
-      this.partStat,
-      this.rsvp,
-      this.member,
-      this.delegatedTo,
-      this.delegatedFrom,
-      this.xParams = const []});
+  const CalendarAttendee({
+    this.address,
+    this.url,
+    this.displayName,
+    this.sentBy,
+    this.dir,
+    this.language,
+    this.cuType,
+    this.role,
+    this.partStat,
+    this.rsvp,
+    this.member,
+    this.delegatedTo,
+    this.delegatedFrom,
+    this.xParams = const [],
+  });
 
   factory CalendarAttendee.fromMap(Map<String, dynamic> data) => CalendarAttendee(
         address: data['a'],

@@ -6,7 +6,7 @@ class ParentId {
   /// Item ID of parent
   final String parentId;
 
-  ParentId({this.parentId = ''});
+  const ParentId({this.parentId = ''});
 
   factory ParentId.fromMap(Map<String, dynamic> data) => ParentId(parentId: data['parentId'] ?? '');
 

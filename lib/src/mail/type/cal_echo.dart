@@ -8,7 +8,7 @@ class CalEcho {
   /// Invite
   final InviteAsMP? invite;
 
-  CalEcho({this.invite});
+  const CalEcho({this.invite});
 
   factory CalEcho.fromMap(Map<String, dynamic> data) =>
       CalEcho(invite: data['m'] is Map ? InviteAsMP.fromMap(data['m']) : null);

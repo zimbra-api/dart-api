@@ -17,7 +17,7 @@ class TargetSpec {
   /// Meaning determined by {accountBy}
   final String? value;
 
-  TargetSpec({this.targetType, this.accountBy, this.value});
+  const TargetSpec({this.targetType, this.accountBy, this.value});
 
   factory TargetSpec.fromMap(Map<String, dynamic> data) => TargetSpec(
       targetType: TargetType.values.firstWhere(

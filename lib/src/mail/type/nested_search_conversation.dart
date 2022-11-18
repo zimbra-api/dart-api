@@ -34,15 +34,16 @@ class NestedSearchConversation {
   /// (exact-match is included in results).
   final SearchQueryInfo? queryInfo;
 
-  NestedSearchConversation(
-      {this.id,
-      this.num,
-      this.totalSize,
-      this.flags,
-      this.tags,
-      this.tagNames,
-      this.messages = const [],
-      this.queryInfo});
+  const NestedSearchConversation({
+    this.id,
+    this.num,
+    this.totalSize,
+    this.flags,
+    this.tags,
+    this.tagNames,
+    this.messages = const [],
+    this.queryInfo,
+  });
 
   factory NestedSearchConversation.fromMap(Map<String, dynamic> data) => NestedSearchConversation(
         id: data['id'],

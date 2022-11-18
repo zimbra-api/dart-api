@@ -17,7 +17,7 @@ class ImportStatusInfo {
   /// (not returned if the import has not run yet)
   final String? error;
 
-  ImportStatusInfo({this.id, this.isRunning, this.success, this.error});
+  const ImportStatusInfo({this.id, this.isRunning, this.success, this.error});
 
   factory ImportStatusInfo.fromMap(Map<String, dynamic> data) =>
       ImportStatusInfo(id: data['id'], isRunning: data['isRunning'], success: data['success'], error: data['error']);

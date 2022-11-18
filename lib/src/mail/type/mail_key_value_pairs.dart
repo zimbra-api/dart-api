@@ -5,7 +5,7 @@
 import 'package:zimbra_api/src/common/type/key_value_pairs.dart';
 
 class MailKeyValuePairs extends KeyValuePairs {
-  MailKeyValuePairs({super.keyValuePairs});
+  const MailKeyValuePairs({super.keyValuePairs});
 
   factory MailKeyValuePairs.fromMap(Map<String, dynamic> data) =>
       MailKeyValuePairs(keyValuePairs: KeyValuePairs.keyValuePairsFromMap(data));

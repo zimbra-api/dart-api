@@ -12,19 +12,22 @@ class ConvActionSelector extends ActionSelector {
   /// If a conversation contains messages belonging of multiple accounts / data sources then it would not be affected by this operation.
   final String? acctRelativePath;
 
-  ConvActionSelector(super.ids, super.operation,
-      {super.constraint,
-      super.tag,
-      super.folder,
-      super.rgb,
-      super.color,
-      super.name,
-      super.flags,
-      super.tags,
-      super.tagNames,
-      super.nonExistentIds,
-      super.newlyCreatedIds,
-      this.acctRelativePath});
+  const ConvActionSelector(
+    super.ids,
+    super.operation, {
+    super.constraint,
+    super.tag,
+    super.folder,
+    super.rgb,
+    super.color,
+    super.name,
+    super.flags,
+    super.tags,
+    super.tagNames,
+    super.nonExistentIds,
+    super.newlyCreatedIds,
+    this.acctRelativePath,
+  });
 
   factory ConvActionSelector.fromMap(Map<String, dynamic> data) =>
       ConvActionSelector(data['id'] ?? '', data['op'] ?? '',

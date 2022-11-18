@@ -15,7 +15,7 @@ class VersionInfo {
   /// Build host name
   final String? host;
 
-  VersionInfo(this.fullVersion, {this.release, this.date, this.host});
+  const VersionInfo(this.fullVersion, {this.release, this.date, this.host});
 
   factory VersionInfo.fromMap(Map<String, dynamic> data) =>
       VersionInfo(data['version'] ?? '', release: data['release'], date: data['buildDate'], host: data['host']);

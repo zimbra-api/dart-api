@@ -40,16 +40,18 @@ class NewFolderSpec {
   /// Grant specification
   final List<ActionGrantSelector> grants;
 
-  NewFolderSpec(this.name,
-      {this.defaultView,
-      this.flags,
-      this.color,
-      this.rgb,
-      this.url,
-      this.parentFolderId,
-      this.fetchIfExists,
-      this.syncToUrl,
-      this.grants = const []});
+  const NewFolderSpec(
+    this.name, {
+    this.defaultView,
+    this.flags,
+    this.color,
+    this.rgb,
+    this.url,
+    this.parentFolderId,
+    this.fetchIfExists,
+    this.syncToUrl,
+    this.grants = const [],
+  });
 
   factory NewFolderSpec.fromMap(Map<String, dynamic> data) => NewFolderSpec(data['name'] ?? '',
       defaultView: ViewType.values.firstWhere(

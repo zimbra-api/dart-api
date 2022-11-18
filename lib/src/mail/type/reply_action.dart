@@ -8,7 +8,7 @@ class ReplyAction extends FilterAction {
   /// Reply content
   final String? content;
 
-  ReplyAction({this.content, super.index});
+  const ReplyAction({this.content, super.index});
 
   factory ReplyAction.fromMap(Map<String, dynamic> data) =>
       ReplyAction(content: data['content']?['_content'], index: int.tryParse(data['index']?.toString() ?? ''));

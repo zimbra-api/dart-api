@@ -9,7 +9,7 @@ class FilterTest {
   /// Specifies a "not" condition for the test
   final bool? negative;
 
-  FilterTest({this.index, this.negative});
+  const FilterTest({this.index, this.negative});
 
   factory FilterTest.fromMap(Map<String, dynamic> data) =>
       FilterTest(index: int.tryParse(data['index']?.toString() ?? ''), negative: data['negative']);

@@ -47,20 +47,22 @@ class SyncDeletedInfo {
   /// Details of deletes broken down by item type (present if "typed" was specified in the request)
   final List<IdsAttr> docTypes;
 
-  SyncDeletedInfo(this.ids,
-      {this.folderTypes = const [],
-      this.searchTypes = const [],
-      this.linkTypes = const [],
-      this.tagTypes = const [],
-      this.convTypes = const [],
-      this.chatTypes = const [],
-      this.msgTypes = const [],
-      this.contactTypes = const [],
-      this.apptTypes = const [],
-      this.taskTypes = const [],
-      this.noteTypes = const [],
-      this.wikiTypes = const [],
-      this.docTypes = const []});
+  const SyncDeletedInfo(
+    this.ids, {
+    this.folderTypes = const [],
+    this.searchTypes = const [],
+    this.linkTypes = const [],
+    this.tagTypes = const [],
+    this.convTypes = const [],
+    this.chatTypes = const [],
+    this.msgTypes = const [],
+    this.contactTypes = const [],
+    this.apptTypes = const [],
+    this.taskTypes = const [],
+    this.noteTypes = const [],
+    this.wikiTypes = const [],
+    this.docTypes = const [],
+  });
 
   factory SyncDeletedInfo.fromMap(Map<String, dynamic> data) => SyncDeletedInfo(data['ids'],
       folderTypes: (data['folder'] is Iterable)

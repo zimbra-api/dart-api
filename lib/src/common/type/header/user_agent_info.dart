@@ -7,7 +7,7 @@ class UserAgentInfo {
 
   final String? version;
 
-  UserAgentInfo({this.name, this.version});
+  const UserAgentInfo({this.name, this.version});
 
   factory UserAgentInfo.fromMap(Map<String, dynamic> data) =>
       UserAgentInfo(name: data['name'], version: data['version']);

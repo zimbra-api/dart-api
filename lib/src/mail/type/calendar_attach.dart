@@ -12,7 +12,8 @@ class CalendarAttach {
   /// Base64 encoded binary alarrm attach data
   final String? binaryB64Data;
 
-  CalendarAttach({this.uri, this.contentType, this.binaryB64Data});
+  const CalendarAttach({this.uri, this.contentType, this.binaryB64Data});
+
   factory CalendarAttach.fromMap(Map<String, dynamic> data) =>
       CalendarAttach(uri: data['uri'], contentType: data['ct'], binaryB64Data: data['_content']);
 

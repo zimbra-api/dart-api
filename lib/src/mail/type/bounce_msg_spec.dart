@@ -11,7 +11,7 @@ class BounceMsgSpec {
   /// Email addresses
   final List<EmailAddrInfo> emailAddresses;
 
-  BounceMsgSpec(this.id, {this.emailAddresses = const []});
+  const BounceMsgSpec(this.id, {this.emailAddresses = const []});
 
   factory BounceMsgSpec.fromMap(Map<String, dynamic> data) => BounceMsgSpec(data['id'] ?? '',
       emailAddresses: (data['e'] is Iterable)

@@ -31,16 +31,17 @@ class HeaderTest extends FilterTest {
   /// Case sensitive setting
   final bool? caseSensitive;
 
-  HeaderTest(
-      {this.headers,
-      this.stringComparison,
-      this.valueComparison,
-      this.countComparison,
-      this.valueComparisonComparator,
-      this.value,
-      this.caseSensitive,
-      super.index,
-      super.negative});
+  const HeaderTest({
+    this.headers,
+    this.stringComparison,
+    this.valueComparison,
+    this.countComparison,
+    this.valueComparisonComparator,
+    this.value,
+    this.caseSensitive,
+    super.index,
+    super.negative,
+  });
 
   factory HeaderTest.fromMap(Map<String, dynamic> data) => HeaderTest(
       headers: data['header'],

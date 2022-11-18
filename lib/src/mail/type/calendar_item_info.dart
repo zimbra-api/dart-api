@@ -55,23 +55,24 @@ class CalendarItemInfo {
   /// Metadata
   final List<MailCustomMetadata> metadatas;
 
-  CalendarItemInfo(
-      {this.flags,
-      this.tags,
-      this.tagNames,
-      this.uid,
-      this.id,
-      this.revision,
-      this.size,
-      this.date,
-      this.folder,
-      this.changeDate,
-      this.modifiedSequence,
-      this.nextAlarm,
-      this.orphan,
-      this.invites = const [],
-      this.calendarReplies = const [],
-      this.metadatas = const []});
+  const CalendarItemInfo({
+    this.flags,
+    this.tags,
+    this.tagNames,
+    this.uid,
+    this.id,
+    this.revision,
+    this.size,
+    this.date,
+    this.folder,
+    this.changeDate,
+    this.modifiedSequence,
+    this.nextAlarm,
+    this.orphan,
+    this.invites = const [],
+    this.calendarReplies = const [],
+    this.metadatas = const [],
+  });
 
   factory CalendarItemInfo.fromMap(Map<String, dynamic> data) => CalendarItemInfo(
       flags: data['f'],

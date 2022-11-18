@@ -11,7 +11,7 @@ class AccountInfo {
 
   final String value;
 
-  AccountInfo(this.by, this.value, {this.mountpointTraversed});
+  const AccountInfo(this.by, this.value, {this.mountpointTraversed});
 
   factory AccountInfo.fromMap(Map<String, dynamic> data) => AccountInfo(
         AccountBy.values.firstWhere(

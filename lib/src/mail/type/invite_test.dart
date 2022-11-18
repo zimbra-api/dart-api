@@ -8,7 +8,7 @@ class InviteTest extends FilterTest {
   /// Methods
   final List<String> methods;
 
-  InviteTest({this.methods = const [], super.index, super.negative});
+  const InviteTest({this.methods = const [], super.index, super.negative});
 
   factory InviteTest.fromMap(Map<String, dynamic> data) => InviteTest(
       methods: (data['method'] is Iterable)

@@ -30,8 +30,16 @@ class AccountZimletConfigInfo {
   /// Zimlet host configuration information
   final AccountZimletHostConfigInfo? host;
 
-  AccountZimletConfigInfo(
-      {this.name, this.version, this.description, this.extension, this.target, this.label, this.global, this.host});
+  const AccountZimletConfigInfo({
+    this.name,
+    this.version,
+    this.description,
+    this.extension,
+    this.target,
+    this.label,
+    this.global,
+    this.host,
+  });
 
   factory AccountZimletConfigInfo.fromMap(Map<String, dynamic> data) => AccountZimletConfigInfo(
       name: data['name'],

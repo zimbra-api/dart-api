@@ -16,7 +16,7 @@ class DtVal {
   /// Duration information
   final DurationInfo? duration;
 
-  DtVal({this.startTime, this.endTime, this.duration});
+  const DtVal({this.startTime, this.endTime, this.duration});
 
   factory DtVal.fromMap(Map<String, dynamic> data) => DtVal(
       startTime: data['s'] is Map ? DtTimeInfo.fromMap(data['s']) : null,

@@ -23,7 +23,7 @@ class ContactGroupMember {
   /// Contact information for dereferenced member.
   final ContactInfo? contact;
 
-  ContactGroupMember({this.type = MemberType.contact, this.value, this.contact});
+  const ContactGroupMember({this.type = MemberType.contact, this.value, this.contact});
 
   factory ContactGroupMember.fromMap(Map<String, dynamic> data) => ContactGroupMember(
       type: MemberType.values.firstWhere(

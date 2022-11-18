@@ -13,7 +13,7 @@ class ContactGroupMember {
 
   final ContactInfo? contact;
 
-  ContactGroupMember({this.type = '', this.value = '', this.contact});
+  const ContactGroupMember({this.type = '', this.value = '', this.contact});
 
   factory ContactGroupMember.fromMap(Map<String, dynamic> data) => ContactGroupMember(
       type: data['type'] ?? '',

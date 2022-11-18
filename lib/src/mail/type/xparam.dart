@@ -10,7 +10,7 @@ class XParam {
   /// XPARAM value
   final String? value;
 
-  XParam(this.name, {this.value});
+  const XParam(this.name, {this.value});
 
   factory XParam.fromMap(Map<String, dynamic> data) => XParam(data['name'] ?? '', value: data['value']);
 

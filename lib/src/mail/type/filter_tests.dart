@@ -2,8 +2,7 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
-import 'package:zimbra_api/src/common/enum/filter_condition.dart';
-
+import '../../common/enum/filter_condition.dart';
 import 'address_book_test.dart';
 import 'address_test.dart';
 import 'attachment_test.dart';

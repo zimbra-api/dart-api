@@ -4,7 +4,8 @@
 
 import 'dart:convert';
 import 'package:crypto/crypto.dart';
-import 'package:zimbra_api/src/common/type/account_selector.dart';
+
+import '../../common/type/account_selector.dart';
 
 class PreAuth {
   final String value;

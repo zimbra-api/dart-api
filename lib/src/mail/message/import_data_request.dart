@@ -2,11 +2,10 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
-import 'package:zimbra_api/src/common/type/soap_header.dart';
-import 'package:zimbra_api/src/common/type/soap_envelope.dart';
-import 'package:zimbra_api/src/common/type/soap_request.dart';
-import 'package:zimbra_api/src/mail/type/data_source_name_or_id.dart';
-
+import '../../common/type/soap_header.dart';
+import '../../common/type/soap_envelope.dart';
+import '../../common/type/soap_request.dart';
+import '../type/data_source_name_or_id.dart';
 import 'import_data_body.dart';
 import 'import_data_envelope.dart';
 

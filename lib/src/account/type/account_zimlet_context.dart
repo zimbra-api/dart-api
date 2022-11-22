@@ -2,7 +2,7 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
-import 'package:zimbra_api/src/common/enum/zimlet_presence.dart';
+import '../../common/enum/zimlet_presence.dart';
 
 class AccountZimletContext {
   final String zimletBaseUrl;

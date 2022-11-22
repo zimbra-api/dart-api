@@ -2,8 +2,7 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
-import 'package:zimbra_api/src/common/enum/view_type.dart';
-
+import '../../common/enum/view_type.dart';
 import 'action_grant_selector.dart';
 
 /// Input for creating a new folder

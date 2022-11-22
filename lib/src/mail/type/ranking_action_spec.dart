@@ -2,7 +2,7 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
-import 'package:zimbra_api/src/common/enum/ranking_action_op.dart';
+import '../../common/enum/ranking_action_op.dart';
 
 class RankingActionSpec {
   /// Action to perform - reset|delete.

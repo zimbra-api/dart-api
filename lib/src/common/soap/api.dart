@@ -2,17 +2,16 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
-import 'package:zimbra_api/src/common/enum/account_by.dart';
-import 'package:zimbra_api/src/common/type/header/account_info.dart';
-import 'package:zimbra_api/src/common/type/header/context.dart';
-import 'package:zimbra_api/src/common/type/header/format_info.dart';
-import 'package:zimbra_api/src/common/type/header/session_info.dart';
-import 'package:zimbra_api/src/common/type/header/user_agent_info.dart';
-import 'package:zimbra_api/src/common/type/soap_fault.dart';
-import 'package:zimbra_api/src/common/type/soap_header.dart';
-import 'package:zimbra_api/src/common/type/soap_request.dart';
-import 'package:zimbra_api/src/common/type/soap_response.dart';
-
+import '../enum/account_by.dart';
+import '../type/header/account_info.dart';
+import '../type/header/context.dart';
+import '../type/header/format_info.dart';
+import '../type/header/session_info.dart';
+import '../type/header/user_agent_info.dart';
+import '../type/soap_fault.dart';
+import '../type/soap_header.dart';
+import '../type/soap_request.dart';
+import '../type/soap_response.dart';
 import 'client.dart';
 import 'client_exception.dart';
 

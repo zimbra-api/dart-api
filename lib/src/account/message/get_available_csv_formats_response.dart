@@ -2,8 +2,8 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
-import 'package:zimbra_api/src/common/type/named_element.dart';
-import 'package:zimbra_api/src/common/type/soap_response.dart';
+import '../../common/type/named_element.dart';
+import '../../common/type/soap_response.dart';
 
 class GetAvailableCsvFormatsResponse extends SoapResponse {
   /// Information about csvFormats

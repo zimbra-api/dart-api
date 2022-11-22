@@ -2,7 +2,7 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
-import 'package:zimbra_api/src/common/enum/content_type.dart';
+import '../../common/enum/content_type.dart';
 
 class SignatureContent {
   final ContentType type;

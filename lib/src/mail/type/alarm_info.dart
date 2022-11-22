@@ -2,8 +2,7 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
-import 'package:zimbra_api/src/common/enum/alarm_action.dart';
-
+import '../../common/enum/alarm_action.dart';
 import 'alarm_trigger_info.dart';
 import 'calendar_attach.dart';
 import 'calendar_attendee.dart';

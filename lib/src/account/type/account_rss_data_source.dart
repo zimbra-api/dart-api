@@ -2,8 +2,7 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with super source code.
 
-import 'package:zimbra_api/src/common/enum/connection_type.dart';
-
+import '../../common/enum/connection_type.dart';
 import 'account_data_source.dart';
 
 class AccountRssDataSource extends AccountDataSource {

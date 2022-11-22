@@ -2,12 +2,11 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
-import 'package:zimbra_api/src/common/enum/address_part.dart';
-import 'package:zimbra_api/src/common/enum/comparison_comparator.dart';
-import 'package:zimbra_api/src/common/enum/count_comparison.dart';
-import 'package:zimbra_api/src/common/enum/string_comparison.dart';
-import 'package:zimbra_api/src/common/enum/value_comparison.dart';
-
+import '../../common/enum/address_part.dart';
+import '../../common/enum/comparison_comparator.dart';
+import '../../common/enum/count_comparison.dart';
+import '../../common/enum/string_comparison.dart';
+import '../../common/enum/value_comparison.dart';
 import 'filter_test.dart';
 
 class AddressTest extends FilterTest {

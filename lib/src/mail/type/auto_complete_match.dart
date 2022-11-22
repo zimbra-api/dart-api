@@ -2,7 +2,7 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
-import 'package:zimbra_api/src/common/enum/auto_complete_match_type.dart';
+import '../../common/enum/auto_complete_match_type.dart';
 
 /// Contains auto-complete match information
 class AutoCompleteMatch {

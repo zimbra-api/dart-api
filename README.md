@@ -3,13 +3,17 @@ Zimbra SOAP client library in Dart language
 This library is a simple Object Oriented wrapper for the Zimbra SOAP API.
 
 ## Features
-
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+* Support [`zimbraAccount` SOAP API](https://files.zimbra.com/docs/soap_api/9.0.0/api-reference/zimbraAccount/service-summary.html)
+* Support [`zimbraMail` SOAP API](https://files.zimbra.com/docs/soap_api/9.0.0/api-reference/zimbraMail/service-summary.html)
+* Support `upload` service
 
 ## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+In your `Dart` or `flutter` project add the dependency:
+```yml
+dependencies:
+  ...
+  zimbra_api:
+```
 
 ## Usage
 

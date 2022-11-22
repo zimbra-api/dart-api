@@ -2,8 +2,7 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
-import 'package:zimbra_api/src/common/type/named_value.dart';
-
+import '../../common/type/named_value.dart';
 import 'hab_member.dart';
 
 class HABGroupMember extends HABMember {

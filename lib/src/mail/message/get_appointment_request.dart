@@ -2,10 +2,9 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with super source code.
 
-import 'package:zimbra_api/src/common/type/soap_header.dart';
-import 'package:zimbra_api/src/common/type/soap_envelope.dart';
-import 'package:zimbra_api/src/mail/type/get_calendar_item_request_base.dart';
-
+import '../../common/type/soap_header.dart';
+import '../../common/type/soap_envelope.dart';
+import '../type/get_calendar_item_request_base.dart';
 import 'get_appointment_body.dart';
 import 'get_appointment_envelope.dart';
 

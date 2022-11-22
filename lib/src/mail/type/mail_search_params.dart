@@ -2,14 +2,13 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
-import 'package:zimbra_api/src/common/enum/msg_content.dart';
-import 'package:zimbra_api/src/common/enum/result_mode.dart';
-import 'package:zimbra_api/src/common/enum/search_sort_by.dart';
-import 'package:zimbra_api/src/common/enum/want_recips_setting.dart';
-import 'package:zimbra_api/src/common/type/attribute_name.dart';
-import 'package:zimbra_api/src/common/type/cursor_info.dart';
-import 'package:zimbra_api/src/common/type/soap_request.dart';
-
+import '../../common/enum/msg_content.dart';
+import '../../common/enum/result_mode.dart';
+import '../../common/enum/search_sort_by.dart';
+import '../../common/enum/want_recips_setting.dart';
+import '../../common/type/attribute_name.dart';
+import '../../common/type/cursor_info.dart';
+import '../../common/type/soap_request.dart';
 import 'cal_tz_info.dart';
 
 abstract class MailSearchParams extends SoapRequest {

@@ -2,9 +2,9 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
-import 'package:zimbra_api/src/common/type/soap_envelope.dart';
-import 'package:zimbra_api/src/common/type/soap_header.dart';
-import 'package:zimbra_api/src/mail/message/no_op_body.dart';
+import '../../common/type/soap_envelope.dart';
+import '../../common/type/soap_header.dart';
+import 'no_op_body.dart';
 
 class NoOpEnvelope extends SoapEnvelope {
   NoOpEnvelope(NoOpBody body, {super.header}) : super(body..response?.header = header);

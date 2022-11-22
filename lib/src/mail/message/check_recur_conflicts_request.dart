@@ -2,15 +2,14 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
-import 'package:zimbra_api/src/common/type/soap_header.dart';
-import 'package:zimbra_api/src/common/type/soap_envelope.dart';
-import 'package:zimbra_api/src/common/type/soap_request.dart';
-import 'package:zimbra_api/src/mail/type/cal_tz_info.dart';
-import 'package:zimbra_api/src/mail/type/expanded_recurrence_cancel.dart';
-import 'package:zimbra_api/src/mail/type/expanded_recurrence_exception.dart';
-import 'package:zimbra_api/src/mail/type/expanded_recurrence_invite.dart';
-import 'package:zimbra_api/src/mail/type/free_busy_user_spec.dart';
-
+import '../../common/type/soap_header.dart';
+import '../../common/type/soap_envelope.dart';
+import '../../common/type/soap_request.dart';
+import '../type/cal_tz_info.dart';
+import '../type/expanded_recurrence_cancel.dart';
+import '../type/expanded_recurrence_exception.dart';
+import '../type/expanded_recurrence_invite.dart';
+import '../type/free_busy_user_spec.dart';
 import 'check_recur_conflicts_body.dart';
 import 'check_recur_conflicts_envelope.dart';
 

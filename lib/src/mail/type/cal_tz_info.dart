@@ -2,7 +2,7 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
-import 'package:zimbra_api/src/common/type/tz_onset_info.dart';
+import '../../common/type/tz_onset_info.dart';
 
 /// Timezone specification
 class CalTZInfo {

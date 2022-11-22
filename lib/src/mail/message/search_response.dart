@@ -2,18 +2,18 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
-import 'package:zimbra_api/src/common/enum/search_sort_by.dart';
-import 'package:zimbra_api/src/common/type/simple_search_hit.dart';
-import 'package:zimbra_api/src/common/type/soap_response.dart';
-import 'package:zimbra_api/src/mail/type/calendar_item_hit_info.dart';
-import 'package:zimbra_api/src/mail/type/contact_info.dart';
-import 'package:zimbra_api/src/mail/type/conversation_hit_info.dart';
-import 'package:zimbra_api/src/mail/type/document_hit_info.dart';
-import 'package:zimbra_api/src/mail/type/message_hit_info.dart';
-import 'package:zimbra_api/src/mail/type/message_part_hit_info.dart';
-import 'package:zimbra_api/src/mail/type/note_hit_info.dart';
-import 'package:zimbra_api/src/mail/type/search_query_info.dart';
-import 'package:zimbra_api/src/mail/type/wiki_hit_info.dart';
+import '../../common/enum/search_sort_by.dart';
+import '../../common/type/simple_search_hit.dart';
+import '../../common/type/soap_response.dart';
+import '../type/calendar_item_hit_info.dart';
+import '../type/contact_info.dart';
+import '../type/conversation_hit_info.dart';
+import '../type/document_hit_info.dart';
+import '../type/message_hit_info.dart';
+import '../type/message_part_hit_info.dart';
+import '../type/note_hit_info.dart';
+import '../type/search_query_info.dart';
+import '../type/wiki_hit_info.dart';
 
 class SearchResponse extends SoapResponse {
   /// What to sort by. Default is "dateDesc"
@@ -77,78 +77,80 @@ class SearchResponse extends SoapResponse {
   /// (exact-match is included in results).
   final SearchQueryInfo? queryInfo;
 
-  SearchResponse(
-      {this.sortBy,
-      this.queryOffset,
-      this.queryMore,
-      this.totalSize,
-      this.simpleHits = const [],
-      this.conversationHits = const [],
-      this.messageHits = const [],
-      this.chatHits = const [],
-      this.messagePartHits = const [],
-      this.contactHits = const [],
-      this.noteHits = const [],
-      this.documentHits = const [],
-      this.wikiHits = const [],
-      this.appointmentHits = const [],
-      this.taskHits = const [],
-      this.queryInfo});
+  SearchResponse({
+    this.sortBy,
+    this.queryOffset,
+    this.queryMore,
+    this.totalSize,
+    this.simpleHits = const [],
+    this.conversationHits = const [],
+    this.messageHits = const [],
+    this.chatHits = const [],
+    this.messagePartHits = const [],
+    this.contactHits = const [],
+    this.noteHits = const [],
+    this.documentHits = const [],
+    this.wikiHits = const [],
+    this.appointmentHits = const [],
+    this.taskHits = const [],
+    this.queryInfo,
+  });
 
   factory SearchResponse.fromMap(Map<String, dynamic> data) => SearchResponse(
-      sortBy: SearchSortBy.values.firstWhere(
-        (sortBy) => sortBy.name == data['sortBy'],
-        orElse: () => SearchSortBy.dateDesc,
-      ),
-      queryOffset: int.tryParse(data['offset']?.toString() ?? ''),
-      queryMore: data['more'],
-      totalSize: int.tryParse(data['total']?.toString() ?? ''),
-      simpleHits: (data['hit'] is Iterable)
-          ? (data['hit'] as Iterable)
-              .map<SimpleSearchHit>((hit) => SimpleSearchHit.fromMap(hit))
-              .toList(growable: false)
-          : const [],
-      conversationHits: (data['c'] is Iterable)
-          ? (data['c'] as Iterable)
-              .map<ConversationHitInfo>((c) => ConversationHitInfo.fromMap(c))
-              .toList(growable: false)
-          : const [],
-      messageHits: (data['m'] is Iterable)
-          ? (data['m'] as Iterable).map<MessageHitInfo>((m) => MessageHitInfo.fromMap(m)).toList(growable: false)
-          : const [],
-      chatHits: (data['chat'] is Iterable)
-          ? (data['chat'] as Iterable)
-              .map<MessageHitInfo>((chat) => MessageHitInfo.fromMap(chat))
-              .toList(growable: false)
-          : const [],
-      messagePartHits: (data['mp'] is Iterable)
-          ? (data['mp'] as Iterable)
-              .map<MessagePartHitInfo>((mp) => MessagePartHitInfo.fromMap(mp))
-              .toList(growable: false)
-          : const [],
-      contactHits: (data['cn'] is Iterable)
-          ? (data['cn'] as Iterable).map<ContactInfo>((cn) => ContactInfo.fromMap(cn)).toList(growable: false)
-          : const [],
-      noteHits: (data['note'] is Iterable)
-          ? (data['note'] as Iterable).map<NoteHitInfo>((note) => NoteHitInfo.fromMap(note)).toList(growable: false)
-          : const [],
-      documentHits: (data['doc'] is Iterable)
-          ? (data['doc'] as Iterable)
-              .map<DocumentHitInfo>((doc) => DocumentHitInfo.fromMap(doc))
-              .toList(growable: false)
-          : const [],
-      wikiHits: (data['w'] is Iterable)
-          ? (data['w'] as Iterable).map<WikiHitInfo>((w) => WikiHitInfo.fromMap(w)).toList(growable: false)
-          : const [],
-      appointmentHits: (data['appt'] is Iterable)
-          ? (data['appt'] as Iterable)
-              .map<CalendarItemHitInfo>((appt) => CalendarItemHitInfo.fromMap(appt))
-              .toList(growable: false)
-          : const [],
-      taskHits: (data['task'] is Iterable)
-          ? (data['task'] as Iterable)
-              .map<CalendarItemHitInfo>((task) => CalendarItemHitInfo.fromMap(task))
-              .toList(growable: false)
-          : const [],
-      queryInfo: data['info']?[0] is Map ? SearchQueryInfo.fromMap(data['info'][0]) : null);
+        sortBy: SearchSortBy.values.firstWhere(
+          (sortBy) => sortBy.name == data['sortBy'],
+          orElse: () => SearchSortBy.dateDesc,
+        ),
+        queryOffset: int.tryParse(data['offset']?.toString() ?? ''),
+        queryMore: data['more'],
+        totalSize: int.tryParse(data['total']?.toString() ?? ''),
+        simpleHits: (data['hit'] is Iterable)
+            ? (data['hit'] as Iterable)
+                .map<SimpleSearchHit>((hit) => SimpleSearchHit.fromMap(hit))
+                .toList(growable: false)
+            : const [],
+        conversationHits: (data['c'] is Iterable)
+            ? (data['c'] as Iterable)
+                .map<ConversationHitInfo>((c) => ConversationHitInfo.fromMap(c))
+                .toList(growable: false)
+            : const [],
+        messageHits: (data['m'] is Iterable)
+            ? (data['m'] as Iterable).map<MessageHitInfo>((m) => MessageHitInfo.fromMap(m)).toList(growable: false)
+            : const [],
+        chatHits: (data['chat'] is Iterable)
+            ? (data['chat'] as Iterable)
+                .map<MessageHitInfo>((chat) => MessageHitInfo.fromMap(chat))
+                .toList(growable: false)
+            : const [],
+        messagePartHits: (data['mp'] is Iterable)
+            ? (data['mp'] as Iterable)
+                .map<MessagePartHitInfo>((mp) => MessagePartHitInfo.fromMap(mp))
+                .toList(growable: false)
+            : const [],
+        contactHits: (data['cn'] is Iterable)
+            ? (data['cn'] as Iterable).map<ContactInfo>((cn) => ContactInfo.fromMap(cn)).toList(growable: false)
+            : const [],
+        noteHits: (data['note'] is Iterable)
+            ? (data['note'] as Iterable).map<NoteHitInfo>((note) => NoteHitInfo.fromMap(note)).toList(growable: false)
+            : const [],
+        documentHits: (data['doc'] is Iterable)
+            ? (data['doc'] as Iterable)
+                .map<DocumentHitInfo>((doc) => DocumentHitInfo.fromMap(doc))
+                .toList(growable: false)
+            : const [],
+        wikiHits: (data['w'] is Iterable)
+            ? (data['w'] as Iterable).map<WikiHitInfo>((w) => WikiHitInfo.fromMap(w)).toList(growable: false)
+            : const [],
+        appointmentHits: (data['appt'] is Iterable)
+            ? (data['appt'] as Iterable)
+                .map<CalendarItemHitInfo>((appt) => CalendarItemHitInfo.fromMap(appt))
+                .toList(growable: false)
+            : const [],
+        taskHits: (data['task'] is Iterable)
+            ? (data['task'] as Iterable)
+                .map<CalendarItemHitInfo>((task) => CalendarItemHitInfo.fromMap(task))
+                .toList(growable: false)
+            : const [],
+        queryInfo: data['info']?[0] is Map ? SearchQueryInfo.fromMap(data['info'][0]) : null,
+      );
 }

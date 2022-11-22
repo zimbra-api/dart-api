@@ -2,9 +2,9 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
-import 'package:zimbra_api/src/common/type/soap_response.dart';
-import 'package:zimbra_api/src/mail/type/imap_cursor_info.dart';
-import 'package:zimbra_api/src/mail/type/imap_message_info.dart';
+import '../../common/type/soap_response.dart';
+import '../type/imap_cursor_info.dart';
+import '../type/imap_message_info.dart';
 
 class OpenIMAPFolderResponse extends SoapResponse {
   /// Flag whether can be cached

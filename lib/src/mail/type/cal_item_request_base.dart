@@ -2,8 +2,8 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
-import 'package:zimbra_api/src/common/type/soap_request.dart';
-import 'package:zimbra_api/src/mail/type/msg.dart';
+import '../../common/type/soap_request.dart';
+import 'msg.dart';
 
 abstract class CalItemRequestBase extends SoapRequest {
   /// If specified, the created appointment is echoed back in the response as if a GetMsgRequest was made

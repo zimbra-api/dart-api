@@ -2,9 +2,8 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
-import 'package:zimbra_api/src/account/utils.dart';
-import 'package:zimbra_api/src/common/type/contact_attr.dart';
-
+import '../../common/type/contact_attr.dart';
+import '../utils.dart';
 import 'account_custom_metadata.dart';
 import 'contact_group_member.dart';
 

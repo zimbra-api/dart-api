@@ -2,11 +2,11 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
-import 'package:zimbra_api/src/common/enum/search_sort_by.dart';
-import 'package:zimbra_api/src/common/type/soap_response.dart';
-import 'package:zimbra_api/src/mail/type/message_hit_info.dart';
-import 'package:zimbra_api/src/mail/type/nested_search_conversation.dart';
-import 'package:zimbra_api/src/mail/type/search_query_info.dart';
+import '../../common/enum/search_sort_by.dart';
+import '../../common/type/soap_response.dart';
+import '../type/message_hit_info.dart';
+import '../type/nested_search_conversation.dart';
+import '../type/search_query_info.dart';
 
 class SearchConvResponse extends SoapResponse {
   /// What to sort by. Default is "dateDesc"
@@ -40,8 +40,14 @@ class SearchConvResponse extends SoapResponse {
   /// (exact-match is included in results).
   final SearchQueryInfo? queryInfo;
 
-  SearchConvResponse(
-      {this.sortBy, this.queryOffset, this.queryMore, this.conversation, this.messages = const [], this.queryInfo});
+  SearchConvResponse({
+    this.sortBy,
+    this.queryOffset,
+    this.queryMore,
+    this.conversation,
+    this.messages = const [],
+    this.queryInfo,
+  });
 
   factory SearchConvResponse.fromMap(Map<String, dynamic> data) => SearchConvResponse(
       sortBy: SearchSortBy.values.firstWhere(

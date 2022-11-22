@@ -2,10 +2,9 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
-import 'package:zimbra_api/src/common/type/soap_header.dart';
-import 'package:zimbra_api/src/common/type/soap_envelope.dart';
-import 'package:zimbra_api/src/common/type/soap_request.dart';
-
+import '../../common/type/soap_header.dart';
+import '../../common/type/soap_envelope.dart';
+import '../../common/type/soap_request.dart';
 import 'get_yahoo_cookie_body.dart';
 import 'get_yahoo_cookie_envelope.dart';
 

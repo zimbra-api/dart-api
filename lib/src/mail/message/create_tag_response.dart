@@ -2,8 +2,8 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
-import 'package:zimbra_api/src/common/type/soap_response.dart';
-import 'package:zimbra_api/src/mail/type/tag_info.dart';
+import '../../common/type/soap_response.dart';
+import '../type/tag_info.dart';
 
 class CreateTagResponse extends SoapResponse {
   /// Information about the newly created tag

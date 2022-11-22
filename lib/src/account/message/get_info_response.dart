@@ -2,19 +2,19 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
-import 'package:zimbra_api/src/account/type/account_data_sources.dart';
-import 'package:zimbra_api/src/account/type/account_zimlet_info.dart';
-import 'package:zimbra_api/src/account/type/attr.dart';
-import 'package:zimbra_api/src/account/type/child_account.dart';
-import 'package:zimbra_api/src/account/type/cos.dart';
-import 'package:zimbra_api/src/account/type/discover_rights_info.dart';
-import 'package:zimbra_api/src/account/type/identity.dart';
-import 'package:zimbra_api/src/account/type/license_info.dart';
-import 'package:zimbra_api/src/account/type/pref.dart';
-import 'package:zimbra_api/src/account/type/prop.dart';
-import 'package:zimbra_api/src/account/type/signature.dart';
-import 'package:zimbra_api/src/account/utils.dart';
-import 'package:zimbra_api/src/common/type/soap_response.dart';
+import '../../common/type/soap_response.dart';
+import '../type/account_data_sources.dart';
+import '../type/account_zimlet_info.dart';
+import '../type/attr.dart';
+import '../type/child_account.dart';
+import '../type/cos.dart';
+import '../type/discover_rights_info.dart';
+import '../type/identity.dart';
+import '../type/license_info.dart';
+import '../type/pref.dart';
+import '../type/prop.dart';
+import '../type/signature.dart';
+import '../utils.dart';
 
 class GetInfoResponse extends SoapResponse {
   /// The size limit for attachments - Use "-1" to mean unlimited

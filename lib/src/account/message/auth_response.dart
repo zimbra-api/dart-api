@@ -2,11 +2,11 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
-import 'package:zimbra_api/src/account/type/attr.dart';
-import 'package:zimbra_api/src/account/type/pref.dart';
-import 'package:zimbra_api/src/account/type/session.dart';
-import 'package:zimbra_api/src/account/utils.dart';
-import 'package:zimbra_api/src/common/type/soap_response.dart';
+import '../../common/type/soap_response.dart';
+import '../type/attr.dart';
+import '../type/pref.dart';
+import '../type/session.dart';
+import '../utils.dart';
 
 class AuthResponse extends SoapResponse {
   /// The authorization token

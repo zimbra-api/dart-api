@@ -2,15 +2,14 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
-import 'package:zimbra_api/src/common/type/key_value_pair.dart';
-import 'package:zimbra_api/src/common/type/key_value_pairs.dart';
-import 'package:zimbra_api/src/mail/type/part_info.dart';
-
+import '../../common/type/key_value_pair.dart';
+import '../../common/type/key_value_pairs.dart';
 import 'dl_subscription_notification.dart';
 import 'email_info.dart';
 import 'mail_custom_metadata.dart';
 import 'message_common.dart';
 import 'mp_invite_info.dart';
+import 'part_info.dart';
 import 'share_notification.dart';
 
 /// Invite-As-MP

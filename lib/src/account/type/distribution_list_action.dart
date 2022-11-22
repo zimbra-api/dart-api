@@ -2,8 +2,7 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
-import 'package:zimbra_api/src/common/enum/operation.dart';
-
+import '../../common/enum/operation.dart';
 import 'account_key_value_pairs.dart';
 import 'distribution_list_grantee_selector.dart';
 import 'distribution_list_right_spec.dart';

@@ -2,7 +2,7 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
-import 'package:zimbra_api/src/common/enum/alarm_related.dart';
+import '../../common/enum/alarm_related.dart';
 
 class DurationInfo {
   /// Set if the duration is negative.

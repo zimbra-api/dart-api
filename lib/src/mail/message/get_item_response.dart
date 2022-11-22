@@ -2,18 +2,18 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
-import 'package:zimbra_api/src/common/type/soap_response.dart';
-import 'package:zimbra_api/src/mail/type/calendar_item_info.dart';
-import 'package:zimbra_api/src/mail/type/chat_summary.dart';
-import 'package:zimbra_api/src/mail/type/common_document_info.dart';
-import 'package:zimbra_api/src/mail/type/contact_info.dart';
-import 'package:zimbra_api/src/mail/type/conversation_summary.dart';
-import 'package:zimbra_api/src/mail/type/document_info.dart';
-import 'package:zimbra_api/src/mail/type/folder.dart';
-import 'package:zimbra_api/src/mail/type/message_summary.dart';
-import 'package:zimbra_api/src/mail/type/note_info.dart';
-import 'package:zimbra_api/src/mail/type/tag_info.dart';
-import 'package:zimbra_api/src/mail/type/task_item_info.dart';
+import '../../common/type/soap_response.dart';
+import '../type/calendar_item_info.dart';
+import '../type/chat_summary.dart';
+import '../type/common_document_info.dart';
+import '../type/contact_info.dart';
+import '../type/conversation_summary.dart';
+import '../type/document_info.dart';
+import '../type/folder.dart';
+import '../type/message_summary.dart';
+import '../type/note_info.dart';
+import '../type/tag_info.dart';
+import '../type/task_item_info.dart';
 
 class GetItemResponse extends SoapResponse {
   /// Folder item

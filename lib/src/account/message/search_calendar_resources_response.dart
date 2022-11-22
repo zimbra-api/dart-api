@@ -2,8 +2,8 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
-import 'package:zimbra_api/src/account/type/calendar_resource_info.dart';
-import 'package:zimbra_api/src/common/type/soap_response.dart';
+import '../../common/type/soap_response.dart';
+import '../type/calendar_resource_info.dart';
 
 class SearchCalendarResourcesResponse extends SoapResponse {
   /// Name of attribute sorted on. If not present then sorted by the calendar resource name.

@@ -2,8 +2,8 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
-import 'package:zimbra_api/src/common/type/soap_response.dart';
-import 'package:zimbra_api/src/mail/type/mini_cal_error.dart';
+import '../../common/type/soap_response.dart';
+import '../type/mini_cal_error.dart';
 
 class GetMiniCalResponse extends SoapResponse {
   /// Matching busy dates in format : yyyymmdd

@@ -2,12 +2,11 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
-import 'package:zimbra_api/src/common/enum/channel.dart';
-import 'package:zimbra_api/src/common/enum/recovery_account_operation.dart';
-import 'package:zimbra_api/src/common/type/soap_header.dart';
-import 'package:zimbra_api/src/common/type/soap_envelope.dart';
-import 'package:zimbra_api/src/common/type/soap_request.dart';
-
+import '../../common/enum/channel.dart';
+import '../../common/enum/recovery_account_operation.dart';
+import '../../common/type/soap_header.dart';
+import '../../common/type/soap_envelope.dart';
+import '../../common/type/soap_request.dart';
 import 'set_recovery_account_body.dart';
 import 'set_recovery_account_envelope.dart';
 

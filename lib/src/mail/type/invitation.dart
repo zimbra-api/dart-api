@@ -2,8 +2,7 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
-import 'package:zimbra_api/src/common/enum/invite_type.dart';
-
+import '../../common/enum/invite_type.dart';
 import 'cal_tz_info.dart';
 import 'dl_subscription_notification.dart';
 import 'invite_component.dart';

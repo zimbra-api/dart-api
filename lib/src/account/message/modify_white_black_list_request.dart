@@ -2,11 +2,10 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
-import 'package:zimbra_api/src/common/type/op_value.dart';
-import 'package:zimbra_api/src/common/type/soap_envelope.dart';
-import 'package:zimbra_api/src/common/type/soap_header.dart';
-import 'package:zimbra_api/src/common/type/soap_request.dart';
-
+import '../../common/type/op_value.dart';
+import '../../common/type/soap_envelope.dart';
+import '../../common/type/soap_header.dart';
+import '../../common/type/soap_request.dart';
 import 'modify_white_black_list_body.dart';
 import 'modify_white_black_list_envelope.dart';
 

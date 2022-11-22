@@ -2,11 +2,10 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
-import 'package:zimbra_api/src/common/enum/reply_type.dart';
-import 'package:zimbra_api/src/common/type/key_value_pair.dart';
-import 'package:zimbra_api/src/common/type/key_value_pairs.dart';
-import 'package:zimbra_api/src/common/type/url_and_value.dart';
-
+import '../../common/enum/reply_type.dart';
+import '../../common/type/key_value_pair.dart';
+import '../../common/type/key_value_pairs.dart';
+import '../../common/type/url_and_value.dart';
 import 'dl_subscription_notification.dart';
 import 'email_info.dart';
 import 'invite_with_group_info.dart';

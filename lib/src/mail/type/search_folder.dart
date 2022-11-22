@@ -2,9 +2,8 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
-import 'package:zimbra_api/src/common/enum/search_sort_by.dart';
-import 'package:zimbra_api/src/common/enum/view_type.dart';
-
+import '../../common/enum/search_sort_by.dart';
+import '../../common/enum/view_type.dart';
 import 'acl.dart';
 import 'folder.dart';
 import 'mail_custom_metadata.dart';

@@ -2,18 +2,17 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
-import 'package:zimbra_api/src/common/type/soap_header.dart';
-import 'package:zimbra_api/src/common/type/soap_envelope.dart';
-import 'package:zimbra_api/src/common/type/soap_request.dart';
-import 'package:zimbra_api/src/mail/type/mail_cal_data_source.dart';
-import 'package:zimbra_api/src/mail/type/mail_caldav_data_source.dart';
-import 'package:zimbra_api/src/mail/type/mail_gal_data_source.dart';
-import 'package:zimbra_api/src/mail/type/mail_imap_data_source.dart';
-import 'package:zimbra_api/src/mail/type/mail_pop3_data_source.dart';
-import 'package:zimbra_api/src/mail/type/mail_rss_data_source.dart';
-import 'package:zimbra_api/src/mail/type/mail_unknown_data_source.dart';
-import 'package:zimbra_api/src/mail/type/mail_yab_data_source.dart';
-
+import '../../common/type/soap_header.dart';
+import '../../common/type/soap_envelope.dart';
+import '../../common/type/soap_request.dart';
+import '../type/mail_cal_data_source.dart';
+import '../type/mail_caldav_data_source.dart';
+import '../type/mail_gal_data_source.dart';
+import '../type/mail_imap_data_source.dart';
+import '../type/mail_pop3_data_source.dart';
+import '../type/mail_rss_data_source.dart';
+import '../type/mail_unknown_data_source.dart';
+import '../type/mail_yab_data_source.dart';
 import 'modify_data_source_body.dart';
 import 'modify_data_source_envelope.dart';
 

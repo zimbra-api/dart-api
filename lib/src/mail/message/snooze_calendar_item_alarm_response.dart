@@ -2,8 +2,7 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
-import 'package:zimbra_api/src/mail/type/updated_alarm_info.dart';
-
+import '../type/updated_alarm_info.dart';
 import 'dismiss_calendar_item_alarm_response.dart';
 
 class SnoozeCalendarItemAlarmResponse extends DismissCalendarItemAlarmResponse {

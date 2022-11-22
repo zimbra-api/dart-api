@@ -2,15 +2,14 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
-import 'package:zimbra_api/src/account/type/attr.dart';
-import 'package:zimbra_api/src/account/type/auth_token.dart';
-import 'package:zimbra_api/src/account/type/pre_auth.dart';
-import 'package:zimbra_api/src/account/type/pref.dart';
-import 'package:zimbra_api/src/common/type/account_selector.dart';
-import 'package:zimbra_api/src/common/type/soap_envelope.dart';
-import 'package:zimbra_api/src/common/type/soap_header.dart';
-import 'package:zimbra_api/src/common/type/soap_request.dart';
-
+import '../../common/type/account_selector.dart';
+import '../../common/type/soap_envelope.dart';
+import '../../common/type/soap_header.dart';
+import '../../common/type/soap_request.dart';
+import '../type/attr.dart';
+import '../type/auth_token.dart';
+import '../type/pre_auth.dart';
+import '../type/pref.dart';
 import 'auth_body.dart';
 import 'auth_envelope.dart';
 

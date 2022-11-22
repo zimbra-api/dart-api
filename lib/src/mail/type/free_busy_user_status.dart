@@ -2,7 +2,7 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
-import 'package:zimbra_api/src/common/enum/free_busy_status.dart';
+import '../../common/enum/free_busy_status.dart';
 
 /// Free/Busy user status
 class FreeBusyUserStatus {

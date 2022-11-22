@@ -2,8 +2,8 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
-import 'package:zimbra_api/src/account/type/signature.dart';
-import 'package:zimbra_api/src/common/type/soap_response.dart';
+import '../../common/type/soap_response.dart';
+import '../type/signature.dart';
 
 class CreateSignatureResponse extends SoapResponse {
   /// Information about created signature

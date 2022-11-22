@@ -2,11 +2,10 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
-import 'package:zimbra_api/src/common/enum/free_busy_status.dart';
-import 'package:zimbra_api/src/common/enum/invite_class.dart';
-import 'package:zimbra_api/src/common/enum/invite_status.dart';
-import 'package:zimbra_api/src/common/enum/transparency.dart';
-
+import '../../common/enum/free_busy_status.dart';
+import '../../common/enum/invite_class.dart';
+import '../../common/enum/invite_status.dart';
+import '../../common/enum/transparency.dart';
 import 'alarm_info.dart';
 import 'attachments_info.dart';
 import 'cal_organizer.dart';

@@ -2,7 +2,7 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
-import 'dart:convert' as convert;
+import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'client_exception.dart';
 
@@ -53,5 +53,5 @@ extension ResponseExtension on http.Response {
       (headers['content-type'] ?? '').contains('text/javascript') ||
       (headers['content-type'] ?? '').contains('application/json');
 
-  Map<String, dynamic> get mapData => isJson ? convert.jsonDecode(body) : {};
+  Map<String, dynamic> get mapData => isJson ? jsonDecode(body) : {};
 }

@@ -2,8 +2,7 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
-import 'package:zimbra_api/src/mail/type/account_ace_info.dart';
-
+import '../type/account_ace_info.dart';
 import 'get_permission_response.dart';
 
 class RevokePermissionResponse extends GetPermissionResponse {

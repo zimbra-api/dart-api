@@ -2,8 +2,7 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
-import 'package:zimbra_api/src/common/enum/logging_level.dart';
-
+import '../../common/enum/logging_level.dart';
 import 'filter_action.dart';
 
 class LogAction extends FilterAction {

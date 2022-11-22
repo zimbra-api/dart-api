@@ -2,8 +2,7 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
-import 'package:zimbra_api/src/common/enum/where_setting.dart';
-
+import '../../common/enum/where_setting.dart';
 import 'filter_test.dart';
 
 class ConversationTest extends FilterTest {

@@ -2,9 +2,9 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
-import 'package:zimbra_api/src/common/enum/comparison_comparator.dart';
-import 'package:zimbra_api/src/common/enum/match_type.dart';
-import 'package:zimbra_api/src/common/enum/relational_comparator.dart';
+import '../../common/enum/comparison_comparator.dart';
+import '../../common/enum/match_type.dart';
+import '../../common/enum/relational_comparator.dart';
 
 class EditheaderTest {
   /// matchType - is|contains|matches|count|value

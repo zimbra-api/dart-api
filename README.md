@@ -16,19 +16,49 @@ dependencies:
 ```
 
 ## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
+### Authentication
+Authentication by account name. 
 
 ```dart
-const like = 'sample';
+final api = MailApi('mail.domain.com');
+final response = await api.authByAccountName('name@domain.com', 'password');
+if (response != null) {
+  final authToken = response.authToken;
+}
 ```
 
-## Additional information
+Authentication by `auth token` which `auth token` can obtain from previous authentication.
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+```dart
+final api = MailApi('mail.domain.com');
+final response = await api.authByToken('auth token');
+```
+
+Authentication by preauth which `preauth key` can obtain from `zmprov generateDomainPreAuthKey` command
+
+```dart
+final api = MailApi('mail.domain.com');
+final response = await api.authByPreauth('name@domain.com', 'preauth key');
+if (response != null) {
+  final authToken = response.authToken;
+}
+```
+
+### Basic Usage
+1. Create `api` instance from one of Account & Mail API.
+2. Authentication with `api.auth()` method.
+3. From `api` object, you can access to Account & Mail API.
+
+Example: Search messages has attachment in Inbox
+```dart
+final api = MailApi('mail.domain.com');
+final response = await api.authByAccountName('name@domain.com', 'password');
+if (response != null) {
+  final query = 'in:inbox has:attachment';
+  final searchResponse = await api.search(query: query, searchTypes: 'message');
+  final messages = searchResponse.messageHits;
+}
+```
 
 ## Licensing
 [BSD 3-Clause](LICENSE)

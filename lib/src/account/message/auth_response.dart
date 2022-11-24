@@ -49,21 +49,22 @@ class AuthResponse extends SoapResponse {
 
   final bool? trustedDevicesEnabled;
 
-  AuthResponse(
-      {this.authToken,
-      this.lifetime,
-      this.trustLifetime,
-      this.session,
-      this.refer,
-      this.skin,
-      this.csrfToken,
-      this.deviceId,
-      this.trustedToken,
-      this.zmgProxy,
-      this.prefs = const [],
-      this.attrs = const [],
-      this.twoFactorAuthRequired,
-      this.trustedDevicesEnabled});
+  AuthResponse({
+    this.authToken,
+    this.lifetime,
+    this.trustLifetime,
+    this.session,
+    this.refer,
+    this.skin,
+    this.csrfToken,
+    this.deviceId,
+    this.trustedToken,
+    this.zmgProxy,
+    this.prefs = const [],
+    this.attrs = const [],
+    this.twoFactorAuthRequired,
+    this.trustedDevicesEnabled,
+  });
 
   factory AuthResponse.fromMap(Map<String, dynamic> data) => AuthResponse(
         authToken: data['authToken']?[0]['_content'],

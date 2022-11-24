@@ -76,22 +76,23 @@ class SearchGalRequest extends SoapRequest {
   /// Client locale identification.
   final String? locale;
 
-  SearchGalRequest(
-      {this.cursor,
-      this.searchFilter,
-      this.ref,
-      this.name,
-      this.type,
-      this.needCanExpand,
-      this.needIsOwner,
-      this.needIsMember,
-      this.needSMIMECerts,
-      this.galAccountId,
-      this.quick,
-      this.sortBy,
-      this.limit,
-      this.offset,
-      this.locale});
+  SearchGalRequest({
+    this.cursor,
+    this.searchFilter,
+    this.ref,
+    this.name,
+    this.type,
+    this.needCanExpand,
+    this.needIsOwner,
+    this.needIsMember,
+    this.needSMIMECerts,
+    this.galAccountId,
+    this.quick,
+    this.sortBy,
+    this.limit,
+    this.offset,
+    this.locale,
+  });
 
   @override
   SoapEnvelope getEnvelope({SoapHeader? header}) => SearchGalEnvelope(SearchGalBody(request: this), header: header);

@@ -23,8 +23,13 @@ class WaitSetResponse extends SoapResponse {
   /// Error information
   final List<IdAndType> errors;
 
-  WaitSetResponse(
-      {this.waitSetId = '', this.canceled, this.seqNo, this.signalledAccounts = const [], this.errors = const []});
+  WaitSetResponse({
+    this.waitSetId = '',
+    this.canceled,
+    this.seqNo,
+    this.signalledAccounts = const [],
+    this.errors = const [],
+  });
 
   factory WaitSetResponse.fromMap(Map<String, dynamic> data) => WaitSetResponse(
       waitSetId: data['waitSet'] ?? '',

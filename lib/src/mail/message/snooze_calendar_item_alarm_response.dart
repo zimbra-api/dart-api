@@ -6,7 +6,10 @@ import '../type/updated_alarm_info.dart';
 import 'dismiss_calendar_item_alarm_response.dart';
 
 class SnoozeCalendarItemAlarmResponse extends DismissCalendarItemAlarmResponse {
-  SnoozeCalendarItemAlarmResponse({super.apptUpdatedAlarms = const [], super.taskUpdatedAlarms = const []});
+  SnoozeCalendarItemAlarmResponse({
+    super.apptUpdatedAlarms = const [],
+    super.taskUpdatedAlarms = const [],
+  });
 
   factory SnoozeCalendarItemAlarmResponse.fromMap(Map<String, dynamic> data) => SnoozeCalendarItemAlarmResponse(
       apptUpdatedAlarms: (data['appt'] is Iterable)

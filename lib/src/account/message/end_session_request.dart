@@ -25,7 +25,12 @@ class EndSessionRequest extends SoapRequest {
   /// end session for given session id
   final String? sessionId;
 
-  EndSessionRequest({this.logoff, this.clearAllSoapSessions, this.excludeCurrentSession, this.sessionId});
+  EndSessionRequest({
+    this.logoff,
+    this.clearAllSoapSessions,
+    this.excludeCurrentSession,
+    this.sessionId,
+  });
 
   @override
   SoapEnvelope getEnvelope({SoapHeader? header}) => EndSessionEnvelope(EndSessionBody(request: this), header: header);

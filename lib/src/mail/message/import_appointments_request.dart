@@ -21,7 +21,11 @@ class ImportAppointmentsRequest extends SoapRequest {
   /// Optional folder ID to import appointments into
   final String? folderId;
 
-  ImportAppointmentsRequest(this.content, {this.contentType = 'text/calendar', this.folderId});
+  ImportAppointmentsRequest(
+    this.content, {
+    this.contentType = 'text/calendar',
+    this.folderId,
+  });
 
   @override
   SoapEnvelope getEnvelope({SoapHeader? header}) =>

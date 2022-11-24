@@ -25,7 +25,13 @@ class ChangePasswordRequest extends SoapRequest {
 
   final bool? dryRun;
 
-  ChangePasswordRequest(this.account, this.oldPassword, this.password, {this.virtualHost, this.dryRun});
+  ChangePasswordRequest(
+    this.account,
+    this.oldPassword,
+    this.password, {
+    this.virtualHost,
+    this.dryRun,
+  });
 
   @override
   SoapEnvelope getEnvelope({SoapHeader? header}) =>

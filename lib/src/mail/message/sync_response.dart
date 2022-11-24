@@ -66,23 +66,24 @@ class SyncResponse extends SoapResponse {
   /// Chat items
   final List<ChatSummary> chatItems;
 
-  SyncResponse(
-      {this.changeDate,
-      this.token,
-      this.size,
-      this.more,
-      this.deleted,
-      this.folderItems = const [],
-      this.tagItems = const [],
-      this.noteItems = const [],
-      this.contactItems = const [],
-      this.apptItems = const [],
-      this.taskItems = const [],
-      this.convItems = const [],
-      this.wikiItems = const [],
-      this.docItems = const [],
-      this.msgItems = const [],
-      this.chatItems = const []});
+  SyncResponse({
+    this.changeDate,
+    this.token,
+    this.size,
+    this.more,
+    this.deleted,
+    this.folderItems = const [],
+    this.tagItems = const [],
+    this.noteItems = const [],
+    this.contactItems = const [],
+    this.apptItems = const [],
+    this.taskItems = const [],
+    this.convItems = const [],
+    this.wikiItems = const [],
+    this.docItems = const [],
+    this.msgItems = const [],
+    this.chatItems = const [],
+  });
 
   factory SyncResponse.fromMap(Map<String, dynamic> data) => SyncResponse(
       changeDate: int.tryParse(data['md']?.toString() ?? ''),

@@ -48,17 +48,18 @@ class SearchCalendarResourcesRequest extends SoapRequest {
   /// attribute - comma-separated list of attrs to return ("displayName", "zimbraId", "zimbraCalResType")
   final String? attrs;
 
-  SearchCalendarResourcesRequest(
-      {this.cursor,
-      this.searchFilter,
-      this.quick,
-      this.sortBy,
-      this.limit,
-      this.offset,
-      this.locale,
-      this.galAccountId,
-      this.name,
-      this.attrs});
+  SearchCalendarResourcesRequest({
+    this.cursor,
+    this.searchFilter,
+    this.quick,
+    this.sortBy,
+    this.limit,
+    this.offset,
+    this.locale,
+    this.galAccountId,
+    this.name,
+    this.attrs,
+  });
 
   @override
   SoapEnvelope getEnvelope({SoapHeader? header}) =>

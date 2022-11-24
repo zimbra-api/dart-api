@@ -10,17 +10,18 @@ import 'modify_task_envelope.dart';
 
 /// Modify task
 class ModifyTaskRequest extends ModifyAppointmentRequest {
-  ModifyTaskRequest(
-      {super.id,
-      super.componentNum,
-      super.modifiedSequence,
-      super.revision,
-      super.echo,
-      super.maxSize,
-      super.wantHtml,
-      super.neuter,
-      super.forceSend,
-      super.msg});
+  ModifyTaskRequest({
+    super.id,
+    super.componentNum,
+    super.modifiedSequence,
+    super.revision,
+    super.echo,
+    super.maxSize,
+    super.wantHtml,
+    super.neuter,
+    super.forceSend,
+    super.msg,
+  });
 
   @override
   SoapEnvelope getEnvelope({SoapHeader? header}) => ModifyTaskEnvelope(ModifyTaskBody(request: this), header: header);

@@ -39,15 +39,16 @@ class ImportDataRequest extends SoapRequest {
   /// Unknown data sources
   final List<DataSourceNameOrId> unknownDataSources;
 
-  ImportDataRequest(
-      {this.imapDataSources = const [],
-      this.pop3DataSources = const [],
-      this.caldavDataSources = const [],
-      this.yabDataSources = const [],
-      this.rssDataSources = const [],
-      this.galDataSources = const [],
-      this.calDataSources = const [],
-      this.unknownDataSources = const []});
+  ImportDataRequest({
+    this.imapDataSources = const [],
+    this.pop3DataSources = const [],
+    this.caldavDataSources = const [],
+    this.yabDataSources = const [],
+    this.rssDataSources = const [],
+    this.galDataSources = const [],
+    this.calDataSources = const [],
+    this.unknownDataSources = const [],
+  });
 
   @override
   SoapEnvelope getEnvelope({SoapHeader? header}) => ImportDataEnvelope(ImportDataBody(request: this), header: header);

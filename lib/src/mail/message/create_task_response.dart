@@ -8,14 +8,15 @@ import '../type/create_calendar_item_response.dart';
 
 /// Contains response information for create task
 class CreateTaskResponse extends CreateCalendarItemResponse {
-  CreateTaskResponse(
-      {super.calItemId,
-      super.deprecatedApptId,
-      super.calInvId,
-      super.modifiedSequence,
-      super.revision,
-      super.msg,
-      super.echo});
+  CreateTaskResponse({
+    super.calItemId,
+    super.deprecatedApptId,
+    super.calInvId,
+    super.modifiedSequence,
+    super.revision,
+    super.msg,
+    super.echo,
+  });
 
   factory CreateTaskResponse.fromMap(Map<String, dynamic> data) => CreateTaskResponse(
       calItemId: data['calItemId'],

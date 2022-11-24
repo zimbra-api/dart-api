@@ -30,15 +30,16 @@ class GetImportStatusResponse extends SoapResponse {
   /// Unknown statuses
   final List<ImportStatusInfo> unknownStatuses;
 
-  GetImportStatusResponse(
-      {this.imapStatuses = const [],
-      this.pop3Statuses = const [],
-      this.caldavStatuses = const [],
-      this.yabStatuses = const [],
-      this.rssStatuses = const [],
-      this.galStatuses = const [],
-      this.calStatuses = const [],
-      this.unknownStatuses = const []});
+  GetImportStatusResponse({
+    this.imapStatuses = const [],
+    this.pop3Statuses = const [],
+    this.caldavStatuses = const [],
+    this.yabStatuses = const [],
+    this.rssStatuses = const [],
+    this.galStatuses = const [],
+    this.calStatuses = const [],
+    this.unknownStatuses = const [],
+  });
 
   factory GetImportStatusResponse.fromMap(Map<String, dynamic> data) => GetImportStatusResponse(
       imapStatuses: (data['imap'] is Iterable)

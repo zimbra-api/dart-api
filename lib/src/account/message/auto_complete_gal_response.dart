@@ -22,7 +22,12 @@ class AutoCompleteGalResponse extends SoapResponse {
   // Contacts matching the autocomplete request
   final List<ContactInfo> contacts;
 
-  AutoCompleteGalResponse({this.more, this.tokenizeKey, this.pagingSupported, this.contacts = const []});
+  AutoCompleteGalResponse({
+    this.more,
+    this.tokenizeKey,
+    this.pagingSupported,
+    this.contacts = const [],
+  });
 
   factory AutoCompleteGalResponse.fromMap(Map<String, dynamic> data) => AutoCompleteGalResponse(
         more: data['more'],

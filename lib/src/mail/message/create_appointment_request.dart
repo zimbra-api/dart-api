@@ -11,7 +11,14 @@ import 'create_appointment_envelope.dart';
 /// This is the API to create a new Appointment, optionally  sending out meeting
 /// Invitations to other people.
 class CreateAppointmentRequest extends CalItemRequestBase {
-  CreateAppointmentRequest({super.echo, super.maxSize, super.wantHtml, super.neuter, super.forceSend, super.msg});
+  CreateAppointmentRequest({
+    super.echo,
+    super.maxSize,
+    super.wantHtml,
+    super.neuter,
+    super.forceSend,
+    super.msg,
+  });
 
   @override
   SoapEnvelope getEnvelope({SoapHeader? header}) =>

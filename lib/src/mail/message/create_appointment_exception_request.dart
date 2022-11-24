@@ -22,17 +22,18 @@ class CreateAppointmentExceptionRequest extends CalItemRequestBase {
   /// Revision of fetched series
   final int? revision;
 
-  CreateAppointmentExceptionRequest( 
-      {this.id,
-      this.numComponents,
-      this.modifiedSequence,
-      this.revision,
-      super.echo,
-      super.maxSize,
-      super.wantHtml,
-      super.neuter,
-      super.forceSend,
-      super.msg});
+  CreateAppointmentExceptionRequest({
+    this.id,
+    this.numComponents,
+    this.modifiedSequence,
+    this.revision,
+    super.echo,
+    super.maxSize,
+    super.wantHtml,
+    super.neuter,
+    super.forceSend,
+    super.msg,
+  });
 
   @override
   SoapEnvelope getEnvelope({SoapHeader? header}) =>

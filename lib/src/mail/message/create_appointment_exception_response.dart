@@ -2,20 +2,20 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
-
 import '../../common/type/id.dart';
 import '../type/cal_echo.dart';
 import '../type/create_calendar_item_response.dart';
 
 class CreateAppointmentExceptionResponse extends CreateCalendarItemResponse {
-  CreateAppointmentExceptionResponse(
-      {super.calItemId,
-      super.deprecatedApptId,
-      super.calInvId,
-      super.modifiedSequence,
-      super.revision,
-      super.msg,
-      super.echo});
+  CreateAppointmentExceptionResponse({
+    super.calItemId,
+    super.deprecatedApptId,
+    super.calInvId,
+    super.modifiedSequence,
+    super.revision,
+    super.msg,
+    super.echo,
+  });
 
   factory CreateAppointmentExceptionResponse.fromMap(Map<String, dynamic> data) => CreateAppointmentExceptionResponse(
       calItemId: data['calItemId'],

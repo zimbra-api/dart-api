@@ -37,15 +37,16 @@ class GetDataSourcesResponse extends SoapResponse {
   /// Unknown data sources
   final List<MailUnknownDataSource> unknownDataSources;
 
-  GetDataSourcesResponse(
-      {this.imapDataSources = const [],
-      this.pop3DataSources = const [],
-      this.caldavDataSources = const [],
-      this.yabDataSources = const [],
-      this.rssDataSources = const [],
-      this.galDataSources = const [],
-      this.calDataSources = const [],
-      this.unknownDataSources = const []});
+  GetDataSourcesResponse({
+    this.imapDataSources = const [],
+    this.pop3DataSources = const [],
+    this.caldavDataSources = const [],
+    this.yabDataSources = const [],
+    this.rssDataSources = const [],
+    this.galDataSources = const [],
+    this.calDataSources = const [],
+    this.unknownDataSources = const [],
+  });
 
   factory GetDataSourcesResponse.fromMap(Map<String, dynamic> data) => GetDataSourcesResponse(
       imapDataSources: (data['imap'] is Iterable)

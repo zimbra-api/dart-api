@@ -26,7 +26,13 @@ class AutoCompleteRequest extends SoapRequest {
   /// Flag whether to include Global Address Book (GAL)
   final bool? includeGal;
 
-  AutoCompleteRequest(this.name, {this.type, this.needCanExpand, this.folderList, this.includeGal});
+  AutoCompleteRequest(
+    this.name, {
+    this.type,
+    this.needCanExpand,
+    this.folderList,
+    this.includeGal,
+  });
 
   @override
   SoapEnvelope getEnvelope({SoapHeader? header}) =>

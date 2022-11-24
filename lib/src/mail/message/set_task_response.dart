@@ -7,7 +7,12 @@ import '../type/except_id_info.dart';
 import 'set_appointment_response.dart';
 
 class SetTaskResponse extends SetAppointmentResponse {
-  SetTaskResponse({super.calItemId, super.deprecatedApptId, super.defaultId, super.exceptions = const []});
+  SetTaskResponse({
+    super.calItemId,
+    super.deprecatedApptId,
+    super.defaultId,
+    super.exceptions = const [],
+  });
 
   factory SetTaskResponse.fromMap(Map<String, dynamic> data) => SetTaskResponse(
       calItemId: data['calItemId'],

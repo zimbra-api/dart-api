@@ -44,8 +44,16 @@ class SendInviteReplyRequest extends SoapRequest {
   /// if the client wants to tell the organizer about this response)
   final Msg? msg;
 
-  SendInviteReplyRequest(this.id, this.componentNum,
-      {this.verb, this.updateOrganizer, this.identityId, this.exceptionId, this.timezone, this.msg});
+  SendInviteReplyRequest(
+    this.id,
+    this.componentNum, {
+    this.verb,
+    this.updateOrganizer,
+    this.identityId,
+    this.exceptionId,
+    this.timezone,
+    this.msg,
+  });
 
   @override
   SoapEnvelope getEnvelope({SoapHeader? header}) =>

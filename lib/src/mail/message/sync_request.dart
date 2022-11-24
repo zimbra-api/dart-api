@@ -41,14 +41,16 @@ class SyncRequest extends SoapRequest {
   /// maximum number of modified item ids returned in a response.
   final int? changeLimit;
 
-  SyncRequest(
-      {this.token,
-      this.calendarCutoff,
-      this.msgCutoff,
-      this.folderId,
-      this.typedDeletes,
-      this.deleteLimit,
-      this.changeLimit});
+  SyncRequest({
+    this.token,
+    this.calendarCutoff,
+    this.msgCutoff,
+    this.folderId,
+    this.typedDeletes,
+    this.deleteLimit,
+    this.changeLimit,
+  });
+
   @override
   SoapEnvelope getEnvelope({SoapHeader? header}) => SyncEnvelope(SyncBody(request: this), header: header);
 

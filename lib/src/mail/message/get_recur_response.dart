@@ -19,7 +19,12 @@ class GetRecurResponse extends SoapResponse {
   /// Except recurrence component
   final CalendarItemRecur? exceptComponent;
 
-  GetRecurResponse({this.timezone, this.inviteComponent, this.cancelComponent, this.exceptComponent});
+  GetRecurResponse({
+    this.timezone,
+    this.inviteComponent,
+    this.cancelComponent,
+    this.exceptComponent,
+  });
 
   factory GetRecurResponse.fromMap(Map<String, dynamic> data) => GetRecurResponse(
       timezone: data['tz'] is Map ? CalTZInfo.fromMap(data['tz']) : null,

@@ -53,17 +53,18 @@ class SetAppointmentRequest extends SoapRequest {
   /// If <replies> contains one or more <reply> elements, existing replies are replaced with the ones provided.
   final List<CalReply> replies;
 
-  SetAppointmentRequest(
-      {this.flags,
-      this.tags,
-      this.tagNames,
-      this.folderId,
-      this.noNextAlarm,
-      this.nextAlarm,
-      this.defaultId,
-      this.exceptions = const [],
-      this.cancellations = const [],
-      this.replies = const []});
+  SetAppointmentRequest({
+    this.flags,
+    this.tags,
+    this.tagNames,
+    this.folderId,
+    this.noNextAlarm,
+    this.nextAlarm,
+    this.defaultId,
+    this.exceptions = const [],
+    this.cancellations = const [],
+    this.replies = const [],
+  });
 
   @override
   SoapEnvelope getEnvelope({SoapHeader? header}) =>
@@ -83,7 +84,9 @@ class SetAppointmentRequest extends SoapRequest {
         if (cancellations.isNotEmpty) 'cancel': cancellations.map((cancel) => cancel.toMap()).toList(growable: false),
         if (replies.isNotEmpty)
           'replies': [
-            {'reply': replies.map((reply) => reply.toMap()).toList(growable: false)}
+            {
+              'reply': replies.map((reply) => reply.toMap()).toList(growable: false),
+            }
           ],
       };
 }

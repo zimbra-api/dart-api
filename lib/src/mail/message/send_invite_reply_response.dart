@@ -8,14 +8,15 @@ import '../type/create_calendar_item_response.dart';
 
 /// Contains response information for reply to invite
 class SendInviteReplyResponse extends CreateCalendarItemResponse {
-  SendInviteReplyResponse(
-      {super.calItemId,
-      super.deprecatedApptId,
-      super.calInvId,
-      super.modifiedSequence,
-      super.revision,
-      super.msg,
-      super.echo});
+  SendInviteReplyResponse({
+    super.calItemId,
+    super.deprecatedApptId,
+    super.calInvId,
+    super.modifiedSequence,
+    super.revision,
+    super.msg,
+    super.echo,
+  });
 
   factory SendInviteReplyResponse.fromMap(Map<String, dynamic> data) => SendInviteReplyResponse(
       calItemId: data['calItemId'],

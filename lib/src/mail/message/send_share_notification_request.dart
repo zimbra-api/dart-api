@@ -27,7 +27,12 @@ class SendShareNotificationRequest extends SoapRequest {
   /// Notes
   final String? notes;
 
-  SendShareNotificationRequest(this.item, {this.emailAddresses = const [], this.action, this.notes});
+  SendShareNotificationRequest(
+    this.item, {
+    this.emailAddresses = const [],
+    this.action,
+    this.notes,
+  });
 
   @override
   SoapEnvelope getEnvelope({SoapHeader? header}) =>

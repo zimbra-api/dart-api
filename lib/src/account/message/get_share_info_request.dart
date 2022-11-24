@@ -27,7 +27,12 @@ class GetShareInfoRequest extends SoapRequest {
   /// - true: (default) include shares owned by the requested account
   final bool? includeSelf;
 
-  GetShareInfoRequest({this.grantee, this.owner, this.internal, this.includeSelf});
+  GetShareInfoRequest({
+    this.grantee,
+    this.owner,
+    this.internal,
+    this.includeSelf,
+  });
 
   @override
   SoapEnvelope getEnvelope({SoapHeader? header}) =>

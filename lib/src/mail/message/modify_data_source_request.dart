@@ -45,15 +45,16 @@ class ModifyDataSourceRequest extends SoapRequest {
   /// Unknown data source
   final MailUnknownDataSource? unknownDataSource;
 
-  ModifyDataSourceRequest(
-      {this.imapDataSource,
-      this.pop3DataSource,
-      this.caldavDataSource,
-      this.yabDataSource,
-      this.rssDataSource,
-      this.galDataSource,
-      this.calDataSource,
-      this.unknownDataSource});
+  ModifyDataSourceRequest({
+    this.imapDataSource,
+    this.pop3DataSource,
+    this.caldavDataSource,
+    this.yabDataSource,
+    this.rssDataSource,
+    this.galDataSource,
+    this.calDataSource,
+    this.unknownDataSource,
+  });
 
   @override
   SoapEnvelope getEnvelope({SoapHeader? header}) =>

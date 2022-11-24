@@ -27,7 +27,13 @@ class ExportContactsRequest extends SoapRequest {
   /// Optional delimiter character to use in the resulting csv file - usually "," or ";"
   final String? csvDelimiter;
 
-  ExportContactsRequest(this.contentType, {this.folderId, this.csvFormat, this.csvLocale, this.csvDelimiter});
+  ExportContactsRequest(
+    this.contentType, {
+    this.folderId,
+    this.csvFormat,
+    this.csvLocale,
+    this.csvDelimiter,
+  });
 
   @override
   SoapEnvelope getEnvelope({SoapHeader? header}) =>

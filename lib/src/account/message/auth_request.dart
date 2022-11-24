@@ -84,26 +84,27 @@ class AuthRequest extends SoapRequest {
   /// if true SameSite=Strict cookie will not be added in AuthToken
   final bool? ignoreSameSite;
 
-  AuthRequest(
-      {this.persistAuthTokenCookie,
-      this.csrfSupported,
-      this.account,
-      this.password,
-      this.recoveryCode,
-      this.preauth,
-      this.authToken,
-      this.jwtToken,
-      this.virtualHost,
-      this.requestedSkin,
-      this.twoFactorCode,
-      this.deviceTrusted,
-      this.trustedDeviceToken,
-      this.deviceId,
-      this.generateDeviceId,
-      this.tokenType,
-      this.ignoreSameSite,
-      this.prefs = const [],
-      this.attrs = const []});
+  AuthRequest({
+    this.persistAuthTokenCookie,
+    this.csrfSupported,
+    this.account,
+    this.password,
+    this.recoveryCode,
+    this.preauth,
+    this.authToken,
+    this.jwtToken,
+    this.virtualHost,
+    this.requestedSkin,
+    this.twoFactorCode,
+    this.deviceTrusted,
+    this.trustedDeviceToken,
+    this.deviceId,
+    this.generateDeviceId,
+    this.tokenType,
+    this.ignoreSameSite,
+    this.prefs = const [],
+    this.attrs = const [],
+  });
 
   @override
   SoapEnvelope getEnvelope({SoapHeader? header}) => AuthEnvelope(AuthBody(request: this), header: header);

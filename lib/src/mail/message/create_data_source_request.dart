@@ -43,15 +43,16 @@ class CreateDataSourceRequest extends SoapRequest {
   /// Unknown data source
   final MailUnknownDataSource? unknownDataSource;
 
-  CreateDataSourceRequest(
-      {this.imapDataSource,
-      this.pop3DataSource,
-      this.caldavDataSource,
-      this.yabDataSource,
-      this.rssDataSource,
-      this.galDataSource,
-      this.calDataSource,
-      this.unknownDataSource});
+  CreateDataSourceRequest({
+    this.imapDataSource,
+    this.pop3DataSource,
+    this.caldavDataSource,
+    this.yabDataSource,
+    this.rssDataSource,
+    this.galDataSource,
+    this.calDataSource,
+    this.unknownDataSource,
+  });
 
   @override
   SoapEnvelope getEnvelope({SoapHeader? header}) =>

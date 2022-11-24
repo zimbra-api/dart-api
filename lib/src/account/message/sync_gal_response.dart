@@ -32,15 +32,16 @@ class SyncGalResponse extends SoapResponse {
   /// Details of deleted entries
   final List<Id> deleted;
 
-  SyncGalResponse(
-      {this.more,
-      this.token,
-      this.galDefinitionLastModified,
-      this.throttled,
-      this.fullSyncRecommended,
-      this.remain,
-      this.contacts = const [],
-      this.deleted = const []});
+  SyncGalResponse({
+    this.more,
+    this.token,
+    this.galDefinitionLastModified,
+    this.throttled,
+    this.fullSyncRecommended,
+    this.remain,
+    this.contacts = const [],
+    this.deleted = const [],
+  });
 
   factory SyncGalResponse.fromMap(Map<String, dynamic> data) => SyncGalResponse(
         more: data['more'],

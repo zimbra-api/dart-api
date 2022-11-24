@@ -17,7 +17,11 @@ class GetFolderResponse extends SoapResponse {
   /// Information about search folder
   final SearchFolder? searchFolder;
 
-  GetFolderResponse({this.folder, this.mountpoint, this.searchFolder});
+  GetFolderResponse({
+    this.folder,
+    this.mountpoint,
+    this.searchFolder,
+  });
 
   factory GetFolderResponse.fromMap(Map<String, dynamic> data) => GetFolderResponse(
       folder: data['folder']?[0] is Map ? Folder.fromMap(data['folder'][0]) : null,

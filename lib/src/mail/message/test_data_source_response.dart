@@ -30,15 +30,16 @@ class TestDataSourceResponse extends SoapResponse {
   /// Unknown data sources
   final List<TestDataSource> unknownDataSources;
 
-  TestDataSourceResponse(
-      {this.imapDataSources = const [],
-      this.pop3DataSources = const [],
-      this.caldavDataSources = const [],
-      this.yabDataSources = const [],
-      this.rssDataSources = const [],
-      this.galDataSources = const [],
-      this.calDataSources = const [],
-      this.unknownDataSources = const []});
+  TestDataSourceResponse({
+    this.imapDataSources = const [],
+    this.pop3DataSources = const [],
+    this.caldavDataSources = const [],
+    this.yabDataSources = const [],
+    this.rssDataSources = const [],
+    this.galDataSources = const [],
+    this.calDataSources = const [],
+    this.unknownDataSources = const [],
+  });
 
   factory TestDataSourceResponse.fromMap(Map<String, dynamic> data) => TestDataSourceResponse(
       imapDataSources: (data['imap'] is Iterable)

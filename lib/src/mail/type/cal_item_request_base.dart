@@ -26,7 +26,14 @@ abstract class CalItemRequestBase extends SoapRequest {
   /// Message information
   final Msg? msg;
 
-  CalItemRequestBase({this.echo, this.maxSize, this.wantHtml, this.neuter, this.forceSend, this.msg});
+  CalItemRequestBase({
+    this.echo,
+    this.maxSize,
+    this.wantHtml,
+    this.neuter,
+    this.forceSend,
+    this.msg,
+  });
 
   @override
   Map<String, dynamic> toMap() => {

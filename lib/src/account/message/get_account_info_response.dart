@@ -35,14 +35,16 @@ class GetAccountInfoResponse extends SoapResponse {
   /// Should be returned only when zimbraFeatureChatEnabled is set to TRUE for Account/COS
   final String? boshURL;
 
-  GetAccountInfoResponse(this.name,
-      {this.attrs = const [],
-      this.soapURL,
-      this.publicURL,
-      this.changePasswordURL,
-      this.communityURL,
-      this.adminURL,
-      this.boshURL});
+  GetAccountInfoResponse(
+    this.name, {
+    this.attrs = const [],
+    this.soapURL,
+    this.publicURL,
+    this.changePasswordURL,
+    this.communityURL,
+    this.adminURL,
+    this.boshURL,
+  });
 
   factory GetAccountInfoResponse.fromMap(Map<String, dynamic> data) => GetAccountInfoResponse(
         data['name'],

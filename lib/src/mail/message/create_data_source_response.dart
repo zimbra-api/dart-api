@@ -30,15 +30,16 @@ class CreateDataSourceResponse extends SoapResponse {
   /// Unknown data source
   final DataSourceId? unknownDataSource;
 
-  CreateDataSourceResponse(
-      {this.imapDataSource,
-      this.pop3DataSource,
-      this.caldavDataSource,
-      this.yabDataSource,
-      this.rssDataSource,
-      this.galDataSource,
-      this.calDataSource,
-      this.unknownDataSource});
+  CreateDataSourceResponse({
+    this.imapDataSource,
+    this.pop3DataSource,
+    this.caldavDataSource,
+    this.yabDataSource,
+    this.rssDataSource,
+    this.galDataSource,
+    this.calDataSource,
+    this.unknownDataSource,
+  });
 
   factory CreateDataSourceResponse.fromMap(Map<String, dynamic> data) => CreateDataSourceResponse(
       imapDataSource: data['imap']?[0] is Map ? DataSourceId.fromMap(data['imap'][0]) : null,

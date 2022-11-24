@@ -24,7 +24,12 @@ class CreateContactRequest extends SoapRequest {
   /// Set to return Modified Sequence. (default is unset.)
   final bool? wantModifiedSequence;
 
-  CreateContactRequest(this.contact, {this.verbose, this.wantImapUid, this.wantModifiedSequence});
+  CreateContactRequest(
+    this.contact, {
+    this.verbose,
+    this.wantImapUid,
+    this.wantModifiedSequence,
+  });
 
   @override
   SoapEnvelope getEnvelope({SoapHeader? header}) =>

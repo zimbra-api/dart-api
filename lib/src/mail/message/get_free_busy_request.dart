@@ -35,8 +35,15 @@ class GetFreeBusyRequest extends SoapRequest {
   /// To view free/busy for a single folders in particular accounts, use these.
   final List<FreeBusyUserSpec> freebusyUsers;
 
-  GetFreeBusyRequest(this.startTime, this.endTime,
-      {this.uid, this.id, this.name, this.excludeUid, this.freebusyUsers = const []});
+  GetFreeBusyRequest(
+    this.startTime,
+    this.endTime, {
+    this.uid,
+    this.id,
+    this.name,
+    this.excludeUid,
+    this.freebusyUsers = const [],
+  });
 
   @override
   SoapEnvelope getEnvelope({SoapHeader? header}) => GetFreeBusyEnvelope(GetFreeBusyBody(request: this), header: header);

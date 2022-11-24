@@ -10,17 +10,18 @@ import 'create_task_exception_envelope.dart';
 
 /// Create task exception.
 class CreateTaskExceptionRequest extends CreateAppointmentExceptionRequest {
-  CreateTaskExceptionRequest(
-      {super.id,
-      super.numComponents,
-      super.modifiedSequence,
-      super.revision,
-      super.echo,
-      super.maxSize,
-      super.wantHtml,
-      super.neuter,
-      super.forceSend,
-      super.msg});
+  CreateTaskExceptionRequest({
+    super.id,
+    super.numComponents,
+    super.modifiedSequence,
+    super.revision,
+    super.echo,
+    super.maxSize,
+    super.wantHtml,
+    super.neuter,
+    super.forceSend,
+    super.msg,
+  });
 
   @override
   SoapEnvelope getEnvelope({SoapHeader? header}) =>

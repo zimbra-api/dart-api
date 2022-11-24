@@ -49,18 +49,19 @@ class GetItemResponse extends SoapResponse {
   /// Chat item
   final ChatSummary? chatItem;
 
-  GetItemResponse(
-      {this.folderItem,
-      this.tagItem,
-      this.noteItem,
-      this.contactItem,
-      this.apptItem,
-      this.taskItem,
-      this.convItem,
-      this.wikiItem,
-      this.docItem,
-      this.msgItem,
-      this.chatItem});
+  GetItemResponse({
+    this.folderItem,
+    this.tagItem,
+    this.noteItem,
+    this.contactItem,
+    this.apptItem,
+    this.taskItem,
+    this.convItem,
+    this.wikiItem,
+    this.docItem,
+    this.msgItem,
+    this.chatItem,
+  });
 
   factory GetItemResponse.fromMap(Map<String, dynamic> data) => GetItemResponse(
       folderItem: (data['folder'] is Map) ? Folder.fromMap(data['folder']) : null,

@@ -29,17 +29,18 @@ class ModifyAppointmentRequest extends CalItemRequestBase {
   /// Revision
   final int? revision;
 
-  ModifyAppointmentRequest(
-      {this.id,
-      this.componentNum,
-      this.modifiedSequence,
-      this.revision,
-      super.echo,
-      super.maxSize,
-      super.wantHtml,
-      super.neuter,
-      super.forceSend,
-      super.msg});
+  ModifyAppointmentRequest({
+    this.id,
+    this.componentNum,
+    this.modifiedSequence,
+    this.revision,
+    super.echo,
+    super.maxSize,
+    super.wantHtml,
+    super.neuter,
+    super.forceSend,
+    super.msg,
+  });
 
   @override
   SoapEnvelope getEnvelope({SoapHeader? header}) =>

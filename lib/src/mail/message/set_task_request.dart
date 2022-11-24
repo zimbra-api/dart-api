@@ -11,17 +11,18 @@ import 'set_task_envelope.dart';
 /// Directly set status of an entire task.
 /// See SetAppointment for more information.
 class SetTaskRequest extends SetAppointmentRequest {
-  SetTaskRequest(
-      {super.flags,
-      super.tags,
-      super.tagNames,
-      super.folderId,
-      super.noNextAlarm,
-      super.nextAlarm,
-      super.defaultId,
-      super.exceptions = const [],
-      super.cancellations = const [],
-      super.replies = const []});
+  SetTaskRequest({
+    super.flags,
+    super.tags,
+    super.tagNames,
+    super.folderId,
+    super.noNextAlarm,
+    super.nextAlarm,
+    super.defaultId,
+    super.exceptions = const [],
+    super.cancellations = const [],
+    super.replies = const [],
+  });
 
   @override
   SoapEnvelope getEnvelope({SoapHeader? header}) => SetTaskEnvelope(SetTaskBody(request: this), header: header);

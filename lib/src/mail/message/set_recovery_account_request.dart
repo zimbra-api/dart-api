@@ -24,7 +24,12 @@ class SetRecoveryAccountRequest extends SoapRequest {
   /// recovery channel
   final Channel? channel;
 
-  SetRecoveryAccountRequest(this.operation, this.recoveryAccount, this.verificationCode, {this.channel});
+  SetRecoveryAccountRequest(
+    this.operation,
+    this.recoveryAccount,
+    this.verificationCode, {
+    this.channel,
+  });
 
   @override
   SoapEnvelope getEnvelope({SoapHeader? header}) =>

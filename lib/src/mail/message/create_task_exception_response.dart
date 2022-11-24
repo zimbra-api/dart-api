@@ -8,14 +8,15 @@ import '../type/create_calendar_item_response.dart';
 
 /// Contains response information for create task exception
 class CreateTaskExceptionResponse extends CreateCalendarItemResponse {
-  CreateTaskExceptionResponse(
-      {super.calItemId,
-      super.deprecatedApptId,
-      super.calInvId,
-      super.modifiedSequence,
-      super.revision,
-      super.msg,
-      super.echo});
+  CreateTaskExceptionResponse({
+    super.calItemId,
+    super.deprecatedApptId,
+    super.calInvId,
+    super.modifiedSequence,
+    super.revision,
+    super.msg,
+    super.echo,
+  });
 
   factory CreateTaskExceptionResponse.fromMap(Map<String, dynamic> data) => CreateTaskExceptionResponse(
       calItemId: data['calItemId'],

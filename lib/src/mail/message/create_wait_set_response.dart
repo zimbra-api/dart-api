@@ -27,7 +27,12 @@ class CreateWaitSetResponse extends SoapResponse {
   /// Error information
   final List<IdAndType> errors;
 
-  CreateWaitSetResponse({this.waitSetId, this.defaultInterests, this.sequence, this.errors = const []});
+  CreateWaitSetResponse({
+    this.waitSetId,
+    this.defaultInterests,
+    this.sequence,
+    this.errors = const [],
+  });
 
   factory CreateWaitSetResponse.fromMap(Map<String, dynamic> data) => CreateWaitSetResponse(
       waitSetId: data['waitSet'],

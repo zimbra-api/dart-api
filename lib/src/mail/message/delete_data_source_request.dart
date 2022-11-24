@@ -36,15 +36,16 @@ class DeleteDataSourceRequest extends SoapRequest {
   /// Unknown data sources
   final List<DataSourceNameOrId> unknownDataSources;
 
-  DeleteDataSourceRequest(
-      {this.imapDataSources = const [],
-      this.pop3DataSources = const [],
-      this.caldavDataSources = const [],
-      this.yabDataSources = const [],
-      this.rssDataSources = const [],
-      this.galDataSources = const [],
-      this.calDataSources = const [],
-      this.unknownDataSources = const []});
+  DeleteDataSourceRequest({
+    this.imapDataSources = const [],
+    this.pop3DataSources = const [],
+    this.caldavDataSources = const [],
+    this.yabDataSources = const [],
+    this.rssDataSources = const [],
+    this.galDataSources = const [],
+    this.calDataSources = const [],
+    this.unknownDataSources = const [],
+  });
 
   @override
   SoapEnvelope getEnvelope({SoapHeader? header}) =>

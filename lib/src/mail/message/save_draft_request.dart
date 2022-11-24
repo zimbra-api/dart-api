@@ -31,7 +31,11 @@ class SaveDraftRequest extends SoapRequest {
   /// Set to return Modified Sequence. (default is unset.)
   final bool? wantModifiedSequence;
 
-  SaveDraftRequest(this.msg, {this.wantImapUid, this.wantModifiedSequence});
+  SaveDraftRequest(
+    this.msg, {
+    this.wantImapUid,
+    this.wantModifiedSequence,
+  });
 
   @override
   SoapEnvelope getEnvelope({SoapHeader? header}) => SaveDraftEnvelope(SaveDraftBody(request: this), header: header);

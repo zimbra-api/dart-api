@@ -42,8 +42,14 @@ class GetFolderRequest extends SoapRequest {
   /// Mountpoints under mountpoints are not themselves expanded.
   final bool? traverseMountpoints;
 
-  GetFolderRequest(this.folder,
-      {this.isVisible, this.needGranteeName, this.viewConstraint, this.treeDepth, this.traverseMountpoints});
+  GetFolderRequest(
+    this.folder, {
+    this.isVisible,
+    this.needGranteeName,
+    this.viewConstraint,
+    this.treeDepth,
+    this.traverseMountpoints,
+  });
 
   @override
   SoapEnvelope getEnvelope({SoapHeader? header}) => GetFolderEnvelope(GetFolderBody(request: this), header: header);

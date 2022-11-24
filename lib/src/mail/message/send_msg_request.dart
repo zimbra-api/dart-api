@@ -54,13 +54,15 @@ class SendMsgRequest extends SoapRequest {
   /// If set, delivery receipt notification will be sent.
   final bool? deliveryReport;
 
-  SendMsgRequest(this.msg,
-      {this.needCalendarSentByFixup,
-      this.isCalendarForward,
-      this.noSaveToSent,
-      this.fetchSavedMsg,
-      this.sendUid,
-      this.deliveryReport});
+  SendMsgRequest(
+    this.msg, {
+    this.needCalendarSentByFixup,
+    this.isCalendarForward,
+    this.noSaveToSent,
+    this.fetchSavedMsg,
+    this.sendUid,
+    this.deliveryReport,
+  });
 
   @override
   SoapEnvelope getEnvelope({SoapHeader? header}) => SendMsgEnvelope(SendMsgBody(request: this), header: header);

@@ -34,7 +34,13 @@ class AutoCompleteGalRequest extends SoapRequest {
   // An int specifying the maximum number of results to return
   final int? limit;
 
-  AutoCompleteGalRequest(this.name, {this.type, this.needCanExpand, this.galAccountId, this.limit});
+  AutoCompleteGalRequest(
+    this.name, {
+    this.type,
+    this.needCanExpand,
+    this.galAccountId,
+    this.limit,
+  });
 
   @override
   SoapEnvelope getEnvelope({SoapHeader? header}) =>

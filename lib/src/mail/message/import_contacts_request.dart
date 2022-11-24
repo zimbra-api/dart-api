@@ -28,7 +28,13 @@ class ImportContactsRequest extends SoapRequest {
   /// When it is not specified, the <csvfmtt> with no locale specification is used.
   final String? csvLocale;
 
-  ImportContactsRequest(this.content, {this.contentType = 'text/csv', this.folderId, this.csvFormat, this.csvLocale});
+  ImportContactsRequest(
+    this.content, {
+    this.contentType = 'text/csv',
+    this.folderId,
+    this.csvFormat,
+    this.csvLocale,
+  });
 
   @override
   SoapEnvelope getEnvelope({SoapHeader? header}) =>

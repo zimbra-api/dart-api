@@ -66,15 +66,17 @@ class WaitSetRequest extends SoapRequest {
   /// Waitsets to remove
   final List<Id> removeAccounts;
 
-  WaitSetRequest(this.waitSetId,
-      {this.lastKnownSeqNo,
-      this.block,
-      this.defaultInterests,
-      this.timeout,
-      this.expand,
-      this.addAccounts = const [],
-      this.updateAccounts = const [],
-      this.removeAccounts = const []});
+  WaitSetRequest(
+    this.waitSetId, {
+    this.lastKnownSeqNo,
+    this.block,
+    this.defaultInterests,
+    this.timeout,
+    this.expand,
+    this.addAccounts = const [],
+    this.updateAccounts = const [],
+    this.removeAccounts = const [],
+  });
 
   @override
   SoapEnvelope getEnvelope({SoapHeader? header}) => WaitSetEnvelope(WaitSetBody(request: this), header: header);

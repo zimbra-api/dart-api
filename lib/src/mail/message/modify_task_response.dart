@@ -8,14 +8,15 @@ import 'modify_appointment_response.dart';
 
 /// Contains response information for modify task
 class ModifyTaskResponse extends ModifyAppointmentResponse {
-  ModifyTaskResponse(
-      {super.calItemId,
-      super.deprecatedApptId,
-      super.calInvId,
-      super.modifiedSequence,
-      super.revision,
-      super.msg,
-      super.echo});
+  ModifyTaskResponse({
+    super.calItemId,
+    super.deprecatedApptId,
+    super.calInvId,
+    super.modifiedSequence,
+    super.revision,
+    super.msg,
+    super.echo,
+  });
 
   factory ModifyTaskResponse.fromMap(Map<String, dynamic> data) => ModifyTaskResponse(
       calItemId: data['calItemId'],

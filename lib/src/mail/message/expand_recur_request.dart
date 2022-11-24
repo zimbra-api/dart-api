@@ -32,11 +32,14 @@ class ExpandRecurRequest extends SoapRequest {
   /// Specifications for series, modified instances and canceled instances
   final List<ExpandedRecurrenceCancel> cancelComponents;
 
-  ExpandRecurRequest(this.startTime, this.endTime,
-      {this.timezones = const [],
-      this.inviteComponents = const [],
-      this.exceptComponents = const [],
-      this.cancelComponents = const []});
+  ExpandRecurRequest(
+    this.startTime,
+    this.endTime, {
+    this.timezones = const [],
+    this.inviteComponents = const [],
+    this.exceptComponents = const [],
+    this.cancelComponents = const [],
+  });
 
   @override
   SoapEnvelope getEnvelope({SoapHeader? header}) => ExpandRecurEnvelope(ExpandRecurBody(request: this), header: header);

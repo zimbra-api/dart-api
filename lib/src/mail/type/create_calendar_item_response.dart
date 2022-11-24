@@ -29,12 +29,13 @@ class CreateCalendarItemResponse extends SoapResponse {
   /// Included if "echo" was set in the request
   final CalEcho? echo;
 
-  CreateCalendarItemResponse(
-      {this.calItemId,
-      this.deprecatedApptId,
-      this.calInvId,
-      this.modifiedSequence,
-      this.revision,
-      this.msg,
-      this.echo});
+  CreateCalendarItemResponse({
+    this.calItemId,
+    this.deprecatedApptId,
+    this.calInvId,
+    this.modifiedSequence,
+    this.revision,
+    this.msg,
+    this.echo,
+  });
 }

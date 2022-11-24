@@ -59,19 +59,20 @@ class GetContactsRequest extends SoapRequest {
   /// If present, only get the specified contact(s).
   final List<Id> contacts;
 
-  GetContactsRequest(
-      {this.sync,
-      this.folderId,
-      this.sortBy,
-      this.derefGroupMember,
-      this.includeMemberOf,
-      this.returnHiddenAttrs,
-      this.returnCertInfo,
-      this.wantImapUid,
-      this.maxMembers,
-      this.attributes = const [],
-      this.memberAttributes = const [],
-      this.contacts = const []});
+  GetContactsRequest({
+    this.sync,
+    this.folderId,
+    this.sortBy,
+    this.derefGroupMember,
+    this.includeMemberOf,
+    this.returnHiddenAttrs,
+    this.returnCertInfo,
+    this.wantImapUid,
+    this.maxMembers,
+    this.attributes = const [],
+    this.memberAttributes = const [],
+    this.contacts = const [],
+  });
 
   @override
   SoapEnvelope getEnvelope({SoapHeader? header}) => GetContactsEnvelope(GetContactsBody(request: this), header: header);

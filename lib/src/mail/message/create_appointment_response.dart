@@ -7,14 +7,15 @@ import '../type/cal_echo.dart';
 import '../type/create_calendar_item_response.dart';
 
 class CreateAppointmentResponse extends CreateCalendarItemResponse {
-  CreateAppointmentResponse(
-      {super.calItemId,
-      super.deprecatedApptId,
-      super.calInvId,
-      super.modifiedSequence,
-      super.revision,
-      super.msg,
-      super.echo});
+  CreateAppointmentResponse({
+    super.calItemId,
+    super.deprecatedApptId,
+    super.calInvId,
+    super.modifiedSequence,
+    super.revision,
+    super.msg,
+    super.echo,
+  });
 
   factory CreateAppointmentResponse.fromMap(Map<String, dynamic> data) => CreateAppointmentResponse(
       calItemId: data['calItemId'],

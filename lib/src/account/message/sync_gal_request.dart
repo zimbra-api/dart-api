@@ -25,7 +25,13 @@ class SyncGalRequest extends SoapRequest {
   /// An int specifying the maximum number of results to return
   final int? limit;
 
-  SyncGalRequest({this.token, this.galAccountId, this.idOnly, this.getCount, this.limit});
+  SyncGalRequest({
+    this.token,
+    this.galAccountId,
+    this.idOnly,
+    this.getCount,
+    this.limit,
+  });
 
   @override
   SoapEnvelope getEnvelope({SoapHeader? header}) => SyncGalEnvelope(SyncGalBody(request: this), header: header);

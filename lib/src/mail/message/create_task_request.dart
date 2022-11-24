@@ -10,7 +10,14 @@ import 'create_task_envelope.dart';
 
 /// This is the API to create a new Task
 class CreateTaskRequest extends CreateAppointmentRequest {
-  CreateTaskRequest({super.echo, super.maxSize, super.wantHtml, super.neuter, super.forceSend, super.msg});
+  CreateTaskRequest({
+    super.echo,
+    super.maxSize,
+    super.wantHtml,
+    super.neuter,
+    super.forceSend,
+    super.msg,
+  });
 
   @override
   SoapEnvelope getEnvelope({SoapHeader? header}) => CreateTaskEnvelope(CreateTaskBody(request: this), header: header);

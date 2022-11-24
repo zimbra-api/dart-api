@@ -28,7 +28,12 @@ class GetMiniCalRequest extends SoapRequest {
   /// References an existing server-known timezone by ID or the full specification of a custom timezone
   final CalTZInfo? timezone;
 
-  GetMiniCalRequest(this.startTime, this.endTime, {this.folders = const [], this.timezone});
+  GetMiniCalRequest(
+    this.startTime,
+    this.endTime, {
+    this.folders = const [],
+    this.timezone,
+  });
 
   @override
   SoapEnvelope getEnvelope({SoapHeader? header}) => GetMiniCalEnvelope(GetMiniCalBody(request: this), header: header);

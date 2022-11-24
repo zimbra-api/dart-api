@@ -30,7 +30,13 @@ class CounterAppointmentRequest extends SoapRequest {
   /// Details of counter proposal.
   final Msg? msg;
 
-  CounterAppointmentRequest({this.id, this.componentNum, this.modifiedSequence, this.revision, this.msg});
+  CounterAppointmentRequest({
+    this.id,
+    this.componentNum,
+    this.modifiedSequence,
+    this.revision,
+    this.msg,
+  });
 
   @override
   SoapEnvelope getEnvelope({SoapHeader? header}) =>

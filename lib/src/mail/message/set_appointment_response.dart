@@ -19,7 +19,12 @@ class SetAppointmentResponse extends SoapResponse {
   /// Information about exceptions
   final List<ExceptIdInfo> exceptions;
 
-  SetAppointmentResponse({this.calItemId, this.deprecatedApptId, this.defaultId, this.exceptions = const []});
+  SetAppointmentResponse({
+    this.calItemId,
+    this.deprecatedApptId,
+    this.defaultId,
+    this.exceptions = const [],
+  });
 
   factory SetAppointmentResponse.fromMap(Map<String, dynamic> data) => SetAppointmentResponse(
       calItemId: data['calItemId'],

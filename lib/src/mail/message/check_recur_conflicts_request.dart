@@ -45,16 +45,17 @@ class CheckRecurConflictsRequest extends SoapRequest {
   /// Freebusy user specifications
   final List<FreeBusyUserSpec> freebusyUsers;
 
-  CheckRecurConflictsRequest(
-      {this.startTime,
-      this.endTime,
-      this.allInstances,
-      this.excludeUid,
-      this.timezones = const [],
-      this.cancelComponents = const [],
-      this.inviteComponents = const [],
-      this.exceptComponents = const [],
-      this.freebusyUsers = const []});
+  CheckRecurConflictsRequest({
+    this.startTime,
+    this.endTime,
+    this.allInstances,
+    this.excludeUid,
+    this.timezones = const [],
+    this.cancelComponents = const [],
+    this.inviteComponents = const [],
+    this.exceptComponents = const [],
+    this.freebusyUsers = const [],
+  });
 
   @override
   SoapEnvelope getEnvelope({SoapHeader? header}) =>

@@ -13,7 +13,11 @@ class GetDataSourceUsageResponse extends SoapResponse {
 
   final int? totalQuota;
 
-  GetDataSourceUsageResponse({this.usages = const [], this.dataSourceQuota = 0, this.totalQuota = 0});
+  GetDataSourceUsageResponse({
+    this.usages = const [],
+    this.dataSourceQuota = 0,
+    this.totalQuota = 0,
+  });
 
   factory GetDataSourceUsageResponse.fromMap(Map<String, dynamic> data) => GetDataSourceUsageResponse(
       usages: (data['dataSourceUsage'] is Iterable)

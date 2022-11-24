@@ -3,7 +3,6 @@
 // file that was distributed with this source code.
 
 import '../../common/type/contact_attr.dart';
-import '../utils.dart';
 import 'account_custom_metadata.dart';
 import 'contact_group_member.dart';
 
@@ -108,7 +107,9 @@ class ContactInfo {
                 .map<AccountCustomMetadata>((meta) => AccountCustomMetadata.fromMap(meta))
                 .toList(growable: false)
             : const [],
-        attrs: (data['_attrs'] is Map) ? Utils.contactAttrsFromMap(data['_attrs'] as Map<String, dynamic>) : const [],
+        attrs: (data['_attrs'] is Map)
+            ? ContactAttr.contactAttrsFromMap(data['_attrs'] as Map<String, dynamic>)
+            : const [],
         contactGroupMembers: (data['m'] is Iterable)
             ? (data['m'] as Iterable)
                 .map<ContactGroupMember>((m) => ContactGroupMember.fromMap(m))

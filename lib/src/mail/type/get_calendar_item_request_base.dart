@@ -22,7 +22,13 @@ abstract class GetCalendarItemRequestBase extends SoapRequest {
   /// If set, information for each invite is included; default set
   final bool? includeInvites;
 
-  GetCalendarItemRequestBase({this.uid, this.id, this.sync, this.includeContent, this.includeInvites});
+  GetCalendarItemRequestBase({
+    this.uid,
+    this.id,
+    this.sync,
+    this.includeContent,
+    this.includeInvites,
+  });
 
   @override
   Map<String, dynamic> toMap() => {

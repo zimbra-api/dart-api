@@ -13,7 +13,11 @@ class DistributionListSubscribeReq {
   /// Flag whether to bcc all other owners on the accept/reject notification emails.
   final bool? bccOwners;
 
-  const DistributionListSubscribeReq({this.op = DistributionListSubscribeOp.subscribe, this.value, this.bccOwners});
+  const DistributionListSubscribeReq({
+    this.op = DistributionListSubscribeOp.subscribe,
+    this.value,
+    this.bccOwners,
+  });
 
   Map<String, dynamic> toMap() => {
         'op': op.name,

@@ -14,10 +14,13 @@ class WildcardExpansionQueryInfo {
   /// Number expanded
   final int? numExpanded;
 
-  const WildcardExpansionQueryInfo(this.wildcardString, {this.expanded, this.numExpanded});
+  const WildcardExpansionQueryInfo(
+    this.wildcardString, {
+    this.expanded,
+    this.numExpanded,
+  });
 
-  factory WildcardExpansionQueryInfo.fromMap(Map<String, dynamic> data) =>
-      WildcardExpansionQueryInfo(data['str'] ?? '',
+  factory WildcardExpansionQueryInfo.fromMap(Map<String, dynamic> data) => WildcardExpansionQueryInfo(data['str'] ?? '',
       expanded: data['expanded'], numExpanded: int.tryParse(data['numExpanded']?.toString() ?? ''));
 
   Map<String, dynamic> toMap() => {

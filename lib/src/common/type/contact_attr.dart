@@ -13,7 +13,14 @@ class ContactAttr extends KeyValuePair {
 
   final String? contentFilename;
 
-  const ContactAttr(super.key, {super.value, this.part, this.contentType, this.size, this.contentFilename});
+  const ContactAttr(
+    super.key, {
+    super.value,
+    this.part,
+    this.contentType,
+    this.size,
+    this.contentFilename,
+  });
 
   factory ContactAttr.fromMap(Map<String, dynamic> data) => ContactAttr(data['n'],
       value: data['_content'],
@@ -31,4 +38,16 @@ class ContactAttr extends KeyValuePair {
         if (size != null) 's': size,
         if (contentFilename != null) 'filename': contentFilename,
       };
+
+  static List<ContactAttr> contactAttrsFromMap(Map<String, dynamic> data) {
+    final attrs = <ContactAttr>[];
+    for (final entry in data.entries) {
+      if (entry.value is Iterable) {
+        attrs.addAll((entry.value as Iterable).map<ContactAttr>((value) => ContactAttr(entry.key, value: value)));
+      } else {
+        attrs.add(ContactAttr(entry.key, value: entry.value));
+      }
+    }
+    return attrs.toList(growable: false);
+  }
 }

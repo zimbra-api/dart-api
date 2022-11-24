@@ -2,7 +2,6 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
-import '../common/type/contact_attr.dart';
 import 'type/attr.dart';
 import 'type/pref.dart';
 
@@ -29,17 +28,5 @@ class Utils {
       }
     }
     return prefs.toList(growable: false);
-  }
-
-  static List<ContactAttr> contactAttrsFromMap(Map<String, dynamic> data) {
-    final attrs = <ContactAttr>[];
-    for (final entry in data.entries) {
-      if (entry.value is Iterable) {
-        attrs.addAll((entry.value as Iterable).map<ContactAttr>((value) => ContactAttr(entry.key, value: value)));
-      } else {
-        attrs.add(ContactAttr(entry.key, value: entry.value));
-      }
-    }
-    return attrs.toList(growable: false);
   }
 }

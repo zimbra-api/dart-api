@@ -15,7 +15,13 @@ class ChildAccount {
 
   final List<Attr> attrs;
 
-  const ChildAccount({this.id, this.name, this.isVisible, this.isActive, this.attrs = const []});
+  const ChildAccount({
+    this.id,
+    this.name,
+    this.isVisible,
+    this.isActive,
+    this.attrs = const [],
+  });
 
   factory ChildAccount.fromMap(Map<String, dynamic> data) => ChildAccount(
         id: data['id'],

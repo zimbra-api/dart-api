@@ -14,8 +14,17 @@ class PreAuth {
 
   final int expiresTimestamp;
 
-  PreAuth(AccountSelector account, String preauthKey, {this.timestamp = 0, this.expiresTimestamp = 0})
-      : value = computeValue(account, preauthKey, timestamp: timestamp, expiresTimestamp: expiresTimestamp);
+  PreAuth(
+    AccountSelector account,
+    String preauthKey, {
+    this.timestamp = 0,
+    this.expiresTimestamp = 0,
+  }) : value = computeValue(
+          account,
+          preauthKey,
+          timestamp: timestamp,
+          expiresTimestamp: expiresTimestamp,
+        );
 
   static String computeValue(
     AccountSelector account,

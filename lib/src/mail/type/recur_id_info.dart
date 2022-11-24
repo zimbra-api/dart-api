@@ -17,7 +17,12 @@ class RecurIdInfo {
   /// Format: YYMMDDTHHMMSSZ
   final String? recurIdZ;
 
-  const RecurIdInfo(this.recurrenceRangeType, this.recurrenceId, {this.timezone, this.recurIdZ});
+  const RecurIdInfo(
+    this.recurrenceRangeType,
+    this.recurrenceId, {
+    this.timezone,
+    this.recurIdZ,
+  });
 
   factory RecurIdInfo.fromMap(Map<String, dynamic> data) =>
       RecurIdInfo(int.tryParse(data['rangeType']?.toString() ?? '') ?? 1, data['recurId'] ?? '',

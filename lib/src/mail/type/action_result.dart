@@ -16,7 +16,12 @@ class ActionResult {
   /// Comma-separated list of newly created ids (if requested)
   final String? newlyCreatedIds;
 
-  const ActionResult(this.id, this.operation, {this.nonExistentIds, this.newlyCreatedIds});
+  const ActionResult(
+    this.id,
+    this.operation, {
+    this.nonExistentIds,
+    this.newlyCreatedIds,
+  });
 
   factory ActionResult.fromMap(Map<String, dynamic> data) =>
       ActionResult(data['id'] ?? '', data['op'] ?? '', nonExistentIds: data['nei'], newlyCreatedIds: data['nci']);

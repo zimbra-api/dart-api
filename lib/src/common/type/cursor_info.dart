@@ -11,7 +11,12 @@ class CursorInfo {
 
   final bool? includeOffset;
 
-  const CursorInfo({this.id, this.sortVal, this.endSortVal, this.includeOffset});
+  const CursorInfo({
+    this.id,
+    this.sortVal,
+    this.endSortVal,
+    this.includeOffset,
+  });
 
   factory CursorInfo.fromMap(Map<String, dynamic> data) => CursorInfo(
         id: data['id'],

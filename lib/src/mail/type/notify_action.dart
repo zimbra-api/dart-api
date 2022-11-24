@@ -24,7 +24,14 @@ class NotifyAction extends FilterAction {
   /// Optional - Either "*" or a comma-separated list of header names.
   final String? origHeaders;
 
-  const NotifyAction({this.address, this.subject, this.maxBodySize, this.content, this.origHeaders, super.index});
+  const NotifyAction({
+    this.address,
+    this.subject,
+    this.maxBodySize,
+    this.content,
+    this.origHeaders,
+    super.index,
+  });
 
   factory NotifyAction.fromMap(Map<String, dynamic> data) => NotifyAction(
       address: data['a'],

@@ -14,7 +14,11 @@ class AccountWithModifications {
   /// ID of the last change
   final int? lastChangeId;
 
-  const AccountWithModifications({this.id, this.modifications = const [], this.lastChangeId});
+  const AccountWithModifications({
+    this.id,
+    this.modifications = const [],
+    this.lastChangeId,
+  });
 
   factory AccountWithModifications.fromMap(Map<String, dynamic> data) => AccountWithModifications(
       id: int.tryParse(data['id']?.toString() ?? ''),

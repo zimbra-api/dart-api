@@ -23,7 +23,14 @@ class ConversationMsgHitInfo {
   /// Date
   final int? date;
 
-  const ConversationMsgHitInfo(this.id, {this.size, this.folderId, this.flags, this.autoSendTime, this.date});
+  const ConversationMsgHitInfo(
+    this.id, {
+    this.size,
+    this.folderId,
+    this.flags,
+    this.autoSendTime,
+    this.date,
+  });
 
   factory ConversationMsgHitInfo.fromMap(Map<String, dynamic> data) => ConversationMsgHitInfo(data['id'] ?? '',
       size: int.tryParse(data['s']?.toString() ?? ''),

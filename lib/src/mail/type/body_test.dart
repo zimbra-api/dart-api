@@ -11,7 +11,12 @@ class BodyTest extends FilterTest {
   /// Case sensitive setting
   final bool? caseSensitive;
 
-  const BodyTest({this.value, this.caseSensitive, super.index, super.negative});
+  const BodyTest({
+    this.value,
+    this.caseSensitive,
+    super.index,
+    super.negative,
+  });
 
   factory BodyTest.fromMap(Map<String, dynamic> data) => BodyTest(
       value: data['value'],

@@ -18,7 +18,13 @@ class ExpandedRecurrenceInstance {
   /// Recurrence ID string in UTC timezone
   final String? recurIdZ;
 
-  const ExpandedRecurrenceInstance({this.startTime, this.duration, this.allDay, this.tzOffset, this.recurIdZ});
+  const ExpandedRecurrenceInstance({
+    this.startTime,
+    this.duration,
+    this.allDay,
+    this.tzOffset,
+    this.recurIdZ,
+  });
 
   factory ExpandedRecurrenceInstance.fromMap(Map<String, dynamic> data) => ExpandedRecurrenceInstance(
       startTime: int.tryParse(data['s']?.toString() ?? ''),

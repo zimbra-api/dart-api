@@ -27,7 +27,13 @@ class WaitSetAddSpec {
   /// Comma-separated interest folder id
   final String? folderInterests;
 
-  const WaitSetAddSpec({this.name, this.id, this.token, this.interests, this.folderInterests});
+  const WaitSetAddSpec({
+    this.name,
+    this.id,
+    this.token,
+    this.interests,
+    this.folderInterests,
+  });
 
   factory WaitSetAddSpec.fromMap(Map<String, dynamic> data) => WaitSetAddSpec(
       name: data['name'],

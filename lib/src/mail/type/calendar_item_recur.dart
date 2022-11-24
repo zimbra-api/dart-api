@@ -23,7 +23,13 @@ class CalendarItemRecur {
   /// Recurrence information
   final RecurrenceInfo? recurrence;
 
-  const CalendarItemRecur({this.exceptionId, this.dtStart, this.dtEnd, this.duration, this.recurrence});
+  const CalendarItemRecur({
+    this.exceptionId,
+    this.dtStart,
+    this.dtEnd,
+    this.duration,
+    this.recurrence,
+  });
 
   factory CalendarItemRecur.fromMap(Map<String, dynamic> data) => CalendarItemRecur(
       exceptionId: data['exceptId'] is Map ? ExceptionRecurIdInfo.fromMap(data['exceptId']) : null,

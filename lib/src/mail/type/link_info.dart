@@ -18,7 +18,13 @@ class LinkInfo {
   /// Permissions granted
   final String? rights;
 
-  const LinkInfo({this.id, this.uuid, this.name, this.defaultView, this.rights});
+  const LinkInfo({
+    this.id,
+    this.uuid,
+    this.name,
+    this.defaultView,
+    this.rights,
+  });
 
   factory LinkInfo.fromMap(Map<String, dynamic> data) =>
       LinkInfo(id: data['id'], uuid: data['uuid'], name: data['name'], defaultView: data['view'], rights: data['perm']);

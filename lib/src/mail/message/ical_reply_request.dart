@@ -16,7 +16,10 @@ class ICalReplyRequest extends SoapRequest {
   ICalReplyRequest(this.ical);
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) => ICalReplyEnvelope(ICalReplyBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => ICalReplyEnvelope(
+        ICalReplyBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

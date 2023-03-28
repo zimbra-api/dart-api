@@ -7,5 +7,8 @@ import '../../common/type/soap_response.dart';
 class SendDeliveryReportResponse extends SoapResponse {
   SendDeliveryReportResponse();
 
-  factory SendDeliveryReportResponse.fromMap(Map<String, dynamic> data) => SendDeliveryReportResponse();
+  factory SendDeliveryReportResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      SendDeliveryReportResponse();
 }

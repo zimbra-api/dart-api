@@ -24,8 +24,10 @@ class RestoreContactsRequest extends SoapRequest {
   RestoreContactsRequest(this.contactsBackupFileName, {this.resolve});
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      RestoreContactsEnvelope(RestoreContactsBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => RestoreContactsEnvelope(
+        RestoreContactsBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

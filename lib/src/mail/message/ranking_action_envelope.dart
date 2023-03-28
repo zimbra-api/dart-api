@@ -7,9 +7,20 @@ import '../../common/type/soap_header.dart';
 import 'ranking_action_body.dart';
 
 class RankingActionEnvelope extends SoapEnvelope {
-  RankingActionEnvelope(RankingActionBody body, {super.header}) : super(body..response?.header = header);
+  RankingActionEnvelope(
+    RankingActionBody body, {
+    super.header,
+  }) : super(body..response?.header = header);
 
-  factory RankingActionEnvelope.fromMap(Map<String, dynamic> data) =>
-      RankingActionEnvelope(RankingActionBody.fromMap(data['Body']),
-          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
+  factory RankingActionEnvelope.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      RankingActionEnvelope(
+        RankingActionBody.fromMap(data['Body']),
+        header: data['Header'] != null
+            ? SoapHeader.fromMap(
+                data['Header'],
+              )
+            : null,
+      );
 }

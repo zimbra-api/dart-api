@@ -7,11 +7,18 @@ import 'search_conv_request.dart';
 import 'search_conv_response.dart';
 
 class SearchConvBody extends SoapBody {
-  SearchConvBody({SearchConvRequest? request, SearchConvResponse? response})
-      : super(request: request, response: response);
+  SearchConvBody({
+    SearchConvRequest? request,
+    SearchConvResponse? response,
+  }) : super(request: request, response: response);
 
   factory SearchConvBody.fromMap(Map<String, dynamic> data) => SearchConvBody(
-      response: data['SearchConvResponse'] != null ? SearchConvResponse.fromMap(data['SearchConvResponse']) : null);
+        response: data['SearchConvResponse'] != null
+            ? SearchConvResponse.fromMap(
+                data['SearchConvResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

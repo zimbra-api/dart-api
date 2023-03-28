@@ -7,9 +7,20 @@ import '../../common/type/soap_header.dart';
 import 'modify_task_body.dart';
 
 class ModifyTaskEnvelope extends SoapEnvelope {
-  ModifyTaskEnvelope(ModifyTaskBody body, {super.header}) : super(body..response?.header = header);
+  ModifyTaskEnvelope(
+    ModifyTaskBody body, {
+    super.header,
+  }) : super(body..response?.header = header);
 
-  factory ModifyTaskEnvelope.fromMap(Map<String, dynamic> data) =>
-      ModifyTaskEnvelope(ModifyTaskBody.fromMap(data['Body']),
-          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
+  factory ModifyTaskEnvelope.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ModifyTaskEnvelope(
+        ModifyTaskBody.fromMap(data['Body']),
+        header: data['Header'] != null
+            ? SoapHeader.fromMap(
+                data['Header'],
+              )
+            : null,
+      );
 }

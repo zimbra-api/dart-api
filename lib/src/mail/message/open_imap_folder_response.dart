@@ -16,15 +16,26 @@ class OpenIMAPFolderResponse extends SoapResponse {
   /// Cursor to be used by the next request, if more results exist
   final ImapCursorInfo? cursor;
 
-  OpenIMAPFolderResponse({this.hasMore, this.messages = const [], this.cursor});
+  OpenIMAPFolderResponse({
+    this.hasMore,
+    this.messages = const [],
+    this.cursor,
+  });
 
-  factory OpenIMAPFolderResponse.fromMap(Map<String, dynamic> data) => OpenIMAPFolderResponse(
+  factory OpenIMAPFolderResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      OpenIMAPFolderResponse(
         hasMore: data['more'],
         messages: (data['folder']?[0]['m'] is Iterable)
             ? (data['folder'][0]['m'] as Iterable)
                 .map<ImapMessageInfo>((m) => ImapMessageInfo.fromMap(m))
                 .toList(growable: false)
             : const [],
-        cursor: data['cursor'] is Map ? ImapCursorInfo.fromMap(data['cursor']) : null,
+        cursor: data['cursor'] is Map
+            ? ImapCursorInfo.fromMap(
+                data['cursor'],
+              )
+            : null,
       );
 }

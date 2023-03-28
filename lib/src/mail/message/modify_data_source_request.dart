@@ -57,8 +57,10 @@ class ModifyDataSourceRequest extends SoapRequest {
   });
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      ModifyDataSourceEnvelope(ModifyDataSourceBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => ModifyDataSourceEnvelope(
+        ModifyDataSourceBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

@@ -7,11 +7,18 @@ import 'imap_copy_request.dart';
 import 'imap_copy_response.dart';
 
 class IMAPCopyBody extends SoapBody {
-  IMAPCopyBody({IMAPCopyRequest? request, IMAPCopyResponse? response})
-      : super(request: request, response: response);
+  IMAPCopyBody({
+    IMAPCopyRequest? request,
+    IMAPCopyResponse? response,
+  }) : super(request: request, response: response);
 
   factory IMAPCopyBody.fromMap(Map<String, dynamic> data) => IMAPCopyBody(
-      response: data['IMAPCopyResponse'] != null ? IMAPCopyResponse.fromMap(data['IMAPCopyResponse']) : null);
+        response: data['IMAPCopyResponse'] != null
+            ? IMAPCopyResponse.fromMap(
+                data['IMAPCopyResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

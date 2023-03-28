@@ -7,9 +7,20 @@ import '../../common/type/soap_header.dart';
 import 'send_invite_reply_body.dart';
 
 class SendInviteReplyEnvelope extends SoapEnvelope {
-  SendInviteReplyEnvelope(SendInviteReplyBody body, {super.header}) : super(body..response?.header = header);
+  SendInviteReplyEnvelope(
+    SendInviteReplyBody body, {
+    super.header,
+  }) : super(body..response?.header = header);
 
-  factory SendInviteReplyEnvelope.fromMap(Map<String, dynamic> data) =>
-      SendInviteReplyEnvelope(SendInviteReplyBody.fromMap(data['Body']),
-          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
+  factory SendInviteReplyEnvelope.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      SendInviteReplyEnvelope(
+        SendInviteReplyBody.fromMap(data['Body']),
+        header: data['Header'] != null
+            ? SoapHeader.fromMap(
+                data['Header'],
+              )
+            : null,
+      );
 }

@@ -7,14 +7,21 @@ import 'list_document_revisions_request.dart';
 import 'list_document_revisions_response.dart';
 
 class ListDocumentRevisionsBody extends SoapBody {
-  ListDocumentRevisionsBody(
-      {ListDocumentRevisionsRequest? request, ListDocumentRevisionsResponse? response})
-      : super(request: request, response: response);
+  ListDocumentRevisionsBody({
+    ListDocumentRevisionsRequest? request,
+    ListDocumentRevisionsResponse? response,
+  }) : super(request: request, response: response);
 
-  factory ListDocumentRevisionsBody.fromMap(Map<String, dynamic> data) => ListDocumentRevisionsBody(
-      response: data['ListDocumentRevisionsResponse'] != null
-          ? ListDocumentRevisionsResponse.fromMap(data['ListDocumentRevisionsResponse'])
-          : null);
+  factory ListDocumentRevisionsBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ListDocumentRevisionsBody(
+        response: data['ListDocumentRevisionsResponse'] != null
+            ? ListDocumentRevisionsResponse.fromMap(
+                data['ListDocumentRevisionsResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

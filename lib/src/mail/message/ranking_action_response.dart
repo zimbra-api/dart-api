@@ -7,5 +7,8 @@ import '../../common/type/soap_response.dart';
 class RankingActionResponse extends SoapResponse {
   RankingActionResponse();
 
-  factory RankingActionResponse.fromMap(Map<String, dynamic> data) => RankingActionResponse();
+  factory RankingActionResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      RankingActionResponse();
 }

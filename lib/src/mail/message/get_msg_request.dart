@@ -17,7 +17,10 @@ class GetMsgRequest extends SoapRequest {
   GetMsgRequest(this.msg);
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) => GetMsgEnvelope(GetMsgBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => GetMsgEnvelope(
+        GetMsgBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

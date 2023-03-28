@@ -7,5 +7,8 @@ import '../../common/type/soap_response.dart';
 class SaveIMAPSubscriptionsResponse extends SoapResponse {
   SaveIMAPSubscriptionsResponse();
 
-  factory SaveIMAPSubscriptionsResponse.fromMap(Map<String, dynamic> data) => SaveIMAPSubscriptionsResponse();
+  factory SaveIMAPSubscriptionsResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      SaveIMAPSubscriptionsResponse();
 }

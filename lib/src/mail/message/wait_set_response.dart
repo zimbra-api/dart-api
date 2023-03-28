@@ -31,16 +31,26 @@ class WaitSetResponse extends SoapResponse {
     this.errors = const [],
   });
 
-  factory WaitSetResponse.fromMap(Map<String, dynamic> data) => WaitSetResponse(
-      waitSetId: data['waitSet'] ?? '',
-      canceled: data['canceled'],
-      seqNo: int.tryParse(data['seq']?.toString() ?? ''),
-      signalledAccounts: (data['a'] is Iterable)
-          ? (data['a'] as Iterable)
-              .map<AccountWithModifications>((a) => AccountWithModifications.fromMap(a))
-              .toList(growable: false)
-          : const [],
-      errors: (data['error'] is Iterable)
-          ? (data['error'] as Iterable).map<IdAndType>((error) => IdAndType.fromMap(error)).toList(growable: false)
-          : const []);
+  factory WaitSetResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      WaitSetResponse(
+        waitSetId: data['waitSet'] ?? '',
+        canceled: data['canceled'],
+        seqNo: int.tryParse(data['seq']?.toString() ?? ''),
+        signalledAccounts: (data['a'] is Iterable)
+            ? (data['a'] as Iterable)
+                .map<AccountWithModifications>(
+                  (a) => AccountWithModifications.fromMap(a),
+                )
+                .toList(growable: false)
+            : const [],
+        errors: (data['error'] is Iterable)
+            ? (data['error'] as Iterable)
+                .map<IdAndType>(
+                  (error) => IdAndType.fromMap(error),
+                )
+                .toList(growable: false)
+            : const [],
+      );
 }

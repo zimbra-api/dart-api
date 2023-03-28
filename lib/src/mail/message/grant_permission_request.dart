@@ -19,12 +19,19 @@ class GrantPermissionRequest extends SoapRequest {
   GrantPermissionRequest(this.aces);
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      GrantPermissionEnvelope(GrantPermissionBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => GrantPermissionEnvelope(
+        GrantPermissionBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
-        if (aces.isNotEmpty) 'ace': aces.map((ace) => ace.toMap()).toList(growable: false),
+        if (aces.isNotEmpty)
+          'ace': aces
+              .map(
+                (ace) => ace.toMap(),
+              )
+              .toList(growable: false),
       };
 }

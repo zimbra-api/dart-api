@@ -14,7 +14,19 @@ class SaveDraftResponse extends SoapResponse {
 
   SaveDraftResponse({this.msgMessage, this.chatMessage});
 
-  factory SaveDraftResponse.fromMap(Map<String, dynamic> data) => SaveDraftResponse(
-      msgMessage: data['m'] is Map ? MessageInfo.fromMap(data['m']) : null,
-      chatMessage: data['chat'] is Map ? MessageInfo.fromMap(data['chat']) : null);
+  factory SaveDraftResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      SaveDraftResponse(
+        msgMessage: data['m'] is Map
+            ? MessageInfo.fromMap(
+                data['m'],
+              )
+            : null,
+        chatMessage: data['chat'] is Map
+            ? MessageInfo.fromMap(
+                data['chat'],
+              )
+            : null,
+      );
 }

@@ -7,14 +7,21 @@ import 'invalidate_reminder_device_request.dart';
 import 'invalidate_reminder_device_response.dart';
 
 class InvalidateReminderDeviceBody extends SoapBody {
-  InvalidateReminderDeviceBody(
-      {InvalidateReminderDeviceRequest? request, InvalidateReminderDeviceResponse? response})
-      : super(request: request, response: response);
+  InvalidateReminderDeviceBody({
+    InvalidateReminderDeviceRequest? request,
+    InvalidateReminderDeviceResponse? response,
+  }) : super(request: request, response: response);
 
-  factory InvalidateReminderDeviceBody.fromMap(Map<String, dynamic> data) => InvalidateReminderDeviceBody(
-      response: data['InvalidateReminderDeviceResponse'] != null
-          ? InvalidateReminderDeviceResponse.fromMap(data['InvalidateReminderDeviceResponse'])
-          : null);
+  factory InvalidateReminderDeviceBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      InvalidateReminderDeviceBody(
+        response: data['InvalidateReminderDeviceResponse'] != null
+            ? InvalidateReminderDeviceResponse.fromMap(
+                data['InvalidateReminderDeviceResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

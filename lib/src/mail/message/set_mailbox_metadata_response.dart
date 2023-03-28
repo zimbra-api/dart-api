@@ -7,5 +7,8 @@ import '../../common/type/soap_response.dart';
 class SetMailboxMetadataResponse extends SoapResponse {
   SetMailboxMetadataResponse();
 
-  factory SetMailboxMetadataResponse.fromMap(Map<String, dynamic> data) => SetMailboxMetadataResponse();
+  factory SetMailboxMetadataResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      SetMailboxMetadataResponse();
 }

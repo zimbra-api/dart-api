@@ -36,14 +36,22 @@ class GetMiniCalRequest extends SoapRequest {
   });
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) => GetMiniCalEnvelope(GetMiniCalBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => GetMiniCalEnvelope(
+        GetMiniCalBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
         's': startTime,
         'e': endTime,
-        if (folders.isNotEmpty) 'folder': folders.map((folder) => folder.toMap()).toList(growable: false),
+        if (folders.isNotEmpty)
+          'folder': folders
+              .map(
+                (folder) => folder.toMap(),
+              )
+              .toList(growable: false),
         if (timezone != null) 'tz': timezone!.toMap(),
       };
 }

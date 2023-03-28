@@ -7,13 +7,21 @@ import 'get_task_summaries_request.dart';
 import 'get_task_summaries_response.dart';
 
 class GetTaskSummariesBody extends SoapBody {
-  GetTaskSummariesBody({GetTaskSummariesRequest? request, GetTaskSummariesResponse? response})
-      : super(request: request, response: response);
+  GetTaskSummariesBody({
+    GetTaskSummariesRequest? request,
+    GetTaskSummariesResponse? response,
+  }) : super(request: request, response: response);
 
-  factory GetTaskSummariesBody.fromMap(Map<String, dynamic> data) => GetTaskSummariesBody(
-      response: data['GetTaskSummariesResponse'] != null
-          ? GetTaskSummariesResponse.fromMap(data['GetTaskSummariesResponse'])
-          : null);
+  factory GetTaskSummariesBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetTaskSummariesBody(
+        response: data['GetTaskSummariesResponse'] != null
+            ? GetTaskSummariesResponse.fromMap(
+                data['GetTaskSummariesResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

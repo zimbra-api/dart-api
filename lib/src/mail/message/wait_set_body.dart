@@ -7,11 +7,18 @@ import 'wait_set_request.dart';
 import 'wait_set_response.dart';
 
 class WaitSetBody extends SoapBody {
-  WaitSetBody({WaitSetRequest? request, WaitSetResponse? response})
-      : super(request: request, response: response);
+  WaitSetBody({
+    WaitSetRequest? request,
+    WaitSetResponse? response,
+  }) : super(request: request, response: response);
 
   factory WaitSetBody.fromMap(Map<String, dynamic> data) => WaitSetBody(
-      response: data['WaitSetResponse'] != null ? WaitSetResponse.fromMap(data['WaitSetResponse']) : null);
+        response: data['WaitSetResponse'] != null
+            ? WaitSetResponse.fromMap(
+                data['WaitSetResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

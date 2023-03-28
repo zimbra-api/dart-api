@@ -11,8 +11,16 @@ class IMAPCopyResponse extends SoapResponse {
 
   IMAPCopyResponse({this.items = const []});
 
-  factory IMAPCopyResponse.fromMap(Map<String, dynamic> data) => IMAPCopyResponse(
-      items: (data['item'] is Iterable)
-          ? (data['item'] as Iterable).map<IMAPItemInfo>((item) => IMAPItemInfo.fromMap(item)).toList(growable: false)
-          : const []);
+  factory IMAPCopyResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      IMAPCopyResponse(
+        items: (data['item'] is Iterable)
+            ? (data['item'] as Iterable)
+                .map<IMAPItemInfo>(
+                  (item) => IMAPItemInfo.fromMap(item),
+                )
+                .toList(growable: false)
+            : const [],
+      );
 }

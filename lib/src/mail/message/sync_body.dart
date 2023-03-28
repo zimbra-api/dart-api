@@ -7,10 +7,18 @@ import 'sync_request.dart';
 import 'sync_response.dart';
 
 class SyncBody extends SoapBody {
-  SyncBody({SyncRequest? request, SyncResponse? response}) : super(request: request, response: response);
+  SyncBody({
+    SyncRequest? request,
+    SyncResponse? response,
+  }) : super(request: request, response: response);
 
   factory SyncBody.fromMap(Map<String, dynamic> data) => SyncBody(
-      response: data['SyncResponse'] != null ? SyncResponse.fromMap(data['SyncResponse']) : null);
+        response: data['SyncResponse'] != null
+            ? SyncResponse.fromMap(
+                data['SyncResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

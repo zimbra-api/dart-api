@@ -7,5 +7,8 @@ import '../../common/type/soap_response.dart';
 class ModifyFilterRulesResponse extends SoapResponse {
   ModifyFilterRulesResponse();
 
-  factory ModifyFilterRulesResponse.fromMap(Map<String, dynamic> data) => ModifyFilterRulesResponse();
+  factory ModifyFilterRulesResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ModifyFilterRulesResponse();
 }

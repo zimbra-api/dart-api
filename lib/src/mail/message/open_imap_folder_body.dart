@@ -7,13 +7,21 @@ import 'open_imap_folder_request.dart';
 import 'open_imap_folder_response.dart';
 
 class OpenIMAPFolderBody extends SoapBody {
-  OpenIMAPFolderBody({OpenIMAPFolderRequest? request, OpenIMAPFolderResponse? response})
-      : super(request: request, response: response);
+  OpenIMAPFolderBody({
+    OpenIMAPFolderRequest? request,
+    OpenIMAPFolderResponse? response,
+  }) : super(request: request, response: response);
 
-  factory OpenIMAPFolderBody.fromMap(Map<String, dynamic> data) => OpenIMAPFolderBody(
-      response: data['OpenIMAPFolderResponse'] != null
-          ? OpenIMAPFolderResponse.fromMap(data['OpenIMAPFolderResponse'])
-          : null);
+  factory OpenIMAPFolderBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      OpenIMAPFolderBody(
+        response: data['OpenIMAPFolderResponse'] != null
+            ? OpenIMAPFolderResponse.fromMap(
+                data['OpenIMAPFolderResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

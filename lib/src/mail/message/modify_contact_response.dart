@@ -11,6 +11,14 @@ class ModifyContactResponse extends SoapResponse {
 
   ModifyContactResponse({this.contact});
 
-  factory ModifyContactResponse.fromMap(Map<String, dynamic> data) =>
-      ModifyContactResponse(contact: data['cn'] is Map ? ContactInfo.fromMap(data['cn']) : null);
+  factory ModifyContactResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ModifyContactResponse(
+        contact: data['cn'] is Map
+            ? ContactInfo.fromMap(
+                data['cn'],
+              )
+            : null,
+      );
 }

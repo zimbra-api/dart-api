@@ -11,6 +11,14 @@ class GetMailboxMetadataResponse extends SoapResponse {
 
   GetMailboxMetadataResponse({this.metadata});
 
-  factory GetMailboxMetadataResponse.fromMap(Map<String, dynamic> data) =>
-      GetMailboxMetadataResponse(metadata: data['meta'] is Map ? MailCustomMetadata.fromMap(data['meta']) : null);
+  factory GetMailboxMetadataResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetMailboxMetadataResponse(
+        metadata: data['meta'] is Map
+            ? MailCustomMetadata.fromMap(
+                data['meta'],
+              )
+            : null,
+      );
 }

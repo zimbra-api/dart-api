@@ -15,7 +15,19 @@ class GetMsgMetadataResponse extends SoapResponse {
 
   GetMsgMetadataResponse({this.message, this.chatMessage});
 
-  factory GetMsgMetadataResponse.fromMap(Map<String, dynamic> data) => GetMsgMetadataResponse(
-      message: data['m'] is Map ? MessageSummary.fromMap(data['m']) : null,
-      chatMessage: data['chat'] is Map ? ChatSummary.fromMap(data['chat']) : null);
+  factory GetMsgMetadataResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetMsgMetadataResponse(
+        message: data['m'] is Map
+            ? MessageSummary.fromMap(
+                data['m'],
+              )
+            : null,
+        chatMessage: data['chat'] is Map
+            ? ChatSummary.fromMap(
+                data['chat'],
+              )
+            : null,
+      );
 }

@@ -7,13 +7,21 @@ import 'modify_appointment_request.dart';
 import 'modify_appointment_response.dart';
 
 class ModifyAppointmentBody extends SoapBody {
-  ModifyAppointmentBody({ModifyAppointmentRequest? request, ModifyAppointmentResponse? response})
-      : super(request: request, response: response);
+  ModifyAppointmentBody({
+    ModifyAppointmentRequest? request,
+    ModifyAppointmentResponse? response,
+  }) : super(request: request, response: response);
 
-  factory ModifyAppointmentBody.fromMap(Map<String, dynamic> data) => ModifyAppointmentBody(
-      response: data['ModifyAppointmentResponse'] != null
-          ? ModifyAppointmentResponse.fromMap(data['ModifyAppointmentResponse'])
-          : null);
+  factory ModifyAppointmentBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ModifyAppointmentBody(
+        response: data['ModifyAppointmentResponse'] != null
+            ? ModifyAppointmentResponse.fromMap(
+                data['ModifyAppointmentResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

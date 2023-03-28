@@ -7,13 +7,21 @@ import 'send_verification_code_request.dart';
 import 'send_verification_code_response.dart';
 
 class SendVerificationCodeBody extends SoapBody {
-  SendVerificationCodeBody({SendVerificationCodeRequest? request, SendVerificationCodeResponse? response})
-      : super(request: request, response: response);
+  SendVerificationCodeBody({
+    SendVerificationCodeRequest? request,
+    SendVerificationCodeResponse? response,
+  }) : super(request: request, response: response);
 
-  factory SendVerificationCodeBody.fromMap(Map<String, dynamic> data) => SendVerificationCodeBody(
-      response: data['SendVerificationCodeResponse'] != null
-          ? SendVerificationCodeResponse.fromMap(data['SendVerificationCodeResponse'])
-          : null);
+  factory SendVerificationCodeBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      SendVerificationCodeBody(
+        response: data['SendVerificationCodeResponse'] != null
+            ? SendVerificationCodeResponse.fromMap(
+                data['SendVerificationCodeResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

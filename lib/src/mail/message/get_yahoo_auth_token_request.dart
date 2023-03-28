@@ -17,8 +17,10 @@ class GetYahooAuthTokenRequest extends SoapRequest {
   GetYahooAuthTokenRequest(this.user, this.password);
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      GetYahooAuthTokenEnvelope(GetYahooAuthTokenBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => GetYahooAuthTokenEnvelope(
+        GetYahooAuthTokenBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

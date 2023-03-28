@@ -7,14 +7,21 @@ import 'reset_recent_message_count_request.dart';
 import 'reset_recent_message_count_response.dart';
 
 class ResetRecentMessageCountBody extends SoapBody {
-  ResetRecentMessageCountBody(
-      {ResetRecentMessageCountRequest? request, ResetRecentMessageCountResponse? response})
-      : super(request: request, response: response);
+  ResetRecentMessageCountBody({
+    ResetRecentMessageCountRequest? request,
+    ResetRecentMessageCountResponse? response,
+  }) : super(request: request, response: response);
 
-  factory ResetRecentMessageCountBody.fromMap(Map<String, dynamic> data) => ResetRecentMessageCountBody(
-      response: data['ResetRecentMessageCountResponse'] != null
-          ? ResetRecentMessageCountResponse.fromMap(data['ResetRecentMessageCountResponse'])
-          : null);
+  factory ResetRecentMessageCountBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ResetRecentMessageCountBody(
+        response: data['ResetRecentMessageCountResponse'] != null
+            ? ResetRecentMessageCountResponse.fromMap(
+                data['ResetRecentMessageCountResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

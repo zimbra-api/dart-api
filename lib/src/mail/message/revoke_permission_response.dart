@@ -8,10 +8,14 @@ import 'get_permission_response.dart';
 class RevokePermissionResponse extends GetPermissionResponse {
   RevokePermissionResponse({super.aces = const []});
 
-  factory RevokePermissionResponse.fromMap(Map<String, dynamic> data) => RevokePermissionResponse(
-      aces: (data['ace'] is Iterable)
-          ? (data['ace'] as Iterable)
-              .map<AccountACEinfo>((aces) => AccountACEinfo.fromMap(aces))
-              .toList(growable: false)
-          : const []);
+  factory RevokePermissionResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      RevokePermissionResponse(
+        aces: (data['ace'] is Iterable)
+            ? (data['ace'] as Iterable)
+                .map<AccountACEinfo>((aces) => AccountACEinfo.fromMap(aces))
+                .toList(growable: false)
+            : const [],
+      );
 }

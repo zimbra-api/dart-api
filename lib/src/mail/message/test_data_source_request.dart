@@ -57,8 +57,10 @@ class TestDataSourceRequest extends SoapRequest {
   });
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      TestDataSourceEnvelope(TestDataSourceBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => TestDataSourceEnvelope(
+        TestDataSourceBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

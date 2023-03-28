@@ -7,13 +7,21 @@ import 'restore_contacts_request.dart';
 import 'restore_contacts_response.dart';
 
 class RestoreContactsBody extends SoapBody {
-  RestoreContactsBody({RestoreContactsRequest? request, RestoreContactsResponse? response})
-      : super(request: request, response: response);
+  RestoreContactsBody({
+    RestoreContactsRequest? request,
+    RestoreContactsResponse? response,
+  }) : super(request: request, response: response);
 
-  factory RestoreContactsBody.fromMap(Map<String, dynamic> data) => RestoreContactsBody(
-      response: data['RestoreContactsResponse'] != null
-          ? RestoreContactsResponse.fromMap(data['RestoreContactsResponse'])
-          : null);
+  factory RestoreContactsBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      RestoreContactsBody(
+        response: data['RestoreContactsResponse'] != null
+            ? RestoreContactsResponse.fromMap(
+                data['RestoreContactsResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

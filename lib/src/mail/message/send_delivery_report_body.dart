@@ -7,13 +7,21 @@ import 'send_delivery_report_request.dart';
 import 'send_delivery_report_response.dart';
 
 class SendDeliveryReportBody extends SoapBody {
-  SendDeliveryReportBody({SendDeliveryReportRequest? request, SendDeliveryReportResponse? response})
-      : super(request: request, response: response);
+  SendDeliveryReportBody({
+    SendDeliveryReportRequest? request,
+    SendDeliveryReportResponse? response,
+  }) : super(request: request, response: response);
 
-  factory SendDeliveryReportBody.fromMap(Map<String, dynamic> data) => SendDeliveryReportBody(
-      response: data['SendDeliveryReportResponse'] != null
-          ? SendDeliveryReportResponse.fromMap(data['SendDeliveryReportResponse'])
-          : null);
+  factory SendDeliveryReportBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      SendDeliveryReportBody(
+        response: data['SendDeliveryReportResponse'] != null
+            ? SendDeliveryReportResponse.fromMap(
+                data['SendDeliveryReportResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

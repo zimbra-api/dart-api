@@ -7,13 +7,21 @@ import 'import_appointments_request.dart';
 import 'import_appointments_response.dart';
 
 class ImportAppointmentsBody extends SoapBody {
-  ImportAppointmentsBody({ImportAppointmentsRequest? request, ImportAppointmentsResponse? response})
-      : super(request: request, response: response);
+  ImportAppointmentsBody({
+    ImportAppointmentsRequest? request,
+    ImportAppointmentsResponse? response,
+  }) : super(request: request, response: response);
 
-  factory ImportAppointmentsBody.fromMap(Map<String, dynamic> data) => ImportAppointmentsBody(
-      response: data['ImportAppointmentsResponse'] != null
-          ? ImportAppointmentsResponse.fromMap(data['ImportAppointmentsResponse'])
-          : null);
+  factory ImportAppointmentsBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ImportAppointmentsBody(
+        response: data['ImportAppointmentsResponse'] != null
+            ? ImportAppointmentsResponse.fromMap(
+                data['ImportAppointmentsResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

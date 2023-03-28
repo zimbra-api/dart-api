@@ -7,8 +7,20 @@ import '../../common/type/soap_header.dart';
 import 'send_msg_body.dart';
 
 class SendMsgEnvelope extends SoapEnvelope {
-  SendMsgEnvelope(SendMsgBody body, {super.header}) : super(body..response?.header = header);
+  SendMsgEnvelope(
+    SendMsgBody body, {
+    super.header,
+  }) : super(body..response?.header = header);
 
-  factory SendMsgEnvelope.fromMap(Map<String, dynamic> data) => SendMsgEnvelope(SendMsgBody.fromMap(data['Body']),
-      header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
+  factory SendMsgEnvelope.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      SendMsgEnvelope(
+        SendMsgBody.fromMap(data['Body']),
+        header: data['Header'] != null
+            ? SoapHeader.fromMap(
+                data['Header'],
+              )
+            : null,
+      );
 }

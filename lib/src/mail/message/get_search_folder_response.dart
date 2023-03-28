@@ -11,10 +11,14 @@ class GetSearchFolderResponse extends SoapResponse {
 
   GetSearchFolderResponse({this.searchFolders = const []});
 
-  factory GetSearchFolderResponse.fromMap(Map<String, dynamic> data) => GetSearchFolderResponse(
-      searchFolders: (data['search'] is Iterable)
-          ? (data['search'] as Iterable)
-              .map<SearchFolder>((search) => SearchFolder.fromMap(search))
-              .toList(growable: false)
-          : const []);
+  factory GetSearchFolderResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetSearchFolderResponse(
+        searchFolders: (data['search'] is Iterable)
+            ? (data['search'] as Iterable)
+                .map<SearchFolder>((search) => SearchFolder.fromMap(search))
+                .toList(growable: false)
+            : const [],
+      );
 }

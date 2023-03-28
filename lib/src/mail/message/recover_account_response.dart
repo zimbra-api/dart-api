@@ -11,9 +11,18 @@ class RecoverAccountResponse extends SoapResponse {
   /// Attempts remaining before feature suspension
   final int? recoveryAttemptsLeft;
 
-  RecoverAccountResponse({this.recoveryAccount, this.recoveryAttemptsLeft});
+  RecoverAccountResponse({
+    this.recoveryAccount,
+    this.recoveryAttemptsLeft,
+  });
 
-  factory RecoverAccountResponse.fromMap(Map<String, dynamic> data) => RecoverAccountResponse(
-      recoveryAccount: data['recoveryAccount'],
-      recoveryAttemptsLeft: int.tryParse(data['recoveryAttemptsLeft']?.toString() ?? ''));
+  factory RecoverAccountResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      RecoverAccountResponse(
+        recoveryAccount: data['recoveryAccount'],
+        recoveryAttemptsLeft: int.tryParse(
+          data['recoveryAttemptsLeft']?.toString() ?? '',
+        ),
+      );
 }

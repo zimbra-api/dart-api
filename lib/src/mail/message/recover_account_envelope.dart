@@ -7,9 +7,20 @@ import '../../common/type/soap_header.dart';
 import 'recover_account_body.dart';
 
 class RecoverAccountEnvelope extends SoapEnvelope {
-  RecoverAccountEnvelope(RecoverAccountBody body, {super.header}) : super(body..response?.header = header);
+  RecoverAccountEnvelope(
+    RecoverAccountBody body, {
+    super.header,
+  }) : super(body..response?.header = header);
 
-  factory RecoverAccountEnvelope.fromMap(Map<String, dynamic> data) =>
-      RecoverAccountEnvelope(RecoverAccountBody.fromMap(data['Body']),
-          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
+  factory RecoverAccountEnvelope.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      RecoverAccountEnvelope(
+        RecoverAccountBody.fromMap(data['Body']),
+        header: data['Header'] != null
+            ? SoapHeader.fromMap(
+                data['Header'],
+              )
+            : null,
+      );
 }

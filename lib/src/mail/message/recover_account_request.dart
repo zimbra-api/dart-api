@@ -21,11 +21,17 @@ class RecoverAccountRequest extends SoapRequest {
   /// Channel
   final Channel? channel;
 
-  RecoverAccountRequest(this.email, this.operation, {this.channel});
+  RecoverAccountRequest(
+    this.email,
+    this.operation, {
+    this.channel,
+  });
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      RecoverAccountEnvelope(RecoverAccountBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => RecoverAccountEnvelope(
+        RecoverAccountBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

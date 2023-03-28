@@ -35,8 +35,13 @@ class SendShareNotificationRequest extends SoapRequest {
   });
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      SendShareNotificationEnvelope(SendShareNotificationBody(request: this), header: header);
+  SoapEnvelope getEnvelope({
+    SoapHeader? header,
+  }) =>
+      SendShareNotificationEnvelope(
+        SendShareNotificationBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

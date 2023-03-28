@@ -7,5 +7,8 @@ import '../../common/type/soap_response.dart';
 class ResetRecentMessageCountResponse extends SoapResponse {
   ResetRecentMessageCountResponse();
 
-  factory ResetRecentMessageCountResponse.fromMap(Map<String, dynamic> data) => ResetRecentMessageCountResponse();
+  factory ResetRecentMessageCountResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ResetRecentMessageCountResponse();
 }

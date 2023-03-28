@@ -7,11 +7,18 @@ import 'get_recur_request.dart';
 import 'get_recur_response.dart';
 
 class GetRecurBody extends SoapBody {
-  GetRecurBody({GetRecurRequest? request, GetRecurResponse? response})
-      : super(request: request, response: response);
+  GetRecurBody({
+    GetRecurRequest? request,
+    GetRecurResponse? response,
+  }) : super(request: request, response: response);
 
   factory GetRecurBody.fromMap(Map<String, dynamic> data) => GetRecurBody(
-      response: data['GetRecurResponse'] != null ? GetRecurResponse.fromMap(data['GetRecurResponse']) : null);
+        response: data['GetRecurResponse'] != null
+            ? GetRecurResponse.fromMap(
+                data['GetRecurResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

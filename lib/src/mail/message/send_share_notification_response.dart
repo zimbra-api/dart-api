@@ -7,5 +7,8 @@ import '../../common/type/soap_response.dart';
 class SendShareNotificationResponse extends SoapResponse {
   SendShareNotificationResponse();
 
-  factory SendShareNotificationResponse.fromMap(Map<String, dynamic> data) => SendShareNotificationResponse();
+  factory SendShareNotificationResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      SendShareNotificationResponse();
 }

@@ -10,5 +10,7 @@ class NoOpResponse extends SoapResponse {
 
   NoOpResponse({this.waitDisallowed});
 
-  factory NoOpResponse.fromMap(Map<String, dynamic> data) => NoOpResponse(waitDisallowed: data['waitDisallowed']);
+  factory NoOpResponse.fromMap(Map<String, dynamic> data) => NoOpResponse(
+        waitDisallowed: data['waitDisallowed'],
+      );
 }

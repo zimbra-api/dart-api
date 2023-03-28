@@ -7,10 +7,20 @@ import '../../common/type/soap_header.dart';
 import 'invalidate_reminder_device_body.dart';
 
 class InvalidateReminderDeviceEnvelope extends SoapEnvelope {
-  InvalidateReminderDeviceEnvelope(InvalidateReminderDeviceBody body, {super.header})
-      : super(body..response?.header = header);
+  InvalidateReminderDeviceEnvelope(
+    InvalidateReminderDeviceBody body, {
+    super.header,
+  }) : super(body..response?.header = header);
 
-  factory InvalidateReminderDeviceEnvelope.fromMap(Map<String, dynamic> data) =>
-      InvalidateReminderDeviceEnvelope(InvalidateReminderDeviceBody.fromMap(data['Body']),
-          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
+  factory InvalidateReminderDeviceEnvelope.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      InvalidateReminderDeviceEnvelope(
+        InvalidateReminderDeviceBody.fromMap(data['Body']),
+        header: data['Header'] != null
+            ? SoapHeader.fromMap(
+                data['Header'],
+              )
+            : null,
+      );
 }

@@ -19,8 +19,13 @@ class ListDocumentRevisionsRequest extends SoapRequest {
   ListDocumentRevisionsRequest(this.doc);
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      ListDocumentRevisionsEnvelope(ListDocumentRevisionsBody(request: this), header: header);
+  SoapEnvelope getEnvelope({
+    SoapHeader? header,
+  }) =>
+      ListDocumentRevisionsEnvelope(
+        ListDocumentRevisionsBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

@@ -11,6 +11,14 @@ class ModifySearchFolderResponse extends SoapResponse {
 
   ModifySearchFolderResponse({this.searchFolder});
 
-  factory ModifySearchFolderResponse.fromMap(Map<String, dynamic> data) =>
-      ModifySearchFolderResponse(searchFolder: data['search'] is Map ? SearchFolder.fromMap(data['search']) : null);
+  factory ModifySearchFolderResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ModifySearchFolderResponse(
+        searchFolder: data['search'] is Map
+            ? SearchFolder.fromMap(
+                data['search'],
+              )
+            : null,
+      );
 }

@@ -7,14 +7,21 @@ import 'get_system_retention_policy_request.dart';
 import 'get_system_retention_policy_response.dart';
 
 class GetSystemRetentionPolicyBody extends SoapBody {
-  GetSystemRetentionPolicyBody(
-      {GetSystemRetentionPolicyRequest? request, GetSystemRetentionPolicyResponse? response})
-      : super(request: request, response: response);
+  GetSystemRetentionPolicyBody({
+    GetSystemRetentionPolicyRequest? request,
+    GetSystemRetentionPolicyResponse? response,
+  }) : super(request: request, response: response);
 
-  factory GetSystemRetentionPolicyBody.fromMap(Map<String, dynamic> data) => GetSystemRetentionPolicyBody(
-      response: data['GetSystemRetentionPolicyResponse'] != null
-          ? GetSystemRetentionPolicyResponse.fromMap(data['GetSystemRetentionPolicyResponse'])
-          : null);
+  factory GetSystemRetentionPolicyBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetSystemRetentionPolicyBody(
+        response: data['GetSystemRetentionPolicyResponse'] != null
+            ? GetSystemRetentionPolicyResponse.fromMap(
+                data['GetSystemRetentionPolicyResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

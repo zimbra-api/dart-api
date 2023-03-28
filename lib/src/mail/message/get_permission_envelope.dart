@@ -7,9 +7,20 @@ import '../../common/type/soap_header.dart';
 import 'get_permission_body.dart';
 
 class GetPermissionEnvelope extends SoapEnvelope {
-  GetPermissionEnvelope(GetPermissionBody body, {super.header}) : super(body..response?.header = header);
+  GetPermissionEnvelope(
+    GetPermissionBody body, {
+    super.header,
+  }) : super(body..response?.header = header);
 
-  factory GetPermissionEnvelope.fromMap(Map<String, dynamic> data) =>
-      GetPermissionEnvelope(GetPermissionBody.fromMap(data['Body']),
-          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
+  factory GetPermissionEnvelope.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetPermissionEnvelope(
+        GetPermissionBody.fromMap(data['Body']),
+        header: data['Header'] != null
+            ? SoapHeader.fromMap(
+                data['Header'],
+              )
+            : null,
+      );
 }

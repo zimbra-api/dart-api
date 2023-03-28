@@ -11,10 +11,14 @@ class GetPermissionResponse extends SoapResponse {
 
   GetPermissionResponse({this.aces = const []});
 
-  factory GetPermissionResponse.fromMap(Map<String, dynamic> data) => GetPermissionResponse(
-      aces: (data['ace'] is Iterable)
-          ? (data['ace'] as Iterable)
-              .map<AccountACEinfo>((aces) => AccountACEinfo.fromMap(aces))
-              .toList(growable: false)
-          : const []);
+  factory GetPermissionResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetPermissionResponse(
+        aces: (data['ace'] is Iterable)
+            ? (data['ace'] as Iterable)
+                .map<AccountACEinfo>((aces) => AccountACEinfo.fromMap(aces))
+                .toList(growable: false)
+            : const [],
+      );
 }

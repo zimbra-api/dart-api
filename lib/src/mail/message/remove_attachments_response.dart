@@ -14,7 +14,19 @@ class RemoveAttachmentsResponse extends SoapResponse {
 
   RemoveAttachmentsResponse({this.msgMessage, this.chatMessage});
 
-  factory RemoveAttachmentsResponse.fromMap(Map<String, dynamic> data) => RemoveAttachmentsResponse(
-      msgMessage: data['m'] is Map ? MessageInfo.fromMap(data['m']) : null,
-      chatMessage: data['chat'] is Map ? MessageInfo.fromMap(data['chat']) : null);
+  factory RemoveAttachmentsResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      RemoveAttachmentsResponse(
+        msgMessage: data['m'] is Map
+            ? MessageInfo.fromMap(
+                data['m'],
+              )
+            : null,
+        chatMessage: data['chat'] is Map
+            ? MessageInfo.fromMap(
+                data['chat'],
+              )
+            : null,
+      );
 }

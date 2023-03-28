@@ -8,10 +8,16 @@ import 'get_filter_rules_response.dart';
 class GetOutgoingFilterRulesResponse extends GetFilterRulesResponse {
   GetOutgoingFilterRulesResponse({super.filterRules = const []});
 
-  factory GetOutgoingFilterRulesResponse.fromMap(Map<String, dynamic> data) => GetOutgoingFilterRulesResponse(
-      filterRules: (data['filterRules']?[0]?['filterRule'] is Iterable)
-          ? (data['filterRules'][0]['filterRule'] as Iterable)
-              .map<FilterRule>((filterRule) => FilterRule.fromMap(filterRule))
-              .toList(growable: false)
-          : const []);
+  factory GetOutgoingFilterRulesResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetOutgoingFilterRulesResponse(
+        filterRules: (data['filterRules']?[0]?['filterRule'] is Iterable)
+            ? (data['filterRules'][0]['filterRule'] as Iterable)
+                .map<FilterRule>(
+                  (filterRule) => FilterRule.fromMap(filterRule),
+                )
+                .toList(growable: false)
+            : const [],
+      );
 }

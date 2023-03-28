@@ -53,10 +53,18 @@ class NoOpRequest extends SoapRequest {
   /// variables zimbra_noop_default_timeout, zimbra_noop_min_timeout and zimbra_noop_max_timeout)
   final int? timeout;
 
-  NoOpRequest({this.wait, this.includeDelegates, this.enforceLimit, this.timeout});
+  NoOpRequest({
+    this.wait,
+    this.includeDelegates,
+    this.enforceLimit,
+    this.timeout,
+  });
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) => NoOpEnvelope(NoOpBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => NoOpEnvelope(
+        NoOpBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

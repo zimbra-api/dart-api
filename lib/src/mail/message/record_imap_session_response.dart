@@ -13,6 +13,11 @@ class RecordIMAPSessionResponse extends SoapResponse {
 
   RecordIMAPSessionResponse({this.lastItemId, this.folderUuid});
 
-  factory RecordIMAPSessionResponse.fromMap(Map<String, dynamic> data) =>
-      RecordIMAPSessionResponse(lastItemId: int.tryParse(data['id']?.toString() ?? ''), folderUuid: data['luuid']);
+  factory RecordIMAPSessionResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      RecordIMAPSessionResponse(
+        lastItemId: int.tryParse(data['id']?.toString() ?? ''),
+        folderUuid: data['luuid'],
+      );
 }

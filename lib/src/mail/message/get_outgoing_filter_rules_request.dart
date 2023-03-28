@@ -11,8 +11,13 @@ import 'get_outgoing_filter_rules_envelope.dart';
 /// Get outgoing filter rules
 class GetOutgoingFilterRulesRequest extends SoapRequest {
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      GetOutgoingFilterRulesEnvelope(GetOutgoingFilterRulesBody(request: this), header: header);
+  SoapEnvelope getEnvelope({
+    SoapHeader? header,
+  }) =>
+      GetOutgoingFilterRulesEnvelope(
+        GetOutgoingFilterRulesBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

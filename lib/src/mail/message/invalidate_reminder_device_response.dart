@@ -7,5 +7,8 @@ import '../../common/type/soap_response.dart';
 class InvalidateReminderDeviceResponse extends SoapResponse {
   InvalidateReminderDeviceResponse();
 
-  factory InvalidateReminderDeviceResponse.fromMap(Map<String, dynamic> data) => InvalidateReminderDeviceResponse();
+  factory InvalidateReminderDeviceResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      InvalidateReminderDeviceResponse();
 }

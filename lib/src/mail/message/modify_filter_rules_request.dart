@@ -17,15 +17,23 @@ class ModifyFilterRulesRequest extends SoapRequest {
   ModifyFilterRulesRequest(this.filterRules);
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      ModifyFilterRulesEnvelope(ModifyFilterRulesBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => ModifyFilterRulesEnvelope(
+        ModifyFilterRulesBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
         if (filterRules.isNotEmpty)
           'filterRules': [
-            {'filterRule': filterRules.map((filterRule) => filterRule.toMap()).toList(growable: false)}
+            {
+              'filterRule': filterRules
+                  .map(
+                    (filterRule) => filterRule.toMap(),
+                  )
+                  .toList(growable: false)
+            }
           ],
       };
 }

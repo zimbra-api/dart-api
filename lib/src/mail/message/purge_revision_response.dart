@@ -7,5 +7,8 @@ import '../../common/type/soap_response.dart';
 class PurgeRevisionResponse extends SoapResponse {
   PurgeRevisionResponse();
 
-  factory PurgeRevisionResponse.fromMap(Map<String, dynamic> data) => PurgeRevisionResponse();
+  factory PurgeRevisionResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      PurgeRevisionResponse();
 }

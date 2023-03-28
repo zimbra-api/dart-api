@@ -10,9 +10,15 @@ import 'get_task_summaries_envelope.dart';
 
 /// Get task summaries
 class GetTaskSummariesRequest extends GetApptSummariesRequest {
-  GetTaskSummariesRequest(super.startTime, super.endTime, {super.folderId});
+  GetTaskSummariesRequest(
+    super.startTime,
+    super.endTime, {
+    super.folderId,
+  });
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      GetTaskSummariesEnvelope(GetTaskSummariesBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => GetTaskSummariesEnvelope(
+        GetTaskSummariesBody(request: this),
+        header: header,
+      );
 }

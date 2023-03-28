@@ -7,10 +7,20 @@ import '../../common/type/soap_header.dart';
 import 'send_share_notification_body.dart';
 
 class SendShareNotificationEnvelope extends SoapEnvelope {
-  SendShareNotificationEnvelope(SendShareNotificationBody body, {super.header})
-      : super(body..response?.header = header);
+  SendShareNotificationEnvelope(
+    SendShareNotificationBody body, {
+    super.header,
+  }) : super(body..response?.header = header);
 
-  factory SendShareNotificationEnvelope.fromMap(Map<String, dynamic> data) =>
-      SendShareNotificationEnvelope(SendShareNotificationBody.fromMap(data['Body']),
-          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
+  factory SendShareNotificationEnvelope.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      SendShareNotificationEnvelope(
+        SendShareNotificationBody.fromMap(data['Body']),
+        header: data['Header'] != null
+            ? SoapHeader.fromMap(
+                data['Header'],
+              )
+            : null,
+      );
 }

@@ -14,8 +14,13 @@ import 'reset_recent_message_count_envelope.dart';
 /// - (b) it was added since the last write operation associated with any SOAP session.
 class ResetRecentMessageCountRequest extends SoapRequest {
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      ResetRecentMessageCountEnvelope(ResetRecentMessageCountBody(request: this), header: header);
+  SoapEnvelope getEnvelope({
+    SoapHeader? header,
+  }) =>
+      ResetRecentMessageCountEnvelope(
+        ResetRecentMessageCountBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

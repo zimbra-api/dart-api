@@ -7,9 +7,20 @@ import '../../common/type/soap_header.dart';
 import 'get_spell_dictionaries_body.dart';
 
 class GetSpellDictionariesEnvelope extends SoapEnvelope {
-  GetSpellDictionariesEnvelope(GetSpellDictionariesBody body, {super.header}) : super(body..response?.header = header);
+  GetSpellDictionariesEnvelope(
+    GetSpellDictionariesBody body, {
+    super.header,
+  }) : super(body..response?.header = header);
 
-  factory GetSpellDictionariesEnvelope.fromMap(Map<String, dynamic> data) =>
-      GetSpellDictionariesEnvelope(GetSpellDictionariesBody.fromMap(data['Body']),
-          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
+  factory GetSpellDictionariesEnvelope.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetSpellDictionariesEnvelope(
+        GetSpellDictionariesBody.fromMap(data['Body']),
+        header: data['Header'] != null
+            ? SoapHeader.fromMap(
+                data['Header'],
+              )
+            : null,
+      );
 }

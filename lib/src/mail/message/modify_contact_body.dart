@@ -7,12 +7,21 @@ import 'modify_contact_request.dart';
 import 'modify_contact_response.dart';
 
 class ModifyContactBody extends SoapBody {
-  ModifyContactBody({ModifyContactRequest? request, ModifyContactResponse? response})
-      : super(request: request, response: response);
+  ModifyContactBody({
+    ModifyContactRequest? request,
+    ModifyContactResponse? response,
+  }) : super(request: request, response: response);
 
-  factory ModifyContactBody.fromMap(Map<String, dynamic> data) => ModifyContactBody(
-      response:
-          data['ModifyContactResponse'] != null ? ModifyContactResponse.fromMap(data['ModifyContactResponse']) : null);
+  factory ModifyContactBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ModifyContactBody(
+        response: data['ModifyContactResponse'] != null
+            ? ModifyContactResponse.fromMap(
+                data['ModifyContactResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

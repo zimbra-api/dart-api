@@ -7,11 +7,21 @@ import 'get_mini_cal_request.dart';
 import 'get_mini_cal_response.dart';
 
 class GetMiniCalBody extends SoapBody {
-  GetMiniCalBody({GetMiniCalRequest? request, GetMiniCalResponse? response})
-      : super(request: request, response: response);
+  GetMiniCalBody({
+    GetMiniCalRequest? request,
+    GetMiniCalResponse? response,
+  }) : super(request: request, response: response);
 
-  factory GetMiniCalBody.fromMap(Map<String, dynamic> data) => GetMiniCalBody(
-      response: data['GetMiniCalResponse'] != null ? GetMiniCalResponse.fromMap(data['GetMiniCalResponse']) : null);
+  factory GetMiniCalBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetMiniCalBody(
+        response: data['GetMiniCalResponse'] != null
+            ? GetMiniCalResponse.fromMap(
+                data['GetMiniCalResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

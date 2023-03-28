@@ -7,13 +7,21 @@ import 'remove_attachments_request.dart';
 import 'remove_attachments_response.dart';
 
 class RemoveAttachmentsBody extends SoapBody {
-  RemoveAttachmentsBody({RemoveAttachmentsRequest? request, RemoveAttachmentsResponse? response})
-      : super(request: request, response: response);
+  RemoveAttachmentsBody({
+    RemoveAttachmentsRequest? request,
+    RemoveAttachmentsResponse? response,
+  }) : super(request: request, response: response);
 
-  factory RemoveAttachmentsBody.fromMap(Map<String, dynamic> data) => RemoveAttachmentsBody(
-      response: data['RemoveAttachmentsResponse'] != null
-          ? RemoveAttachmentsResponse.fromMap(data['RemoveAttachmentsResponse'])
-          : null);
+  factory RemoveAttachmentsBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      RemoveAttachmentsBody(
+        response: data['RemoveAttachmentsResponse'] != null
+            ? RemoveAttachmentsResponse.fromMap(
+                data['RemoveAttachmentsResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

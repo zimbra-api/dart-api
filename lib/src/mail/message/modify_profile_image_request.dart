@@ -19,8 +19,10 @@ class ModifyProfileImageRequest extends SoapRequest {
   ModifyProfileImageRequest({this.uploadId, this.imageB64Data});
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      ModifyProfileImageEnvelope(ModifyProfileImageBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => ModifyProfileImageEnvelope(
+        ModifyProfileImageBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

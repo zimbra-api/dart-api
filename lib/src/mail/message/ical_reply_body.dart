@@ -7,11 +7,18 @@ import 'ical_reply_request.dart';
 import 'ical_reply_response.dart';
 
 class ICalReplyBody extends SoapBody {
-  ICalReplyBody({ICalReplyRequest? request, ICalReplyResponse? response})
-      : super(request: request, response: response);
+  ICalReplyBody({
+    ICalReplyRequest? request,
+    ICalReplyResponse? response,
+  }) : super(request: request, response: response);
 
   factory ICalReplyBody.fromMap(Map<String, dynamic> data) => ICalReplyBody(
-      response: data['ICalReplyResponse'] != null ? ICalReplyResponse.fromMap(data['ICalReplyResponse']) : null);
+        response: data['ICalReplyResponse'] != null
+            ? ICalReplyResponse.fromMap(
+                data['ICalReplyResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

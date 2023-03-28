@@ -11,8 +11,13 @@ import 'get_share_notifications_envelope.dart';
 /// Get share notifications
 class GetShareNotificationsRequest extends SoapRequest {
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      GetShareNotificationsEnvelope(GetShareNotificationsBody(request: this), header: header);
+  SoapEnvelope getEnvelope({
+    SoapHeader? header,
+  }) =>
+      GetShareNotificationsEnvelope(
+        GetShareNotificationsBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

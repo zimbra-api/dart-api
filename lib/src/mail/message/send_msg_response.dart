@@ -14,6 +14,10 @@ class SendMsgResponse extends SoapResponse {
 
   SendMsgResponse({this.msg});
 
-  factory SendMsgResponse.fromMap(Map<String, dynamic> data) =>
-      SendMsgResponse(msg: data['m'] is Map ? MsgWithGroupInfo.fromMap(data['m']) : null);
+  factory SendMsgResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      SendMsgResponse(
+        msg: data['m'] is Map ? MsgWithGroupInfo.fromMap(data['m']) : null,
+      );
 }

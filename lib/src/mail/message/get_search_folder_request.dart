@@ -11,8 +11,10 @@ import 'get_search_folder_envelope.dart';
 /// Get all search folders
 class GetSearchFolderRequest extends SoapRequest {
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      GetSearchFolderEnvelope(GetSearchFolderBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => GetSearchFolderEnvelope(
+        GetSearchFolderBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

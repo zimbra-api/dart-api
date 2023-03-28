@@ -15,8 +15,10 @@ class GetYahooCookieRequest extends SoapRequest {
   GetYahooCookieRequest(this.user);
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      GetYahooCookieEnvelope(GetYahooCookieBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => GetYahooCookieEnvelope(
+        GetYahooCookieBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

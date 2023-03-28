@@ -14,13 +14,23 @@ class SetTaskResponse extends SetAppointmentResponse {
     super.exceptions = const [],
   });
 
-  factory SetTaskResponse.fromMap(Map<String, dynamic> data) => SetTaskResponse(
-      calItemId: data['calItemId'],
-      deprecatedApptId: data['apptId'],
-      defaultId: data['default'] is Map ? Id.fromMap(data['default']) : null,
-      exceptions: (data['except'] is Iterable)
-          ? (data['except'] as Iterable)
-              .map<ExceptIdInfo>((except) => ExceptIdInfo.fromMap(except))
-              .toList(growable: false)
-          : const []);
+  factory SetTaskResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      SetTaskResponse(
+        calItemId: data['calItemId'],
+        deprecatedApptId: data['apptId'],
+        defaultId: data['default'] is Map
+            ? Id.fromMap(
+                data['default'],
+              )
+            : null,
+        exceptions: (data['except'] is Iterable)
+            ? (data['except'] as Iterable)
+                .map<ExceptIdInfo>(
+                  (except) => ExceptIdInfo.fromMap(except),
+                )
+                .toList(growable: false)
+            : const [],
+      );
 }

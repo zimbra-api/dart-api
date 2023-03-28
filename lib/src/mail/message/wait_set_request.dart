@@ -79,7 +79,10 @@ class WaitSetRequest extends SoapRequest {
   });
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) => WaitSetEnvelope(WaitSetBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => WaitSetEnvelope(
+        WaitSetBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {
@@ -91,15 +94,33 @@ class WaitSetRequest extends SoapRequest {
         if (expand != null) 'expand': expand,
         if (addAccounts.isNotEmpty)
           'add': [
-            {'a': addAccounts.map((a) => a.toMap()).toList(growable: false)}
+            {
+              'a': addAccounts
+                  .map(
+                    (a) => a.toMap(),
+                  )
+                  .toList(growable: false)
+            }
           ],
         if (updateAccounts.isNotEmpty)
           'update': [
-            {'a': updateAccounts.map((a) => a.toMap()).toList(growable: false)}
+            {
+              'a': updateAccounts
+                  .map(
+                    (a) => a.toMap(),
+                  )
+                  .toList(growable: false)
+            }
           ],
         if (removeAccounts.isNotEmpty)
           'remove': [
-            {'a': removeAccounts.map((a) => a.toMap()).toList(growable: false)}
+            {
+              'a': removeAccounts
+                  .map(
+                    (a) => a.toMap(),
+                  )
+                  .toList(growable: false)
+            }
           ],
       };
 }

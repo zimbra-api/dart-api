@@ -18,8 +18,10 @@ class RecordIMAPSessionRequest extends SoapRequest {
   RecordIMAPSessionRequest(this.folderId);
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      RecordIMAPSessionEnvelope(RecordIMAPSessionBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => RecordIMAPSessionEnvelope(
+        RecordIMAPSessionBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

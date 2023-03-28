@@ -12,15 +12,26 @@ class GetMiniCalResponse extends SoapResponse {
   /// Error for each calendar folder that couldn't be accessed
   final List<MiniCalError> errors;
 
-  GetMiniCalResponse({this.busyDates = const [], this.errors = const []});
+  GetMiniCalResponse({
+    this.busyDates = const [],
+    this.errors = const [],
+  });
 
-  factory GetMiniCalResponse.fromMap(Map<String, dynamic> data) => GetMiniCalResponse(
-      busyDates: (data['date'] is Iterable)
-          ? (data['date'] as Iterable).map<String>((date) => date['_content']).toList(growable: false)
-          : const [],
-      errors: (data['error'] is Iterable)
-          ? (data['error'] as Iterable)
-              .map<MiniCalError>((error) => MiniCalError.fromMap(error))
-              .toList(growable: false)
-          : const []);
+  factory GetMiniCalResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetMiniCalResponse(
+        busyDates: (data['date'] is Iterable)
+            ? (data['date'] as Iterable)
+                .map<String>(
+                  (date) => date['_content'],
+                )
+                .toList(growable: false)
+            : const [],
+        errors: (data['error'] is Iterable)
+            ? (data['error'] as Iterable)
+                .map<MiniCalError>((error) => MiniCalError.fromMap(error))
+                .toList(growable: false)
+            : const [],
+      );
 }

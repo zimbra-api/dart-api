@@ -7,5 +7,8 @@ import '../../common/type/soap_response.dart';
 class SendVerificationCodeResponse extends SoapResponse {
   SendVerificationCodeResponse();
 
-  factory SendVerificationCodeResponse.fromMap(Map<String, dynamic> data) => SendVerificationCodeResponse();
+  factory SendVerificationCodeResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      SendVerificationCodeResponse();
 }

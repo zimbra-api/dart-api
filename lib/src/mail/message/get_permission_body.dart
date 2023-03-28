@@ -7,12 +7,21 @@ import 'get_permission_request.dart';
 import 'get_permission_response.dart';
 
 class GetPermissionBody extends SoapBody {
-  GetPermissionBody({GetPermissionRequest? request, GetPermissionResponse? response})
-      : super(request: request, response: response);
+  GetPermissionBody({
+    GetPermissionRequest? request,
+    GetPermissionResponse? response,
+  }) : super(request: request, response: response);
 
-  factory GetPermissionBody.fromMap(Map<String, dynamic> data) => GetPermissionBody(
-      response:
-          data['GetPermissionResponse'] != null ? GetPermissionResponse.fromMap(data['GetPermissionResponse']) : null);
+  factory GetPermissionBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetPermissionBody(
+        response: data['GetPermissionResponse'] != null
+            ? GetPermissionResponse.fromMap(
+                data['GetPermissionResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

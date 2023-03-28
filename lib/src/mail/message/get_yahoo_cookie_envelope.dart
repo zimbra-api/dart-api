@@ -7,9 +7,20 @@ import '../../common/type/soap_header.dart';
 import 'get_yahoo_cookie_body.dart';
 
 class GetYahooCookieEnvelope extends SoapEnvelope {
-  GetYahooCookieEnvelope(GetYahooCookieBody body, {super.header}) : super(body..response?.header = header);
+  GetYahooCookieEnvelope(
+    GetYahooCookieBody body, {
+    super.header,
+  }) : super(body..response?.header = header);
 
-  factory GetYahooCookieEnvelope.fromMap(Map<String, dynamic> data) =>
-      GetYahooCookieEnvelope(GetYahooCookieBody.fromMap(data['Body']),
-          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
+  factory GetYahooCookieEnvelope.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetYahooCookieEnvelope(
+        GetYahooCookieBody.fromMap(data['Body']),
+        header: data['Header'] != null
+            ? SoapHeader.fromMap(
+                data['Header'],
+              )
+            : null,
+      );
 }

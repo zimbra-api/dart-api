@@ -16,12 +16,22 @@ class SaveIMAPSubscriptionsRequest extends SoapRequest {
   SaveIMAPSubscriptionsRequest(this.subscriptions);
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      SaveIMAPSubscriptionsEnvelope(SaveIMAPSubscriptionsBody(request: this), header: header);
+  SoapEnvelope getEnvelope({
+    SoapHeader? header,
+  }) =>
+      SaveIMAPSubscriptionsEnvelope(
+        SaveIMAPSubscriptionsBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
-        if (subscriptions.isNotEmpty) 'sub': subscriptions.map((sub) => {'_content': sub}).toList(growable: false),
+        if (subscriptions.isNotEmpty)
+          'sub': subscriptions
+              .map(
+                (sub) => {'_content': sub},
+              )
+              .toList(growable: false),
       };
 }

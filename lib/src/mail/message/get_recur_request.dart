@@ -16,7 +16,10 @@ class GetRecurRequest extends SoapRequest {
   GetRecurRequest(this.id);
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) => GetRecurEnvelope(GetRecurBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => GetRecurEnvelope(
+        GetRecurBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

@@ -7,8 +7,20 @@ import '../../common/type/soap_header.dart';
 import 'wait_set_body.dart';
 
 class WaitSetEnvelope extends SoapEnvelope {
-  WaitSetEnvelope(WaitSetBody body, {super.header}) : super(body..response?.header = header);
+  WaitSetEnvelope(
+    WaitSetBody body, {
+    super.header,
+  }) : super(body..response?.header = header);
 
-  factory WaitSetEnvelope.fromMap(Map<String, dynamic> data) => WaitSetEnvelope(WaitSetBody.fromMap(data['Body']),
-      header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
+  factory WaitSetEnvelope.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      WaitSetEnvelope(
+        WaitSetBody.fromMap(data['Body']),
+        header: data['Header'] != null
+            ? SoapHeader.fromMap(
+                data['Header'],
+              )
+            : null,
+      );
 }

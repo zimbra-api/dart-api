@@ -26,9 +26,25 @@ class GetRecurResponse extends SoapResponse {
     this.exceptComponent,
   });
 
-  factory GetRecurResponse.fromMap(Map<String, dynamic> data) => GetRecurResponse(
-      timezone: data['tz'] is Map ? CalTZInfo.fromMap(data['tz']) : null,
-      inviteComponent: data['comp'] is Map ? CalendarItemRecur.fromMap(data['comp']) : null,
-      cancelComponent: data['cancel'] is Map ? CalendarItemRecur.fromMap(data['cancel']) : null,
-      exceptComponent: data['except'] is Map ? CalendarItemRecur.fromMap(data['except']) : null);
+  factory GetRecurResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetRecurResponse(
+        timezone: data['tz'] is Map ? CalTZInfo.fromMap(data['tz']) : null,
+        inviteComponent: data['comp'] is Map
+            ? CalendarItemRecur.fromMap(
+                data['comp'],
+              )
+            : null,
+        cancelComponent: data['cancel'] is Map
+            ? CalendarItemRecur.fromMap(
+                data['cancel'],
+              )
+            : null,
+        exceptComponent: data['except'] is Map
+            ? CalendarItemRecur.fromMap(
+                data['except'],
+              )
+            : null,
+      );
 }

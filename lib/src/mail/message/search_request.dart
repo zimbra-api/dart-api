@@ -57,7 +57,10 @@ class SearchRequest extends MailSearchParams {
   });
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) => SearchEnvelope(SearchBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => SearchEnvelope(
+        SearchBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {
@@ -87,7 +90,12 @@ class SearchRequest extends MailSearchParams {
         if (field != null) 'field': field,
         if (limit != null) 'limit': limit,
         if (offset != null) 'offset': offset,
-        if (headers.isNotEmpty) 'header': headers.map((header) => header.toMap()).toList(growable: false),
+        if (headers.isNotEmpty)
+          'header': headers
+              .map(
+                (header) => header.toMap(),
+              )
+              .toList(growable: false),
         if (timezone != null) 'tz': timezone!.toMap(),
         if (locale != null) 'locale': {'_content': locale},
         if (cursor != null) 'cursor': cursor!.toMap(),

@@ -7,13 +7,21 @@ import 'get_spell_dictionaries_request.dart';
 import 'get_spell_dictionaries_response.dart';
 
 class GetSpellDictionariesBody extends SoapBody {
-  GetSpellDictionariesBody({GetSpellDictionariesRequest? request, GetSpellDictionariesResponse? response})
-      : super(request: request, response: response);
+  GetSpellDictionariesBody({
+    GetSpellDictionariesRequest? request,
+    GetSpellDictionariesResponse? response,
+  }) : super(request: request, response: response);
 
-  factory GetSpellDictionariesBody.fromMap(Map<String, dynamic> data) => GetSpellDictionariesBody(
-      response: data['GetSpellDictionariesResponse'] != null
-          ? GetSpellDictionariesResponse.fromMap(data['GetSpellDictionariesResponse'])
-          : null);
+  factory GetSpellDictionariesBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetSpellDictionariesBody(
+        response: data['GetSpellDictionariesResponse'] != null
+            ? GetSpellDictionariesResponse.fromMap(
+                data['GetSpellDictionariesResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

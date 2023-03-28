@@ -11,15 +11,23 @@ class SnoozeCalendarItemAlarmResponse extends DismissCalendarItemAlarmResponse {
     super.taskUpdatedAlarms = const [],
   });
 
-  factory SnoozeCalendarItemAlarmResponse.fromMap(Map<String, dynamic> data) => SnoozeCalendarItemAlarmResponse(
-      apptUpdatedAlarms: (data['appt'] is Iterable)
-          ? (data['appt'] as Iterable)
-              .map<UpdatedAlarmInfo>((appt) => UpdatedAlarmInfo.fromMap(appt))
-              .toList(growable: false)
-          : const [],
-      taskUpdatedAlarms: (data['task'] is Iterable)
-          ? (data['task'] as Iterable)
-              .map<UpdatedAlarmInfo>((task) => UpdatedAlarmInfo.fromMap(task))
-              .toList(growable: false)
-          : const []);
+  factory SnoozeCalendarItemAlarmResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      SnoozeCalendarItemAlarmResponse(
+        apptUpdatedAlarms: (data['appt'] is Iterable)
+            ? (data['appt'] as Iterable)
+                .map<UpdatedAlarmInfo>(
+                  (appt) => UpdatedAlarmInfo.fromMap(appt),
+                )
+                .toList(growable: false)
+            : const [],
+        taskUpdatedAlarms: (data['task'] is Iterable)
+            ? (data['task'] as Iterable)
+                .map<UpdatedAlarmInfo>(
+                  (task) => UpdatedAlarmInfo.fromMap(task),
+                )
+                .toList(growable: false)
+            : const [],
+      );
 }

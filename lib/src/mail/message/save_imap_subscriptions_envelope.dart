@@ -7,10 +7,20 @@ import '../../common/type/soap_header.dart';
 import 'save_imap_subscriptions_body.dart';
 
 class SaveIMAPSubscriptionsEnvelope extends SoapEnvelope {
-  SaveIMAPSubscriptionsEnvelope(SaveIMAPSubscriptionsBody body, {super.header})
-      : super(body..response?.header = header);
+  SaveIMAPSubscriptionsEnvelope(
+    SaveIMAPSubscriptionsBody body, {
+    super.header,
+  }) : super(body..response?.header = header);
 
-  factory SaveIMAPSubscriptionsEnvelope.fromMap(Map<String, dynamic> data) =>
-      SaveIMAPSubscriptionsEnvelope(SaveIMAPSubscriptionsBody.fromMap(data['Body']),
-          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
+  factory SaveIMAPSubscriptionsEnvelope.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      SaveIMAPSubscriptionsEnvelope(
+        SaveIMAPSubscriptionsBody.fromMap(data['Body']),
+        header: data['Header'] != null
+            ? SoapHeader.fromMap(
+                data['Header'],
+              )
+            : null,
+      );
 }

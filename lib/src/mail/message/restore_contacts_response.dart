@@ -7,5 +7,8 @@ import '../../common/type/soap_response.dart';
 class RestoreContactsResponse extends SoapResponse {
   RestoreContactsResponse();
 
-  factory RestoreContactsResponse.fromMap(Map<String, dynamic> data) => RestoreContactsResponse();
+  factory RestoreContactsResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      RestoreContactsResponse();
 }

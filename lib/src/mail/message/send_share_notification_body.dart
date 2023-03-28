@@ -7,14 +7,21 @@ import 'send_share_notification_request.dart';
 import 'send_share_notification_response.dart';
 
 class SendShareNotificationBody extends SoapBody {
-  SendShareNotificationBody(
-      {SendShareNotificationRequest? request, SendShareNotificationResponse? response})
-      : super(request: request, response: response);
+  SendShareNotificationBody({
+    SendShareNotificationRequest? request,
+    SendShareNotificationResponse? response,
+  }) : super(request: request, response: response);
 
-  factory SendShareNotificationBody.fromMap(Map<String, dynamic> data) => SendShareNotificationBody(
-      response: data['SendShareNotificationResponse'] != null
-          ? SendShareNotificationResponse.fromMap(data['SendShareNotificationResponse'])
-          : null);
+  factory SendShareNotificationBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      SendShareNotificationBody(
+        response: data['SendShareNotificationResponse'] != null
+            ? SendShareNotificationResponse.fromMap(
+                data['SendShareNotificationResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

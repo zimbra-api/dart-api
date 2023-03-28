@@ -24,7 +24,10 @@ class IMAPCopyRequest extends SoapRequest {
   IMAPCopyRequest(this.ids, this.type, this.folder);
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) => IMAPCopyEnvelope(IMAPCopyBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => IMAPCopyEnvelope(
+        IMAPCopyBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

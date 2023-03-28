@@ -7,5 +7,8 @@ import '../../common/type/soap_response.dart';
 class ImportDataResponse extends SoapResponse {
   ImportDataResponse();
 
-  factory ImportDataResponse.fromMap(Map<String, dynamic> data) => ImportDataResponse();
+  factory ImportDataResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ImportDataResponse();
 }

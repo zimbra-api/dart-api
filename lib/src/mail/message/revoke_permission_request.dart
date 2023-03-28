@@ -15,6 +15,8 @@ class RevokePermissionRequest extends GrantPermissionRequest {
   RevokePermissionRequest(super.aces);
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      RevokePermissionEnvelope(RevokePermissionBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => RevokePermissionEnvelope(
+        RevokePermissionBody(request: this),
+        header: header,
+      );
 }

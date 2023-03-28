@@ -17,7 +17,10 @@ class ItemActionRequest extends SoapRequest {
   ItemActionRequest(this.action);
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) => ItemActionEnvelope(ItemActionBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => ItemActionEnvelope(
+        ItemActionBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

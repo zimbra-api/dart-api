@@ -7,12 +7,21 @@ import 'ranking_action_request.dart';
 import 'ranking_action_response.dart';
 
 class RankingActionBody extends SoapBody {
-  RankingActionBody({RankingActionRequest? request, RankingActionResponse? response})
-      : super(request: request, response: response);
+  RankingActionBody({
+    RankingActionRequest? request,
+    RankingActionResponse? response,
+  }) : super(request: request, response: response);
 
-  factory RankingActionBody.fromMap(Map<String, dynamic> data) => RankingActionBody(
-      response:
-          data['RankingActionResponse'] != null ? RankingActionResponse.fromMap(data['RankingActionResponse']) : null);
+  factory RankingActionBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      RankingActionBody(
+        response: data['RankingActionResponse'] != null
+            ? RankingActionResponse.fromMap(
+                data['RankingActionResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

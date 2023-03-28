@@ -19,11 +19,17 @@ class OpenIMAPFolderRequest extends SoapRequest {
   /// Cursor specifying the last item on the previous results page
   final ImapCursorInfo? cursor;
 
-  OpenIMAPFolderRequest(this.folderId, this.limit, {this.cursor});
+  OpenIMAPFolderRequest(
+    this.folderId,
+    this.limit, {
+    this.cursor,
+  });
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      OpenIMAPFolderEnvelope(OpenIMAPFolderBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => OpenIMAPFolderEnvelope(
+        OpenIMAPFolderBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

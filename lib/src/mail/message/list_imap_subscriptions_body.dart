@@ -7,14 +7,21 @@ import 'list_imap_subscriptions_request.dart';
 import 'list_imap_subscriptions_response.dart';
 
 class ListIMAPSubscriptionsBody extends SoapBody {
-  ListIMAPSubscriptionsBody(
-      {ListIMAPSubscriptionsRequest? request, ListIMAPSubscriptionsResponse? response})
-      : super(request: request, response: response);
+  ListIMAPSubscriptionsBody({
+    ListIMAPSubscriptionsRequest? request,
+    ListIMAPSubscriptionsResponse? response,
+  }) : super(request: request, response: response);
 
-  factory ListIMAPSubscriptionsBody.fromMap(Map<String, dynamic> data) => ListIMAPSubscriptionsBody(
-      response: data['ListIMAPSubscriptionsResponse'] != null
-          ? ListIMAPSubscriptionsResponse.fromMap(data['ListIMAPSubscriptionsResponse'])
-          : null);
+  factory ListIMAPSubscriptionsBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ListIMAPSubscriptionsBody(
+        response: data['ListIMAPSubscriptionsResponse'] != null
+            ? ListIMAPSubscriptionsResponse.fromMap(
+                data['ListIMAPSubscriptionsResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

@@ -17,8 +17,10 @@ class GetMsgMetadataRequest extends SoapRequest {
   GetMsgMetadataRequest(this.msgIds);
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      GetMsgMetadataEnvelope(GetMsgMetadataBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => GetMsgMetadataEnvelope(
+        GetMsgMetadataBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

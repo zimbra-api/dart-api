@@ -7,13 +7,21 @@ import 'set_recovery_account_request.dart';
 import 'set_recovery_account_response.dart';
 
 class SetRecoveryAccountBody extends SoapBody {
-  SetRecoveryAccountBody({SetRecoveryAccountRequest? request, SetRecoveryAccountResponse? response})
-      : super(request: request, response: response);
+  SetRecoveryAccountBody({
+    SetRecoveryAccountRequest? request,
+    SetRecoveryAccountResponse? response,
+  }) : super(request: request, response: response);
 
-  factory SetRecoveryAccountBody.fromMap(Map<String, dynamic> data) => SetRecoveryAccountBody(
-      response: data['SetRecoveryAccountResponse'] != null
-          ? SetRecoveryAccountResponse.fromMap(data['SetRecoveryAccountResponse'])
-          : null);
+  factory SetRecoveryAccountBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      SetRecoveryAccountBody(
+        response: data['SetRecoveryAccountResponse'] != null
+            ? SetRecoveryAccountResponse.fromMap(
+                data['SetRecoveryAccountResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

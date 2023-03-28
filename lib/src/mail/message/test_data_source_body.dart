@@ -7,13 +7,21 @@ import 'test_data_source_request.dart';
 import 'test_data_source_response.dart';
 
 class TestDataSourceBody extends SoapBody {
-  TestDataSourceBody({TestDataSourceRequest? request, TestDataSourceResponse? response})
-      : super(request: request, response: response);
+  TestDataSourceBody({
+    TestDataSourceRequest? request,
+    TestDataSourceResponse? response,
+  }) : super(request: request, response: response);
 
-  factory TestDataSourceBody.fromMap(Map<String, dynamic> data) => TestDataSourceBody(
-      response: data['TestDataSourceResponse'] != null
-          ? TestDataSourceResponse.fromMap(data['TestDataSourceResponse'])
-          : null);
+  factory TestDataSourceBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      TestDataSourceBody(
+        response: data['TestDataSourceResponse'] != null
+            ? TestDataSourceResponse.fromMap(
+                data['TestDataSourceResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

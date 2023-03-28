@@ -7,9 +7,20 @@ import '../../common/type/soap_header.dart';
 import 'get_modified_items_ids_body.dart';
 
 class GetModifiedItemsIDsEnvelope extends SoapEnvelope {
-  GetModifiedItemsIDsEnvelope(GetModifiedItemsIDsBody body, {super.header}) : super(body..response?.header = header);
+  GetModifiedItemsIDsEnvelope(
+    GetModifiedItemsIDsBody body, {
+    super.header,
+  }) : super(body..response?.header = header);
 
-  factory GetModifiedItemsIDsEnvelope.fromMap(Map<String, dynamic> data) =>
-      GetModifiedItemsIDsEnvelope(GetModifiedItemsIDsBody.fromMap(data['Body']),
-          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
+  factory GetModifiedItemsIDsEnvelope.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetModifiedItemsIDsEnvelope(
+        GetModifiedItemsIDsBody.fromMap(data['Body']),
+        header: data['Header'] != null
+            ? SoapHeader.fromMap(
+                data['Header'],
+              )
+            : null,
+      );
 }

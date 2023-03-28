@@ -7,8 +7,20 @@ import '../../common/type/soap_header.dart';
 import 'get_recur_body.dart';
 
 class GetRecurEnvelope extends SoapEnvelope {
-  GetRecurEnvelope(GetRecurBody body, {super.header}) : super(body..response?.header = header);
+  GetRecurEnvelope(
+    GetRecurBody body, {
+    super.header,
+  }) : super(body..response?.header = header);
 
-  factory GetRecurEnvelope.fromMap(Map<String, dynamic> data) => GetRecurEnvelope(GetRecurBody.fromMap(data['Body']),
-      header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
+  factory GetRecurEnvelope.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetRecurEnvelope(
+        GetRecurBody.fromMap(data['Body']),
+        header: data['Header'] != null
+            ? SoapHeader.fromMap(
+                data['Header'],
+              )
+            : null,
+      );
 }

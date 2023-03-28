@@ -7,10 +7,20 @@ import '../../common/type/soap_header.dart';
 import 'modify_outgoing_filter_rules_body.dart';
 
 class ModifyOutgoingFilterRulesEnvelope extends SoapEnvelope {
-  ModifyOutgoingFilterRulesEnvelope(ModifyOutgoingFilterRulesBody body, {super.header})
-      : super(body..response?.header = header);
+  ModifyOutgoingFilterRulesEnvelope(
+    ModifyOutgoingFilterRulesBody body, {
+    super.header,
+  }) : super(body..response?.header = header);
 
-  factory ModifyOutgoingFilterRulesEnvelope.fromMap(Map<String, dynamic> data) =>
-      ModifyOutgoingFilterRulesEnvelope(ModifyOutgoingFilterRulesBody.fromMap(data['Body']),
-          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
+  factory ModifyOutgoingFilterRulesEnvelope.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ModifyOutgoingFilterRulesEnvelope(
+        ModifyOutgoingFilterRulesBody.fromMap(data['Body']),
+        header: data['Header'] != null
+            ? SoapHeader.fromMap(
+                data['Header'],
+              )
+            : null,
+      );
 }

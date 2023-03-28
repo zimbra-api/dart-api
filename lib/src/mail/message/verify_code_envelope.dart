@@ -7,9 +7,20 @@ import '../../common/type/soap_header.dart';
 import 'verify_code_body.dart';
 
 class VerifyCodeEnvelope extends SoapEnvelope {
-  VerifyCodeEnvelope(VerifyCodeBody body, {super.header}) : super(body..response?.header = header);
+  VerifyCodeEnvelope(
+    VerifyCodeBody body, {
+    super.header,
+  }) : super(body..response?.header = header);
 
-  factory VerifyCodeEnvelope.fromMap(Map<String, dynamic> data) =>
-      VerifyCodeEnvelope(VerifyCodeBody.fromMap(data['Body']),
-          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
+  factory VerifyCodeEnvelope.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      VerifyCodeEnvelope(
+        VerifyCodeBody.fromMap(data['Body']),
+        header: data['Header'] != null
+            ? SoapHeader.fromMap(
+                data['Header'],
+              )
+            : null,
+      );
 }

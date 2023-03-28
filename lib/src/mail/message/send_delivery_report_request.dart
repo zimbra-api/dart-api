@@ -16,8 +16,10 @@ class SendDeliveryReportRequest extends SoapRequest {
   SendDeliveryReportRequest(this.messageId);
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      SendDeliveryReportEnvelope(SendDeliveryReportBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => SendDeliveryReportEnvelope(
+        SendDeliveryReportBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

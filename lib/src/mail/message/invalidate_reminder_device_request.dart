@@ -16,8 +16,13 @@ class InvalidateReminderDeviceRequest extends SoapRequest {
   InvalidateReminderDeviceRequest(this.address);
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      InvalidateReminderDeviceEnvelope(InvalidateReminderDeviceBody(request: this), header: header);
+  SoapEnvelope getEnvelope({
+    SoapHeader? header,
+  }) =>
+      InvalidateReminderDeviceEnvelope(
+        InvalidateReminderDeviceBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

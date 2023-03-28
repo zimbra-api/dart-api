@@ -7,13 +7,21 @@ import 'get_yahoo_cookie_request.dart';
 import 'get_yahoo_cookie_response.dart';
 
 class GetYahooCookieBody extends SoapBody {
-  GetYahooCookieBody({GetYahooCookieRequest? request, GetYahooCookieResponse? response})
-      : super(request: request, response: response);
+  GetYahooCookieBody({
+    GetYahooCookieRequest? request,
+    GetYahooCookieResponse? response,
+  }) : super(request: request, response: response);
 
-  factory GetYahooCookieBody.fromMap(Map<String, dynamic> data) => GetYahooCookieBody(
-      response: data['GetYahooCookieResponse'] != null
-          ? GetYahooCookieResponse.fromMap(data['GetYahooCookieResponse'])
-          : null);
+  factory GetYahooCookieBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetYahooCookieBody(
+        response: data['GetYahooCookieResponse'] != null
+            ? GetYahooCookieResponse.fromMap(
+                data['GetYahooCookieResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

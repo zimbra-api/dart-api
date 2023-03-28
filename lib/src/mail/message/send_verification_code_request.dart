@@ -16,8 +16,13 @@ class SendVerificationCodeRequest extends SoapRequest {
   SendVerificationCodeRequest(this.address);
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      SendVerificationCodeEnvelope(SendVerificationCodeBody(request: this), header: header);
+  SoapEnvelope getEnvelope({
+    SoapHeader? header,
+  }) =>
+      SendVerificationCodeEnvelope(
+        SendVerificationCodeBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

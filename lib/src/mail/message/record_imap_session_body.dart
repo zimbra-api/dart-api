@@ -7,13 +7,21 @@ import 'record_imap_session_request.dart';
 import 'record_imap_session_response.dart';
 
 class RecordIMAPSessionBody extends SoapBody {
-  RecordIMAPSessionBody({RecordIMAPSessionRequest? request, RecordIMAPSessionResponse? response})
-      : super(request: request, response: response);
+  RecordIMAPSessionBody({
+    RecordIMAPSessionRequest? request,
+    RecordIMAPSessionResponse? response,
+  }) : super(request: request, response: response);
 
-  factory RecordIMAPSessionBody.fromMap(Map<String, dynamic> data) => RecordIMAPSessionBody(
-      response: data['RecordIMAPSessionResponse'] != null
-          ? RecordIMAPSessionResponse.fromMap(data['RecordIMAPSessionResponse'])
-          : null);
+  factory RecordIMAPSessionBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      RecordIMAPSessionBody(
+        response: data['RecordIMAPSessionResponse'] != null
+            ? RecordIMAPSessionResponse.fromMap(
+                data['RecordIMAPSessionResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

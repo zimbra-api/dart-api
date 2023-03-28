@@ -7,11 +7,18 @@ import 'save_draft_request.dart';
 import 'save_draft_response.dart';
 
 class SaveDraftBody extends SoapBody {
-  SaveDraftBody({SaveDraftRequest? request, SaveDraftResponse? response})
-      : super(request: request, response: response);
+  SaveDraftBody({
+    SaveDraftRequest? request,
+    SaveDraftResponse? response,
+  }) : super(request: request, response: response);
 
   factory SaveDraftBody.fromMap(Map<String, dynamic> data) => SaveDraftBody(
-      response: data['SaveDraftResponse'] != null ? SaveDraftResponse.fromMap(data['SaveDraftResponse']) : null);
+        response: data['SaveDraftResponse'] != null
+            ? SaveDraftResponse.fromMap(
+                data['SaveDraftResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

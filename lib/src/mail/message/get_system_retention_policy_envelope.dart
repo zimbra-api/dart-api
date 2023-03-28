@@ -7,10 +7,20 @@ import '../../common/type/soap_header.dart';
 import 'get_system_retention_policy_body.dart';
 
 class GetSystemRetentionPolicyEnvelope extends SoapEnvelope {
-  GetSystemRetentionPolicyEnvelope(GetSystemRetentionPolicyBody body, {super.header})
-      : super(body..response?.header = header);
+  GetSystemRetentionPolicyEnvelope(
+    GetSystemRetentionPolicyBody body, {
+    super.header,
+  }) : super(body..response?.header = header);
 
-  factory GetSystemRetentionPolicyEnvelope.fromMap(Map<String, dynamic> data) =>
-      GetSystemRetentionPolicyEnvelope(GetSystemRetentionPolicyBody.fromMap(data['Body']),
-          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
+  factory GetSystemRetentionPolicyEnvelope.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetSystemRetentionPolicyEnvelope(
+        GetSystemRetentionPolicyBody.fromMap(data['Body']),
+        header: data['Header'] != null
+            ? SoapHeader.fromMap(
+                data['Header'],
+              )
+            : null,
+      );
 }

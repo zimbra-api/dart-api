@@ -20,7 +20,10 @@ class TagActionRequest extends SoapRequest {
   TagActionRequest(this.action);
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) => TagActionEnvelope(TagActionBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => TagActionEnvelope(
+        TagActionBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

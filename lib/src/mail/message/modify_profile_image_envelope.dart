@@ -7,9 +7,20 @@ import '../../common/type/soap_header.dart';
 import 'modify_profile_image_body.dart';
 
 class ModifyProfileImageEnvelope extends SoapEnvelope {
-  ModifyProfileImageEnvelope(ModifyProfileImageBody body, {super.header}) : super(body..response?.header = header);
+  ModifyProfileImageEnvelope(
+    ModifyProfileImageBody body, {
+    super.header,
+  }) : super(body..response?.header = header);
 
-  factory ModifyProfileImageEnvelope.fromMap(Map<String, dynamic> data) =>
-      ModifyProfileImageEnvelope(ModifyProfileImageBody.fromMap(data['Body']),
-          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
+  factory ModifyProfileImageEnvelope.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ModifyProfileImageEnvelope(
+        ModifyProfileImageBody.fromMap(data['Body']),
+        header: data['Header'] != null
+            ? SoapHeader.fromMap(
+                data['Header'],
+              )
+            : null,
+      );
 }

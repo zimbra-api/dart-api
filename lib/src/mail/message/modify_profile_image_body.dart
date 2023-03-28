@@ -7,13 +7,21 @@ import 'modify_profile_image_request.dart';
 import 'modify_profile_image_response.dart';
 
 class ModifyProfileImageBody extends SoapBody {
-  ModifyProfileImageBody({ModifyProfileImageRequest? request, ModifyProfileImageResponse? response})
-      : super(request: request, response: response);
+  ModifyProfileImageBody({
+    ModifyProfileImageRequest? request,
+    ModifyProfileImageResponse? response,
+  }) : super(request: request, response: response);
 
-  factory ModifyProfileImageBody.fromMap(Map<String, dynamic> data) => ModifyProfileImageBody(
-      response: data['ModifyProfileImageResponse'] != null
-          ? ModifyProfileImageResponse.fromMap(data['ModifyProfileImageResponse'])
-          : null);
+  factory ModifyProfileImageBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ModifyProfileImageBody(
+        response: data['ModifyProfileImageResponse'] != null
+            ? ModifyProfileImageResponse.fromMap(
+                data['ModifyProfileImageResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

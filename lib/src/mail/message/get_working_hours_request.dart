@@ -24,11 +24,18 @@ class GetWorkingHoursRequest extends SoapRequest {
   /// Comma-separated list of email addresses
   final String? name;
 
-  GetWorkingHoursRequest(this.startTime, this.endTime, {this.id, this.name});
+  GetWorkingHoursRequest(
+    this.startTime,
+    this.endTime, {
+    this.id,
+    this.name,
+  });
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      GetWorkingHoursEnvelope(GetWorkingHoursBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => GetWorkingHoursEnvelope(
+        GetWorkingHoursBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

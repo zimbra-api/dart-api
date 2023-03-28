@@ -7,9 +7,20 @@ import '../../common/type/soap_header.dart';
 import 'grant_permission_body.dart';
 
 class GrantPermissionEnvelope extends SoapEnvelope {
-  GrantPermissionEnvelope(GrantPermissionBody body, {super.header}) : super(body..response?.header = header);
+  GrantPermissionEnvelope(
+    GrantPermissionBody body, {
+    super.header,
+  }) : super(body..response?.header = header);
 
-  factory GrantPermissionEnvelope.fromMap(Map<String, dynamic> data) =>
-      GrantPermissionEnvelope(GrantPermissionBody.fromMap(data['Body']),
-          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
+  factory GrantPermissionEnvelope.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GrantPermissionEnvelope(
+        GrantPermissionBody.fromMap(data['Body']),
+        header: data['Header'] != null
+            ? SoapHeader.fromMap(
+                data['Header'],
+              )
+            : null,
+      );
 }

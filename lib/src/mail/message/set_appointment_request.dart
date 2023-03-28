@@ -67,8 +67,10 @@ class SetAppointmentRequest extends SoapRequest {
   });
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      SetAppointmentEnvelope(SetAppointmentBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => SetAppointmentEnvelope(
+        SetAppointmentBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {
@@ -80,12 +82,26 @@ class SetAppointmentRequest extends SoapRequest {
         if (noNextAlarm != null) 'noNextAlarm': noNextAlarm,
         if (nextAlarm != null) 'nextAlarm': nextAlarm,
         if (defaultId != null) 'default': defaultId!.toMap(),
-        if (exceptions.isNotEmpty) 'except': exceptions.map((except) => except.toMap()).toList(growable: false),
-        if (cancellations.isNotEmpty) 'cancel': cancellations.map((cancel) => cancel.toMap()).toList(growable: false),
+        if (exceptions.isNotEmpty)
+          'except': exceptions
+              .map(
+                (except) => except.toMap(),
+              )
+              .toList(growable: false),
+        if (cancellations.isNotEmpty)
+          'cancel': cancellations
+              .map(
+                (cancel) => cancel.toMap(),
+              )
+              .toList(growable: false),
         if (replies.isNotEmpty)
           'replies': [
             {
-              'reply': replies.map((reply) => reply.toMap()).toList(growable: false),
+              'reply': replies
+                  .map(
+                    (reply) => reply.toMap(),
+                  )
+                  .toList(growable: false),
             }
           ],
       };

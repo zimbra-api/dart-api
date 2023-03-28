@@ -7,13 +7,21 @@ import 'import_contacts_request.dart';
 import 'import_contacts_response.dart';
 
 class ImportContactsBody extends SoapBody {
-  ImportContactsBody({ImportContactsRequest? request, ImportContactsResponse? response})
-      : super(request: request, response: response);
+  ImportContactsBody({
+    ImportContactsRequest? request,
+    ImportContactsResponse? response,
+  }) : super(request: request, response: response);
 
-  factory ImportContactsBody.fromMap(Map<String, dynamic> data) => ImportContactsBody(
-      response: data['ImportContactsResponse'] != null
-          ? ImportContactsResponse.fromMap(data['ImportContactsResponse'])
-          : null);
+  factory ImportContactsBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ImportContactsBody(
+        response: data['ImportContactsResponse'] != null
+            ? ImportContactsResponse.fromMap(
+                data['ImportContactsResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

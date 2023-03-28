@@ -13,6 +13,11 @@ class ModifyOutgoingFilterRulesRequest extends ModifyFilterRulesRequest {
   ModifyOutgoingFilterRulesRequest(super.filterRules);
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      ModifyOutgoingFilterRulesEnvelope(ModifyOutgoingFilterRulesBody(request: this), header: header);
+  SoapEnvelope getEnvelope({
+    SoapHeader? header,
+  }) =>
+      ModifyOutgoingFilterRulesEnvelope(
+        ModifyOutgoingFilterRulesBody(request: this),
+        header: header,
+      );
 }

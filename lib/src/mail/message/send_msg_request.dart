@@ -65,7 +65,10 @@ class SendMsgRequest extends SoapRequest {
   });
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) => SendMsgEnvelope(SendMsgBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => SendMsgEnvelope(
+        SendMsgBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

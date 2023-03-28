@@ -7,11 +7,18 @@ import 'import_data_request.dart';
 import 'import_data_response.dart';
 
 class ImportDataBody extends SoapBody {
-  ImportDataBody({ImportDataRequest? request, ImportDataResponse? response})
-      : super(request: request, response: response);
+  ImportDataBody({
+    ImportDataRequest? request,
+    ImportDataResponse? response,
+  }) : super(request: request, response: response);
 
   factory ImportDataBody.fromMap(Map<String, dynamic> data) => ImportDataBody(
-      response: data['ImportDataResponse'] != null ? ImportDataResponse.fromMap(data['ImportDataResponse']) : null);
+        response: data['ImportDataResponse'] != null
+            ? ImportDataResponse.fromMap(
+                data['ImportDataResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

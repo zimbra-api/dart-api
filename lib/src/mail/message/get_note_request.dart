@@ -17,7 +17,10 @@ class GetNoteRequest extends SoapRequest {
   GetNoteRequest(this.note);
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) => GetNoteEnvelope(GetNoteBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => GetNoteEnvelope(
+        GetNoteBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

@@ -7,9 +7,20 @@ import '../../common/type/soap_header.dart';
 import 'search_action_body.dart';
 
 class SearchActionEnvelope extends SoapEnvelope {
-  SearchActionEnvelope(SearchActionBody body, {super.header}) : super(body..response?.header = header);
+  SearchActionEnvelope(
+    SearchActionBody body, {
+    super.header,
+  }) : super(body..response?.header = header);
 
-  factory SearchActionEnvelope.fromMap(Map<String, dynamic> data) =>
-      SearchActionEnvelope(SearchActionBody.fromMap(data['Body']),
-          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
+  factory SearchActionEnvelope.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      SearchActionEnvelope(
+        SearchActionBody.fromMap(data['Body']),
+        header: data['Header'] != null
+            ? SoapHeader.fromMap(
+                data['Header'],
+              )
+            : null,
+      );
 }

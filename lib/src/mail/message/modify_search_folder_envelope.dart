@@ -7,9 +7,20 @@ import '../../common/type/soap_header.dart';
 import 'modify_search_folder_body.dart';
 
 class ModifySearchFolderEnvelope extends SoapEnvelope {
-  ModifySearchFolderEnvelope(ModifySearchFolderBody body, {super.header}) : super(body..response?.header = header);
+  ModifySearchFolderEnvelope(
+    ModifySearchFolderBody body, {
+    super.header,
+  }) : super(body..response?.header = header);
 
-  factory ModifySearchFolderEnvelope.fromMap(Map<String, dynamic> data) =>
-      ModifySearchFolderEnvelope(ModifySearchFolderBody.fromMap(data['Body']),
-          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
+  factory ModifySearchFolderEnvelope.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ModifySearchFolderEnvelope(
+        ModifySearchFolderBody.fromMap(data['Body']),
+        header: data['Header'] != null
+            ? SoapHeader.fromMap(
+                data['Header'],
+              )
+            : null,
+      );
 }

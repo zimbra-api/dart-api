@@ -49,16 +49,32 @@ class SearchConvResponse extends SoapResponse {
     this.queryInfo,
   });
 
-  factory SearchConvResponse.fromMap(Map<String, dynamic> data) => SearchConvResponse(
-      sortBy: SearchSortBy.values.firstWhere(
-        (sortBy) => sortBy.name == data['sortBy'],
-        orElse: () => SearchSortBy.dateDesc,
-      ),
-      queryOffset: int.tryParse(data['offset']?.toString() ?? ''),
-      queryMore: data['more'],
-      conversation: data['c'] is Map ? NestedSearchConversation.fromMap(data['c']) : null,
-      messages: (data['m'] is Iterable)
-          ? (data['m'] as Iterable).map<MessageHitInfo>((m) => MessageHitInfo.fromMap(m)).toList(growable: false)
-          : const [],
-      queryInfo: data['info']?[0] is Map ? SearchQueryInfo.fromMap(data['info'][0]) : null);
+  factory SearchConvResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      SearchConvResponse(
+        sortBy: SearchSortBy.values.firstWhere(
+          (sortBy) => sortBy.name == data['sortBy'],
+          orElse: () => SearchSortBy.dateDesc,
+        ),
+        queryOffset: int.tryParse(data['offset']?.toString() ?? ''),
+        queryMore: data['more'],
+        conversation: data['c'] is Map
+            ? NestedSearchConversation.fromMap(
+                data['c'],
+              )
+            : null,
+        messages: (data['m'] is Iterable)
+            ? (data['m'] as Iterable)
+                .map<MessageHitInfo>(
+                  (m) => MessageHitInfo.fromMap(m),
+                )
+                .toList(growable: false)
+            : const [],
+        queryInfo: data['info']?[0] is Map
+            ? SearchQueryInfo.fromMap(
+                data['info'][0],
+              )
+            : null,
+      );
 }

@@ -7,10 +7,20 @@ import '../../common/type/soap_header.dart';
 import 'reset_recent_message_count_body.dart';
 
 class ResetRecentMessageCountEnvelope extends SoapEnvelope {
-  ResetRecentMessageCountEnvelope(ResetRecentMessageCountBody body, {super.header})
-      : super(body..response?.header = header);
+  ResetRecentMessageCountEnvelope(
+    ResetRecentMessageCountBody body, {
+    super.header,
+  }) : super(body..response?.header = header);
 
-  factory ResetRecentMessageCountEnvelope.fromMap(Map<String, dynamic> data) =>
-      ResetRecentMessageCountEnvelope(ResetRecentMessageCountBody.fromMap(data['Body']),
-          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
+  factory ResetRecentMessageCountEnvelope.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ResetRecentMessageCountEnvelope(
+        ResetRecentMessageCountBody.fromMap(data['Body']),
+        header: data['Header'] != null
+            ? SoapHeader.fromMap(
+                data['Header'],
+              )
+            : null,
+      );
 }

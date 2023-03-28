@@ -22,8 +22,10 @@ class SetMailboxMetadataRequest extends SoapRequest {
   SetMailboxMetadataRequest(this.metadata);
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      SetMailboxMetadataEnvelope(SetMailboxMetadataBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => SetMailboxMetadataEnvelope(
+        SetMailboxMetadataBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

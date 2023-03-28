@@ -7,8 +7,17 @@ import '../../common/type/soap_header.dart';
 import 'no_op_body.dart';
 
 class NoOpEnvelope extends SoapEnvelope {
-  NoOpEnvelope(NoOpBody body, {super.header}) : super(body..response?.header = header);
+  NoOpEnvelope(
+    NoOpBody body, {
+    super.header,
+  }) : super(body..response?.header = header);
 
-  factory NoOpEnvelope.fromMap(Map<String, dynamic> data) => NoOpEnvelope(NoOpBody.fromMap(data['Body']),
-      header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
+  factory NoOpEnvelope.fromMap(Map<String, dynamic> data) => NoOpEnvelope(
+        NoOpBody.fromMap(data['Body']),
+        header: data['Header'] != null
+            ? SoapHeader.fromMap(
+                data['Header'],
+              )
+            : null,
+      );
 }

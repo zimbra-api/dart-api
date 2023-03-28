@@ -7,13 +7,21 @@ import 'get_yahoo_auth_token_request.dart';
 import 'get_yahoo_auth_token_response.dart';
 
 class GetYahooAuthTokenBody extends SoapBody {
-  GetYahooAuthTokenBody({GetYahooAuthTokenRequest? request, GetYahooAuthTokenResponse? response})
-      : super(request: request, response: response);
+  GetYahooAuthTokenBody({
+    GetYahooAuthTokenRequest? request,
+    GetYahooAuthTokenResponse? response,
+  }) : super(request: request, response: response);
 
-  factory GetYahooAuthTokenBody.fromMap(Map<String, dynamic> data) => GetYahooAuthTokenBody(
-      response: data['GetYahooAuthTokenResponse'] != null
-          ? GetYahooAuthTokenResponse.fromMap(data['GetYahooAuthTokenResponse'])
-          : null);
+  factory GetYahooAuthTokenBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetYahooAuthTokenBody(
+        response: data['GetYahooAuthTokenResponse'] != null
+            ? GetYahooAuthTokenResponse.fromMap(
+                data['GetYahooAuthTokenResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

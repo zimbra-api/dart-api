@@ -20,8 +20,10 @@ class SearchActionRequest extends SoapRequest {
   SearchActionRequest(this.searchRequest, this.bulkAction);
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      SearchActionEnvelope(SearchActionBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => SearchActionEnvelope(
+        SearchActionBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

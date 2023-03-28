@@ -11,7 +11,10 @@ import 'get_tag_envelope.dart';
 /// Get information about tags
 class GetTagRequest extends SoapRequest {
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) => GetTagEnvelope(GetTagBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => GetTagEnvelope(
+        GetTagBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

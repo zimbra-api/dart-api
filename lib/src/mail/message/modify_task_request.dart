@@ -24,5 +24,8 @@ class ModifyTaskRequest extends ModifyAppointmentRequest {
   });
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) => ModifyTaskEnvelope(ModifyTaskBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => ModifyTaskEnvelope(
+        ModifyTaskBody(request: this),
+        header: header,
+      );
 }

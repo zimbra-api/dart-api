@@ -20,7 +20,10 @@ class MsgActionRequest extends SoapRequest {
   MsgActionRequest(this.action);
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) => MsgActionEnvelope(MsgActionBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => MsgActionEnvelope(
+        MsgActionBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

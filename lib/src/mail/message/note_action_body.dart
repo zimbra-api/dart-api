@@ -7,11 +7,18 @@ import 'note_action_request.dart';
 import 'note_action_response.dart';
 
 class NoteActionBody extends SoapBody {
-  NoteActionBody({NoteActionRequest? request, NoteActionResponse? response})
-      : super(request: request, response: response);
+  NoteActionBody({
+    NoteActionRequest? request,
+    NoteActionResponse? response,
+  }) : super(request: request, response: response);
 
   factory NoteActionBody.fromMap(Map<String, dynamic> data) => NoteActionBody(
-      response: data['NoteActionResponse'] != null ? NoteActionResponse.fromMap(data['NoteActionResponse']) : null);
+        response: data['NoteActionResponse'] != null
+            ? NoteActionResponse.fromMap(
+                data['NoteActionResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

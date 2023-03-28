@@ -11,8 +11,13 @@ import 'list_imap_subscriptions_envelope.dart';
 /// Return a list of subscribed folder names
 class ListIMAPSubscriptionsRequest extends SoapRequest {
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      ListIMAPSubscriptionsEnvelope(ListIMAPSubscriptionsBody(request: this), header: header);
+  SoapEnvelope getEnvelope({
+    SoapHeader? header,
+  }) =>
+      ListIMAPSubscriptionsEnvelope(
+        ListIMAPSubscriptionsBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

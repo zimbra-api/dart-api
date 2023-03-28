@@ -11,6 +11,14 @@ class GetSystemRetentionPolicyResponse extends SoapResponse {
 
   GetSystemRetentionPolicyResponse({this.retentionPolicy});
 
-  factory GetSystemRetentionPolicyResponse.fromMap(Map<String, dynamic> data) => GetSystemRetentionPolicyResponse(
-      retentionPolicy: data['retentionPolicy']?[0] is Map ? RetentionPolicy.fromMap(data['retentionPolicy'][0]) : null);
+  factory GetSystemRetentionPolicyResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetSystemRetentionPolicyResponse(
+        retentionPolicy: data['retentionPolicy']?[0] is Map
+            ? RetentionPolicy.fromMap(
+                data['retentionPolicy'][0],
+              )
+            : null,
+      );
 }

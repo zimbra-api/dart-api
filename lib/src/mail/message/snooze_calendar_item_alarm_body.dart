@@ -7,14 +7,21 @@ import 'snooze_calendar_item_alarm_request.dart';
 import 'snooze_calendar_item_alarm_response.dart';
 
 class SnoozeCalendarItemAlarmBody extends SoapBody {
-  SnoozeCalendarItemAlarmBody(
-      {SnoozeCalendarItemAlarmRequest? request, SnoozeCalendarItemAlarmResponse? response})
-      : super(request: request, response: response);
+  SnoozeCalendarItemAlarmBody({
+    SnoozeCalendarItemAlarmRequest? request,
+    SnoozeCalendarItemAlarmResponse? response,
+  }) : super(request: request, response: response);
 
-  factory SnoozeCalendarItemAlarmBody.fromMap(Map<String, dynamic> data) => SnoozeCalendarItemAlarmBody(
-      response: data['SnoozeCalendarItemAlarmResponse'] != null
-          ? SnoozeCalendarItemAlarmResponse.fromMap(data['SnoozeCalendarItemAlarmResponse'])
-          : null);
+  factory SnoozeCalendarItemAlarmBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      SnoozeCalendarItemAlarmBody(
+        response: data['SnoozeCalendarItemAlarmResponse'] != null
+            ? SnoozeCalendarItemAlarmResponse.fromMap(
+                data['SnoozeCalendarItemAlarmResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

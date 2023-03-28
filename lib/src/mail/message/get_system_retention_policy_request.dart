@@ -11,8 +11,13 @@ import 'get_system_retention_policy_envelope.dart';
 /// Get system retention policy
 class GetSystemRetentionPolicyRequest extends SoapRequest {
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      GetSystemRetentionPolicyEnvelope(GetSystemRetentionPolicyBody(request: this), header: header);
+  SoapEnvelope getEnvelope({
+    SoapHeader? header,
+  }) =>
+      GetSystemRetentionPolicyEnvelope(
+        GetSystemRetentionPolicyBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

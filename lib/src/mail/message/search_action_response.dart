@@ -7,5 +7,8 @@ import '../../common/type/soap_response.dart';
 class SearchActionResponse extends SoapResponse {
   SearchActionResponse();
 
-  factory SearchActionResponse.fromMap(Map<String, dynamic> data) => SearchActionResponse();
+  factory SearchActionResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      SearchActionResponse();
 }

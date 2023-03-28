@@ -7,5 +7,8 @@ import '../../common/type/soap_response.dart';
 class ICalReplyResponse extends SoapResponse {
   ICalReplyResponse();
 
-  factory ICalReplyResponse.fromMap(Map<String, dynamic> data) => ICalReplyResponse();
+  factory ICalReplyResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ICalReplyResponse();
 }

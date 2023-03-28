@@ -16,8 +16,10 @@ class RankingActionRequest extends SoapRequest {
   RankingActionRequest(this.action);
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      RankingActionEnvelope(RankingActionBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => RankingActionEnvelope(
+        RankingActionBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

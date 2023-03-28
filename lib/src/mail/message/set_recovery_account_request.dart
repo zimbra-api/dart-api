@@ -32,8 +32,10 @@ class SetRecoveryAccountRequest extends SoapRequest {
   });
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      SetRecoveryAccountEnvelope(SetRecoveryAccountBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => SetRecoveryAccountEnvelope(
+        SetRecoveryAccountBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

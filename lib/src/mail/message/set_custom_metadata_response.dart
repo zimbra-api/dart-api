@@ -10,5 +10,8 @@ class SetCustomMetadataResponse extends SoapResponse {
 
   SetCustomMetadataResponse({this.id});
 
-  factory SetCustomMetadataResponse.fromMap(Map<String, dynamic> data) => SetCustomMetadataResponse(id: data['id']);
+  factory SetCustomMetadataResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      SetCustomMetadataResponse(id: data['id']);
 }

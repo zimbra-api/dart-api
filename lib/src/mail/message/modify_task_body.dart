@@ -7,11 +7,18 @@ import 'modify_task_request.dart';
 import 'modify_task_response.dart';
 
 class ModifyTaskBody extends SoapBody {
-  ModifyTaskBody({ModifyTaskRequest? request, ModifyTaskResponse? response})
-      : super(request: request, response: response);
+  ModifyTaskBody({
+    ModifyTaskRequest? request,
+    ModifyTaskResponse? response,
+  }) : super(request: request, response: response);
 
   factory ModifyTaskBody.fromMap(Map<String, dynamic> data) => ModifyTaskBody(
-      response: data['ModifyTaskResponse'] != null ? ModifyTaskResponse.fromMap(data['ModifyTaskResponse']) : null);
+        response: data['ModifyTaskResponse'] != null
+            ? ModifyTaskResponse.fromMap(
+                data['ModifyTaskResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

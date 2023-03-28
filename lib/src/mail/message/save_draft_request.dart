@@ -38,7 +38,10 @@ class SaveDraftRequest extends SoapRequest {
   });
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) => SaveDraftEnvelope(SaveDraftBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => SaveDraftEnvelope(
+        SaveDraftBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

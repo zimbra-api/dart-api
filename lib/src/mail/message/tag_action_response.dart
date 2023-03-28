@@ -12,6 +12,14 @@ class TagActionResponse extends SoapResponse {
 
   TagActionResponse({this.action});
 
-  factory TagActionResponse.fromMap(Map<String, dynamic> data) =>
-      TagActionResponse(action: data['action'] is Map ? TagActionInfo.fromMap(data['action']) : null);
+  factory TagActionResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      TagActionResponse(
+        action: data['action'] is Map
+            ? TagActionInfo.fromMap(
+                data['action'],
+              )
+            : null,
+      );
 }

@@ -17,7 +17,10 @@ class NoteActionRequest extends SoapRequest {
   NoteActionRequest(this.action);
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) => NoteActionEnvelope(NoteActionBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => NoteActionEnvelope(
+        NoteActionBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

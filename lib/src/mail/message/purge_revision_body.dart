@@ -7,12 +7,21 @@ import 'purge_revision_request.dart';
 import 'purge_revision_response.dart';
 
 class PurgeRevisionBody extends SoapBody {
-  PurgeRevisionBody({PurgeRevisionRequest? request, PurgeRevisionResponse? response})
-      : super(request: request, response: response);
+  PurgeRevisionBody({
+    PurgeRevisionRequest? request,
+    PurgeRevisionResponse? response,
+  }) : super(request: request, response: response);
 
-  factory PurgeRevisionBody.fromMap(Map<String, dynamic> data) => PurgeRevisionBody(
-      response:
-          data['PurgeRevisionResponse'] != null ? PurgeRevisionResponse.fromMap(data['PurgeRevisionResponse']) : null);
+  factory PurgeRevisionBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      PurgeRevisionBody(
+        response: data['PurgeRevisionResponse'] != null
+            ? PurgeRevisionResponse.fromMap(
+                data['PurgeRevisionResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

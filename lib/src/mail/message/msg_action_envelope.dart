@@ -7,9 +7,20 @@ import '../../common/type/soap_header.dart';
 import 'msg_action_body.dart';
 
 class MsgActionEnvelope extends SoapEnvelope {
-  MsgActionEnvelope(MsgActionBody body, {super.header}) : super(body..response?.header = header);
+  MsgActionEnvelope(
+    MsgActionBody body, {
+    super.header,
+  }) : super(body..response?.header = header);
 
-  factory MsgActionEnvelope.fromMap(Map<String, dynamic> data) =>
-      MsgActionEnvelope(MsgActionBody.fromMap(data['Body']),
-      header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
+  factory MsgActionEnvelope.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      MsgActionEnvelope(
+        MsgActionBody.fromMap(data['Body']),
+        header: data['Header'] != null
+            ? SoapHeader.fromMap(
+                data['Header'],
+              )
+            : null,
+      );
 }

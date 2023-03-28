@@ -18,8 +18,10 @@ class RemoveAttachmentsRequest extends SoapRequest {
   RemoveAttachmentsRequest(this.msg);
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      RemoveAttachmentsEnvelope(RemoveAttachmentsBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => RemoveAttachmentsEnvelope(
+        RemoveAttachmentsBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

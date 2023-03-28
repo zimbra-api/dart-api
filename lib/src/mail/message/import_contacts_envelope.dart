@@ -7,9 +7,20 @@ import '../../common/type/soap_header.dart';
 import 'import_contacts_body.dart';
 
 class ImportContactsEnvelope extends SoapEnvelope {
-  ImportContactsEnvelope(ImportContactsBody body, {super.header}) : super(body..response?.header = header);
+  ImportContactsEnvelope(
+    ImportContactsBody body, {
+    super.header,
+  }) : super(body..response?.header = header);
 
-  factory ImportContactsEnvelope.fromMap(Map<String, dynamic> data) =>
-      ImportContactsEnvelope(ImportContactsBody.fromMap(data['Body']),
-          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
+  factory ImportContactsEnvelope.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ImportContactsEnvelope(
+        ImportContactsBody.fromMap(data['Body']),
+        header: data['Header'] != null
+            ? SoapHeader.fromMap(
+                data['Header'],
+              )
+            : null,
+      );
 }

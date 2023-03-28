@@ -7,5 +7,8 @@ import '../../common/type/soap_response.dart';
 class SetRecoveryAccountResponse extends SoapResponse {
   SetRecoveryAccountResponse();
 
-  factory SetRecoveryAccountResponse.fromMap(Map<String, dynamic> data) => SetRecoveryAccountResponse();
+  factory SetRecoveryAccountResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      SetRecoveryAccountResponse();
 }

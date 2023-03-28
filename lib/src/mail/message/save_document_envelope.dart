@@ -7,9 +7,20 @@ import '../../common/type/soap_header.dart';
 import 'save_document_body.dart';
 
 class SaveDocumentEnvelope extends SoapEnvelope {
-  SaveDocumentEnvelope(SaveDocumentBody body, {super.header}) : super(body..response?.header = header);
+  SaveDocumentEnvelope(
+    SaveDocumentBody body, {
+    super.header,
+  }) : super(body..response?.header = header);
 
-  factory SaveDocumentEnvelope.fromMap(Map<String, dynamic> data) =>
-      SaveDocumentEnvelope(SaveDocumentBody.fromMap(data['Body']),
-          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
+  factory SaveDocumentEnvelope.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      SaveDocumentEnvelope(
+        SaveDocumentBody.fromMap(data['Body']),
+        header: data['Header'] != null
+            ? SoapHeader.fromMap(
+                data['Header'],
+              )
+            : null,
+      );
 }

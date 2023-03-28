@@ -7,12 +7,21 @@ import 'search_action_request.dart';
 import 'search_action_response.dart';
 
 class SearchActionBody extends SoapBody {
-  SearchActionBody({SearchActionRequest? request, SearchActionResponse? response})
-      : super(request: request, response: response);
+  SearchActionBody({
+    SearchActionRequest? request,
+    SearchActionResponse? response,
+  }) : super(request: request, response: response);
 
-  factory SearchActionBody.fromMap(Map<String, dynamic> data) => SearchActionBody(
-      response:
-          data['SearchActionResponse'] != null ? SearchActionResponse.fromMap(data['SearchActionResponse']) : null);
+  factory SearchActionBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      SearchActionBody(
+        response: data['SearchActionResponse'] != null
+            ? SearchActionResponse.fromMap(
+                data['SearchActionResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

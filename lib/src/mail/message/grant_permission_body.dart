@@ -7,13 +7,21 @@ import 'grant_permission_request.dart';
 import 'grant_permission_response.dart';
 
 class GrantPermissionBody extends SoapBody {
-  GrantPermissionBody({GrantPermissionRequest? request, GrantPermissionResponse? response})
-      : super(request: request, response: response);
+  GrantPermissionBody({
+    GrantPermissionRequest? request,
+    GrantPermissionResponse? response,
+  }) : super(request: request, response: response);
 
-  factory GrantPermissionBody.fromMap(Map<String, dynamic> data) => GrantPermissionBody(
-      response: data['GrantPermissionResponse'] != null
-          ? GrantPermissionResponse.fromMap(data['GrantPermissionResponse'])
-          : null);
+  factory GrantPermissionBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GrantPermissionBody(
+        response: data['GrantPermissionResponse'] != null
+            ? GrantPermissionResponse.fromMap(
+                data['GrantPermissionResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

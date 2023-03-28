@@ -7,13 +7,21 @@ import 'send_invite_reply_request.dart';
 import 'send_invite_reply_response.dart';
 
 class SendInviteReplyBody extends SoapBody {
-  SendInviteReplyBody({SendInviteReplyRequest? request, SendInviteReplyResponse? response})
-      : super(request: request, response: response);
+  SendInviteReplyBody({
+    SendInviteReplyRequest? request,
+    SendInviteReplyResponse? response,
+  }) : super(request: request, response: response);
 
-  factory SendInviteReplyBody.fromMap(Map<String, dynamic> data) => SendInviteReplyBody(
-      response: data['SendInviteReplyResponse'] != null
-          ? SendInviteReplyResponse.fromMap(data['SendInviteReplyResponse'])
-          : null);
+  factory SendInviteReplyBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      SendInviteReplyBody(
+        response: data['SendInviteReplyResponse'] != null
+            ? SendInviteReplyResponse.fromMap(
+                data['SendInviteReplyResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

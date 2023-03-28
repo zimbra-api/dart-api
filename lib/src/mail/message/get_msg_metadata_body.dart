@@ -7,13 +7,19 @@ import 'get_msg_metadata_request.dart';
 import 'get_msg_metadata_response.dart';
 
 class GetMsgMetadataBody extends SoapBody {
-  GetMsgMetadataBody({GetMsgMetadataRequest? request, GetMsgMetadataResponse? response})
-      : super(request: request, response: response);
+  GetMsgMetadataBody({
+    GetMsgMetadataRequest? request,
+    GetMsgMetadataResponse? response,
+  }) : super(request: request, response: response);
 
-  factory GetMsgMetadataBody.fromMap(Map<String, dynamic> data) => GetMsgMetadataBody(
-      response: data['GetMsgMetadataResponse'] != null
-          ? GetMsgMetadataResponse.fromMap(data['GetMsgMetadataResponse'])
-          : null);
+  factory GetMsgMetadataBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetMsgMetadataBody(
+        response: data['GetMsgMetadataResponse'] != null
+            ? GetMsgMetadataResponse.fromMap(data['GetMsgMetadataResponse'])
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

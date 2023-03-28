@@ -11,8 +11,13 @@ import 'get_spell_dictionaries_envelope.dart';
 /// Returns the list of dictionaries that can be used for spell checking.
 class GetSpellDictionariesRequest extends SoapRequest {
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      GetSpellDictionariesEnvelope(GetSpellDictionariesBody(request: this), header: header);
+  SoapEnvelope getEnvelope({
+    SoapHeader? header,
+  }) =>
+      GetSpellDictionariesEnvelope(
+        GetSpellDictionariesBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

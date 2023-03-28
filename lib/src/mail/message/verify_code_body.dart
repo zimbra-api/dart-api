@@ -7,11 +7,18 @@ import 'verify_code_request.dart';
 import 'verify_code_response.dart';
 
 class VerifyCodeBody extends SoapBody {
-  VerifyCodeBody({VerifyCodeRequest? request, VerifyCodeResponse? response})
-      : super(request: request, response: response);
+  VerifyCodeBody({
+    VerifyCodeRequest? request,
+    VerifyCodeResponse? response,
+  }) : super(request: request, response: response);
 
   factory VerifyCodeBody.fromMap(Map<String, dynamic> data) => VerifyCodeBody(
-      response: data['VerifyCodeResponse'] != null ? VerifyCodeResponse.fromMap(data['VerifyCodeResponse']) : null);
+        response: data['VerifyCodeResponse'] != null
+            ? VerifyCodeResponse.fromMap(
+                data['VerifyCodeResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

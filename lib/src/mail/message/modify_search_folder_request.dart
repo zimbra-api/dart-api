@@ -17,8 +17,10 @@ class ModifySearchFolderRequest extends SoapRequest {
   ModifySearchFolderRequest(this.searchFolder);
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      ModifySearchFolderEnvelope(ModifySearchFolderBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => ModifySearchFolderEnvelope(
+        ModifySearchFolderBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

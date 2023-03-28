@@ -12,6 +12,14 @@ class NoteActionResponse extends SoapResponse {
 
   NoteActionResponse({this.action});
 
-  factory NoteActionResponse.fromMap(Map<String, dynamic> data) =>
-      NoteActionResponse(action: data['action'] is Map ? ActionResult.fromMap(data['action']) : null);
+  factory NoteActionResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      NoteActionResponse(
+        action: data['action'] is Map
+            ? ActionResult.fromMap(
+                data['action'],
+              )
+            : null,
+      );
 }

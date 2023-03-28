@@ -7,13 +7,21 @@ import 'get_modified_items_ids_request.dart';
 import 'get_modified_items_ids_response.dart';
 
 class GetModifiedItemsIDsBody extends SoapBody {
-  GetModifiedItemsIDsBody({GetModifiedItemsIDsRequest? request, GetModifiedItemsIDsResponse? response})
-      : super(request: request, response: response);
+  GetModifiedItemsIDsBody({
+    GetModifiedItemsIDsRequest? request,
+    GetModifiedItemsIDsResponse? response,
+  }) : super(request: request, response: response);
 
-  factory GetModifiedItemsIDsBody.fromMap(Map<String, dynamic> data) => GetModifiedItemsIDsBody(
-      response: data['GetModifiedItemsIDsResponse'] != null
-          ? GetModifiedItemsIDsResponse.fromMap(data['GetModifiedItemsIDsResponse'])
-          : null);
+  factory GetModifiedItemsIDsBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetModifiedItemsIDsBody(
+        response: data['GetModifiedItemsIDsResponse'] != null
+            ? GetModifiedItemsIDsResponse.fromMap(
+                data['GetModifiedItemsIDsResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

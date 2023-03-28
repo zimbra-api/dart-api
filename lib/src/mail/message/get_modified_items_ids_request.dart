@@ -19,8 +19,13 @@ class GetModifiedItemsIDsRequest extends SoapRequest {
   GetModifiedItemsIDsRequest(this.folderId, this.modSeq);
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      GetModifiedItemsIDsEnvelope(GetModifiedItemsIDsBody(request: this), header: header);
+  SoapEnvelope getEnvelope({
+    SoapHeader? header,
+  }) =>
+      GetModifiedItemsIDsEnvelope(
+        GetModifiedItemsIDsBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

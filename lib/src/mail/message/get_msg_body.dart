@@ -7,11 +7,18 @@ import 'get_msg_request.dart';
 import 'get_msg_response.dart';
 
 class GetMsgBody extends SoapBody {
-  GetMsgBody({GetMsgRequest? request, GetMsgResponse? response})
-      : super(request: request, response: response);
+  GetMsgBody({
+    GetMsgRequest? request,
+    GetMsgResponse? response,
+  }) : super(request: request, response: response);
 
   factory GetMsgBody.fromMap(Map<String, dynamic> data) => GetMsgBody(
-      response: data['GetMsgResponse'] != null ? GetMsgResponse.fromMap(data['GetMsgResponse']) : null);
+        response: data['GetMsgResponse'] != null
+            ? GetMsgResponse.fromMap(
+                data['GetMsgResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

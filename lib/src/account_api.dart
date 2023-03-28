@@ -76,18 +76,25 @@ class AccountApi extends Api {
         prefs: prefs,
         attrs: attrs,
       ),
-      fromMap: (data) => AuthEnvelope.fromMap(data).body.response as AuthResponse?,
+      fromMap: (data) =>
+          AuthEnvelope.fromMap(data).body.response as AuthResponse?,
     );
   }
 
   /// Authenticate by account name
   Future<AuthResponse?> authByAccountName(String name, String password) {
-    return auth(account: AccountSelector(AccountBy.name, name), password: password);
+    return auth(
+      account: AccountSelector(AccountBy.name, name),
+      password: password,
+    );
   }
 
   /// Authenticate by account id
   Future<AuthResponse?> authByAccountId(String id, String password) {
-    return auth(account: AccountSelector(AccountBy.id, id), password: password);
+    return auth(
+      account: AccountSelector(AccountBy.id, id),
+      password: password,
+    );
   }
 
   /// Authenticate by auth token
@@ -100,13 +107,17 @@ class AccountApi extends Api {
     final account = AccountSelector(AccountBy.name, name);
     return auth(
       account: account,
-      preauth: PreAuth(account, preauthKey, timestamp: DateTime.now().millisecondsSinceEpoch),
+      preauth: PreAuth(
+        account,
+        preauthKey,
+        timestamp: DateTime.now().millisecondsSinceEpoch,
+      ),
     );
   }
 
   /// Perform an autocomplete for a name against the Global Address List
-  /// The number of entries in the response is limited by Account/COS attribute zimbraContactAutoCompleteMaxResults with
-  /// default value of 20.
+  /// The number of entries in the response is limited by Account/COS
+  /// attribute zimbraContactAutoCompleteMaxResults with default value of 20.
   Future<AutoCompleteGalResponse?> autoCompleteGal(
     String name, {
     GalSearchType? type,
@@ -121,7 +132,8 @@ class AccountApi extends Api {
         galAccountId: galAccountId,
         limit: limit,
       ),
-      fromMap: (data) => AutoCompleteGalEnvelope.fromMap(data).body.response as AutoCompleteGalResponse?,
+      fromMap: (data) => AutoCompleteGalEnvelope.fromMap(data).body.response
+          as AutoCompleteGalResponse?,
     );
   }
 
@@ -141,15 +153,18 @@ class AccountApi extends Api {
         virtualHost: virtualHost,
         dryRun: dryRun,
       ),
-      fromMap: (data) => ChangePasswordEnvelope.fromMap(data).body.response as ChangePasswordResponse?,
+      fromMap: (data) => ChangePasswordEnvelope.fromMap(data).body.response
+          as ChangePasswordResponse?,
     );
   }
 
   /// Check if the authed user has the specified right(s) on a target.
-  Future<CheckRightsResponse?> checkRights({List<CheckRightsTargetSpec> targets = const []}) {
+  Future<CheckRightsResponse?> checkRights(
+      {List<CheckRightsTargetSpec> targets = const []}) {
     return invoke(
       CheckRightsRequest(targets: targets),
-      fromMap: (data) => CheckRightsEnvelope.fromMap(data).body.response as CheckRightsResponse?,
+      fromMap: (data) => CheckRightsEnvelope.fromMap(data).body.response
+          as CheckRightsResponse?,
     );
   }
 
@@ -157,7 +172,8 @@ class AccountApi extends Api {
   Future<ClientInfoResponse?> clientInfo(DomainSelector domain) {
     return invoke(
       ClientInfoRequest(domain),
-      fromMap: (data) => ClientInfoEnvelope.fromMap(data).body.response as ClientInfoResponse?,
+      fromMap: (data) =>
+          ClientInfoEnvelope.fromMap(data).body.response as ClientInfoResponse?,
     );
   }
 
@@ -169,8 +185,14 @@ class AccountApi extends Api {
     List<KeyValuePair> keyValuePairs = const [],
   }) {
     return invoke(
-      CreateDistributionListRequest(name, isDynamic: isDynamic, keyValuePairs: keyValuePairs),
-      fromMap: (data) => CreateDistributionListEnvelope.fromMap(data).body.response as CreateDistributionListResponse?,
+      CreateDistributionListRequest(
+        name,
+        isDynamic: isDynamic,
+        keyValuePairs: keyValuePairs,
+      ),
+      fromMap: (data) => CreateDistributionListEnvelope.fromMap(data)
+          .body
+          .response as CreateDistributionListResponse?,
     );
   }
 
@@ -179,7 +201,8 @@ class AccountApi extends Api {
   Future<CreateIdentityResponse?> createIdentity(Identity identity) {
     return invoke(
       CreateIdentityRequest(identity),
-      fromMap: (data) => CreateIdentityEnvelope.fromMap(data).body.response as CreateIdentityResponse?,
+      fromMap: (data) => CreateIdentityEnvelope.fromMap(data).body.response
+          as CreateIdentityResponse?,
     );
   }
 
@@ -191,7 +214,8 @@ class AccountApi extends Api {
   Future<CreateSignatureResponse?> createSignature(Signature signature) {
     return invoke(
       CreateSignatureRequest(signature),
-      fromMap: (data) => CreateSignatureEnvelope.fromMap(data).body.response as CreateSignatureResponse?,
+      fromMap: (data) => CreateSignatureEnvelope.fromMap(data).body.response
+          as CreateSignatureResponse?,
     );
   }
 
@@ -200,7 +224,8 @@ class AccountApi extends Api {
   Future<DeleteIdentityResponse?> deleteIdentity(NameId identity) {
     return invoke(
       DeleteIdentityRequest(identity),
-      fromMap: (data) => DeleteIdentityEnvelope.fromMap(data).body.response as DeleteIdentityResponse?,
+      fromMap: (data) => DeleteIdentityEnvelope.fromMap(data).body.response
+          as DeleteIdentityResponse?,
     );
   }
 
@@ -209,7 +234,8 @@ class AccountApi extends Api {
   Future<DeleteSignatureResponse?> deleteSignature(NameId signature) {
     return invoke(
       DeleteSignatureRequest(signature),
-      fromMap: (data) => DeleteSignatureEnvelope.fromMap(data).body.response as DeleteSignatureResponse?,
+      fromMap: (data) => DeleteSignatureEnvelope.fromMap(data).body.response
+          as DeleteSignatureResponse?,
     );
   }
 
@@ -225,10 +251,12 @@ class AccountApi extends Api {
   ///    email address will be return in the only <e a="{email-address}"/> element under the <target> element.
   /// 3. For all other rights, name attribute is always returned on <target> elements,
   ///    no <e a="{email-address}"/> will be returned. name attribute contains the entry's primary name.
-  Future<DiscoverRightsResponse?> discoverRights({List<String> rights = const []}) {
+  Future<DiscoverRightsResponse?> discoverRights(
+      {List<String> rights = const []}) {
     return invoke(
       DiscoverRightsRequest(rights: rights),
-      fromMap: (data) => DiscoverRightsEnvelope.fromMap(data).body.response as DiscoverRightsResponse?,
+      fromMap: (data) => DiscoverRightsEnvelope.fromMap(data).body.response
+          as DiscoverRightsResponse?,
     );
   }
 
@@ -245,7 +273,9 @@ class AccountApi extends Api {
   ) {
     return invoke(
       DistributionListActionRequest(dl, action),
-      fromMap: (data) => DistributionListActionEnvelope.fromMap(data).body.response as DistributionListActionResponse?,
+      fromMap: (data) => DistributionListActionEnvelope.fromMap(data)
+          .body
+          .response as DistributionListActionResponse?,
     );
   }
 
@@ -265,7 +295,8 @@ class AccountApi extends Api {
         excludeCurrentSession: excludeCurrentSession,
         sessionId: sessionId,
       ),
-      fromMap: (data) => EndSessionEnvelope.fromMap(data).body.response as EndSessionResponse?,
+      fromMap: (data) =>
+          EndSessionEnvelope.fromMap(data).body.response as EndSessionResponse?,
     );
   }
 
@@ -284,8 +315,9 @@ class AccountApi extends Api {
         memberOf: memberOf,
         attrs: attrs,
       ),
-      fromMap: (data) =>
-          GetAccountDistributionListsEnvelope.fromMap(data).body.response as GetAccountDistributionListsResponse?,
+      fromMap: (data) => GetAccountDistributionListsEnvelope.fromMap(data)
+          .body
+          .response as GetAccountDistributionListsResponse?,
     );
   }
 
@@ -293,7 +325,8 @@ class AccountApi extends Api {
   Future<GetAccountInfoResponse?> getAccountInfo(AccountSelector account) {
     return invoke(
       GetAccountInfoRequest(account),
-      fromMap: (data) => GetAccountInfoEnvelope.fromMap(data).body.response as GetAccountInfoResponse?,
+      fromMap: (data) => GetAccountInfoEnvelope.fromMap(data).body.response
+          as GetAccountInfoResponse?,
     );
   }
 
@@ -302,7 +335,8 @@ class AccountApi extends Api {
   Future<GetAllLocalesResponse?> getAllLocales() {
     return invoke(
       GetAllLocalesRequest(),
-      fromMap: (data) => GetAllLocalesEnvelope.fromMap(data).body.response as GetAllLocalesResponse?,
+      fromMap: (data) => GetAllLocalesEnvelope.fromMap(data).body.response
+          as GetAllLocalesResponse?,
     );
   }
 
@@ -310,7 +344,9 @@ class AccountApi extends Api {
   Future<GetAvailableCsvFormatsResponse?> getAvailableCsvFormats() {
     return invoke(
       GetAvailableCsvFormatsRequest(),
-      fromMap: (data) => GetAvailableCsvFormatsEnvelope.fromMap(data).body.response as GetAvailableCsvFormatsResponse?,
+      fromMap: (data) => GetAvailableCsvFormatsEnvelope.fromMap(data)
+          .body
+          .response as GetAvailableCsvFormatsResponse?,
     );
   }
 
@@ -319,7 +355,8 @@ class AccountApi extends Api {
   Future<GetAvailableLocalesResponse?> getAvailableLocales() {
     return invoke(
       GetAvailableLocalesRequest(),
-      fromMap: (data) => GetAvailableLocalesEnvelope.fromMap(data).body.response as GetAvailableLocalesResponse?,
+      fromMap: (data) => GetAvailableLocalesEnvelope.fromMap(data).body.response
+          as GetAvailableLocalesResponse?,
     );
   }
 
@@ -329,7 +366,8 @@ class AccountApi extends Api {
   Future<GetAvailableSkinsResponse?> getAvailableSkins() {
     return invoke(
       GetAvailableSkinsRequest(),
-      fromMap: (data) => GetAvailableSkinsEnvelope.fromMap(data).body.response as GetAvailableSkinsResponse?,
+      fromMap: (data) => GetAvailableSkinsEnvelope.fromMap(data).body.response
+          as GetAvailableSkinsResponse?,
     );
   }
 
@@ -341,8 +379,9 @@ class AccountApi extends Api {
   }) {
     return invoke(
       GetDistributionListMembersRequest(dl, limit: limit, offset: offset),
-      fromMap: (data) =>
-          GetDistributionListMembersEnvelope.fromMap(data).body.response as GetDistributionListMembersResponse?,
+      fromMap: (data) => GetDistributionListMembersEnvelope.fromMap(data)
+          .body
+          .response as GetDistributionListMembersResponse?,
     );
   }
 
@@ -358,7 +397,8 @@ class AccountApi extends Api {
         needOwners: needOwners,
         needRights: needRights,
       ),
-      fromMap: (data) => GetDistributionListEnvelope.fromMap(data).body.response as GetDistributionListResponse?,
+      fromMap: (data) => GetDistributionListEnvelope.fromMap(data).body.response
+          as GetDistributionListResponse?,
     );
   }
 
@@ -366,7 +406,8 @@ class AccountApi extends Api {
   Future<GetIdentitiesResponse?> getIdentities() {
     return invoke(
       GetIdentitiesRequest(),
-      fromMap: (data) => GetIdentitiesEnvelope.fromMap(data).body.response as GetIdentitiesResponse?,
+      fromMap: (data) => GetIdentitiesEnvelope.fromMap(data).body.response
+          as GetIdentitiesResponse?,
     );
   }
 
@@ -375,7 +416,8 @@ class AccountApi extends Api {
   Future<GetInfoResponse?> getInfo({String? sections, String? rights}) {
     return invoke(
       GetInfoRequest(sections: sections, rights: rights),
-      fromMap: (data) => GetInfoEnvelope.fromMap(data).body.response as GetInfoResponse?,
+      fromMap: (data) =>
+          GetInfoEnvelope.fromMap(data).body.response as GetInfoResponse?,
     );
   }
 
@@ -383,7 +425,8 @@ class AccountApi extends Api {
   Future<GetOAuthConsumersResponse?> getOAuthConsumers() {
     return invoke(
       GetOAuthConsumersRequest(),
-      fromMap: (data) => GetOAuthConsumersEnvelope.fromMap(data).body.response as GetOAuthConsumersResponse?,
+      fromMap: (data) => GetOAuthConsumersEnvelope.fromMap(data).body.response
+          as GetOAuthConsumersResponse?,
     );
   }
 
@@ -393,7 +436,8 @@ class AccountApi extends Api {
   Future<GetPrefsResponse?> getPrefs({List<Pref> prefs = const []}) {
     return invoke(
       GetPrefsRequest(prefs: prefs),
-      fromMap: (data) => GetPrefsEnvelope.fromMap(data).body.response as GetPrefsResponse?,
+      fromMap: (data) =>
+          GetPrefsEnvelope.fromMap(data).body.response as GetPrefsResponse?,
     );
   }
 
@@ -403,7 +447,8 @@ class AccountApi extends Api {
   Future<GetRightsResponse?> getRights({List<Right> aces = const []}) {
     return invoke(
       GetRightsRequest(aces: aces),
-      fromMap: (data) => GetRightsEnvelope.fromMap(data).body.response as GetRightsResponse?,
+      fromMap: (data) =>
+          GetRightsEnvelope.fromMap(data).body.response as GetRightsResponse?,
     );
   }
 
@@ -421,7 +466,8 @@ class AccountApi extends Api {
         internal: internal,
         includeSelf: includeSelf,
       ),
-      fromMap: (data) => GetShareInfoEnvelope.fromMap(data).body.response as GetShareInfoResponse?,
+      fromMap: (data) => GetShareInfoEnvelope.fromMap(data).body.response
+          as GetShareInfoResponse?,
     );
   }
 
@@ -429,7 +475,8 @@ class AccountApi extends Api {
   Future<GetSignaturesResponse?> getSignatures() {
     return invoke(
       GetSignaturesRequest(),
-      fromMap: (data) => GetSignaturesEnvelope.fromMap(data).body.response as GetSignaturesResponse?,
+      fromMap: (data) => GetSignaturesEnvelope.fromMap(data).body.response
+          as GetSignaturesResponse?,
     );
   }
 
@@ -437,7 +484,8 @@ class AccountApi extends Api {
   Future<GetVersionInfoResponse?> getVersionInfo() {
     return invoke(
       GetVersionInfoRequest(),
-      fromMap: (data) => GetVersionInfoEnvelope.fromMap(data).body.response as GetVersionInfoResponse?,
+      fromMap: (data) => GetVersionInfoEnvelope.fromMap(data).body.response
+          as GetVersionInfoResponse?,
     );
   }
 
@@ -445,15 +493,18 @@ class AccountApi extends Api {
   Future<GetWhiteBlackListResponse?> getWhiteBlackList() {
     return invoke(
       GetWhiteBlackListRequest(),
-      fromMap: (data) => GetWhiteBlackListEnvelope.fromMap(data).body.response as GetWhiteBlackListResponse?,
+      fromMap: (data) => GetWhiteBlackListEnvelope.fromMap(data).body.response
+          as GetWhiteBlackListResponse?,
     );
   }
 
   /// Grant account level rights
-  Future<GrantRightsResponse?> grantRights({List<AccountACEInfo> aces = const []}) {
+  Future<GrantRightsResponse?> grantRights(
+      {List<AccountACEInfo> aces = const []}) {
     return invoke(
       GrantRightsRequest(aces: aces),
-      fromMap: (data) => GrantRightsEnvelope.fromMap(data).body.response as GrantRightsResponse?,
+      fromMap: (data) => GrantRightsEnvelope.fromMap(data).body.response
+          as GrantRightsResponse?,
     );
   }
 
@@ -461,7 +512,8 @@ class AccountApi extends Api {
   Future<ModifyIdentityResponse?> modifyIdentity(Identity identity) {
     return invoke(
       ModifyIdentityRequest(identity),
-      fromMap: (data) => ModifyIdentityEnvelope.fromMap(data).body.response as ModifyIdentityResponse?,
+      fromMap: (data) => ModifyIdentityEnvelope.fromMap(data).body.response
+          as ModifyIdentityResponse?,
     );
   }
 
@@ -473,15 +525,18 @@ class AccountApi extends Api {
   Future<ModifyPrefsResponse?> modifyPrefs({List<Pref> prefs = const []}) {
     return invoke(
       ModifyPrefsRequest(prefs: prefs),
-      fromMap: (data) => ModifyPrefsEnvelope.fromMap(data).body.response as ModifyPrefsResponse?,
+      fromMap: (data) => ModifyPrefsEnvelope.fromMap(data).body.response
+          as ModifyPrefsResponse?,
     );
   }
 
   /// Modify properties related to zimlets
-  Future<ModifyPropertiesResponse?> modifyProperties({List<Prop> props = const []}) {
+  Future<ModifyPropertiesResponse?> modifyProperties(
+      {List<Prop> props = const []}) {
     return invoke(
       ModifyPropertiesRequest(props: props),
-      fromMap: (data) => ModifyPropertiesEnvelope.fromMap(data).body.response as ModifyPropertiesResponse?,
+      fromMap: (data) => ModifyPropertiesEnvelope.fromMap(data).body.response
+          as ModifyPropertiesResponse?,
     );
   }
 
@@ -493,7 +548,8 @@ class AccountApi extends Api {
   Future<ModifySignatureResponse?> modifySignature(Signature signature) {
     return invoke(
       ModifySignatureRequest(signature),
-      fromMap: (data) => ModifySignatureEnvelope.fromMap(data).body.response as ModifySignatureResponse?,
+      fromMap: (data) => ModifySignatureEnvelope.fromMap(data).body.response
+          as ModifySignatureResponse?,
     );
   }
 
@@ -507,15 +563,19 @@ class AccountApi extends Api {
         whiteListEntries: whiteListEntries,
         blackListEntries: blackListEntries,
       ),
-      fromMap: (data) => ModifyWhiteBlackListEnvelope.fromMap(data).body.response as ModifyWhiteBlackListResponse?,
+      fromMap: (data) => ModifyWhiteBlackListEnvelope.fromMap(data)
+          .body
+          .response as ModifyWhiteBlackListResponse?,
     );
   }
 
   /// Modify zimlet preferences
-  Future<ModifyZimletPrefsResponse?> modifyZimletPrefs({List<ModifyZimletPrefsSpec> zimlets = const []}) {
+  Future<ModifyZimletPrefsResponse?> modifyZimletPrefs(
+      {List<ModifyZimletPrefsSpec> zimlets = const []}) {
     return invoke(
       ModifyZimletPrefsRequest(zimlets: zimlets),
-      fromMap: (data) => ModifyZimletPrefsEnvelope.fromMap(data).body.response as ModifyZimletPrefsResponse?,
+      fromMap: (data) => ModifyZimletPrefsEnvelope.fromMap(data).body.response
+          as ModifyZimletPrefsResponse?,
     );
   }
 
@@ -523,7 +583,8 @@ class AccountApi extends Api {
   Future<ResetPasswordResponse?> resetPassword(String password) {
     return invoke(
       ResetPasswordRequest(password),
-      fromMap: (data) => ResetPasswordEnvelope.fromMap(data).body.response as ResetPasswordResponse?,
+      fromMap: (data) => ResetPasswordEnvelope.fromMap(data).body.response
+          as ResetPasswordResponse?,
     );
   }
 
@@ -531,15 +592,18 @@ class AccountApi extends Api {
   Future<RevokeOAuthConsumerResponse?> revokeOAuthConsumer(String accessToken) {
     return invoke(
       RevokeOAuthConsumerRequest(accessToken),
-      fromMap: (data) => RevokeOAuthConsumerEnvelope.fromMap(data).body.response as RevokeOAuthConsumerResponse?,
+      fromMap: (data) => RevokeOAuthConsumerEnvelope.fromMap(data).body.response
+          as RevokeOAuthConsumerResponse?,
     );
   }
 
   /// Revoke account level rights
-  Future<RevokeRightsResponse?> revokeRights({List<AccountACEInfo> aces = const []}) {
+  Future<RevokeRightsResponse?> revokeRights(
+      {List<AccountACEInfo> aces = const []}) {
     return invoke(
       RevokeRightsRequest(aces: aces),
-      fromMap: (data) => RevokeRightsEnvelope.fromMap(data).body.response as RevokeRightsResponse?,
+      fromMap: (data) => RevokeRightsEnvelope.fromMap(data).body.response
+          as RevokeRightsResponse?,
     );
   }
 
@@ -570,8 +634,9 @@ class AccountApi extends Api {
         name: name,
         attrs: attrs,
       ),
-      fromMap: (data) =>
-          SearchCalendarResourcesEnvelope.fromMap(data).body.response as SearchCalendarResourcesResponse?,
+      fromMap: (data) => SearchCalendarResourcesEnvelope.fromMap(data)
+          .body
+          .response as SearchCalendarResourcesResponse?,
     );
   }
 
@@ -611,7 +676,8 @@ class AccountApi extends Api {
         offset: offset,
         locale: locale,
       ),
-      fromMap: (data) => SearchGalEnvelope.fromMap(data).body.response as SearchGalResponse?,
+      fromMap: (data) =>
+          SearchGalEnvelope.fromMap(data).body.response as SearchGalResponse?,
     );
   }
 
@@ -622,8 +688,9 @@ class AccountApi extends Api {
   }) {
     return invoke(
       SubscribeDistributionListRequest(dl, op: op),
-      fromMap: (data) =>
-          SubscribeDistributionListEnvelope.fromMap(data).body.response as SubscribeDistributionListResponse?,
+      fromMap: (data) => SubscribeDistributionListEnvelope.fromMap(data)
+          .body
+          .response as SubscribeDistributionListResponse?,
     );
   }
 
@@ -643,7 +710,8 @@ class AccountApi extends Api {
         getCount: getCount,
         limit: limit,
       ),
-      fromMap: (data) => SyncGalEnvelope.fromMap(data).body.response as SyncGalResponse?,
+      fromMap: (data) =>
+          SyncGalEnvelope.fromMap(data).body.response as SyncGalResponse?,
     );
   }
 }

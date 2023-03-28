@@ -11,15 +11,25 @@ class InviteTest extends FilterTest {
   const InviteTest({this.methods = const [], super.index, super.negative});
 
   factory InviteTest.fromMap(Map<String, dynamic> data) => InviteTest(
-      methods: (data['method'] is Iterable)
-          ? (data['method'] as Iterable).map<String>((method) => method['_content']).toList(growable: false)
-          : const [],
-      index: int.tryParse(data['index']?.toString() ?? ''),
-      negative: data['negative']);
+        methods: (data['method'] is Iterable)
+            ? (data['method'] as Iterable)
+                .map<String>(
+                  (method) => method['_content'],
+                )
+                .toList(growable: false)
+            : const [],
+        index: int.tryParse(data['index']?.toString() ?? ''),
+        negative: data['negative'],
+      );
 
   @override
   Map<String, dynamic> toMap() => {
-        if (methods.isNotEmpty) 'method': methods.map((method) => {'_content': method}).toList(growable: false),
+        if (methods.isNotEmpty)
+          'method': methods
+              .map(
+                (method) => {'_content': method},
+              )
+              .toList(growable: false),
         if (index != null) 'index': index,
         if (negative != null) 'negative': negative,
       };

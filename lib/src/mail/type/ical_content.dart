@@ -11,7 +11,10 @@ class ICalContent {
 
   const ICalContent({this.id, this.ical});
 
-  factory ICalContent.fromMap(Map<String, dynamic> data) => ICalContent(id: data['id'], ical: data['_content']);
+  factory ICalContent.fromMap(Map<String, dynamic> data) => ICalContent(
+        id: data['id'],
+        ical: data['_content'],
+      );
 
   Map<String, dynamic> toMap() => {
         if (id != null) 'id': id,

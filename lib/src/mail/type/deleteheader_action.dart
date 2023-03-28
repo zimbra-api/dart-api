@@ -17,11 +17,15 @@ class DeleteheaderAction extends FilterAction {
 
   const DeleteheaderAction({this.last, this.offset, this.test, super.index});
 
-  factory DeleteheaderAction.fromMap(Map<String, dynamic> data) => DeleteheaderAction(
-      last: data['last'],
-      offset: int.tryParse(data['offset']?.toString() ?? ''),
-      test: data['test'] is Map ? EditheaderTest.fromMap(data['test']) : null,
-      index: int.tryParse(data['index']?.toString() ?? ''));
+  factory DeleteheaderAction.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      DeleteheaderAction(
+        last: data['last'],
+        offset: int.tryParse(data['offset']?.toString() ?? ''),
+        test: data['test'] is Map ? EditheaderTest.fromMap(data['test']) : null,
+        index: int.tryParse(data['index']?.toString() ?? ''),
+      );
 
   @override
   Map<String, dynamic> toMap() => {

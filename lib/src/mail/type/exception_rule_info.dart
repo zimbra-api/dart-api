@@ -22,12 +22,21 @@ class ExceptionRuleInfo extends RecurIdInfo {
     super.recurIdZ,
   });
 
-  factory ExceptionRuleInfo.fromMap(Map<String, dynamic> data) =>
-      ExceptionRuleInfo(int.tryParse(data['rangeType']?.toString() ?? '') ?? 1, data['recurId'] ?? '',
-          timezone: data['tz'],
-          recurIdZ: data['ridZ'],
-          add: data['add'] is Map ? RecurrenceInfo.fromMap(data['add']) : null,
-          exclude: data['exclude'] is Map ? RecurrenceInfo.fromMap(data['exclude']) : null);
+  factory ExceptionRuleInfo.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ExceptionRuleInfo(
+        int.tryParse(data['rangeType']?.toString() ?? '') ?? 1,
+        data['recurId'] ?? '',
+        timezone: data['tz'],
+        recurIdZ: data['ridZ'],
+        add: data['add'] is Map ? RecurrenceInfo.fromMap(data['add']) : null,
+        exclude: data['exclude'] is Map
+            ? RecurrenceInfo.fromMap(
+                data['exclude'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

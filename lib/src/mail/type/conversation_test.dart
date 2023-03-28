@@ -11,13 +11,17 @@ class ConversationTest extends FilterTest {
 
   const ConversationTest({this.where, super.index, super.negative});
 
-  factory ConversationTest.fromMap(Map<String, dynamic> data) => ConversationTest(
-      where: WhereSetting.values.firstWhere(
-        (where) => where.name == data['where'],
-        orElse: () => WhereSetting.started,
-      ),
-      index: int.tryParse(data['index']?.toString() ?? ''),
-      negative: data['negative']);
+  factory ConversationTest.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ConversationTest(
+        where: WhereSetting.values.firstWhere(
+          (where) => where.name == data['where'],
+          orElse: () => WhereSetting.started,
+        ),
+        index: int.tryParse(data['index']?.toString() ?? ''),
+        negative: data['negative'],
+      );
 
   @override
   Map<String, dynamic> toMap() => {

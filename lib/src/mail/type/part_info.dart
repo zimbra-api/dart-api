@@ -50,18 +50,25 @@ class PartInfo {
     this.mimeParts = const [],
   });
 
-  factory PartInfo.fromMap(Map<String, dynamic> data) => PartInfo(data['part'] ?? '', data['ct'] ?? '',
-      size: data['s'],
-      contentDisposition: data['cd'],
-      contentFilename: data['filename'],
-      contentId: data['ci'],
-      location: data['cl'],
-      body: data['body'],
-      truncatedContent: data['truncated'],
-      content: data['content'],
-      mimeParts: (data['mp'] is Iterable)
-          ? (data['mp'] as Iterable).map<PartInfo>((mp) => PartInfo.fromMap(mp)).toList(growable: false)
-          : const []);
+  factory PartInfo.fromMap(Map<String, dynamic> data) => PartInfo(
+        data['part'] ?? '',
+        data['ct'] ?? '',
+        size: data['s'],
+        contentDisposition: data['cd'],
+        contentFilename: data['filename'],
+        contentId: data['ci'],
+        location: data['cl'],
+        body: data['body'],
+        truncatedContent: data['truncated'],
+        content: data['content'],
+        mimeParts: (data['mp'] is Iterable)
+            ? (data['mp'] as Iterable)
+                .map<PartInfo>(
+                  (mp) => PartInfo.fromMap(mp),
+                )
+                .toList(growable: false)
+            : const [],
+      );
 
   Map<String, dynamic> toMap() => {
         'part': part,
@@ -74,6 +81,11 @@ class PartInfo {
         if (body != null) 'body': body,
         if (truncatedContent != null) 'truncated': truncatedContent,
         if (content != null) 'content': content,
-        if (mimeParts.isNotEmpty) 'mp': mimeParts.map((mp) => mp.toMap()).toList(growable: false),
+        if (mimeParts.isNotEmpty)
+          'mp': mimeParts
+              .map(
+                (mp) => mp.toMap(),
+              )
+              .toList(growable: false),
       };
 }

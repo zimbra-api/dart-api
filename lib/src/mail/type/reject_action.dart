@@ -10,8 +10,10 @@ class RejectAction extends FilterAction {
 
   const RejectAction({this.content, super.index});
 
-  factory RejectAction.fromMap(Map<String, dynamic> data) =>
-      RejectAction(content: data['_content'], index: int.tryParse(data['index']?.toString() ?? ''));
+  factory RejectAction.fromMap(Map<String, dynamic> data) => RejectAction(
+        content: data['_content'],
+        index: int.tryParse(data['index']?.toString() ?? ''),
+      );
 
   @override
   Map<String, dynamic> toMap() => {

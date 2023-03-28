@@ -23,8 +23,12 @@ class ActionResult {
     this.newlyCreatedIds,
   });
 
-  factory ActionResult.fromMap(Map<String, dynamic> data) =>
-      ActionResult(data['id'] ?? '', data['op'] ?? '', nonExistentIds: data['nei'], newlyCreatedIds: data['nci']);
+  factory ActionResult.fromMap(Map<String, dynamic> data) => ActionResult(
+        data['id'] ?? '',
+        data['op'] ?? '',
+        nonExistentIds: data['nei'],
+        newlyCreatedIds: data['nci'],
+      );
 
   Map<String, dynamic> toMap() => {
         'id': id,

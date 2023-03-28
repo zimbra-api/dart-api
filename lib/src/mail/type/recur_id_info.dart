@@ -24,9 +24,12 @@ class RecurIdInfo {
     this.recurIdZ,
   });
 
-  factory RecurIdInfo.fromMap(Map<String, dynamic> data) =>
-      RecurIdInfo(int.tryParse(data['rangeType']?.toString() ?? '') ?? 1, data['recurId'] ?? '',
-          timezone: data['tz'], recurIdZ: data['ridZ']);
+  factory RecurIdInfo.fromMap(Map<String, dynamic> data) => RecurIdInfo(
+        int.tryParse(data['rangeType']?.toString() ?? '') ?? 1,
+        data['recurId'] ?? '',
+        timezone: data['tz'],
+        recurIdZ: data['ridZ'],
+      );
 
   Map<String, dynamic> toMap() => {
         'rangeType': recurrenceRangeType,

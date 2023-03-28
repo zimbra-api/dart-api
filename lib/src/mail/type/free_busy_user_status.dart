@@ -14,12 +14,16 @@ class FreeBusyUserStatus {
 
   const FreeBusyUserStatus({this.name, this.freebusyStatus});
 
-  factory FreeBusyUserStatus.fromMap(Map<String, dynamic> data) => FreeBusyUserStatus(
-      name: data['name'],
-      freebusyStatus: FreeBusyStatus.values.firstWhere(
-        (item) => item.name == data['fb'],
-        orElse: () => FreeBusyStatus.free,
-      ));
+  factory FreeBusyUserStatus.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      FreeBusyUserStatus(
+        name: data['name'],
+        freebusyStatus: FreeBusyStatus.values.firstWhere(
+          (item) => item.name == data['fb'],
+          orElse: () => FreeBusyStatus.free,
+        ),
+      );
 
   Map<String, dynamic> toMap() => {
         if (name != null) 'name': name,

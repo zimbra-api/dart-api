@@ -22,14 +22,32 @@ class ShareNotificationInfo {
   /// Link information
   final LinkInfo? link;
 
-  const ShareNotificationInfo({this.status, this.id, this.date, this.grantor, this.link});
+  const ShareNotificationInfo({
+    this.status,
+    this.id,
+    this.date,
+    this.grantor,
+    this.link,
+  });
 
-  factory ShareNotificationInfo.fromMap(Map<String, dynamic> data) => ShareNotificationInfo(
-      status: data['status'],
-      id: data['id'],
-      date: int.tryParse(data['d']?.toString() ?? ''),
-      grantor: data['grantor'] is Map ? Grantor.fromMap(data['grantor']) : null,
-      link: data['link'] is Map ? LinkInfo.fromMap(data['link']) : null);
+  factory ShareNotificationInfo.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ShareNotificationInfo(
+        status: data['status'],
+        id: data['id'],
+        date: int.tryParse(data['d']?.toString() ?? ''),
+        grantor: data['grantor'] is Map
+            ? Grantor.fromMap(
+                data['grantor'],
+              )
+            : null,
+        link: data['link'] is Map
+            ? LinkInfo.fromMap(
+                data['link'],
+              )
+            : null,
+      );
 
   Map<String, dynamic> toMap() => {
         if (status != null) 'status': status,

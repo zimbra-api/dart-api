@@ -18,11 +18,12 @@ class BulkAction {
   const BulkAction({this.operation = BulkOperation.read, this.folder});
 
   factory BulkAction.fromMap(Map<String, dynamic> data) => BulkAction(
-      operation: BulkOperation.values.firstWhere(
-        (op) => op.name == data['op'],
-        orElse: () => BulkOperation.read,
-      ),
-      folder: data['l']);
+        operation: BulkOperation.values.firstWhere(
+          (op) => op.name == data['op'],
+          orElse: () => BulkOperation.read,
+        ),
+        folder: data['l'],
+      );
 
   Map<String, dynamic> toMap() => {
         'op': operation.name,

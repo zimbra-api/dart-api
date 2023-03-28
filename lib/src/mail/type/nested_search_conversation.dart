@@ -45,7 +45,10 @@ class NestedSearchConversation {
     this.queryInfo,
   });
 
-  factory NestedSearchConversation.fromMap(Map<String, dynamic> data) => NestedSearchConversation(
+  factory NestedSearchConversation.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      NestedSearchConversation(
         id: data['id'],
         num: int.tryParse(data['n']?.toString() ?? ''),
         totalSize: int.tryParse(data['total']?.toString() ?? ''),
@@ -53,9 +56,17 @@ class NestedSearchConversation {
         tags: data['t'],
         tagNames: data['tn'],
         messages: (data['m'] is Iterable)
-            ? (data['m'] as Iterable).map<MessageHitInfo>((m) => MessageHitInfo.fromMap(m)).toList(growable: false)
+            ? (data['m'] as Iterable)
+                .map<MessageHitInfo>(
+                  (m) => MessageHitInfo.fromMap(m),
+                )
+                .toList(growable: false)
             : const [],
-        queryInfo: data['info']?[0] is Map ? SearchQueryInfo.fromMap(data['info'][0]) : null,
+        queryInfo: data['info']?[0] is Map
+            ? SearchQueryInfo.fromMap(
+                data['info'][0],
+              )
+            : null,
       );
 
   Map<String, dynamic> toMap() => {
@@ -65,7 +76,12 @@ class NestedSearchConversation {
         if (flags != null) 'f': flags,
         if (tags != null) 't': tags,
         if (tagNames != null) 'tn': tagNames,
-        if (messages.isNotEmpty) 'm': messages.map((m) => m.toMap()).toList(growable: false),
+        if (messages.isNotEmpty)
+          'm': messages
+              .map(
+                (m) => m.toMap(),
+              )
+              .toList(growable: false),
         if (queryInfo != null) 'info': [queryInfo!.toMap()],
       };
 }

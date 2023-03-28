@@ -27,24 +27,29 @@ class ContactActionSelector extends ActionSelector {
     this.attrs = const [],
   });
 
-  factory ContactActionSelector.fromMap(Map<String, dynamic> data) =>
-      ContactActionSelector(data['id'] ?? '', data['op'] ?? '',
-          constraint: data['tcon'],
-          tag: int.tryParse(data['tag']?.toString() ?? ''),
-          folder: data['l'],
-          rgb: data['rgb'],
-          color: int.tryParse(data['color']?.toString() ?? ''),
-          name: data['name'],
-          flags: data['f'],
-          tags: data['t'],
-          tagNames: data['tn'],
-          nonExistentIds: data['nei'],
-          newlyCreatedIds: data['nci'],
-          attrs: (data['attr'] is Iterable)
-              ? (data['attr'] as Iterable)
-                  .map<NewContactAttr>((attr) => NewContactAttr.fromMap(attr))
-                  .toList(growable: false)
-              : const []);
+  factory ContactActionSelector.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ContactActionSelector(
+        data['id'] ?? '',
+        data['op'] ?? '',
+        constraint: data['tcon'],
+        tag: int.tryParse(data['tag']?.toString() ?? ''),
+        folder: data['l'],
+        rgb: data['rgb'],
+        color: int.tryParse(data['color']?.toString() ?? ''),
+        name: data['name'],
+        flags: data['f'],
+        tags: data['t'],
+        tagNames: data['tn'],
+        nonExistentIds: data['nei'],
+        newlyCreatedIds: data['nci'],
+        attrs: (data['attr'] is Iterable)
+            ? (data['attr'] as Iterable)
+                .map<NewContactAttr>((attr) => NewContactAttr.fromMap(attr))
+                .toList(growable: false)
+            : const [],
+      );
 
   @override
   Map<String, dynamic> toMap() => {
@@ -61,6 +66,11 @@ class ContactActionSelector extends ActionSelector {
         if (tagNames != null) 'tn': tagNames,
         if (nonExistentIds != null) 'nei': nonExistentIds,
         if (newlyCreatedIds != null) 'nci': newlyCreatedIds,
-        if (attrs.isNotEmpty) 'attr': attrs.map((attr) => attr.toMap()).toList(growable: false),
+        if (attrs.isNotEmpty)
+          'attr': attrs
+              .map(
+                (attr) => attr.toMap(),
+              )
+              .toList(growable: false),
       };
 }

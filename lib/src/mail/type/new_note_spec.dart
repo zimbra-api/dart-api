@@ -16,14 +16,19 @@ class NewNoteSpec {
   /// Bounds - x,y[width,height] where x,y,width and height are all ints
   final String? bounds;
 
-  const NewNoteSpec({this.folder, this.content, this.color, this.bounds});
+  const NewNoteSpec({
+    this.folder,
+    this.content,
+    this.color,
+    this.bounds,
+  });
 
-  factory NewNoteSpec.fromMap(Map<String, dynamic> data) =>
-      NewNoteSpec(
-      folder: data['l'],
-      content: data['content'],
-      color: int.tryParse(data['color']?.toString() ?? ''),
-      bounds: data['pos']);
+  factory NewNoteSpec.fromMap(Map<String, dynamic> data) => NewNoteSpec(
+        folder: data['l'],
+        content: data['content'],
+        color: int.tryParse(data['color']?.toString() ?? ''),
+        bounds: data['pos'],
+      );
 
   Map<String, dynamic> toMap() => {
         if (folder != null) 'l': folder,

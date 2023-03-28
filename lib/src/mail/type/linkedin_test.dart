@@ -7,6 +7,8 @@ import 'filter_test.dart';
 class LinkedInTest extends FilterTest {
   const LinkedInTest({super.index, super.negative});
 
-  factory LinkedInTest.fromMap(Map<String, dynamic> data) =>
-      LinkedInTest(index: int.tryParse(data['index']?.toString() ?? ''), negative: data['negative']);
+  factory LinkedInTest.fromMap(Map<String, dynamic> data) => LinkedInTest(
+        index: int.tryParse(data['index']?.toString() ?? ''),
+        negative: data['negative'],
+      );
 }

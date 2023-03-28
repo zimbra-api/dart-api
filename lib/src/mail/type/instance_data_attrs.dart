@@ -2,7 +2,6 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
-
 import '../../common/enum/free_busy_status.dart';
 import '../../common/enum/invite_class.dart';
 import '../../common/enum/invite_status.dart';
@@ -42,50 +41,54 @@ class InstanceDataAttrs extends CommonInstanceDataAttrs {
     super.taskTzOffsetDue,
   });
 
-  factory InstanceDataAttrs.fromMap(Map<String, dynamic> data) => InstanceDataAttrs(
-      duration: int.tryParse(data['dur']?.toString() ?? ''),
-      partStat: ParticipationStatus.values.firstWhere(
-        (ptst) => ptst.name == data['ptst'],
-        orElse: () => ParticipationStatus.accept,
-      ),
-      recurIdZ: data['ridZ'],
-      tzOffset: int.tryParse(data['tzo']?.toString() ?? ''),
-      freeBusyActual: FreeBusyStatus.values.firstWhere(
-        (fba) => fba.name == data['fba'],
-        orElse: () => FreeBusyStatus.free,
-      ),
-      taskPercentComplete: data['percentComplete'],
-      isRecurring: data['recur'],
-      hasExceptions: data['hasEx'],
-      priority: data['priority'],
-      freeBusyIntended: FreeBusyStatus.values.firstWhere(
-        (fb) => fb.name == data['fb'],
-        orElse: () => FreeBusyStatus.free,
-      ),
-      transparency: Transparency.values.firstWhere(
-        (transp) => transp.name == data['transp'],
-        orElse: () => Transparency.opaque,
-      ),
-      name: data['name'],
-      location: data['loc'],
-      hasOtherAttendees: data['otherAtt'],
-      hasAlarm: data['alarm'],
-      isOrganizer: data['isOrg'],
-      invId: data['invId'],
-      componentNum: int.tryParse(data['compNum']?.toString() ?? ''),
-      status: InviteStatus.values.firstWhere(
-        (status) => status.name == data['status'],
-        orElse: () => InviteStatus.completed,
-      ),
-      calClass: InviteClass.values.firstWhere(
-        (calClass) => calClass.name == data['class'],
-        orElse: () => InviteClass.public,
-      ),
-      allDay: data['allDay'],
-      draft: data['draft'],
-      neverSent: data['neverSent'],
-      taskDueDate: int.tryParse(data['dueDate']?.toString() ?? ''),
-      taskTzOffsetDue: int.tryParse(data['tzoDue']?.toString() ?? ''));
+  factory InstanceDataAttrs.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      InstanceDataAttrs(
+        duration: int.tryParse(data['dur']?.toString() ?? ''),
+        partStat: ParticipationStatus.values.firstWhere(
+          (ptst) => ptst.name == data['ptst'],
+          orElse: () => ParticipationStatus.accept,
+        ),
+        recurIdZ: data['ridZ'],
+        tzOffset: int.tryParse(data['tzo']?.toString() ?? ''),
+        freeBusyActual: FreeBusyStatus.values.firstWhere(
+          (fba) => fba.name == data['fba'],
+          orElse: () => FreeBusyStatus.free,
+        ),
+        taskPercentComplete: data['percentComplete'],
+        isRecurring: data['recur'],
+        hasExceptions: data['hasEx'],
+        priority: data['priority'],
+        freeBusyIntended: FreeBusyStatus.values.firstWhere(
+          (fb) => fb.name == data['fb'],
+          orElse: () => FreeBusyStatus.free,
+        ),
+        transparency: Transparency.values.firstWhere(
+          (transp) => transp.name == data['transp'],
+          orElse: () => Transparency.opaque,
+        ),
+        name: data['name'],
+        location: data['loc'],
+        hasOtherAttendees: data['otherAtt'],
+        hasAlarm: data['alarm'],
+        isOrganizer: data['isOrg'],
+        invId: data['invId'],
+        componentNum: int.tryParse(data['compNum']?.toString() ?? ''),
+        status: InviteStatus.values.firstWhere(
+          (status) => status.name == data['status'],
+          orElse: () => InviteStatus.completed,
+        ),
+        calClass: InviteClass.values.firstWhere(
+          (calClass) => calClass.name == data['class'],
+          orElse: () => InviteClass.public,
+        ),
+        allDay: data['allDay'],
+        draft: data['draft'],
+        neverSent: data['neverSent'],
+        taskDueDate: int.tryParse(data['dueDate']?.toString() ?? ''),
+        taskTzOffsetDue: int.tryParse(data['tzoDue']?.toString() ?? ''),
+      );
 
   @override
   Map<String, dynamic> toMap() => {

@@ -12,17 +12,22 @@ class FilterVariables extends FilterAction {
   const FilterVariables({super.index, this.variables = const []});
 
   factory FilterVariables.fromMap(Map<String, dynamic> data) => FilterVariables(
-      index: int.tryParse(data['index']?.toString() ?? ''),
-      variables: (data['filterVariable'] is Iterable)
-          ? (data['filterVariable'] as Iterable)
-              .map<FilterVariable>((variable) => FilterVariable.fromMap(variable))
-              .toList(growable: false)
-          : const []);
+        index: int.tryParse(data['index']?.toString() ?? ''),
+        variables: (data['filterVariable'] is Iterable)
+            ? (data['filterVariable'] as Iterable)
+                .map<FilterVariable>((variable) => FilterVariable.fromMap(variable))
+                .toList(growable: false)
+            : const [],
+      );
 
   @override
   Map<String, dynamic> toMap() => {
         if (index != null) 'index': index,
         if (variables.isNotEmpty)
-          'filterVariable': variables.map((variable) => variable.toMap()).toList(growable: false),
+          'filterVariable': variables
+              .map(
+                (variable) => variable.toMap(),
+              )
+              .toList(growable: false),
       };
 }

@@ -69,9 +69,21 @@ class DocumentSpec {
         content: data['content'],
         descEnabled: data['descEnabled'],
         flags: data['f'],
-        upload: (data['upload'] is Map) ? Id.fromMap(data['upload']) : null,
-        messagePart: (data['m'] is Map) ? MessagePartSpec.fromMap(data['m']) : null,
-        docRevision: (data['doc'] is Map) ? IdVersion.fromMap(data['doc']) : null,
+        upload: (data['upload'] is Map)
+            ? Id.fromMap(
+                data['upload'],
+              )
+            : null,
+        messagePart: (data['m'] is Map)
+            ? MessagePartSpec.fromMap(
+                data['m'],
+              )
+            : null,
+        docRevision: (data['doc'] is Map)
+            ? IdVersion.fromMap(
+                data['doc'],
+              )
+            : null,
       );
 
   Map<String, dynamic> toMap() => {

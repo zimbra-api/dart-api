@@ -12,11 +12,12 @@ class FlagAction extends FilterAction {
   const FlagAction({this.flag, super.index});
 
   factory FlagAction.fromMap(Map<String, dynamic> data) => FlagAction(
-      flag: FilterFlagName.values.firstWhere(
-        (flagName) => flagName.name == data['flagName'],
-        orElse: () => FilterFlagName.flagged,
-      ),
-      index: int.tryParse(data['index']?.toString() ?? ''));
+        flag: FilterFlagName.values.firstWhere(
+          (flagName) => flagName.name == data['flagName'],
+          orElse: () => FilterFlagName.flagged,
+        ),
+        index: int.tryParse(data['index']?.toString() ?? ''),
+      );
 
   @override
   Map<String, dynamic> toMap() => {

@@ -40,13 +40,23 @@ class CalTZInfo {
     this.daylightTZName,
   });
 
-  factory CalTZInfo.fromMap(Map<String, dynamic> data) =>
-      CalTZInfo(data['id'] ?? '',
-      int.tryParse(data['stdoff']?.toString() ?? '') ?? 0, int.tryParse(data['dayoff']?.toString() ?? '') ?? 0,
-          standardTzOnset: data['standard'] is Map ? TzOnsetInfo.fromMap(data['standard']) : null,
-          daylightTzOnset: data['daylight'] is Map ? TzOnsetInfo.fromMap(data['daylight']) : null,
-          standardTZName: data['stdname'],
-          daylightTZName: data['dayname']);
+  factory CalTZInfo.fromMap(Map<String, dynamic> data) => CalTZInfo(
+        data['id'] ?? '',
+        int.tryParse(data['stdoff']?.toString() ?? '') ?? 0,
+        int.tryParse(data['dayoff']?.toString() ?? '') ?? 0,
+        standardTzOnset: data['standard'] is Map
+            ? TzOnsetInfo.fromMap(
+                data['standard'],
+              )
+            : null,
+        daylightTzOnset: data['daylight'] is Map
+            ? TzOnsetInfo.fromMap(
+                data['daylight'],
+              )
+            : null,
+        standardTZName: data['stdname'],
+        daylightTZName: data['dayname'],
+      );
 
   Map<String, dynamic> toMap() => {
         'id': id,

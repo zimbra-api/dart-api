@@ -7,5 +7,7 @@ import '../../common/type/id.dart';
 class DataSourceId extends Id {
   const DataSourceId({super.id});
 
-  factory DataSourceId.fromMap(Map<String, dynamic> data) => DataSourceId(id: data['id']);
+  factory DataSourceId.fromMap(Map<String, dynamic> data) => DataSourceId(
+        id: data['id'],
+      );
 }

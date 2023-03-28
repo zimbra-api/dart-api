@@ -77,82 +77,113 @@ class LegacyCalendaringData extends CommonCalendaringData {
     super.taskTzOffsetDue,
   });
 
-  factory LegacyCalendaringData.fromMap(Map<String, dynamic> data) => LegacyCalendaringData(
-      organizer: data['or'] is Map ? CalOrganizer.fromMap(data['or']) : null,
-      categories: (data['category'] is Iterable)
-          ? (data['category'] as Iterable).map<String>((category) => category['_content']).toList(growable: false)
-          : const [],
-      geo: data['geo'] is Map ? GeoInfo.fromMap(data['geo']) : null,
-      fragment: data['fr'],
-      instances: (data['inst'] is Iterable)
-          ? (data['inst'] as Iterable)
-              .map<LegacyInstanceDataInfo>((inst) => LegacyInstanceDataInfo.fromMap(inst))
-              .toList(growable: false)
-          : const [],
-      alarmData: data['alarmData'] is Map ? AlarmDataInfo.fromMap(data['alarmData']) : null,
-      xUid: data['x_uid'],
-      uid: data['uid'],
-      flags: data['f'],
-      tags: data['t'],
-      tagNames: data['tn'],
-      folderId: data['l'],
-      size: int.tryParse(data['s']?.toString() ?? ''),
-      changeDate: int.tryParse(data['md']?.toString() ?? ''),
-      modifiedSequence: int.tryParse(data['ms']?.toString() ?? ''),
-      revision: int.tryParse(data['rev']?.toString() ?? ''),
-      id: data['id'],
-      duration: int.tryParse(data['dur']?.toString() ?? ''),
-      partStat: ParticipationStatus.values.firstWhere(
-        (ptst) => ptst.name == data['ptst'],
-        orElse: () => ParticipationStatus.accept,
-      ),
-      recurIdZ: data['ridZ'],
-      tzOffset: int.tryParse(data['tzo']?.toString() ?? ''),
-      freeBusyActual: FreeBusyStatus.values.firstWhere(
-        (fba) => fba.name == data['fba'],
-        orElse: () => FreeBusyStatus.free,
-      ),
-      taskPercentComplete: data['percentComplete'],
-      isRecurring: data['recur'],
-      hasExceptions: data['hasEx'],
-      priority: data['priority'],
-      freeBusyIntended: FreeBusyStatus.values.firstWhere(
-        (fb) => fb.name == data['fb'],
-        orElse: () => FreeBusyStatus.free,
-      ),
-      transparency: Transparency.values.firstWhere(
-        (transp) => transp.name == data['transp'],
-        orElse: () => Transparency.opaque,
-      ),
-      name: data['name'],
-      location: data['loc'],
-      hasOtherAttendees: data['otherAtt'],
-      hasAlarm: data['alarm'],
-      isOrganizer: data['isOrg'],
-      invId: data['invId'],
-      componentNum: int.tryParse(data['compNum']?.toString() ?? ''),
-      status: InviteStatus.values.firstWhere(
-        (status) => status.name == data['status'],
-        orElse: () => InviteStatus.completed,
-      ),
-      calClass: InviteClass.values.firstWhere(
-        (calClass) => calClass.name == data['class'],
-        orElse: () => InviteClass.public,
-      ),
-      allDay: data['allDay'],
-      draft: data['draft'],
-      neverSent: data['neverSent'],
-      taskDueDate: int.tryParse(data['dueDate']?.toString() ?? ''),
-      taskTzOffsetDue: int.tryParse(data['tzoDue']?.toString() ?? ''));
+  factory LegacyCalendaringData.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      LegacyCalendaringData(
+        organizer: data['or'] is Map
+            ? CalOrganizer.fromMap(
+                data['or'],
+              )
+            : null,
+        categories: (data['category'] is Iterable)
+            ? (data['category'] as Iterable)
+                .map<String>(
+                  (category) => category['_content'],
+                )
+                .toList(growable: false)
+            : const [],
+        geo: data['geo'] is Map
+            ? GeoInfo.fromMap(
+                data['geo'],
+              )
+            : null,
+        fragment: data['fr'],
+        instances: (data['inst'] is Iterable)
+            ? (data['inst'] as Iterable)
+                .map<LegacyInstanceDataInfo>(
+                  (inst) => LegacyInstanceDataInfo.fromMap(inst),
+                )
+                .toList(growable: false)
+            : const [],
+        alarmData: data['alarmData'] is Map
+            ? AlarmDataInfo.fromMap(
+                data['alarmData'],
+              )
+            : null,
+        xUid: data['x_uid'],
+        uid: data['uid'],
+        flags: data['f'],
+        tags: data['t'],
+        tagNames: data['tn'],
+        folderId: data['l'],
+        size: int.tryParse(data['s']?.toString() ?? ''),
+        changeDate: int.tryParse(data['md']?.toString() ?? ''),
+        modifiedSequence: int.tryParse(data['ms']?.toString() ?? ''),
+        revision: int.tryParse(data['rev']?.toString() ?? ''),
+        id: data['id'],
+        duration: int.tryParse(data['dur']?.toString() ?? ''),
+        partStat: ParticipationStatus.values.firstWhere(
+          (ptst) => ptst.name == data['ptst'],
+          orElse: () => ParticipationStatus.accept,
+        ),
+        recurIdZ: data['ridZ'],
+        tzOffset: int.tryParse(data['tzo']?.toString() ?? ''),
+        freeBusyActual: FreeBusyStatus.values.firstWhere(
+          (fba) => fba.name == data['fba'],
+          orElse: () => FreeBusyStatus.free,
+        ),
+        taskPercentComplete: data['percentComplete'],
+        isRecurring: data['recur'],
+        hasExceptions: data['hasEx'],
+        priority: data['priority'],
+        freeBusyIntended: FreeBusyStatus.values.firstWhere(
+          (fb) => fb.name == data['fb'],
+          orElse: () => FreeBusyStatus.free,
+        ),
+        transparency: Transparency.values.firstWhere(
+          (transp) => transp.name == data['transp'],
+          orElse: () => Transparency.opaque,
+        ),
+        name: data['name'],
+        location: data['loc'],
+        hasOtherAttendees: data['otherAtt'],
+        hasAlarm: data['alarm'],
+        isOrganizer: data['isOrg'],
+        invId: data['invId'],
+        componentNum: int.tryParse(data['compNum']?.toString() ?? ''),
+        status: InviteStatus.values.firstWhere(
+          (status) => status.name == data['status'],
+          orElse: () => InviteStatus.completed,
+        ),
+        calClass: InviteClass.values.firstWhere(
+          (calClass) => calClass.name == data['class'],
+          orElse: () => InviteClass.public,
+        ),
+        allDay: data['allDay'],
+        draft: data['draft'],
+        neverSent: data['neverSent'],
+        taskDueDate: int.tryParse(data['dueDate']?.toString() ?? ''),
+        taskTzOffsetDue: int.tryParse(data['tzoDue']?.toString() ?? ''),
+      );
 
   @override
   Map<String, dynamic> toMap() => {
         if (organizer != null) 'or': organizer!.toMap(),
         if (categories.isNotEmpty)
-          'category': categories.map((category) => {'_content': category}).toList(growable: false),
+          'category': categories
+              .map(
+                (category) => {'_content': category},
+              )
+              .toList(growable: false),
         if (geo != null) 'geo': geo!.toMap(),
         if (fragment != null) 'fr': fragment,
-        if (instances.isNotEmpty) 'inst': instances.map((inst) => inst.toMap()).toList(growable: false),
+        if (instances.isNotEmpty)
+          'inst': instances
+              .map(
+                (inst) => inst.toMap(),
+              )
+              .toList(growable: false),
         if (alarmData != null) 'alarmData': alarmData!.toMap(),
         if (xUid != null) 'x_uid': xUid,
         if (uid != null) 'uid': uid,

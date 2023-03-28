@@ -10,8 +10,12 @@ class CreateItemNotification {
 
   const CreateItemNotification({this.messageInfo});
 
-  factory CreateItemNotification.fromMap(Map<String, dynamic> data) =>
-      CreateItemNotification(messageInfo: data['m'] is Map ? ImapMessageInfo.fromMap(data['m']) : null);
+  factory CreateItemNotification.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      CreateItemNotification(
+        messageInfo: data['m'] is Map ? ImapMessageInfo.fromMap(data['m']) : null,
+      );
 
   Map<String, dynamic> toMap() => {
         if (messageInfo != null) 'm': messageInfo!.toMap(),

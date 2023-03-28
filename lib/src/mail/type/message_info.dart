@@ -130,7 +130,11 @@ class MessageInfo extends MessageCommon {
       part: data['part'],
       fragment: data['fr'],
       emails: (data['e'] is Iterable)
-          ? (data['e'] as Iterable).map<EmailInfo>((e) => EmailInfo.fromMap(e)).toList(growable: false)
+          ? (data['e'] as Iterable)
+              .map<EmailInfo>(
+                (e) => EmailInfo.fromMap(e),
+              )
+              .toList(growable: false)
           : const [],
       subject: data['su'],
       messageIdHeader: data['mid'],
@@ -138,16 +142,24 @@ class MessageInfo extends MessageCommon {
       invite: data['inv'] is Map ? InviteInfo.fromMap(data['inv']) : null,
       headers: KeyValuePairs.keyValuePairsFromMap(data),
       partInfos: (data['mp'] is Iterable)
-          ? (data['mp'] as Iterable).map<PartInfo>((mp) => PartInfo.fromMap(mp)).toList(growable: false)
+          ? (data['mp'] as Iterable)
+              .map<PartInfo>(
+                (mp) => PartInfo.fromMap(mp),
+              )
+              .toList(growable: false)
           : const [],
       shareNotifications: (data['shr'] is Iterable)
           ? (data['shr'] as Iterable)
-              .map<ShareNotification>((shr) => ShareNotification.fromMap(shr))
+              .map<ShareNotification>(
+                (shr) => ShareNotification.fromMap(shr),
+              )
               .toList(growable: false)
           : const [],
       dlSubsNotifications: (data['dlSubs'] is Iterable)
           ? (data['dlSubs'] as Iterable)
-              .map<DLSubscriptionNotification>((dlSubs) => DLSubscriptionNotification.fromMap(dlSubs))
+              .map<DLSubscriptionNotification>(
+                (dlSubs) => DLSubscriptionNotification.fromMap(dlSubs),
+              )
               .toList(growable: false)
           : const [],
       size: int.tryParse(data['s']?.toString() ?? ''),
@@ -162,7 +174,9 @@ class MessageInfo extends MessageCommon {
       modifiedSequence: int.tryParse(data['ms']?.toString() ?? ''),
       metadatas: (data['meta'] is Iterable)
           ? (data['meta'] as Iterable)
-              .map<MailCustomMetadata>((meta) => MailCustomMetadata.fromMap(meta))
+              .map<MailCustomMetadata>(
+                (meta) => MailCustomMetadata.fromMap(meta),
+              )
               .toList(growable: false)
           : []);
 
@@ -180,16 +194,40 @@ class MessageInfo extends MessageCommon {
         if (resentDate != null) 'rd': resentDate,
         if (part != null) 'part': part,
         if (fragment != null) 'fr': fragment,
-        if (emails.isNotEmpty) 'e': emails.map((e) => e.toMap()).toList(growable: false),
+        if (emails.isNotEmpty)
+          'e': emails
+              .map(
+                (e) => e.toMap(),
+              )
+              .toList(growable: false),
         if (subject != null) 'su': subject,
         if (messageIdHeader != null) 'mid': messageIdHeader,
         if (inReplyTo != null) 'irt': inReplyTo,
         if (invite != null) 'inv': invite!.toMap(),
-        if (headers.isNotEmpty) 'header': headers.map((header) => header.toMap()).toList(growable: false),
-        if (partInfos.isNotEmpty) 'mp': partInfos.map((mp) => mp.toMap()).toList(growable: false),
-        if (shareNotifications.isNotEmpty) 'shr': shareNotifications.map((shr) => shr.toMap()).toList(growable: false),
+        if (headers.isNotEmpty)
+          'header': headers
+              .map(
+                (header) => header.toMap(),
+              )
+              .toList(growable: false),
+        if (partInfos.isNotEmpty)
+          'mp': partInfos
+              .map(
+                (mp) => mp.toMap(),
+              )
+              .toList(growable: false),
+        if (shareNotifications.isNotEmpty)
+          'shr': shareNotifications
+              .map(
+                (shr) => shr.toMap(),
+              )
+              .toList(growable: false),
         if (dlSubsNotifications.isNotEmpty)
-          'dlSubs': dlSubsNotifications.map((dlSubs) => dlSubs.toMap()).toList(growable: false),
+          'dlSubs': dlSubsNotifications
+              .map(
+                (dlSubs) => dlSubs.toMap(),
+              )
+              .toList(growable: false),
         if (size != null) 's': size,
         if (date != null) 'd': date,
         if (folder != null) 'l': folder,
@@ -200,6 +238,11 @@ class MessageInfo extends MessageCommon {
         if (revision != null) 'rev': revision,
         if (changeDate != null) 'md': changeDate,
         if (modifiedSequence != null) 'ms': modifiedSequence,
-        if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toMap()).toList(growable: false),
+        if (metadatas.isNotEmpty)
+          'meta': metadatas
+              .map(
+                (meta) => meta.toMap(),
+              )
+              .toList(growable: false),
       };
 }

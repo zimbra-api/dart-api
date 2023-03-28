@@ -11,7 +11,10 @@ class AddedComment {
 
   const AddedComment(this.parentId, this.text);
 
-  factory AddedComment.fromMap(Map<String, dynamic> data) => AddedComment(data['parentId'] ?? '', data['text'] ?? '');
+  factory AddedComment.fromMap(Map<String, dynamic> data) => AddedComment(
+        data['parentId'] ?? '',
+        data['text'] ?? '',
+      );
 
   Map<String, dynamic> toMap() => {
         'parentId': parentId,

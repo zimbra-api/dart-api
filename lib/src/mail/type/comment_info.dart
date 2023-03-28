@@ -65,7 +65,9 @@ class CommentInfo {
       date: int.tryParse(data['d']?.toString() ?? ''),
       metadatas: (data['meta'] is Iterable)
           ? (data['meta'] as Iterable)
-              .map<MailCustomMetadata>((meta) => MailCustomMetadata.fromMap(meta))
+              .map<MailCustomMetadata>(
+                (meta) => MailCustomMetadata.fromMap(meta),
+              )
               .toList(growable: false)
           : const []);
 
@@ -80,6 +82,11 @@ class CommentInfo {
         if (color != null) 'color': color,
         if (rgb != null) 'rgb': rgb,
         if (date != null) 'd': date,
-        if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toMap()).toList(growable: false),
+        if (metadatas.isNotEmpty)
+          'meta': metadatas
+              .map(
+                (meta) => meta.toMap(),
+              )
+              .toList(growable: false),
       };
 }

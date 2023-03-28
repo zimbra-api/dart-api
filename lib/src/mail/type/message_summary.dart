@@ -46,35 +46,48 @@ class MessageSummary extends MessageCommon {
     super.metadatas = const [],
   });
 
-  factory MessageSummary.fromMap(Map<String, dynamic> data) => MessageSummary(data['id'] ?? '',
-      autoSendTime: int.tryParse(data['autoSendTime']?.toString() ?? ''),
-      emails: (data['e'] is Iterable)
-          ? (data['e'] as Iterable).map<EmailInfo>((e) => EmailInfo.fromMap(e)).toList(growable: false)
-          : const [],
-      subject: data['su'],
-      fragment: data['fr'],
-      invite: data['inv'] is Map ? InviteInfo.fromMap(data['inv']) : null,
-      size: int.tryParse(data['s']?.toString() ?? ''),
-      date: int.tryParse(data['d']?.toString() ?? ''),
-      folder: data['l'],
-      conversationId: data['cid'],
-      flags: data['f'],
-      tags: data['t'],
-      tagNames: data['tn'],
-      revision: int.tryParse(data['rev']?.toString() ?? ''),
-      changeDate: int.tryParse(data['md']?.toString() ?? ''),
-      modifiedSequence: int.tryParse(data['ms']?.toString() ?? ''),
-      metadatas: (data['meta'] is Iterable)
-          ? (data['meta'] as Iterable)
-              .map<MailCustomMetadata>((meta) => MailCustomMetadata.fromMap(meta))
-              .toList(growable: false)
-          : const []);
+  factory MessageSummary.fromMap(Map<String, dynamic> data) => MessageSummary(
+        data['id'] ?? '',
+        autoSendTime: int.tryParse(data['autoSendTime']?.toString() ?? ''),
+        emails: (data['e'] is Iterable)
+            ? (data['e'] as Iterable)
+                .map<EmailInfo>(
+                  (e) => EmailInfo.fromMap(e),
+                )
+                .toList(growable: false)
+            : const [],
+        subject: data['su'],
+        fragment: data['fr'],
+        invite: data['inv'] is Map ? InviteInfo.fromMap(data['inv']) : null,
+        size: int.tryParse(data['s']?.toString() ?? ''),
+        date: int.tryParse(data['d']?.toString() ?? ''),
+        folder: data['l'],
+        conversationId: data['cid'],
+        flags: data['f'],
+        tags: data['t'],
+        tagNames: data['tn'],
+        revision: int.tryParse(data['rev']?.toString() ?? ''),
+        changeDate: int.tryParse(data['md']?.toString() ?? ''),
+        modifiedSequence: int.tryParse(data['ms']?.toString() ?? ''),
+        metadatas: (data['meta'] is Iterable)
+            ? (data['meta'] as Iterable)
+                .map<MailCustomMetadata>(
+                  (meta) => MailCustomMetadata.fromMap(meta),
+                )
+                .toList(growable: false)
+            : const [],
+      );
 
   @override
   Map<String, dynamic> toMap() => {
         'id': id,
         if (autoSendTime != null) 'autoSendTime': autoSendTime,
-        if (emails.isNotEmpty) 'e': emails.map((e) => e.toMap()).toList(growable: false),
+        if (emails.isNotEmpty)
+          'e': emails
+              .map(
+                (e) => e.toMap(),
+              )
+              .toList(growable: false),
         if (subject != null) 'su': subject,
         if (fragment != null) 'fr': fragment,
         if (invite != null) 'inv': invite!.toMap(),
@@ -88,6 +101,11 @@ class MessageSummary extends MessageCommon {
         if (revision != null) 'rev': revision,
         if (changeDate != null) 'md': changeDate,
         if (modifiedSequence != null) 'ms': modifiedSequence,
-        if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toMap()).toList(growable: false),
+        if (metadatas.isNotEmpty)
+          'meta': metadatas
+              .map(
+                (meta) => meta.toMap(),
+              )
+              .toList(growable: false),
       };
 }

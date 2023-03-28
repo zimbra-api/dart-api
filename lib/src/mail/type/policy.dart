@@ -20,13 +20,14 @@ class Policy {
   const Policy({this.type, this.id, this.name, this.lifetime});
 
   factory Policy.fromMap(Map<String, dynamic> data) => Policy(
-      type: PolicyType.values.firstWhere(
-        (gt) => gt.name == data['type'],
-        orElse: () => PolicyType.user,
-      ),
-      id: data['id'],
-      name: data['name'],
-      lifetime: data['lifetime']);
+        type: PolicyType.values.firstWhere(
+          (gt) => gt.name == data['type'],
+          orElse: () => PolicyType.user,
+        ),
+        id: data['id'],
+        name: data['name'],
+        lifetime: data['lifetime'],
+      );
 
   Map<String, dynamic> toMap() => {
         if (type != null) 'type': type!.name,

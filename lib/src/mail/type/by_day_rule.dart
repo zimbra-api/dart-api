@@ -12,11 +12,21 @@ class ByDayRule {
   const ByDayRule({this.days = const []});
 
   factory ByDayRule.fromMap(Map<String, dynamic> data) => ByDayRule(
-      days: (data['wkday'] is Iterable)
-          ? (data['wkday'] as Iterable).map<WkDay>((wkday) => WkDay.fromMap(wkday)).toList(growable: false)
-          : const []);
+        days: (data['wkday'] is Iterable)
+            ? (data['wkday'] as Iterable)
+                .map<WkDay>(
+                  (wkday) => WkDay.fromMap(wkday),
+                )
+                .toList(growable: false)
+            : const [],
+      );
 
   Map<String, dynamic> toMap() => {
-        if (days.isNotEmpty) 'wkday': days.map((wkday) => wkday.toMap()).toList(growable: false),
+        if (days.isNotEmpty)
+          'wkday': days
+              .map(
+                (wkday) => wkday.toMap(),
+              )
+              .toList(growable: false),
       };
 }

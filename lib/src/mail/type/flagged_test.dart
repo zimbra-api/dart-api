@@ -12,12 +12,13 @@ class FlaggedTest extends FilterTest {
   const FlaggedTest({this.flag, super.index, super.negative});
 
   factory FlaggedTest.fromMap(Map<String, dynamic> data) => FlaggedTest(
-      flag: FilterFlagName.values.firstWhere(
-        (flagName) => flagName.name == data['flagName'],
-        orElse: () => FilterFlagName.flagged,
-      ),
-      index: int.tryParse(data['index']?.toString() ?? ''),
-      negative: data['negative']);
+        flag: FilterFlagName.values.firstWhere(
+          (flagName) => flagName.name == data['flagName'],
+          orElse: () => FilterFlagName.flagged,
+        ),
+        index: int.tryParse(data['index']?.toString() ?? ''),
+        negative: data['negative'],
+      );
 
   @override
   Map<String, dynamic> toMap() => {

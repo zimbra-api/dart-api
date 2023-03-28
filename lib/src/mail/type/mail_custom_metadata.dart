@@ -13,12 +13,22 @@ class MailCustomMetadata extends MailKeyValuePairs {
 
   const MailCustomMetadata({this.section, super.keyValuePairs});
 
-  factory MailCustomMetadata.fromMap(Map<String, dynamic> data) =>
-      MailCustomMetadata(section: data['section'], keyValuePairs: KeyValuePairs.keyValuePairsFromMap(data));
+  factory MailCustomMetadata.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      MailCustomMetadata(
+        section: data['section'],
+        keyValuePairs: KeyValuePairs.keyValuePairsFromMap(data),
+      );
 
   @override
   Map<String, dynamic> toMap() => {
         if (section != null) 'section': section,
-        if (keyValuePairs.isNotEmpty) 'a': keyValuePairs.map((kvp) => kvp.toMap()).toList(growable: false),
+        if (keyValuePairs.isNotEmpty)
+          'a': keyValuePairs
+              .map(
+                (kvp) => kvp.toMap(),
+              )
+              .toList(growable: false),
       };
 }

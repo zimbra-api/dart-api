@@ -13,14 +13,21 @@ class RankingActionSpec {
   /// Email
   final String? email;
 
-  const RankingActionSpec({this.operation = RankingActionOp.reset, this.email});
+  const RankingActionSpec({
+    this.operation = RankingActionOp.reset,
+    this.email,
+  });
 
-  factory RankingActionSpec.fromMap(Map<String, dynamic> data) => RankingActionSpec(
-      operation: RankingActionOp.values.firstWhere(
-        (op) => op.name == data['op'],
-        orElse: () => RankingActionOp.reset,
-      ),
-      email: data['email']);
+  factory RankingActionSpec.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      RankingActionSpec(
+        operation: RankingActionOp.values.firstWhere(
+          (op) => op.name == data['op'],
+          orElse: () => RankingActionOp.reset,
+        ),
+        email: data['email'],
+      );
 
   Map<String, dynamic> toMap() => {
         'op': operation.name,

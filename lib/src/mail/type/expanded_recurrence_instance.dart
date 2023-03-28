@@ -26,12 +26,16 @@ class ExpandedRecurrenceInstance {
     this.recurIdZ,
   });
 
-  factory ExpandedRecurrenceInstance.fromMap(Map<String, dynamic> data) => ExpandedRecurrenceInstance(
-      startTime: int.tryParse(data['s']?.toString() ?? ''),
-      duration: int.tryParse(data['dur']?.toString() ?? ''),
-      allDay: data['allDay'],
-      tzOffset: int.tryParse(data['tzo']?.toString() ?? ''),
-      recurIdZ: data['ridZ']);
+  factory ExpandedRecurrenceInstance.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ExpandedRecurrenceInstance(
+        startTime: int.tryParse(data['s']?.toString() ?? ''),
+        duration: int.tryParse(data['dur']?.toString() ?? ''),
+        allDay: data['allDay'],
+        tzOffset: int.tryParse(data['tzo']?.toString() ?? ''),
+        recurIdZ: data['ridZ'],
+      );
 
   Map<String, dynamic> toMap() => {
         if (startTime != null) 's': startTime,

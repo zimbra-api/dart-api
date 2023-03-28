@@ -31,13 +31,17 @@ class InstanceRecurIdInfo {
 
   const InstanceRecurIdInfo({this.range, this.dateTime, this.timezone});
 
-  factory InstanceRecurIdInfo.fromMap(Map<String, dynamic> data) => InstanceRecurIdInfo(
-      range: RecurrenceRange.values.firstWhere(
-        (item) => item.name == data['by'],
-        orElse: () => RecurrenceRange.thisAndFuture,
-      ),
-      dateTime: data['d'],
-      timezone: data['tz']);
+  factory InstanceRecurIdInfo.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      InstanceRecurIdInfo(
+        range: RecurrenceRange.values.firstWhere(
+          (item) => item.name == data['by'],
+          orElse: () => RecurrenceRange.thisAndFuture,
+        ),
+        dateTime: data['d'],
+        timezone: data['tz'],
+      );
 
   Map<String, dynamic> toMap() => {
         if (range != null) 'range': range!.name,

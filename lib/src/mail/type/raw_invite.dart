@@ -13,8 +13,11 @@ class RawInvite {
 
   const RawInvite({this.uid, this.summary, this.content});
 
-  factory RawInvite.fromMap(Map<String, dynamic> data) =>
-      RawInvite(uid: data['uid'], summary: data['summary'], content: data['_content']);
+  factory RawInvite.fromMap(Map<String, dynamic> data) => RawInvite(
+        uid: data['uid'],
+        summary: data['summary'],
+        content: data['_content'],
+      );
 
   Map<String, dynamic> toMap() => {
         if (uid != null) 'uid': uid,

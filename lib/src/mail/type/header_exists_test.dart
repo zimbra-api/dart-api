@@ -10,8 +10,14 @@ class HeaderExistsTest extends FilterTest {
 
   const HeaderExistsTest({this.header, super.index, super.negative});
 
-  factory HeaderExistsTest.fromMap(Map<String, dynamic> data) => HeaderExistsTest(
-      header: data['header'], index: int.tryParse(data['index']?.toString() ?? ''), negative: data['negative']);
+  factory HeaderExistsTest.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      HeaderExistsTest(
+        header: data['header'],
+        index: int.tryParse(data['index']?.toString() ?? ''),
+        negative: data['negative'],
+      );
 
   @override
   Map<String, dynamic> toMap() => {

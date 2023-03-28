@@ -29,20 +29,25 @@ class ConvActionSelector extends ActionSelector {
     this.acctRelativePath,
   });
 
-  factory ConvActionSelector.fromMap(Map<String, dynamic> data) =>
-      ConvActionSelector(data['id'] ?? '', data['op'] ?? '',
-          constraint: data['tcon'],
-          tag: int.tryParse(data['tag']?.toString() ?? ''),
-          folder: data['l'],
-          rgb: data['rgb'],
-          color: int.tryParse(data['color']?.toString() ?? ''),
-          name: data['name'],
-          flags: data['f'],
-          tags: data['t'],
-          tagNames: data['tn'],
-          nonExistentIds: data['nei'],
-          newlyCreatedIds: data['nci'],
-          acctRelativePath: data['acctRelPath']?['_content']);
+  factory ConvActionSelector.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ConvActionSelector(
+        data['id'] ?? '',
+        data['op'] ?? '',
+        constraint: data['tcon'],
+        tag: int.tryParse(data['tag']?.toString() ?? ''),
+        folder: data['l'],
+        rgb: data['rgb'],
+        color: int.tryParse(data['color']?.toString() ?? ''),
+        name: data['name'],
+        flags: data['f'],
+        tags: data['t'],
+        tagNames: data['tn'],
+        nonExistentIds: data['nei'],
+        newlyCreatedIds: data['nci'],
+        acctRelativePath: data['acctRelPath']?['_content'],
+      );
 
   @override
   Map<String, dynamic> toMap() => {
@@ -59,6 +64,9 @@ class ConvActionSelector extends ActionSelector {
         if (tagNames != null) 'tn': tagNames,
         if (nonExistentIds != null) 'nei': nonExistentIds,
         if (newlyCreatedIds != null) 'nci': newlyCreatedIds,
-        if (acctRelativePath != null) 'acctRelPath': {'_content': acctRelativePath},
+        if (acctRelativePath != null)
+          'acctRelPath': {
+            '_content': acctRelativePath,
+          },
       };
 }

@@ -25,13 +25,18 @@ class FolderActionResult extends ActionResult {
     this.accessKey,
   });
 
-  factory FolderActionResult.fromMap(Map<String, dynamic> data) =>
-      FolderActionResult(data['id'] ?? '', data['op'] ?? '',
-          nonExistentIds: data['nei'],
-          newlyCreatedIds: data['nci'],
-          zimbraId: data['zid'],
-          displayName: data['d'],
-          accessKey: data['key']);
+  factory FolderActionResult.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      FolderActionResult(
+        data['id'] ?? '',
+        data['op'] ?? '',
+        nonExistentIds: data['nei'],
+        newlyCreatedIds: data['nci'],
+        zimbraId: data['zid'],
+        displayName: data['d'],
+        accessKey: data['key'],
+      );
 
   @override
   Map<String, dynamic> toMap() => {

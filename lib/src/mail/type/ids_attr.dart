@@ -8,7 +8,9 @@ class IdsAttr {
 
   const IdsAttr(this.ids);
 
-  factory IdsAttr.fromMap(Map<String, dynamic> data) => IdsAttr(data['ids'] ?? '');
+  factory IdsAttr.fromMap(Map<String, dynamic> data) => IdsAttr(
+        data['ids'] ?? '',
+      );
 
   Map<String, dynamic> toMap() => {
         'ids': ids,

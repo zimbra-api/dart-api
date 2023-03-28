@@ -58,21 +58,30 @@ class TagInfo {
     this.retentionPolicy,
   });
 
-  factory TagInfo.fromMap(Map<String, dynamic> data) => TagInfo(data['id'] ?? '', data['name'] ?? '',
-      color: int.tryParse(data['color']?.toString() ?? ''),
-      rgb: data['rgb'],
-      unread: int.tryParse(data['u']?.toString() ?? ''),
-      count: data['n'],
-      date: int.tryParse(data['d']?.toString() ?? ''),
-      revision: int.tryParse(data['rev']?.toString() ?? ''),
-      changeDate: int.tryParse(data['md']?.toString() ?? ''),
-      modifiedSequence: int.tryParse(data['ms']?.toString() ?? ''),
-      metadatas: (data['meta'] is Iterable)
-          ? (data['meta'] as Iterable)
-              .map<MailCustomMetadata>((meta) => MailCustomMetadata.fromMap(meta))
-              .toList(growable: false)
-          : const [],
-      retentionPolicy: data['retentionPolicy']?[0] is Map ? RetentionPolicy.fromMap(data['retentionPolicy'][0]) : null);
+  factory TagInfo.fromMap(Map<String, dynamic> data) => TagInfo(
+        data['id'] ?? '',
+        data['name'] ?? '',
+        color: int.tryParse(data['color']?.toString() ?? ''),
+        rgb: data['rgb'],
+        unread: int.tryParse(data['u']?.toString() ?? ''),
+        count: data['n'],
+        date: int.tryParse(data['d']?.toString() ?? ''),
+        revision: int.tryParse(data['rev']?.toString() ?? ''),
+        changeDate: int.tryParse(data['md']?.toString() ?? ''),
+        modifiedSequence: int.tryParse(data['ms']?.toString() ?? ''),
+        metadatas: (data['meta'] is Iterable)
+            ? (data['meta'] as Iterable)
+                .map<MailCustomMetadata>(
+                  (meta) => MailCustomMetadata.fromMap(meta),
+                )
+                .toList(growable: false)
+            : const [],
+        retentionPolicy: data['retentionPolicy']?[0] is Map
+            ? RetentionPolicy.fromMap(
+                data['retentionPolicy'][0],
+              )
+            : null,
+      );
 
   Map<String, dynamic> toMap() => {
         'id': id,
@@ -85,7 +94,12 @@ class TagInfo {
         if (revision != null) 'rev': revision,
         if (changeDate != null) 'md': changeDate,
         if (modifiedSequence != null) 'ms': modifiedSequence,
-        if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toMap()).toList(growable: false),
+        if (metadatas.isNotEmpty)
+          'meta': metadatas
+              .map(
+                (meta) => meta.toMap(),
+              )
+              .toList(growable: false),
         if (retentionPolicy != null) 'retentionPolicy': retentionPolicy!.toMap(),
       };
 }

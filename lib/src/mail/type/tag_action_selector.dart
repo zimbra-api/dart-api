@@ -26,19 +26,29 @@ class TagActionSelector extends ActionSelector {
     super.newlyCreatedIds,
   });
 
-  factory TagActionSelector.fromMap(Map<String, dynamic> data) => TagActionSelector(data['id'] ?? '', data['op'] ?? '',
-      retentionPolicy: data['retentionPolicy']?[0] is Map ? RetentionPolicy.fromMap(data['retentionPolicy'][0]) : null,
-      constraint: data['tcon'],
-      tag: data['tag'],
-      folder: data['l'],
-      rgb: data['rgb'],
-      color: int.tryParse(data['color']?.toString() ?? ''),
-      name: data['name'],
-      flags: data['f'],
-      tags: data['t'],
-      tagNames: data['tn'],
-      nonExistentIds: data['nei'],
-      newlyCreatedIds: data['nci']);
+  factory TagActionSelector.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      TagActionSelector(
+        data['id'] ?? '',
+        data['op'] ?? '',
+        retentionPolicy: data['retentionPolicy']?[0] is Map
+            ? RetentionPolicy.fromMap(
+                data['retentionPolicy'][0],
+              )
+            : null,
+        constraint: data['tcon'],
+        tag: data['tag'],
+        folder: data['l'],
+        rgb: data['rgb'],
+        color: int.tryParse(data['color']?.toString() ?? ''),
+        name: data['name'],
+        flags: data['f'],
+        tags: data['t'],
+        tagNames: data['tn'],
+        nonExistentIds: data['nei'],
+        newlyCreatedIds: data['nci'],
+      );
 
   @override
   Map<String, dynamic> toMap() => {

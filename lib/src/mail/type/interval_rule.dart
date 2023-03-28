@@ -9,8 +9,9 @@ class IntervalRule {
 
   const IntervalRule(this.ival);
 
-  factory IntervalRule.fromMap(Map<String, dynamic> data) =>
-      IntervalRule(int.tryParse(data['ival']?.toString() ?? '') ?? 0);
+  factory IntervalRule.fromMap(Map<String, dynamic> data) => IntervalRule(
+        int.tryParse(data['ival']?.toString() ?? '') ?? 0,
+      );
 
   Map<String, dynamic> toMap() => {
         'ival': ival,

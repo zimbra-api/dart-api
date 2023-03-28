@@ -15,8 +15,14 @@ class FreeBusyUserSpec {
 
   const FreeBusyUserSpec({this.folderId, this.id, this.name});
 
-  factory FreeBusyUserSpec.fromMap(Map<String, dynamic> data) =>
-      FreeBusyUserSpec(folderId: int.tryParse(data['l']?.toString() ?? ''), id: data['id'], name: data['name']);
+  factory FreeBusyUserSpec.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      FreeBusyUserSpec(
+        folderId: int.tryParse(data['l']?.toString() ?? ''),
+        id: data['id'],
+        name: data['name'],
+      );
 
   Map<String, dynamic> toMap() => {
         if (folderId != null) 'l': folderId,

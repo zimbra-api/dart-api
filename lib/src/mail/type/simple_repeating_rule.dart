@@ -82,27 +82,85 @@ class SimpleRepeatingRule {
     this.xNames = const [],
   });
 
-  factory SimpleRepeatingRule.fromMap(Map<String, dynamic> data) => SimpleRepeatingRule(
-      frequency: Frequency.values.firstWhere(
-        (item) => item.name == data['freq'],
-        orElse: () => Frequency.second,
-      ),
-      until: data['until'] is Map ? DateTimeStringAttr.fromMap(data['until']) : null,
-      count: data['count'] is Map ? NumAttr.fromMap(data['count']) : null,
-      interval: data['interval'] is Map ? IntervalRule.fromMap(data['interval']) : null,
-      bySecond: data['bysecond'] is Map ? BySecondRule.fromMap(data['bysecond']) : null,
-      byMinute: data['byminute'] is Map ? ByMinuteRule.fromMap(data['byminute']) : null,
-      byHour: data['byhour'] is Map ? ByHourRule.fromMap(data['byhour']) : null,
-      byDay: data['byday'] is Map ? ByDayRule.fromMap(data['byday']) : null,
-      byMonthDay: data['bymonthday'] is Map ? ByMonthDayRule.fromMap(data['bymonthday']) : null,
-      byYearDay: data['byyearday'] is Map ? ByYearDayRule.fromMap(data['byyearday']) : null,
-      byWeekNo: data['byweekno'] is Map ? ByWeekNoRule.fromMap(data['byweekno']) : null,
-      byMonth: data['bymonth'] is Map ? ByMonthRule.fromMap(data['bymonth']) : null,
-      bySetPose: data['bysetpos'] is Map ? BySetPosRule.fromMap(data['bysetpos']) : null,
-      weekStart: data['wkst'] is Map ? WkstRule.fromMap(data['wkst']) : null,
-      xNames: (data['rule-x-name'] is Iterable)
-          ? (data['rule-x-name'] as Iterable).map<XNameRule>((rule) => XNameRule.fromMap(rule)).toList(growable: false)
-          : const []);
+  factory SimpleRepeatingRule.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      SimpleRepeatingRule(
+        frequency: Frequency.values.firstWhere(
+          (item) => item.name == data['freq'],
+          orElse: () => Frequency.second,
+        ),
+        until: data['until'] is Map
+            ? DateTimeStringAttr.fromMap(
+                data['until'],
+              )
+            : null,
+        count: data['count'] is Map
+            ? NumAttr.fromMap(
+                data['count'],
+              )
+            : null,
+        interval: data['interval'] is Map
+            ? IntervalRule.fromMap(
+                data['interval'],
+              )
+            : null,
+        bySecond: data['bysecond'] is Map
+            ? BySecondRule.fromMap(
+                data['bysecond'],
+              )
+            : null,
+        byMinute: data['byminute'] is Map
+            ? ByMinuteRule.fromMap(
+                data['byminute'],
+              )
+            : null,
+        byHour: data['byhour'] is Map
+            ? ByHourRule.fromMap(
+                data['byhour'],
+              )
+            : null,
+        byDay: data['byday'] is Map
+            ? ByDayRule.fromMap(
+                data['byday'],
+              )
+            : null,
+        byMonthDay: data['bymonthday'] is Map
+            ? ByMonthDayRule.fromMap(
+                data['bymonthday'],
+              )
+            : null,
+        byYearDay: data['byyearday'] is Map
+            ? ByYearDayRule.fromMap(
+                data['byyearday'],
+              )
+            : null,
+        byWeekNo: data['byweekno'] is Map
+            ? ByWeekNoRule.fromMap(
+                data['byweekno'],
+              )
+            : null,
+        byMonth: data['bymonth'] is Map
+            ? ByMonthRule.fromMap(
+                data['bymonth'],
+              )
+            : null,
+        bySetPose: data['bysetpos'] is Map
+            ? BySetPosRule.fromMap(
+                data['bysetpos'],
+              )
+            : null,
+        weekStart: data['wkst'] is Map
+            ? WkstRule.fromMap(
+                data['wkst'],
+              )
+            : null,
+        xNames: (data['rule-x-name'] is Iterable)
+            ? (data['rule-x-name'] as Iterable)
+                .map<XNameRule>((rule) => XNameRule.fromMap(rule))
+                .toList(growable: false)
+            : const [],
+      );
 
   Map<String, dynamic> toMap() => {
         'freq': frequency.name,
@@ -119,6 +177,11 @@ class SimpleRepeatingRule {
         if (byMonth != null) 'bymonth': byMonth!.toMap(),
         if (bySetPose != null) 'bysetpos': bySetPose!.toMap(),
         if (weekStart != null) 'wkst': weekStart!.toMap(),
-        if (xNames.isNotEmpty) 'rule-x-name': xNames.map((rule) => rule.toMap()).toList(growable: false),
+        if (xNames.isNotEmpty)
+          'rule-x-name': xNames
+              .map(
+                (rule) => rule.toMap(),
+              )
+              .toList(growable: false),
       };
 }

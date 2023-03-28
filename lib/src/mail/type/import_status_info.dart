@@ -24,8 +24,15 @@ class ImportStatusInfo {
     this.error,
   });
 
-  factory ImportStatusInfo.fromMap(Map<String, dynamic> data) =>
-      ImportStatusInfo(id: data['id'], isRunning: data['isRunning'], success: data['success'], error: data['error']);
+  factory ImportStatusInfo.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ImportStatusInfo(
+        id: data['id'],
+        isRunning: data['isRunning'],
+        success: data['success'],
+        error: data['error'],
+      );
 
   Map<String, dynamic> toMap() => {
         if (id != null) 'id': id,

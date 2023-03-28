@@ -10,8 +10,14 @@ class ContactRankingTest extends FilterTest {
 
   const ContactRankingTest({this.header, super.index, super.negative});
 
-  factory ContactRankingTest.fromMap(Map<String, dynamic> data) => ContactRankingTest(
-      header: data['header'], index: int.tryParse(data['index']?.toString() ?? ''), negative: data['negative']);
+  factory ContactRankingTest.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ContactRankingTest(
+        header: data['header'],
+        index: int.tryParse(data['index']?.toString() ?? ''),
+        negative: data['negative'],
+      );
 
   @override
   Map<String, dynamic> toMap() => {

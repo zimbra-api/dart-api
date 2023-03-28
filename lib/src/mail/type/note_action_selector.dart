@@ -29,21 +29,26 @@ class NoteActionSelector extends ActionSelector {
     super.newlyCreatedIds,
   });
 
-  factory NoteActionSelector.fromMap(Map<String, dynamic> data) =>
-      NoteActionSelector(data['id'] ?? '', data['op'] ?? '',
-          content: data['content'],
-          bounds: data['pos'],
-          constraint: data['tcon'],
-          tag: data['tag'],
-          folder: data['l'],
-          rgb: data['rgb'],
-          color: int.tryParse(data['color']?.toString() ?? ''),
-          name: data['name'],
-          flags: data['f'],
-          tags: data['t'],
-          tagNames: data['tn'],
-          nonExistentIds: data['nei'],
-          newlyCreatedIds: data['nci']);
+  factory NoteActionSelector.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      NoteActionSelector(
+        data['id'] ?? '',
+        data['op'] ?? '',
+        content: data['content'],
+        bounds: data['pos'],
+        constraint: data['tcon'],
+        tag: data['tag'],
+        folder: data['l'],
+        rgb: data['rgb'],
+        color: int.tryParse(data['color']?.toString() ?? ''),
+        name: data['name'],
+        flags: data['f'],
+        tags: data['t'],
+        tagNames: data['tn'],
+        nonExistentIds: data['nei'],
+        newlyCreatedIds: data['nci'],
+      );
 
   @override
   Map<String, dynamic> toMap() => {

@@ -8,7 +8,9 @@ class Part {
 
   const Part(this.part);
 
-  factory Part.fromMap(Map<String, dynamic> data) => Part(data['part'] ?? '');
+  factory Part.fromMap(Map<String, dynamic> data) => Part(
+        data['part'] ?? '',
+      );
 
   Map<String, dynamic> toMap() => {
         'part': part,

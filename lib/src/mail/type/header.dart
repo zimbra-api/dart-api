@@ -12,7 +12,10 @@ class Header {
 
   const Header(this.name, {this.value});
 
-  factory Header.fromMap(Map<String, dynamic> data) => Header(data['name'] ?? '', value: data['_content']);
+  factory Header.fromMap(Map<String, dynamic> data) => Header(
+        data['name'] ?? '',
+        value: data['_content'],
+      );
 
   Map<String, dynamic> toMap() => {
         'name': name,

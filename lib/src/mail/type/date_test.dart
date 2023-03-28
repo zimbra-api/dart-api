@@ -15,13 +15,14 @@ class DateTest extends FilterTest {
   const DateTest({this.dateComparison, this.date, super.index, super.negative});
 
   factory DateTest.fromMap(Map<String, dynamic> data) => DateTest(
-      dateComparison: DateComparison.values.firstWhere(
-        (dateComparison) => dateComparison.name == data['dateComparison'],
-        orElse: () => DateComparison.before,
-      ),
-      date: data['date'],
-      index: int.tryParse(data['index']?.toString() ?? ''),
-      negative: data['negative']);
+        dateComparison: DateComparison.values.firstWhere(
+          (dateComparison) => dateComparison.name == data['dateComparison'],
+          orElse: () => DateComparison.before,
+        ),
+        date: data['date'],
+        index: int.tryParse(data['index']?.toString() ?? ''),
+        negative: data['negative'],
+      );
 
   @override
   Map<String, dynamic> toMap() => {

@@ -41,14 +41,15 @@ class AddMsgSpec {
   });
 
   factory AddMsgSpec.fromMap(Map<String, dynamic> data) => AddMsgSpec(
-      flags: data['f'],
-      tags: data['t'],
-      tagNames: data['tn'],
-      folder: data['l'],
-      noICal: data['noICal'],
-      dateReceived: int.tryParse(data['d']?.toString() ?? ''),
-      attachmentId: data['aid'],
-      content: data['content']?['_content']);
+        flags: data['f'],
+        tags: data['t'],
+        tagNames: data['tn'],
+        folder: data['l'],
+        noICal: data['noICal'],
+        dateReceived: int.tryParse(data['d']?.toString() ?? ''),
+        attachmentId: data['aid'],
+        content: data['content']?['_content'],
+      );
 
   Map<String, dynamic> toMap() => {
         if (flags != null) 'f': flags,

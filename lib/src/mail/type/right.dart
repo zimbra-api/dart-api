@@ -8,7 +8,9 @@ class Right {
 
   const Right({this.right = ''});
 
-  factory Right.fromMap(Map<String, dynamic> data) => Right(right: data['right'] ?? '');
+  factory Right.fromMap(Map<String, dynamic> data) => Right(
+        right: data['right'] ?? '',
+      );
 
   Map<String, dynamic> toMap() => {
         'right': right,

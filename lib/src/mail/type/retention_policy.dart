@@ -13,26 +13,42 @@ class RetentionPolicy {
 
   const RetentionPolicy({this.keep = const [], this.purge = const []});
 
-  factory RetentionPolicy.fromMap(Map<String, dynamic> data) => RetentionPolicy(
-      keep: (data['keep']?[0]['policy'] is Iterable)
-          ? (data['keep'][0]['policy'] as Iterable)
-              .map<Policy>((policy) => Policy.fromMap(policy))
-              .toList(growable: false)
-          : const [],
-      purge: (data['purge']?[0]['policy'] is Iterable)
-          ? (data['purge'][0]['policy'] as Iterable)
-              .map<Policy>((policy) => Policy.fromMap(policy))
-              .toList(growable: false)
-          : const []);
+  factory RetentionPolicy.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      RetentionPolicy(
+        keep: (data['keep']?[0]['policy'] is Iterable)
+            ? (data['keep'][0]['policy'] as Iterable)
+                .map<Policy>((policy) => Policy.fromMap(policy))
+                .toList(growable: false)
+            : const [],
+        purge: (data['purge']?[0]['policy'] is Iterable)
+            ? (data['purge'][0]['policy'] as Iterable)
+                .map<Policy>((policy) => Policy.fromMap(policy))
+                .toList(growable: false)
+            : const [],
+      );
 
   Map<String, dynamic> toMap() => {
         if (keep.isNotEmpty)
           'keep': [
-            {'policy': keep.map((policy) => policy.toMap()).toList(growable: false)}
+            {
+              'policy': keep
+                  .map(
+                    (policy) => policy.toMap(),
+                  )
+                  .toList(growable: false)
+            }
           ],
         if (purge.isNotEmpty)
           'purge': [
-            {'policy': purge.map((policy) => policy.toMap()).toList(growable: false)}
+            {
+              'policy': purge
+                  .map(
+                    (policy) => policy.toMap(),
+                  )
+                  .toList(growable: false)
+            }
           ],
       };
 }

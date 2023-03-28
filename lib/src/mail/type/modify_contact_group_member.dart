@@ -17,16 +17,20 @@ class ModifyContactGroupMember extends NewContactGroupMember {
     super.value,
   });
 
-  factory ModifyContactGroupMember.fromMap(Map<String, dynamic> data) => ModifyContactGroupMember(
-      operation: ModifyMemberOperation.values.firstWhere(
-        (op) => op.name == data['op'],
-        orElse: () => ModifyMemberOperation.reset,
-      ),
-      type: MemberType.values.firstWhere(
-        (type) => type.name == data['type'],
-        orElse: () => MemberType.contact,
-      ),
-      value: data['_content']);
+  factory ModifyContactGroupMember.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ModifyContactGroupMember(
+        operation: ModifyMemberOperation.values.firstWhere(
+          (op) => op.name == data['op'],
+          orElse: () => ModifyMemberOperation.reset,
+        ),
+        type: MemberType.values.firstWhere(
+          (type) => type.name == data['type'],
+          orElse: () => MemberType.contact,
+        ),
+        value: data['_content'],
+      );
 
   @override
   Map<String, dynamic> toMap() => {

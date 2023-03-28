@@ -19,17 +19,23 @@ class ConflictRecurrenceInstance extends ExpandedRecurrenceInstance {
     this.freebusyUsers = const [],
   });
 
-  factory ConflictRecurrenceInstance.fromMap(Map<String, dynamic> data) => ConflictRecurrenceInstance(
-      startTime: int.tryParse(data['s']?.toString() ?? ''),
-      duration: int.tryParse(data['dur']?.toString() ?? ''),
-      allDay: data['allDay'],
-      tzOffset: int.tryParse(data['tzo']?.toString() ?? ''),
-      recurIdZ: data['ridZ'],
-      freebusyUsers: (data['usr'] is Iterable)
-          ? (data['usr'] as Iterable)
-              .map<FreeBusyUserStatus>((usr) => FreeBusyUserStatus.fromMap(usr))
-              .toList(growable: false)
-          : const []);
+  factory ConflictRecurrenceInstance.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ConflictRecurrenceInstance(
+        startTime: int.tryParse(data['s']?.toString() ?? ''),
+        duration: int.tryParse(data['dur']?.toString() ?? ''),
+        allDay: data['allDay'],
+        tzOffset: int.tryParse(data['tzo']?.toString() ?? ''),
+        recurIdZ: data['ridZ'],
+        freebusyUsers: (data['usr'] is Iterable)
+            ? (data['usr'] as Iterable)
+                .map<FreeBusyUserStatus>(
+                  (usr) => FreeBusyUserStatus.fromMap(usr),
+                )
+                .toList(growable: false)
+            : const [],
+      );
 
   @override
   Map<String, dynamic> toMap() => {
@@ -38,6 +44,11 @@ class ConflictRecurrenceInstance extends ExpandedRecurrenceInstance {
         if (allDay != null) 'allDay': allDay,
         if (tzOffset != null) 'tzo': tzOffset,
         if (recurIdZ != null) 'ridZ': recurIdZ,
-        if (freebusyUsers.isNotEmpty) 'usr': freebusyUsers.map((usr) => usr.toMap()).toList(growable: false),
+        if (freebusyUsers.isNotEmpty)
+          'usr': freebusyUsers
+              .map(
+                (usr) => usr.toMap(),
+              )
+              .toList(growable: false),
       };
 }

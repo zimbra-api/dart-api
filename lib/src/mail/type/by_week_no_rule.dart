@@ -10,7 +10,9 @@ class ByWeekNoRule {
 
   const ByWeekNoRule(this.list);
 
-  factory ByWeekNoRule.fromMap(Map<String, dynamic> data) => ByWeekNoRule(data['wklist'] ?? '');
+  factory ByWeekNoRule.fromMap(Map<String, dynamic> data) => ByWeekNoRule(
+        data['wklist'] ?? '',
+      );
 
   Map<String, dynamic> toMap() => {
         'wklist': list,

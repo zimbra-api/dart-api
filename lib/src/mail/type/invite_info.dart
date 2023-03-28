@@ -29,25 +29,45 @@ class InviteInfo {
   });
 
   factory InviteInfo.fromMap(Map<String, dynamic> data) => InviteInfo(
-      InviteType.values.firstWhere(
-        (item) => item.name == data['type'],
-        orElse: () => InviteType.appt,
-      ),
-      timezones: (data['tz'] is Iterable)
-          ? (data['tz'] as Iterable).map<CalTZInfo>((tz) => CalTZInfo.fromMap(tz)).toList(growable: false)
-          : const [],
-      inviteComponent: data['comp'] is Map ? InviteComponent.fromMap(data['comp']) : null,
-      calendarReplies: (data['replies']?['reply'] is Iterable)
-          ? (data['replies']['reply'] as Iterable)
-              .map<CalendarReply>((at) => CalendarReply.fromMap(at))
-              .toList(growable: false)
-          : const []);
+        InviteType.values.firstWhere(
+          (item) => item.name == data['type'],
+          orElse: () => InviteType.appt,
+        ),
+        timezones: (data['tz'] is Iterable)
+            ? (data['tz'] as Iterable)
+                .map<CalTZInfo>(
+                  (tz) => CalTZInfo.fromMap(tz),
+                )
+                .toList(growable: false)
+            : const [],
+        inviteComponent: data['comp'] is Map
+            ? InviteComponent.fromMap(
+                data['comp'],
+              )
+            : null,
+        calendarReplies: (data['replies']?['reply'] is Iterable)
+            ? (data['replies']['reply'] as Iterable)
+                .map<CalendarReply>((at) => CalendarReply.fromMap(at))
+                .toList(growable: false)
+            : const [],
+      );
 
   Map<String, dynamic> toMap() => {
         'type': calItemType.name,
-        if (timezones.isNotEmpty) 'tz': timezones.map((tz) => tz.toMap()).toList(growable: false),
+        if (timezones.isNotEmpty)
+          'tz': timezones
+              .map(
+                (tz) => tz.toMap(),
+              )
+              .toList(growable: false),
         if (inviteComponent != null) 'comp': inviteComponent!.toMap(),
         if (calendarReplies.isNotEmpty)
-          'replies': {'reply': calendarReplies.map((reply) => reply.toMap()).toList(growable: false)},
+          'replies': {
+            'reply': calendarReplies
+                .map(
+                  (reply) => reply.toMap(),
+                )
+                .toList(growable: false)
+          },
       };
 }

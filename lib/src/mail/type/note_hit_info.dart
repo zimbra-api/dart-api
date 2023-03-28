@@ -28,25 +28,28 @@ class NoteHitInfo extends NoteInfo {
   });
 
   factory NoteHitInfo.fromMap(Map<String, dynamic> data) => NoteHitInfo(
-      sortField: data['sf'],
-      id: data['id'],
-      revision: int.tryParse(data['rev']?.toString() ?? ''),
-      folder: data['l'],
-      date: int.tryParse(data['d']?.toString() ?? ''),
-      flags: data['f'],
-      tags: data['t'],
-      tagNames: data['tn'],
-      bounds: data['pos'],
-      color: int.tryParse(data['color']?.toString() ?? ''),
-      rgb: data['rgb'],
-      changeDate: int.tryParse(data['md']?.toString() ?? ''),
-      modifiedSequence: int.tryParse(data['ms']?.toString() ?? ''),
-      content: data['content'],
-      metadatas: (data['meta'] is Iterable)
-          ? (data['meta'] as Iterable)
-              .map<MailCustomMetadata>((meta) => MailCustomMetadata.fromMap(meta))
-              .toList(growable: false)
-          : const []);
+        sortField: data['sf'],
+        id: data['id'],
+        revision: int.tryParse(data['rev']?.toString() ?? ''),
+        folder: data['l'],
+        date: int.tryParse(data['d']?.toString() ?? ''),
+        flags: data['f'],
+        tags: data['t'],
+        tagNames: data['tn'],
+        bounds: data['pos'],
+        color: int.tryParse(data['color']?.toString() ?? ''),
+        rgb: data['rgb'],
+        changeDate: int.tryParse(data['md']?.toString() ?? ''),
+        modifiedSequence: int.tryParse(data['ms']?.toString() ?? ''),
+        content: data['content'],
+        metadatas: (data['meta'] is Iterable)
+            ? (data['meta'] as Iterable)
+                .map<MailCustomMetadata>(
+                  (meta) => MailCustomMetadata.fromMap(meta),
+                )
+                .toList(growable: false)
+            : const [],
+      );
 
   @override
   Map<String, dynamic> toMap() => {
@@ -64,6 +67,11 @@ class NoteHitInfo extends NoteInfo {
         if (changeDate != null) 'md': changeDate,
         if (modifiedSequence != null) 'ms': modifiedSequence,
         if (content != null) 'content': content,
-        if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toMap()).toList(growable: false),
+        if (metadatas.isNotEmpty)
+          'meta': metadatas
+              .map(
+                (meta) => meta.toMap(),
+              )
+              .toList(growable: false),
       };
 }

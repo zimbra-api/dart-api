@@ -37,16 +37,18 @@ class Grant {
     this.accessKey,
   });
 
-  factory Grant.fromMap(Map<String, dynamic> data) => Grant(data['perm'] ?? '',
-      granteeType: GrantGranteeType.values.firstWhere(
-        (gt) => gt.name == data['gt'],
-        orElse: () => GrantGranteeType.all,
-      ),
-      granteeId: data['zid'],
-      expiry: int.tryParse(data['expiry']?.toString() ?? ''),
-      granteeName: data['d'],
-      guestPassword: data['pw'],
-      accessKey: data['key']);
+  factory Grant.fromMap(Map<String, dynamic> data) => Grant(
+        data['perm'] ?? '',
+        granteeType: GrantGranteeType.values.firstWhere(
+          (gt) => gt.name == data['gt'],
+          orElse: () => GrantGranteeType.all,
+        ),
+        granteeId: data['zid'],
+        expiry: int.tryParse(data['expiry']?.toString() ?? ''),
+        granteeName: data['d'],
+        guestPassword: data['pw'],
+        accessKey: data['key'],
+      );
 
   Map<String, dynamic> toMap() => {
         'perm': perm,

@@ -11,8 +11,10 @@ class IdVersion {
 
   const IdVersion({this.id, this.version});
 
-  factory IdVersion.fromMap(Map<String, dynamic> data) =>
-      IdVersion(id: data['id'], version: int.tryParse(data['ver']?.toString() ?? ''));
+  factory IdVersion.fromMap(Map<String, dynamic> data) => IdVersion(
+        id: data['id'],
+        version: int.tryParse(data['ver']?.toString() ?? ''),
+      );
 
   Map<String, dynamic> toMap() => {
         if (id != null) 'id': id,

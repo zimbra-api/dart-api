@@ -15,7 +15,10 @@ class FileIntoAction extends FilterAction {
   const FileIntoAction({this.folder, this.copy, super.index});
 
   factory FileIntoAction.fromMap(Map<String, dynamic> data) => FileIntoAction(
-      folder: data['folderPath'], copy: data['copy'], index: int.tryParse(data['index']?.toString() ?? ''));
+        folder: data['folderPath'],
+        copy: data['copy'],
+        index: int.tryParse(data['index']?.toString() ?? ''),
+      );
 
   @override
   Map<String, dynamic> toMap() => {

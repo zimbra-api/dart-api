@@ -14,8 +14,11 @@ class CalendarAttach {
 
   const CalendarAttach({this.uri, this.contentType, this.binaryB64Data});
 
-  factory CalendarAttach.fromMap(Map<String, dynamic> data) =>
-      CalendarAttach(uri: data['uri'], contentType: data['ct'], binaryB64Data: data['_content']);
+  factory CalendarAttach.fromMap(Map<String, dynamic> data) => CalendarAttach(
+        uri: data['uri'],
+        contentType: data['ct'],
+        binaryB64Data: data['_content'],
+      );
 
   Map<String, dynamic> toMap() => {
         if (uri != null) 'uri': uri,

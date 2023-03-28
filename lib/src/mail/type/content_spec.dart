@@ -22,8 +22,12 @@ class ContentSpec {
     this.text,
   });
 
-  factory ContentSpec.fromMap(Map<String, dynamic> data) =>
-      ContentSpec(attachmentId: data['aid'], messageId: data['mid'], part: data['part'], text: data['_content']);
+  factory ContentSpec.fromMap(Map<String, dynamic> data) => ContentSpec(
+        attachmentId: data['aid'],
+        messageId: data['mid'],
+        part: data['part'],
+        text: data['_content'],
+      );
 
   Map<String, dynamic> toMap() => {
         if (attachmentId != null) 'aid': attachmentId,

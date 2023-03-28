@@ -52,23 +52,27 @@ class NewFolderSpec {
     this.grants = const [],
   });
 
-  factory NewFolderSpec.fromMap(Map<String, dynamic> data) => NewFolderSpec(data['name'] ?? '',
-      defaultView: ViewType.values.firstWhere(
-        (view) => view.name == data['view'],
-        orElse: () => ViewType.conversation,
-      ),
-      flags: data['f'],
-      color: int.tryParse(data['color']?.toString() ?? ''),
-      rgb: data['rgb'],
-      url: data['url'],
-      parentFolderId: data['l'],
-      fetchIfExists: data['fie'],
-      syncToUrl: data['sync'],
-      grants: data['acl']?[0]['grant'] is Iterable
-          ? (data['acl'][0]['grant'] as Iterable)
-              .map<ActionGrantSelector>((grant) => ActionGrantSelector.fromMap(grant))
-              .toList(growable: false)
-          : const []);
+  factory NewFolderSpec.fromMap(Map<String, dynamic> data) => NewFolderSpec(
+        data['name'] ?? '',
+        defaultView: ViewType.values.firstWhere(
+          (view) => view.name == data['view'],
+          orElse: () => ViewType.conversation,
+        ),
+        flags: data['f'],
+        color: int.tryParse(data['color']?.toString() ?? ''),
+        rgb: data['rgb'],
+        url: data['url'],
+        parentFolderId: data['l'],
+        fetchIfExists: data['fie'],
+        syncToUrl: data['sync'],
+        grants: data['acl']?[0]['grant'] is Iterable
+            ? (data['acl'][0]['grant'] as Iterable)
+                .map<ActionGrantSelector>(
+                  (grant) => ActionGrantSelector.fromMap(grant),
+                )
+                .toList(growable: false)
+            : const [],
+      );
 
   Map<String, dynamic> toMap() => {
         'name': name,
@@ -82,7 +86,13 @@ class NewFolderSpec {
         if (syncToUrl != null) 'sync': syncToUrl,
         if (grants.isNotEmpty)
           'acl': [
-            {'grant': grants.map((grant) => grant.toMap()).toList(growable: false)}
+            {
+              'grant': grants
+                  .map(
+                    (grant) => grant.toMap(),
+                  )
+                  .toList(growable: false)
+            }
           ],
       };
 }

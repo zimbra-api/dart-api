@@ -14,8 +14,11 @@ class Grantor {
 
   const Grantor({this.id, this.email, this.name});
 
-  factory Grantor.fromMap(Map<String, dynamic> data) =>
-      Grantor(id: data['id'], email: data['email'], name: data['name']);
+  factory Grantor.fromMap(Map<String, dynamic> data) => Grantor(
+        id: data['id'],
+        email: data['email'],
+        name: data['name'],
+      );
 
   Map<String, dynamic> toMap() => {
         if (id != null) 'id': id,

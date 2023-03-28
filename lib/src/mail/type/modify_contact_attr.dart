@@ -19,13 +19,20 @@ class ModifyContactAttr extends NewContactAttr {
     super.value,
   });
 
-  factory ModifyContactAttr.fromMap(Map<String, dynamic> data) => ModifyContactAttr(data['n'] ?? '',
-      operation: ModifyAttributeOperation.values
-          .firstWhere((op) => op.name == data['op'], orElse: () => ModifyAttributeOperation.add),
-      attachId: data['aid'],
-      id: data['id'],
-      part: data['part'],
-      value: data['_content']);
+  factory ModifyContactAttr.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ModifyContactAttr(
+        data['n'] ?? '',
+        operation: ModifyAttributeOperation.values.firstWhere(
+          (op) => op.name == data['op'],
+          orElse: () => ModifyAttributeOperation.add,
+        ),
+        attachId: data['aid'],
+        id: data['id'],
+        part: data['part'],
+        value: data['_content'],
+      );
 
   @override
   Map<String, dynamic> toMap() => {

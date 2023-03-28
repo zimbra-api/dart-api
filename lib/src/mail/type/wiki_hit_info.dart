@@ -39,35 +39,38 @@ class WikiHitInfo extends CommonDocumentInfo {
   });
 
   factory WikiHitInfo.fromMap(Map<String, dynamic> data) => WikiHitInfo(
-      sortField: data['sf'],
-      id: data['id'],
-      uuid: data['uuid'],
-      name: data['name'],
-      size: int.tryParse(data['s']?.toString() ?? ''),
-      date: int.tryParse(data['d']?.toString() ?? ''),
-      folderId: data['l'],
-      folderUuid: data['luuid'],
-      modifiedSequence: int.tryParse(data['ms']?.toString() ?? ''),
-      metadataVersion: int.tryParse(data['mdver']?.toString() ?? ''),
-      changeDate: int.tryParse(data['md']?.toString() ?? ''),
-      revision: int.tryParse(data['rev']?.toString() ?? ''),
-      flags: data['f'],
-      tags: data['t'],
-      tagNames: data['tn'],
-      description: data['desc'],
-      contentType: data['ct'],
-      descEnabled: data['descEnabled'],
-      version: data['ver'],
-      lastEditedBy: data['leb'],
-      creator: data['cr'],
-      createdDate: int.tryParse(data['cd']?.toString() ?? ''),
-      metadatas: (data['meta'] is Iterable)
-          ? (data['meta'] as Iterable)
-              .map<MailCustomMetadata>((meta) => MailCustomMetadata.fromMap(meta))
-              .toList(growable: false)
-          : const [],
-      fragment: data['fr'],
-      acl: (data['acl'] is Map) ? Acl.fromMap(data['acl']) : null);
+        sortField: data['sf'],
+        id: data['id'],
+        uuid: data['uuid'],
+        name: data['name'],
+        size: int.tryParse(data['s']?.toString() ?? ''),
+        date: int.tryParse(data['d']?.toString() ?? ''),
+        folderId: data['l'],
+        folderUuid: data['luuid'],
+        modifiedSequence: int.tryParse(data['ms']?.toString() ?? ''),
+        metadataVersion: int.tryParse(data['mdver']?.toString() ?? ''),
+        changeDate: int.tryParse(data['md']?.toString() ?? ''),
+        revision: int.tryParse(data['rev']?.toString() ?? ''),
+        flags: data['f'],
+        tags: data['t'],
+        tagNames: data['tn'],
+        description: data['desc'],
+        contentType: data['ct'],
+        descEnabled: data['descEnabled'],
+        version: data['ver'],
+        lastEditedBy: data['leb'],
+        creator: data['cr'],
+        createdDate: int.tryParse(data['cd']?.toString() ?? ''),
+        metadatas: (data['meta'] is Iterable)
+            ? (data['meta'] as Iterable)
+                .map<MailCustomMetadata>(
+                  (meta) => MailCustomMetadata.fromMap(meta),
+                )
+                .toList(growable: false)
+            : const [],
+        fragment: data['fr'],
+        acl: (data['acl'] is Map) ? Acl.fromMap(data['acl']) : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {
@@ -93,7 +96,12 @@ class WikiHitInfo extends CommonDocumentInfo {
         if (lastEditedBy != null) 'leb': lastEditedBy,
         if (creator != null) 'cr': creator,
         if (createdDate != null) 'cd': createdDate,
-        if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toMap()).toList(growable: false),
+        if (metadatas.isNotEmpty)
+          'meta': metadatas
+              .map(
+                (meta) => meta.toMap(),
+              )
+              .toList(growable: false),
         if (fragment != null) 'fr': fragment,
         if (acl != null) 'acl': acl!.toMap(),
       };

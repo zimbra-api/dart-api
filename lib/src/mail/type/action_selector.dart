@@ -87,18 +87,21 @@ class ActionSelector {
     this.newlyCreatedIds,
   });
 
-  factory ActionSelector.fromMap(Map<String, dynamic> data) => ActionSelector(data['id'] ?? '', data['op'] ?? '',
-      constraint: data['tcon'],
-      tag: int.tryParse(data['tag']?.toString() ?? ''),
-      folder: data['l'],
-      rgb: data['rgb'],
-      color: int.tryParse(data['color']?.toString() ?? ''),
-      name: data['name'],
-      flags: data['f'],
-      tags: data['t'],
-      tagNames: data['tn'],
-      nonExistentIds: data['nei'],
-      newlyCreatedIds: data['nci']);
+  factory ActionSelector.fromMap(Map<String, dynamic> data) => ActionSelector(
+        data['id'] ?? '',
+        data['op'] ?? '',
+        constraint: data['tcon'],
+        tag: int.tryParse(data['tag']?.toString() ?? ''),
+        folder: data['l'],
+        rgb: data['rgb'],
+        color: int.tryParse(data['color']?.toString() ?? ''),
+        name: data['name'],
+        flags: data['f'],
+        tags: data['t'],
+        tagNames: data['tn'],
+        nonExistentIds: data['nei'],
+        newlyCreatedIds: data['nci'],
+      );
 
   Map<String, dynamic> toMap() => {
         'id': ids,

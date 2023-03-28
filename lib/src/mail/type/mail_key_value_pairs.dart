@@ -7,6 +7,10 @@ import '../../common/type/key_value_pairs.dart';
 class MailKeyValuePairs extends KeyValuePairs {
   const MailKeyValuePairs({super.keyValuePairs});
 
-  factory MailKeyValuePairs.fromMap(Map<String, dynamic> data) =>
-      MailKeyValuePairs(keyValuePairs: KeyValuePairs.keyValuePairsFromMap(data));
+  factory MailKeyValuePairs.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      MailKeyValuePairs(
+        keyValuePairs: KeyValuePairs.keyValuePairsFromMap(data),
+      );
 }

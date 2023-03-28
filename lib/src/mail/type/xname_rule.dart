@@ -12,7 +12,10 @@ class XNameRule {
 
   const XNameRule({this.name, this.value});
 
-  factory XNameRule.fromMap(Map<String, dynamic> data) => XNameRule(name: data['name'], value: data['value']);
+  factory XNameRule.fromMap(Map<String, dynamic> data) => XNameRule(
+        name: data['name'],
+        value: data['value'],
+      );
 
   Map<String, dynamic> toMap() => {
         if (name != null) 'name': name,

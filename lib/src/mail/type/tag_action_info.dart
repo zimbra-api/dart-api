@@ -15,8 +15,11 @@ class TagActionInfo {
 
   const TagActionInfo(this.successes, {this.successNames, this.operation});
 
-  factory TagActionInfo.fromMap(Map<String, dynamic> data) =>
-      TagActionInfo(data['id'] ?? '', successNames: data['tn'], operation: data['op']);
+  factory TagActionInfo.fromMap(Map<String, dynamic> data) => TagActionInfo(
+        data['id'] ?? '',
+        successNames: data['tn'],
+        operation: data['op'],
+      );
 
   Map<String, dynamic> toMap() => {
         'id': successes,

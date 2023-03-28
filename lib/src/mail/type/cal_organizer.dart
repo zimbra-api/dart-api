@@ -38,15 +38,20 @@ class CalOrganizer {
   });
 
   factory CalOrganizer.fromMap(Map<String, dynamic> data) => CalOrganizer(
-      address: data['a'],
-      url: data['url'],
-      displayName: data['d'],
-      sentBy: data['sentBy'],
-      dir: data['dir'],
-      language: data['lang'],
-      xParams: (data['xparam'] is Iterable)
-          ? (data['xparam'] as Iterable).map<XParam>((xparam) => XParam.fromMap(xparam)).toList(growable: false)
-          : const []);
+        address: data['a'],
+        url: data['url'],
+        displayName: data['d'],
+        sentBy: data['sentBy'],
+        dir: data['dir'],
+        language: data['lang'],
+        xParams: (data['xparam'] is Iterable)
+            ? (data['xparam'] as Iterable)
+                .map<XParam>(
+                  (xparam) => XParam.fromMap(xparam),
+                )
+                .toList(growable: false)
+            : const [],
+      );
 
   Map<String, dynamic> toMap() => {
         if (address != null) 'a': address,
@@ -55,6 +60,11 @@ class CalOrganizer {
         if (sentBy != null) 'sentBy': sentBy,
         if (dir != null) 'dir': dir,
         if (language != null) 'lang': language,
-        if (xParams.isNotEmpty) 'xparam': xParams.map((xparam) => xparam.toMap()).toList(growable: false),
+        if (xParams.isNotEmpty)
+          'xparam': xParams
+              .map(
+                (xparam) => xparam.toMap(),
+              )
+              .toList(growable: false),
       };
 }

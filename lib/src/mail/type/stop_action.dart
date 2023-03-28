@@ -7,6 +7,7 @@ import 'filter_action.dart';
 class StopAction extends FilterAction {
   const StopAction({super.index});
 
-  factory StopAction.fromMap(Map<String, dynamic> data) =>
-      StopAction(index: int.tryParse(data['index']?.toString() ?? ''));
+  factory StopAction.fromMap(Map<String, dynamic> data) => StopAction(
+        index: int.tryParse(data['index']?.toString() ?? ''),
+      );
 }

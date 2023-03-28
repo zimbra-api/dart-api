@@ -89,97 +89,204 @@ class SyncFolder extends Folder {
   });
 
   factory SyncFolder.fromMap(Map<String, dynamic> data) => SyncFolder(
-      tagItemIds: (data['tag'] is Iterable)
-          ? (data['tag'] as Iterable).map<IdsAttr>((tag) => IdsAttr.fromMap(tag)).toList(growable: false)
-          : const [],
-      convItemIds: (data['c'] is Iterable)
-          ? (data['c'] as Iterable).map<IdsAttr>((conv) => IdsAttr.fromMap(conv)).toList(growable: false)
-          : const [],
-      chatItemIds: (data['chat'] is Iterable)
-          ? (data['chat'] as Iterable).map<IdsAttr>((chat) => IdsAttr.fromMap(chat)).toList(growable: false)
-          : const [],
-      msgItemIds: (data['m'] is Iterable)
-          ? (data['m'] as Iterable).map<IdsAttr>((msg) => IdsAttr.fromMap(msg)).toList(growable: false)
-          : const [],
-      contactItemIds: (data['cn'] is Iterable)
-          ? (data['cn'] as Iterable).map<IdsAttr>((cn) => IdsAttr.fromMap(cn)).toList(growable: false)
-          : const [],
-      apptItemIds: (data['appt'] is Iterable)
-          ? (data['appt'] as Iterable).map<IdsAttr>((appt) => IdsAttr.fromMap(appt)).toList(growable: false)
-          : const [],
-      taskItemIds: (data['task'] is Iterable)
-          ? (data['task'] as Iterable).map<IdsAttr>((task) => IdsAttr.fromMap(task)).toList(growable: false)
-          : const [],
-      noteItemIds: (data['notes'] is Iterable)
-          ? (data['notes'] as Iterable).map<IdsAttr>((note) => IdsAttr.fromMap(note)).toList(growable: false)
-          : const [],
-      wikiItemIds: (data['w'] is Iterable)
-          ? (data['w'] as Iterable).map<IdsAttr>((wiki) => IdsAttr.fromMap(wiki)).toList(growable: false)
-          : const [],
-      docItemIds: (data['doc'] is Iterable)
-          ? (data['doc'] as Iterable).map<IdsAttr>((doc) => IdsAttr.fromMap(doc)).toList(growable: false)
-          : const [],
-      id: data['id'],
-      uuid: data['uuid'],
-      name: data['name'],
-      absoluteFolderPath: data['absFolderPath'],
-      parentId: data['l'],
-      folderUuid: data['luuid'],
-      flags: data['f'],
-      color: int.tryParse(data['color']?.toString() ?? ''),
-      rgb: data['rgb'],
-      unreadCount: int.tryParse(data['u']?.toString() ?? ''),
-      imapUnreadCount: int.tryParse(data['i4u']?.toString() ?? ''),
-      view: ViewType.values.firstWhere(
-        (view) => view.name == data['view'],
-        orElse: () => ViewType.message,
-      ),
-      revision: int.tryParse(data['rev']?.toString() ?? ''),
-      modifiedSequence: int.tryParse(data['ms']?.toString() ?? ''),
-      changeDate: int.tryParse(data['md']?.toString() ?? ''),
-      itemCount: int.tryParse(data['n']?.toString() ?? ''),
-      imapItemCount: int.tryParse(data['i4n']?.toString() ?? ''),
-      totalSize: int.tryParse(data['s']?.toString() ?? ''),
-      imapModifiedSequence: int.tryParse(data['i4ms']?.toString() ?? ''),
-      imapUidNext: int.tryParse(data['i4next']?.toString() ?? ''),
-      url: data['url'],
-      activeSyncDisabled: data['activesyncdisabled'],
-      webOfflineSyncDays: int.tryParse(data['webOfflineSyncDays']?.toString() ?? ''),
-      perm: data['perm'],
-      recursive: data['recursive'],
-      restUrl: data['rest'],
-      deletable: data['deletable'],
-      metadatas: (data['meta'] is Iterable)
-          ? (data['meta'] as Iterable)
-              .map<MailCustomMetadata>((meta) => MailCustomMetadata.fromMap(meta))
-              .toList(growable: false)
-          : const [],
-      acl: data['acl'] is Map ? Acl.fromMap(data['acl']) : null,
-      subFolders: (data['folder'] is Iterable)
-          ? (data['folder'] as Iterable).map<Folder>((folder) => Folder.fromMap(folder)).toList(growable: false)
-          : const [],
-      mountpoints: (data['link'] is Iterable)
-          ? (data['link'] as Iterable).map<Mountpoint>((link) => Mountpoint.fromMap(link)).toList(growable: false)
-          : const [],
-      searchFolders: (data['search'] is Iterable)
-          ? (data['search'] as Iterable)
-              .map<SearchFolder>((search) => SearchFolder.fromMap(search))
-              .toList(growable: false)
-          : const [],
-      retentionPolicy: data['retentionPolicy']?[0] is Map ? RetentionPolicy.fromMap(data['retentionPolicy'][0]) : null);
+        tagItemIds: (data['tag'] is Iterable)
+            ? (data['tag'] as Iterable)
+                .map<IdsAttr>(
+                  (tag) => IdsAttr.fromMap(tag),
+                )
+                .toList(growable: false)
+            : const [],
+        convItemIds: (data['c'] is Iterable)
+            ? (data['c'] as Iterable)
+                .map<IdsAttr>(
+                  (conv) => IdsAttr.fromMap(conv),
+                )
+                .toList(growable: false)
+            : const [],
+        chatItemIds: (data['chat'] is Iterable)
+            ? (data['chat'] as Iterable)
+                .map<IdsAttr>(
+                  (chat) => IdsAttr.fromMap(chat),
+                )
+                .toList(growable: false)
+            : const [],
+        msgItemIds: (data['m'] is Iterable)
+            ? (data['m'] as Iterable)
+                .map<IdsAttr>(
+                  (msg) => IdsAttr.fromMap(msg),
+                )
+                .toList(growable: false)
+            : const [],
+        contactItemIds: (data['cn'] is Iterable)
+            ? (data['cn'] as Iterable)
+                .map<IdsAttr>(
+                  (cn) => IdsAttr.fromMap(cn),
+                )
+                .toList(growable: false)
+            : const [],
+        apptItemIds: (data['appt'] is Iterable)
+            ? (data['appt'] as Iterable)
+                .map<IdsAttr>(
+                  (appt) => IdsAttr.fromMap(appt),
+                )
+                .toList(growable: false)
+            : const [],
+        taskItemIds: (data['task'] is Iterable)
+            ? (data['task'] as Iterable)
+                .map<IdsAttr>(
+                  (task) => IdsAttr.fromMap(task),
+                )
+                .toList(growable: false)
+            : const [],
+        noteItemIds: (data['notes'] is Iterable)
+            ? (data['notes'] as Iterable)
+                .map<IdsAttr>(
+                  (note) => IdsAttr.fromMap(note),
+                )
+                .toList(growable: false)
+            : const [],
+        wikiItemIds: (data['w'] is Iterable)
+            ? (data['w'] as Iterable)
+                .map<IdsAttr>(
+                  (wiki) => IdsAttr.fromMap(wiki),
+                )
+                .toList(growable: false)
+            : const [],
+        docItemIds: (data['doc'] is Iterable)
+            ? (data['doc'] as Iterable)
+                .map<IdsAttr>(
+                  (doc) => IdsAttr.fromMap(doc),
+                )
+                .toList(growable: false)
+            : const [],
+        id: data['id'],
+        uuid: data['uuid'],
+        name: data['name'],
+        absoluteFolderPath: data['absFolderPath'],
+        parentId: data['l'],
+        folderUuid: data['luuid'],
+        flags: data['f'],
+        color: int.tryParse(data['color']?.toString() ?? ''),
+        rgb: data['rgb'],
+        unreadCount: int.tryParse(data['u']?.toString() ?? ''),
+        imapUnreadCount: int.tryParse(data['i4u']?.toString() ?? ''),
+        view: ViewType.values.firstWhere(
+          (view) => view.name == data['view'],
+          orElse: () => ViewType.message,
+        ),
+        revision: int.tryParse(data['rev']?.toString() ?? ''),
+        modifiedSequence: int.tryParse(data['ms']?.toString() ?? ''),
+        changeDate: int.tryParse(data['md']?.toString() ?? ''),
+        itemCount: int.tryParse(data['n']?.toString() ?? ''),
+        imapItemCount: int.tryParse(data['i4n']?.toString() ?? ''),
+        totalSize: int.tryParse(data['s']?.toString() ?? ''),
+        imapModifiedSequence: int.tryParse(data['i4ms']?.toString() ?? ''),
+        imapUidNext: int.tryParse(data['i4next']?.toString() ?? ''),
+        url: data['url'],
+        activeSyncDisabled: data['activesyncdisabled'],
+        webOfflineSyncDays: int.tryParse(
+          data['webOfflineSyncDays']?.toString() ?? '',
+        ),
+        perm: data['perm'],
+        recursive: data['recursive'],
+        restUrl: data['rest'],
+        deletable: data['deletable'],
+        metadatas: (data['meta'] is Iterable)
+            ? (data['meta'] as Iterable)
+                .map<MailCustomMetadata>(
+                  (meta) => MailCustomMetadata.fromMap(meta),
+                )
+                .toList(growable: false)
+            : const [],
+        acl: data['acl'] is Map ? Acl.fromMap(data['acl']) : null,
+        subFolders: (data['folder'] is Iterable)
+            ? (data['folder'] as Iterable)
+                .map<Folder>(
+                  (folder) => Folder.fromMap(folder),
+                )
+                .toList(growable: false)
+            : const [],
+        mountpoints: (data['link'] is Iterable)
+            ? (data['link'] as Iterable)
+                .map<Mountpoint>(
+                  (link) => Mountpoint.fromMap(link),
+                )
+                .toList(growable: false)
+            : const [],
+        searchFolders: (data['search'] is Iterable)
+            ? (data['search'] as Iterable)
+                .map<SearchFolder>((search) => SearchFolder.fromMap(search))
+                .toList(growable: false)
+            : const [],
+        retentionPolicy: data['retentionPolicy']?[0] is Map
+            ? RetentionPolicy.fromMap(
+                data['retentionPolicy'][0],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {
-        if (tagItemIds.isNotEmpty) 'tag': tagItemIds.map((tag) => tag.toMap()).toList(growable: false),
-        if (convItemIds.isNotEmpty) 'c': convItemIds.map((conv) => conv.toMap()).toList(growable: false),
-        if (chatItemIds.isNotEmpty) 'chat': chatItemIds.map((chat) => chat.toMap()).toList(growable: false),
-        if (msgItemIds.isNotEmpty) 'm': msgItemIds.map((msg) => msg.toMap()).toList(growable: false),
-        if (contactItemIds.isNotEmpty) 'cn': contactItemIds.map((cn) => cn.toMap()).toList(growable: false),
-        if (apptItemIds.isNotEmpty) 'appt': apptItemIds.map((appt) => appt.toMap()).toList(growable: false),
-        if (taskItemIds.isNotEmpty) 'task': taskItemIds.map((task) => task.toMap()).toList(growable: false),
-        if (noteItemIds.isNotEmpty) 'notes': noteItemIds.map((note) => note.toMap()).toList(growable: false),
-        if (wikiItemIds.isNotEmpty) 'w': wikiItemIds.map((wiki) => wiki.toMap()).toList(growable: false),
-        if (docItemIds.isNotEmpty) 'doc': docItemIds.map((doc) => doc.toMap()).toList(growable: false),
+        if (tagItemIds.isNotEmpty)
+          'tag': tagItemIds
+              .map(
+                (tag) => tag.toMap(),
+              )
+              .toList(growable: false),
+        if (convItemIds.isNotEmpty)
+          'c': convItemIds
+              .map(
+                (conv) => conv.toMap(),
+              )
+              .toList(growable: false),
+        if (chatItemIds.isNotEmpty)
+          'chat': chatItemIds
+              .map(
+                (chat) => chat.toMap(),
+              )
+              .toList(growable: false),
+        if (msgItemIds.isNotEmpty)
+          'm': msgItemIds
+              .map(
+                (msg) => msg.toMap(),
+              )
+              .toList(growable: false),
+        if (contactItemIds.isNotEmpty)
+          'cn': contactItemIds
+              .map(
+                (cn) => cn.toMap(),
+              )
+              .toList(growable: false),
+        if (apptItemIds.isNotEmpty)
+          'appt': apptItemIds
+              .map(
+                (appt) => appt.toMap(),
+              )
+              .toList(growable: false),
+        if (taskItemIds.isNotEmpty)
+          'task': taskItemIds
+              .map(
+                (task) => task.toMap(),
+              )
+              .toList(growable: false),
+        if (noteItemIds.isNotEmpty)
+          'notes': noteItemIds
+              .map(
+                (note) => note.toMap(),
+              )
+              .toList(growable: false),
+        if (wikiItemIds.isNotEmpty)
+          'w': wikiItemIds
+              .map(
+                (wiki) => wiki.toMap(),
+              )
+              .toList(growable: false),
+        if (docItemIds.isNotEmpty)
+          'doc': docItemIds
+              .map(
+                (doc) => doc.toMap(),
+              )
+              .toList(growable: false),
         if (id != null) 'id': id,
         if (uuid != null) 'uuid': uuid,
         if (name != null) 'name': name,
@@ -207,11 +314,31 @@ class SyncFolder extends Folder {
         if (recursive != null) 'recursive': recursive,
         if (restUrl != null) 'rest': restUrl,
         if (deletable != null) 'deletable': deletable,
-        if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toMap()).toList(growable: false),
+        if (metadatas.isNotEmpty)
+          'meta': metadatas
+              .map(
+                (meta) => meta.toMap(),
+              )
+              .toList(growable: false),
         if (acl != null) 'acl': acl!.toMap(),
-        if (subFolders.isNotEmpty) 'folder': subFolders.map((folder) => folder.toMap()).toList(growable: false),
-        if (mountpoints.isNotEmpty) 'link': mountpoints.map((link) => link.toMap()).toList(growable: false),
-        if (searchFolders.isNotEmpty) 'search': searchFolders.map((search) => search.toMap()).toList(growable: false),
+        if (subFolders.isNotEmpty)
+          'folder': subFolders
+              .map(
+                (folder) => folder.toMap(),
+              )
+              .toList(growable: false),
+        if (mountpoints.isNotEmpty)
+          'link': mountpoints
+              .map(
+                (link) => link.toMap(),
+              )
+              .toList(growable: false),
+        if (searchFolders.isNotEmpty)
+          'search': searchFolders
+              .map(
+                (search) => search.toMap(),
+              )
+              .toList(growable: false),
         if (retentionPolicy != null) 'retentionPolicy': retentionPolicy!.toMap(),
       };
 }

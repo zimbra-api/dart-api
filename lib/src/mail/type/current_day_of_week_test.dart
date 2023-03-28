@@ -10,8 +10,14 @@ class CurrentDayOfWeekTest extends FilterTest {
 
   const CurrentDayOfWeekTest({this.values, super.index, super.negative});
 
-  factory CurrentDayOfWeekTest.fromMap(Map<String, dynamic> data) =>
-      CurrentDayOfWeekTest(values: data['value'], index: data['index'], negative: data['negative']);
+  factory CurrentDayOfWeekTest.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      CurrentDayOfWeekTest(
+        values: data['value'],
+        index: data['index'],
+        negative: data['negative'],
+      );
 
   @override
   Map<String, dynamic> toMap() => {

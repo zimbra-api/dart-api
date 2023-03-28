@@ -7,6 +7,8 @@ import 'filter_test.dart';
 class FacebookTest extends FilterTest {
   const FacebookTest({super.index, super.negative});
 
-  factory FacebookTest.fromMap(Map<String, dynamic> data) =>
-      FacebookTest(index: int.tryParse(data['index']?.toString() ?? ''), negative: data['negative']);
+  factory FacebookTest.fromMap(Map<String, dynamic> data) => FacebookTest(
+        index: int.tryParse(data['index']?.toString() ?? ''),
+        negative: data['negative'],
+      );
 }

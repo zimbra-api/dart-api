@@ -73,59 +73,102 @@ class InviteAsMP extends MessageCommon {
   });
 
   factory InviteAsMP.fromMap(Map<String, dynamic> data) => InviteAsMP(
-      id: data['id'],
-      part: data['part'],
-      sentDate: int.tryParse(data['sd']?.toString() ?? ''),
-      emails: (data['e'] is Iterable)
-          ? (data['e'] as Iterable).map<EmailInfo>((e) => EmailInfo.fromMap(e)).toList(growable: false)
-          : const [],
-      subject: data['su'],
-      messageIdHeader: data['mid'],
-      invite: (data['inv'] is Map) ? MPInviteInfo.fromMap(data['inv']) : null,
-      headers: KeyValuePairs.keyValuePairsFromMap(data),
-      mpContentElems: (data['mp'] is Iterable)
-          ? (data['mp'] as Iterable).map<PartInfo>((mp) => PartInfo.fromMap(mp)).toList(growable: false)
-          : const [],
-      shrContentElems: (data['shr'] is Iterable)
-          ? (data['shr'] as Iterable)
-              .map<ShareNotification>((shr) => ShareNotification.fromMap(shr))
-              .toList(growable: false)
-          : const [],
-      dlSubsContentElems: (data['dlSubs'] is Iterable)
-          ? (data['dlSubs'] as Iterable)
-              .map<DLSubscriptionNotification>((dlSubs) => DLSubscriptionNotification.fromMap(dlSubs))
-              .toList(growable: false)
-          : const [],
-      size: int.tryParse(data['s']?.toString() ?? ''),
-      date: int.tryParse(data['d']?.toString() ?? ''),
-      folder: data['l'],
-      conversationId: data['cid'],
-      flags: data['f'],
-      tags: data['t'],
-      tagNames: data['tn'],
-      revision: int.tryParse(data['rev']?.toString() ?? ''),
-      changeDate: int.tryParse(data['md']?.toString() ?? ''),
-      modifiedSequence: int.tryParse(data['ms']?.toString() ?? ''),
-      metadatas: (data['meta'] is Iterable)
-          ? (data['meta'] as Iterable)
-              .map<MailCustomMetadata>((meta) => MailCustomMetadata.fromMap(meta))
-              .toList(growable: false)
-          : const []);
+        id: data['id'],
+        part: data['part'],
+        sentDate: int.tryParse(data['sd']?.toString() ?? ''),
+        emails: (data['e'] is Iterable)
+            ? (data['e'] as Iterable)
+                .map<EmailInfo>(
+                  (e) => EmailInfo.fromMap(e),
+                )
+                .toList(growable: false)
+            : const [],
+        subject: data['su'],
+        messageIdHeader: data['mid'],
+        invite: (data['inv'] is Map)
+            ? MPInviteInfo.fromMap(
+                data['inv'],
+              )
+            : null,
+        headers: KeyValuePairs.keyValuePairsFromMap(data),
+        mpContentElems: (data['mp'] is Iterable)
+            ? (data['mp'] as Iterable)
+                .map<PartInfo>(
+                  (mp) => PartInfo.fromMap(mp),
+                )
+                .toList(growable: false)
+            : const [],
+        shrContentElems: (data['shr'] is Iterable)
+            ? (data['shr'] as Iterable)
+                .map<ShareNotification>(
+                  (shr) => ShareNotification.fromMap(shr),
+                )
+                .toList(growable: false)
+            : const [],
+        dlSubsContentElems: (data['dlSubs'] is Iterable)
+            ? (data['dlSubs'] as Iterable)
+                .map<DLSubscriptionNotification>(
+                  (dlSubs) => DLSubscriptionNotification.fromMap(dlSubs),
+                )
+                .toList(growable: false)
+            : const [],
+        size: int.tryParse(data['s']?.toString() ?? ''),
+        date: int.tryParse(data['d']?.toString() ?? ''),
+        folder: data['l'],
+        conversationId: data['cid'],
+        flags: data['f'],
+        tags: data['t'],
+        tagNames: data['tn'],
+        revision: int.tryParse(data['rev']?.toString() ?? ''),
+        changeDate: int.tryParse(data['md']?.toString() ?? ''),
+        modifiedSequence: int.tryParse(data['ms']?.toString() ?? ''),
+        metadatas: (data['meta'] is Iterable)
+            ? (data['meta'] as Iterable)
+                .map<MailCustomMetadata>(
+                  (meta) => MailCustomMetadata.fromMap(meta),
+                )
+                .toList(growable: false)
+            : const [],
+      );
 
   @override
   Map<String, dynamic> toMap() => {
         if (id != null) 'id': id,
         if (part != null) 'part': part,
         if (sentDate != null) 'sd': sentDate,
-        if (emails.isNotEmpty) 'e': emails.map((e) => e.toMap()).toList(growable: false),
+        if (emails.isNotEmpty)
+          'e': emails
+              .map(
+                (e) => e.toMap(),
+              )
+              .toList(growable: false),
         if (subject != null) 'su': subject,
         if (messageIdHeader != null) 'mid': messageIdHeader,
         if (invite != null) 'inv': invite!.toMap(),
-        if (headers.isNotEmpty) 'header': headers.map((header) => header.toMap()).toList(growable: false),
-        if (mpContentElems.isNotEmpty) 'mp': mpContentElems.map((mp) => mp.toMap()).toList(growable: false),
-        if (shrContentElems.isNotEmpty) 'shr': shrContentElems.map((shr) => shr.toMap()).toList(growable: false),
+        if (headers.isNotEmpty)
+          'header': headers
+              .map(
+                (header) => header.toMap(),
+              )
+              .toList(growable: false),
+        if (mpContentElems.isNotEmpty)
+          'mp': mpContentElems
+              .map(
+                (mp) => mp.toMap(),
+              )
+              .toList(growable: false),
+        if (shrContentElems.isNotEmpty)
+          'shr': shrContentElems
+              .map(
+                (shr) => shr.toMap(),
+              )
+              .toList(growable: false),
         if (dlSubsContentElems.isNotEmpty)
-          'dlSubs': dlSubsContentElems.map((dlSubs) => dlSubs.toMap()).toList(growable: false),
+          'dlSubs': dlSubsContentElems
+              .map(
+                (dlSubs) => dlSubs.toMap(),
+              )
+              .toList(growable: false),
         if (size != null) 's': size,
         if (date != null) 'd': date,
         if (folder != null) 'l': folder,
@@ -136,6 +179,11 @@ class InviteAsMP extends MessageCommon {
         if (revision != null) 'rev': revision,
         if (changeDate != null) 'md': changeDate,
         if (modifiedSequence != null) 'ms': modifiedSequence,
-        if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toMap()).toList(growable: false),
+        if (metadatas.isNotEmpty)
+          'meta': metadatas
+              .map(
+                (meta) => meta.toMap(),
+              )
+              .toList(growable: false),
       };
 }

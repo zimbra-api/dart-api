@@ -115,93 +115,171 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon {
     super.changes,
   });
 
-  factory InviteComponentWithGroupInfo.fromMap(Map<String, dynamic> data) => InviteComponentWithGroupInfo(
-      categories: (data['category'] is Iterable)
-          ? (data['category'] as Iterable).map<String>((category) => category['_content']).toList(growable: false)
-          : const [],
-      comments: (data['comment'] is Iterable)
-          ? (data['comment'] as Iterable).map<String>((comment) => comment['_content']).toList(growable: false)
-          : const [],
-      contacts: (data['contact'] is Iterable)
-          ? (data['contact'] as Iterable).map<String>((contact) => contact['_content']).toList(growable: false)
-          : const [],
-      geo: data['geo'] is Map ? GeoInfo.fromMap(data['geo']) : null,
-      attendees: (data['at'] is Iterable)
-          ? (data['at'] as Iterable).map<CalendarAttendee>((at) => CalendarAttendee.fromMap(at)).toList(growable: false)
-          : const [],
-      alarms: (data['alarm'] is Iterable)
-          ? (data['alarm'] as Iterable).map<AlarmInfo>((alarm) => AlarmInfo.fromMap(alarm)).toList(growable: false)
-          : const [],
-      xProps: (data['xprop'] is Iterable)
-          ? (data['xprop'] as Iterable).map<XProp>((xprop) => XProp.fromMap(xprop)).toList(growable: false)
-          : const [],
-      fragment: data['fr'],
-      description: data['desc']?['_content'],
-      htmlDescription: data['descHtml']?['_content'],
-      organizer: data['or'] is Map ? CalOrganizer.fromMap(data['or']) : null,
-      recurrence: data['recur'] is Map ? RecurrenceInfo.fromMap(data['recur']) : null,
-      exceptionId: data['exceptId'] is Map ? ExceptionRecurIdInfo.fromMap(data['exceptId']) : null,
-      dtStart: data['s'] is Map ? DtTimeInfo.fromMap(data['s']) : null,
-      dtEnd: data['e'] is Map ? DtTimeInfo.fromMap(data['e']) : null,
-      duration: data['dur'] is Map ? DurationInfo.fromMap(data['dur']) : null,
-      method: data['method'],
-      componentNum: int.tryParse(data['compNum']?.toString() ?? ''),
-      rsvp: data['rsvp'],
-      priority: data['priority'],
-      name: data['name'],
-      location: data['loc'],
-      percentComplete: data['percentComplete'],
-      completed: data['completed'],
-      noBlob: data['noBlob'],
-      freeBusyActual: FreeBusyStatus.values.firstWhere(
-        (item) => item.name == data['fba'],
-        orElse: () => FreeBusyStatus.free,
-      ),
-      freeBusy: FreeBusyStatus.values.firstWhere(
-        (item) => item.name == data['fb'],
-        orElse: () => FreeBusyStatus.free,
-      ),
-      transparency: Transparency.values.firstWhere(
-        (item) => item.name == data['transp'],
-        orElse: () => Transparency.opaque,
-      ),
-      isOrganizer: data['isOrg'],
-      xUid: data['x_uid'],
-      uid: data['uid'],
-      sequence: int.tryParse(data['seq']?.toString() ?? ''),
-      dateTime: int.tryParse(data['d']?.toString() ?? ''),
-      calItemId: data['calItemId'],
-      deprecatedApptId: data['apptId'],
-      calItemFolder: data['ciFolder'],
-      status: InviteStatus.values.firstWhere(
-        (item) => item.name == data['status'],
-        orElse: () => InviteStatus.inprogress,
-      ),
-      calClass: InviteClass.values.firstWhere(
-        (item) => item.name == data['class'],
-        orElse: () => InviteClass.public,
-      ),
-      url: data['url'],
-      isException: data['ex'],
-      recurIdZ: data['ridZ'],
-      isAllDay: data['allDay'],
-      isDraft: data['draft'],
-      neverSent: data['neverSent'],
-      changes: data['changes']);
+  factory InviteComponentWithGroupInfo.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      InviteComponentWithGroupInfo(
+        categories: (data['category'] is Iterable)
+            ? (data['category'] as Iterable)
+                .map<String>(
+                  (category) => category['_content'],
+                )
+                .toList(growable: false)
+            : const [],
+        comments: (data['comment'] is Iterable)
+            ? (data['comment'] as Iterable)
+                .map<String>(
+                  (comment) => comment['_content'],
+                )
+                .toList(growable: false)
+            : const [],
+        contacts: (data['contact'] is Iterable)
+            ? (data['contact'] as Iterable)
+                .map<String>(
+                  (contact) => contact['_content'],
+                )
+                .toList(growable: false)
+            : const [],
+        geo: data['geo'] is Map ? GeoInfo.fromMap(data['geo']) : null,
+        attendees: (data['at'] is Iterable)
+            ? (data['at'] as Iterable)
+                .map<CalendarAttendee>((at) => CalendarAttendee.fromMap(at))
+                .toList(growable: false)
+            : const [],
+        alarms: (data['alarm'] is Iterable)
+            ? (data['alarm'] as Iterable)
+                .map<AlarmInfo>(
+                  (alarm) => AlarmInfo.fromMap(alarm),
+                )
+                .toList(growable: false)
+            : const [],
+        xProps: (data['xprop'] is Iterable)
+            ? (data['xprop'] as Iterable)
+                .map<XProp>(
+                  (xprop) => XProp.fromMap(xprop),
+                )
+                .toList(growable: false)
+            : const [],
+        fragment: data['fr'],
+        description: data['desc']?['_content'],
+        htmlDescription: data['descHtml']?['_content'],
+        organizer: data['or'] is Map ? CalOrganizer.fromMap(data['or']) : null,
+        recurrence: data['recur'] is Map
+            ? RecurrenceInfo.fromMap(
+                data['recur'],
+              )
+            : null,
+        exceptionId: data['exceptId'] is Map
+            ? ExceptionRecurIdInfo.fromMap(
+                data['exceptId'],
+              )
+            : null,
+        dtStart: data['s'] is Map
+            ? DtTimeInfo.fromMap(
+                data['s'],
+              )
+            : null,
+        dtEnd: data['e'] is Map
+            ? DtTimeInfo.fromMap(
+                data['e'],
+              )
+            : null,
+        duration: data['dur'] is Map
+            ? DurationInfo.fromMap(
+                data['dur'],
+              )
+            : null,
+        method: data['method'],
+        componentNum: int.tryParse(data['compNum']?.toString() ?? ''),
+        rsvp: data['rsvp'],
+        priority: data['priority'],
+        name: data['name'],
+        location: data['loc'],
+        percentComplete: data['percentComplete'],
+        completed: data['completed'],
+        noBlob: data['noBlob'],
+        freeBusyActual: FreeBusyStatus.values.firstWhere(
+          (item) => item.name == data['fba'],
+          orElse: () => FreeBusyStatus.free,
+        ),
+        freeBusy: FreeBusyStatus.values.firstWhere(
+          (item) => item.name == data['fb'],
+          orElse: () => FreeBusyStatus.free,
+        ),
+        transparency: Transparency.values.firstWhere(
+          (item) => item.name == data['transp'],
+          orElse: () => Transparency.opaque,
+        ),
+        isOrganizer: data['isOrg'],
+        xUid: data['x_uid'],
+        uid: data['uid'],
+        sequence: int.tryParse(data['seq']?.toString() ?? ''),
+        dateTime: int.tryParse(data['d']?.toString() ?? ''),
+        calItemId: data['calItemId'],
+        deprecatedApptId: data['apptId'],
+        calItemFolder: data['ciFolder'],
+        status: InviteStatus.values.firstWhere(
+          (item) => item.name == data['status'],
+          orElse: () => InviteStatus.inprogress,
+        ),
+        calClass: InviteClass.values.firstWhere(
+          (item) => item.name == data['class'],
+          orElse: () => InviteClass.public,
+        ),
+        url: data['url'],
+        isException: data['ex'],
+        recurIdZ: data['ridZ'],
+        isAllDay: data['allDay'],
+        isDraft: data['draft'],
+        neverSent: data['neverSent'],
+        changes: data['changes'],
+      );
 
   @override
   Map<String, dynamic> toMap() => {
         if (categories.isNotEmpty)
-          'category': categories.map((category) => {'_content': category}).toList(growable: false),
-        if (comments.isNotEmpty) 'comment': comments.map((comment) => {'_content': comment}).toList(growable: false),
-        if (contacts.isNotEmpty) 'contact': contacts.map((contact) => {'_content': contact}).toList(growable: false),
+          'category': categories
+              .map(
+                (category) => {'_content': category},
+              )
+              .toList(growable: false),
+        if (comments.isNotEmpty)
+          'comment': comments
+              .map(
+                (comment) => {'_content': comment},
+              )
+              .toList(growable: false),
+        if (contacts.isNotEmpty)
+          'contact': contacts
+              .map(
+                (contact) => {'_content': contact},
+              )
+              .toList(growable: false),
         if (geo != null) 'geo': geo!.toMap(),
-        if (attendees.isNotEmpty) 'at': attendees.map((at) => at.toMap()).toList(growable: false),
-        if (alarms.isNotEmpty) 'alarm': alarms.map((alarm) => alarm.toMap()).toList(growable: false),
-        if (xProps.isNotEmpty) 'xprop': xProps.map((xprop) => xprop.toMap()).toList(growable: false),
+        if (attendees.isNotEmpty)
+          'at': attendees
+              .map(
+                (at) => at.toMap(),
+              )
+              .toList(growable: false),
+        if (alarms.isNotEmpty)
+          'alarm': alarms
+              .map(
+                (alarm) => alarm.toMap(),
+              )
+              .toList(growable: false),
+        if (xProps.isNotEmpty)
+          'xprop': xProps
+              .map(
+                (xprop) => xprop.toMap(),
+              )
+              .toList(growable: false),
         if (fragment != null) 'fr': fragment,
         if (description != null) 'desc': {'_content': description},
-        if (htmlDescription != null) 'descHtml': {'_content': htmlDescription},
+        if (htmlDescription != null)
+          'descHtml': {
+            '_content': htmlDescription,
+          },
         if (organizer != null) 'or': organizer!.toMap(),
         if (recurrence != null) 'recur': recurrence!.toMap(),
         if (exceptionId != null) 'exceptId': exceptionId!.toMap(),

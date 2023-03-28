@@ -86,27 +86,30 @@ class MsgSpec {
   });
 
   factory MsgSpec.fromMap(Map<String, dynamic> data) => MsgSpec(
-      id: data['id'],
-      part: data['part'],
-      raw: data['raw'],
-      markRead: data['read'],
-      maxInlinedLength: int.tryParse(data['max']?.toString() ?? ''),
-      useContentUrl: data['useContentUrl'],
-      wantHtml: data['html'],
-      wantImapUid: data['wantImapUid'],
-      wantModifiedSequence: data['wantModSeq'],
-      neuter: data['neuter'],
-      recurIdZ: data['ridZ'],
-      needCanExpand: data['needExp'],
-      wantContent: MsgContent.values.firstWhere(
-        (wantContent) => wantContent.name == data['wantContent'],
-        orElse: () => MsgContent.full,
-      ),
-      headers: (data['header'] is Iterable)
-          ? (data['header'] as Iterable)
-              .map<AttributeName>((header) => AttributeName.fromMap(header))
-              .toList(growable: false)
-          : const []);
+        id: data['id'],
+        part: data['part'],
+        raw: data['raw'],
+        markRead: data['read'],
+        maxInlinedLength: int.tryParse(data['max']?.toString() ?? ''),
+        useContentUrl: data['useContentUrl'],
+        wantHtml: data['html'],
+        wantImapUid: data['wantImapUid'],
+        wantModifiedSequence: data['wantModSeq'],
+        neuter: data['neuter'],
+        recurIdZ: data['ridZ'],
+        needCanExpand: data['needExp'],
+        wantContent: MsgContent.values.firstWhere(
+          (wantContent) => wantContent.name == data['wantContent'],
+          orElse: () => MsgContent.full,
+        ),
+        headers: (data['header'] is Iterable)
+            ? (data['header'] as Iterable)
+                .map<AttributeName>(
+                  (header) => AttributeName.fromMap(header),
+                )
+                .toList(growable: false)
+            : const [],
+      );
 
   Map<String, dynamic> toMap() => {
         if (id != null) 'id': id,
@@ -122,6 +125,11 @@ class MsgSpec {
         if (recurIdZ != null) 'ridZ': recurIdZ,
         if (needCanExpand != null) 'needExp': needCanExpand,
         if (wantContent != null) 'wantContent': wantContent!.name,
-        if (headers.isNotEmpty) 'header': headers.map((header) => header.toMap()).toList(growable: false),
+        if (headers.isNotEmpty)
+          'header': headers
+              .map(
+                (header) => header.toMap(),
+              )
+              .toList(growable: false),
       };
 }

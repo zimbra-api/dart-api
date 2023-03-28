@@ -7,6 +7,11 @@ import 'notification.dart';
 class ShareNotification extends Notification {
   const ShareNotification({super.truncatedContent, super.content});
 
-  factory ShareNotification.fromMap(Map<String, dynamic> data) =>
-      ShareNotification(truncatedContent: data['truncated'], content: data['content']);
+  factory ShareNotification.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ShareNotification(
+        truncatedContent: data['truncated'],
+        content: data['content'],
+      );
 }

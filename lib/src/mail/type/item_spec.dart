@@ -22,8 +22,12 @@ class ItemSpec {
     this.path,
   });
 
-  factory ItemSpec.fromMap(Map<String, dynamic> data) =>
-      ItemSpec(id: data['id'], folder: data['l'], name: data['name'], path: data['path']);
+  factory ItemSpec.fromMap(Map<String, dynamic> data) => ItemSpec(
+        id: data['id'],
+        folder: data['l'],
+        name: data['name'],
+        path: data['path'],
+      );
 
   Map<String, dynamic> toMap() => {
         if (id != null) 'id': id,

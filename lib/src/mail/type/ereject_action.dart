@@ -7,6 +7,8 @@ import 'reject_action.dart';
 class ErejectAction extends RejectAction {
   const ErejectAction({super.content, super.index});
 
-  factory ErejectAction.fromMap(Map<String, dynamic> data) =>
-      ErejectAction(content: data['_content'], index: int.tryParse(data['index']?.toString() ?? ''));
+  factory ErejectAction.fromMap(Map<String, dynamic> data) => ErejectAction(
+        content: data['_content'],
+        index: int.tryParse(data['index']?.toString() ?? ''),
+      );
 }

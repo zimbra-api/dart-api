@@ -9,8 +9,13 @@ class DataSourceUsage {
 
   const DataSourceUsage({this.id = '', this.usage = 0});
 
-  factory DataSourceUsage.fromMap(Map<String, dynamic> data) =>
-      DataSourceUsage(id: data['id'] ?? '', usage: int.tryParse(data['usage']?.toString() ?? '') ?? 0);
+  factory DataSourceUsage.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      DataSourceUsage(
+        id: data['id'] ?? '',
+        usage: int.tryParse(data['usage']?.toString() ?? '') ?? 0,
+      );
 
   Map<String, dynamic> toMap() => {
         'id': id,

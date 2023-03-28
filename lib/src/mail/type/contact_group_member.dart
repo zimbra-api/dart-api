@@ -24,13 +24,17 @@ class ContactGroupMember {
 
   const ContactGroupMember({this.type = MemberType.contact, this.value, this.contact});
 
-  factory ContactGroupMember.fromMap(Map<String, dynamic> data) => ContactGroupMember(
-      type: MemberType.values.firstWhere(
-        (type) => type.name == data['type'],
-        orElse: () => MemberType.contact,
-      ),
-      value: data['_content'],
-      contact: data['cn'] is Map ? ContactInfo.fromMap(data['cn']) : null);
+  factory ContactGroupMember.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ContactGroupMember(
+        type: MemberType.values.firstWhere(
+          (type) => type.name == data['type'],
+          orElse: () => MemberType.contact,
+        ),
+        value: data['_content'],
+        contact: data['cn'] is Map ? ContactInfo.fromMap(data['cn']) : null,
+      );
 
   Map<String, dynamic> toMap() => {
         'type': type.name,

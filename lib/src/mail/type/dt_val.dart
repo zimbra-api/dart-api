@@ -19,9 +19,10 @@ class DtVal {
   const DtVal({this.startTime, this.endTime, this.duration});
 
   factory DtVal.fromMap(Map<String, dynamic> data) => DtVal(
-      startTime: data['s'] is Map ? DtTimeInfo.fromMap(data['s']) : null,
-      endTime: data['e'] is Map ? DtTimeInfo.fromMap(data['e']) : null,
-      duration: data['dur'] is Map ? DurationInfo.fromMap(data['dur']) : null);
+        startTime: data['s'] is Map ? DtTimeInfo.fromMap(data['s']) : null,
+        endTime: data['e'] is Map ? DtTimeInfo.fromMap(data['e']) : null,
+        duration: data['dur'] is Map ? DurationInfo.fromMap(data['dur']) : null,
+      );
 
   Map<String, dynamic> toMap() => {
         if (startTime != null) 's': startTime!.toMap(),

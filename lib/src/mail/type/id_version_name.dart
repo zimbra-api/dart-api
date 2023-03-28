@@ -14,8 +14,11 @@ class IdVersionName {
 
   const IdVersionName({this.id, this.version, this.name});
 
-  factory IdVersionName.fromMap(Map<String, dynamic> data) =>
-      IdVersionName(id: data['id'], version: int.tryParse(data['ver']?.toString() ?? ''), name: data['name']);
+  factory IdVersionName.fromMap(Map<String, dynamic> data) => IdVersionName(
+        id: data['id'],
+        version: int.tryParse(data['ver']?.toString() ?? ''),
+        name: data['name'],
+      );
 
   Map<String, dynamic> toMap() => {
         if (id != null) 'id': id,

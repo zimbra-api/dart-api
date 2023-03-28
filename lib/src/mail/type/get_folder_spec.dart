@@ -15,8 +15,11 @@ class GetFolderSpec {
 
   const GetFolderSpec({this.uuid, this.folderId, this.path});
 
-  factory GetFolderSpec.fromMap(Map<String, dynamic> data) =>
-      GetFolderSpec(uuid: data['uuid'], folderId: data['l'], path: data['path']);
+  factory GetFolderSpec.fromMap(Map<String, dynamic> data) => GetFolderSpec(
+        uuid: data['uuid'],
+        folderId: data['l'],
+        path: data['path'],
+      );
 
   Map<String, dynamic> toMap() => {
         if (uuid != null) 'uuid': uuid,

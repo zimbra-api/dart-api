@@ -39,18 +39,19 @@ class CalendarReply extends RecurIdInfo {
   });
 
   factory CalendarReply.fromMap(Map<String, dynamic> data) => CalendarReply(
-      int.tryParse(data['rangeType']?.toString() ?? '') ?? 1,
-      data['recurId'] ?? '',
-      int.tryParse(data['seq']?.toString() ?? '') ?? 0,
-      int.tryParse(data['d']?.toString() ?? '') ?? 0,
-      data['at'] ?? '',
-      sentBy: data['sentBy'],
-      partStat: ParticipationStatus.values.firstWhere(
-        (ptst) => ptst.name == data['ptst'],
-        orElse: () => ParticipationStatus.accept,
-      ),
-      timezone: data['tz'],
-      recurIdZ: data['ridZ']);
+        int.tryParse(data['rangeType']?.toString() ?? '') ?? 1,
+        data['recurId'] ?? '',
+        int.tryParse(data['seq']?.toString() ?? '') ?? 0,
+        int.tryParse(data['d']?.toString() ?? '') ?? 0,
+        data['at'] ?? '',
+        sentBy: data['sentBy'],
+        partStat: ParticipationStatus.values.firstWhere(
+          (ptst) => ptst.name == data['ptst'],
+          orElse: () => ParticipationStatus.accept,
+        ),
+        timezone: data['tz'],
+        recurIdZ: data['ridZ'],
+      );
 
   @override
   Map<String, dynamic> toMap() => {

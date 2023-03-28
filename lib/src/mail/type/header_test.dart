@@ -43,27 +43,28 @@ class HeaderTest extends FilterTest {
   });
 
   factory HeaderTest.fromMap(Map<String, dynamic> data) => HeaderTest(
-      headers: data['header'],
-      stringComparison: StringComparison.values.firstWhere(
-        (comparison) => comparison.name == data['stringComparison'],
-        orElse: () => StringComparison.contains,
-      ),
-      valueComparison: ValueComparison.values.firstWhere(
-        (comparison) => comparison.name == data['valueComparison'],
-        orElse: () => ValueComparison.equal,
-      ),
-      countComparison: CountComparison.values.firstWhere(
-        (comparison) => comparison.name == data['countComparison'],
-        orElse: () => CountComparison.equal,
-      ),
-      valueComparisonComparator: ComparisonComparator.values.firstWhere(
-        (comparator) => comparator.name == data['valueComparisonComparator'],
-        orElse: () => ComparisonComparator.asciiNumeric,
-      ),
-      value: data['value'],
-      caseSensitive: data['caseSensitive'],
-      index: int.tryParse(data['index']?.toString() ?? ''),
-      negative: data['negative']);
+        headers: data['header'],
+        stringComparison: StringComparison.values.firstWhere(
+          (comparison) => comparison.name == data['stringComparison'],
+          orElse: () => StringComparison.contains,
+        ),
+        valueComparison: ValueComparison.values.firstWhere(
+          (comparison) => comparison.name == data['valueComparison'],
+          orElse: () => ValueComparison.equal,
+        ),
+        countComparison: CountComparison.values.firstWhere(
+          (comparison) => comparison.name == data['countComparison'],
+          orElse: () => CountComparison.equal,
+        ),
+        valueComparisonComparator: ComparisonComparator.values.firstWhere(
+          (comparator) => comparator.name == data['valueComparisonComparator'],
+          orElse: () => ComparisonComparator.asciiNumeric,
+        ),
+        value: data['value'],
+        caseSensitive: data['caseSensitive'],
+        index: int.tryParse(data['index']?.toString() ?? ''),
+        negative: data['negative'],
+      );
 
   @override
   Map<String, dynamic> toMap() => {

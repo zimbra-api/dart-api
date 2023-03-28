@@ -51,17 +51,19 @@ class FreeBusySlot {
     this.hasPermission,
   });
 
-  factory FreeBusySlot.fromMap(Map<String, dynamic> data) =>
-      FreeBusySlot(int.tryParse(data['s']?.toString() ?? '') ?? 0, int.tryParse(data['e']?.toString() ?? '') ?? 0,
-          eventId: data['eventId'],
-          subject: data['subject'],
-          location: data['location'],
-          isMeeting: data['isMeeting'],
-          isRecurring: data['isRecurring'],
-          isException: data['isException'],
-          isReminderSet: data['isReminderSet'],
-          isPrivate: data['isPrivate'],
-          hasPermission: data['hasPermission']);
+  factory FreeBusySlot.fromMap(Map<String, dynamic> data) => FreeBusySlot(
+        int.tryParse(data['s']?.toString() ?? '') ?? 0,
+        int.tryParse(data['e']?.toString() ?? '') ?? 0,
+        eventId: data['eventId'],
+        subject: data['subject'],
+        location: data['location'],
+        isMeeting: data['isMeeting'],
+        isRecurring: data['isRecurring'],
+        isException: data['isException'],
+        isReminderSet: data['isReminderSet'],
+        isPrivate: data['isPrivate'],
+        hasPermission: data['hasPermission'],
+      );
 
   Map<String, dynamic> toMap() => {
         's': startTime,

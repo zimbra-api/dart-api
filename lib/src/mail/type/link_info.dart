@@ -26,8 +26,13 @@ class LinkInfo {
     this.rights,
   });
 
-  factory LinkInfo.fromMap(Map<String, dynamic> data) =>
-      LinkInfo(id: data['id'], uuid: data['uuid'], name: data['name'], defaultView: data['view'], rights: data['perm']);
+  factory LinkInfo.fromMap(Map<String, dynamic> data) => LinkInfo(
+        id: data['id'],
+        uuid: data['uuid'],
+        name: data['name'],
+        defaultView: data['view'],
+        rights: data['perm'],
+      );
 
   Map<String, dynamic> toMap() => {
         if (id != null) 'id': id,

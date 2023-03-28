@@ -55,7 +55,11 @@ class EditheaderTest {
         ),
         headerName: data['headerName']?['_content'],
         headerValue: (data['headerValue'] is Iterable)
-            ? (data['headerValue'] as Iterable).map<String>((value) => value['_content']).toList(growable: false)
+            ? (data['headerValue'] as Iterable)
+                .map<String>(
+                  (value) => value['_content'],
+                )
+                .toList(growable: false)
             : const [],
       );
 
@@ -67,6 +71,10 @@ class EditheaderTest {
         if (comparator != null) 'comparator': comparator!.name,
         if (headerName != null) 'headerName': {'_content': headerName},
         if (headerValue.isNotEmpty)
-          'headerValue': headerValue.map((headerValue) => {'_content': headerValue}).toList(growable: false),
+          'headerValue': headerValue
+              .map(
+                (headerValue) => {'_content': headerValue},
+              )
+              .toList(growable: false),
       };
 }

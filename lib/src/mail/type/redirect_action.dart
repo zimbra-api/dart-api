@@ -14,8 +14,11 @@ class RedirectAction extends FilterAction {
 
   const RedirectAction({this.address, this.copy, super.index});
 
-  factory RedirectAction.fromMap(Map<String, dynamic> data) =>
-      RedirectAction(address: data['a'], copy: data['copy'], index: int.tryParse(data['index']?.toString() ?? ''));
+  factory RedirectAction.fromMap(Map<String, dynamic> data) => RedirectAction(
+        address: data['a'],
+        copy: data['copy'],
+        index: int.tryParse(data['index']?.toString() ?? ''),
+      );
 
   @override
   Map<String, dynamic> toMap() => {

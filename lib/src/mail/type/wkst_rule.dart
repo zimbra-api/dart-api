@@ -11,10 +11,12 @@ class WkstRule {
 
   const WkstRule(this.day);
 
-  factory WkstRule.fromMap(Map<String, dynamic> data) => WkstRule(WeekDay.values.firstWhere(
-        (item) => item.name == data['day'],
-        orElse: () => WeekDay.sunday,
-      ));
+  factory WkstRule.fromMap(Map<String, dynamic> data) => WkstRule(
+        WeekDay.values.firstWhere(
+          (item) => item.name == data['day'],
+          orElse: () => WeekDay.sunday,
+        ),
+      );
 
   Map<String, dynamic> toMap() => {
         'day': day.name,

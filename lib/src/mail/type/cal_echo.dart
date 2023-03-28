@@ -10,8 +10,9 @@ class CalEcho {
 
   const CalEcho({this.invite});
 
-  factory CalEcho.fromMap(Map<String, dynamic> data) =>
-      CalEcho(invite: data['m'] is Map ? InviteAsMP.fromMap(data['m']) : null);
+  factory CalEcho.fromMap(Map<String, dynamic> data) => CalEcho(
+        invite: data['m'] is Map ? InviteAsMP.fromMap(data['m']) : null,
+      );
 
   Map<String, dynamic> toMap() => {
         if (invite != null) 'm': invite!.toMap(),

@@ -22,15 +22,28 @@ class Acl {
   });
 
   factory Acl.fromMap(Map<String, dynamic> data) => Acl(
-      internalGrantExpiry: int.tryParse(data['internalGrantExpiry']?.toString() ?? ''),
-      guestGrantExpiry: int.tryParse(data['guestGrantExpiry']?.toString() ?? ''),
+      internalGrantExpiry: int.tryParse(
+        data['internalGrantExpiry']?.toString() ?? '',
+      ),
+      guestGrantExpiry: int.tryParse(
+        data['guestGrantExpiry']?.toString() ?? '',
+      ),
       grants: (data['grant'] is Iterable)
-          ? (data['grant'] as Iterable).map<Grant>((grant) => Grant.fromMap(grant)).toList(growable: false)
+          ? (data['grant'] as Iterable)
+              .map<Grant>(
+                (grant) => Grant.fromMap(grant),
+              )
+              .toList(growable: false)
           : const []);
 
   Map<String, dynamic> toMap() => {
         if (internalGrantExpiry != null) 'internalGrantExpiry': internalGrantExpiry,
         if (guestGrantExpiry != null) 'guestGrantExpiry': guestGrantExpiry,
-        if (grants.isNotEmpty) 'grant': grants.map((grant) => grant.toMap()).toList(growable: false),
+        if (grants.isNotEmpty)
+          'grant': grants
+              .map(
+                (grant) => grant.toMap(),
+              )
+              .toList(growable: false),
       };
 }

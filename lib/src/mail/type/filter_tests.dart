@@ -159,101 +159,157 @@ class FilterTests {
         ),
         addressBookTests: data['addressBookTest'] is Iterable
             ? (data['addressBookTest'] as Iterable)
-                .map<AddressBookTest>((test) => AddressBookTest.fromMap(test))
+                .map<AddressBookTest>(
+                  (test) => AddressBookTest.fromMap(test),
+                )
                 .toList(growable: false)
             : const [],
         addressTests: data['addressTest'] is Iterable
             ? (data['addressTest'] as Iterable)
-                .map<AddressTest>((test) => AddressTest.fromMap(test))
+                .map<AddressTest>(
+                  (test) => AddressTest.fromMap(test),
+                )
                 .toList(growable: false)
             : const [],
         envelopeTests: data['envelopeTest'] is Iterable
             ? (data['envelopeTest'] as Iterable)
-                .map<EnvelopeTest>((test) => EnvelopeTest.fromMap(test))
+                .map<EnvelopeTest>(
+                  (test) => EnvelopeTest.fromMap(test),
+                )
                 .toList(growable: false)
             : const [],
         attachmentTests: data['attachmentTest'] is Iterable
             ? (data['attachmentTest'] as Iterable)
-                .map<AttachmentTest>((test) => AttachmentTest.fromMap(test))
+                .map<AttachmentTest>(
+                  (test) => AttachmentTest.fromMap(test),
+                )
                 .toList(growable: false)
             : const [],
         bodyTests: data['bodyTest'] is Iterable
-            ? (data['bodyTest'] as Iterable).map<BodyTest>((test) => BodyTest.fromMap(test)).toList(growable: false)
+            ? (data['bodyTest'] as Iterable)
+                .map<BodyTest>(
+                  (test) => BodyTest.fromMap(test),
+                )
+                .toList(growable: false)
             : const [],
         bulkTests: data['bulkTest'] is Iterable
-            ? (data['bulkTest'] as Iterable).map<BulkTest>((test) => BulkTest.fromMap(test)).toList(growable: false)
+            ? (data['bulkTest'] as Iterable)
+                .map<BulkTest>(
+                  (test) => BulkTest.fromMap(test),
+                )
+                .toList(growable: false)
             : const [],
         contactRankingTests: data['contactRankingTest'] is Iterable
             ? (data['contactRankingTest'] as Iterable)
-                .map<ContactRankingTest>((test) => ContactRankingTest.fromMap(test))
+                .map<ContactRankingTest>(
+                  (test) => ContactRankingTest.fromMap(test),
+                )
                 .toList(growable: false)
             : const [],
         conversationTests: data['conversationTest'] is Iterable
             ? (data['conversationTest'] as Iterable)
-                .map<ConversationTest>((test) => ConversationTest.fromMap(test))
+                .map<ConversationTest>(
+                  (test) => ConversationTest.fromMap(test),
+                )
                 .toList(growable: false)
             : const [],
         currentDayOfWeekTests: data['currentDayOfWeekTest'] is Iterable
             ? (data['currentDayOfWeekTest'] as Iterable)
-                .map<CurrentDayOfWeekTest>((test) => CurrentDayOfWeekTest.fromMap(test))
+                .map<CurrentDayOfWeekTest>(
+                  (test) => CurrentDayOfWeekTest.fromMap(test),
+                )
                 .toList(growable: false)
             : const [],
         currentTimeTests: data['currentTimeTest'] is Iterable
             ? (data['currentTimeTest'] as Iterable)
-                .map<CurrentTimeTest>((test) => CurrentTimeTest.fromMap(test))
+                .map<CurrentTimeTest>(
+                  (test) => CurrentTimeTest.fromMap(test),
+                )
                 .toList(growable: false)
             : const [],
         dateTests: data['dateTest'] is Iterable
-            ? (data['dateTest'] as Iterable).map<DateTest>((test) => DateTest.fromMap(test)).toList(growable: false)
+            ? (data['dateTest'] as Iterable)
+                .map<DateTest>(
+                  (test) => DateTest.fromMap(test),
+                )
+                .toList(growable: false)
             : const [],
         facebookTests: data['facebookTest'] is Iterable
             ? (data['facebookTest'] as Iterable)
-                .map<FacebookTest>((test) => FacebookTest.fromMap(test))
+                .map<FacebookTest>(
+                  (test) => FacebookTest.fromMap(test),
+                )
                 .toList(growable: false)
             : const [],
         flaggedTests: data['flaggedTest'] is Iterable
             ? (data['flaggedTest'] as Iterable)
-                .map<FlaggedTest>((test) => FlaggedTest.fromMap(test))
+                .map<FlaggedTest>(
+                  (test) => FlaggedTest.fromMap(test),
+                )
                 .toList(growable: false)
             : const [],
         headerExistsTests: data['headerExistsTest'] is Iterable
             ? (data['headerExistsTest'] as Iterable)
-                .map<HeaderExistsTest>((test) => HeaderExistsTest.fromMap(test))
+                .map<HeaderExistsTest>(
+                  (test) => HeaderExistsTest.fromMap(test),
+                )
                 .toList(growable: false)
             : const [],
         headerTests: data['headerTest'] is Iterable
             ? (data['headerTest'] as Iterable)
-                .map<HeaderTest>((test) => HeaderTest.fromMap(test))
+                .map<HeaderTest>(
+                  (test) => HeaderTest.fromMap(test),
+                )
                 .toList(growable: false)
             : const [],
         importanceTests: data['importanceTest'] is Iterable
             ? (data['importanceTest'] as Iterable)
-                .map<ImportanceTest>((test) => ImportanceTest.fromMap(test))
+                .map<ImportanceTest>(
+                  (test) => ImportanceTest.fromMap(test),
+                )
                 .toList(growable: false)
             : const [],
         inviteTests: data['inviteTest'] is Iterable
             ? (data['inviteTest'] as Iterable)
-                .map<InviteTest>((test) => InviteTest.fromMap(test))
+                .map<InviteTest>(
+                  (test) => InviteTest.fromMap(test),
+                )
                 .toList(growable: false)
             : const [],
         linkedinTests: data['linkedinTest'] is Iterable
             ? (data['linkedinTest'] as Iterable)
-                .map<LinkedInTest>((test) => LinkedInTest.fromMap(test))
+                .map<LinkedInTest>(
+                  (test) => LinkedInTest.fromMap(test),
+                )
                 .toList(growable: false)
             : const [],
         listTests: data['listTest'] is Iterable
-            ? (data['listTest'] as Iterable).map<ListTest>((test) => ListTest.fromMap(test)).toList(growable: false)
+            ? (data['listTest'] as Iterable)
+                .map<ListTest>(
+                  (test) => ListTest.fromMap(test),
+                )
+                .toList(growable: false)
             : const [],
         meTests: data['meTest'] is Iterable
-            ? (data['meTest'] as Iterable).map<MeTest>((test) => MeTest.fromMap(test)).toList(growable: false)
+            ? (data['meTest'] as Iterable)
+                .map<MeTest>(
+                  (test) => MeTest.fromMap(test),
+                )
+                .toList(growable: false)
             : const [],
         mimeHeaderTests: data['mimeHeaderTest'] is Iterable
             ? (data['mimeHeaderTest'] as Iterable)
-                .map<MimeHeaderTest>((test) => MimeHeaderTest.fromMap(test))
+                .map<MimeHeaderTest>(
+                  (test) => MimeHeaderTest.fromMap(test),
+                )
                 .toList(growable: false)
             : const [],
         sizeTests: data['sizeTest'] is Iterable
-            ? (data['sizeTest'] as Iterable).map<SizeTest>((test) => SizeTest.fromMap(test)).toList(growable: false)
+            ? (data['sizeTest'] as Iterable)
+                .map<SizeTest>(
+                  (test) => SizeTest.fromMap(test),
+                )
+                .toList(growable: false)
             : const [],
         socialcastTests: data['socialcastTest'] is Iterable
             ? (data['socialcastTest'] as Iterable)
@@ -261,26 +317,38 @@ class FilterTests {
                 .toList(growable: false)
             : const [],
         trueTests: data['trueTest'] is Iterable
-            ? (data['trueTest'] as Iterable).map<TrueTest>((test) => TrueTest.fromMap(test)).toList(growable: false)
+            ? (data['trueTest'] as Iterable)
+                .map<TrueTest>(
+                  (test) => TrueTest.fromMap(test),
+                )
+                .toList(growable: false)
             : const [],
         twitterTests: data['twitterTest'] is Iterable
             ? (data['twitterTest'] as Iterable)
-                .map<TwitterTest>((test) => TwitterTest.fromMap(test))
+                .map<TwitterTest>(
+                  (test) => TwitterTest.fromMap(test),
+                )
                 .toList(growable: false)
             : const [],
         communityRequestsTests: data['communityRequestsTest'] is Iterable
             ? (data['communityRequestsTest'] as Iterable)
-                .map<CommunityRequestsTest>((test) => CommunityRequestsTest.fromMap(test))
+                .map<CommunityRequestsTest>(
+                  (test) => CommunityRequestsTest.fromMap(test),
+                )
                 .toList(growable: false)
             : const [],
         communityContentTests: data['communityContentTest'] is Iterable
             ? (data['communityContentTest'] as Iterable)
-                .map<CommunityContentTest>((test) => CommunityContentTest.fromMap(test))
+                .map<CommunityContentTest>(
+                  (test) => CommunityContentTest.fromMap(test),
+                )
                 .toList(growable: false)
             : const [],
         communityConnectionsTests: data['communityConnectionsTest'] is Iterable
             ? (data['communityConnectionsTest'] as Iterable)
-                .map<CommunityConnectionsTest>((test) => CommunityConnectionsTest.fromMap(test))
+                .map<CommunityConnectionsTest>(
+                  (test) => CommunityConnectionsTest.fromMap(test),
+                )
                 .toList(growable: false)
             : const [],
       );
@@ -288,45 +356,172 @@ class FilterTests {
   Map<String, dynamic> toMap() => {
         'condition': condition.name,
         if (addressBookTests.isNotEmpty)
-          'addressBookTest': addressBookTests.map((test) => test.toMap()).toList(growable: false),
-        if (addressTests.isNotEmpty) 'addressTest': addressTests.map((test) => test.toMap()).toList(growable: false),
-        if (envelopeTests.isNotEmpty) 'envelopeTest': envelopeTests.map((test) => test.toMap()).toList(growable: false),
+          'addressBookTest': addressBookTests
+              .map(
+                (test) => test.toMap(),
+              )
+              .toList(growable: false),
+        if (addressTests.isNotEmpty)
+          'addressTest': addressTests
+              .map(
+                (test) => test.toMap(),
+              )
+              .toList(growable: false),
+        if (envelopeTests.isNotEmpty)
+          'envelopeTest': envelopeTests
+              .map(
+                (test) => test.toMap(),
+              )
+              .toList(growable: false),
         if (attachmentTests.isNotEmpty)
-          'attachmentTest': attachmentTests.map((test) => test.toMap()).toList(growable: false),
-        if (bodyTests.isNotEmpty) 'bodyTest': bodyTests.map((test) => test.toMap()).toList(growable: false),
-        if (bulkTests.isNotEmpty) 'bulkTest': bulkTests.map((test) => test.toMap()).toList(growable: false),
+          'attachmentTest': attachmentTests
+              .map(
+                (test) => test.toMap(),
+              )
+              .toList(growable: false),
+        if (bodyTests.isNotEmpty)
+          'bodyTest': bodyTests
+              .map(
+                (test) => test.toMap(),
+              )
+              .toList(growable: false),
+        if (bulkTests.isNotEmpty)
+          'bulkTest': bulkTests
+              .map(
+                (test) => test.toMap(),
+              )
+              .toList(growable: false),
         if (contactRankingTests.isNotEmpty)
-          'contactRankingTest': contactRankingTests.map((test) => test.toMap()).toList(growable: false),
+          'contactRankingTest': contactRankingTests
+              .map(
+                (test) => test.toMap(),
+              )
+              .toList(growable: false),
         if (conversationTests.isNotEmpty)
-          'conversationTest': conversationTests.map((test) => test.toMap()).toList(growable: false),
+          'conversationTest': conversationTests
+              .map(
+                (test) => test.toMap(),
+              )
+              .toList(growable: false),
         if (currentDayOfWeekTests.isNotEmpty)
-          'currentDayOfWeekTest': currentDayOfWeekTests.map((test) => test.toMap()).toList(growable: false),
+          'currentDayOfWeekTest': currentDayOfWeekTests
+              .map(
+                (test) => test.toMap(),
+              )
+              .toList(growable: false),
         if (currentTimeTests.isNotEmpty)
-          'currentTimeTest': currentTimeTests.map((test) => test.toMap()).toList(growable: false),
-        if (dateTests.isNotEmpty) 'dateTest': dateTests.map((test) => test.toMap()).toList(growable: false),
-        if (facebookTests.isNotEmpty) 'facebookTest': facebookTests.map((test) => test.toMap()).toList(growable: false),
-        if (flaggedTests.isNotEmpty) 'flaggedTest': flaggedTests.map((test) => test.toMap()).toList(growable: false),
+          'currentTimeTest': currentTimeTests
+              .map(
+                (test) => test.toMap(),
+              )
+              .toList(growable: false),
+        if (dateTests.isNotEmpty)
+          'dateTest': dateTests
+              .map(
+                (test) => test.toMap(),
+              )
+              .toList(growable: false),
+        if (facebookTests.isNotEmpty)
+          'facebookTest': facebookTests
+              .map(
+                (test) => test.toMap(),
+              )
+              .toList(growable: false),
+        if (flaggedTests.isNotEmpty)
+          'flaggedTest': flaggedTests
+              .map(
+                (test) => test.toMap(),
+              )
+              .toList(growable: false),
         if (headerExistsTests.isNotEmpty)
-          'headerExistsTest': headerExistsTests.map((test) => test.toMap()).toList(growable: false),
-        if (headerTests.isNotEmpty) 'headerTest': headerTests.map((test) => test.toMap()).toList(growable: false),
+          'headerExistsTest': headerExistsTests
+              .map(
+                (test) => test.toMap(),
+              )
+              .toList(growable: false),
+        if (headerTests.isNotEmpty)
+          'headerTest': headerTests
+              .map(
+                (test) => test.toMap(),
+              )
+              .toList(growable: false),
         if (importanceTests.isNotEmpty)
-          'importanceTest': importanceTests.map((test) => test.toMap()).toList(growable: false),
-        if (inviteTests.isNotEmpty) 'inviteTest': inviteTests.map((test) => test.toMap()).toList(growable: false),
-        if (linkedinTests.isNotEmpty) 'linkedinTest': linkedinTests.map((test) => test.toMap()).toList(growable: false),
-        if (listTests.isNotEmpty) 'listTest': listTests.map((test) => test.toMap()).toList(growable: false),
-        if (meTests.isNotEmpty) 'meTest': meTests.map((test) => test.toMap()).toList(growable: false),
+          'importanceTest': importanceTests
+              .map(
+                (test) => test.toMap(),
+              )
+              .toList(growable: false),
+        if (inviteTests.isNotEmpty)
+          'inviteTest': inviteTests
+              .map(
+                (test) => test.toMap(),
+              )
+              .toList(growable: false),
+        if (linkedinTests.isNotEmpty)
+          'linkedinTest': linkedinTests
+              .map(
+                (test) => test.toMap(),
+              )
+              .toList(growable: false),
+        if (listTests.isNotEmpty)
+          'listTest': listTests
+              .map(
+                (test) => test.toMap(),
+              )
+              .toList(growable: false),
+        if (meTests.isNotEmpty)
+          'meTest': meTests
+              .map(
+                (test) => test.toMap(),
+              )
+              .toList(growable: false),
         if (mimeHeaderTests.isNotEmpty)
-          'mimeHeaderTest': mimeHeaderTests.map((test) => test.toMap()).toList(growable: false),
-        if (sizeTests.isNotEmpty) 'sizeTest': sizeTests.map((test) => test.toMap()).toList(growable: false),
+          'mimeHeaderTest': mimeHeaderTests
+              .map(
+                (test) => test.toMap(),
+              )
+              .toList(growable: false),
+        if (sizeTests.isNotEmpty)
+          'sizeTest': sizeTests
+              .map(
+                (test) => test.toMap(),
+              )
+              .toList(growable: false),
         if (socialcastTests.isNotEmpty)
-          'socialcastTest': socialcastTests.map((test) => test.toMap()).toList(growable: false),
-        if (trueTests.isNotEmpty) 'trueTest': trueTests.map((test) => test.toMap()).toList(growable: false),
-        if (twitterTests.isNotEmpty) 'twitterTest': twitterTests.map((test) => test.toMap()).toList(growable: false),
+          'socialcastTest': socialcastTests
+              .map(
+                (test) => test.toMap(),
+              )
+              .toList(growable: false),
+        if (trueTests.isNotEmpty)
+          'trueTest': trueTests
+              .map(
+                (test) => test.toMap(),
+              )
+              .toList(growable: false),
+        if (twitterTests.isNotEmpty)
+          'twitterTest': twitterTests
+              .map(
+                (test) => test.toMap(),
+              )
+              .toList(growable: false),
         if (communityRequestsTests.isNotEmpty)
-          'communityRequestsTest': communityRequestsTests.map((test) => test.toMap()).toList(growable: false),
+          'communityRequestsTest': communityRequestsTests
+              .map(
+                (test) => test.toMap(),
+              )
+              .toList(growable: false),
         if (communityContentTests.isNotEmpty)
-          'communityContentTest': communityContentTests.map((test) => test.toMap()).toList(growable: false),
+          'communityContentTest': communityContentTests
+              .map(
+                (test) => test.toMap(),
+              )
+              .toList(growable: false),
         if (communityConnectionsTests.isNotEmpty)
-          'communityConnectionsTest': communityConnectionsTests.map((test) => test.toMap()).toList(growable: false),
+          'communityConnectionsTest': communityConnectionsTests
+              .map(
+                (test) => test.toMap(),
+              )
+              .toList(growable: false),
       };
 }

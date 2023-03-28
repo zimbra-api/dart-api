@@ -8,7 +8,9 @@ class ParentId {
 
   const ParentId({this.parentId = ''});
 
-  factory ParentId.fromMap(Map<String, dynamic> data) => ParentId(parentId: data['parentId'] ?? '');
+  factory ParentId.fromMap(Map<String, dynamic> data) => ParentId(
+        parentId: data['parentId'] ?? '',
+      );
 
   Map<String, dynamic> toMap() => {
         'parentId': parentId,

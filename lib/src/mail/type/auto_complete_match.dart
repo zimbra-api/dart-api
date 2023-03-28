@@ -70,7 +70,10 @@ class AutoCompleteMatch {
     this.fileAs,
   });
 
-  factory AutoCompleteMatch.fromMap(Map<String, dynamic> data) => AutoCompleteMatch(
+  factory AutoCompleteMatch.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      AutoCompleteMatch(
         email: data['email'],
         matchType: AutoCompleteMatchType.values.firstWhere(
           (type) => type.name == data['type'],

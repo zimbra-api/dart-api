@@ -15,13 +15,14 @@ class SizeTest extends FilterTest {
   const SizeTest({this.numberComparison, this.size, super.index, super.negative});
 
   factory SizeTest.fromMap(Map<String, dynamic> data) => SizeTest(
-      numberComparison: NumberComparison.values.firstWhere(
-        (comparison) => comparison.name == data['numberComparison'],
-        orElse: () => NumberComparison.over,
-      ),
-      size: data['s'],
-      index: int.tryParse(data['index']?.toString() ?? ''),
-      negative: data['negative']);
+        numberComparison: NumberComparison.values.firstWhere(
+          (comparison) => comparison.name == data['numberComparison'],
+          orElse: () => NumberComparison.over,
+        ),
+        size: data['s'],
+        index: int.tryParse(data['index']?.toString() ?? ''),
+        negative: data['negative'],
+      );
 
   @override
   Map<String, dynamic> toMap() => {

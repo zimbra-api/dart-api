@@ -50,25 +50,38 @@ class ConversationInfo {
     this.messages = const [],
   });
 
-  factory ConversationInfo.fromMap(Map<String, dynamic> data) => ConversationInfo(
-      id: data['id'],
-      num: int.tryParse(data['n']?.toString() ?? ''),
-      totalSize: int.tryParse(data['total']?.toString() ?? ''),
-      flags: data['f'],
-      tags: data['t'],
-      tagNames: data['tn'],
-      metadatas: (data['meta'] is Iterable)
-          ? (data['meta'] as Iterable)
-              .map<MailCustomMetadata>((meta) => MailCustomMetadata.fromMap(meta))
-              .toList(growable: false)
-          : const [],
-      subject: data['su'],
-      chatMessages: (data['chat'] is Iterable)
-          ? (data['chat'] as Iterable).map<MessageInfo>((chat) => MessageInfo.fromMap(chat)).toList(growable: false)
-          : const [],
-      messages: (data['m'] is Iterable)
-          ? (data['m'] as Iterable).map<MessageInfo>((m) => MessageInfo.fromMap(m)).toList(growable: false)
-          : const []);
+  factory ConversationInfo.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ConversationInfo(
+          id: data['id'],
+          num: int.tryParse(data['n']?.toString() ?? ''),
+          totalSize: int.tryParse(data['total']?.toString() ?? ''),
+          flags: data['f'],
+          tags: data['t'],
+          tagNames: data['tn'],
+          metadatas: (data['meta'] is Iterable)
+              ? (data['meta'] as Iterable)
+                  .map<MailCustomMetadata>(
+                    (meta) => MailCustomMetadata.fromMap(meta),
+                  )
+                  .toList(growable: false)
+              : const [],
+          subject: data['su'],
+          chatMessages: (data['chat'] is Iterable)
+              ? (data['chat'] as Iterable)
+                  .map<MessageInfo>(
+                    (chat) => MessageInfo.fromMap(chat),
+                  )
+                  .toList(growable: false)
+              : const [],
+          messages: (data['m'] is Iterable)
+              ? (data['m'] as Iterable)
+                  .map<MessageInfo>(
+                    (m) => MessageInfo.fromMap(m),
+                  )
+                  .toList(growable: false)
+              : const []);
 
   Map<String, dynamic> toMap() => {
         if (id != null) 'id': id,
@@ -77,9 +90,24 @@ class ConversationInfo {
         if (flags != null) 'f': flags,
         if (tags != null) 't': tags,
         if (tagNames != null) 'tn': tagNames,
-        if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toMap()).toList(growable: false),
+        if (metadatas.isNotEmpty)
+          'meta': metadatas
+              .map(
+                (meta) => meta.toMap(),
+              )
+              .toList(growable: false),
         if (subject != null) 'su': subject,
-        if (chatMessages.isNotEmpty) 'chat': chatMessages.map((chat) => chat.toMap()).toList(growable: false),
-        if (messages.isNotEmpty) 'm': messages.map((m) => m.toMap()).toList(growable: false),
+        if (chatMessages.isNotEmpty)
+          'chat': chatMessages
+              .map(
+                (chat) => chat.toMap(),
+              )
+              .toList(growable: false),
+        if (messages.isNotEmpty)
+          'm': messages
+              .map(
+                (m) => m.toMap(),
+              )
+              .toList(growable: false),
       };
 }

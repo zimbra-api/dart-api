@@ -15,12 +15,13 @@ class LogAction extends FilterAction {
   const LogAction({this.level, this.content, super.index});
 
   factory LogAction.fromMap(Map<String, dynamic> data) => LogAction(
-      level: LoggingLevel.values.firstWhere(
-        (level) => level.name == data['level'],
-        orElse: () => LoggingLevel.info,
-      ),
-      content: data['_content'],
-      index: int.tryParse(data['index']?.toString() ?? ''));
+        level: LoggingLevel.values.firstWhere(
+          (level) => level.name == data['level'],
+          orElse: () => LoggingLevel.info,
+        ),
+        content: data['_content'],
+        index: int.tryParse(data['index']?.toString() ?? ''),
+      );
 
   @override
   Map<String, dynamic> toMap() => {

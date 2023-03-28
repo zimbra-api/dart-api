@@ -45,34 +45,59 @@ class MsgToSend extends Msg {
   });
 
   factory MsgToSend.fromMap(Map<String, dynamic> data) => MsgToSend(
-      draftId: data['did'],
-      sendFromDraft: data['sfd'],
-      dataSourceId: data['dsId'],
-      attachmentId: data['aid'],
-      origId: data['origid'],
-      replyType: ReplyType.values.firstWhere(
-        (rt) => rt.name == data['rt'],
-        orElse: () => ReplyType.replied,
-      ),
-      identityId: data['idnt'],
-      subject: data['su'],
-      headers: (data['header'] is Iterable)
-          ? (data['header'] as Iterable).map<Header>((header) => Header.fromMap(header)).toList(growable: false)
-          : const [],
-      inReplyTo: data['irt'],
-      folderId: data['l'],
-      flags: data['f'],
-      content: data['content']?['_content'],
-      mimePart: (data['mp'] is Map) ? MimePartInfo.fromMap(data['mp']) : null,
-      attachments: (data['attach'] is Map) ? AttachmentsInfo.fromMap(data['attach']) : null,
-      invite: (data['inv'] is Map) ? InvitationInfo.fromMap(data['inv']) : null,
-      emailAddresses: (data['e'] is Iterable)
-          ? (data['e'] as Iterable).map<EmailAddrInfo>((e) => EmailAddrInfo.fromMap(e)).toList(growable: false)
-          : const [],
-      timezones: (data['tz'] is Iterable)
-          ? (data['tz'] as Iterable).map<CalTZInfo>((tz) => CalTZInfo.fromMap(tz)).toList(growable: false)
-          : const [],
-      fragment: data['fr']);
+        draftId: data['did'],
+        sendFromDraft: data['sfd'],
+        dataSourceId: data['dsId'],
+        attachmentId: data['aid'],
+        origId: data['origid'],
+        replyType: ReplyType.values.firstWhere(
+          (rt) => rt.name == data['rt'],
+          orElse: () => ReplyType.replied,
+        ),
+        identityId: data['idnt'],
+        subject: data['su'],
+        headers: (data['header'] is Iterable)
+            ? (data['header'] as Iterable)
+                .map<Header>(
+                  (header) => Header.fromMap(header),
+                )
+                .toList(growable: false)
+            : const [],
+        inReplyTo: data['irt'],
+        folderId: data['l'],
+        flags: data['f'],
+        content: data['content']?['_content'],
+        mimePart: (data['mp'] is Map)
+            ? MimePartInfo.fromMap(
+                data['mp'],
+              )
+            : null,
+        attachments: (data['attach'] is Map)
+            ? AttachmentsInfo.fromMap(
+                data['attach'],
+              )
+            : null,
+        invite: (data['inv'] is Map)
+            ? InvitationInfo.fromMap(
+                data['inv'],
+              )
+            : null,
+        emailAddresses: (data['e'] is Iterable)
+            ? (data['e'] as Iterable)
+                .map<EmailAddrInfo>(
+                  (e) => EmailAddrInfo.fromMap(e),
+                )
+                .toList(growable: false)
+            : const [],
+        timezones: (data['tz'] is Iterable)
+            ? (data['tz'] as Iterable)
+                .map<CalTZInfo>(
+                  (tz) => CalTZInfo.fromMap(tz),
+                )
+                .toList(growable: false)
+            : const [],
+        fragment: data['fr'],
+      );
 
   @override
   Map<String, dynamic> toMap() => {
@@ -84,7 +109,12 @@ class MsgToSend extends Msg {
         if (replyType != null) 'rt': replyType!.name,
         if (identityId != null) 'idnt': identityId,
         if (subject != null) 'su': subject,
-        if (headers.isNotEmpty) 'header': headers.map((header) => header.toMap()).toList(growable: false),
+        if (headers.isNotEmpty)
+          'header': headers
+              .map(
+                (header) => header.toMap(),
+              )
+              .toList(growable: false),
         if (inReplyTo != null) 'irt': inReplyTo,
         if (folderId != null) 'l': folderId,
         if (flags != null) 'f': flags,
@@ -92,8 +122,18 @@ class MsgToSend extends Msg {
         if (mimePart != null) 'mp': mimePart!.toMap(),
         if (attachments != null) 'attach': attachments!.toMap(),
         if (invite != null) 'inv': invite!.toMap(),
-        if (emailAddresses.isNotEmpty) 'e': emailAddresses.map((e) => e.toMap()).toList(growable: false),
-        if (timezones.isNotEmpty) 'tz': timezones.map((tz) => tz.toMap()).toList(growable: false),
+        if (emailAddresses.isNotEmpty)
+          'e': emailAddresses
+              .map(
+                (e) => e.toMap(),
+              )
+              .toList(growable: false),
+        if (timezones.isNotEmpty)
+          'tz': timezones
+              .map(
+                (tz) => tz.toMap(),
+              )
+              .toList(growable: false),
         if (fragment != null) 'fr': fragment,
       };
 }

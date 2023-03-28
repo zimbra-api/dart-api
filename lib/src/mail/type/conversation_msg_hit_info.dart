@@ -32,12 +32,17 @@ class ConversationMsgHitInfo {
     this.date,
   });
 
-  factory ConversationMsgHitInfo.fromMap(Map<String, dynamic> data) => ConversationMsgHitInfo(data['id'] ?? '',
-      size: int.tryParse(data['s']?.toString() ?? ''),
-      folderId: data['l'],
-      flags: data['f'],
-      autoSendTime: data['autoSendTime'],
-      date: int.tryParse(data['d']?.toString() ?? ''));
+  factory ConversationMsgHitInfo.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ConversationMsgHitInfo(
+        data['id'] ?? '',
+        size: int.tryParse(data['s']?.toString() ?? ''),
+        folderId: data['l'],
+        flags: data['f'],
+        autoSendTime: data['autoSendTime'],
+        date: int.tryParse(data['d']?.toString() ?? ''),
+      );
 
   Map<String, dynamic> toMap() => {
         'id': id,

@@ -133,51 +133,55 @@ class InviteComponentCommon {
     this.changes,
   });
 
-  factory InviteComponentCommon.fromMap(Map<String, dynamic> data) => InviteComponentCommon(
-      method: data['method'],
-      componentNum: int.tryParse(data['compNum']?.toString() ?? ''),
-      rsvp: data['rsvp'],
-      priority: data['priority'],
-      name: data['name'],
-      location: data['loc'],
-      percentComplete: data['percentComplete'],
-      completed: data['completed'],
-      noBlob: data['noBlob'],
-      freeBusyActual: FreeBusyStatus.values.firstWhere(
-        (item) => item.name == data['fba'],
-        orElse: () => FreeBusyStatus.free,
-      ),
-      freeBusy: FreeBusyStatus.values.firstWhere(
-        (item) => item.name == data['fb'],
-        orElse: () => FreeBusyStatus.free,
-      ),
-      transparency: Transparency.values.firstWhere(
-        (item) => item.name == data['transp'],
-        orElse: () => Transparency.opaque,
-      ),
-      isOrganizer: data['isOrg'],
-      xUid: data['x_uid'],
-      uid: data['uid'],
-      sequence: int.tryParse(data['seq']?.toString() ?? ''),
-      dateTime: int.tryParse(data['d']?.toString() ?? ''),
-      calItemId: data['calItemId'],
-      deprecatedApptId: data['apptId'],
-      calItemFolder: data['ciFolder'],
-      status: InviteStatus.values.firstWhere(
-        (item) => item.name == data['status'],
-        orElse: () => InviteStatus.inprogress,
-      ),
-      calClass: InviteClass.values.firstWhere(
-        (item) => item.name == data['class'],
-        orElse: () => InviteClass.public,
-      ),
-      url: data['url'],
-      isException: data['ex'],
-      recurIdZ: data['ridZ'],
-      isAllDay: data['allDay'],
-      isDraft: data['draft'],
-      neverSent: data['neverSent'],
-      changes: data['changes']);
+  factory InviteComponentCommon.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      InviteComponentCommon(
+        method: data['method'],
+        componentNum: int.tryParse(data['compNum']?.toString() ?? ''),
+        rsvp: data['rsvp'],
+        priority: data['priority'],
+        name: data['name'],
+        location: data['loc'],
+        percentComplete: data['percentComplete'],
+        completed: data['completed'],
+        noBlob: data['noBlob'],
+        freeBusyActual: FreeBusyStatus.values.firstWhere(
+          (item) => item.name == data['fba'],
+          orElse: () => FreeBusyStatus.free,
+        ),
+        freeBusy: FreeBusyStatus.values.firstWhere(
+          (item) => item.name == data['fb'],
+          orElse: () => FreeBusyStatus.free,
+        ),
+        transparency: Transparency.values.firstWhere(
+          (item) => item.name == data['transp'],
+          orElse: () => Transparency.opaque,
+        ),
+        isOrganizer: data['isOrg'],
+        xUid: data['x_uid'],
+        uid: data['uid'],
+        sequence: int.tryParse(data['seq']?.toString() ?? ''),
+        dateTime: int.tryParse(data['d']?.toString() ?? ''),
+        calItemId: data['calItemId'],
+        deprecatedApptId: data['apptId'],
+        calItemFolder: data['ciFolder'],
+        status: InviteStatus.values.firstWhere(
+          (item) => item.name == data['status'],
+          orElse: () => InviteStatus.inprogress,
+        ),
+        calClass: InviteClass.values.firstWhere(
+          (item) => item.name == data['class'],
+          orElse: () => InviteClass.public,
+        ),
+        url: data['url'],
+        isException: data['ex'],
+        recurIdZ: data['ridZ'],
+        isAllDay: data['allDay'],
+        isDraft: data['draft'],
+        neverSent: data['neverSent'],
+        changes: data['changes'],
+      );
 
   Map<String, dynamic> toMap() => {
         if (method != null) 'method': method,

@@ -8,7 +8,9 @@ class FolderSpec {
 
   const FolderSpec({this.folder = ''});
 
-  factory FolderSpec.fromMap(Map<String, dynamic> data) => FolderSpec(folder: data['l'] ?? '');
+  factory FolderSpec.fromMap(Map<String, dynamic> data) => FolderSpec(
+        folder: data['l'] ?? '',
+      );
 
   Map<String, dynamic> toMap() => {
         'l': folder,

@@ -11,7 +11,13 @@ class MessagePartSpec {
 
   const MessagePartSpec({this.part, this.id});
 
-  factory MessagePartSpec.fromMap(Map<String, dynamic> data) => MessagePartSpec(part: data['part'], id: data['id']);
+  factory MessagePartSpec.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      MessagePartSpec(
+        part: data['part'],
+        id: data['id'],
+      );
 
   Map<String, dynamic> toMap() => {
         if (part != null) 'part': part,

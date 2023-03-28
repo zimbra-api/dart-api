@@ -46,11 +46,17 @@ class ContactSpec {
       tagNames: data['tn'],
       vcard: data['vcard'] is Map ? VCardInfo.fromMap(data['vcard']) : null,
       attrs: (data['a'] is Iterable)
-          ? (data['a'] as Iterable).map<NewContactAttr>((a) => NewContactAttr.fromMap(a)).toList(growable: false)
+          ? (data['a'] as Iterable)
+              .map<NewContactAttr>(
+                (a) => NewContactAttr.fromMap(a),
+              )
+              .toList(growable: false)
           : const [],
       contactGroupMembers: (data['m'] is Iterable)
           ? (data['m'] as Iterable)
-              .map<NewContactGroupMember>((m) => NewContactGroupMember.fromMap(m))
+              .map<NewContactGroupMember>(
+                (m) => NewContactGroupMember.fromMap(m),
+              )
               .toList(growable: false)
           : const []);
 
@@ -60,7 +66,17 @@ class ContactSpec {
         if (tags != null) 't': tags,
         if (tagNames != null) 'tn': tagNames,
         if (vcard != null) 'vcard': vcard!.toMap(),
-        if (attrs.isNotEmpty) 'a': attrs.map((a) => a.toMap()).toList(growable: false),
-        if (contactGroupMembers.isNotEmpty) 'm': contactGroupMembers.map((m) => m.toMap()).toList(growable: false),
+        if (attrs.isNotEmpty)
+          'a': attrs
+              .map(
+                (a) => a.toMap(),
+              )
+              .toList(growable: false),
+        if (contactGroupMembers.isNotEmpty)
+          'm': contactGroupMembers
+              .map(
+                (m) => m.toMap(),
+              )
+              .toList(growable: false),
       };
 }

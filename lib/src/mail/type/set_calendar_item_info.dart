@@ -18,12 +18,16 @@ class SetCalendarItemInfo {
 
   const SetCalendarItemInfo({this.partStat, this.msg});
 
-  factory SetCalendarItemInfo.fromMap(Map<String, dynamic> data) => SetCalendarItemInfo(
-      partStat: ParticipationStatus.values.firstWhere(
-        (ptst) => ptst.name == data['ptst'],
-        orElse: () => ParticipationStatus.completed,
-      ),
-      msg: data['m'] is Map ? Msg.fromMap(data['m']) : null);
+  factory SetCalendarItemInfo.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      SetCalendarItemInfo(
+        partStat: ParticipationStatus.values.firstWhere(
+          (ptst) => ptst.name == data['ptst'],
+          orElse: () => ParticipationStatus.completed,
+        ),
+        msg: data['m'] is Map ? Msg.fromMap(data['m']) : null,
+      );
 
   Map<String, dynamic> toMap() => {
         if (partStat != null) 'ptst': partStat!.name,

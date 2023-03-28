@@ -28,30 +28,37 @@ class TaskItemInfo extends CalendarItemInfo {
   });
 
   factory TaskItemInfo.fromMap(Map<String, dynamic> data) => TaskItemInfo(
-      flags: data['f'],
-      tags: data['t'],
-      tagNames: data['tn'],
-      uid: data['uid'],
-      id: data['id'],
-      revision: int.tryParse(data['rev']?.toString() ?? ''),
-      size: int.tryParse(data['s']?.toString() ?? ''),
-      date: int.tryParse(data['d']?.toString() ?? ''),
-      folder: data['l'],
-      changeDate: int.tryParse(data['md']?.toString() ?? ''),
-      modifiedSequence: int.tryParse(data['ms']?.toString() ?? ''),
-      nextAlarm: int.tryParse(data['nextAlarm']?.toString() ?? ''),
-      orphan: data['orphan'],
-      invites: (data['inv'] is Iterable)
-          ? (data['inv'] as Iterable).map<Invitation>((inv) => Invitation.fromMap(inv)).toList(growable: false)
-          : const [],
-      calendarReplies: (data['replies']?['reply'] is Iterable)
-          ? (data['replies']['reply'] as Iterable)
-              .map<CalendarReply>((reply) => CalendarReply.fromMap(reply))
-              .toList(growable: false)
-          : const [],
-      metadatas: (data['meta'] is Iterable)
-          ? (data['meta'] as Iterable)
-              .map<MailCustomMetadata>((meta) => MailCustomMetadata.fromMap(meta))
-              .toList(growable: false)
-          : const []);
+        flags: data['f'],
+        tags: data['t'],
+        tagNames: data['tn'],
+        uid: data['uid'],
+        id: data['id'],
+        revision: int.tryParse(data['rev']?.toString() ?? ''),
+        size: int.tryParse(data['s']?.toString() ?? ''),
+        date: int.tryParse(data['d']?.toString() ?? ''),
+        folder: data['l'],
+        changeDate: int.tryParse(data['md']?.toString() ?? ''),
+        modifiedSequence: int.tryParse(data['ms']?.toString() ?? ''),
+        nextAlarm: int.tryParse(data['nextAlarm']?.toString() ?? ''),
+        orphan: data['orphan'],
+        invites: (data['inv'] is Iterable)
+            ? (data['inv'] as Iterable)
+                .map<Invitation>(
+                  (inv) => Invitation.fromMap(inv),
+                )
+                .toList(growable: false)
+            : const [],
+        calendarReplies: (data['replies']?['reply'] is Iterable)
+            ? (data['replies']['reply'] as Iterable)
+                .map<CalendarReply>((reply) => CalendarReply.fromMap(reply))
+                .toList(growable: false)
+            : const [],
+        metadatas: (data['meta'] is Iterable)
+            ? (data['meta'] as Iterable)
+                .map<MailCustomMetadata>(
+                  (meta) => MailCustomMetadata.fromMap(meta),
+                )
+                .toList(growable: false)
+            : const [],
+      );
 }

@@ -31,15 +31,25 @@ class ExceptionRecurIdInfo {
 
   const ExceptionRecurIdInfo({this.dateTime, this.timezone, this.recurrenceRangeType});
 
-  factory ExceptionRecurIdInfo.fromMap(Map<String, dynamic> data) => ExceptionRecurIdInfo(
-      dateTime: data['d'],
-      timezone: data['tz'],
-      recurrenceRangeType: int.tryParse(data['rangeType']?.toString() ?? ''));
+  factory ExceptionRecurIdInfo.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ExceptionRecurIdInfo(
+        dateTime: data['d'],
+        timezone: data['tz'],
+        recurrenceRangeType: int.tryParse(
+          data['rangeType']?.toString() ?? '',
+        ),
+      );
 
   Map<String, dynamic> toMap() => {
         if (dateTime != null) 'd': dateTime,
         if (timezone != null) 'tz': timezone,
         if (recurrenceRangeType != null)
-          'rangeType': rangeTypes.contains(recurrenceRangeType) ? recurrenceRangeType : 1,
+          'rangeType': rangeTypes.contains(
+            recurrenceRangeType,
+          )
+              ? recurrenceRangeType
+              : 1,
       };
 }

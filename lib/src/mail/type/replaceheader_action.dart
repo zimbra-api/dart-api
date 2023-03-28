@@ -21,13 +21,21 @@ class ReplaceheaderAction extends DeleteheaderAction {
     super.index,
   });
 
-  factory ReplaceheaderAction.fromMap(Map<String, dynamic> data) => ReplaceheaderAction(
-      newName: data['newName']?['_content'],
-      newValue: data['newValue']?['_content'],
-      last: data['last'],
-      offset: int.tryParse(data['offset']?.toString() ?? ''),
-      test: data['test'] is Map ? EditheaderTest.fromMap(data['test']) : null,
-      index: int.tryParse(data['index']?.toString() ?? ''));
+  factory ReplaceheaderAction.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ReplaceheaderAction(
+        newName: data['newName']?['_content'],
+        newValue: data['newValue']?['_content'],
+        last: data['last'],
+        offset: int.tryParse(data['offset']?.toString() ?? ''),
+        test: data['test'] is Map
+            ? EditheaderTest.fromMap(
+                data['test'],
+              )
+            : null,
+        index: int.tryParse(data['index']?.toString() ?? ''),
+      );
 
   @override
   Map<String, dynamic> toMap() => {

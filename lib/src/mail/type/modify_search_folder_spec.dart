@@ -18,16 +18,25 @@ class ModifySearchFolderSpec {
   /// Sort order for
   final SearchSortBy? sortBy;
 
-  const ModifySearchFolderSpec({this.id = '', this.query = '', this.searchTypes, this.sortBy});
+  const ModifySearchFolderSpec({
+    this.id = '',
+    this.query = '',
+    this.searchTypes,
+    this.sortBy,
+  });
 
-  factory ModifySearchFolderSpec.fromMap(Map<String, dynamic> data) => ModifySearchFolderSpec(
-      id: data['id'] ?? '',
-      query: data['query'] ?? '',
-      searchTypes: data['types'],
-      sortBy: SearchSortBy.values.firstWhere(
-        (sortBy) => sortBy.name == data['sortBy'],
-        orElse: () => SearchSortBy.none,
-      ));
+  factory ModifySearchFolderSpec.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ModifySearchFolderSpec(
+        id: data['id'] ?? '',
+        query: data['query'] ?? '',
+        searchTypes: data['types'],
+        sortBy: SearchSortBy.values.firstWhere(
+          (sortBy) => sortBy.name == data['sortBy'],
+          orElse: () => SearchSortBy.none,
+        ),
+      );
 
   Map<String, dynamic> toMap() => {
         'id': id,

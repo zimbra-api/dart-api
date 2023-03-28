@@ -15,8 +15,11 @@ class TagSpec {
 
   const TagSpec(this.name, {this.rgb, this.color});
 
-  factory TagSpec.fromMap(Map<String, dynamic> data) =>
-      TagSpec(data['name'] ?? '', rgb: data['rgb'], color: int.tryParse(data['color']?.toString() ?? ''));
+  factory TagSpec.fromMap(Map<String, dynamic> data) => TagSpec(
+        data['name'] ?? '',
+        rgb: data['rgb'],
+        color: int.tryParse(data['color']?.toString() ?? ''),
+      );
 
   Map<String, dynamic> toMap() => {
         'name': name,

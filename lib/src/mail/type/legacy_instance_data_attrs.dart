@@ -41,50 +41,54 @@ class LegacyInstanceDataAttrs extends CommonInstanceDataAttrs {
     super.taskTzOffsetDue,
   });
 
-  factory LegacyInstanceDataAttrs.fromMap(Map<String, dynamic> data) => LegacyInstanceDataAttrs(
-      duration: int.tryParse(data['d']?.toString() ?? ''),
-      partStat: ParticipationStatus.values.firstWhere(
-        (ptst) => ptst.name == data['ptst'],
-        orElse: () => ParticipationStatus.accept,
-      ),
-      recurIdZ: data['ridZ'],
-      tzOffset: int.tryParse(data['tzo']?.toString() ?? ''),
-      freeBusyActual: FreeBusyStatus.values.firstWhere(
-        (fba) => fba.name == data['fba'],
-        orElse: () => FreeBusyStatus.free,
-      ),
-      taskPercentComplete: data['percentComplete'],
-      isRecurring: data['recur'],
-      hasExceptions: data['hasEx'],
-      priority: data['priority'],
-      freeBusyIntended: FreeBusyStatus.values.firstWhere(
-        (fb) => fb.name == data['fb'],
-        orElse: () => FreeBusyStatus.free,
-      ),
-      transparency: Transparency.values.firstWhere(
-        (transp) => transp.name == data['transp'],
-        orElse: () => Transparency.opaque,
-      ),
-      name: data['name'],
-      location: data['loc'],
-      hasOtherAttendees: data['otherAtt'],
-      hasAlarm: data['alarm'],
-      isOrganizer: data['isOrg'],
-      invId: data['invId'],
-      componentNum: int.tryParse(data['compNum']?.toString() ?? ''),
-      status: InviteStatus.values.firstWhere(
-        (status) => status.name == data['status'],
-        orElse: () => InviteStatus.completed,
-      ),
-      calClass: InviteClass.values.firstWhere(
-        (calClass) => calClass.name == data['class'],
-        orElse: () => InviteClass.public,
-      ),
-      allDay: data['allDay'],
-      draft: data['draft'],
-      neverSent: data['neverSent'],
-      taskDueDate: int.tryParse(data['dueDate']?.toString() ?? ''),
-      taskTzOffsetDue: int.tryParse(data['tzoDue']?.toString() ?? ''));
+  factory LegacyInstanceDataAttrs.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      LegacyInstanceDataAttrs(
+        duration: int.tryParse(data['d']?.toString() ?? ''),
+        partStat: ParticipationStatus.values.firstWhere(
+          (ptst) => ptst.name == data['ptst'],
+          orElse: () => ParticipationStatus.accept,
+        ),
+        recurIdZ: data['ridZ'],
+        tzOffset: int.tryParse(data['tzo']?.toString() ?? ''),
+        freeBusyActual: FreeBusyStatus.values.firstWhere(
+          (fba) => fba.name == data['fba'],
+          orElse: () => FreeBusyStatus.free,
+        ),
+        taskPercentComplete: data['percentComplete'],
+        isRecurring: data['recur'],
+        hasExceptions: data['hasEx'],
+        priority: data['priority'],
+        freeBusyIntended: FreeBusyStatus.values.firstWhere(
+          (fb) => fb.name == data['fb'],
+          orElse: () => FreeBusyStatus.free,
+        ),
+        transparency: Transparency.values.firstWhere(
+          (transp) => transp.name == data['transp'],
+          orElse: () => Transparency.opaque,
+        ),
+        name: data['name'],
+        location: data['loc'],
+        hasOtherAttendees: data['otherAtt'],
+        hasAlarm: data['alarm'],
+        isOrganizer: data['isOrg'],
+        invId: data['invId'],
+        componentNum: int.tryParse(data['compNum']?.toString() ?? ''),
+        status: InviteStatus.values.firstWhere(
+          (status) => status.name == data['status'],
+          orElse: () => InviteStatus.completed,
+        ),
+        calClass: InviteClass.values.firstWhere(
+          (calClass) => calClass.name == data['class'],
+          orElse: () => InviteClass.public,
+        ),
+        allDay: data['allDay'],
+        draft: data['draft'],
+        neverSent: data['neverSent'],
+        taskDueDate: int.tryParse(data['dueDate']?.toString() ?? ''),
+        taskTzOffsetDue: int.tryParse(data['tzoDue']?.toString() ?? ''),
+      );
 
   @override
   Map<String, dynamic> toMap() => {

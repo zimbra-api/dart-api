@@ -62,22 +62,27 @@ class NewMountpointSpec {
     this.path,
   });
 
-  factory NewMountpointSpec.fromMap(Map<String, dynamic> data) => NewMountpointSpec(data['name'] ?? '',
-      defaultView: ViewType.values.firstWhere(
-        (view) => view.name == data['view'],
-        orElse: () => ViewType.conversation,
-      ),
-      flags: data['f'],
-      color: int.tryParse(data['color']?.toString() ?? ''),
-      rgb: data['rgb'],
-      url: data['url'],
-      folderId: data['l'],
-      fetchIfExists: data['fie'],
-      reminderEnabled: data['reminder'],
-      ownerId: data['zid'],
-      ownerName: data['owner'],
-      remoteId: int.tryParse(data['rid']?.toString() ?? ''),
-      path: data['path']);
+  factory NewMountpointSpec.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      NewMountpointSpec(
+        data['name'] ?? '',
+        defaultView: ViewType.values.firstWhere(
+          (view) => view.name == data['view'],
+          orElse: () => ViewType.conversation,
+        ),
+        flags: data['f'],
+        color: int.tryParse(data['color']?.toString() ?? ''),
+        rgb: data['rgb'],
+        url: data['url'],
+        folderId: data['l'],
+        fetchIfExists: data['fie'],
+        reminderEnabled: data['reminder'],
+        ownerId: data['zid'],
+        ownerName: data['owner'],
+        remoteId: int.tryParse(data['rid']?.toString() ?? ''),
+        path: data['path'],
+      );
 
   Map<String, dynamic> toMap() => {
         'name': name,

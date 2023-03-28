@@ -17,10 +17,26 @@ class ExpandedRecurrenceInvite extends ExpandedRecurrenceComponent {
     super.recurrence,
   });
 
-  factory ExpandedRecurrenceInvite.fromMap(Map<String, dynamic> data) => ExpandedRecurrenceInvite(
-      exceptionId: data['exceptId'] is Map ? InstanceRecurIdInfo.fromMap(data['exceptId']) : null,
-      startTime: int.tryParse(data['s']?.toString() ?? ''),
-      endTime: int.tryParse(data['e']?.toString() ?? ''),
-      duration: data['dur'] is Map ? DurationInfo.fromMap(data['dur']) : null,
-      recurrence: data['recur'] is Map ? RecurrenceInfo.fromMap(data['recur']) : null);
+  factory ExpandedRecurrenceInvite.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ExpandedRecurrenceInvite(
+        exceptionId: data['exceptId'] is Map
+            ? InstanceRecurIdInfo.fromMap(
+                data['exceptId'],
+              )
+            : null,
+        startTime: int.tryParse(data['s']?.toString() ?? ''),
+        endTime: int.tryParse(data['e']?.toString() ?? ''),
+        duration: data['dur'] is Map
+            ? DurationInfo.fromMap(
+                data['dur'],
+              )
+            : null,
+        recurrence: data['recur'] is Map
+            ? RecurrenceInfo.fromMap(
+                data['recur'],
+              )
+            : null,
+      );
 }

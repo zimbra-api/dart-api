@@ -14,11 +14,12 @@ class WkDay {
   const WkDay(this.day, {this.ordWk});
 
   factory WkDay.fromMap(Map<String, dynamic> data) => WkDay(
-      WeekDay.values.firstWhere(
-        (item) => item.name == data['day'],
-        orElse: () => WeekDay.sunday,
-      ),
-      ordWk: int.tryParse(data['ordWk']?.toString() ?? ''));
+        WeekDay.values.firstWhere(
+          (item) => item.name == data['day'],
+          orElse: () => WeekDay.sunday,
+        ),
+        ordWk: int.tryParse(data['ordWk']?.toString() ?? ''),
+      );
 
   Map<String, dynamic> toMap() => {
         'day': day.name,

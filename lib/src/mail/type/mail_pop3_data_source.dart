@@ -44,47 +44,55 @@ class MailPop3DataSource extends MailDataSource {
     super.attributes = const [],
   });
 
-  factory MailPop3DataSource.fromMap(Map<String, dynamic> data) => MailPop3DataSource(
-      id: data['id'],
-      name: data['name'],
-      folderId: data['l'],
-      isEnabled: data['isEnabled'],
-      importOnly: data['importOnly'],
-      host: data['host'],
-      port: int.tryParse(data['port']?.toString() ?? ''),
-      connectionType: ConnectionType.values.firstWhere(
-        (type) => type.name == data['connectionType'],
-        orElse: () => ConnectionType.clearText,
-      ),
-      username: data['username'],
-      password: data['password'],
-      pollingInterval: data['pollingInterval'],
-      emailAddress: data['emailAddress'],
-      smtpEnabled: data['smtpEnabled'],
-      smtpHost: data['smtpHost'],
-      smtpPort: int.tryParse(data['smtpPort']?.toString() ?? ''),
-      smtpConnectionType: ConnectionType.values.firstWhere(
-        (type) => type.name == data['smtpConnectionType'],
-        orElse: () => ConnectionType.clearText,
-      ),
-      smtpAuthRequired: data['smtpAuthRequired'],
-      smtpUsername: data['smtpUsername'],
-      smtpPassword: data['smtpPassword'],
-      useAddressForForwardReply: data['useAddressForForwardReply'],
-      defaultSignature: data['defaultSignature'],
-      forwardReplySignature: data['forwardReplySignature'],
-      fromDisplay: data['fromDisplay'],
-      replyToAddress: data['replyToAddress'],
-      replyToDisplay: data['replyToDisplay'],
-      importClass: data['importClass'],
-      failingSince: int.tryParse(data['failingSince']?.toString() ?? ''),
-      lastError: data['lastError']?['_content'],
-      refreshToken: data['refreshToken'],
-      refreshTokenUrl: data['refreshTokenUrl'],
-      leaveOnServer: data['leaveOnServer'],
-      attributes: (data['a'] is Iterable)
-          ? (data['a'] as Iterable).map<String>((a) => a['_content']).toList(growable: false)
-          : const []);
+  factory MailPop3DataSource.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      MailPop3DataSource(
+        id: data['id'],
+        name: data['name'],
+        folderId: data['l'],
+        isEnabled: data['isEnabled'],
+        importOnly: data['importOnly'],
+        host: data['host'],
+        port: int.tryParse(data['port']?.toString() ?? ''),
+        connectionType: ConnectionType.values.firstWhere(
+          (type) => type.name == data['connectionType'],
+          orElse: () => ConnectionType.clearText,
+        ),
+        username: data['username'],
+        password: data['password'],
+        pollingInterval: data['pollingInterval'],
+        emailAddress: data['emailAddress'],
+        smtpEnabled: data['smtpEnabled'],
+        smtpHost: data['smtpHost'],
+        smtpPort: int.tryParse(data['smtpPort']?.toString() ?? ''),
+        smtpConnectionType: ConnectionType.values.firstWhere(
+          (type) => type.name == data['smtpConnectionType'],
+          orElse: () => ConnectionType.clearText,
+        ),
+        smtpAuthRequired: data['smtpAuthRequired'],
+        smtpUsername: data['smtpUsername'],
+        smtpPassword: data['smtpPassword'],
+        useAddressForForwardReply: data['useAddressForForwardReply'],
+        defaultSignature: data['defaultSignature'],
+        forwardReplySignature: data['forwardReplySignature'],
+        fromDisplay: data['fromDisplay'],
+        replyToAddress: data['replyToAddress'],
+        replyToDisplay: data['replyToDisplay'],
+        importClass: data['importClass'],
+        failingSince: int.tryParse(data['failingSince']?.toString() ?? ''),
+        lastError: data['lastError']?['_content'],
+        refreshToken: data['refreshToken'],
+        refreshTokenUrl: data['refreshTokenUrl'],
+        leaveOnServer: data['leaveOnServer'],
+        attributes: (data['a'] is Iterable)
+            ? (data['a'] as Iterable)
+                .map<String>(
+                  (a) => a['_content'],
+                )
+                .toList(growable: false)
+            : const [],
+      );
 
   @override
   Map<String, dynamic> toMap() => {
@@ -119,6 +127,11 @@ class MailPop3DataSource extends MailDataSource {
         if (refreshToken != null) 'refreshToken': refreshToken,
         if (refreshTokenUrl != null) 'refreshTokenUrl': refreshTokenUrl,
         if (leaveOnServer != null) 'leaveOnServer': leaveOnServer,
-        if (attributes.isNotEmpty) 'a': attributes.map((a) => {'_content': a}).toList(growable: false),
+        if (attributes.isNotEmpty)
+          'a': attributes
+              .map(
+                (a) => {'_content': a},
+              )
+              .toList(growable: false),
       };
 }

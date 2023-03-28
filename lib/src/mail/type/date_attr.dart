@@ -8,7 +8,9 @@ class DateAttr {
 
   const DateAttr(this.date);
 
-  factory DateAttr.fromMap(Map<String, dynamic> data) => DateAttr(data['d'] ?? '');
+  factory DateAttr.fromMap(Map<String, dynamic> data) => DateAttr(
+        data['d'] ?? '',
+      );
 
   Map<String, dynamic> toMap() => {
         'd': date,

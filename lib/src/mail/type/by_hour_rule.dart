@@ -9,7 +9,9 @@ class ByHourRule {
 
   const ByHourRule(this.list);
 
-  factory ByHourRule.fromMap(Map<String, dynamic> data) => ByHourRule(data['hrlist'] ?? '');
+  factory ByHourRule.fromMap(Map<String, dynamic> data) => ByHourRule(
+        data['hrlist'] ?? '',
+      );
 
   Map<String, dynamic> toMap() => {
         'hrlist': list,

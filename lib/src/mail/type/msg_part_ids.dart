@@ -11,7 +11,10 @@ class MsgPartIds {
 
   const MsgPartIds({this.id, this.partIds});
 
-  factory MsgPartIds.fromMap(Map<String, dynamic> data) => MsgPartIds(id: data['id'], partIds: data['part']);
+  factory MsgPartIds.fromMap(Map<String, dynamic> data) => MsgPartIds(
+        id: data['id'],
+        partIds: data['part'],
+      );
 
   Map<String, dynamic> toMap() => {
         if (id != null) 'id': id,

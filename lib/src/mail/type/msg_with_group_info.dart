@@ -117,49 +117,81 @@ class MsgWithGroupInfo extends MessageCommon {
     super.metadatas = const [],
   });
 
-  factory MsgWithGroupInfo.fromMap(Map<String, dynamic> data) => MsgWithGroupInfo(
-      id: data['id'],
-      imapUid: int.tryParse(data['i4uid']?.toString() ?? ''),
-      calendarIntendedFor: data['cif'],
-      origId: data['origid'],
-      draftReplyType: ReplyType.values.firstWhere(
-        (rt) => rt.name == data['rt'],
-        orElse: () => ReplyType.replied,
-      ),
-      identityId: data['idnt'],
-      draftAccountId: data['forAcct'],
-      draftAutoSendTime: int.tryParse(data['autoSendTime']?.toString() ?? ''),
-      sentDate: int.tryParse(data['sd']?.toString() ?? ''),
-      resentDate: int.tryParse(data['rd']?.toString() ?? ''),
-      part: data['part'],
-      fragment: data['fr'],
-      emails: (data['e'] is Iterable)
-          ? (data['e'] as Iterable).map<EmailInfo>((e) => EmailInfo.fromMap(e)).toList(growable: false)
-          : const [],
-      subject: data['su'],
-      messageIdHeader: data['mid'],
-      inReplyTo: data['irt'],
-      invite: data['inv'] is Map ? InviteWithGroupInfo.fromMap(data['inv']) : null,
-      headers: KeyValuePairs.keyValuePairsFromMap(data),
-      mimePart: data['mp'] is Map ? MimePartInfo.fromMap(data['mp']) : null,
-      shrNotification: data['shr'] is Map ? ShareNotification.fromMap(data['shr']) : null,
-      dlSubsNotification: data['dlSubs'] is Map ? DLSubscriptionNotification.fromMap(data['dlSubs']) : null,
-      content: data['content'] is Map ? UrlAndValue.fromMap(data['content']) : null,
-      size: int.tryParse(data['s']?.toString() ?? ''),
-      date: int.tryParse(data['d']?.toString() ?? ''),
-      folder: data['l'],
-      conversationId: data['cid'],
-      flags: data['f'],
-      tags: data['t'],
-      tagNames: data['tn'],
-      revision: data['rev'],
-      changeDate: int.tryParse(data['md']?.toString() ?? ''),
-      modifiedSequence: int.tryParse(data['ms']?.toString() ?? ''),
-      metadatas: (data['meta'] is Iterable)
-          ? (data['meta'] as Iterable)
-              .map<MailCustomMetadata>((meta) => MailCustomMetadata.fromMap(meta))
-              .toList(growable: false)
-          : const []);
+  factory MsgWithGroupInfo.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      MsgWithGroupInfo(
+        id: data['id'],
+        imapUid: int.tryParse(data['i4uid']?.toString() ?? ''),
+        calendarIntendedFor: data['cif'],
+        origId: data['origid'],
+        draftReplyType: ReplyType.values.firstWhere(
+          (rt) => rt.name == data['rt'],
+          orElse: () => ReplyType.replied,
+        ),
+        identityId: data['idnt'],
+        draftAccountId: data['forAcct'],
+        draftAutoSendTime: int.tryParse(
+          data['autoSendTime']?.toString() ?? '',
+        ),
+        sentDate: int.tryParse(data['sd']?.toString() ?? ''),
+        resentDate: int.tryParse(data['rd']?.toString() ?? ''),
+        part: data['part'],
+        fragment: data['fr'],
+        emails: (data['e'] is Iterable)
+            ? (data['e'] as Iterable)
+                .map<EmailInfo>(
+                  (e) => EmailInfo.fromMap(e),
+                )
+                .toList(growable: false)
+            : const [],
+        subject: data['su'],
+        messageIdHeader: data['mid'],
+        inReplyTo: data['irt'],
+        invite: data['inv'] is Map
+            ? InviteWithGroupInfo.fromMap(
+                data['inv'],
+              )
+            : null,
+        headers: KeyValuePairs.keyValuePairsFromMap(data),
+        mimePart: data['mp'] is Map
+            ? MimePartInfo.fromMap(
+                data['mp'],
+              )
+            : null,
+        shrNotification: data['shr'] is Map
+            ? ShareNotification.fromMap(
+                data['shr'],
+              )
+            : null,
+        dlSubsNotification: data['dlSubs'] is Map
+            ? DLSubscriptionNotification.fromMap(
+                data['dlSubs'],
+              )
+            : null,
+        content: data['content'] is Map
+            ? UrlAndValue.fromMap(
+                data['content'],
+              )
+            : null,
+        size: int.tryParse(data['s']?.toString() ?? ''),
+        date: int.tryParse(data['d']?.toString() ?? ''),
+        folder: data['l'],
+        conversationId: data['cid'],
+        flags: data['f'],
+        tags: data['t'],
+        tagNames: data['tn'],
+        revision: data['rev'],
+        changeDate: int.tryParse(data['md']?.toString() ?? ''),
+        modifiedSequence: int.tryParse(data['ms']?.toString() ?? ''),
+        metadatas: (data['meta'] is Iterable)
+            ? (data['meta'] as Iterable)
+                .map<MailCustomMetadata>(
+                  (meta) => MailCustomMetadata.fromMap(meta),
+                )
+                .toList(growable: false)
+            : const [],
+      );
 
   @override
   Map<String, dynamic> toMap() => {
@@ -175,12 +207,22 @@ class MsgWithGroupInfo extends MessageCommon {
         if (resentDate != null) 'rd': resentDate,
         if (part != null) 'part': part,
         if (fragment != null) 'fr': fragment,
-        if (emails.isNotEmpty) 'e': emails.map((e) => e.toMap()).toList(growable: false),
+        if (emails.isNotEmpty)
+          'e': emails
+              .map(
+                (e) => e.toMap(),
+              )
+              .toList(growable: false),
         if (subject != null) 'su': subject,
         if (messageIdHeader != null) 'mid': messageIdHeader,
         if (inReplyTo != null) 'irt': inReplyTo,
         if (invite != null) 'inv': invite!.toMap(),
-        if (headers.isNotEmpty) 'header': headers.map((header) => header.toMap()).toList(growable: false),
+        if (headers.isNotEmpty)
+          'header': headers
+              .map(
+                (header) => header.toMap(),
+              )
+              .toList(growable: false),
         if (mimePart != null) 'mp': mimePart!.toMap(),
         if (shrNotification != null) 'shr': shrNotification!.toMap(),
         if (dlSubsNotification != null) 'dlSubs': dlSubsNotification!.toMap(),
@@ -195,6 +237,11 @@ class MsgWithGroupInfo extends MessageCommon {
         if (revision != null) 'rev': revision,
         if (changeDate != null) 'md': changeDate,
         if (modifiedSequence != null) 'ms': modifiedSequence,
-        if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toMap()).toList(growable: false),
+        if (metadatas.isNotEmpty)
+          'meta': metadatas
+              .map(
+                (meta) => meta.toMap(),
+              )
+              .toList(growable: false),
       };
 }

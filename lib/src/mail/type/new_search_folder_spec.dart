@@ -41,17 +41,22 @@ class NewSearchFolderSpec {
     this.parentFolderId,
   });
 
-  factory NewSearchFolderSpec.fromMap(Map<String, dynamic> data) =>
-      NewSearchFolderSpec(data['name'] ?? '', data['query'] ?? '',
-          searchTypes: data['types'],
-          sortBy: SearchSortBy.values.firstWhere(
-            (sortBy) => sortBy.name == data['sortBy'],
-            orElse: () => SearchSortBy.none,
-          ),
-          flags: data['f'],
-          color: int.tryParse(data['color']?.toString() ?? ''),
-          rgb: data['rgb'],
-          parentFolderId: data['l']);
+  factory NewSearchFolderSpec.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      NewSearchFolderSpec(
+        data['name'] ?? '',
+        data['query'] ?? '',
+        searchTypes: data['types'],
+        sortBy: SearchSortBy.values.firstWhere(
+          (sortBy) => sortBy.name == data['sortBy'],
+          orElse: () => SearchSortBy.none,
+        ),
+        flags: data['f'],
+        color: int.tryParse(data['color']?.toString() ?? ''),
+        rgb: data['rgb'],
+        parentFolderId: data['l'],
+      );
 
   Map<String, dynamic> toMap() => {
         'name': name,

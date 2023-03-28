@@ -9,7 +9,9 @@ class BySecondRule {
 
   const BySecondRule(this.list);
 
-  factory BySecondRule.fromMap(Map<String, dynamic> data) => BySecondRule(data['seclist'] ?? '');
+  factory BySecondRule.fromMap(Map<String, dynamic> data) => BySecondRule(
+        data['seclist'] ?? '',
+      );
 
   Map<String, dynamic> toMap() => {
         'seclist': list,

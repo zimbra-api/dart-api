@@ -31,12 +31,28 @@ class CalendarItemRecur {
     this.recurrence,
   });
 
-  factory CalendarItemRecur.fromMap(Map<String, dynamic> data) => CalendarItemRecur(
-      exceptionId: data['exceptId'] is Map ? ExceptionRecurIdInfo.fromMap(data['exceptId']) : null,
-      dtStart: data['s'] is Map ? DtTimeInfo.fromMap(data['s']) : null,
-      dtEnd: data['e'] is Map ? DtTimeInfo.fromMap(data['e']) : null,
-      duration: data['dur'] is Map ? DurationInfo.fromMap(data['dur']) : null,
-      recurrence: data['recur'] is Map ? RecurrenceInfo.fromMap(data['recur']) : null);
+  factory CalendarItemRecur.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      CalendarItemRecur(
+        exceptionId: data['exceptId'] is Map
+            ? ExceptionRecurIdInfo.fromMap(
+                data['exceptId'],
+              )
+            : null,
+        dtStart: data['s'] is Map ? DtTimeInfo.fromMap(data['s']) : null,
+        dtEnd: data['e'] is Map ? DtTimeInfo.fromMap(data['e']) : null,
+        duration: data['dur'] is Map
+            ? DurationInfo.fromMap(
+                data['dur'],
+              )
+            : null,
+        recurrence: data['recur'] is Map
+            ? RecurrenceInfo.fromMap(
+                data['recur'],
+              )
+            : null,
+      );
 
   Map<String, dynamic> toMap() => {
         if (exceptionId != null) 'exceptId': exceptionId!.toMap(),

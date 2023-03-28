@@ -11,7 +11,10 @@ class Content {
 
   const Content({this.attachUploadId, this.value});
 
-  factory Content.fromMap(Map<String, dynamic> data) => Content(attachUploadId: data['aid'], value: data['_content']);
+  factory Content.fromMap(Map<String, dynamic> data) => Content(
+        attachUploadId: data['aid'],
+        value: data['_content'],
+      );
 
   Map<String, dynamic> toMap() => {
         if (attachUploadId != null) 'aid': attachUploadId,

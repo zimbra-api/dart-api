@@ -75,61 +75,78 @@ class Mountpoint extends Folder {
   });
 
   factory Mountpoint.fromMap(Map<String, dynamic> data) => Mountpoint(
-      ownerEmail: data['owner'],
-      ownerAccountId: data['zid'],
-      remoteFolderId: data['rid'],
-      remoteUuid: data['ruuid'],
-      remoteFolderName: data['oname'],
-      reminderEnabled: data['reminder'],
-      broken: data['broken'],
-      id: data['id'],
-      uuid: data['uuid'],
-      name: data['name'],
-      absoluteFolderPath: data['absFolderPath'],
-      parentId: data['l'],
-      folderUuid: data['luuid'],
-      flags: data['f'],
-      color: int.tryParse(data['color']?.toString() ?? ''),
-      rgb: data['rgb'],
-      unreadCount: int.tryParse(data['u']?.toString() ?? ''),
-      imapUnreadCount: int.tryParse(data['i4u']?.toString() ?? ''),
-      view: ViewType.values.firstWhere(
-        (view) => view.name == data['view'],
-        orElse: () => ViewType.conversation,
-      ),
-      revision: int.tryParse(data['rev']?.toString() ?? ''),
-      modifiedSequence: int.tryParse(data['ms']?.toString() ?? ''),
-      changeDate: int.tryParse(data['md']?.toString() ?? ''),
-      itemCount: int.tryParse(data['n']?.toString() ?? ''),
-      imapItemCount: int.tryParse(data['i4n']?.toString() ?? ''),
-      totalSize: int.tryParse(data['s']?.toString() ?? ''),
-      imapModifiedSequence: int.tryParse(data['i4ms']?.toString() ?? ''),
-      imapUidNext: int.tryParse(data['i4next']?.toString() ?? ''),
-      url: data['url'],
-      activeSyncDisabled: data['activesyncdisabled'],
-      webOfflineSyncDays: int.tryParse(data['webOfflineSyncDays']?.toString() ?? ''),
-      perm: data['perm'],
-      recursive: data['recursive'],
-      restUrl: data['rest'],
-      deletable: data['deletable'],
-      metadatas: (data['meta'] is Iterable)
-          ? (data['meta'] as Iterable)
-              .map<MailCustomMetadata>((meta) => MailCustomMetadata.fromMap(meta))
-              .toList(growable: false)
-          : const [],
-      acl: data['acl'] is Map ? Acl.fromMap(data['acl']) : null,
-      subFolders: (data['folder'] is Iterable)
-          ? (data['folder'] as Iterable).map<Folder>((folder) => Folder.fromMap(folder)).toList(growable: false)
-          : const [],
-      mountpoints: (data['link'] is Iterable)
-          ? (data['link'] as Iterable).map<Mountpoint>((link) => Mountpoint.fromMap(link)).toList(growable: false)
-          : const [],
-      searchFolders: (data['search'] is Iterable)
-          ? (data['search'] as Iterable)
-              .map<SearchFolder>((search) => SearchFolder.fromMap(search))
-              .toList(growable: false)
-          : const [],
-      retentionPolicy: data['retentionPolicy']?[0] is Map ? RetentionPolicy.fromMap(data['retentionPolicy'][0]) : null);
+        ownerEmail: data['owner'],
+        ownerAccountId: data['zid'],
+        remoteFolderId: data['rid'],
+        remoteUuid: data['ruuid'],
+        remoteFolderName: data['oname'],
+        reminderEnabled: data['reminder'],
+        broken: data['broken'],
+        id: data['id'],
+        uuid: data['uuid'],
+        name: data['name'],
+        absoluteFolderPath: data['absFolderPath'],
+        parentId: data['l'],
+        folderUuid: data['luuid'],
+        flags: data['f'],
+        color: int.tryParse(data['color']?.toString() ?? ''),
+        rgb: data['rgb'],
+        unreadCount: int.tryParse(data['u']?.toString() ?? ''),
+        imapUnreadCount: int.tryParse(data['i4u']?.toString() ?? ''),
+        view: ViewType.values.firstWhere(
+          (view) => view.name == data['view'],
+          orElse: () => ViewType.conversation,
+        ),
+        revision: int.tryParse(data['rev']?.toString() ?? ''),
+        modifiedSequence: int.tryParse(data['ms']?.toString() ?? ''),
+        changeDate: int.tryParse(data['md']?.toString() ?? ''),
+        itemCount: int.tryParse(data['n']?.toString() ?? ''),
+        imapItemCount: int.tryParse(data['i4n']?.toString() ?? ''),
+        totalSize: int.tryParse(data['s']?.toString() ?? ''),
+        imapModifiedSequence: int.tryParse(data['i4ms']?.toString() ?? ''),
+        imapUidNext: int.tryParse(data['i4next']?.toString() ?? ''),
+        url: data['url'],
+        activeSyncDisabled: data['activesyncdisabled'],
+        webOfflineSyncDays: int.tryParse(
+          data['webOfflineSyncDays']?.toString() ?? '',
+        ),
+        perm: data['perm'],
+        recursive: data['recursive'],
+        restUrl: data['rest'],
+        deletable: data['deletable'],
+        metadatas: (data['meta'] is Iterable)
+            ? (data['meta'] as Iterable)
+                .map<MailCustomMetadata>(
+                  (meta) => MailCustomMetadata.fromMap(meta),
+                )
+                .toList(growable: false)
+            : const [],
+        acl: data['acl'] is Map ? Acl.fromMap(data['acl']) : null,
+        subFolders: (data['folder'] is Iterable)
+            ? (data['folder'] as Iterable)
+                .map<Folder>(
+                  (folder) => Folder.fromMap(folder),
+                )
+                .toList(growable: false)
+            : const [],
+        mountpoints: (data['link'] is Iterable)
+            ? (data['link'] as Iterable)
+                .map<Mountpoint>(
+                  (link) => Mountpoint.fromMap(link),
+                )
+                .toList(growable: false)
+            : const [],
+        searchFolders: (data['search'] is Iterable)
+            ? (data['search'] as Iterable)
+                .map<SearchFolder>((search) => SearchFolder.fromMap(search))
+                .toList(growable: false)
+            : const [],
+        retentionPolicy: data['retentionPolicy']?[0] is Map
+            ? RetentionPolicy.fromMap(
+                data['retentionPolicy'][0],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {
@@ -167,11 +184,31 @@ class Mountpoint extends Folder {
         if (recursive != null) 'recursive': recursive,
         if (restUrl != null) 'rest': restUrl,
         if (deletable != null) 'deletable': deletable,
-        if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toMap()).toList(growable: false),
+        if (metadatas.isNotEmpty)
+          'meta': metadatas
+              .map(
+                (meta) => meta.toMap(),
+              )
+              .toList(growable: false),
         if (acl != null) 'acl': acl!.toMap(),
-        if (subFolders.isNotEmpty) 'folder': subFolders.map((folder) => folder.toMap()).toList(growable: false),
-        if (mountpoints.isNotEmpty) 'link': mountpoints.map((link) => link.toMap()).toList(growable: false),
-        if (searchFolders.isNotEmpty) 'search': searchFolders.map((search) => search.toMap()).toList(growable: false),
+        if (subFolders.isNotEmpty)
+          'folder': subFolders
+              .map(
+                (folder) => folder.toMap(),
+              )
+              .toList(growable: false),
+        if (mountpoints.isNotEmpty)
+          'link': mountpoints
+              .map(
+                (link) => link.toMap(),
+              )
+              .toList(growable: false),
+        if (searchFolders.isNotEmpty)
+          'search': searchFolders
+              .map(
+                (search) => search.toMap(),
+              )
+              .toList(growable: false),
         if (retentionPolicy != null) 'retentionPolicy': retentionPolicy!.toMap(),
       };
 }

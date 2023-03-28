@@ -24,29 +24,30 @@ class EnvelopeTest extends AddressTest {
   });
 
   factory EnvelopeTest.fromMap(Map<String, dynamic> data) => EnvelopeTest(
-      header: data['header'],
-      part: AddressPart.values.firstWhere(
-        (part) => part.name == data['part'],
-        orElse: () => AddressPart.all,
-      ),
-      stringComparison: StringComparison.values.firstWhere(
-        (comparison) => comparison.name == data['stringComparison'],
-        orElse: () => StringComparison.contains,
-      ),
-      caseSensitive: data['caseSensitive'],
-      value: data['value'],
-      valueComparison: ValueComparison.values.firstWhere(
-        (comparison) => comparison.name == data['valueComparison'],
-        orElse: () => ValueComparison.equal,
-      ),
-      countComparison: CountComparison.values.firstWhere(
-        (comparison) => comparison.name == data['countComparison'],
-        orElse: () => CountComparison.equal,
-      ),
-      valueComparisonComparator: ComparisonComparator.values.firstWhere(
-        (comparator) => comparator.name == data['valueComparisonComparator'],
-        orElse: () => ComparisonComparator.asciiNumeric,
-      ),
-      index: int.tryParse(data['index']?.toString() ?? ''),
-      negative: data['negative']);
+        header: data['header'],
+        part: AddressPart.values.firstWhere(
+          (part) => part.name == data['part'],
+          orElse: () => AddressPart.all,
+        ),
+        stringComparison: StringComparison.values.firstWhere(
+          (comparison) => comparison.name == data['stringComparison'],
+          orElse: () => StringComparison.contains,
+        ),
+        caseSensitive: data['caseSensitive'],
+        value: data['value'],
+        valueComparison: ValueComparison.values.firstWhere(
+          (comparison) => comparison.name == data['valueComparison'],
+          orElse: () => ValueComparison.equal,
+        ),
+        countComparison: CountComparison.values.firstWhere(
+          (comparison) => comparison.name == data['countComparison'],
+          orElse: () => CountComparison.equal,
+        ),
+        valueComparisonComparator: ComparisonComparator.values.firstWhere(
+          (comparator) => comparator.name == data['valueComparisonComparator'],
+          orElse: () => ComparisonComparator.asciiNumeric,
+        ),
+        index: int.tryParse(data['index']?.toString() ?? ''),
+        negative: data['negative'],
+      );
 }

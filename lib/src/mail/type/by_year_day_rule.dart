@@ -11,7 +11,9 @@ class ByYearDayRule {
 
   const ByYearDayRule(this.list);
 
-  factory ByYearDayRule.fromMap(Map<String, dynamic> data) => ByYearDayRule(data['yrdaylist'] ?? '');
+  factory ByYearDayRule.fromMap(Map<String, dynamic> data) => ByYearDayRule(
+        data['yrdaylist'] ?? '',
+      );
 
   Map<String, dynamic> toMap() => {
         'yrdaylist': list,

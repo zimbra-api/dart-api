@@ -11,8 +11,10 @@ class FilterVariable {
 
   const FilterVariable({this.name, this.value});
 
-  factory FilterVariable.fromMap(Map<String, dynamic> data) =>
-      FilterVariable(name: data['name'], value: data['value']);
+  factory FilterVariable.fromMap(Map<String, dynamic> data) => FilterVariable(
+        name: data['name'],
+        value: data['value'],
+      );
 
   Map<String, dynamic> toMap() => {
         if (name != null) 'name': name,

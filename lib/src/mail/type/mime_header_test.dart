@@ -28,15 +28,16 @@ class MimeHeaderTest extends FilterTest {
   });
 
   factory MimeHeaderTest.fromMap(Map<String, dynamic> data) => MimeHeaderTest(
-      headers: data['header'],
-      stringComparison: StringComparison.values.firstWhere(
-        (comparison) => comparison.name == data['stringComparison'],
-        orElse: () => StringComparison.contains,
-      ),
-      value: data['value'],
-      caseSensitive: data['caseSensitive'],
-      index: int.tryParse(data['index']?.toString() ?? ''),
-      negative: data['negative']);
+        headers: data['header'],
+        stringComparison: StringComparison.values.firstWhere(
+          (comparison) => comparison.name == data['stringComparison'],
+          orElse: () => StringComparison.contains,
+        ),
+        value: data['value'],
+        caseSensitive: data['caseSensitive'],
+        index: int.tryParse(data['index']?.toString() ?? ''),
+        negative: data['negative'],
+      );
 
   @override
   Map<String, dynamic> toMap() => {

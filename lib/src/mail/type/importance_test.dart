@@ -12,12 +12,13 @@ class ImportanceTest extends FilterTest {
   const ImportanceTest({this.importance, super.index, super.negative});
 
   factory ImportanceTest.fromMap(Map<String, dynamic> data) => ImportanceTest(
-      importance: Importance.values.firstWhere(
-        (imp) => imp.name == data['imp'],
-        orElse: () => Importance.normal,
-      ),
-      index: int.tryParse(data['index']?.toString() ?? ''),
-      negative: data['negative']);
+        importance: Importance.values.firstWhere(
+          (imp) => imp.name == data['imp'],
+          orElse: () => Importance.normal,
+        ),
+        index: int.tryParse(data['index']?.toString() ?? ''),
+        negative: data['negative'],
+      );
 
   @override
   Map<String, dynamic> toMap() => {

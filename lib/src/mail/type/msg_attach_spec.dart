@@ -9,8 +9,10 @@ class MsgAttachSpec extends AttachSpec {
 
   const MsgAttachSpec(this.id, {super.optional});
 
-  factory MsgAttachSpec.fromMap(Map<String, dynamic> data) =>
-      MsgAttachSpec(data['id'] ?? '', optional: data['optional']);
+  factory MsgAttachSpec.fromMap(Map<String, dynamic> data) => MsgAttachSpec(
+        data['id'] ?? '',
+        optional: data['optional'],
+      );
 
   Map<String, dynamic> toMap() => {
         'id': id,

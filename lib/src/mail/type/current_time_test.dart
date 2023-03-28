@@ -12,16 +12,25 @@ class CurrentTimeTest extends FilterTest {
   /// Time in HHmm format
   final String? time;
 
-  const CurrentTimeTest({this.dateComparison, this.time, super.index, super.negative});
+  const CurrentTimeTest({
+    this.dateComparison,
+    this.time,
+    super.index,
+    super.negative,
+  });
 
-  factory CurrentTimeTest.fromMap(Map<String, dynamic> data) => CurrentTimeTest(
-      dateComparison: DateComparison.values.firstWhere(
-        (dateComparison) => dateComparison.name == data['dateComparison'],
-        orElse: () => DateComparison.before,
-      ),
-      time: data['time'],
-      index: int.tryParse(data['index']?.toString() ?? ''),
-      negative: data['negative']);
+  factory CurrentTimeTest.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      CurrentTimeTest(
+        dateComparison: DateComparison.values.firstWhere(
+          (dateComparison) => dateComparison.name == data['dateComparison'],
+          orElse: () => DateComparison.before,
+        ),
+        time: data['time'],
+        index: int.tryParse(data['index']?.toString() ?? ''),
+        negative: data['negative'],
+      );
 
   @override
   Map<String, dynamic> toMap() => {

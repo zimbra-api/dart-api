@@ -14,10 +14,14 @@ class ListDocumentRevisionsSpec {
 
   const ListDocumentRevisionsSpec({this.id, this.version, this.count});
 
-  factory ListDocumentRevisionsSpec.fromMap(Map<String, dynamic> data) => ListDocumentRevisionsSpec(
-      id: data['id'],
-      version: int.tryParse(data['ver']?.toString() ?? ''),
-      count: int.tryParse(data['count']?.toString() ?? ''));
+  factory ListDocumentRevisionsSpec.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ListDocumentRevisionsSpec(
+        id: data['id'],
+        version: int.tryParse(data['ver']?.toString() ?? ''),
+        count: int.tryParse(data['count']?.toString() ?? ''),
+      );
 
   Map<String, dynamic> toMap() => {
         if (id != null) 'id': id,

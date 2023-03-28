@@ -51,18 +51,22 @@ class MessagePartHitInfo {
     this.subject,
   });
 
-  factory MessagePartHitInfo.fromMap(Map<String, dynamic> data) => MessagePartHitInfo(
-      id: data['id'],
-      sortField: data['sf'],
-      size: int.tryParse(data['s']?.toString() ?? ''),
-      date: int.tryParse(data['d']?.toString() ?? ''),
-      conversationId: int.tryParse(data['cid']?.toString() ?? ''),
-      messageId: int.tryParse(data['mid']?.toString() ?? ''),
-      contentType: data['ct'],
-      contentName: data['name'],
-      part: data['part'],
-      email: data['e'] is Map ? EmailInfo.fromMap(data['e']) : null,
-      subject: data['su']);
+  factory MessagePartHitInfo.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      MessagePartHitInfo(
+        id: data['id'],
+        sortField: data['sf'],
+        size: int.tryParse(data['s']?.toString() ?? ''),
+        date: int.tryParse(data['d']?.toString() ?? ''),
+        conversationId: int.tryParse(data['cid']?.toString() ?? ''),
+        messageId: int.tryParse(data['mid']?.toString() ?? ''),
+        contentType: data['ct'],
+        contentName: data['name'],
+        part: data['part'],
+        email: data['e'] is Map ? EmailInfo.fromMap(data['e']) : null,
+        subject: data['su'],
+      );
 
   Map<String, dynamic> toMap() => {
         if (id != null) 'id': id,

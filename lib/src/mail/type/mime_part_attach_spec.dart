@@ -11,8 +11,14 @@ class MimePartAttachSpec extends AttachSpec {
 
   const MimePartAttachSpec(this.messageId, this.part, {super.optional});
 
-  factory MimePartAttachSpec.fromMap(Map<String, dynamic> data) =>
-      MimePartAttachSpec(data['mid'] ?? '', data['part'] ?? '', optional: data['optional']);
+  factory MimePartAttachSpec.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      MimePartAttachSpec(
+        data['mid'] ?? '',
+        data['part'] ?? '',
+        optional: data['optional'],
+      );
 
   Map<String, dynamic> toMap() => {
         'mid': messageId,

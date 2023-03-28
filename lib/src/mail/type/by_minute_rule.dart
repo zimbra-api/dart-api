@@ -9,7 +9,9 @@ class ByMinuteRule {
 
   const ByMinuteRule(this.list);
 
-  factory ByMinuteRule.fromMap(Map<String, dynamic> data) => ByMinuteRule(data['minlist'] ?? '');
+  factory ByMinuteRule.fromMap(Map<String, dynamic> data) => ByMinuteRule(
+        data['minlist'] ?? '',
+      );
 
   Map<String, dynamic> toMap() => {
         'minlist': list,

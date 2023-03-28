@@ -54,31 +54,48 @@ class Invitation {
   });
 
   factory Invitation.fromMap(Map<String, dynamic> data) => Invitation(
-      calItemType: InviteType.values.firstWhere(
-        (type) => type.name == data['type'],
-        orElse: () => InviteType.appt,
-      ),
-      sequence: int.tryParse(data['seq']?.toString() ?? ''),
-      id: data['id'],
-      componentNum: int.tryParse(data['compNum']?.toString() ?? ''),
-      recurrenceId: data['recurId'],
-      timezones: (data['tz'] is Iterable)
-          ? (data['tz'] as Iterable).map<CalTZInfo>((tz) => CalTZInfo.fromMap(tz)).toList(growable: false)
-          : const [],
-      inviteComponent: (data['comp'] is Map) ? InviteComponent.fromMap(data['comp']) : null,
-      partInfos: (data['mp'] is Iterable)
-          ? (data['mp'] as Iterable).map<PartInfo>((mp) => PartInfo.fromMap(mp)).toList(growable: false)
-          : const [],
-      shareNotifications: (data['shr'] is Iterable)
-          ? (data['shr'] as Iterable)
-              .map<ShareNotification>((shr) => ShareNotification.fromMap(shr))
-              .toList(growable: false)
-          : const [],
-      dlSubsNotifications: (data['dlSubs'] is Iterable)
-          ? (data['dlSubs'] as Iterable)
-              .map<DLSubscriptionNotification>((dlSubs) => DLSubscriptionNotification.fromMap(dlSubs))
-              .toList(growable: false)
-          : const []);
+        calItemType: InviteType.values.firstWhere(
+          (type) => type.name == data['type'],
+          orElse: () => InviteType.appt,
+        ),
+        sequence: int.tryParse(data['seq']?.toString() ?? ''),
+        id: data['id'],
+        componentNum: int.tryParse(data['compNum']?.toString() ?? ''),
+        recurrenceId: data['recurId'],
+        timezones: (data['tz'] is Iterable)
+            ? (data['tz'] as Iterable)
+                .map<CalTZInfo>(
+                  (tz) => CalTZInfo.fromMap(tz),
+                )
+                .toList(growable: false)
+            : const [],
+        inviteComponent: (data['comp'] is Map)
+            ? InviteComponent.fromMap(
+                data['comp'],
+              )
+            : null,
+        partInfos: (data['mp'] is Iterable)
+            ? (data['mp'] as Iterable)
+                .map<PartInfo>(
+                  (mp) => PartInfo.fromMap(mp),
+                )
+                .toList(growable: false)
+            : const [],
+        shareNotifications: (data['shr'] is Iterable)
+            ? (data['shr'] as Iterable)
+                .map<ShareNotification>(
+                  (shr) => ShareNotification.fromMap(shr),
+                )
+                .toList(growable: false)
+            : const [],
+        dlSubsNotifications: (data['dlSubs'] is Iterable)
+            ? (data['dlSubs'] as Iterable)
+                .map<DLSubscriptionNotification>(
+                  (dlSubs) => DLSubscriptionNotification.fromMap(dlSubs),
+                )
+                .toList(growable: false)
+            : const [],
+      );
 
   Map<String, dynamic> toMap() => {
         if (calItemType != null) 'type': calItemType!.name,
@@ -86,11 +103,30 @@ class Invitation {
         if (id != null) 'id': id,
         if (componentNum != null) 'compNum': componentNum,
         if (recurrenceId != null) 'recurId': recurrenceId,
-        if (timezones.isNotEmpty) 'tz': timezones.map((tz) => tz.toMap()).toList(growable: false),
+        if (timezones.isNotEmpty)
+          'tz': timezones
+              .map(
+                (tz) => tz.toMap(),
+              )
+              .toList(growable: false),
         if (inviteComponent != null) 'comp': inviteComponent!.toMap(),
-        if (partInfos.isNotEmpty) 'mp': partInfos.map((mp) => mp.toMap()).toList(growable: false),
-        if (shareNotifications.isNotEmpty) 'shr': shareNotifications.map((shr) => shr.toMap()).toList(growable: false),
+        if (partInfos.isNotEmpty)
+          'mp': partInfos
+              .map(
+                (mp) => mp.toMap(),
+              )
+              .toList(growable: false),
+        if (shareNotifications.isNotEmpty)
+          'shr': shareNotifications
+              .map(
+                (shr) => shr.toMap(),
+              )
+              .toList(growable: false),
         if (dlSubsNotifications.isNotEmpty)
-          'dlSubs': dlSubsNotifications.map((dlSubs) => dlSubs.toMap()).toList(growable: false),
+          'dlSubs': dlSubsNotifications
+              .map(
+                (dlSubs) => dlSubs.toMap(),
+              )
+              .toList(growable: false),
       };
 }

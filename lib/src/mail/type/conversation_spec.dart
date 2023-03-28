@@ -34,17 +34,21 @@ class ConversationSpec {
     this.headers = const [],
   });
 
-  factory ConversationSpec.fromMap(Map<String, dynamic> data) => ConversationSpec(
-      id: data['id'],
-      inlineRule: data['fetch'],
-      wantHtml: data['html'],
-      maxInlinedLength: int.tryParse(data['max']?.toString() ?? ''),
-      needCanExpand: data['needExp'],
-      headers: (data['header'] is Iterable)
-          ? (data['header'] as Iterable)
-              .map<AttributeName>((header) => AttributeName.fromMap(header))
-              .toList(growable: false)
-          : const []);
+  factory ConversationSpec.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ConversationSpec(
+        id: data['id'],
+        inlineRule: data['fetch'],
+        wantHtml: data['html'],
+        maxInlinedLength: int.tryParse(data['max']?.toString() ?? ''),
+        needCanExpand: data['needExp'],
+        headers: (data['header'] is Iterable)
+            ? (data['header'] as Iterable)
+                .map<AttributeName>((header) => AttributeName.fromMap(header))
+                .toList(growable: false)
+            : const [],
+      );
 
   Map<String, dynamic> toMap() => {
         if (id != null) 'id': id,
@@ -52,6 +56,11 @@ class ConversationSpec {
         if (wantHtml != null) 'html': wantHtml,
         if (maxInlinedLength != null) 'max': maxInlinedLength,
         if (needCanExpand != null) 'needExp': needCanExpand,
-        if (headers.isNotEmpty) 'header': headers.map((header) => header.toMap()).toList(growable: false),
+        if (headers.isNotEmpty)
+          'header': headers
+              .map(
+                (header) => header.toMap(),
+              )
+              .toList(growable: false),
       };
 }

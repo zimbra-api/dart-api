@@ -7,6 +7,11 @@ import 'filter_test.dart';
 class CommunityContentTest extends FilterTest {
   const CommunityContentTest({super.index, super.negative});
 
-  factory CommunityContentTest.fromMap(Map<String, dynamic> data) =>
-      CommunityContentTest(index: int.tryParse(data['index']?.toString() ?? ''), negative: data['negative']);
+  factory CommunityContentTest.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      CommunityContentTest(
+        index: int.tryParse(data['index']?.toString() ?? ''),
+        negative: data['negative'],
+      );
 }

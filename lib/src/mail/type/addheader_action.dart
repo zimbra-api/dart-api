@@ -21,11 +21,15 @@ class AddheaderAction extends FilterAction {
     super.index,
   });
 
-  factory AddheaderAction.fromMap(Map<String, dynamic> data) => AddheaderAction(
-      headerName: data['headerName']?['_content'],
-      headerValue: data['headerValue']?['_content'],
-      last: data['last'],
-      index: data['index']);
+  factory AddheaderAction.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      AddheaderAction(
+        headerName: data['headerName']?['_content'],
+        headerValue: data['headerValue']?['_content'],
+        last: data['last'],
+        index: data['index'],
+      );
 
   @override
   Map<String, dynamic> toMap() => {

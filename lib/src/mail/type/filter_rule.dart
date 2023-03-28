@@ -35,18 +35,46 @@ class FilterRule {
     this.child,
   });
 
-  factory FilterRule.fromMap(Map<String, dynamic> data) => FilterRule(data['name'] ?? '', data['active'] ?? false,
-      filterVariables: data['filterVariables']?[0] is Map ? FilterVariables.fromMap(data['filterVariables'][0]) : null,
-      filterTests: data['filterTests']?[0] is Map ? FilterTests.fromMap(data['filterTests'][0]) : null,
-      filterActions: data['filterActions']?[0] is Map ? FilterActions.fromMap(data['filterActions'][0]) : null,
-      child: data['nestedRule'] is Map ? NestedRule.fromMap(data['nestedRule']) : null);
+  factory FilterRule.fromMap(Map<String, dynamic> data) => FilterRule(
+        data['name'] ?? '',
+        data['active'] ?? false,
+        filterVariables: data['filterVariables']?[0] is Map
+            ? FilterVariables.fromMap(
+                data['filterVariables'][0],
+              )
+            : null,
+        filterTests: data['filterTests']?[0] is Map
+            ? FilterTests.fromMap(
+                data['filterTests'][0],
+              )
+            : null,
+        filterActions: data['filterActions']?[0] is Map
+            ? FilterActions.fromMap(
+                data['filterActions'][0],
+              )
+            : null,
+        child: data['nestedRule'] is Map
+            ? NestedRule.fromMap(
+                data['nestedRule'],
+              )
+            : null,
+      );
 
   Map<String, dynamic> toMap() => {
         'name': name,
         'active': active,
-        if (filterVariables != null) 'filterVariables': [filterVariables!.toMap()],
-        if (filterTests != null) 'filterTests': [filterTests!.toMap()],
-        if (filterActions != null) 'filterActions': [filterActions!.toMap()],
+        if (filterVariables != null)
+          'filterVariables': [
+            filterVariables!.toMap(),
+          ],
+        if (filterTests != null)
+          'filterTests': [
+            filterTests!.toMap(),
+          ],
+        if (filterActions != null)
+          'filterActions': [
+            filterActions!.toMap(),
+          ],
         if (child != null) 'nestedRule': child!.toMap(),
       };
 }

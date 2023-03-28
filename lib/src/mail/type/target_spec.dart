@@ -20,15 +20,16 @@ class TargetSpec {
   const TargetSpec({this.targetType, this.accountBy, this.value});
 
   factory TargetSpec.fromMap(Map<String, dynamic> data) => TargetSpec(
-      targetType: TargetType.values.firstWhere(
-        (item) => item.name == data['type'],
-        orElse: () => TargetType.account,
-      ),
-      accountBy: AccountBy.values.firstWhere(
-        (item) => item.name == data['by'],
-        orElse: () => AccountBy.name,
-      ),
-      value: data['_content']);
+        targetType: TargetType.values.firstWhere(
+          (item) => item.name == data['type'],
+          orElse: () => TargetType.account,
+        ),
+        accountBy: AccountBy.values.firstWhere(
+          (item) => item.name == data['by'],
+          orElse: () => AccountBy.name,
+        ),
+        value: data['_content'],
+      );
 
   Map<String, dynamic> toMap() => {
         if (targetType != null) 'type': targetType!.name,

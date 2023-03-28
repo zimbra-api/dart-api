@@ -34,12 +34,13 @@ class NotifyAction extends FilterAction {
   });
 
   factory NotifyAction.fromMap(Map<String, dynamic> data) => NotifyAction(
-      address: data['a'],
-      subject: data['su'],
-      maxBodySize: int.tryParse(data['maxBodySize']?.toString() ?? ''),
-      content: data['content']?['_content'],
-      origHeaders: data['origHeaders'],
-      index: int.tryParse(data['index']?.toString() ?? ''));
+        address: data['a'],
+        subject: data['su'],
+        maxBodySize: int.tryParse(data['maxBodySize']?.toString() ?? ''),
+        content: data['content']?['_content'],
+        origHeaders: data['origHeaders'],
+        index: int.tryParse(data['index']?.toString() ?? ''),
+      );
 
   @override
   Map<String, dynamic> toMap() => {

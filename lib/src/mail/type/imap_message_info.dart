@@ -22,12 +22,16 @@ class ImapMessageInfo extends IMAPItemInfo {
     this.tags,
   });
 
-  factory ImapMessageInfo.fromMap(Map<String, dynamic> data) => ImapMessageInfo(
-      id: data['id'],
-      imapUid: int.tryParse(data['i4uid']?.toString() ?? ''),
-      type: data['t'],
-      flags: data['f'],
-      tags: data['tn']);
+  factory ImapMessageInfo.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ImapMessageInfo(
+        id: data['id'],
+        imapUid: int.tryParse(data['i4uid']?.toString() ?? ''),
+        type: data['t'],
+        flags: data['f'],
+        tags: data['tn'],
+      );
 
   @override
   Map<String, dynamic> toMap() => {

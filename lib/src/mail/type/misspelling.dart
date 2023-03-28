@@ -13,8 +13,10 @@ class Misspelling {
 
   const Misspelling({this.word, this.suggestions});
 
-  factory Misspelling.fromMap(Map<String, dynamic> data) =>
-      Misspelling(word: data['word'], suggestions: data['suggestions']);
+  factory Misspelling.fromMap(Map<String, dynamic> data) => Misspelling(
+        word: data['word'],
+        suggestions: data['suggestions'],
+      );
 
   Map<String, dynamic> toMap() => {
         if (word != null) 'word': word,

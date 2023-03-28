@@ -11,8 +11,10 @@ class SnoozeAlarm {
 
   const SnoozeAlarm(this.id, this.snoozeUntil);
 
-  factory SnoozeAlarm.fromMap(Map<String, dynamic> data) =>
-      SnoozeAlarm(data['id'] ?? '', int.tryParse(data['until']?.toString() ?? '') ?? 0);
+  factory SnoozeAlarm.fromMap(Map<String, dynamic> data) => SnoozeAlarm(
+        data['id'] ?? '',
+        int.tryParse(data['until']?.toString() ?? '') ?? 0,
+      );
 
   Map<String, dynamic> toMap() => {
         'id': id,

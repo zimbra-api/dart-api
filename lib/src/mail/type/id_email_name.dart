@@ -14,8 +14,11 @@ class IdEmailName {
 
   const IdEmailName({this.id, this.email, this.name});
 
-  factory IdEmailName.fromMap(Map<String, dynamic> data) =>
-      IdEmailName(id: data['id'], email: data['email'], name: data['name']);
+  factory IdEmailName.fromMap(Map<String, dynamic> data) => IdEmailName(
+        id: data['id'],
+        email: data['email'],
+        name: data['name'],
+      );
 
   Map<String, dynamic> toMap() => {
         if (id != null) 'id': id,

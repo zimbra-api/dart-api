@@ -12,7 +12,10 @@ class GeoInfo {
 
   const GeoInfo({this.latitude, this.longitude});
 
-  factory GeoInfo.fromMap(Map<String, dynamic> data) => GeoInfo(latitude: data['lat'], longitude: data['lon']);
+  factory GeoInfo.fromMap(Map<String, dynamic> data) => GeoInfo(
+        latitude: data['lat'],
+        longitude: data['lon'],
+      );
 
   Map<String, dynamic> toMap() => {
         if (latitude != null) 'lat': latitude,

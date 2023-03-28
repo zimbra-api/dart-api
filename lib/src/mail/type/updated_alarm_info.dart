@@ -13,8 +13,13 @@ class UpdatedAlarmInfo {
 
   const UpdatedAlarmInfo(this.calItemId, {this.alarmData});
 
-  factory UpdatedAlarmInfo.fromMap(Map<String, dynamic> data) => UpdatedAlarmInfo(data['calItemId'],
-      alarmData: data['alarmData'] is Map ? AlarmDataInfo.fromMap(data['alarmData']) : null);
+  factory UpdatedAlarmInfo.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      UpdatedAlarmInfo(
+        data['calItemId'],
+        alarmData: data['alarmData'] is Map ? AlarmDataInfo.fromMap(data['alarmData']) : null,
+      );
 
   Map<String, dynamic> toMap() => {
         'calItemId': calItemId,

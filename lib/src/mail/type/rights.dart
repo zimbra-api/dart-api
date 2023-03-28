@@ -8,7 +8,9 @@ class Rights {
 
   const Rights({this.effectivePermissions = ''});
 
-  factory Rights.fromMap(Map<String, dynamic> data) => Rights(effectivePermissions: data['perm'] ?? '');
+  factory Rights.fromMap(Map<String, dynamic> data) => Rights(
+        effectivePermissions: data['perm'] ?? '',
+      );
 
   Map<String, dynamic> toMap() => {
         'perm': effectivePermissions,

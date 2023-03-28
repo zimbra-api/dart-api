@@ -16,12 +16,12 @@ class DocAttachSpec extends AttachSpec {
 
   const DocAttachSpec({this.path, this.id, this.version, super.optional});
 
-  factory DocAttachSpec.fromMap(Map<String, dynamic> data) =>
-      DocAttachSpec(
-      path: data['path'],
-      id: data['id'],
-      version: int.tryParse(data['ver']?.toString() ?? ''),
-      optional: data['optional']);
+  factory DocAttachSpec.fromMap(Map<String, dynamic> data) => DocAttachSpec(
+        path: data['path'],
+        id: data['id'],
+        version: int.tryParse(data['ver']?.toString() ?? ''),
+        optional: data['optional'],
+      );
 
   Map<String, dynamic> toMap() => {
         if (path != null) 'path': path,

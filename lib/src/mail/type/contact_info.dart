@@ -110,38 +110,45 @@ class ContactInfo {
   });
 
   factory ContactInfo.fromMap(Map<String, dynamic> data) => ContactInfo(
-      sortField: data['sf'],
-      canExpand: data['exp'],
-      id: data['id'],
-      imapUid: int.tryParse(data['i4uid']?.toString() ?? ''),
-      folder: data['l'],
-      flags: data['f'],
-      tags: data['t'],
-      tagNames: data['tn'],
-      changeDate: int.tryParse(data['md']?.toString() ?? ''),
-      modifiedSequenceId: int.tryParse(data['ms']?.toString() ?? ''),
-      date: int.tryParse(data['d']?.toString() ?? ''),
-      revisionId: int.tryParse(data['rev']?.toString() ?? ''),
-      fileAs: data['fileAsStr'],
-      email: data['email'],
-      email2: data['email2'],
-      email3: data['email3'],
-      type: data['type'],
-      dlist: data['dlist'],
-      reference: data['ref'],
-      tooManyMembers: data['tooManyMembers'],
-      metadatas: (data['meta'] is Iterable)
-          ? (data['meta'] as Iterable)
-              .map<MailCustomMetadata>((meta) => MailCustomMetadata.fromMap(meta))
-              .toList(growable: false)
-          : const [],
-      attrs: (data['_attrs'] is Map) ? List.from(_attrsFromJson(data['_attrs'] as Map<String, dynamic>)) : const [],
-      contactGroupMembers: (data['m'] is Iterable)
-          ? (data['m'] as Iterable)
-              .map<ContactGroupMember>((m) => ContactGroupMember.fromMap(m))
-              .toList(growable: false)
-          : const [],
-      memberOf: data['memberOf']?['_content']);
+        sortField: data['sf'],
+        canExpand: data['exp'],
+        id: data['id'],
+        imapUid: int.tryParse(data['i4uid']?.toString() ?? ''),
+        folder: data['l'],
+        flags: data['f'],
+        tags: data['t'],
+        tagNames: data['tn'],
+        changeDate: int.tryParse(data['md']?.toString() ?? ''),
+        modifiedSequenceId: int.tryParse(data['ms']?.toString() ?? ''),
+        date: int.tryParse(data['d']?.toString() ?? ''),
+        revisionId: int.tryParse(data['rev']?.toString() ?? ''),
+        fileAs: data['fileAsStr'],
+        email: data['email'],
+        email2: data['email2'],
+        email3: data['email3'],
+        type: data['type'],
+        dlist: data['dlist'],
+        reference: data['ref'],
+        tooManyMembers: data['tooManyMembers'],
+        metadatas: (data['meta'] is Iterable)
+            ? (data['meta'] as Iterable)
+                .map<MailCustomMetadata>(
+                  (meta) => MailCustomMetadata.fromMap(meta),
+                )
+                .toList(growable: false)
+            : const [],
+        attrs: (data['_attrs'] is Map)
+            ? List.from(
+                _attrsFromJson(data['_attrs'] as Map<String, dynamic>),
+              )
+            : const [],
+        contactGroupMembers: (data['m'] is Iterable)
+            ? (data['m'] as Iterable)
+                .map<ContactGroupMember>((m) => ContactGroupMember.fromMap(m))
+                .toList(growable: false)
+            : const [],
+        memberOf: data['memberOf']?['_content'],
+      );
 
   Map<String, dynamic> toMap() => {
         if (sortField != null) 'sf': sortField,
@@ -164,9 +171,24 @@ class ContactInfo {
         if (dlist != null) 'dlist': dlist,
         if (reference != null) 'ref': reference,
         if (tooManyMembers != null) 'tooManyMembers': tooManyMembers,
-        if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toMap()).toList(growable: false),
-        if (attrs.isNotEmpty) 'a': attrs.map((a) => a.toMap()).toList(growable: false),
-        if (contactGroupMembers.isNotEmpty) 'm': contactGroupMembers.map((m) => m.toMap()).toList(growable: false),
+        if (metadatas.isNotEmpty)
+          'meta': metadatas
+              .map(
+                (meta) => meta.toMap(),
+              )
+              .toList(growable: false),
+        if (attrs.isNotEmpty)
+          'a': attrs
+              .map(
+                (a) => a.toMap(),
+              )
+              .toList(growable: false),
+        if (contactGroupMembers.isNotEmpty)
+          'm': contactGroupMembers
+              .map(
+                (m) => m.toMap(),
+              )
+              .toList(growable: false),
         if (memberOf != null) 'memberOf': {'_content': memberOf},
       };
 
@@ -174,7 +196,9 @@ class ContactInfo {
     final attrs = <ContactAttr>[];
     for (final entry in json.entries) {
       if (entry.value is Iterable) {
-        attrs.addAll((entry.value as Iterable).map<ContactAttr>((value) => ContactAttr(entry.key, value: value)));
+        attrs.addAll((entry.value as Iterable).map<ContactAttr>(
+          (value) => ContactAttr(entry.key, value: value),
+        ));
       } else {
         attrs.add(ContactAttr(entry.key, value: entry.value));
       }

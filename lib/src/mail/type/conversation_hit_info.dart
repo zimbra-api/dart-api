@@ -34,39 +34,56 @@ class ConversationHitInfo extends ConversationSummary {
     super.emails = const [],
   });
 
-  factory ConversationHitInfo.fromMap(Map<String, dynamic> data) => ConversationHitInfo(
-      sortField: data['sf'],
-      messageHits: (data['m'] is Iterable)
-          ? (data['m'] as Iterable)
-              .map<ConversationMsgHitInfo>((m) => ConversationMsgHitInfo.fromMap(m))
-              .toList(growable: false)
-          : const [],
-      id: data['id'],
-      numMsg: int.tryParse(data['n']?.toString() ?? ''),
-      numUnread: int.tryParse(data['u']?.toString() ?? ''),
-      totalSize: int.tryParse(data['total']?.toString() ?? ''),
-      flags: data['f'],
-      tags: data['t'],
-      tagNames: data['tn'],
-      date: int.tryParse(data['d']?.toString() ?? ''),
-      elided: data['elided'],
-      changeDate: int.tryParse(data['md']?.toString() ?? ''),
-      modifiedSequence: int.tryParse(data['ms']?.toString() ?? ''),
-      metadatas: (data['meta'] is Iterable)
-          ? (data['meta'] as Iterable)
-              .map<MailCustomMetadata>((meta) => MailCustomMetadata.fromMap(meta))
-              .toList(growable: false)
-          : const [],
-      subject: data['su'],
-      fragment: data['fr'],
-      emails: (data['e'] is Iterable)
-          ? (data['e'] as Iterable).map<EmailInfo>((e) => EmailInfo.fromMap(e)).toList(growable: false)
-          : const []);
+  factory ConversationHitInfo.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ConversationHitInfo(
+        sortField: data['sf'],
+        messageHits: (data['m'] is Iterable)
+            ? (data['m'] as Iterable)
+                .map<ConversationMsgHitInfo>(
+                  (m) => ConversationMsgHitInfo.fromMap(m),
+                )
+                .toList(growable: false)
+            : const [],
+        id: data['id'],
+        numMsg: int.tryParse(data['n']?.toString() ?? ''),
+        numUnread: int.tryParse(data['u']?.toString() ?? ''),
+        totalSize: int.tryParse(data['total']?.toString() ?? ''),
+        flags: data['f'],
+        tags: data['t'],
+        tagNames: data['tn'],
+        date: int.tryParse(data['d']?.toString() ?? ''),
+        elided: data['elided'],
+        changeDate: int.tryParse(data['md']?.toString() ?? ''),
+        modifiedSequence: int.tryParse(data['ms']?.toString() ?? ''),
+        metadatas: (data['meta'] is Iterable)
+            ? (data['meta'] as Iterable)
+                .map<MailCustomMetadata>(
+                  (meta) => MailCustomMetadata.fromMap(meta),
+                )
+                .toList(growable: false)
+            : const [],
+        subject: data['su'],
+        fragment: data['fr'],
+        emails: (data['e'] is Iterable)
+            ? (data['e'] as Iterable)
+                .map<EmailInfo>(
+                  (e) => EmailInfo.fromMap(e),
+                )
+                .toList(growable: false)
+            : const [],
+      );
 
   @override
   Map<String, dynamic> toMap() => {
         if (sortField != null) 'sf': sortField,
-        if (messageHits.isNotEmpty) 'm': messageHits.map((m) => m.toMap()).toList(growable: false),
+        if (messageHits.isNotEmpty)
+          'm': messageHits
+              .map(
+                (m) => m.toMap(),
+              )
+              .toList(growable: false),
         if (id != null) 'id': id,
         if (numMsg != null) 'n': numMsg,
         if (numUnread != null) 'u': numUnread,
@@ -78,9 +95,19 @@ class ConversationHitInfo extends ConversationSummary {
         if (elided != null) 'elided': elided,
         if (changeDate != null) 'md': changeDate,
         if (modifiedSequence != null) 'ms': modifiedSequence,
-        if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toMap()).toList(growable: false),
+        if (metadatas.isNotEmpty)
+          'meta': metadatas
+              .map(
+                (meta) => meta.toMap(),
+              )
+              .toList(growable: false),
         if (subject != null) 'su': subject,
         if (fragment != null) 'fr': fragment,
-        if (emails.isNotEmpty) 'e': emails.map((e) => e.toMap()).toList(growable: false),
+        if (emails.isNotEmpty)
+          'e': emails
+              .map(
+                (e) => e.toMap(),
+              )
+              .toList(growable: false),
       };
 }

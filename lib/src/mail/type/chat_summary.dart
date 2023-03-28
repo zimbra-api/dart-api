@@ -32,7 +32,11 @@ class ChatSummary extends MessageSummary {
         data['id'] ?? '',
         autoSendTime: int.tryParse(data['autoSendTime']?.toString() ?? ''),
         emails: (data['e'] is Iterable)
-            ? (data['e'] as Iterable).map<EmailInfo>((e) => EmailInfo.fromMap(e)).toList(growable: false)
+            ? (data['e'] as Iterable)
+                .map<EmailInfo>(
+                  (e) => EmailInfo.fromMap(e),
+                )
+                .toList(growable: false)
             : const [],
         subject: data['su'],
         fragment: data['fr'],
@@ -49,7 +53,9 @@ class ChatSummary extends MessageSummary {
         modifiedSequence: int.tryParse(data['ms']?.toString() ?? ''),
         metadatas: (data['meta'] is Iterable)
             ? (data['meta'] as Iterable)
-                .map<MailCustomMetadata>((meta) => MailCustomMetadata.fromMap(meta))
+                .map<MailCustomMetadata>(
+                  (meta) => MailCustomMetadata.fromMap(meta),
+                )
                 .toList(growable: false)
             : const [],
       );

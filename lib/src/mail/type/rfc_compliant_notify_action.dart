@@ -29,13 +29,17 @@ class RFCCompliantNotifyAction extends FilterAction {
     super.index,
   });
 
-  factory RFCCompliantNotifyAction.fromMap(Map<String, dynamic> data) => RFCCompliantNotifyAction(
-      from: data['from'],
-      importance: data['importance'],
-      options: data['options'],
-      message: data['message'],
-      method: data['method']?['_content'],
-      index: int.tryParse(data['index']?.toString() ?? ''));
+  factory RFCCompliantNotifyAction.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      RFCCompliantNotifyAction(
+        from: data['from'],
+        importance: data['importance'],
+        options: data['options'],
+        message: data['message'],
+        method: data['method']?['_content'],
+        index: int.tryParse(data['index']?.toString() ?? ''),
+      );
 
   @override
   Map<String, dynamic> toMap() => {

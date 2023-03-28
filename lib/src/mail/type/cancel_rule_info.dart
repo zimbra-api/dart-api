@@ -13,7 +13,10 @@ class CancelRuleInfo extends RecurIdInfo {
     super.recurIdZ,
   });
 
-  factory CancelRuleInfo.fromMap(Map<String, dynamic> data) =>
-      CancelRuleInfo(int.tryParse(data['rangeType']?.toString() ?? '') ?? 1, data['recurId'] ?? '',
-          timezone: data['tz'], recurIdZ: data['ridZ']);
+  factory CancelRuleInfo.fromMap(Map<String, dynamic> data) => CancelRuleInfo(
+        int.tryParse(data['rangeType']?.toString() ?? '') ?? 1,
+        data['recurId'] ?? '',
+        timezone: data['tz'],
+        recurIdZ: data['ridZ'],
+      );
 }

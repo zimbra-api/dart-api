@@ -16,15 +16,26 @@ class XProp {
 
   const XProp(this.name, {this.value, this.xParams = const []});
 
-  factory XProp.fromMap(Map<String, dynamic> data) => XProp(data['name'] ?? '',
-      value: data['value'],
-      xParams: (data['xparam'] is Iterable)
-          ? (data['xparam'] as Iterable).map<XParam>((xparam) => XParam.fromMap(xparam)).toList(growable: false)
-          : const []);
+  factory XProp.fromMap(Map<String, dynamic> data) => XProp(
+        data['name'] ?? '',
+        value: data['value'],
+        xParams: (data['xparam'] is Iterable)
+            ? (data['xparam'] as Iterable)
+                .map<XParam>(
+                  (xparam) => XParam.fromMap(xparam),
+                )
+                .toList(growable: false)
+            : const [],
+      );
 
   Map<String, dynamic> toMap() => {
         'name': name,
         if (value != null) 'value': value,
-        if (xParams.isNotEmpty) 'xparam': xParams.map((xparam) => xparam.toMap()).toList(growable: false),
+        if (xParams.isNotEmpty)
+          'xparam': xParams
+              .map(
+                (xparam) => xparam.toMap(),
+              )
+              .toList(growable: false),
       };
 }

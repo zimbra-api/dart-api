@@ -9,7 +9,9 @@ class ByMonthRule {
 
   const ByMonthRule(this.list);
 
-  factory ByMonthRule.fromMap(Map<String, dynamic> data) => ByMonthRule(data['molist'] ?? '');
+  factory ByMonthRule.fromMap(Map<String, dynamic> data) => ByMonthRule(
+        data['molist'] ?? '',
+      );
 
   Map<String, dynamic> toMap() => {
         'molist': list,

@@ -11,12 +11,20 @@ class ModifyTagNotification extends ModifyNotification {
   /// Name of modified tag
   final String name;
 
-  const ModifyTagNotification({this.id = 0, this.name = '', super.changeBitmask});
+  const ModifyTagNotification({
+    this.id = 0,
+    this.name = '',
+    super.changeBitmask,
+  });
 
-  factory ModifyTagNotification.fromMap(Map<String, dynamic> data) => ModifyTagNotification(
-      id: int.tryParse(data['id']?['_content']?.toString() ?? '') ?? 0,
-      name: data['name']?['_content'] ?? '',
-      changeBitmask: data['change'] ?? 0);
+  factory ModifyTagNotification.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ModifyTagNotification(
+        id: int.tryParse(data['id']?['_content']?.toString() ?? '') ?? 0,
+        name: data['name']?['_content'] ?? '',
+        changeBitmask: data['change'] ?? 0,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

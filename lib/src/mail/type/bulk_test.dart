@@ -7,6 +7,8 @@ import 'filter_test.dart';
 class BulkTest extends FilterTest {
   const BulkTest({super.index, super.negative});
 
-  factory BulkTest.fromMap(Map<String, dynamic> data) =>
-      BulkTest(index: int.tryParse(data['index']?.toString() ?? ''), negative: data['negative']);
+  factory BulkTest.fromMap(Map<String, dynamic> data) => BulkTest(
+        index: int.tryParse(data['index']?.toString() ?? ''),
+        negative: data['negative'],
+      );
 }

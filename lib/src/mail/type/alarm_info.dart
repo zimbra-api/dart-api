@@ -54,10 +54,22 @@ class AlarmInfo {
           (item) => item.name == data['action'],
           orElse: () => AlarmAction.display,
         ),
-        trigger: data['trigger'] is Map ? AlarmTriggerInfo.fromMap(data['trigger']) : null,
-        repeat: data['repeat'] is Map ? DurationInfo.fromMap(data['repeat']) : null,
+        trigger: data['trigger'] is Map
+            ? AlarmTriggerInfo.fromMap(
+                data['trigger'],
+              )
+            : null,
+        repeat: data['repeat'] is Map
+            ? DurationInfo.fromMap(
+                data['repeat'],
+              )
+            : null,
         description: data['desc'] is Map ? data['desc']['_content'] : null,
-        attach: data['attach'] is Map ? CalendarAttach.fromMap(data['attach']) : null,
+        attach: data['attach'] is Map
+            ? CalendarAttach.fromMap(
+                data['attach'],
+              )
+            : null,
         summary: data['summary']?['_content'],
         attendees: (data['at'] is Iterable)
             ? (data['at'] as Iterable)
@@ -65,7 +77,11 @@ class AlarmInfo {
                 .toList(growable: false)
             : const [],
         xProps: (data['xprop'] is Iterable)
-            ? (data['xprop'] as Iterable).map<XProp>((xprop) => XProp.fromMap(xprop)).toList(growable: false)
+            ? (data['xprop'] as Iterable)
+                .map<XProp>(
+                  (xprop) => XProp.fromMap(xprop),
+                )
+                .toList(growable: false)
             : const [],
       );
 
@@ -76,7 +92,17 @@ class AlarmInfo {
         if (description != null) 'desc': {'_content': description},
         if (attach != null) 'attach': attach!.toMap(),
         if (summary != null) 'summary': {'_content': summary},
-        if (attendees.isNotEmpty) 'at': attendees.map((at) => at.toMap()).toList(growable: false),
-        if (xProps.isNotEmpty) 'xprop': xProps.map((xprop) => xprop.toMap()).toList(growable: false),
+        if (attendees.isNotEmpty)
+          'at': attendees
+              .map(
+                (at) => at.toMap(),
+              )
+              .toList(growable: false),
+        if (xProps.isNotEmpty)
+          'xprop': xProps
+              .map(
+                (xprop) => xprop.toMap(),
+              )
+              .toList(growable: false),
       };
 }

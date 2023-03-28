@@ -38,16 +38,21 @@ class ActionGrantSelector {
     this.accessKey,
   });
 
-  factory ActionGrantSelector.fromMap(Map<String, dynamic> data) => ActionGrantSelector(data['perm'] ?? '',
-      grantType: GranteeType.values.firstWhere(
-        (gt) => gt.name == data['gt'],
-        orElse: () => GranteeType.all,
-      ),
-      zimbraId: data['zid'],
-      displayName: data['d'],
-      args: data['args'],
-      password: data['pw'],
-      accessKey: data['key']);
+  factory ActionGrantSelector.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ActionGrantSelector(
+        data['perm'] ?? '',
+        grantType: GranteeType.values.firstWhere(
+          (gt) => gt.name == data['gt'],
+          orElse: () => GranteeType.all,
+        ),
+        zimbraId: data['zid'],
+        displayName: data['d'],
+        args: data['args'],
+        password: data['pw'],
+        accessKey: data['key'],
+      );
 
   Map<String, dynamic> toMap() => {
         'perm': rights,

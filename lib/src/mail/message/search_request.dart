@@ -68,8 +68,10 @@ class SearchRequest extends MailSearchParams {
         if (warmup != null) 'warmup': warmup,
         if (includeTagDeleted != null) 'includeTagDeleted': includeTagDeleted,
         if (includeTagMuted != null) 'includeTagMuted': includeTagMuted,
-        if (allowableTaskStatus != null) 'allowableTaskStatus': allowableTaskStatus,
-        if (calItemExpandStart != null) 'calExpandInstStart': calItemExpandStart,
+        if (allowableTaskStatus != null)
+          'allowableTaskStatus': allowableTaskStatus,
+        if (calItemExpandStart != null)
+          'calExpandInstStart': calItemExpandStart,
         if (calItemExpandEnd != null) 'calExpandInstEnd': calItemExpandEnd,
         if (query != null) 'query': query,
         if (inDumpster != null) 'inDumpster': inDumpster,

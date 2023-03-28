@@ -25,6 +25,7 @@ class DeclineCounterAppointmentBody extends SoapBody {
 
   @override
   Map<String, dynamic> toMap() => {
-        if (request != null) 'DeclineCounterAppointmentRequest': request!.toMap(),
+        if (request != null)
+          'DeclineCounterAppointmentRequest': request!.toMap(),
       };
 }

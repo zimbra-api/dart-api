@@ -25,6 +25,7 @@ class CreateAppointmentExceptionBody extends SoapBody {
 
   @override
   Map<String, dynamic> toMap() => {
-        if (request != null) 'CreateAppointmentExceptionRequest': request!.toMap(),
+        if (request != null)
+          'CreateAppointmentExceptionRequest': request!.toMap(),
       };
 }

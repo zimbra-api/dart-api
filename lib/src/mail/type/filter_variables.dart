@@ -15,7 +15,8 @@ class FilterVariables extends FilterAction {
         index: int.tryParse(data['index']?.toString() ?? ''),
         variables: (data['filterVariable'] is Iterable)
             ? (data['filterVariable'] as Iterable)
-                .map<FilterVariable>((variable) => FilterVariable.fromMap(variable))
+                .map<FilterVariable>(
+                    (variable) => FilterVariable.fromMap(variable))
                 .toList(growable: false)
             : const [],
       );

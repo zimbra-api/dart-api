@@ -151,7 +151,9 @@ class InvitationInfo extends InviteComponent {
                 .toList(growable: false)
             : const [],
         contacts: (data['contact'] is Iterable)
-            ? (data['contact'] as Iterable).map<String>((contact) => contact['_content']).toList(growable: false)
+            ? (data['contact'] as Iterable)
+                .map<String>((contact) => contact['_content'])
+                .toList(growable: false)
             : const [],
         geo: data['geo'] is Map ? GeoInfo.fromMap(data['geo']) : null,
         attendees: (data['at'] is Iterable)
@@ -183,7 +185,8 @@ class InvitationInfo extends InviteComponent {
                 data['or'],
               )
             : null,
-        recurrence: data['recur'] is Map ? RecurrenceInfo.fromMap(data['recur']) : null,
+        recurrence:
+            data['recur'] is Map ? RecurrenceInfo.fromMap(data['recur']) : null,
         exceptionId: data['exceptId'] is Map
             ? ExceptionRecurIdInfo.fromMap(
                 data['exceptId'],

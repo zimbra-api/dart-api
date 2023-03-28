@@ -26,6 +26,7 @@ class PurgeRevisionSpec {
   Map<String, dynamic> toMap() => {
         'id': id,
         'ver': version,
-        if (includeOlderRevisions != null) 'includeOlderRevisions': includeOlderRevisions,
+        if (includeOlderRevisions != null)
+          'includeOlderRevisions': includeOlderRevisions,
       };
 }

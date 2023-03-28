@@ -100,6 +100,7 @@ class TagInfo {
                 (meta) => meta.toMap(),
               )
               .toList(growable: false),
-        if (retentionPolicy != null) 'retentionPolicy': retentionPolicy!.toMap(),
+        if (retentionPolicy != null)
+          'retentionPolicy': retentionPolicy!.toMap(),
       };
 }

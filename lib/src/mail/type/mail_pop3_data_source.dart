@@ -111,13 +111,16 @@ class MailPop3DataSource extends MailDataSource {
         if (smtpEnabled != null) 'smtpEnabled': smtpEnabled,
         if (smtpHost != null) 'smtpHost': smtpHost,
         if (smtpPort != null) 'smtpPort': smtpPort,
-        if (smtpConnectionType != null) 'smtpConnectionType': smtpConnectionType!.name,
+        if (smtpConnectionType != null)
+          'smtpConnectionType': smtpConnectionType!.name,
         if (smtpAuthRequired != null) 'smtpAuthRequired': smtpAuthRequired,
         if (smtpUsername != null) 'smtpUsername': smtpUsername,
         if (smtpPassword != null) 'smtpPassword': smtpPassword,
-        if (useAddressForForwardReply != null) 'useAddressForForwardReply': useAddressForForwardReply,
+        if (useAddressForForwardReply != null)
+          'useAddressForForwardReply': useAddressForForwardReply,
         if (defaultSignature != null) 'defaultSignature': defaultSignature,
-        if (forwardReplySignature != null) 'forwardReplySignature': forwardReplySignature,
+        if (forwardReplySignature != null)
+          'forwardReplySignature': forwardReplySignature,
         if (fromDisplay != null) 'fromDisplay': fromDisplay,
         if (replyToAddress != null) 'replyToAddress': replyToAddress,
         if (replyToDisplay != null) 'replyToDisplay': replyToDisplay,

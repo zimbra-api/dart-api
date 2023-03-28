@@ -17,6 +17,7 @@ class CompleteTaskInstanceEnvelope extends SoapEnvelope {
   ) =>
       CompleteTaskInstanceEnvelope(
         CompleteTaskInstanceBody.fromMap(data['Body']),
-        header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null,
+        header:
+            data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null,
       );
 }

@@ -13,7 +13,8 @@ class ListDocumentRevisionsResponse extends SoapResponse {
   /// User information
   final List<IdEmailName> users;
 
-  ListDocumentRevisionsResponse({this.revisions = const [], this.users = const []});
+  ListDocumentRevisionsResponse(
+      {this.revisions = const [], this.users = const []});
 
   factory ListDocumentRevisionsResponse.fromMap(
     Map<String, dynamic> data,

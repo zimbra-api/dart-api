@@ -66,8 +66,10 @@ class SearchConvRequest extends MailSearchParams {
         if (nestMessages != null) 'nest': nestMessages,
         if (includeTagDeleted != null) 'includeTagDeleted': includeTagDeleted,
         if (includeTagMuted != null) 'includeTagMuted': includeTagMuted,
-        if (allowableTaskStatus != null) 'allowableTaskStatus': allowableTaskStatus,
-        if (calItemExpandStart != null) 'calExpandInstStart': calItemExpandStart,
+        if (allowableTaskStatus != null)
+          'allowableTaskStatus': allowableTaskStatus,
+        if (calItemExpandStart != null)
+          'calExpandInstStart': calItemExpandStart,
         if (calItemExpandEnd != null) 'calExpandInstEnd': calItemExpandEnd,
         if (query != null) 'query': query,
         if (inDumpster != null) 'inDumpster': inDumpster,

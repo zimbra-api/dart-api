@@ -25,6 +25,7 @@ class ApplyOutgoingFilterRulesBody extends SoapBody {
 
   @override
   Map<String, dynamic> toMap() => {
-        if (request != null) 'ApplyOutgoingFilterRulesRequest': request!.toMap(),
+        if (request != null)
+          'ApplyOutgoingFilterRulesRequest': request!.toMap(),
       };
 }

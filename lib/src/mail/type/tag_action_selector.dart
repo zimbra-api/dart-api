@@ -54,7 +54,8 @@ class TagActionSelector extends ActionSelector {
   Map<String, dynamic> toMap() => {
         'id': ids,
         'op': operation,
-        if (retentionPolicy != null) 'retentionPolicy': retentionPolicy!.toMap(),
+        if (retentionPolicy != null)
+          'retentionPolicy': retentionPolicy!.toMap(),
         if (constraint != null) 'tcon': constraint,
         if (tag != null) 'tag': tag,
         if (folder != null) 'l': folder,

@@ -25,6 +25,7 @@ class GetSystemRetentionPolicyBody extends SoapBody {
 
   @override
   Map<String, dynamic> toMap() => {
-        if (request != null) 'GetSystemRetentionPolicyRequest': request!.toMap(),
+        if (request != null)
+          'GetSystemRetentionPolicyRequest': request!.toMap(),
       };
 }

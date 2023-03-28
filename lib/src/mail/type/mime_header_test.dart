@@ -42,7 +42,8 @@ class MimeHeaderTest extends FilterTest {
   @override
   Map<String, dynamic> toMap() => {
         if (headers != null) 'header': headers,
-        if (stringComparison != null) 'stringComparison': stringComparison!.name,
+        if (stringComparison != null)
+          'stringComparison': stringComparison!.name,
         if (value != null) 'value': value,
         if (caseSensitive != null) 'caseSensitive': caseSensitive,
         if (index != null) 'index': index,

@@ -25,6 +25,7 @@ class InvalidateReminderDeviceBody extends SoapBody {
 
   @override
   Map<String, dynamic> toMap() => {
-        if (request != null) 'InvalidateReminderDeviceRequest': request!.toMap(),
+        if (request != null)
+          'InvalidateReminderDeviceRequest': request!.toMap(),
       };
 }

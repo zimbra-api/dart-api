@@ -7,13 +7,16 @@ import 'create_mountpoint_request.dart';
 import 'create_mountpoint_response.dart';
 
 class CreateMountpointBody extends SoapBody {
-  CreateMountpointBody({CreateMountpointRequest? request, CreateMountpointResponse? response})
+  CreateMountpointBody(
+      {CreateMountpointRequest? request, CreateMountpointResponse? response})
       : super(request: request, response: response);
 
-  factory CreateMountpointBody.fromMap(Map<String, dynamic> data) => CreateMountpointBody(
-      response: data['CreateMountpointResponse'] != null
-          ? CreateMountpointResponse.fromMap(data['CreateMountpointResponse'])
-          : null);
+  factory CreateMountpointBody.fromMap(Map<String, dynamic> data) =>
+      CreateMountpointBody(
+          response: data['CreateMountpointResponse'] != null
+              ? CreateMountpointResponse.fromMap(
+                  data['CreateMountpointResponse'])
+              : null);
 
   @override
   Map<String, dynamic> toMap() => {

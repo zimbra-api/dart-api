@@ -9,7 +9,8 @@ class DateTimeStringAttr {
 
   const DateTimeStringAttr(this.dateTime);
 
-  factory DateTimeStringAttr.fromMap(Map<String, dynamic> data) => DateTimeStringAttr(
+  factory DateTimeStringAttr.fromMap(Map<String, dynamic> data) =>
+      DateTimeStringAttr(
         data['d'] ?? '',
       );
 

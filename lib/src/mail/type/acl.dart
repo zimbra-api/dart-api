@@ -37,7 +37,8 @@ class Acl {
           : const []);
 
   Map<String, dynamic> toMap() => {
-        if (internalGrantExpiry != null) 'internalGrantExpiry': internalGrantExpiry,
+        if (internalGrantExpiry != null)
+          'internalGrantExpiry': internalGrantExpiry,
         if (guestGrantExpiry != null) 'guestGrantExpiry': guestGrantExpiry,
         if (grants.isNotEmpty)
           'grant': grants

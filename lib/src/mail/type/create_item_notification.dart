@@ -14,7 +14,8 @@ class CreateItemNotification {
     Map<String, dynamic> data,
   ) =>
       CreateItemNotification(
-        messageInfo: data['m'] is Map ? ImapMessageInfo.fromMap(data['m']) : null,
+        messageInfo:
+            data['m'] is Map ? ImapMessageInfo.fromMap(data['m']) : null,
       );
 
   Map<String, dynamic> toMap() => {

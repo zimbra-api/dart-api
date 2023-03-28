@@ -12,7 +12,8 @@ class SizeTest extends FilterTest {
   /// Size value. Value can be specified in bytes (no suffix), kilobytes (50K), megabytes (50M) or gigabytes (2G)
   final String? size;
 
-  const SizeTest({this.numberComparison, this.size, super.index, super.negative});
+  const SizeTest(
+      {this.numberComparison, this.size, super.index, super.negative});
 
   factory SizeTest.fromMap(Map<String, dynamic> data) => SizeTest(
         numberComparison: NumberComparison.values.firstWhere(
@@ -26,7 +27,8 @@ class SizeTest extends FilterTest {
 
   @override
   Map<String, dynamic> toMap() => {
-        if (numberComparison != null) 'numberComparison': numberComparison!.name,
+        if (numberComparison != null)
+          'numberComparison': numberComparison!.name,
         if (size != null) 's': size,
         if (index != null) 'index': index,
         if (negative != null) 'negative': negative,

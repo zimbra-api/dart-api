@@ -74,7 +74,8 @@ class SendMsgRequest extends SoapRequest {
   Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
         'm': msg.toMap(),
-        if (needCalendarSentByFixup != null) 'needCalendarSentByFixup': needCalendarSentByFixup,
+        if (needCalendarSentByFixup != null)
+          'needCalendarSentByFixup': needCalendarSentByFixup,
         if (isCalendarForward != null) 'isCalendarForward': isCalendarForward,
         if (noSaveToSent != null) 'noSave': noSaveToSent,
         if (fetchSavedMsg != null) 'fetchSavedMsg': fetchSavedMsg,

@@ -156,13 +156,14 @@ class FilterActions {
                 )
                 .toList(growable: false)
             : const [],
-        rfcCompliantNotifyActions: (data['actionRFCCompliantNotify'] is Iterable)
-            ? (data['actionRFCCompliantNotify'] as Iterable)
-                .map<RFCCompliantNotifyAction>(
-                  (action) => RFCCompliantNotifyAction.fromMap(action),
-                )
-                .toList(growable: false)
-            : const [],
+        rfcCompliantNotifyActions:
+            (data['actionRFCCompliantNotify'] is Iterable)
+                ? (data['actionRFCCompliantNotify'] as Iterable)
+                    .map<RFCCompliantNotifyAction>(
+                      (action) => RFCCompliantNotifyAction.fromMap(action),
+                    )
+                    .toList(growable: false)
+                : const [],
         stopActions: (data['actionStop'] is Iterable)
             ? (data['actionStop'] as Iterable)
                 .map<StopAction>(

@@ -25,6 +25,7 @@ class ForwardAppointmentInviteBody extends SoapBody {
 
   @override
   Map<String, dynamic> toMap() => {
-        if (request != null) 'ForwardAppointmentInviteRequest': request!.toMap(),
+        if (request != null)
+          'ForwardAppointmentInviteRequest': request!.toMap(),
       };
 }

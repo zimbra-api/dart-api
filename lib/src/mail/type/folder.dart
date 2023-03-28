@@ -239,8 +239,10 @@ class Folder {
         if (imapModifiedSequence != null) 'i4ms': imapModifiedSequence,
         if (imapUidNext != null) 'i4next': imapUidNext,
         if (url != null) 'url': url,
-        if (activeSyncDisabled != null) 'activesyncdisabled': activeSyncDisabled,
-        if (webOfflineSyncDays != null) 'webOfflineSyncDays': webOfflineSyncDays,
+        if (activeSyncDisabled != null)
+          'activesyncdisabled': activeSyncDisabled,
+        if (webOfflineSyncDays != null)
+          'webOfflineSyncDays': webOfflineSyncDays,
         if (perm != null) 'perm': perm,
         if (recursive != null) 'recursive': recursive,
         if (restUrl != null) 'rest': restUrl,
@@ -270,6 +272,7 @@ class Folder {
                 (search) => search.toMap(),
               )
               .toList(growable: false),
-        if (retentionPolicy != null) 'retentionPolicy': retentionPolicy!.toMap(),
+        if (retentionPolicy != null)
+          'retentionPolicy': retentionPolicy!.toMap(),
       };
 }

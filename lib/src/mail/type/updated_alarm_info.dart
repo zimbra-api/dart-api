@@ -18,7 +18,9 @@ class UpdatedAlarmInfo {
   ) =>
       UpdatedAlarmInfo(
         data['calItemId'],
-        alarmData: data['alarmData'] is Map ? AlarmDataInfo.fromMap(data['alarmData']) : null,
+        alarmData: data['alarmData'] is Map
+            ? AlarmDataInfo.fromMap(data['alarmData'])
+            : null,
       );
 
   Map<String, dynamic> toMap() => {

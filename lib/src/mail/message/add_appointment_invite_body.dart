@@ -17,7 +17,8 @@ class AddAppointmentInviteBody extends SoapBody {
   ) =>
       AddAppointmentInviteBody(
         response: data['AddAppointmentInviteResponse'] != null
-            ? AddAppointmentInviteResponse.fromMap(data['AddAppointmentInviteResponse'])
+            ? AddAppointmentInviteResponse.fromMap(
+                data['AddAppointmentInviteResponse'])
             : null,
       );
 

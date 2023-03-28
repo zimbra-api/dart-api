@@ -143,7 +143,8 @@ class FolderActionSelector extends ActionSelector {
                   .toList(growable: false),
             }
           ],
-        if (retentionPolicy != null) 'retentionPolicy': retentionPolicy!.toMap(),
+        if (retentionPolicy != null)
+          'retentionPolicy': retentionPolicy!.toMap(),
         if (numDays != null) 'numDays': numDays,
       };
 }

@@ -28,7 +28,8 @@ class InviteWithGroupInfo {
     this.calendarReplies = const [],
   });
 
-  factory InviteWithGroupInfo.fromMap(Map<String, dynamic> data) => InviteWithGroupInfo(
+  factory InviteWithGroupInfo.fromMap(Map<String, dynamic> data) =>
+      InviteWithGroupInfo(
         InviteType.values.firstWhere(
           (item) => item.name == data['type'],
           orElse: () => InviteType.appt,

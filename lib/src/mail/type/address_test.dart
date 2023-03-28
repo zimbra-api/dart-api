@@ -77,12 +77,14 @@ class AddressTest extends FilterTest {
   Map<String, dynamic> toMap() => {
         if (header != null) 'header': header,
         if (part != null) 'part': part!.name,
-        if (stringComparison != null) 'stringComparison': stringComparison!.name,
+        if (stringComparison != null)
+          'stringComparison': stringComparison!.name,
         if (caseSensitive != null) 'caseSensitive': caseSensitive,
         if (value != null) 'value': value,
         if (valueComparison != null) 'valueComparison': valueComparison!.name,
         if (countComparison != null) 'countComparison': countComparison!.name,
-        if (valueComparisonComparator != null) 'valueComparisonComparator': valueComparisonComparator!.name,
+        if (valueComparisonComparator != null)
+          'valueComparisonComparator': valueComparisonComparator!.name,
         if (index != null) 'index': index,
         if (negative != null) 'negative': negative,
       };

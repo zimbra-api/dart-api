@@ -67,7 +67,8 @@ class EditheaderTest {
         if (matchType != null) 'matchType': matchType!.name,
         if (countComparator != null) 'countComparator': countComparator,
         if (valueComparator != null) 'valueComparator': valueComparator,
-        if (relationalComparator != null) 'relationalComparator': relationalComparator!.name,
+        if (relationalComparator != null)
+          'relationalComparator': relationalComparator!.name,
         if (comparator != null) 'comparator': comparator!.name,
         if (headerName != null) 'headerName': {'_content': headerName},
         if (headerValue.isNotEmpty)

@@ -17,6 +17,7 @@ class ApplyFilterRulesEnvelope extends SoapEnvelope {
   ) =>
       ApplyFilterRulesEnvelope(
         ApplyFilterRulesBody.fromMap(data['Body']),
-        header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null,
+        header:
+            data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null,
       );
 }

@@ -25,6 +25,7 @@ class GetCalendarItemSummariesBody extends SoapBody {
 
   @override
   Map<String, dynamic> toMap() => {
-        if (request != null) 'GetCalendarItemSummariesRequest': request!.toMap(),
+        if (request != null)
+          'GetCalendarItemSummariesRequest': request!.toMap(),
       };
 }

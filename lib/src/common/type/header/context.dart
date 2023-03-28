@@ -68,16 +68,48 @@ class Context {
   factory Context.fromMap(Map<String, dynamic> data) => Context(
         hopCount: int.tryParse(data['hops']?.toString() ?? ''),
         authToken: data['authToken'],
-        session: data['session'] is Map ? SessionInfo.fromMap(data['session']) : null,
-        legacySessionId: data['sessionId'] is Map ? SessionInfo.fromMap(data['sessionId']) : null,
+        session: data['session'] is Map
+            ? SessionInfo.fromMap(
+                data['session'],
+              )
+            : null,
+        legacySessionId: data['sessionId'] is Map
+            ? SessionInfo.fromMap(
+                data['sessionId'],
+              )
+            : null,
         noSession: data['nosession']?['_content'],
-        account: data['account'] is Map ? AccountInfo.fromMap(data['account']) : null,
-        change: data['change'] is Map ? ChangeInfo.fromMap(data['change']) : null,
+        account: data['account'] is Map
+            ? AccountInfo.fromMap(
+                data['account'],
+              )
+            : null,
+        change: data['change'] is Map
+            ? ChangeInfo.fromMap(
+                data['change'],
+              )
+            : null,
         targetServer: data['targetServer']?['_content'],
-        userAgent: data['userAgent'] is Map ? UserAgentInfo.fromMap(data['userAgent']) : null,
-        authTokenControl: data['authTokenControl'] != null ? AuthTokenControl.fromMap(data['authTokenControl']) : null,
-        format: data['format'] is Map ? FormatInfo.fromMap(data['format']) : null,
-        notify: data['notify'] is Map ? NotifyInfo.fromMap(data['notify']) : null,
+        userAgent: data['userAgent'] is Map
+            ? UserAgentInfo.fromMap(
+                data['userAgent'],
+              )
+            : null,
+        authTokenControl: data['authTokenControl'] != null
+            ? AuthTokenControl.fromMap(
+                data['authTokenControl'],
+              )
+            : null,
+        format: data['format'] is Map
+            ? FormatInfo.fromMap(
+                data['format'],
+              )
+            : null,
+        notify: data['notify'] is Map
+            ? NotifyInfo.fromMap(
+                data['notify'],
+              )
+            : null,
         noNotify: data['nonotify']?['_content'],
         noQualify: data['noqualify']?['_content'],
         via: data['via']?['_content'],
@@ -96,7 +128,8 @@ class Context {
         if (change != null) 'change': change!.toMap(),
         if (targetServer != null) 'targetServer': {'_content': targetServer},
         if (userAgent != null) 'userAgent': userAgent!.toMap(),
-        if (authTokenControl != null) 'authTokenControl': authTokenControl!.toMap(),
+        if (authTokenControl != null)
+          'authTokenControl': authTokenControl!.toMap(),
         if (format != null) 'format': format!.toMap(),
         if (notify != null) 'notify': notify!.toMap(),
         if (noNotify != null) 'nonotify': {'_content': noNotify},

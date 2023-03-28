@@ -22,12 +22,14 @@ class ContactAttr extends KeyValuePair {
     this.contentFilename,
   });
 
-  factory ContactAttr.fromMap(Map<String, dynamic> data) => ContactAttr(data['n'],
-      value: data['_content'],
-      part: data['part'],
-      contentType: data['ct'],
-      size: int.tryParse(data['s']?.toString() ?? ''),
-      contentFilename: data['filename']);
+  factory ContactAttr.fromMap(Map<String, dynamic> data) => ContactAttr(
+        data['n'],
+        value: data['_content'],
+        part: data['part'],
+        contentType: data['ct'],
+        size: int.tryParse(data['s']?.toString() ?? ''),
+        contentFilename: data['filename'],
+      );
 
   @override
   Map<String, dynamic> toMap() => {
@@ -43,7 +45,11 @@ class ContactAttr extends KeyValuePair {
     final attrs = <ContactAttr>[];
     for (final entry in data.entries) {
       if (entry.value is Iterable) {
-        attrs.addAll((entry.value as Iterable).map<ContactAttr>((value) => ContactAttr(entry.key, value: value)));
+        attrs.addAll(
+          (entry.value as Iterable).map<ContactAttr>(
+            (value) => ContactAttr(entry.key, value: value),
+          ),
+        );
       } else {
         attrs.add(ContactAttr(entry.key, value: entry.value));
       }

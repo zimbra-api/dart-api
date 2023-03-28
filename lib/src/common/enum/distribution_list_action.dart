@@ -16,5 +16,5 @@ enum DistributionListAction {
   removeMembers,
   acceptSubsReq,
   rejectSubsReq,
-  resetimapuid
+  resetimapuid,
 }

@@ -7,7 +7,9 @@ class FaultDetail {
 
   const FaultDetail(this.error);
 
-  factory FaultDetail.fromMap(Map<String, dynamic> data) => FaultDetail(data['Error'] ?? {});
+  factory FaultDetail.fromMap(Map<String, dynamic> data) => FaultDetail(
+        data['Error'] ?? {},
+      );
 
   Map<String, dynamic> toMap() => {
         'Error': error,

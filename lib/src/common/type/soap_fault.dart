@@ -16,9 +16,22 @@ class SoapFault implements Exception {
   const SoapFault({this.code, this.reason, this.detail});
 
   factory SoapFault.fromMap(Map<String, dynamic> data) => SoapFault(
-      code: data['Code'] is Map ? FaultCode.fromMap(data['Code']) : null,
-      reason: data['Reason'] is Map ? FaultReason.fromMap(data['Reason']) : null,
-      detail: data['Detail'] is Map ? FaultDetail.fromMap(data['Detail']) : null);
+        code: data['Code'] is Map
+            ? FaultCode.fromMap(
+                data['Code'],
+              )
+            : null,
+        reason: data['Reason'] is Map
+            ? FaultReason.fromMap(
+                data['Reason'],
+              )
+            : null,
+        detail: data['Detail'] is Map
+            ? FaultDetail.fromMap(
+                data['Detail'],
+              )
+            : null,
+      );
 
   String? faultCode() => code?.value;
 

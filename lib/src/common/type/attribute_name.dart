@@ -8,7 +8,9 @@ class AttributeName {
 
   const AttributeName({this.name = ''});
 
-  factory AttributeName.fromMap(Map<String, dynamic> data) => AttributeName(name: data['n'] ?? '');
+  factory AttributeName.fromMap(Map<String, dynamic> data) => AttributeName(
+        name: data['n'] ?? '',
+      );
 
   Map<String, dynamic> toMap() => {
         'n': name,

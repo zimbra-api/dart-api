@@ -9,7 +9,10 @@ class OpValue {
 
   const OpValue({this.op = '+', this.value});
 
-  factory OpValue.fromMap(Map<String, dynamic> data) => OpValue(op: data['op'] ?? '+', value: data['_content']);
+  factory OpValue.fromMap(Map<String, dynamic> data) => OpValue(
+        op: data['op'] ?? '+',
+        value: data['_content'],
+      );
 
   Map<String, dynamic> toMap() => {
         'op': <String>['+', '-'].contains(op) ? op : '+',

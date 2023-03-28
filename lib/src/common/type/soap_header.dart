@@ -9,8 +9,13 @@ class SoapHeader {
 
   const SoapHeader({this.context});
 
-  factory SoapHeader.fromMap(Map<String, dynamic> data) =>
-      SoapHeader(context: data['context'] is Map ? Context.fromMap(data['context']) : null);
+  factory SoapHeader.fromMap(Map<String, dynamic> data) => SoapHeader(
+        context: data['context'] is Map
+            ? Context.fromMap(
+                data['context'],
+              )
+            : null,
+      );
 
   Map<String, dynamic> toMap() => {
         if (context != null) 'context': context!.toMap(),

@@ -8,7 +8,9 @@ class SectionAttr {
 
   const SectionAttr({this.section = ''});
 
-  factory SectionAttr.fromMap(Map<String, dynamic> data) => SectionAttr(section: data['section'] ?? '');
+  factory SectionAttr.fromMap(Map<String, dynamic> data) => SectionAttr(
+        section: data['section'] ?? '',
+      );
 
   Map<String, dynamic> toMap() => {
         'section': section,

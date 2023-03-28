@@ -2,4 +2,13 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
-enum MsgAction { delete, read, flag, tag, move, update, spam, trash }
+enum MsgAction {
+  delete,
+  read,
+  flag,
+  tag,
+  move,
+  update,
+  spam,
+  trash,
+}

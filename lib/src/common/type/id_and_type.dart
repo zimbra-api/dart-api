@@ -11,7 +11,10 @@ class IdAndType {
 
   const IdAndType({this.id, this.type});
 
-  factory IdAndType.fromMap(Map<String, dynamic> data) => IdAndType(id: data['id'], type: data['type']);
+  factory IdAndType.fromMap(Map<String, dynamic> data) => IdAndType(
+        id: data['id'],
+        type: data['type'],
+      );
 
   Map<String, dynamic> toMap() => {
         if (id != null) 'id': id,

@@ -9,7 +9,10 @@ class KeyValuePair {
 
   const KeyValuePair(this.key, {this.value});
 
-  factory KeyValuePair.fromMap(Map<String, dynamic> data) => KeyValuePair(data['n'], value: data['_content']);
+  factory KeyValuePair.fromMap(Map<String, dynamic> data) => KeyValuePair(
+        data['n'],
+        value: data['_content'],
+      );
 
   Map<String, dynamic> toMap() => {
         'n': key,

@@ -23,14 +23,19 @@ class Client {
   final http.Client _httpClient;
 
   Client(this._serviceHost, {final HttpClientFactory? httpClientFactory})
-      : _httpClient = httpClientFactory != null ? httpClientFactory() : http.Client();
+      : _httpClient =
+            httpClientFactory != null ? httpClientFactory() : http.Client();
 
   Future<http.Response> sendRequest(final String soapMessage) {
     return _httpClient
-        .post(Uri.https(_serviceHost, servicePath), headers: _headers, body: soapMessage)
+        .post(Uri.https(_serviceHost, servicePath),
+            headers: _headers, body: soapMessage)
         .then((response) {
       if (response.hasError) {
-        throw ClientException(response, 'An error is encountered with response status code ${response.statusCode}');
+        throw ClientException(
+          response,
+          'An error is encountered with response status code ${response.statusCode}',
+        );
       }
       if (response.headers.containsKey('set-cookie')) {
         _headers['cookie'] = response.headers['set-cookie']!;

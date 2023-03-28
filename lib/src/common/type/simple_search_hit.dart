@@ -11,7 +11,10 @@ class SimpleSearchHit {
 
   const SimpleSearchHit({this.id, this.sortField});
 
-  factory SimpleSearchHit.fromMap(Map<String, dynamic> data) => SimpleSearchHit(id: data['id'], sortField: data['sf']);
+  factory SimpleSearchHit.fromMap(Map<String, dynamic> data) => SimpleSearchHit(
+        id: data['id'],
+        sortField: data['sf'],
+      );
 
   Map<String, dynamic> toMap() => {
         if (id != null) 'id': id,

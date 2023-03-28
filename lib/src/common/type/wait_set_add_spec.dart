@@ -36,11 +36,12 @@ class WaitSetAddSpec {
   });
 
   factory WaitSetAddSpec.fromMap(Map<String, dynamic> data) => WaitSetAddSpec(
-      name: data['name'],
-      id: data['id'],
-      token: data['token'],
-      interests: data['types'],
-      folderInterests: data['folderInterests']);
+        name: data['name'],
+        id: data['id'],
+        token: data['token'],
+        interests: data['types'],
+        folderInterests: data['folderInterests'],
+      );
 
   Map<String, dynamic> toMap() => {
         if (name != null) 'name': name,
@@ -50,7 +51,11 @@ class WaitSetAddSpec {
           'types': interests!
               .split(',')
               .toSet()
-              .where((type) => InterestType.values.any((element) => element.name == type))
+              .where(
+                (type) => InterestType.values.any(
+                  (element) => element.name == type,
+                ),
+              )
               .join(','),
         if (folderInterests != null) 'folderInterests': folderInterests,
       };

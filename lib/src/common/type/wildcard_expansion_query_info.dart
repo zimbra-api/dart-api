@@ -20,8 +20,14 @@ class WildcardExpansionQueryInfo {
     this.numExpanded,
   });
 
-  factory WildcardExpansionQueryInfo.fromMap(Map<String, dynamic> data) => WildcardExpansionQueryInfo(data['str'] ?? '',
-      expanded: data['expanded'], numExpanded: int.tryParse(data['numExpanded']?.toString() ?? ''));
+  factory WildcardExpansionQueryInfo.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      WildcardExpansionQueryInfo(
+        data['str'] ?? '',
+        expanded: data['expanded'],
+        numExpanded: int.tryParse(data['numExpanded']?.toString() ?? ''),
+      );
 
   Map<String, dynamic> toMap() => {
         'str': wildcardString,

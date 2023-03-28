@@ -15,7 +15,9 @@ import '../type/soap_response.dart';
 import 'client.dart';
 import 'client_exception.dart';
 
-typedef FromMapConverter<T extends SoapResponse> = T? Function(Map<String, dynamic> data);
+typedef FromMapConverter<T extends SoapResponse> = T? Function(
+  Map<String, dynamic> data,
+);
 
 abstract class Api {
   final Client _soapClient;
@@ -38,26 +40,49 @@ abstract class Api {
     this.sessionId,
     this.userAgentName,
     this.userAgentVersion,
-  }) : _soapClient = Client(serviceHost, httpClientFactory: httpClientFactory);
+  }) : _soapClient = Client(
+          serviceHost,
+          httpClientFactory: httpClientFactory,
+        );
 
-  Future<T?> invoke<T extends SoapResponse>(final SoapRequest request, {required final FromMapConverter<T> fromMap}) {
+  Future<T?> invoke<T extends SoapResponse>(
+    final SoapRequest request, {
+    required final FromMapConverter<T> fromMap,
+  }) {
     return _soapClient
         .sendRequest(request
             .getEnvelope(
               header: SoapHeader(
                 context: Context(
                   authToken: authToken,
-                  account: targetAccount != null ? AccountInfo(AccountBy.name, targetAccount!) : null,
-                  session: sessionId != null ? SessionInfo(sessionId: sessionId, value: sessionId) : null,
+                  account: targetAccount != null
+                      ? AccountInfo(
+                          AccountBy.name,
+                          targetAccount!,
+                        )
+                      : null,
+                  session: sessionId != null
+                      ? SessionInfo(
+                          sessionId: sessionId,
+                          value: sessionId,
+                        )
+                      : null,
                   userAgent: (userAgentName != null || userAgentVersion != null)
-                      ? UserAgentInfo(name: userAgentName, version: userAgentVersion)
+                      ? UserAgentInfo(
+                          name: userAgentName,
+                          version: userAgentVersion,
+                        )
                       : null,
                   format: FormatInfo(),
                 ),
               ),
             )
             .toJson())
-        .onError<ClientException>((e, _) => throw SoapFault.fromMap(e.response.mapData['Body']?['Fault'] ?? {}))
+        .onError<ClientException>(
+          (e, _) => throw SoapFault.fromMap(
+            e.response.mapData['Body']?['Fault'] ?? {},
+          ),
+        )
         .then((response) => fromMap(response.mapData));
   }
 

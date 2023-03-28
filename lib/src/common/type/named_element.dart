@@ -7,7 +7,9 @@ class NamedElement {
 
   const NamedElement({this.name});
 
-  factory NamedElement.fromMap(Map<String, dynamic> data) => NamedElement(name: data['name']);
+  factory NamedElement.fromMap(Map<String, dynamic> data) => NamedElement(
+        name: data['name'],
+      );
 
   Map<String, dynamic> toMap() => {
         if (name != null) 'name': name,

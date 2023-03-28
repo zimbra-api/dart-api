@@ -2,4 +2,11 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
-enum TagAction { read, rename, color, delete, update, retentionpolicy }
+enum TagAction {
+  read,
+  rename,
+  color,
+  delete,
+  update,
+  retentionpolicy,
+}

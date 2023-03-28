@@ -11,8 +11,11 @@ class GranteeChooser {
 
   const GranteeChooser({this.type, this.id, this.name});
 
-  factory GranteeChooser.fromMap(Map<String, dynamic> data) =>
-      GranteeChooser(type: data['type'], id: data['id'], name: data['name']);
+  factory GranteeChooser.fromMap(Map<String, dynamic> data) => GranteeChooser(
+        type: data['type'],
+        id: data['id'],
+        name: data['name'],
+      );
 
   Map<String, dynamic> toMap() => {
         if (type != null) 'type': type,

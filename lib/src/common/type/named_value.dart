@@ -9,7 +9,10 @@ class NamedValue {
 
   const NamedValue(this.name, {this.value});
 
-  factory NamedValue.fromMap(Map<String, dynamic> data) => NamedValue(data['name'], value: data['_content']);
+  factory NamedValue.fromMap(Map<String, dynamic> data) => NamedValue(
+        data['name'],
+        value: data['_content'],
+      );
 
   Map<String, dynamic> toMap() => {
         'name': name,

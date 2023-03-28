@@ -2,4 +2,15 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 
-enum GranteeType { usr, grp, egp, all, dom, edom, gst, key, pub, email }
+enum GranteeType {
+  usr,
+  grp,
+  egp,
+  all,
+  dom,
+  edom,
+  gst,
+  key,
+  pub,
+  email,
+}

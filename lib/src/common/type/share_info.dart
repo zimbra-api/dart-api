@@ -59,18 +59,21 @@ class ShareInfo {
     this.mountpointId,
   });
 
-  factory ShareInfo.fromMap(Map<String, dynamic> data) => ShareInfo(data['ownerId'], data['ownerEmail'],
-      ownerDisplayName: data['ownerName'],
-      folderId: int.tryParse(data['folderId']?.toString() ?? ''),
-      folderUuid: data['folderUuid'],
-      folderPath: data['folderPath'],
-      defaultView: data['view'],
-      rights: data['rights'],
-      granteeType: data['granteeType'],
-      granteeId: data['granteeId'],
-      granteeName: data['granteeName'],
-      granteeDisplayName: data['granteeDisplayName'],
-      mountpointId: data['mid']);
+  factory ShareInfo.fromMap(Map<String, dynamic> data) => ShareInfo(
+        data['ownerId'],
+        data['ownerEmail'],
+        ownerDisplayName: data['ownerName'],
+        folderId: int.tryParse(data['folderId']?.toString() ?? ''),
+        folderUuid: data['folderUuid'],
+        folderPath: data['folderPath'],
+        defaultView: data['view'],
+        rights: data['rights'],
+        granteeType: data['granteeType'],
+        granteeId: data['granteeId'],
+        granteeName: data['granteeName'],
+        granteeDisplayName: data['granteeDisplayName'],
+        mountpointId: data['mid'],
+      );
 
   Map<String, dynamic> toMap() => {
         'ownerId': ownerId,
@@ -84,7 +87,8 @@ class ShareInfo {
         if (granteeType != null) 'granteeType': granteeType,
         if (granteeId != null) 'granteeId': granteeId,
         if (granteeName != null) 'granteeName': granteeName,
-        if (granteeDisplayName != null) 'granteeDisplayName': granteeDisplayName,
+        if (granteeDisplayName != null)
+          'granteeDisplayName': granteeDisplayName,
         if (mountpointId != null) 'mid': mountpointId,
       };
 }

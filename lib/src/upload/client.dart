@@ -17,7 +17,14 @@ class Client {
   final http.MultipartRequest multipartRequest;
 
   Client(String serviceHost)
-      : multipartRequest = http.MultipartRequest('POST', Uri.https(serviceHost, servicePath, {'fmt': queryFormat}));
+      : multipartRequest = http.MultipartRequest(
+          'POST',
+          Uri.https(
+            serviceHost,
+            servicePath,
+            {'fmt': queryFormat},
+          ),
+        );
 
   Future<List<Attachment>> upload(Request request) {
     multipartRequest
@@ -26,16 +33,22 @@ class Client {
       ..fields['requestId'] = request.requestId
       ..files.addAll(request.files);
     return multipartRequest.send().then((stream) {
-      return http.Response.fromStream(stream).then((response) => _parseResponse(response));
+      return http.Response.fromStream(stream).then(
+        (response) => _parseResponse(response),
+      );
     });
   }
 
   List<Attachment> _parseResponse(http.Response response) {
     if (response.statusCode == 200) {
-      return jsonDecode(response.body).map<Attachment>((data) => Attachment.fromMap(data)).toList(growable: false);
+      return jsonDecode(response.body)
+          .map<Attachment>(
+            (data) => Attachment.fromMap(data),
+          )
+          .toList(growable: false);
     } else {
       throw http.ClientException(
-        'An error is encountered with response status code ${response.statusCode}',
+        'An error is encountered with status code ${response.statusCode}',
         response.request?.url,
       );
     }

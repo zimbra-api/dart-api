@@ -19,7 +19,13 @@ class Request {
 
   final bool isAdmin;
 
-  const Request(this.requestId, this.authToken, this.files, {this.isAdmin = false});
+  const Request(
+    this.requestId,
+    this.authToken,
+    this.files, {
+    this.isAdmin = false,
+  });
 
-  String get authTokenCookie => isAdmin ? "$adminAuthToken=$authToken" : "$accountAuthToken=$authToken";
+  String get authTokenCookie =>
+      isAdmin ? "$adminAuthToken=$authToken" : "$accountAuthToken=$authToken";
 }

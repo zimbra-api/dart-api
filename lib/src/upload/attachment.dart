@@ -14,8 +14,17 @@ class Attachment {
 
   final int size;
 
-  const Attachment(this.attachmentId, this.fileName, [this.contentType = '', this.size = 0]);
+  const Attachment(
+    this.attachmentId,
+    this.fileName, [
+    this.contentType = '',
+    this.size = 0,
+  ]);
 
-  factory Attachment.fromMap(Map<String, dynamic> data) =>
-      Attachment(data['aid'] ?? '', data['filename'] ?? '', data['ct'] ?? '', data['s'] ?? 0);
+  factory Attachment.fromMap(Map<String, dynamic> data) => Attachment(
+        data['aid'] ?? '',
+        data['filename'] ?? '',
+        data['ct'] ?? '',
+        data['s'] ?? 0,
+      );
 }

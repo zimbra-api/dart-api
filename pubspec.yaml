@@ -1,6 +1,6 @@
 name: zimbra_api
 description: Zimbra SOAP API library in Dart language.
-version: 1.0.0
+version: 1.0.1
 repository: https://github.com/zimbra-api/dart-api
 
 environment:

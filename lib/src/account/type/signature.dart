@@ -27,7 +27,9 @@ class Signature {
       cid: data['cid'],
       contents: (data['content'] is Iterable)
           ? (data['content'] as Iterable)
-              .map<SignatureContent>((content) => SignatureContent.fromMap(content))
+              .map<SignatureContent>(
+                (content) => SignatureContent.fromMap(content),
+              )
               .toList(growable: false)
           : const []);
 
@@ -35,6 +37,11 @@ class Signature {
         if (name != null) 'name': name,
         if (id != null) 'id': id,
         if (cid != null) 'cid': cid,
-        if (contents.isNotEmpty) 'content': contents.map((content) => content.toMap()).toList(growable: false),
+        if (contents.isNotEmpty)
+          'content': contents
+              .map(
+                (content) => content.toMap(),
+              )
+              .toList(growable: false),
       };
 }

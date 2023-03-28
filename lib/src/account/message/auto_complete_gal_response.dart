@@ -29,12 +29,19 @@ class AutoCompleteGalResponse extends SoapResponse {
     this.contacts = const [],
   });
 
-  factory AutoCompleteGalResponse.fromMap(Map<String, dynamic> data) => AutoCompleteGalResponse(
+  factory AutoCompleteGalResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      AutoCompleteGalResponse(
         more: data['more'],
         tokenizeKey: data['tokenizeKey'],
         pagingSupported: data['paginationSupported'],
         contacts: (data['cn'] is Iterable)
-            ? (data['cn'] as Iterable).map<ContactInfo>((cn) => ContactInfo.fromMap(cn)).toList(growable: false)
+            ? (data['cn'] as Iterable)
+                .map<ContactInfo>(
+                  (cn) => ContactInfo.fromMap(cn),
+                )
+                .toList(growable: false)
             : const [],
       );
 }

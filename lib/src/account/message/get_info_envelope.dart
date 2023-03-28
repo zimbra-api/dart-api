@@ -7,8 +7,17 @@ import '../../common/type/soap_header.dart';
 import 'get_info_body.dart';
 
 class GetInfoEnvelope extends SoapEnvelope {
-  GetInfoEnvelope(GetInfoBody body, {super.header}) : super(body..response?.header = header);
+  GetInfoEnvelope(
+    GetInfoBody body, {
+    super.header,
+  }) : super(body..response?.header = header);
 
-  factory GetInfoEnvelope.fromMap(Map<String, dynamic> data) => GetInfoEnvelope(GetInfoBody.fromMap(data['Body']),
-      header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
+  factory GetInfoEnvelope.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetInfoEnvelope(
+        GetInfoBody.fromMap(data['Body']),
+        header:
+            data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null,
+      );
 }

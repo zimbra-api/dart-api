@@ -12,6 +12,14 @@ class GetPrefsResponse extends SoapResponse {
 
   GetPrefsResponse({this.prefs = const []});
 
-  factory GetPrefsResponse.fromMap(Map<String, dynamic> data) => GetPrefsResponse(
-      prefs: (data['_attrs'] is Map) ? Utils.prefsFromMap(data['_attrs'] as Map<String, dynamic>) : const []);
+  factory GetPrefsResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetPrefsResponse(
+        prefs: (data['_attrs'] is Map)
+            ? Utils.prefsFromMap(
+                data['_attrs'] as Map<String, dynamic>,
+              )
+            : const [],
+      );
 }

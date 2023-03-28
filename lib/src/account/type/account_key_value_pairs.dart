@@ -7,6 +7,10 @@ import '../../common/type/key_value_pairs.dart';
 class AccountKeyValuePairs extends KeyValuePairs {
   const AccountKeyValuePairs({super.keyValuePairs});
 
-  factory AccountKeyValuePairs.fromMap(Map<String, dynamic> data) =>
-      AccountKeyValuePairs(keyValuePairs: KeyValuePairs.keyValuePairsFromMap(data));
+  factory AccountKeyValuePairs.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      AccountKeyValuePairs(
+        keyValuePairs: KeyValuePairs.keyValuePairsFromMap(data),
+      );
 }

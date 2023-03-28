@@ -11,6 +11,14 @@ class GetVersionInfoResponse extends SoapResponse {
 
   GetVersionInfoResponse({this.versionInfo});
 
-  factory GetVersionInfoResponse.fromMap(Map<String, dynamic> data) =>
-      GetVersionInfoResponse(versionInfo: data['info'] is Map ? VersionInfo.fromMap(data['info']) : null);
+  factory GetVersionInfoResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetVersionInfoResponse(
+        versionInfo: data['info'] is Map
+            ? VersionInfo.fromMap(
+                data['info'],
+              )
+            : null,
+      );
 }

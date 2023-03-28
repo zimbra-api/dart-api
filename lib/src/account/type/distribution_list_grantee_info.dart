@@ -16,13 +16,17 @@ class DistributionListGranteeInfo {
 
   const DistributionListGranteeInfo(this.type, {this.id, this.name});
 
-  factory DistributionListGranteeInfo.fromMap(Map<String, dynamic> data) => DistributionListGranteeInfo(
-      GranteeType.values.firstWhere(
-        (type) => type.name == data['type'],
-        orElse: () => GranteeType.all,
-      ),
-      id: data['id'],
-      name: data['name']);
+  factory DistributionListGranteeInfo.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      DistributionListGranteeInfo(
+        GranteeType.values.firstWhere(
+          (type) => type.name == data['type'],
+          orElse: () => GranteeType.all,
+        ),
+        id: data['id'],
+        name: data['name'],
+      );
 
   Map<String, dynamic> toMap() => {
         'type': type.name,

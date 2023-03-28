@@ -21,15 +21,24 @@ class GetDistributionListMembersResponse extends SoapResponse {
     this.habGroupMembers = const [],
   });
 
-  factory GetDistributionListMembersResponse.fromMap(Map<String, dynamic> data) => GetDistributionListMembersResponse(
+  factory GetDistributionListMembersResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetDistributionListMembersResponse(
         more: data['more'],
         total: int.tryParse(data['total']?.toString() ?? ''),
         dlMembers: (data['dlm'] is Iterable)
-            ? (data['dlm'] as Iterable).map<String>((dlm) => dlm['_content']).toList(growable: false)
+            ? (data['dlm'] as Iterable)
+                .map<String>(
+                  (dlm) => dlm['_content'],
+                )
+                .toList(growable: false)
             : const [],
         habGroupMembers: (data['groupMember'] is Iterable)
             ? (data['groupMember'] as Iterable)
-                .map<HABGroupMember>((member) => HABGroupMember.fromMap(member))
+                .map<HABGroupMember>(
+                  (member) => HABGroupMember.fromMap(member),
+                )
                 .toList(growable: false)
             : const [],
       );

@@ -31,14 +31,19 @@ class SearchCalendarResourcesResponse extends SoapResponse {
     this.calendarResources = const [],
   });
 
-  factory SearchCalendarResourcesResponse.fromMap(Map<String, dynamic> data) => SearchCalendarResourcesResponse(
+  factory SearchCalendarResourcesResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      SearchCalendarResourcesResponse(
         sortBy: data['sortBy'],
         offset: int.tryParse(data['offset']?.toString() ?? ''),
         more: data['more'],
         pagingSupported: data['paginationSupported'],
         calendarResources: (data['calresource'] is Iterable)
             ? (data['calresource'] as Iterable)
-                .map<CalendarResourceInfo>((resource) => CalendarResourceInfo.fromMap(resource))
+                .map<CalendarResourceInfo>(
+                  (resource) => CalendarResourceInfo.fromMap(resource),
+                )
                 .toList(growable: false)
             : const [],
       );

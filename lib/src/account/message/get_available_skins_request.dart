@@ -13,8 +13,10 @@ import 'get_available_skins_envelope.dart';
 /// The installed skin list is obtained by a directory scan of the designated location of skins on a server.
 class GetAvailableSkinsRequest extends SoapRequest {
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      GetAvailableSkinsEnvelope(GetAvailableSkinsBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => GetAvailableSkinsEnvelope(
+        GetAvailableSkinsBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

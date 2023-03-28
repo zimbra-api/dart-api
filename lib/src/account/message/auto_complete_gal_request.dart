@@ -43,8 +43,10 @@ class AutoCompleteGalRequest extends SoapRequest {
   });
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      AutoCompleteGalEnvelope(AutoCompleteGalBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => AutoCompleteGalEnvelope(
+        AutoCompleteGalBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

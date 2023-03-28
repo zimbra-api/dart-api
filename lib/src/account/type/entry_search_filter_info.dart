@@ -14,9 +14,21 @@ class EntrySearchFilterInfo {
 
   const EntrySearchFilterInfo({this.condition, this.conditions});
 
-  factory EntrySearchFilterInfo.fromMap(Map<String, dynamic> data) => EntrySearchFilterInfo(
-      condition: data['cond']?[0] is Map ? EntrySearchFilterSingleCond.fromMap(data['cond'][0]) : null,
-      conditions: data['conds']?[0] is Map ? EntrySearchFilterMultiCond.fromMap(data['conds'][0]) : null);
+  factory EntrySearchFilterInfo.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      EntrySearchFilterInfo(
+        condition: data['cond']?[0] is Map
+            ? EntrySearchFilterSingleCond.fromMap(
+                data['cond'][0],
+              )
+            : null,
+        conditions: data['conds']?[0] is Map
+            ? EntrySearchFilterMultiCond.fromMap(
+                data['conds'][0],
+              )
+            : null,
+      );
 
   Map<String, dynamic> toMap() => {
         if (condition != null) 'cond': [condition!.toMap()],

@@ -10,8 +10,10 @@ import 'get_oauth_consumers_envelope.dart';
 
 class GetOAuthConsumersRequest extends SoapRequest {
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      GetOAuthConsumersEnvelope(GetOAuthConsumersBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => GetOAuthConsumersEnvelope(
+        GetOAuthConsumersBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

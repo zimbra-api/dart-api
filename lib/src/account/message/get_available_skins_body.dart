@@ -7,13 +7,21 @@ import 'get_available_skins_request.dart';
 import 'get_available_skins_response.dart';
 
 class GetAvailableSkinsBody extends SoapBody {
-  GetAvailableSkinsBody({GetAvailableSkinsRequest? request, GetAvailableSkinsResponse? response})
-      : super(request: request, response: response);
+  GetAvailableSkinsBody({
+    GetAvailableSkinsRequest? request,
+    GetAvailableSkinsResponse? response,
+  }) : super(request: request, response: response);
 
-  factory GetAvailableSkinsBody.fromMap(Map<String, dynamic> data) => GetAvailableSkinsBody(
-      response: data['GetAvailableSkinsResponse'] != null
-          ? GetAvailableSkinsResponse.fromMap(data['GetAvailableSkinsResponse'])
-          : null);
+  factory GetAvailableSkinsBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetAvailableSkinsBody(
+        response: data['GetAvailableSkinsResponse'] != null
+            ? GetAvailableSkinsResponse.fromMap(
+                data['GetAvailableSkinsResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

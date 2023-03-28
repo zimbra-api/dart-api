@@ -11,7 +11,12 @@ class ClientInfoBody extends SoapBody {
       : super(request: request, response: response);
 
   factory ClientInfoBody.fromMap(Map<String, dynamic> data) => ClientInfoBody(
-      response: data['ClientInfoResponse'] != null ? ClientInfoResponse.fromMap(data['ClientInfoResponse']) : null);
+        response: data['ClientInfoResponse'] != null
+            ? ClientInfoResponse.fromMap(
+                data['ClientInfoResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

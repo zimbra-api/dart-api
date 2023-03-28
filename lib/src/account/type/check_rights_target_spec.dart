@@ -21,7 +21,10 @@ class CheckRightsTargetSpec {
     this.rights = const [],
   });
 
-  factory CheckRightsTargetSpec.fromMap(Map<String, dynamic> data) => CheckRightsTargetSpec(
+  factory CheckRightsTargetSpec.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      CheckRightsTargetSpec(
         targetType: TargetType.values.firstWhere(
           (type) => type.name == data['type'],
           orElse: () => TargetType.account,
@@ -32,7 +35,11 @@ class CheckRightsTargetSpec {
         ),
         targetKey: data['key'] ?? '',
         rights: (data['right'] is Iterable)
-            ? (data['right'] as Iterable).map<String>((right) => right['_content']).toList(growable: false)
+            ? (data['right'] as Iterable)
+                .map<String>(
+                  (right) => right['_content'],
+                )
+                .toList(growable: false)
             : const [],
       );
 
@@ -40,6 +47,9 @@ class CheckRightsTargetSpec {
         'type': targetType.name,
         'by': targetBy.name,
         'key': targetKey,
-        if (rights.isNotEmpty) 'right': rights.map((right) => {'_content': right}).toList(growable: false),
+        if (rights.isNotEmpty)
+          'right': rights
+              .map((right) => {'_content': right})
+              .toList(growable: false),
       };
 }

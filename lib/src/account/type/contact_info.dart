@@ -104,11 +104,15 @@ class ContactInfo {
         tooManyMembers: data['tooManyMembers'],
         metadatas: (data['meta'] is Iterable)
             ? (data['meta'] as Iterable)
-                .map<AccountCustomMetadata>((meta) => AccountCustomMetadata.fromMap(meta))
+                .map<AccountCustomMetadata>(
+                  (meta) => AccountCustomMetadata.fromMap(meta),
+                )
                 .toList(growable: false)
             : const [],
         attrs: (data['_attrs'] is Map)
-            ? ContactAttr.contactAttrsFromMap(data['_attrs'] as Map<String, dynamic>)
+            ? ContactAttr.contactAttrsFromMap(
+                data['_attrs'] as Map<String, dynamic>,
+              )
             : const [],
         contactGroupMembers: (data['m'] is Iterable)
             ? (data['m'] as Iterable)
@@ -139,9 +143,24 @@ class ContactInfo {
         if (dlist != null) 'dlist': dlist,
         if (reference != null) 'ref': reference,
         if (tooManyMembers != null) 'tooManyMembers': tooManyMembers,
-        if (metadatas.isNotEmpty) 'meta': metadatas.map((meta) => meta.toMap()).toList(growable: false),
-        if (attrs.isNotEmpty) 'a': attrs.map((a) => a.toMap()).toList(growable: false),
-        if (contactGroupMembers.isNotEmpty) 'm': contactGroupMembers.map((m) => m.toMap()).toList(growable: false),
+        if (metadatas.isNotEmpty)
+          'meta': metadatas
+              .map(
+                (meta) => meta.toMap(),
+              )
+              .toList(growable: false),
+        if (attrs.isNotEmpty)
+          'a': attrs
+              .map(
+                (a) => a.toMap(),
+              )
+              .toList(growable: false),
+        if (contactGroupMembers.isNotEmpty)
+          'm': contactGroupMembers
+              .map(
+                (m) => m.toMap(),
+              )
+              .toList(growable: false),
         if (isOwner != null) 'isOwner': isOwner,
         if (isMember != null) 'isMember': isMember,
       };

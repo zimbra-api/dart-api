@@ -33,7 +33,10 @@ class AccountCalDataSource extends AccountDataSource {
     super.refreshTokenUrl,
   });
 
-  factory AccountCalDataSource.fromMap(Map<String, dynamic> data) => AccountCalDataSource(
+  factory AccountCalDataSource.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      AccountCalDataSource(
         id: data['id'],
         name: data['name'],
         folderId: data['l'],
@@ -59,7 +62,11 @@ class AccountCalDataSource extends AccountDataSource {
         failingSince: int.tryParse(data['failingSince']?.toString() ?? ''),
         lastError: data['lastError']?['_content'],
         attributes: (data['a'] is Iterable)
-            ? (data['a'] as Iterable).map<String>((a) => a['_content']).toList(growable: false)
+            ? (data['a'] as Iterable)
+                .map<String>(
+                  (a) => a['_content'],
+                )
+                .toList(growable: false)
             : const [],
         refreshToken: data['refreshToken'],
         refreshTokenUrl: data['refreshTokenUrl'],

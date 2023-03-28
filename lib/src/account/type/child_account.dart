@@ -29,7 +29,11 @@ class ChildAccount {
         isVisible: data['visible'],
         isActive: data['active'],
         attrs: (data['attrs']?[0]['attr'] is Iterable)
-            ? (data['attrs'][0]['attr'] as Iterable).map<Attr>((attr) => Attr.fromMap(attr)).toList(growable: false)
+            ? (data['attrs'][0]['attr'] as Iterable)
+                .map<Attr>(
+                  (attr) => Attr.fromMap(attr),
+                )
+                .toList(growable: false)
             : const [],
       );
 
@@ -38,6 +42,13 @@ class ChildAccount {
         if (name != null) 'name': name,
         if (isVisible != null) 'visible': isVisible,
         if (isActive != null) 'active': isActive,
-        if (attrs.isNotEmpty) 'attrs': {'attr': attrs.map((attr) => attr.toMap()).toList(growable: false)},
+        if (attrs.isNotEmpty)
+          'attrs': {
+            'attr': attrs
+                .map(
+                  (attr) => attr.toMap(),
+                )
+                .toList(growable: false)
+          },
       };
 }

@@ -7,10 +7,20 @@ import '../../common/type/soap_header.dart';
 import 'get_account_distribution_lists_body.dart';
 
 class GetAccountDistributionListsEnvelope extends SoapEnvelope {
-  GetAccountDistributionListsEnvelope(GetAccountDistributionListsBody body, {super.header})
-      : super(body..response?.header = header);
+  GetAccountDistributionListsEnvelope(
+    GetAccountDistributionListsBody body, {
+    super.header,
+  }) : super(body..response?.header = header);
 
-  factory GetAccountDistributionListsEnvelope.fromMap(Map<String, dynamic> data) =>
-      GetAccountDistributionListsEnvelope(GetAccountDistributionListsBody.fromMap(data['Body']),
-          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
+  factory GetAccountDistributionListsEnvelope.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetAccountDistributionListsEnvelope(
+        GetAccountDistributionListsBody.fromMap(data['Body']),
+        header: data['Header'] != null
+            ? SoapHeader.fromMap(
+                data['Header'],
+              )
+            : null,
+      );
 }

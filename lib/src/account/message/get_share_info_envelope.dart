@@ -7,9 +7,20 @@ import '../../common/type/soap_header.dart';
 import 'get_share_info_body.dart';
 
 class GetShareInfoEnvelope extends SoapEnvelope {
-  GetShareInfoEnvelope(GetShareInfoBody body, {super.header}) : super(body..response?.header = header);
+  GetShareInfoEnvelope(
+    GetShareInfoBody body, {
+    super.header,
+  }) : super(body..response?.header = header);
 
-  factory GetShareInfoEnvelope.fromMap(Map<String, dynamic> data) =>
-      GetShareInfoEnvelope(GetShareInfoBody.fromMap(data['Body']),
-          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
+  factory GetShareInfoEnvelope.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetShareInfoEnvelope(
+        GetShareInfoBody.fromMap(data['Body']),
+        header: data['Header'] != null
+            ? SoapHeader.fromMap(
+                data['Header'],
+              )
+            : null,
+      );
 }

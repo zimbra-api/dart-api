@@ -17,8 +17,10 @@ class GetAccountInfoRequest extends SoapRequest {
   GetAccountInfoRequest(this.account);
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      GetAccountInfoEnvelope(GetAccountInfoBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => GetAccountInfoEnvelope(
+        GetAccountInfoBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

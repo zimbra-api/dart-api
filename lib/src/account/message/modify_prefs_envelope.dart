@@ -7,9 +7,20 @@ import '../../common/type/soap_header.dart';
 import 'modify_prefs_body.dart';
 
 class ModifyPrefsEnvelope extends SoapEnvelope {
-  ModifyPrefsEnvelope(ModifyPrefsBody body, {super.header}) : super(body..response?.header = header);
+  ModifyPrefsEnvelope(
+    ModifyPrefsBody body, {
+    super.header,
+  }) : super(body..response?.header = header);
 
-  factory ModifyPrefsEnvelope.fromMap(Map<String, dynamic> data) =>
-      ModifyPrefsEnvelope(ModifyPrefsBody.fromMap(data['Body']),
-          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
+  factory ModifyPrefsEnvelope.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ModifyPrefsEnvelope(
+        ModifyPrefsBody.fromMap(data['Body']),
+        header: data['Header'] != null
+            ? SoapHeader.fromMap(
+                data['Header'],
+              )
+            : null,
+      );
 }

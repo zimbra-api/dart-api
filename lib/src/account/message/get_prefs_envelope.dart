@@ -7,8 +7,20 @@ import '../../common/type/soap_header.dart';
 import 'get_prefs_body.dart';
 
 class GetPrefsEnvelope extends SoapEnvelope {
-  GetPrefsEnvelope(GetPrefsBody body, {super.header}) : super(body..response?.header = header);
+  GetPrefsEnvelope(
+    GetPrefsBody body, {
+    super.header,
+  }) : super(body..response?.header = header);
 
-  factory GetPrefsEnvelope.fromMap(Map<String, dynamic> data) => GetPrefsEnvelope(GetPrefsBody.fromMap(data['Body']),
-      header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
+  factory GetPrefsEnvelope.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetPrefsEnvelope(
+        GetPrefsBody.fromMap(data['Body']),
+        header: data['Header'] != null
+            ? SoapHeader.fromMap(
+                data['Header'],
+              )
+            : null,
+      );
 }

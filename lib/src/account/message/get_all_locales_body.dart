@@ -7,12 +7,21 @@ import 'get_all_locales_request.dart';
 import 'get_all_locales_response.dart';
 
 class GetAllLocalesBody extends SoapBody {
-  GetAllLocalesBody({GetAllLocalesRequest? request, GetAllLocalesResponse? response})
-      : super(request: request, response: response);
+  GetAllLocalesBody({
+    GetAllLocalesRequest? request,
+    GetAllLocalesResponse? response,
+  }) : super(request: request, response: response);
 
-  factory GetAllLocalesBody.fromMap(Map<String, dynamic> data) => GetAllLocalesBody(
-      response:
-          data['GetAllLocalesResponse'] != null ? GetAllLocalesResponse.fromMap(data['GetAllLocalesResponse']) : null);
+  factory GetAllLocalesBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetAllLocalesBody(
+        response: data['GetAllLocalesResponse'] != null
+            ? GetAllLocalesResponse.fromMap(
+                data['GetAllLocalesResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

@@ -18,8 +18,10 @@ class CreateIdentityRequest extends SoapRequest {
   CreateIdentityRequest(this.identity);
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      CreateIdentityEnvelope(CreateIdentityBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => CreateIdentityEnvelope(
+        CreateIdentityBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

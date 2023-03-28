@@ -7,5 +7,8 @@ import '../../common/type/soap_response.dart';
 class DistributionListActionResponse extends SoapResponse {
   DistributionListActionResponse();
 
-  factory DistributionListActionResponse.fromMap(Map<String, dynamic> data) => DistributionListActionResponse();
+  factory DistributionListActionResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      DistributionListActionResponse();
 }

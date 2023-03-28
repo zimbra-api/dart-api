@@ -7,13 +7,19 @@ import 'get_account_info_request.dart';
 import 'get_account_info_response.dart';
 
 class GetAccountInfoBody extends SoapBody {
-  GetAccountInfoBody({GetAccountInfoRequest? request, GetAccountInfoResponse? response})
-      : super(request: request, response: response);
+  GetAccountInfoBody({
+    GetAccountInfoRequest? request,
+    GetAccountInfoResponse? response,
+  }) : super(request: request, response: response);
 
-  factory GetAccountInfoBody.fromMap(Map<String, dynamic> data) => GetAccountInfoBody(
-      response: data['GetAccountInfoResponse'] != null
-          ? GetAccountInfoResponse.fromMap(data['GetAccountInfoResponse'])
-          : null);
+  factory GetAccountInfoBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetAccountInfoBody(
+        response: data['GetAccountInfoResponse'] != null
+            ? GetAccountInfoResponse.fromMap(data['GetAccountInfoResponse'])
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

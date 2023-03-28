@@ -9,7 +9,10 @@ class Session {
 
   const Session(this.id, {this.type});
 
-  factory Session.fromMap(Map<String, dynamic> data) => Session(data['id'], type: data['type']);
+  factory Session.fromMap(Map<String, dynamic> data) => Session(
+        data['id'],
+        type: data['type'],
+      );
 
   Map<String, dynamic> toMap() => {
         'id': id,

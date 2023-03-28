@@ -7,13 +7,19 @@ import 'delete_identity_request.dart';
 import 'delete_identity_response.dart';
 
 class DeleteIdentityBody extends SoapBody {
-  DeleteIdentityBody({DeleteIdentityRequest? request, DeleteIdentityResponse? response})
-      : super(request: request, response: response);
+  DeleteIdentityBody({
+    DeleteIdentityRequest? request,
+    DeleteIdentityResponse? response,
+  }) : super(request: request, response: response);
 
-  factory DeleteIdentityBody.fromMap(Map<String, dynamic> data) => DeleteIdentityBody(
-      response: data['DeleteIdentityResponse'] != null
-          ? DeleteIdentityResponse.fromMap(data['DeleteIdentityResponse'])
-          : null);
+  factory DeleteIdentityBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      DeleteIdentityBody(
+        response: data['DeleteIdentityResponse'] != null
+            ? DeleteIdentityResponse.fromMap(data['DeleteIdentityResponse'])
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

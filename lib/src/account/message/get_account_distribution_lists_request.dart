@@ -29,8 +29,13 @@ class GetAccountDistributionListsRequest extends SoapRequest {
   GetAccountDistributionListsRequest({this.ownerOf, this.memberOf, this.attrs});
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      GetAccountDistributionListsEnvelope(GetAccountDistributionListsBody(request: this), header: header);
+  SoapEnvelope getEnvelope({
+    SoapHeader? header,
+  }) =>
+      GetAccountDistributionListsEnvelope(
+        GetAccountDistributionListsBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

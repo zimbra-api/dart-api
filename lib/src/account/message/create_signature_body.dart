@@ -7,13 +7,19 @@ import 'create_signature_request.dart';
 import 'create_signature_response.dart';
 
 class CreateSignatureBody extends SoapBody {
-  CreateSignatureBody({CreateSignatureRequest? request, CreateSignatureResponse? response})
-      : super(request: request, response: response);
+  CreateSignatureBody({
+    CreateSignatureRequest? request,
+    CreateSignatureResponse? response,
+  }) : super(request: request, response: response);
 
-  factory CreateSignatureBody.fromMap(Map<String, dynamic> data) => CreateSignatureBody(
-      response: data['CreateSignatureResponse'] != null
-          ? CreateSignatureResponse.fromMap(data['CreateSignatureResponse'])
-          : null);
+  factory CreateSignatureBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      CreateSignatureBody(
+        response: data['CreateSignatureResponse'] != null
+            ? CreateSignatureResponse.fromMap(data['CreateSignatureResponse'])
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

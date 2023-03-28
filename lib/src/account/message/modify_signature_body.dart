@@ -7,13 +7,19 @@ import 'modify_signature_request.dart';
 import 'modify_signature_response.dart';
 
 class ModifySignatureBody extends SoapBody {
-  ModifySignatureBody({ModifySignatureRequest? request, ModifySignatureResponse? response})
-      : super(request: request, response: response);
+  ModifySignatureBody({
+    ModifySignatureRequest? request,
+    ModifySignatureResponse? response,
+  }) : super(request: request, response: response);
 
-  factory ModifySignatureBody.fromMap(Map<String, dynamic> data) => ModifySignatureBody(
-      response: data['ModifySignatureResponse'] != null
-          ? ModifySignatureResponse.fromMap(data['ModifySignatureResponse'])
-          : null);
+  factory ModifySignatureBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ModifySignatureBody(
+        response: data['ModifySignatureResponse'] != null
+            ? ModifySignatureResponse.fromMap(data['ModifySignatureResponse'])
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

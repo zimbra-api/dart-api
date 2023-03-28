@@ -7,9 +7,20 @@ import '../../common/type/soap_header.dart';
 import 'get_available_locales_body.dart';
 
 class GetAvailableLocalesEnvelope extends SoapEnvelope {
-  GetAvailableLocalesEnvelope(GetAvailableLocalesBody body, {super.header}) : super(body..response?.header = header);
+  GetAvailableLocalesEnvelope(
+    GetAvailableLocalesBody body, {
+    super.header,
+  }) : super(body..response?.header = header);
 
-  factory GetAvailableLocalesEnvelope.fromMap(Map<String, dynamic> data) =>
-      GetAvailableLocalesEnvelope(GetAvailableLocalesBody.fromMap(data['Body']),
-          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
+  factory GetAvailableLocalesEnvelope.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetAvailableLocalesEnvelope(
+        GetAvailableLocalesBody.fromMap(data['Body']),
+        header: data['Header'] != null
+            ? SoapHeader.fromMap(
+                data['Header'],
+              )
+            : null,
+      );
 }

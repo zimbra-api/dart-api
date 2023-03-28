@@ -11,7 +11,12 @@ class EndSessionBody extends SoapBody {
       : super(request: request, response: response);
 
   factory EndSessionBody.fromMap(Map<String, dynamic> data) => EndSessionBody(
-      response: data['EndSessionResponse'] != null ? EndSessionResponse.fromMap(data['EndSessionResponse']) : null);
+        response: data['EndSessionResponse'] != null
+            ? EndSessionResponse.fromMap(
+                data['EndSessionResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

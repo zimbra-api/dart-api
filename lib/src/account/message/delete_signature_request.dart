@@ -18,8 +18,10 @@ class DeleteSignatureRequest extends SoapRequest {
   DeleteSignatureRequest(this.signature);
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      DeleteSignatureEnvelope(DeleteSignatureBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => DeleteSignatureEnvelope(
+        DeleteSignatureBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

@@ -10,14 +10,25 @@ class AccountZimletGlobalConfigInfo {
 
   const AccountZimletGlobalConfigInfo({this.properties = const []});
 
-  factory AccountZimletGlobalConfigInfo.fromMap(Map<String, dynamic> data) => AccountZimletGlobalConfigInfo(
-      properties: (data['property'] is Iterable)
-          ? (data['property'] as Iterable)
-              .map<AccountZimletProperty>((property) => AccountZimletProperty.fromMap(property))
-              .toList(growable: false)
-          : const []);
+  factory AccountZimletGlobalConfigInfo.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      AccountZimletGlobalConfigInfo(
+        properties: (data['property'] is Iterable)
+            ? (data['property'] as Iterable)
+                .map<AccountZimletProperty>(
+                  (property) => AccountZimletProperty.fromMap(property),
+                )
+                .toList(growable: false)
+            : const [],
+      );
 
   Map<String, dynamic> toMap() => {
-        if (properties.isNotEmpty) 'property': properties.map((property) => property.toMap()).toList(growable: false),
+        if (properties.isNotEmpty)
+          'property': properties
+              .map(
+                (property) => property.toMap(),
+              )
+              .toList(growable: false),
       };
 }

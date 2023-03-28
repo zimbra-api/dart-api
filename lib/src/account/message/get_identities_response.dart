@@ -11,10 +11,14 @@ class GetIdentitiesResponse extends SoapResponse {
 
   GetIdentitiesResponse({this.identities = const []});
 
-  factory GetIdentitiesResponse.fromMap(Map<String, dynamic> data) => GetIdentitiesResponse(
-      identities: (data['identity'] is Iterable)
-          ? (data['identity'] as Iterable)
-              .map<Identity>((identity) => Identity.fromMap(identity))
-              .toList(growable: false)
-          : const []);
+  factory GetIdentitiesResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetIdentitiesResponse(
+        identities: (data['identity'] is Iterable)
+            ? (data['identity'] as Iterable)
+                .map<Identity>((identity) => Identity.fromMap(identity))
+                .toList(growable: false)
+            : const [],
+      );
 }

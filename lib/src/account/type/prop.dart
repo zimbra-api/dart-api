@@ -11,7 +11,11 @@ class Prop {
 
   const Prop(this.zimlet, this.name, {this.value});
 
-  factory Prop.fromMap(Map<String, dynamic> data) => Prop(data['zimlet'], data['name'], value: data['_content']);
+  factory Prop.fromMap(Map<String, dynamic> data) => Prop(
+        data['zimlet'],
+        data['name'],
+        value: data['_content'],
+      );
 
   Map<String, dynamic> toMap() => {
         'zimlet': zimlet,

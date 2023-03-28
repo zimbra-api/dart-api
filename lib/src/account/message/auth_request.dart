@@ -107,12 +107,16 @@ class AuthRequest extends SoapRequest {
   });
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) => AuthEnvelope(AuthBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => AuthEnvelope(
+        AuthBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraAccount',
-        if (persistAuthTokenCookie != null) 'persistAuthTokenCookie': persistAuthTokenCookie,
+        if (persistAuthTokenCookie != null)
+          'persistAuthTokenCookie': persistAuthTokenCookie,
         if (csrfSupported != null) 'csrfTokenSecured': csrfSupported,
         if (account != null) 'account': account!.toMap(),
         if (password != null) 'password': {'_content': password},
@@ -132,7 +136,10 @@ class AuthRequest extends SoapRequest {
         if (requestedSkin != null) 'requestedSkin': {'_content': requestedSkin},
         if (twoFactorCode != null) 'twoFactorCode': {'_content': twoFactorCode},
         if (deviceTrusted != null) 'deviceTrusted': deviceTrusted,
-        if (trustedDeviceToken != null) 'trustedToken': {'_content': trustedDeviceToken},
+        if (trustedDeviceToken != null)
+          'trustedToken': {
+            '_content': trustedDeviceToken,
+          },
         if (deviceId != null) 'deviceId': {'_content': deviceId},
         if (generateDeviceId != null) 'generateDeviceId': generateDeviceId,
         if (tokenType != null) 'tokenType': tokenType,

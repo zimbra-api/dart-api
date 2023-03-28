@@ -7,11 +7,18 @@ import 'sync_gal_request.dart';
 import 'sync_gal_response.dart';
 
 class SyncGalBody extends SoapBody {
-  SyncGalBody({SyncGalRequest? request, SyncGalResponse? response})
-      : super(request: request, response: response);
+  SyncGalBody({
+    SyncGalRequest? request,
+    SyncGalResponse? response,
+  }) : super(request: request, response: response);
 
   factory SyncGalBody.fromMap(Map<String, dynamic> data) => SyncGalBody(
-      response: data['SyncGalResponse'] != null ? SyncGalResponse.fromMap(data['SyncGalResponse']) : null);
+        response: data['SyncGalResponse'] != null
+            ? SyncGalResponse.fromMap(
+                data['SyncGalResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

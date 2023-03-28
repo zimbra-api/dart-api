@@ -14,12 +14,16 @@ class ModifyZimletPrefsSpec {
 
   const ModifyZimletPrefsSpec(this.name, this.presence);
 
-  factory ModifyZimletPrefsSpec.fromMap(Map<String, dynamic> data) => ModifyZimletPrefsSpec(
-      data['name'] ?? '',
-      ZimletStatus.values.firstWhere(
-        (presence) => presence.name == data['presence'],
-        orElse: () => ZimletStatus.enabled,
-      ));
+  factory ModifyZimletPrefsSpec.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ModifyZimletPrefsSpec(
+        data['name'] ?? '',
+        ZimletStatus.values.firstWhere(
+          (presence) => presence.name == data['presence'],
+          orElse: () => ZimletStatus.enabled,
+        ),
+      );
 
   Map<String, dynamic> toMap() => {
         'name': name,

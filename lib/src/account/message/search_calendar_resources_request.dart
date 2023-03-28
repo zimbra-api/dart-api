@@ -62,8 +62,13 @@ class SearchCalendarResourcesRequest extends SoapRequest {
   });
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      SearchCalendarResourcesEnvelope(SearchCalendarResourcesBody(request: this), header: header);
+  SoapEnvelope getEnvelope({
+    SoapHeader? header,
+  }) =>
+      SearchCalendarResourcesEnvelope(
+        SearchCalendarResourcesBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

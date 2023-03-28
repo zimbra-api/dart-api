@@ -11,8 +11,16 @@ class GetAvailableSkinsResponse extends SoapResponse {
 
   GetAvailableSkinsResponse({this.skins = const []});
 
-  factory GetAvailableSkinsResponse.fromMap(Map<String, dynamic> data) => GetAvailableSkinsResponse(
-      skins: (data['skin'] is Iterable)
-          ? (data['skin'] as Iterable).map<NamedElement>((skin) => NamedElement.fromMap(skin)).toList(growable: false)
-          : const []);
+  factory GetAvailableSkinsResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetAvailableSkinsResponse(
+        skins: (data['skin'] is Iterable)
+            ? (data['skin'] as Iterable)
+                .map<NamedElement>(
+                  (skin) => NamedElement.fromMap(skin),
+                )
+                .toList(growable: false)
+            : const [],
+      );
 }

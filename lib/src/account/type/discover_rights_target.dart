@@ -29,7 +29,10 @@ class DiscoverRightsTarget {
     this.emails = const [],
   });
 
-  factory DiscoverRightsTarget.fromMap(Map<String, dynamic> data) => DiscoverRightsTarget(
+  factory DiscoverRightsTarget.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      DiscoverRightsTarget(
         type: TargetType.values.firstWhere(
           (type) => type.name == data['type'],
           orElse: () => TargetType.account,
@@ -39,7 +42,9 @@ class DiscoverRightsTarget {
         displayName: data['d'],
         emails: (data['email'] is Iterable)
             ? (data['email'] as Iterable)
-                .map<DiscoverRightsEmail>((email) => DiscoverRightsEmail.fromMap(email))
+                .map<DiscoverRightsEmail>(
+                  (email) => DiscoverRightsEmail.fromMap(email),
+                )
                 .toList(growable: false)
             : const [],
       );
@@ -49,6 +54,11 @@ class DiscoverRightsTarget {
         if (id != null) 'id': id,
         if (name != null) 'name': name,
         if (displayName != null) 'd': displayName,
-        if (emails.isNotEmpty) 'email': emails.map((email) => email.toMap()).toList(growable: false),
+        if (emails.isNotEmpty)
+          'email': emails
+              .map(
+                (email) => email.toMap(),
+              )
+              .toList(growable: false),
       };
 }

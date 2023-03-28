@@ -7,9 +7,20 @@ import '../../common/type/soap_header.dart';
 import 'reset_password_body.dart';
 
 class ResetPasswordEnvelope extends SoapEnvelope {
-  ResetPasswordEnvelope(ResetPasswordBody body, {super.header}) : super(body..response?.header = header);
+  ResetPasswordEnvelope(
+    ResetPasswordBody body, {
+    super.header,
+  }) : super(body..response?.header = header);
 
-  factory ResetPasswordEnvelope.fromMap(Map<String, dynamic> data) =>
-      ResetPasswordEnvelope(ResetPasswordBody.fromMap(data['Body']),
-          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
+  factory ResetPasswordEnvelope.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ResetPasswordEnvelope(
+        ResetPasswordBody.fromMap(data['Body']),
+        header: data['Header'] != null
+            ? SoapHeader.fromMap(
+                data['Header'],
+              )
+            : null,
+      );
 }

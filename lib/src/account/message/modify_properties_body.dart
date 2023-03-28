@@ -7,13 +7,21 @@ import 'modify_properties_request.dart';
 import 'modify_properties_response.dart';
 
 class ModifyPropertiesBody extends SoapBody {
-  ModifyPropertiesBody({ModifyPropertiesRequest? request, ModifyPropertiesResponse? response})
-      : super(request: request, response: response);
+  ModifyPropertiesBody({
+    ModifyPropertiesRequest? request,
+    ModifyPropertiesResponse? response,
+  }) : super(request: request, response: response);
 
-  factory ModifyPropertiesBody.fromMap(Map<String, dynamic> data) => ModifyPropertiesBody(
-      response: data['ModifyPropertiesResponse'] != null
-          ? ModifyPropertiesResponse.fromMap(data['ModifyPropertiesResponse'])
-          : null);
+  factory ModifyPropertiesBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ModifyPropertiesBody(
+        response: data['ModifyPropertiesResponse'] != null
+            ? ModifyPropertiesResponse.fromMap(
+                data['ModifyPropertiesResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

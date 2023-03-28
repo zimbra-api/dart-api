@@ -70,7 +70,11 @@ class AuthResponse extends SoapResponse {
         authToken: data['authToken']?[0]['_content'],
         lifetime: int.tryParse(data['lifetime']?.toString() ?? ''),
         trustLifetime: int.tryParse(data['trustLifetime']?.toString() ?? ''),
-        session: data['session'] is Map ? Session.fromMap(data['session']) : null,
+        session: data['session'] is Map
+            ? Session.fromMap(
+                data['session'],
+              )
+            : null,
         refer: data['refer'],
         skin: data['skin']?[0]['_content'],
         csrfToken: data['csrfToken']?['_content'],
@@ -78,10 +82,14 @@ class AuthResponse extends SoapResponse {
         trustedToken: data['trustedToken']?['_content'],
         zmgProxy: data['zmgProxy'],
         prefs: (data['prefs']?['_attrs'] is Map)
-            ? Utils.prefsFromMap(data['prefs']['_attrs'] as Map<String, dynamic>)
+            ? Utils.prefsFromMap(
+                data['prefs']['_attrs'] as Map<String, dynamic>,
+              )
             : const [],
         attrs: (data['attrs']?['_attrs'] is Map)
-            ? Utils.attrsFromMap(data['attrs']['_attrs'] as Map<String, dynamic>)
+            ? Utils.attrsFromMap(
+                data['attrs']['_attrs'] as Map<String, dynamic>,
+              )
             : const [],
         twoFactorAuthRequired: data['twoFactorAuthRequired'],
         trustedDevicesEnabled: data['trustedDevicesEnabled'],

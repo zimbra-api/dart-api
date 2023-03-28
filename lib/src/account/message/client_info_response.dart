@@ -12,6 +12,8 @@ class ClientInfoResponse extends SoapResponse {
 
   ClientInfoResponse({this.attrs = const []});
 
-  factory ClientInfoResponse.fromMap(Map<String, dynamic> data) => ClientInfoResponse(
-      attrs: KeyValuePairs.keyValuePairsFromMap(data));
+  factory ClientInfoResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ClientInfoResponse(attrs: KeyValuePairs.keyValuePairsFromMap(data));
 }

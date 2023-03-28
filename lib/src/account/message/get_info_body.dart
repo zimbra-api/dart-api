@@ -7,11 +7,18 @@ import 'get_info_request.dart';
 import 'get_info_response.dart';
 
 class GetInfoBody extends SoapBody {
-  GetInfoBody({GetInfoRequest? request, GetInfoResponse? response})
-      : super(request: request, response: response);
+  GetInfoBody({
+    GetInfoRequest? request,
+    GetInfoResponse? response,
+  }) : super(request: request, response: response);
 
   factory GetInfoBody.fromMap(Map<String, dynamic> data) => GetInfoBody(
-      response: data['GetInfoResponse'] != null ? GetInfoResponse.fromMap(data['GetInfoResponse']) : null);
+        response: data['GetInfoResponse'] != null
+            ? GetInfoResponse.fromMap(
+                data['GetInfoResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

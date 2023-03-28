@@ -19,11 +19,19 @@ class GetPrefsRequest extends SoapRequest {
   GetPrefsRequest({this.prefs = const []});
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) => GetPrefsEnvelope(GetPrefsBody(request: this), header: header);
+  SoapEnvelope getEnvelope({
+    SoapHeader? header,
+  }) =>
+      GetPrefsEnvelope(GetPrefsBody(request: this), header: header);
 
   @override
   Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraAccount',
-        if (prefs.isNotEmpty) 'pref': prefs.map((pref) => pref.toMap()).toList(growable: false),
+        if (prefs.isNotEmpty)
+          'pref': prefs
+              .map(
+                (pref) => pref.toMap(),
+              )
+              .toList(growable: false),
       };
 }

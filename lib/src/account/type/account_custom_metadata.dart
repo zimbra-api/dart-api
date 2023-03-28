@@ -10,12 +10,22 @@ class AccountCustomMetadata extends AccountKeyValuePairs {
 
   const AccountCustomMetadata({this.section, super.keyValuePairs});
 
-  factory AccountCustomMetadata.fromMap(Map<String, dynamic> data) =>
-      AccountCustomMetadata(section: data['section'], keyValuePairs: KeyValuePairs.keyValuePairsFromMap(data));
+  factory AccountCustomMetadata.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      AccountCustomMetadata(
+        section: data['section'],
+        keyValuePairs: KeyValuePairs.keyValuePairsFromMap(data),
+      );
 
   @override
   Map<String, dynamic> toMap() => {
         if (section != null) 'section': section,
-        if (keyValuePairs.isNotEmpty) 'a': keyValuePairs.map((kvp) => kvp.toMap()).toList(growable: false),
+        if (keyValuePairs.isNotEmpty)
+          'a': keyValuePairs
+              .map(
+                (kvp) => kvp.toMap(),
+              )
+              .toList(growable: false),
       };
 }

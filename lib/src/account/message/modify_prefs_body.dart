@@ -7,11 +7,21 @@ import 'modify_prefs_request.dart';
 import 'modify_prefs_response.dart';
 
 class ModifyPrefsBody extends SoapBody {
-  ModifyPrefsBody({ModifyPrefsRequest? request, ModifyPrefsResponse? response})
-      : super(request: request, response: response);
+  ModifyPrefsBody({
+    ModifyPrefsRequest? request,
+    ModifyPrefsResponse? response,
+  }) : super(request: request, response: response);
 
-  factory ModifyPrefsBody.fromMap(Map<String, dynamic> data) => ModifyPrefsBody(
-      response: data['ModifyPrefsResponse'] != null ? ModifyPrefsResponse.fromMap(data['ModifyPrefsResponse']) : null);
+  factory ModifyPrefsBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ModifyPrefsBody(
+        response: data['ModifyPrefsResponse'] != null
+            ? ModifyPrefsResponse.fromMap(
+                data['ModifyPrefsResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

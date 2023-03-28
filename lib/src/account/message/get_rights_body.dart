@@ -7,11 +7,18 @@ import 'get_rights_request.dart';
 import 'get_rights_response.dart';
 
 class GetRightsBody extends SoapBody {
-  GetRightsBody({GetRightsRequest? request, GetRightsResponse? response})
-      : super(request: request, response: response);
+  GetRightsBody({
+    GetRightsRequest? request,
+    GetRightsResponse? response,
+  }) : super(request: request, response: response);
 
   factory GetRightsBody.fromMap(Map<String, dynamic> data) => GetRightsBody(
-      response: data['GetRightsResponse'] != null ? GetRightsResponse.fromMap(data['GetRightsResponse']) : null);
+        response: data['GetRightsResponse'] != null
+            ? GetRightsResponse.fromMap(
+                data['GetRightsResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

@@ -33,7 +33,10 @@ class AccountGalDataSource extends AccountDataSource {
     super.refreshTokenUrl,
   });
 
-  factory AccountGalDataSource.fromMap(Map<String, dynamic> data) => AccountGalDataSource(
+  factory AccountGalDataSource.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      AccountGalDataSource(
         id: data['id'],
         name: data['name'],
         folderId: data['l'],
@@ -59,7 +62,11 @@ class AccountGalDataSource extends AccountDataSource {
         failingSince: int.tryParse(data['failingSince']?.toString() ?? ''),
         lastError: data['lastError']?['_content'],
         attributes: (data['a'] is Iterable)
-            ? (data['a'] as Iterable).map<String>((a) => a['_content']).toList(growable: false)
+            ? (data['a'] as Iterable)
+                .map<String>(
+                  (a) => a['_content'],
+                )
+                .toList(growable: false)
             : const [],
         refreshToken: data['refreshToken'],
         refreshTokenUrl: data['refreshTokenUrl'],

@@ -10,7 +10,11 @@ class Utils {
     final attrs = <Attr>[];
     for (final entry in data.entries) {
       if (entry.value is Iterable) {
-        attrs.addAll((entry.value as Iterable).map<Attr>((value) => Attr(entry.key, value: value)));
+        attrs.addAll(
+          (entry.value as Iterable).map<Attr>(
+            (value) => Attr(entry.key, value: value),
+          ),
+        );
       } else {
         attrs.add(Attr(entry.key, value: entry.value));
       }
@@ -22,7 +26,11 @@ class Utils {
     final prefs = <Pref>[];
     for (final entry in data.entries) {
       if (entry.value is Iterable) {
-        prefs.addAll((entry.value as Iterable).map<Pref>((value) => Pref(entry.key, value: value)));
+        prefs.addAll(
+          (entry.value as Iterable).map<Pref>(
+            (value) => Pref(entry.key, value: value),
+          ),
+        );
       } else {
         prefs.add(Pref(entry.key, value: entry.value));
       }

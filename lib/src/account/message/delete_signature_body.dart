@@ -7,13 +7,19 @@ import 'delete_signature_request.dart';
 import 'delete_signature_response.dart';
 
 class DeleteSignatureBody extends SoapBody {
-  DeleteSignatureBody({DeleteSignatureRequest? request, DeleteSignatureResponse? response})
-      : super(request: request, response: response);
+  DeleteSignatureBody({
+    DeleteSignatureRequest? request,
+    DeleteSignatureResponse? response,
+  }) : super(request: request, response: response);
 
-  factory DeleteSignatureBody.fromMap(Map<String, dynamic> data) => DeleteSignatureBody(
-      response: data['DeleteSignatureResponse'] != null
-          ? DeleteSignatureResponse.fromMap(data['DeleteSignatureResponse'])
-          : null);
+  factory DeleteSignatureBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      DeleteSignatureBody(
+        response: data['DeleteSignatureResponse'] != null
+            ? DeleteSignatureResponse.fromMap(data['DeleteSignatureResponse'])
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

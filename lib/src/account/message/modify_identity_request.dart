@@ -18,8 +18,10 @@ class ModifyIdentityRequest extends SoapRequest {
   ModifyIdentityRequest(this.identity);
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      ModifyIdentityEnvelope(ModifyIdentityBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => ModifyIdentityEnvelope(
+        ModifyIdentityBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

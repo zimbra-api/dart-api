@@ -9,7 +9,10 @@ class NameId {
 
   const NameId({this.name, this.id});
 
-  factory NameId.fromMap(Map<String, dynamic> data) => NameId(name: data['name'], id: data['id']);
+  factory NameId.fromMap(Map<String, dynamic> data) => NameId(
+        name: data['name'],
+        id: data['id'],
+      );
 
   Map<String, dynamic> toMap() => {
         if (name != null) 'name': name,

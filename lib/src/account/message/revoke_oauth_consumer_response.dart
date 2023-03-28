@@ -7,5 +7,8 @@ import '../../common/type/soap_response.dart';
 class RevokeOAuthConsumerResponse extends SoapResponse {
   RevokeOAuthConsumerResponse();
 
-  factory RevokeOAuthConsumerResponse.fromMap(Map<String, dynamic> data) => RevokeOAuthConsumerResponse();
+  factory RevokeOAuthConsumerResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      RevokeOAuthConsumerResponse();
 }

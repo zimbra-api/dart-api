@@ -7,9 +7,20 @@ import '../../common/type/soap_header.dart';
 import 'modify_white_black_list_body.dart';
 
 class ModifyWhiteBlackListEnvelope extends SoapEnvelope {
-  ModifyWhiteBlackListEnvelope(ModifyWhiteBlackListBody body, {super.header}) : super(body..response?.header = header);
+  ModifyWhiteBlackListEnvelope(
+    ModifyWhiteBlackListBody body, {
+    super.header,
+  }) : super(body..response?.header = header);
 
-  factory ModifyWhiteBlackListEnvelope.fromMap(Map<String, dynamic> data) =>
-      ModifyWhiteBlackListEnvelope(ModifyWhiteBlackListBody.fromMap(data['Body']),
-          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
+  factory ModifyWhiteBlackListEnvelope.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ModifyWhiteBlackListEnvelope(
+        ModifyWhiteBlackListBody.fromMap(data['Body']),
+        header: data['Header'] != null
+            ? SoapHeader.fromMap(
+                data['Header'],
+              )
+            : null,
+      );
 }

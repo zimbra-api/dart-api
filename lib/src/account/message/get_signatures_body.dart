@@ -7,12 +7,21 @@ import 'get_signatures_request.dart';
 import 'get_signatures_response.dart';
 
 class GetSignaturesBody extends SoapBody {
-  GetSignaturesBody({GetSignaturesRequest? request, GetSignaturesResponse? response})
-      : super(request: request, response: response);
+  GetSignaturesBody({
+    GetSignaturesRequest? request,
+    GetSignaturesResponse? response,
+  }) : super(request: request, response: response);
 
-  factory GetSignaturesBody.fromMap(Map<String, dynamic> data) => GetSignaturesBody(
-      response:
-          data['GetSignaturesResponse'] != null ? GetSignaturesResponse.fromMap(data['GetSignaturesResponse']) : null);
+  factory GetSignaturesBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetSignaturesBody(
+        response: data['GetSignaturesResponse'] != null
+            ? GetSignaturesResponse.fromMap(
+                data['GetSignaturesResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

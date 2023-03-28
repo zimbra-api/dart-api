@@ -11,12 +11,16 @@ class SignatureContent {
 
   const SignatureContent(this.type, {this.value});
 
-  factory SignatureContent.fromMap(Map<String, dynamic> data) => SignatureContent(
-      ContentType.values.firstWhere(
-        (item) => item.name == data['type'],
-        orElse: () => ContentType.textPlain,
-      ),
-      value: data['_content']);
+  factory SignatureContent.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      SignatureContent(
+        ContentType.values.firstWhere(
+          (item) => item.name == data['type'],
+          orElse: () => ContentType.textPlain,
+        ),
+        value: data['_content'],
+      );
 
   Map<String, dynamic> toMap() => {
         'type': type.name,

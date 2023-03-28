@@ -46,12 +46,17 @@ class GetAccountInfoResponse extends SoapResponse {
     this.boshURL,
   });
 
-  factory GetAccountInfoResponse.fromMap(Map<String, dynamic> data) => GetAccountInfoResponse(
+  factory GetAccountInfoResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetAccountInfoResponse(
         data['name'],
         attrs: (data['_attrs'] is Map)
             ? (data['_attrs'] as Map)
                 .entries
-                .map<NamedValue>((attr) => NamedValue(attr.key, value: attr.value))
+                .map<NamedValue>(
+                  (attr) => NamedValue(attr.key, value: attr.value),
+                )
                 .toList(growable: false)
             : const [],
         soapURL: data['soapURL'],

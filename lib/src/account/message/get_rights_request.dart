@@ -19,11 +19,19 @@ class GetRightsRequest extends SoapRequest {
   GetRightsRequest({this.aces = const []});
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) => GetRightsEnvelope(GetRightsBody(request: this), header: header);
+  SoapEnvelope getEnvelope({
+    SoapHeader? header,
+  }) =>
+      GetRightsEnvelope(GetRightsBody(request: this), header: header);
 
   @override
   Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraAccount',
-        if (aces.isNotEmpty) 'ace': aces.map((ace) => ace.toMap()).toList(growable: false),
+        if (aces.isNotEmpty)
+          'ace': aces
+              .map(
+                (ace) => ace.toMap(),
+              )
+              .toList(growable: false),
       };
 }

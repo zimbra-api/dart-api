@@ -11,8 +11,10 @@ import 'get_identities_envelope.dart';
 /// Get the identities for the authed account.
 class GetIdentitiesRequest extends SoapRequest {
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      GetIdentitiesEnvelope(GetIdentitiesBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => GetIdentitiesEnvelope(
+        GetIdentitiesBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

@@ -17,12 +17,19 @@ class ModifyZimletPrefsRequest extends SoapRequest {
   ModifyZimletPrefsRequest({this.zimlets = const []});
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      ModifyZimletPrefsEnvelope(ModifyZimletPrefsBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => ModifyZimletPrefsEnvelope(
+        ModifyZimletPrefsBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraAccount',
-        if (zimlets.isNotEmpty) 'zimlet': zimlets.map((zimlet) => zimlet.toMap()).toList(growable: false),
+        if (zimlets.isNotEmpty)
+          'zimlet': zimlets
+              .map(
+                (zimlet) => zimlet.toMap(),
+              )
+              .toList(growable: false),
       };
 }

@@ -7,9 +7,20 @@ import '../../common/type/soap_header.dart';
 import 'get_rights_body.dart';
 
 class GetRightsEnvelope extends SoapEnvelope {
-  GetRightsEnvelope(GetRightsBody body, {super.header}) : super(body..response?.header = header);
+  GetRightsEnvelope(
+    GetRightsBody body, {
+    super.header,
+  }) : super(body..response?.header = header);
 
-  factory GetRightsEnvelope.fromMap(Map<String, dynamic> data) =>
-      GetRightsEnvelope(GetRightsBody.fromMap(data['Body']),
-      header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
+  factory GetRightsEnvelope.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetRightsEnvelope(
+        GetRightsBody.fromMap(data['Body']),
+        header: data['Header'] != null
+            ? SoapHeader.fromMap(
+                data['Header'],
+              )
+            : null,
+      );
 }

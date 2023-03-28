@@ -7,13 +7,19 @@ import 'modify_identity_request.dart';
 import 'modify_identity_response.dart';
 
 class ModifyIdentityBody extends SoapBody {
-  ModifyIdentityBody({ModifyIdentityRequest? request, ModifyIdentityResponse? response})
-      : super(request: request, response: response);
+  ModifyIdentityBody({
+    ModifyIdentityRequest? request,
+    ModifyIdentityResponse? response,
+  }) : super(request: request, response: response);
 
-  factory ModifyIdentityBody.fromMap(Map<String, dynamic> data) => ModifyIdentityBody(
-      response: data['ModifyIdentityResponse'] != null
-          ? ModifyIdentityResponse.fromMap(data['ModifyIdentityResponse'])
-          : null);
+  factory ModifyIdentityBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ModifyIdentityBody(
+        response: data['ModifyIdentityResponse'] != null
+            ? ModifyIdentityResponse.fromMap(data['ModifyIdentityResponse'])
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

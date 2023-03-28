@@ -11,12 +11,20 @@ class Identity extends Attrs {
 
   const Identity({this.name, this.id, super.attrs});
 
-  factory Identity.fromMap(Map<String, dynamic> data) =>
-      Identity(name: data['name'], id: data['id'], attrs: Attrs.attrsFromMap(data));
+  factory Identity.fromMap(Map<String, dynamic> data) => Identity(
+        name: data['name'],
+        id: data['id'],
+        attrs: Attrs.attrsFromMap(data),
+      );
 
   Map<String, dynamic> toMap() => {
         if (name != null) 'name': name,
         if (id != null) 'id': id,
-        if (attrs.isNotEmpty) 'a': attrs.map((a) => a.toMap()).toList(growable: false),
+        if (attrs.isNotEmpty)
+          'a': attrs
+              .map(
+                (a) => a.toMap(),
+              )
+              .toList(growable: false),
       };
 }

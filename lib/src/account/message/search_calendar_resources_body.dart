@@ -7,14 +7,21 @@ import 'search_calendar_resources_request.dart';
 import 'search_calendar_resources_response.dart';
 
 class SearchCalendarResourcesBody extends SoapBody {
-  SearchCalendarResourcesBody(
-      {SearchCalendarResourcesRequest? request, SearchCalendarResourcesResponse? response})
-      : super(request: request, response: response);
+  SearchCalendarResourcesBody({
+    SearchCalendarResourcesRequest? request,
+    SearchCalendarResourcesResponse? response,
+  }) : super(request: request, response: response);
 
-  factory SearchCalendarResourcesBody.fromMap(Map<String, dynamic> data) => SearchCalendarResourcesBody(
-      response: data['SearchCalendarResourcesResponse'] != null
-          ? SearchCalendarResourcesResponse.fromMap(data['SearchCalendarResourcesResponse'])
-          : null);
+  factory SearchCalendarResourcesBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      SearchCalendarResourcesBody(
+        response: data['SearchCalendarResourcesResponse'] != null
+            ? SearchCalendarResourcesResponse.fromMap(
+                data['SearchCalendarResourcesResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

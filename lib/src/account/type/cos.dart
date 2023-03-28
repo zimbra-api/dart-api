@@ -11,7 +11,10 @@ class Cos {
 
   const Cos({this.id, this.name});
 
-  factory Cos.fromMap(Map<String, dynamic> data) => Cos(id: data['id'], name: data['name']);
+  factory Cos.fromMap(Map<String, dynamic> data) => Cos(
+        id: data['id'],
+        name: data['name'],
+      );
 
   Map<String, dynamic> toMap() => {
         if (id != null) 'id': id,

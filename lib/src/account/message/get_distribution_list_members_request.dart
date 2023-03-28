@@ -22,8 +22,13 @@ class GetDistributionListMembersRequest extends SoapRequest {
   GetDistributionListMembersRequest(this.dl, {this.limit, this.offset});
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      GetDistributionListMembersEnvelope(GetDistributionListMembersBody(request: this), header: header);
+  SoapEnvelope getEnvelope({
+    SoapHeader? header,
+  }) =>
+      GetDistributionListMembersEnvelope(
+        GetDistributionListMembersBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

@@ -23,19 +23,36 @@ class ModifyWhiteBlackListRequest extends SoapRequest {
   });
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      ModifyWhiteBlackListEnvelope(ModifyWhiteBlackListBody(request: this), header: header);
+  SoapEnvelope getEnvelope({
+    SoapHeader? header,
+  }) =>
+      ModifyWhiteBlackListEnvelope(
+        ModifyWhiteBlackListBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraAccount',
         if (whiteListEntries.isNotEmpty)
           'whiteList': [
-            {'addr': whiteListEntries.map((entry) => entry.toMap()).toList(growable: false)}
+            {
+              'addr': whiteListEntries
+                  .map(
+                    (entry) => entry.toMap(),
+                  )
+                  .toList(growable: false)
+            }
           ],
         if (blackListEntries.isNotEmpty)
           'blackList': [
-            {'addr': blackListEntries.map((entry) => entry.toMap()).toList(growable: false)}
+            {
+              'addr': blackListEntries
+                  .map(
+                    (entry) => entry.toMap(),
+                  )
+                  .toList(growable: false)
+            }
           ],
       };
 }

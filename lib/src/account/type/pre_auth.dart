@@ -33,7 +33,11 @@ class PreAuth {
     int timestamp = 0,
   }) {
     final hmac = Hmac(sha1, utf8.encode(preauthKey));
-    final digest = hmac.convert(utf8.encode("${account.value}|${account.by.name}|$expiresTimestamp|$timestamp"));
+    final digest = hmac.convert(
+      utf8.encode(
+        "${account.value}|${account.by.name}|$expiresTimestamp|$timestamp",
+      ),
+    );
     return digest.toString();
   }
 

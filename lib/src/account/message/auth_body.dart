@@ -7,10 +7,19 @@ import 'auth_request.dart';
 import 'auth_response.dart';
 
 class AuthBody extends SoapBody {
-  AuthBody({AuthRequest? request, AuthResponse? response}) : super(request: request, response: response);
+  AuthBody({AuthRequest? request, AuthResponse? response})
+      : super(
+          request: request,
+          response: response,
+        );
 
   factory AuthBody.fromMap(Map<String, dynamic> data) => AuthBody(
-      response: data['AuthResponse'] != null ? AuthResponse.fromMap(data['AuthResponse']) : null);
+        response: data['AuthResponse'] != null
+            ? AuthResponse.fromMap(
+                data['AuthResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

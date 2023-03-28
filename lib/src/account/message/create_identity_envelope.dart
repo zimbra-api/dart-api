@@ -7,9 +7,20 @@ import '../../common/type/soap_header.dart';
 import 'create_identity_body.dart';
 
 class CreateIdentityEnvelope extends SoapEnvelope {
-  CreateIdentityEnvelope(CreateIdentityBody body, {super.header}) : super(body..response?.header = header);
+  CreateIdentityEnvelope(
+    CreateIdentityBody body, {
+    super.header,
+  }) : super(body..response?.header = header);
 
-  factory CreateIdentityEnvelope.fromMap(Map<String, dynamic> data) =>
-      CreateIdentityEnvelope(CreateIdentityBody.fromMap(data['Body']),
-          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
+  factory CreateIdentityEnvelope.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      CreateIdentityEnvelope(
+        CreateIdentityBody.fromMap(data['Body']),
+        header: data['Header'] != null
+            ? SoapHeader.fromMap(
+                data['Header'],
+              )
+            : null,
+      );
 }

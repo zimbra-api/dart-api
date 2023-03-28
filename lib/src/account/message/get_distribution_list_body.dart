@@ -7,13 +7,21 @@ import 'get_distribution_list_request.dart';
 import 'get_distribution_list_response.dart';
 
 class GetDistributionListBody extends SoapBody {
-  GetDistributionListBody({GetDistributionListRequest? request, GetDistributionListResponse? response})
-      : super(request: request, response: response);
+  GetDistributionListBody({
+    GetDistributionListRequest? request,
+    GetDistributionListResponse? response,
+  }) : super(request: request, response: response);
 
-  factory GetDistributionListBody.fromMap(Map<String, dynamic> data) => GetDistributionListBody(
-      response: data['GetDistributionListResponse'] != null
-          ? GetDistributionListResponse.fromMap(data['GetDistributionListResponse'])
-          : null);
+  factory GetDistributionListBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetDistributionListBody(
+        response: data['GetDistributionListResponse'] != null
+            ? GetDistributionListResponse.fromMap(
+                data['GetDistributionListResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

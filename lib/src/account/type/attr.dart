@@ -11,8 +11,11 @@ class Attr {
 
   const Attr(this.name, {this.value, this.permDenied});
 
-  factory Attr.fromMap(Map<String, dynamic> data) =>
-      Attr(data['name'], value: data['_content'], permDenied: data['pd']);
+  factory Attr.fromMap(Map<String, dynamic> data) => Attr(
+        data['name'],
+        value: data['_content'],
+        permDenied: data['pd'],
+      );
 
   Map<String, dynamic> toMap() => {
         'name': name,

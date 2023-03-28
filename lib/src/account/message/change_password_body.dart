@@ -7,13 +7,19 @@ import 'change_password_request.dart';
 import 'change_password_response.dart';
 
 class ChangePasswordBody extends SoapBody {
-  ChangePasswordBody({ChangePasswordRequest? request, ChangePasswordResponse? response})
-      : super(request: request, response: response);
+  ChangePasswordBody({
+    ChangePasswordRequest? request,
+    ChangePasswordResponse? response,
+  }) : super(request: request, response: response);
 
-  factory ChangePasswordBody.fromMap(Map<String, dynamic> data) => ChangePasswordBody(
-      response: data['ChangePasswordResponse'] != null
-          ? ChangePasswordResponse.fromMap(data['ChangePasswordResponse'])
-          : null);
+  factory ChangePasswordBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ChangePasswordBody(
+        response: data['ChangePasswordResponse'] != null
+            ? ChangePasswordResponse.fromMap(data['ChangePasswordResponse'])
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

@@ -39,13 +39,17 @@ class DLInfo extends ObjectInfo {
     super.attrList,
   });
 
-  factory DLInfo.fromMap(Map<String, dynamic> data) => DLInfo(data['name'], data['id'], data['ref'],
-      displayName: data['d'],
-      isDynamic: data['dynamic'],
-      via: data['via'],
-      isOwner: data['isOwner'],
-      isMember: data['isMember'],
-      attrList: KeyValuePairs.keyValuePairsFromMap(data));
+  factory DLInfo.fromMap(Map<String, dynamic> data) => DLInfo(
+        data['name'],
+        data['id'],
+        data['ref'],
+        displayName: data['d'],
+        isDynamic: data['dynamic'],
+        via: data['via'],
+        isOwner: data['isOwner'],
+        isMember: data['isMember'],
+        attrList: KeyValuePairs.keyValuePairsFromMap(data),
+      );
 
   Map<String, dynamic> toMap() => {
         'name': name,
@@ -56,6 +60,11 @@ class DLInfo extends ObjectInfo {
         if (via != null) 'via': via,
         if (isOwner != null) 'isOwner': isOwner,
         if (isMember != null) 'isMember': isMember,
-        if (attrList.isNotEmpty) 'a': attrList.map((a) => a.toMap()).toList(growable: false),
+        if (attrList.isNotEmpty)
+          'a': attrList
+              .map(
+                (a) => a.toMap(),
+              )
+              .toList(growable: false),
       };
 }

@@ -7,9 +7,20 @@ import '../../common/type/soap_header.dart';
 import 'auto_complete_gal_body.dart';
 
 class AutoCompleteGalEnvelope extends SoapEnvelope {
-  AutoCompleteGalEnvelope(AutoCompleteGalBody body, {super.header}) : super(body..response?.header = header);
+  AutoCompleteGalEnvelope(
+    AutoCompleteGalBody body, {
+    super.header,
+  }) : super(body..response?.header = header);
 
-  factory AutoCompleteGalEnvelope.fromMap(Map<String, dynamic> data) =>
-      AutoCompleteGalEnvelope(AutoCompleteGalBody.fromMap(data['Body']),
-          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
+  factory AutoCompleteGalEnvelope.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      AutoCompleteGalEnvelope(
+        AutoCompleteGalBody.fromMap(data['Body']),
+        header: data['Header'] != null
+            ? SoapHeader.fromMap(
+                data['Header'],
+              )
+            : null,
+      );
 }

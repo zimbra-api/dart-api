@@ -107,7 +107,10 @@ class AccountDataSource {
     this.refreshTokenUrl,
   });
 
-  factory AccountDataSource.fromMap(Map<String, dynamic> data) => AccountDataSource(
+  factory AccountDataSource.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      AccountDataSource(
         id: data['id'],
         name: data['name'],
         folderId: data['l'],
@@ -133,7 +136,11 @@ class AccountDataSource {
         failingSince: int.tryParse(data['failingSince']?.toString() ?? ''),
         lastError: data['lastError']?['_content'],
         attributes: (data['a'] is Iterable)
-            ? (data['a'] as Iterable).map<String>((a) => a['_content']).toList(growable: false)
+            ? (data['a'] as Iterable)
+                .map<String>(
+                  (a) => a['_content'],
+                )
+                .toList(growable: false)
             : const [],
         refreshToken: data['refreshToken'],
         refreshTokenUrl: data['refreshTokenUrl'],
@@ -152,9 +159,11 @@ class AccountDataSource {
         if (password != null) 'password': password,
         if (pollingInterval != null) 'pollingInterval': pollingInterval,
         if (emailAddress != null) 'emailAddress': emailAddress,
-        if (useAddressForForwardReply != null) 'useAddressForForwardReply': useAddressForForwardReply,
+        if (useAddressForForwardReply != null)
+          'useAddressForForwardReply': useAddressForForwardReply,
         if (defaultSignature != null) 'defaultSignature': defaultSignature,
-        if (forwardReplySignature != null) 'forwardReplySignature': forwardReplySignature,
+        if (forwardReplySignature != null)
+          'forwardReplySignature': forwardReplySignature,
         if (fromDisplay != null) 'fromDisplay': fromDisplay,
         if (replyToAddress != null) 'replyToAddress': replyToAddress,
         if (replyToDisplay != null) 'replyToDisplay': replyToDisplay,

@@ -7,9 +7,20 @@ import '../../common/type/soap_header.dart';
 import 'get_white_black_list_body.dart';
 
 class GetWhiteBlackListEnvelope extends SoapEnvelope {
-  GetWhiteBlackListEnvelope(GetWhiteBlackListBody body, {super.header}) : super(body..response?.header = header);
+  GetWhiteBlackListEnvelope(
+    GetWhiteBlackListBody body, {
+    super.header,
+  }) : super(body..response?.header = header);
 
-  factory GetWhiteBlackListEnvelope.fromMap(Map<String, dynamic> data) =>
-      GetWhiteBlackListEnvelope(GetWhiteBlackListBody.fromMap(data['Body']),
-          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
+  factory GetWhiteBlackListEnvelope.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetWhiteBlackListEnvelope(
+        GetWhiteBlackListBody.fromMap(data['Body']),
+        header: data['Header'] != null
+            ? SoapHeader.fromMap(
+                data['Header'],
+              )
+            : null,
+      );
 }

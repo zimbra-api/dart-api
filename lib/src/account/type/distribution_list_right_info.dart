@@ -11,17 +11,27 @@ class DistributionListRightInfo {
 
   const DistributionListRightInfo(this.right, {this.grantees = const []});
 
-  factory DistributionListRightInfo.fromMap(Map<String, dynamic> data) => DistributionListRightInfo(
+  factory DistributionListRightInfo.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      DistributionListRightInfo(
         data['right'] ?? '',
         grantees: (data['grantee'] is Iterable)
             ? (data['grantee'] as Iterable)
-                .map<DistributionListGranteeInfo>((grantee) => DistributionListGranteeInfo.fromMap(grantee))
+                .map<DistributionListGranteeInfo>(
+                  (grantee) => DistributionListGranteeInfo.fromMap(grantee),
+                )
                 .toList(growable: false)
             : const [],
       );
 
   Map<String, dynamic> toMap() => {
         'right': right,
-        if (grantees.isNotEmpty) 'grantee': grantees.map((grantee) => grantee.toMap()).toList(growable: false),
+        if (grantees.isNotEmpty)
+          'grantee': grantees
+              .map(
+                (grantee) => grantee.toMap(),
+              )
+              .toList(growable: false),
       };
 }

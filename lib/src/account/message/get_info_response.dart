@@ -152,43 +152,76 @@ class GetInfoResponse extends SoapResponse {
     this.isTrackingIMAP,
   });
 
-  factory GetInfoResponse.fromMap(Map<String, dynamic> data) => GetInfoResponse(
-        attachmentSizeLimit: int.tryParse(data['attSizeLimit']?.toString() ?? ''),
-        documentSizeLimit: int.tryParse(data['docSizeLimit']?.toString() ?? ''),
+  factory GetInfoResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetInfoResponse(
+        attachmentSizeLimit: int.tryParse(
+          data['attSizeLimit']?.toString() ?? '',
+        ),
+        documentSizeLimit: int.tryParse(
+          data['docSizeLimit']?.toString() ?? '',
+        ),
         version: data['version'],
         accountId: data['id'],
-        profileImageId: int.tryParse(data['profileImageId']?.toString() ?? ''),
+        profileImageId: int.tryParse(
+          data['profileImageId']?.toString() ?? '',
+        ),
         accountName: data['name'],
         crumb: data['crumb'],
         lifetime: int.tryParse(data['lifetime']?.toString() ?? ''),
         adminDelegated: data['adminDelegated'],
         restUrl: data['rest'],
         quotaUsed: int.tryParse(data['used']?.toString() ?? ''),
-        previousSessionTime: int.tryParse(data['prevSession']?.toString() ?? ''),
-        lastWriteAccessTime: int.tryParse(data['accessed']?.toString() ?? ''),
-        recentMessageCount: int.tryParse(data['recent']?.toString() ?? ''),
+        previousSessionTime: int.tryParse(
+          data['prevSession']?.toString() ?? '',
+        ),
+        lastWriteAccessTime: int.tryParse(
+          data['accessed']?.toString() ?? '',
+        ),
+        recentMessageCount: int.tryParse(
+          data['recent']?.toString() ?? '',
+        ),
         cos: data['cos'] is Map ? Cos.fromMap(data['cos']) : null,
-        dataSources: data['dataSources'] is Map ? AccountDataSources.fromMap(data['dataSources']) : null,
+        dataSources: data['dataSources'] is Map
+            ? AccountDataSources.fromMap(
+                data['dataSources'],
+              )
+            : null,
         soapURL: data['soapURL'],
         publicURL: data['publicURL'],
         changePasswordURL: data['changePasswordURL'],
         adminURL: data['adminURL'],
         boshURL: data['boshURL'],
-        license: data['license'] is Map ? LicenseInfo.fromMap(data['license']) : null,
+        license: data['license'] is Map
+            ? LicenseInfo.fromMap(
+                data['license'],
+              )
+            : null,
         isTrackingIMAP: data['isTrackingIMAP'],
         prefs: (data['prefs']?['_attrs'] is Map)
-            ? Utils.prefsFromMap(data['prefs']['_attrs'] as Map<String, dynamic>)
+            ? Utils.prefsFromMap(
+                data['prefs']['_attrs'] as Map<String, dynamic>,
+              )
             : const [],
         attrs: (data['attrs']?['_attrs'] is Map)
-            ? Utils.attrsFromMap(data['attrs']['_attrs'] as Map<String, dynamic>)
+            ? Utils.attrsFromMap(
+                data['attrs']['_attrs'] as Map<String, dynamic>,
+              )
             : const [],
         zimlets: (data['zimlets']?['zimlet'] is Iterable)
             ? (data['zimlets']['zimlet'] as Iterable)
-                .map<AccountZimletInfo>((zimlet) => AccountZimletInfo.fromMap(zimlet))
+                .map<AccountZimletInfo>(
+                  (zimlet) => AccountZimletInfo.fromMap(zimlet),
+                )
                 .toList(growable: false)
             : const [],
         props: (data['props']?['prop'] is Iterable)
-            ? (data['props']['prop'] as Iterable).map<Prop>((prop) => Prop.fromMap(prop)).toList(growable: false)
+            ? (data['props']['prop'] as Iterable)
+                .map<Prop>(
+                  (prop) => Prop.fromMap(prop),
+                )
+                .toList(growable: false)
             : const [],
         identities: (data['identities']?['identity'] is Iterable)
             ? (data['identities']['identity'] as Iterable)
@@ -197,17 +230,23 @@ class GetInfoResponse extends SoapResponse {
             : const [],
         signatures: (data['signatures']?['signature'] is Iterable)
             ? (data['signatures']['signature'] as Iterable)
-                .map<Signature>((signature) => Signature.fromMap(signature))
+                .map<Signature>(
+                  (signature) => Signature.fromMap(signature),
+                )
                 .toList(growable: false)
             : const [],
         childAccounts: (data['childAccounts']?['childAccount'] is Iterable)
             ? (data['childAccounts']['childAccount'] as Iterable)
-                .map<ChildAccount>((childAccount) => ChildAccount.fromMap(childAccount))
+                .map<ChildAccount>(
+                  (childAccount) => ChildAccount.fromMap(childAccount),
+                )
                 .toList(growable: false)
             : const [],
         discoveredRights: (data['rights']?['targets'] is Iterable)
             ? (data['rights']['targets'] as Iterable)
-                .map<DiscoverRightsInfo>((targets) => DiscoverRightsInfo.fromMap(targets))
+                .map<DiscoverRightsInfo>(
+                  (targets) => DiscoverRightsInfo.fromMap(targets),
+                )
                 .toList(growable: false)
             : const [],
       );

@@ -33,14 +33,18 @@ class EndSessionRequest extends SoapRequest {
   });
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) => EndSessionEnvelope(EndSessionBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => EndSessionEnvelope(
+        EndSessionBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraAccount',
         if (logoff != null) 'logoff': logoff,
         if (clearAllSoapSessions != null) 'all': clearAllSoapSessions,
-        if (excludeCurrentSession != null) 'excludeCurrent': excludeCurrentSession,
+        if (excludeCurrentSession != null)
+          'excludeCurrent': excludeCurrentSession,
         if (sessionId != null) 'sessionId': sessionId,
       };
 }

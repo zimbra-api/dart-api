@@ -24,17 +24,24 @@ class EntrySearchFilterMultiCond {
     this.compoundConditions = const [],
   });
 
-  factory EntrySearchFilterMultiCond.fromMap(Map<String, dynamic> data) => EntrySearchFilterMultiCond(
+  factory EntrySearchFilterMultiCond.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      EntrySearchFilterMultiCond(
         isNot: data['not'],
         isOr: data['or'],
         singleConditions: (data['cond'] is Iterable)
             ? (data['cond'] as Iterable)
-                .map<EntrySearchFilterSingleCond>((cond) => EntrySearchFilterSingleCond.fromMap(cond))
+                .map<EntrySearchFilterSingleCond>(
+                  (cond) => EntrySearchFilterSingleCond.fromMap(cond),
+                )
                 .toList(growable: false)
             : const [],
         compoundConditions: (data['conds'] is Iterable)
             ? (data['conds'] as Iterable)
-                .map<EntrySearchFilterMultiCond>((conds) => EntrySearchFilterMultiCond.fromMap(conds))
+                .map<EntrySearchFilterMultiCond>(
+                  (conds) => EntrySearchFilterMultiCond.fromMap(conds),
+                )
                 .toList(growable: false)
             : const [],
       );
@@ -42,8 +49,17 @@ class EntrySearchFilterMultiCond {
   Map<String, dynamic> toMap() => {
         if (isNot != null) 'not': isNot,
         if (isOr != null) 'or': isOr,
-        if (singleConditions.isNotEmpty) 'cond': singleConditions.map((cond) => cond.toMap()).toList(growable: false),
+        if (singleConditions.isNotEmpty)
+          'cond': singleConditions
+              .map(
+                (cond) => cond.toMap(),
+              )
+              .toList(growable: false),
         if (compoundConditions.isNotEmpty)
-          'conds': compoundConditions.map((cond) => cond.toMap()).toList(growable: false),
+          'conds': compoundConditions
+              .map(
+                (cond) => cond.toMap(),
+              )
+              .toList(growable: false),
       };
 }

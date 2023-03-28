@@ -10,10 +10,15 @@ class CheckRightsResponse extends SoapResponse {
 
   CheckRightsResponse({this.targets = const []});
 
-  factory CheckRightsResponse.fromMap(Map<String, dynamic> data) => CheckRightsResponse(
-      targets: (data['target'] is Iterable)
-          ? (data['target'] as Iterable)
-              .map<CheckRightsTargetInfo>((target) => CheckRightsTargetInfo.fromMap(target))
-              .toList(growable: false)
-          : const []);
+  factory CheckRightsResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      CheckRightsResponse(
+        targets: (data['target'] is Iterable)
+            ? (data['target'] as Iterable)
+                .map<CheckRightsTargetInfo>(
+                    (target) => CheckRightsTargetInfo.fromMap(target))
+                .toList(growable: false)
+            : const [],
+      );
 }

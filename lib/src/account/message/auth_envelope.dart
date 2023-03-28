@@ -7,8 +7,15 @@ import '../../common/type/soap_header.dart';
 import 'auth_body.dart';
 
 class AuthEnvelope extends SoapEnvelope {
-  AuthEnvelope(AuthBody body, {super.header}) : super(body..response?.header = header);
+  AuthEnvelope(AuthBody body, {super.header})
+      : super(body..response?.header = header);
 
-  factory AuthEnvelope.fromMap(Map<String, dynamic> data) => AuthEnvelope(AuthBody.fromMap(data['Body']),
-      header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
+  factory AuthEnvelope.fromMap(Map<String, dynamic> data) => AuthEnvelope(
+        AuthBody.fromMap(data['Body']),
+        header: data['Header'] != null
+            ? SoapHeader.fromMap(
+                data['Header'],
+              )
+            : null,
+      );
 }

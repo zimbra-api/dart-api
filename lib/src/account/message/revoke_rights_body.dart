@@ -7,12 +7,21 @@ import 'revoke_rights_request.dart';
 import 'revoke_rights_response.dart';
 
 class RevokeRightsBody extends SoapBody {
-  RevokeRightsBody({RevokeRightsRequest? request, RevokeRightsResponse? response})
-      : super(request: request, response: response);
+  RevokeRightsBody({
+    RevokeRightsRequest? request,
+    RevokeRightsResponse? response,
+  }) : super(request: request, response: response);
 
-  factory RevokeRightsBody.fromMap(Map<String, dynamic> data) => RevokeRightsBody(
-      response:
-          data['RevokeRightsResponse'] != null ? RevokeRightsResponse.fromMap(data['RevokeRightsResponse']) : null);
+  factory RevokeRightsBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      RevokeRightsBody(
+        response: data['RevokeRightsResponse'] != null
+            ? RevokeRightsResponse.fromMap(
+                data['RevokeRightsResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

@@ -12,8 +12,10 @@ import 'get_all_locales_envelope.dart';
 /// java.util.Locale.getAvailableLocales(), sorted by display name (name attribute).
 class GetAllLocalesRequest extends SoapRequest {
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      GetAllLocalesEnvelope(GetAllLocalesBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => GetAllLocalesEnvelope(
+        GetAllLocalesBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

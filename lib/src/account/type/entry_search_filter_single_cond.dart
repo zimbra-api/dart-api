@@ -20,14 +20,18 @@ class EntrySearchFilterSingleCond {
     this.isNot,
   });
 
-  factory EntrySearchFilterSingleCond.fromMap(Map<String, dynamic> data) => EntrySearchFilterSingleCond(
-      data['attr'] ?? '',
-      ConditionOperator.values.firstWhere(
-        (op) => op.name == data['op'],
-        orElse: () => ConditionOperator.equal,
-      ),
-      value: data['value'],
-      isNot: data['not']);
+  factory EntrySearchFilterSingleCond.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      EntrySearchFilterSingleCond(
+        data['attr'] ?? '',
+        ConditionOperator.values.firstWhere(
+          (op) => op.name == data['op'],
+          orElse: () => ConditionOperator.equal,
+        ),
+        value: data['value'],
+        isNot: data['not'],
+      );
 
   Map<String, dynamic> toMap() => {
         'attr': attr,

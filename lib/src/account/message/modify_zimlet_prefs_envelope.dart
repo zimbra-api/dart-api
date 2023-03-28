@@ -7,9 +7,20 @@ import '../../common/type/soap_header.dart';
 import 'modify_zimlet_prefs_body.dart';
 
 class ModifyZimletPrefsEnvelope extends SoapEnvelope {
-  ModifyZimletPrefsEnvelope(ModifyZimletPrefsBody body, {super.header}) : super(body..response?.header = header);
+  ModifyZimletPrefsEnvelope(
+    ModifyZimletPrefsBody body, {
+    super.header,
+  }) : super(body..response?.header = header);
 
-  factory ModifyZimletPrefsEnvelope.fromMap(Map<String, dynamic> data) =>
-      ModifyZimletPrefsEnvelope(ModifyZimletPrefsBody.fromMap(data['Body']),
-          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
+  factory ModifyZimletPrefsEnvelope.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ModifyZimletPrefsEnvelope(
+        ModifyZimletPrefsBody.fromMap(data['Body']),
+        header: data['Header'] != null
+            ? SoapHeader.fromMap(
+                data['Header'],
+              )
+            : null,
+      );
 }

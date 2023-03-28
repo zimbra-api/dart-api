@@ -7,17 +7,25 @@ import 'get_distribution_list_members_request.dart';
 import 'get_distribution_list_members_response.dart';
 
 class GetDistributionListMembersBody extends SoapBody {
-  GetDistributionListMembersBody(
-      {GetDistributionListMembersRequest? request, GetDistributionListMembersResponse? response})
-      : super(request: request, response: response);
+  GetDistributionListMembersBody({
+    GetDistributionListMembersRequest? request,
+    GetDistributionListMembersResponse? response,
+  }) : super(request: request, response: response);
 
-  factory GetDistributionListMembersBody.fromMap(Map<String, dynamic> data) => GetDistributionListMembersBody(
-      response: data['GetDistributionListMembersResponse'] != null
-          ? GetDistributionListMembersResponse.fromMap(data['GetDistributionListMembersResponse'])
-          : null);
+  factory GetDistributionListMembersBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetDistributionListMembersBody(
+        response: data['GetDistributionListMembersResponse'] != null
+            ? GetDistributionListMembersResponse.fromMap(
+                data['GetDistributionListMembersResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {
-        if (request != null) 'GetDistributionListMembersRequest': request!.toMap(),
+        if (request != null)
+          'GetDistributionListMembersRequest': request!.toMap(),
       };
 }

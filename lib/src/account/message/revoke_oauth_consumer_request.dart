@@ -14,8 +14,10 @@ class RevokeOAuthConsumerRequest extends SoapRequest {
   RevokeOAuthConsumerRequest(this.accessToken);
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      RevokeOAuthConsumerEnvelope(RevokeOAuthConsumerBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => RevokeOAuthConsumerEnvelope(
+        RevokeOAuthConsumerBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

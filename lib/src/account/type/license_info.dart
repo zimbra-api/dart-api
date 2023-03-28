@@ -21,11 +21,20 @@ class LicenseInfo {
         orElse: () => LicenseStatus.ok,
       ),
       attrs: (data['attr'] is Iterable)
-          ? (data['attr'] as Iterable).map<LicenseAttr>((attr) => LicenseAttr.fromMap(attr)).toList(growable: false)
+          ? (data['attr'] as Iterable)
+              .map<LicenseAttr>(
+                (attr) => LicenseAttr.fromMap(attr),
+              )
+              .toList(growable: false)
           : const []);
 
   Map<String, dynamic> toMap() => {
         'status': status.name,
-        if (attrs.isNotEmpty) 'attr': attrs.map((attr) => attr.toMap()).toList(growable: false),
+        if (attrs.isNotEmpty)
+          'attr': attrs
+              .map(
+                (attr) => attr.toMap(),
+              )
+              .toList(growable: false),
       };
 }

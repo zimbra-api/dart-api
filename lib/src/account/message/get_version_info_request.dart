@@ -11,8 +11,10 @@ import 'get_version_info_envelope.dart';
 /// Get version information
 class GetVersionInfoRequest extends SoapRequest {
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      GetVersionInfoEnvelope(GetVersionInfoBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => GetVersionInfoEnvelope(
+        GetVersionInfoBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

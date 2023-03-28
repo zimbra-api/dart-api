@@ -17,12 +17,19 @@ class ModifyPropertiesRequest extends SoapRequest {
   ModifyPropertiesRequest({this.props = const []});
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      ModifyPropertiesEnvelope(ModifyPropertiesBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => ModifyPropertiesEnvelope(
+        ModifyPropertiesBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraAccount',
-        if (props.isNotEmpty) 'prop': props.map((prop) => prop.toMap()).toList(growable: false),
+        if (props.isNotEmpty)
+          'prop': props
+              .map(
+                (prop) => prop.toMap(),
+              )
+              .toList(growable: false),
       };
 }

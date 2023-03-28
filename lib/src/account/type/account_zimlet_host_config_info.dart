@@ -11,17 +11,27 @@ class AccountZimletHostConfigInfo {
 
   const AccountZimletHostConfigInfo({this.name, this.properties = const []});
 
-  factory AccountZimletHostConfigInfo.fromMap(Map<String, dynamic> data) => AccountZimletHostConfigInfo(
+  factory AccountZimletHostConfigInfo.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      AccountZimletHostConfigInfo(
         name: data['name'],
         properties: (data['property'] is Iterable)
             ? (data['property'] as Iterable)
-                .map<AccountZimletProperty>((property) => AccountZimletProperty.fromMap(property))
+                .map<AccountZimletProperty>(
+                  (property) => AccountZimletProperty.fromMap(property),
+                )
                 .toList(growable: false)
             : const [],
       );
 
   Map<String, dynamic> toMap() => {
         if (name != null) 'name': name,
-        if (properties.isNotEmpty) 'property': properties.map((property) => property.toMap()).toList(growable: false),
+        if (properties.isNotEmpty)
+          'property': properties
+              .map(
+                (property) => property.toMap(),
+              )
+              .toList(growable: false),
       };
 }

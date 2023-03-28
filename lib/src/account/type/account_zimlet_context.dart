@@ -17,7 +17,10 @@ class AccountZimletContext {
     this.zimletPresence,
   });
 
-  factory AccountZimletContext.fromMap(Map<String, dynamic> data) => AccountZimletContext(
+  factory AccountZimletContext.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      AccountZimletContext(
         data['baseUrl'],
         zimletPriority: int.tryParse(data['priority']?.toString() ?? ''),
         zimletPresence: ZimletPresence.values.firstWhere(

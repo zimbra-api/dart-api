@@ -7,13 +7,21 @@ import 'modify_white_black_list_request.dart';
 import 'modify_white_black_list_response.dart';
 
 class ModifyWhiteBlackListBody extends SoapBody {
-  ModifyWhiteBlackListBody({ModifyWhiteBlackListRequest? request, ModifyWhiteBlackListResponse? response})
-      : super(request: request, response: response);
+  ModifyWhiteBlackListBody({
+    ModifyWhiteBlackListRequest? request,
+    ModifyWhiteBlackListResponse? response,
+  }) : super(request: request, response: response);
 
-  factory ModifyWhiteBlackListBody.fromMap(Map<String, dynamic> data) => ModifyWhiteBlackListBody(
-      response: data['ModifyWhiteBlackListResponse'] != null
-          ? ModifyWhiteBlackListResponse.fromMap(data['ModifyWhiteBlackListResponse'])
-          : null);
+  factory ModifyWhiteBlackListBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ModifyWhiteBlackListBody(
+        response: data['ModifyWhiteBlackListResponse'] != null
+            ? ModifyWhiteBlackListResponse.fromMap(
+                data['ModifyWhiteBlackListResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

@@ -47,17 +47,28 @@ class AccountZimletDesc {
     this.zimletTarget,
   });
 
-  factory AccountZimletDesc.fromMap(Map<String, dynamic> data) => AccountZimletDesc(
+  factory AccountZimletDesc.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      AccountZimletDesc(
         name: data['name'],
         version: data['version'],
         description: data['description'],
         extension: data['extension'],
         target: data['target'],
         label: data['label'],
-        serverExtension: data['serverExtension'] is Map ? ZimletServerExtension.fromMap(data['serverExtension']) : null,
-        include: data['include'] is Map ? AccountZimletInclude.fromMap(data['include']) : null,
-        includeCSS: data['includeCSS'] is Map ? AccountZimletIncludeCSS.fromMap(data['includeCSS']) : null,
-        zimletTarget: data['zimletTarget'] is Map ? AccountZimletTarget.fromMap(data['zimletTarget']) : null,
+        serverExtension: data['serverExtension'] is Map
+            ? ZimletServerExtension.fromMap(data['serverExtension'])
+            : null,
+        include: data['include'] is Map
+            ? AccountZimletInclude.fromMap(data['include'])
+            : null,
+        includeCSS: data['includeCSS'] is Map
+            ? AccountZimletIncludeCSS.fromMap(data['includeCSS'])
+            : null,
+        zimletTarget: data['zimletTarget'] is Map
+            ? AccountZimletTarget.fromMap(data['zimletTarget'])
+            : null,
       );
 
   Map<String, dynamic> toMap() => {
@@ -67,7 +78,8 @@ class AccountZimletDesc {
         if (extension != null) 'extension': extension,
         if (target != null) 'target': target,
         if (label != null) 'label': label,
-        if (serverExtension != null) 'serverExtension': serverExtension!.toMap(),
+        if (serverExtension != null)
+          'serverExtension': serverExtension!.toMap(),
         if (include != null) 'include': include!.toMap(),
         if (includeCSS != null) 'includeCSS': includeCSS!.toMap(),
         if (zimletTarget != null) 'zimletTarget': zimletTarget!.toMap(),

@@ -11,7 +11,8 @@ class HABGroupMember extends HABMember {
   /// displayName: display name for the member
   final List<NamedValue> attrs;
 
-  const HABGroupMember(super.name, {super.seniorityIndex, this.attrs = const []});
+  const HABGroupMember(super.name,
+      {super.seniorityIndex, this.attrs = const []});
 
   factory HABGroupMember.fromMap(Map<String, dynamic> data) => HABGroupMember(
         data['name'] ?? '',
@@ -19,7 +20,9 @@ class HABGroupMember extends HABMember {
         attrs: (data['_attrs'] is Map)
             ? (data['_attrs'] as Map<String, dynamic>)
                 .entries
-                .map<NamedValue>((attr) => NamedValue(attr.key, value: attr.value))
+                .map<NamedValue>(
+                  (attr) => NamedValue(attr.key, value: attr.value),
+                )
                 .toList(growable: false)
             : const [],
       );
@@ -27,6 +30,11 @@ class HABGroupMember extends HABMember {
   Map<String, dynamic> toMap() => {
         'name': name,
         if (seniorityIndex != null) 'seniorityIndex': seniorityIndex,
-        if (attrs.isNotEmpty) 'attr': attrs.map((attr) => attr.toMap()).toList(growable: false),
+        if (attrs.isNotEmpty)
+          'attr': attrs
+              .map(
+                (attr) => attr.toMap(),
+              )
+              .toList(growable: false),
       };
 }

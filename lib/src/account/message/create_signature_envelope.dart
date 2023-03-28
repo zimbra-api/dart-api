@@ -7,9 +7,17 @@ import '../../common/type/soap_header.dart';
 import 'create_signature_body.dart';
 
 class CreateSignatureEnvelope extends SoapEnvelope {
-  CreateSignatureEnvelope(CreateSignatureBody body, {super.header}) : super(body..response?.header = header);
+  CreateSignatureEnvelope(
+    CreateSignatureBody body, {
+    super.header,
+  }) : super(body..response?.header = header);
 
-  factory CreateSignatureEnvelope.fromMap(Map<String, dynamic> data) =>
-      CreateSignatureEnvelope(CreateSignatureBody.fromMap(data['Body']),
-          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
+  factory CreateSignatureEnvelope.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      CreateSignatureEnvelope(
+        CreateSignatureBody.fromMap(data['Body']),
+        header:
+            data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null,
+      );
 }

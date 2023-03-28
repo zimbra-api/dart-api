@@ -7,11 +7,18 @@ import 'grant_rights_request.dart';
 import 'grant_rights_response.dart';
 
 class GrantRightsBody extends SoapBody {
-  GrantRightsBody({GrantRightsRequest? request, GrantRightsResponse? response})
-      : super(request: request, response: response);
+  GrantRightsBody({
+    GrantRightsRequest? request,
+    GrantRightsResponse? response,
+  }) : super(request: request, response: response);
 
   factory GrantRightsBody.fromMap(Map<String, dynamic> data) => GrantRightsBody(
-      response: data['GrantRightsResponse'] != null ? GrantRightsResponse.fromMap(data['GrantRightsResponse']) : null);
+        response: data['GrantRightsResponse'] != null
+            ? GrantRightsResponse.fromMap(
+                data['GrantRightsResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

@@ -7,17 +7,25 @@ import 'get_account_distribution_lists_request.dart';
 import 'get_account_distribution_lists_response.dart';
 
 class GetAccountDistributionListsBody extends SoapBody {
-  GetAccountDistributionListsBody(
-      {GetAccountDistributionListsRequest? request, GetAccountDistributionListsResponse? response})
-      : super(request: request, response: response);
+  GetAccountDistributionListsBody({
+    GetAccountDistributionListsRequest? request,
+    GetAccountDistributionListsResponse? response,
+  }) : super(request: request, response: response);
 
-  factory GetAccountDistributionListsBody.fromMap(Map<String, dynamic> data) => GetAccountDistributionListsBody(
-      response: data['GetAccountDistributionListsResponse'] != null
-          ? GetAccountDistributionListsResponse.fromMap(data['GetAccountDistributionListsResponse'])
-          : null);
+  factory GetAccountDistributionListsBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetAccountDistributionListsBody(
+        response: data['GetAccountDistributionListsResponse'] != null
+            ? GetAccountDistributionListsResponse.fromMap(
+                data['GetAccountDistributionListsResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {
-        if (request != null) 'GetAccountDistributionListsRequest': request!.toMap(),
+        if (request != null)
+          'GetAccountDistributionListsRequest': request!.toMap(),
       };
 }

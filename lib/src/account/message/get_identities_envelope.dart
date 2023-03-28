@@ -7,9 +7,20 @@ import '../../common/type/soap_header.dart';
 import 'get_identities_body.dart';
 
 class GetIdentitiesEnvelope extends SoapEnvelope {
-  GetIdentitiesEnvelope(GetIdentitiesBody body, {super.header}) : super(body..response?.header = header);
+  GetIdentitiesEnvelope(
+    GetIdentitiesBody body, {
+    super.header,
+  }) : super(body..response?.header = header);
 
-  factory GetIdentitiesEnvelope.fromMap(Map<String, dynamic> data) =>
-      GetIdentitiesEnvelope(GetIdentitiesBody.fromMap(data['Body']),
-          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
+  factory GetIdentitiesEnvelope.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetIdentitiesEnvelope(
+        GetIdentitiesBody.fromMap(data['Body']),
+        header: data['Header'] != null
+            ? SoapHeader.fromMap(
+                data['Header'],
+              )
+            : null,
+      );
 }

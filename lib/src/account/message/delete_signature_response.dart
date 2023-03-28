@@ -7,5 +7,8 @@ import '../../common/type/soap_response.dart';
 class DeleteSignatureResponse extends SoapResponse {
   DeleteSignatureResponse();
 
-  factory DeleteSignatureResponse.fromMap(Map<String, dynamic> data) => DeleteSignatureResponse();
+  factory DeleteSignatureResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      DeleteSignatureResponse();
 }

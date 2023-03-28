@@ -43,7 +43,10 @@ class SyncGalResponse extends SoapResponse {
     this.deleted = const [],
   });
 
-  factory SyncGalResponse.fromMap(Map<String, dynamic> data) => SyncGalResponse(
+  factory SyncGalResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      SyncGalResponse(
         more: data['more'],
         token: data['token'],
         galDefinitionLastModified: data['galDefinitionLastModified'],
@@ -51,10 +54,18 @@ class SyncGalResponse extends SoapResponse {
         fullSyncRecommended: data['fullSyncRecommended'],
         remain: int.tryParse(data['remain']?.toString() ?? ''),
         contacts: (data['cn'] is Iterable)
-            ? (data['cn'] as Iterable).map<ContactInfo>((cn) => ContactInfo.fromMap(cn)).toList(growable: false)
+            ? (data['cn'] as Iterable)
+                .map<ContactInfo>(
+                  (cn) => ContactInfo.fromMap(cn),
+                )
+                .toList(growable: false)
             : const [],
         deleted: (data['deleted'] is Iterable)
-            ? (data['deleted'] as Iterable).map<Id>((deleted) => Id.fromMap(deleted)).toList(growable: false)
+            ? (data['deleted'] as Iterable)
+                .map<Id>(
+                  (deleted) => Id.fromMap(deleted),
+                )
+                .toList(growable: false)
             : const [],
       );
 }

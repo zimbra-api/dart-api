@@ -7,5 +7,8 @@ import '../../common/type/soap_response.dart';
 class EndSessionResponse extends SoapResponse {
   EndSessionResponse();
 
-  factory EndSessionResponse.fromMap(Map<String, dynamic> data) => EndSessionResponse();
+  factory EndSessionResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      EndSessionResponse();
 }

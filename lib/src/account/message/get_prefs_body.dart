@@ -7,11 +7,18 @@ import 'get_prefs_request.dart';
 import 'get_prefs_response.dart';
 
 class GetPrefsBody extends SoapBody {
-  GetPrefsBody({GetPrefsRequest? request, GetPrefsResponse? response})
-      : super(request: request, response: response);
+  GetPrefsBody({
+    GetPrefsRequest? request,
+    GetPrefsResponse? response,
+  }) : super(request: request, response: response);
 
   factory GetPrefsBody.fromMap(Map<String, dynamic> data) => GetPrefsBody(
-      response: data['GetPrefsResponse'] != null ? GetPrefsResponse.fromMap(data['GetPrefsResponse']) : null);
+        response: data['GetPrefsResponse'] != null
+            ? GetPrefsResponse.fromMap(
+                data['GetPrefsResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

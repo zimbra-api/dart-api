@@ -11,8 +11,13 @@ import 'get_available_csv_formats_envelope.dart';
 /// Returns the known CSV formats that can be used for import and export of addressbook.
 class GetAvailableCsvFormatsRequest extends SoapRequest {
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      GetAvailableCsvFormatsEnvelope(GetAvailableCsvFormatsBody(request: this), header: header);
+  SoapEnvelope getEnvelope({
+    SoapHeader? header,
+  }) =>
+      GetAvailableCsvFormatsEnvelope(
+        GetAvailableCsvFormatsBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

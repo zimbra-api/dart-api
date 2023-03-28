@@ -7,11 +7,18 @@ import 'search_gal_request.dart';
 import 'search_gal_response.dart';
 
 class SearchGalBody extends SoapBody {
-  SearchGalBody({SearchGalRequest? request, SearchGalResponse? response})
-      : super(request: request, response: response);
+  SearchGalBody({
+    SearchGalRequest? request,
+    SearchGalResponse? response,
+  }) : super(request: request, response: response);
 
   factory SearchGalBody.fromMap(Map<String, dynamic> data) => SearchGalBody(
-      response: data['SearchGalResponse'] != null ? SearchGalResponse.fromMap(data['SearchGalResponse']) : null);
+        response: data['SearchGalResponse'] != null
+            ? SearchGalResponse.fromMap(
+                data['SearchGalResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

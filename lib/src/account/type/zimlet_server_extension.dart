@@ -9,10 +9,17 @@ class ZimletServerExtension {
 
   final String? regex;
 
-  const ZimletServerExtension({this.hasKeyword, this.extensionClass, this.regex});
+  const ZimletServerExtension(
+      {this.hasKeyword, this.extensionClass, this.regex});
 
-  factory ZimletServerExtension.fromMap(Map<String, dynamic> data) => ZimletServerExtension(
-      hasKeyword: data['hasKeyword'], extensionClass: data['extensionClass'], regex: data['regex']);
+  factory ZimletServerExtension.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ZimletServerExtension(
+        hasKeyword: data['hasKeyword'],
+        extensionClass: data['extensionClass'],
+        regex: data['regex'],
+      );
 
   Map<String, dynamic> toMap() => {
         if (hasKeyword != null) 'hasKeyword': hasKeyword,

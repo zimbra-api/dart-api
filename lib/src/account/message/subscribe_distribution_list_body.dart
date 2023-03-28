@@ -7,17 +7,25 @@ import 'subscribe_distribution_list_request.dart';
 import 'subscribe_distribution_list_response.dart';
 
 class SubscribeDistributionListBody extends SoapBody {
-  SubscribeDistributionListBody(
-      {SubscribeDistributionListRequest? request, SubscribeDistributionListResponse? response})
-      : super(request: request, response: response);
+  SubscribeDistributionListBody({
+    SubscribeDistributionListRequest? request,
+    SubscribeDistributionListResponse? response,
+  }) : super(request: request, response: response);
 
-  factory SubscribeDistributionListBody.fromMap(Map<String, dynamic> data) => SubscribeDistributionListBody(
-      response: data['SubscribeDistributionListResponse'] != null
-          ? SubscribeDistributionListResponse.fromMap(data['SubscribeDistributionListResponse'])
-          : null);
+  factory SubscribeDistributionListBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      SubscribeDistributionListBody(
+        response: data['SubscribeDistributionListResponse'] != null
+            ? SubscribeDistributionListResponse.fromMap(
+                data['SubscribeDistributionListResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {
-        if (request != null) 'SubscribeDistributionListRequest': request!.toMap(),
+        if (request != null)
+          'SubscribeDistributionListRequest': request!.toMap(),
       };
 }

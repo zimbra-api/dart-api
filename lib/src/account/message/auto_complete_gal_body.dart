@@ -7,13 +7,19 @@ import 'auto_complete_gal_request.dart';
 import 'auto_complete_gal_response.dart';
 
 class AutoCompleteGalBody extends SoapBody {
-  AutoCompleteGalBody({AutoCompleteGalRequest? request, AutoCompleteGalResponse? response})
-      : super(request: request, response: response);
+  AutoCompleteGalBody({
+    AutoCompleteGalRequest? request,
+    AutoCompleteGalResponse? response,
+  }) : super(request: request, response: response);
 
-  factory AutoCompleteGalBody.fromMap(Map<String, dynamic> data) => AutoCompleteGalBody(
-      response: data['AutoCompleteGalResponse'] != null
-          ? AutoCompleteGalResponse.fromMap(data['AutoCompleteGalResponse'])
-          : null);
+  factory AutoCompleteGalBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      AutoCompleteGalBody(
+        response: data['AutoCompleteGalResponse'] != null
+            ? AutoCompleteGalResponse.fromMap(data['AutoCompleteGalResponse'])
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

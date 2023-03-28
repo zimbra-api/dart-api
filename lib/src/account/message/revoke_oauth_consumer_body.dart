@@ -7,13 +7,21 @@ import 'revoke_oauth_consumer_request.dart';
 import 'revoke_oauth_consumer_response.dart';
 
 class RevokeOAuthConsumerBody extends SoapBody {
-  RevokeOAuthConsumerBody({RevokeOAuthConsumerRequest? request, RevokeOAuthConsumerResponse? response})
-      : super(request: request, response: response);
+  RevokeOAuthConsumerBody({
+    RevokeOAuthConsumerRequest? request,
+    RevokeOAuthConsumerResponse? response,
+  }) : super(request: request, response: response);
 
-  factory RevokeOAuthConsumerBody.fromMap(Map<String, dynamic> data) => RevokeOAuthConsumerBody(
-      response: data['RevokeOAuthConsumerResponse'] != null
-          ? RevokeOAuthConsumerResponse.fromMap(data['RevokeOAuthConsumerResponse'])
-          : null);
+  factory RevokeOAuthConsumerBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      RevokeOAuthConsumerBody(
+        response: data['RevokeOAuthConsumerResponse'] != null
+            ? RevokeOAuthConsumerResponse.fromMap(
+                data['RevokeOAuthConsumerResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

@@ -16,8 +16,10 @@ class ResetPasswordRequest extends SoapRequest {
   ResetPasswordRequest(this.password);
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      ResetPasswordEnvelope(ResetPasswordBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => ResetPasswordEnvelope(
+        ResetPasswordBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

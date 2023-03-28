@@ -7,9 +7,20 @@ import '../../common/type/soap_header.dart';
 import 'get_account_info_body.dart';
 
 class GetAccountInfoEnvelope extends SoapEnvelope {
-  GetAccountInfoEnvelope(GetAccountInfoBody body, {super.header}) : super(body..response?.header = header);
+  GetAccountInfoEnvelope(
+    GetAccountInfoBody body, {
+    super.header,
+  }) : super(body..response?.header = header);
 
-  factory GetAccountInfoEnvelope.fromMap(Map<String, dynamic> data) =>
-      GetAccountInfoEnvelope(GetAccountInfoBody.fromMap(data['Body']),
-          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
+  factory GetAccountInfoEnvelope.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetAccountInfoEnvelope(
+        GetAccountInfoBody.fromMap(data['Body']),
+        header: data['Header'] != null
+            ? SoapHeader.fromMap(
+                data['Header'],
+              )
+            : null,
+      );
 }

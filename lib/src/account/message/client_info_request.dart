@@ -17,7 +17,10 @@ class ClientInfoRequest extends SoapRequest {
   ClientInfoRequest(this.domain);
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) => ClientInfoEnvelope(ClientInfoBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => ClientInfoEnvelope(
+        ClientInfoBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

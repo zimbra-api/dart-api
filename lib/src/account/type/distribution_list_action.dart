@@ -36,9 +36,29 @@ class DistributionListAction extends AccountKeyValuePairs {
         'op': op.name,
         if (newName != null) 'newName': newName,
         if (subsReq != null) 'subsReq': subsReq!.toMap(),
-        if (members.isNotEmpty) 'dlm': members.map((dlm) => {'_content': dlm}).toList(growable: false),
-        if (owners.isNotEmpty) 'owner': owners.map((owner) => owner.toMap()).toList(growable: false),
-        if (rights.isNotEmpty) 'right': rights.map((right) => right.toMap()).toList(growable: false),
-        if (keyValuePairs.isNotEmpty) 'a': keyValuePairs.map((kvp) => kvp.toMap()).toList(growable: false),
+        if (members.isNotEmpty)
+          'dlm': members
+              .map(
+                (dlm) => {'_content': dlm},
+              )
+              .toList(growable: false),
+        if (owners.isNotEmpty)
+          'owner': owners
+              .map(
+                (owner) => owner.toMap(),
+              )
+              .toList(growable: false),
+        if (rights.isNotEmpty)
+          'right': rights
+              .map(
+                (right) => right.toMap(),
+              )
+              .toList(growable: false),
+        if (keyValuePairs.isNotEmpty)
+          'a': keyValuePairs
+              .map(
+                (kvp) => kvp.toMap(),
+              )
+              .toList(growable: false),
       };
 }

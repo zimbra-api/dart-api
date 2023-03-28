@@ -95,7 +95,10 @@ class SearchGalRequest extends SoapRequest {
   });
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) => SearchGalEnvelope(SearchGalBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => SearchGalEnvelope(
+        SearchGalBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

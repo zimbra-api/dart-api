@@ -12,8 +12,13 @@ import 'get_available_locales_envelope.dart';
 /// The locale list in the response is sorted by display name (name attribute).
 class GetAvailableLocalesRequest extends SoapRequest {
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      GetAvailableLocalesEnvelope(GetAvailableLocalesBody(request: this), header: header);
+  SoapEnvelope getEnvelope({
+    SoapHeader? header,
+  }) =>
+      GetAvailableLocalesEnvelope(
+        GetAvailableLocalesBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

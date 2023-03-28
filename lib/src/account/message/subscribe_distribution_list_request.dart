@@ -18,11 +18,19 @@ class SubscribeDistributionListRequest extends SoapRequest {
   /// The operation to perform.
   final DistributionListSubscribeOp op;
 
-  SubscribeDistributionListRequest(this.dl, {this.op = DistributionListSubscribeOp.subscribe});
+  SubscribeDistributionListRequest(
+    this.dl, {
+    this.op = DistributionListSubscribeOp.subscribe,
+  });
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      SubscribeDistributionListEnvelope(SubscribeDistributionListBody(request: this), header: header);
+  SoapEnvelope getEnvelope({
+    SoapHeader? header,
+  }) =>
+      SubscribeDistributionListEnvelope(
+        SubscribeDistributionListBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

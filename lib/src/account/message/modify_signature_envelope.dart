@@ -7,9 +7,20 @@ import '../../common/type/soap_header.dart';
 import 'modify_signature_body.dart';
 
 class ModifySignatureEnvelope extends SoapEnvelope {
-  ModifySignatureEnvelope(ModifySignatureBody body, {super.header}) : super(body..response?.header = header);
+  ModifySignatureEnvelope(
+    ModifySignatureBody body, {
+    super.header,
+  }) : super(body..response?.header = header);
 
-  factory ModifySignatureEnvelope.fromMap(Map<String, dynamic> data) =>
-      ModifySignatureEnvelope(ModifySignatureBody.fromMap(data['Body']),
-          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
+  factory ModifySignatureEnvelope.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ModifySignatureEnvelope(
+        ModifySignatureBody.fromMap(data['Body']),
+        header: data['Header'] != null
+            ? SoapHeader.fromMap(
+                data['Header'],
+              )
+            : null,
+      );
 }

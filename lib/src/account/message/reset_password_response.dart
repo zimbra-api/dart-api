@@ -7,5 +7,8 @@ import '../../common/type/soap_response.dart';
 class ResetPasswordResponse extends SoapResponse {
   ResetPasswordResponse();
 
-  factory ResetPasswordResponse.fromMap(Map<String, dynamic> data) => ResetPasswordResponse();
+  factory ResetPasswordResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ResetPasswordResponse();
 }

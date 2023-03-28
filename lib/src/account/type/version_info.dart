@@ -22,8 +22,12 @@ class VersionInfo {
     this.host,
   });
 
-  factory VersionInfo.fromMap(Map<String, dynamic> data) =>
-      VersionInfo(data['version'] ?? '', release: data['release'], date: data['buildDate'], host: data['host']);
+  factory VersionInfo.fromMap(Map<String, dynamic> data) => VersionInfo(
+        data['version'] ?? '',
+        release: data['release'],
+        date: data['buildDate'],
+        host: data['host'],
+      );
 
   Map<String, dynamic> toMap() => {
         'version': fullVersion,

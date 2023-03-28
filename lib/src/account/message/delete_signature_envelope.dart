@@ -7,9 +7,20 @@ import '../../common/type/soap_header.dart';
 import 'delete_signature_body.dart';
 
 class DeleteSignatureEnvelope extends SoapEnvelope {
-  DeleteSignatureEnvelope(DeleteSignatureBody body, {super.header}) : super(body..response?.header = header);
+  DeleteSignatureEnvelope(
+    DeleteSignatureBody body, {
+    super.header,
+  }) : super(body..response?.header = header);
 
-  factory DeleteSignatureEnvelope.fromMap(Map<String, dynamic> data) =>
-      DeleteSignatureEnvelope(DeleteSignatureBody.fromMap(data['Body']),
-          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
+  factory DeleteSignatureEnvelope.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      DeleteSignatureEnvelope(
+        DeleteSignatureBody.fromMap(data['Body']),
+        header: data['Header'] != null
+            ? SoapHeader.fromMap(
+                data['Header'],
+              )
+            : null,
+      );
 }

@@ -7,5 +7,8 @@ import '../../common/type/soap_response.dart';
 class ModifyPrefsResponse extends SoapResponse {
   ModifyPrefsResponse();
 
-  factory ModifyPrefsResponse.fromMap(Map<String, dynamic> data) => ModifyPrefsResponse();
+  factory ModifyPrefsResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ModifyPrefsResponse();
 }

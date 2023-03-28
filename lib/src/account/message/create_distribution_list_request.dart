@@ -21,17 +21,31 @@ class CreateDistributionListRequest extends SoapRequest {
   /// Key value pairs
   final List<KeyValuePair> keyValuePairs;
 
-  CreateDistributionListRequest(this.name, {this.isDynamic, this.keyValuePairs = const []});
+  CreateDistributionListRequest(
+    this.name, {
+    this.isDynamic,
+    this.keyValuePairs = const [],
+  });
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      CreateDistributionListEnvelope(CreateDistributionListBody(request: this), header: header);
+  SoapEnvelope getEnvelope({
+    SoapHeader? header,
+  }) =>
+      CreateDistributionListEnvelope(
+        CreateDistributionListBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraAccount',
         'name': name,
         if (isDynamic != null) 'dynamic': isDynamic,
-        if (keyValuePairs.isNotEmpty) 'a': keyValuePairs.map((a) => a.toMap()).toList(growable: false),
+        if (keyValuePairs.isNotEmpty)
+          'a': keyValuePairs
+              .map(
+                (a) => a.toMap(),
+              )
+              .toList(growable: false),
       };
 }

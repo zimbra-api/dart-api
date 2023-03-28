@@ -7,12 +7,21 @@ import 'reset_password_request.dart';
 import 'reset_password_response.dart';
 
 class ResetPasswordBody extends SoapBody {
-  ResetPasswordBody({ResetPasswordRequest? request, ResetPasswordResponse? response})
-      : super(request: request, response: response);
+  ResetPasswordBody({
+    ResetPasswordRequest? request,
+    ResetPasswordResponse? response,
+  }) : super(request: request, response: response);
 
-  factory ResetPasswordBody.fromMap(Map<String, dynamic> data) => ResetPasswordBody(
-      response:
-          data['ResetPasswordResponse'] != null ? ResetPasswordResponse.fromMap(data['ResetPasswordResponse']) : null);
+  factory ResetPasswordBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ResetPasswordBody(
+        response: data['ResetPasswordResponse'] != null
+            ? ResetPasswordResponse.fromMap(
+                data['ResetPasswordResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

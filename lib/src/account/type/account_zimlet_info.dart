@@ -22,10 +22,26 @@ class AccountZimletInfo {
     this.zimletConfig,
   });
 
-  factory AccountZimletInfo.fromMap(Map<String, dynamic> data) => AccountZimletInfo(
-      zimletContext: (data['zimletContext'] is Map) ? AccountZimletContext.fromMap(data['zimletContext']) : null,
-      zimlet: (data['zimlet'] is Map) ? AccountZimletDesc.fromMap(data['zimlet']) : null,
-      zimletConfig: (data['zimletConfig'] is Map) ? AccountZimletConfigInfo.fromMap(data['zimletConfig']) : null);
+  factory AccountZimletInfo.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      AccountZimletInfo(
+        zimletContext: (data['zimletContext'] is Map)
+            ? AccountZimletContext.fromMap(
+                data['zimletContext'],
+              )
+            : null,
+        zimlet: (data['zimlet'] is Map)
+            ? AccountZimletDesc.fromMap(
+                data['zimlet'],
+              )
+            : null,
+        zimletConfig: (data['zimletConfig'] is Map)
+            ? AccountZimletConfigInfo.fromMap(
+                data['zimletConfig'],
+              )
+            : null,
+      );
 
   Map<String, dynamic> toMap() => {
         if (zimletContext != null) 'zimletContext': zimletContext!.toMap(),

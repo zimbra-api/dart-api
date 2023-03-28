@@ -23,6 +23,11 @@ class RevokeRightsRequest extends SoapRequest {
   @override
   Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraAccount',
-        if (aces.isNotEmpty) 'ace': aces.map((ace) => ace.toMap()).toList(growable: false),
+        if (aces.isNotEmpty)
+          'ace': aces
+              .map(
+                (ace) => ace.toMap(),
+              )
+              .toList(growable: false),
       };
 }

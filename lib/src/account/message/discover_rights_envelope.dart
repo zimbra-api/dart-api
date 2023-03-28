@@ -7,9 +7,17 @@ import '../../common/type/soap_header.dart';
 import 'discover_rights_body.dart';
 
 class DiscoverRightsEnvelope extends SoapEnvelope {
-  DiscoverRightsEnvelope(DiscoverRightsBody body, {super.header}) : super(body..response?.header = header);
+  DiscoverRightsEnvelope(
+    DiscoverRightsBody body, {
+    super.header,
+  }) : super(body..response?.header = header);
 
-  factory DiscoverRightsEnvelope.fromMap(Map<String, dynamic> data) =>
-      DiscoverRightsEnvelope(DiscoverRightsBody.fromMap(data['Body']),
-          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
+  factory DiscoverRightsEnvelope.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      DiscoverRightsEnvelope(
+        DiscoverRightsBody.fromMap(data['Body']),
+        header:
+            data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null,
+      );
 }

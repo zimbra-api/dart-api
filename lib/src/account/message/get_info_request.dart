@@ -21,7 +21,10 @@ class GetInfoRequest extends SoapRequest {
   GetInfoRequest({this.sections, this.rights});
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) => GetInfoEnvelope(GetInfoBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => GetInfoEnvelope(
+        GetInfoBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

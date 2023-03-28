@@ -11,8 +11,10 @@ import 'get_white_black_list_envelope.dart';
 /// Get the anti-spam WhiteList and BlackList addresses
 class GetWhiteBlackListRequest extends SoapRequest {
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      GetWhiteBlackListEnvelope(GetWhiteBlackListBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => GetWhiteBlackListEnvelope(
+        GetWhiteBlackListBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

@@ -11,6 +11,14 @@ class GetDistributionListResponse extends SoapResponse {
 
   GetDistributionListResponse({this.dl});
 
-  factory GetDistributionListResponse.fromMap(Map<String, dynamic> data) =>
-      GetDistributionListResponse(dl: data['dl'] is Map ? DistributionListInfo.fromMap(data['dl']) : null);
+  factory GetDistributionListResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetDistributionListResponse(
+        dl: data['dl'] is Map
+            ? DistributionListInfo.fromMap(
+                data['dl'],
+              )
+            : null,
+      );
 }

@@ -27,8 +27,13 @@ class DistributionListActionRequest extends SoapRequest {
   DistributionListActionRequest(this.dl, this.action);
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      DistributionListActionEnvelope(DistributionListActionBody(request: this), header: header);
+  SoapEnvelope getEnvelope({
+    SoapHeader? header,
+  }) =>
+      DistributionListActionEnvelope(
+        DistributionListActionBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

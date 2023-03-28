@@ -41,15 +41,27 @@ class AccountZimletConfigInfo {
     this.host,
   });
 
-  factory AccountZimletConfigInfo.fromMap(Map<String, dynamic> data) => AccountZimletConfigInfo(
-      name: data['name'],
-      version: data['version'],
-      description: data['description'],
-      extension: data['extension'],
-      target: data['target'],
-      label: data['label'],
-      global: data['global'] is Map ? AccountZimletGlobalConfigInfo.fromMap(data['global']) : null,
-      host: data['host'] is Map ? AccountZimletHostConfigInfo.fromMap(data['host']) : null);
+  factory AccountZimletConfigInfo.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      AccountZimletConfigInfo(
+        name: data['name'],
+        version: data['version'],
+        description: data['description'],
+        extension: data['extension'],
+        target: data['target'],
+        label: data['label'],
+        global: data['global'] is Map
+            ? AccountZimletGlobalConfigInfo.fromMap(
+                data['global'],
+              )
+            : null,
+        host: data['host'] is Map
+            ? AccountZimletHostConfigInfo.fromMap(
+                data['host'],
+              )
+            : null,
+      );
 
   Map<String, dynamic> toMap() => {
         if (name != null) 'name': name,

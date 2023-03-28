@@ -8,7 +8,10 @@ class DiscoverRightsEmail {
 
   const DiscoverRightsEmail(this.addr);
 
-  factory DiscoverRightsEmail.fromMap(Map<String, dynamic> data) => DiscoverRightsEmail(data['addr'] ?? '');
+  factory DiscoverRightsEmail.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      DiscoverRightsEmail(data['addr'] ?? '');
 
   Map<String, dynamic> toMap() => {
         'addr': addr,

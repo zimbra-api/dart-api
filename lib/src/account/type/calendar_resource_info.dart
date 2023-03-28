@@ -14,14 +14,24 @@ class CalendarResourceInfo extends AccountKeyValuePairs {
 
   const CalendarResourceInfo(this.name, this.id, {super.keyValuePairs});
 
-  factory CalendarResourceInfo.fromMap(Map<String, dynamic> data) =>
-      CalendarResourceInfo(data['name'] ?? '', data['id'] ?? '',
-          keyValuePairs: KeyValuePairs.keyValuePairsFromMap(data));
+  factory CalendarResourceInfo.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      CalendarResourceInfo(
+        data['name'] ?? '',
+        data['id'] ?? '',
+        keyValuePairs: KeyValuePairs.keyValuePairsFromMap(data),
+      );
 
   @override
   Map<String, dynamic> toMap() => {
         'name': name,
         'id': id,
-        if (keyValuePairs.isNotEmpty) 'a': keyValuePairs.map((kvp) => kvp.toMap()).toList(growable: false),
+        if (keyValuePairs.isNotEmpty)
+          'a': keyValuePairs
+              .map(
+                (kvp) => kvp.toMap(),
+              )
+              .toList(growable: false),
       };
 }

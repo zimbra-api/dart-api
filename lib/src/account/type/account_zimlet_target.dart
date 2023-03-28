@@ -7,7 +7,10 @@ class AccountZimletTarget {
 
   const AccountZimletTarget({this.value});
 
-  factory AccountZimletTarget.fromMap(Map<String, dynamic> data) => AccountZimletTarget(value: data['_content']);
+  factory AccountZimletTarget.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      AccountZimletTarget(value: data['_content']);
 
   Map<String, dynamic> toMap() => {
         if (value != null) '_content': value,

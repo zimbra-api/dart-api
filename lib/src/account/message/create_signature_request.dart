@@ -20,8 +20,10 @@ class CreateSignatureRequest extends SoapRequest {
   CreateSignatureRequest(this.signature);
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      CreateSignatureEnvelope(CreateSignatureBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => CreateSignatureEnvelope(
+        CreateSignatureBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

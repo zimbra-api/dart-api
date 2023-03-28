@@ -7,5 +7,8 @@ import '../../common/type/soap_response.dart';
 class DeleteIdentityResponse extends SoapResponse {
   DeleteIdentityResponse();
 
-  factory DeleteIdentityResponse.fromMap(Map<String, dynamic> data) => DeleteIdentityResponse();
+  factory DeleteIdentityResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      DeleteIdentityResponse();
 }

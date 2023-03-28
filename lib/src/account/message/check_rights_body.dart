@@ -7,11 +7,21 @@ import 'check_rights_request.dart';
 import 'check_rights_response.dart';
 
 class CheckRightsBody extends SoapBody {
-  CheckRightsBody({CheckRightsRequest? request, CheckRightsResponse? response})
-      : super(request: request, response: response);
+  CheckRightsBody({
+    CheckRightsRequest? request,
+    CheckRightsResponse? response,
+  }) : super(request: request, response: response);
 
-  factory CheckRightsBody.fromMap(Map<String, dynamic> data) => CheckRightsBody(
-      response: data['CheckRightsResponse'] != null ? CheckRightsResponse.fromMap(data['CheckRightsResponse']) : null);
+  factory CheckRightsBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      CheckRightsBody(
+        response: data['CheckRightsResponse'] != null
+            ? CheckRightsResponse.fromMap(
+                data['CheckRightsResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

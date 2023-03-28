@@ -21,8 +21,13 @@ class ForwardAppointmentInviteRequest extends SoapRequest {
   ForwardAppointmentInviteRequest({this.id, this.msg});
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      ForwardAppointmentInviteEnvelope(ForwardAppointmentInviteBody(request: this), header: header);
+  SoapEnvelope getEnvelope({
+    SoapHeader? header,
+  }) =>
+      ForwardAppointmentInviteEnvelope(
+        ForwardAppointmentInviteBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

@@ -7,9 +7,20 @@ import '../../common/type/soap_header.dart';
 import 'create_data_source_body.dart';
 
 class CreateDataSourceEnvelope extends SoapEnvelope {
-  CreateDataSourceEnvelope(CreateDataSourceBody body, {super.header}) : super(body..response?.header = header);
+  CreateDataSourceEnvelope(
+    CreateDataSourceBody body, {
+    super.header,
+  }) : super(body..response?.header = header);
 
-  factory CreateDataSourceEnvelope.fromMap(Map<String, dynamic> data) =>
-      CreateDataSourceEnvelope(CreateDataSourceBody.fromMap(data['Body']),
-          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
+  factory CreateDataSourceEnvelope.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      CreateDataSourceEnvelope(
+        CreateDataSourceBody.fromMap(data['Body']),
+        header: data['Header'] != null
+            ? SoapHeader.fromMap(
+                data['Header'],
+              )
+            : null,
+      );
 }

@@ -39,8 +39,10 @@ class CounterAppointmentRequest extends SoapRequest {
   });
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      CounterAppointmentEnvelope(CounterAppointmentBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => CounterAppointmentEnvelope(
+        CounterAppointmentBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

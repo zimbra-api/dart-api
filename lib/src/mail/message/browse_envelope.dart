@@ -7,8 +7,17 @@ import '../../common/type/soap_header.dart';
 import 'browse_body.dart';
 
 class BrowseEnvelope extends SoapEnvelope {
-  BrowseEnvelope(BrowseBody body, {super.header}) : super(body..response?.header = header);
+  BrowseEnvelope(
+    BrowseBody body, {
+    super.header,
+  }) : super(body..response?.header = header);
 
-  factory BrowseEnvelope.fromMap(Map<String, dynamic> data) => BrowseEnvelope(BrowseBody.fromMap(data['Body']),
-      header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
+  factory BrowseEnvelope.fromMap(Map<String, dynamic> data) => BrowseEnvelope(
+        BrowseBody.fromMap(data['Body']),
+        header: data['Header'] != null
+            ? SoapHeader.fromMap(
+                data['Header'],
+              )
+            : null,
+      );
 }

@@ -7,5 +7,8 @@ import '../../common/type/soap_response.dart';
 class EmptyDumpsterResponse extends SoapResponse {
   EmptyDumpsterResponse();
 
-  factory EmptyDumpsterResponse.fromMap(Map<String, dynamic> data) => EmptyDumpsterResponse();
+  factory EmptyDumpsterResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      EmptyDumpsterResponse();
 }

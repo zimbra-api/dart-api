@@ -7,9 +7,20 @@ import '../../common/type/soap_header.dart';
 import 'destroy_wait_set_body.dart';
 
 class DestroyWaitSetEnvelope extends SoapEnvelope {
-  DestroyWaitSetEnvelope(DestroyWaitSetBody body, {super.header}) : super(body..response?.header = header);
+  DestroyWaitSetEnvelope(
+    DestroyWaitSetBody body, {
+    super.header,
+  }) : super(body..response?.header = header);
 
-  factory DestroyWaitSetEnvelope.fromMap(Map<String, dynamic> data) =>
-      DestroyWaitSetEnvelope(DestroyWaitSetBody.fromMap(data['Body']),
-          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
+  factory DestroyWaitSetEnvelope.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      DestroyWaitSetEnvelope(
+        DestroyWaitSetBody.fromMap(data['Body']),
+        header: data['Header'] != null
+            ? SoapHeader.fromMap(
+                data['Header'],
+              )
+            : null,
+      );
 }

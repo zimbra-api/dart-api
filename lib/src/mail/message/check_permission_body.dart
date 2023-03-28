@@ -7,13 +7,19 @@ import 'check_permission_request.dart';
 import 'check_permission_response.dart';
 
 class CheckPermissionBody extends SoapBody {
-  CheckPermissionBody({CheckPermissionRequest? request, CheckPermissionResponse? response})
-      : super(request: request, response: response);
+  CheckPermissionBody({
+    CheckPermissionRequest? request,
+    CheckPermissionResponse? response,
+  }) : super(request: request, response: response);
 
-  factory CheckPermissionBody.fromMap(Map<String, dynamic> data) => CheckPermissionBody(
-      response: data['CheckPermissionResponse'] != null
-          ? CheckPermissionResponse.fromMap(data['CheckPermissionResponse'])
-          : null);
+  factory CheckPermissionBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      CheckPermissionBody(
+        response: data['CheckPermissionResponse'] != null
+            ? CheckPermissionResponse.fromMap(data['CheckPermissionResponse'])
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

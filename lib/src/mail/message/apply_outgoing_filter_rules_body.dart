@@ -7,14 +7,21 @@ import 'apply_outgoing_filter_rules_request.dart';
 import 'apply_outgoing_filter_rules_response.dart';
 
 class ApplyOutgoingFilterRulesBody extends SoapBody {
-  ApplyOutgoingFilterRulesBody(
-      {ApplyOutgoingFilterRulesRequest? request, ApplyOutgoingFilterRulesResponse? response})
-      : super(request: request, response: response);
+  ApplyOutgoingFilterRulesBody({
+    ApplyOutgoingFilterRulesRequest? request,
+    ApplyOutgoingFilterRulesResponse? response,
+  }) : super(request: request, response: response);
 
-  factory ApplyOutgoingFilterRulesBody.fromMap(Map<String, dynamic> data) => ApplyOutgoingFilterRulesBody(
-      response: data['ApplyOutgoingFilterRulesResponse'] != null
-          ? ApplyOutgoingFilterRulesResponse.fromMap(data['ApplyOutgoingFilterRulesResponse'])
-          : null);
+  factory ApplyOutgoingFilterRulesBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ApplyOutgoingFilterRulesBody(
+        response: data['ApplyOutgoingFilterRulesResponse'] != null
+            ? ApplyOutgoingFilterRulesResponse.fromMap(
+                data['ApplyOutgoingFilterRulesResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

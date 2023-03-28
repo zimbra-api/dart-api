@@ -20,8 +20,10 @@ class GetCustomMetadataRequest extends SoapRequest {
   GetCustomMetadataRequest(this.metadata, {this.id});
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      GetCustomMetadataEnvelope(GetCustomMetadataBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => GetCustomMetadataEnvelope(
+        GetCustomMetadataBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

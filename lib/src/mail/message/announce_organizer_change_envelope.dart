@@ -7,10 +7,20 @@ import '../../common/type/soap_header.dart';
 import 'announce_organizer_change_body.dart';
 
 class AnnounceOrganizerChangeEnvelope extends SoapEnvelope {
-  AnnounceOrganizerChangeEnvelope(AnnounceOrganizerChangeBody body, {super.header})
-      : super(body..response?.header = header);
+  AnnounceOrganizerChangeEnvelope(
+    AnnounceOrganizerChangeBody body, {
+    super.header,
+  }) : super(body..response?.header = header);
 
-  factory AnnounceOrganizerChangeEnvelope.fromMap(Map<String, dynamic> data) =>
-      AnnounceOrganizerChangeEnvelope(AnnounceOrganizerChangeBody.fromMap(data['Body']),
-          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
+  factory AnnounceOrganizerChangeEnvelope.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      AnnounceOrganizerChangeEnvelope(
+        AnnounceOrganizerChangeBody.fromMap(data['Body']),
+        header: data['Header'] != null
+            ? SoapHeader.fromMap(
+                data['Header'],
+              )
+            : null,
+      );
 }

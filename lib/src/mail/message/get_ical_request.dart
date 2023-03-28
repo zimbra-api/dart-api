@@ -25,7 +25,10 @@ class GetICalRequest extends SoapRequest {
   GetICalRequest({this.id, this.startTime, this.endTime});
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) => GetICalEnvelope(GetICalBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => GetICalEnvelope(
+        GetICalBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

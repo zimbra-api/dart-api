@@ -7,13 +7,21 @@ import 'get_contact_backup_list_request.dart';
 import 'get_contact_backup_list_response.dart';
 
 class GetContactBackupListBody extends SoapBody {
-  GetContactBackupListBody({GetContactBackupListRequest? request, GetContactBackupListResponse? response})
-      : super(request: request, response: response);
+  GetContactBackupListBody({
+    GetContactBackupListRequest? request,
+    GetContactBackupListResponse? response,
+  }) : super(request: request, response: response);
 
-  factory GetContactBackupListBody.fromMap(Map<String, dynamic> data) => GetContactBackupListBody(
-      response: data['GetContactBackupListResponse'] != null
-          ? GetContactBackupListResponse.fromMap(data['GetContactBackupListResponse'])
-          : null);
+  factory GetContactBackupListBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetContactBackupListBody(
+        response: data['GetContactBackupListResponse'] != null
+            ? GetContactBackupListResponse.fromMap(
+                data['GetContactBackupListResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

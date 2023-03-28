@@ -17,7 +17,10 @@ class CreateTagRequest extends SoapRequest {
   CreateTagRequest(this.tag);
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) => CreateTagEnvelope(CreateTagBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => CreateTagEnvelope(
+        CreateTagBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

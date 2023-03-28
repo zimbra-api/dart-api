@@ -11,10 +11,16 @@ class GetFilterRulesResponse extends SoapResponse {
 
   GetFilterRulesResponse({this.filterRules = const []});
 
-  factory GetFilterRulesResponse.fromMap(Map<String, dynamic> data) => GetFilterRulesResponse(
-      filterRules: (data['filterRules']?[0]?['filterRule'] is Iterable)
-          ? (data['filterRules'][0]['filterRule'] as Iterable)
-              .map<FilterRule>((filterRule) => FilterRule.fromMap(filterRule))
-              .toList(growable: false)
-          : const []);
+  factory GetFilterRulesResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetFilterRulesResponse(
+        filterRules: (data['filterRules']?[0]?['filterRule'] is Iterable)
+            ? (data['filterRules'][0]['filterRule'] as Iterable)
+                .map<FilterRule>(
+                  (filterRule) => FilterRule.fromMap(filterRule),
+                )
+                .toList(growable: false)
+            : const [],
+      );
 }

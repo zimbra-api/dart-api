@@ -10,5 +10,8 @@ class GenerateUUIDResponse extends SoapResponse {
 
   GenerateUUIDResponse({this.uuid});
 
-  factory GenerateUUIDResponse.fromMap(Map<String, dynamic> data) => GenerateUUIDResponse(uuid: data['_content']);
+  factory GenerateUUIDResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GenerateUUIDResponse(uuid: data['_content']);
 }

@@ -7,10 +7,20 @@ import '../../common/type/soap_header.dart';
 import 'get_effective_folder_perms_body.dart';
 
 class GetEffectiveFolderPermsEnvelope extends SoapEnvelope {
-  GetEffectiveFolderPermsEnvelope(GetEffectiveFolderPermsBody body, {super.header})
-      : super(body..response?.header = header);
+  GetEffectiveFolderPermsEnvelope(
+    GetEffectiveFolderPermsBody body, {
+    super.header,
+  }) : super(body..response?.header = header);
 
-  factory GetEffectiveFolderPermsEnvelope.fromMap(Map<String, dynamic> data) =>
-      GetEffectiveFolderPermsEnvelope(GetEffectiveFolderPermsBody.fromMap(data['Body']),
-          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
+  factory GetEffectiveFolderPermsEnvelope.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetEffectiveFolderPermsEnvelope(
+        GetEffectiveFolderPermsBody.fromMap(data['Body']),
+        header: data['Header'] != null
+            ? SoapHeader.fromMap(
+                data['Header'],
+              )
+            : null,
+      );
 }

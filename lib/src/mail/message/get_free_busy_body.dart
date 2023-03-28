@@ -7,11 +7,21 @@ import 'get_free_busy_request.dart';
 import 'get_free_busy_response.dart';
 
 class GetFreeBusyBody extends SoapBody {
-  GetFreeBusyBody({GetFreeBusyRequest? request, GetFreeBusyResponse? response})
-      : super(request: request, response: response);
+  GetFreeBusyBody({
+    GetFreeBusyRequest? request,
+    GetFreeBusyResponse? response,
+  }) : super(request: request, response: response);
 
-  factory GetFreeBusyBody.fromMap(Map<String, dynamic> data) => GetFreeBusyBody(
-      response: data['GetFreeBusyResponse'] != null ? GetFreeBusyResponse.fromMap(data['GetFreeBusyResponse']) : null);
+  factory GetFreeBusyBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetFreeBusyBody(
+        response: data['GetFreeBusyResponse'] != null
+            ? GetFreeBusyResponse.fromMap(
+                data['GetFreeBusyResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

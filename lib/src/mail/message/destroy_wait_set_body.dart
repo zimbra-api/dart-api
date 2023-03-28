@@ -7,13 +7,19 @@ import 'destroy_wait_set_request.dart';
 import 'destroy_wait_set_response.dart';
 
 class DestroyWaitSetBody extends SoapBody {
-  DestroyWaitSetBody({DestroyWaitSetRequest? request, DestroyWaitSetResponse? response})
-      : super(request: request, response: response);
+  DestroyWaitSetBody({
+    DestroyWaitSetRequest? request,
+    DestroyWaitSetResponse? response,
+  }) : super(request: request, response: response);
 
-  factory DestroyWaitSetBody.fromMap(Map<String, dynamic> data) => DestroyWaitSetBody(
-      response: data['DestroyWaitSetResponse'] != null
-          ? DestroyWaitSetResponse.fromMap(data['DestroyWaitSetResponse'])
-          : null);
+  factory DestroyWaitSetBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      DestroyWaitSetBody(
+        response: data['DestroyWaitSetResponse'] != null
+            ? DestroyWaitSetResponse.fromMap(data['DestroyWaitSetResponse'])
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

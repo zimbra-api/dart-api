@@ -7,9 +7,20 @@ import '../../common/type/soap_header.dart';
 import 'create_tag_body.dart';
 
 class CreateTagEnvelope extends SoapEnvelope {
-  CreateTagEnvelope(CreateTagBody body, {super.header}) : super(body..response?.header = header);
+  CreateTagEnvelope(
+    CreateTagBody body, {
+    super.header,
+  }) : super(body..response?.header = header);
 
-  factory CreateTagEnvelope.fromMap(Map<String, dynamic> data) =>
-      CreateTagEnvelope(CreateTagBody.fromMap(data['Body']),
-      header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
+  factory CreateTagEnvelope.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      CreateTagEnvelope(
+        CreateTagBody.fromMap(data['Body']),
+        header: data['Header'] != null
+            ? SoapHeader.fromMap(
+                data['Header'],
+              )
+            : null,
+      );
 }

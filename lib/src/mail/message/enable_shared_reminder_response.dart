@@ -7,5 +7,8 @@ import '../../common/type/soap_response.dart';
 class EnableSharedReminderResponse extends SoapResponse {
   EnableSharedReminderResponse();
 
-  factory EnableSharedReminderResponse.fromMap(Map<String, dynamic> data) => EnableSharedReminderResponse();
+  factory EnableSharedReminderResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      EnableSharedReminderResponse();
 }

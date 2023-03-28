@@ -35,8 +35,10 @@ class AutoCompleteRequest extends SoapRequest {
   });
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      AutoCompleteEnvelope(AutoCompleteBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => AutoCompleteEnvelope(
+        AutoCompleteBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

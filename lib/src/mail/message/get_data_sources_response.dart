@@ -48,45 +48,65 @@ class GetDataSourcesResponse extends SoapResponse {
     this.unknownDataSources = const [],
   });
 
-  factory GetDataSourcesResponse.fromMap(Map<String, dynamic> data) => GetDataSourcesResponse(
-      imapDataSources: (data['imap'] is Iterable)
-          ? (data['imap'] as Iterable)
-              .map<MailImapDataSource>((imap) => MailImapDataSource.fromMap(imap))
-              .toList(growable: false)
-          : const [],
-      pop3DataSources: (data['pop3'] is Iterable)
-          ? (data['pop3'] as Iterable)
-              .map<MailPop3DataSource>((pop3) => MailPop3DataSource.fromMap(pop3))
-              .toList(growable: false)
-          : const [],
-      caldavDataSources: (data['caldav'] is Iterable)
-          ? (data['caldav'] as Iterable)
-              .map<MailCaldavDataSource>((caldav) => MailCaldavDataSource.fromMap(caldav))
-              .toList(growable: false)
-          : const [],
-      yabDataSources: (data['yab'] is Iterable)
-          ? (data['yab'] as Iterable)
-              .map<MailYabDataSource>((yab) => MailYabDataSource.fromMap(yab))
-              .toList(growable: false)
-          : const [],
-      rssDataSources: (data['rss'] is Iterable)
-          ? (data['rss'] as Iterable)
-              .map<MailRssDataSource>((rss) => MailRssDataSource.fromMap(rss))
-              .toList(growable: false)
-          : const [],
-      galDataSources: (data['gal'] is Iterable)
-          ? (data['gal'] as Iterable)
-              .map<MailGalDataSource>((gal) => MailGalDataSource.fromMap(gal))
-              .toList(growable: false)
-          : const [],
-      calDataSources: (data['cal'] is Iterable)
-          ? (data['cal'] as Iterable)
-              .map<MailCalDataSource>((cal) => MailCalDataSource.fromMap(cal))
-              .toList(growable: false)
-          : const [],
-      unknownDataSources: (data['unknown'] is Iterable)
-          ? (data['unknown'] as Iterable)
-              .map<MailUnknownDataSource>((unknown) => MailUnknownDataSource.fromMap(unknown))
-              .toList(growable: false)
-          : const []);
+  factory GetDataSourcesResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetDataSourcesResponse(
+        imapDataSources: (data['imap'] is Iterable)
+            ? (data['imap'] as Iterable)
+                .map<MailImapDataSource>(
+                  (imap) => MailImapDataSource.fromMap(imap),
+                )
+                .toList(growable: false)
+            : const [],
+        pop3DataSources: (data['pop3'] is Iterable)
+            ? (data['pop3'] as Iterable)
+                .map<MailPop3DataSource>(
+                  (pop3) => MailPop3DataSource.fromMap(pop3),
+                )
+                .toList(growable: false)
+            : const [],
+        caldavDataSources: (data['caldav'] is Iterable)
+            ? (data['caldav'] as Iterable)
+                .map<MailCaldavDataSource>(
+                  (caldav) => MailCaldavDataSource.fromMap(caldav),
+                )
+                .toList(growable: false)
+            : const [],
+        yabDataSources: (data['yab'] is Iterable)
+            ? (data['yab'] as Iterable)
+                .map<MailYabDataSource>(
+                  (yab) => MailYabDataSource.fromMap(yab),
+                )
+                .toList(growable: false)
+            : const [],
+        rssDataSources: (data['rss'] is Iterable)
+            ? (data['rss'] as Iterable)
+                .map<MailRssDataSource>(
+                  (rss) => MailRssDataSource.fromMap(rss),
+                )
+                .toList(growable: false)
+            : const [],
+        galDataSources: (data['gal'] is Iterable)
+            ? (data['gal'] as Iterable)
+                .map<MailGalDataSource>(
+                  (gal) => MailGalDataSource.fromMap(gal),
+                )
+                .toList(growable: false)
+            : const [],
+        calDataSources: (data['cal'] is Iterable)
+            ? (data['cal'] as Iterable)
+                .map<MailCalDataSource>(
+                  (cal) => MailCalDataSource.fromMap(cal),
+                )
+                .toList(growable: false)
+            : const [],
+        unknownDataSources: (data['unknown'] is Iterable)
+            ? (data['unknown'] as Iterable)
+                .map<MailUnknownDataSource>(
+                  (unknown) => MailUnknownDataSource.fromMap(unknown),
+                )
+                .toList(growable: false)
+            : const [],
+      );
 }

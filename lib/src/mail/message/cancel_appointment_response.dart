@@ -7,5 +7,8 @@ import '../../common/type/soap_response.dart';
 class CancelAppointmentResponse extends SoapResponse {
   CancelAppointmentResponse();
 
-  factory CancelAppointmentResponse.fromMap(Map<String, dynamic> data) => CancelAppointmentResponse();
+  factory CancelAppointmentResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      CancelAppointmentResponse();
 }

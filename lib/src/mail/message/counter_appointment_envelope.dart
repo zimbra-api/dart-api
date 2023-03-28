@@ -7,9 +7,20 @@ import '../../common/type/soap_header.dart';
 import 'counter_appointment_body.dart';
 
 class CounterAppointmentEnvelope extends SoapEnvelope {
-  CounterAppointmentEnvelope(CounterAppointmentBody body, {super.header}) : super(body..response?.header = header);
+  CounterAppointmentEnvelope(
+    CounterAppointmentBody body, {
+    super.header,
+  }) : super(body..response?.header = header);
 
-  factory CounterAppointmentEnvelope.fromMap(Map<String, dynamic> data) =>
-      CounterAppointmentEnvelope(CounterAppointmentBody.fromMap(data['Body']),
-          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
+  factory CounterAppointmentEnvelope.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      CounterAppointmentEnvelope(
+        CounterAppointmentBody.fromMap(data['Body']),
+        header: data['Header'] != null
+            ? SoapHeader.fromMap(
+                data['Header'],
+              )
+            : null,
+      );
 }

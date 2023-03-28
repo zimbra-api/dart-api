@@ -7,12 +7,21 @@ import 'create_wait_set_request.dart';
 import 'create_wait_set_response.dart';
 
 class CreateWaitSetBody extends SoapBody {
-  CreateWaitSetBody({CreateWaitSetRequest? request, CreateWaitSetResponse? response})
-      : super(request: request, response: response);
+  CreateWaitSetBody({
+    CreateWaitSetRequest? request,
+    CreateWaitSetResponse? response,
+  }) : super(request: request, response: response);
 
-  factory CreateWaitSetBody.fromMap(Map<String, dynamic> data) => CreateWaitSetBody(
-      response:
-          data['CreateWaitSetResponse'] != null ? CreateWaitSetResponse.fromMap(data['CreateWaitSetResponse']) : null);
+  factory CreateWaitSetBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      CreateWaitSetBody(
+        response: data['CreateWaitSetResponse'] != null
+            ? CreateWaitSetResponse.fromMap(
+                data['CreateWaitSetResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

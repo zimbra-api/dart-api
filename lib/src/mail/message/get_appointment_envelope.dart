@@ -7,9 +7,20 @@ import '../../common/type/soap_header.dart';
 import 'get_appointment_body.dart';
 
 class GetAppointmentEnvelope extends SoapEnvelope {
-  GetAppointmentEnvelope(GetAppointmentBody body, {super.header}) : super(body..response?.header = header);
+  GetAppointmentEnvelope(
+    GetAppointmentBody body, {
+    super.header,
+  }) : super(body..response?.header = header);
 
-  factory GetAppointmentEnvelope.fromMap(Map<String, dynamic> data) =>
-      GetAppointmentEnvelope(GetAppointmentBody.fromMap(data['Body']),
-          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
+  factory GetAppointmentEnvelope.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetAppointmentEnvelope(
+        GetAppointmentBody.fromMap(data['Body']),
+        header: data['Header'] != null
+            ? SoapHeader.fromMap(
+                data['Header'],
+              )
+            : null,
+      );
 }

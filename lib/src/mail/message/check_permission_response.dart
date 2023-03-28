@@ -14,11 +14,17 @@ class CheckPermissionResponse extends SoapResponse {
 
   CheckPermissionResponse({this.allow, this.rights = const []});
 
-  factory CheckPermissionResponse.fromMap(Map<String, dynamic> data) => CheckPermissionResponse(
-      allow: data['allow'],
-      rights: (data['right'] is Iterable)
-          ? (data['right'] as Iterable)
-              .map<RightPermission>((right) => RightPermission.fromMap(right))
-              .toList(growable: false)
-          : const []);
+  factory CheckPermissionResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      CheckPermissionResponse(
+        allow: data['allow'],
+        rights: (data['right'] is Iterable)
+            ? (data['right'] as Iterable)
+                .map<RightPermission>(
+                  (right) => RightPermission.fromMap(right),
+                )
+                .toList(growable: false)
+            : const [],
+      );
 }

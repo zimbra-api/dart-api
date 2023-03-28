@@ -7,12 +7,21 @@ import 'add_task_invite_request.dart';
 import 'add_task_invite_response.dart';
 
 class AddTaskInviteBody extends SoapBody {
-  AddTaskInviteBody({AddTaskInviteRequest? request, AddTaskInviteResponse? response})
-      : super(request: request, response: response);
+  AddTaskInviteBody({
+    AddTaskInviteRequest? request,
+    AddTaskInviteResponse? response,
+  }) : super(request: request, response: response);
 
-  factory AddTaskInviteBody.fromMap(Map<String, dynamic> data) => AddTaskInviteBody(
-      response:
-          data['AddTaskInviteResponse'] != null ? AddTaskInviteResponse.fromMap(data['AddTaskInviteResponse']) : null);
+  factory AddTaskInviteBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      AddTaskInviteBody(
+        response: data['AddTaskInviteResponse'] != null
+            ? AddTaskInviteResponse.fromMap(
+                data['AddTaskInviteResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

@@ -7,13 +7,21 @@ import 'begin_tracking_imap_request.dart';
 import 'begin_tracking_imap_response.dart';
 
 class BeginTrackingIMAPBody extends SoapBody {
-  BeginTrackingIMAPBody({BeginTrackingIMAPRequest? request, BeginTrackingIMAPResponse? response})
-      : super(request: request, response: response);
+  BeginTrackingIMAPBody({
+    BeginTrackingIMAPRequest? request,
+    BeginTrackingIMAPResponse? response,
+  }) : super(request: request, response: response);
 
-  factory BeginTrackingIMAPBody.fromMap(Map<String, dynamic> data) => BeginTrackingIMAPBody(
-      response: data['BeginTrackingIMAPResponse'] != null
-          ? BeginTrackingIMAPResponse.fromMap(data['BeginTrackingIMAPResponse'])
-          : null);
+  factory BeginTrackingIMAPBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      BeginTrackingIMAPBody(
+        response: data['BeginTrackingIMAPResponse'] != null
+            ? BeginTrackingIMAPResponse.fromMap(
+                data['BeginTrackingIMAPResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

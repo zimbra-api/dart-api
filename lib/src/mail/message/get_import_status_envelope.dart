@@ -7,9 +7,20 @@ import '../../common/type/soap_header.dart';
 import 'get_import_status_body.dart';
 
 class GetImportStatusEnvelope extends SoapEnvelope {
-  GetImportStatusEnvelope(GetImportStatusBody body, {super.header}) : super(body..response?.header = header);
+  GetImportStatusEnvelope(
+    GetImportStatusBody body, {
+    super.header,
+  }) : super(body..response?.header = header);
 
-  factory GetImportStatusEnvelope.fromMap(Map<String, dynamic> data) =>
-      GetImportStatusEnvelope(GetImportStatusBody.fromMap(data['Body']),
-          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
+  factory GetImportStatusEnvelope.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetImportStatusEnvelope(
+        GetImportStatusBody.fromMap(data['Body']),
+        header: data['Header'] != null
+            ? SoapHeader.fromMap(
+                data['Header'],
+              )
+            : null,
+      );
 }

@@ -11,8 +11,13 @@ import 'get_contact_backup_list_envelope.dart';
 /// Get list of available contact backups
 class GetContactBackupListRequest extends SoapRequest {
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      GetContactBackupListEnvelope(GetContactBackupListBody(request: this), header: header);
+  SoapEnvelope getEnvelope({
+    SoapHeader? header,
+  }) =>
+      GetContactBackupListEnvelope(
+        GetContactBackupListBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

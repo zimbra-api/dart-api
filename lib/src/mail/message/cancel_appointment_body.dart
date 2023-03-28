@@ -7,13 +7,21 @@ import 'cancel_appointment_request.dart';
 import 'cancel_appointment_response.dart';
 
 class CancelAppointmentBody extends SoapBody {
-  CancelAppointmentBody({CancelAppointmentRequest? request, CancelAppointmentResponse? response})
-      : super(request: request, response: response);
+  CancelAppointmentBody({
+    CancelAppointmentRequest? request,
+    CancelAppointmentResponse? response,
+  }) : super(request: request, response: response);
 
-  factory CancelAppointmentBody.fromMap(Map<String, dynamic> data) => CancelAppointmentBody(
-      response: data['CancelAppointmentResponse'] != null
-          ? CancelAppointmentResponse.fromMap(data['CancelAppointmentResponse'])
-          : null);
+  factory CancelAppointmentBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      CancelAppointmentBody(
+        response: data['CancelAppointmentResponse'] != null
+            ? CancelAppointmentResponse.fromMap(
+                data['CancelAppointmentResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

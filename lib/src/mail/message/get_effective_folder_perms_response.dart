@@ -11,6 +11,14 @@ class GetEffectiveFolderPermsResponse extends SoapResponse {
 
   GetEffectiveFolderPermsResponse({this.folder});
 
-  factory GetEffectiveFolderPermsResponse.fromMap(Map<String, dynamic> data) =>
-      GetEffectiveFolderPermsResponse(folder: data['folder'] is Map ? Rights.fromMap(data['folder']) : null);
+  factory GetEffectiveFolderPermsResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetEffectiveFolderPermsResponse(
+        folder: data['folder'] is Map
+            ? Rights.fromMap(
+                data['folder'],
+              )
+            : null,
+      );
 }

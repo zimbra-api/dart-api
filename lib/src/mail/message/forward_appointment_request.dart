@@ -25,11 +25,18 @@ class ForwardAppointmentRequest extends SoapRequest {
   /// Details of the appointment
   final Msg? msg;
 
-  ForwardAppointmentRequest({this.id, this.exceptionId, this.timezone, this.msg});
+  ForwardAppointmentRequest({
+    this.id,
+    this.exceptionId,
+    this.timezone,
+    this.msg,
+  });
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      ForwardAppointmentEnvelope(ForwardAppointmentBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => ForwardAppointmentEnvelope(
+        ForwardAppointmentBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

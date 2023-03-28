@@ -11,8 +11,10 @@ import 'get_filter_rules_envelope.dart';
 /// Get filter rules
 class GetFilterRulesRequest extends SoapRequest {
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      GetFilterRulesEnvelope(GetFilterRulesBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => GetFilterRulesEnvelope(
+        GetFilterRulesBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

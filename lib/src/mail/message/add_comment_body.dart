@@ -11,7 +11,12 @@ class AddCommentBody extends SoapBody {
       : super(request: request, response: response);
 
   factory AddCommentBody.fromMap(Map<String, dynamic> data) => AddCommentBody(
-      response: data['AddCommentResponse'] != null ? AddCommentResponse.fromMap(data['AddCommentResponse']) : null);
+        response: data['AddCommentResponse'] != null
+            ? AddCommentResponse.fromMap(
+                data['AddCommentResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

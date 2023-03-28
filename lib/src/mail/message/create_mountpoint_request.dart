@@ -17,8 +17,10 @@ class CreateMountpointRequest extends SoapRequest {
   CreateMountpointRequest(this.mountpoint);
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      CreateMountpointEnvelope(CreateMountpointBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => CreateMountpointEnvelope(
+        CreateMountpointBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

@@ -63,16 +63,63 @@ class GetItemResponse extends SoapResponse {
     this.chatItem,
   });
 
-  factory GetItemResponse.fromMap(Map<String, dynamic> data) => GetItemResponse(
-      folderItem: (data['folder'] is Map) ? Folder.fromMap(data['folder']) : null,
-      tagItem: (data['tag'] is Map) ? TagInfo.fromMap(data['tag']) : null,
-      noteItem: (data['note'] is Map) ? NoteInfo.fromMap(data['note']) : null,
-      contactItem: (data['cn'] is Map) ? ContactInfo.fromMap(data['cn']) : null,
-      apptItem: (data['appt'] is Map) ? CalendarItemInfo.fromMap(data['appt']) : null,
-      taskItem: (data['task'] is Map) ? TaskItemInfo.fromMap(data['task']) : null,
-      convItem: (data['c'] is Map) ? ConversationSummary.fromMap(data['c']) : null,
-      wikiItem: (data['w'] is Map) ? CommonDocumentInfo.fromMap(data['w']) : null,
-      docItem: (data['doc'] is Map) ? DocumentInfo.fromMap(data['doc']) : null,
-      msgItem: (data['m'] is Map) ? MessageSummary.fromMap(data['m']) : null,
-      chatItem: (data['chat'] is Map) ? ChatSummary.fromMap(data['chat']) : null);
+  factory GetItemResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetItemResponse(
+          folderItem: (data['folder'] is Map)
+              ? Folder.fromMap(
+                  data['folder'],
+                )
+              : null,
+          tagItem: (data['tag'] is Map)
+              ? TagInfo.fromMap(
+                  data['tag'],
+                )
+              : null,
+          noteItem: (data['note'] is Map)
+              ? NoteInfo.fromMap(
+                  data['note'],
+                )
+              : null,
+          contactItem: (data['cn'] is Map)
+              ? ContactInfo.fromMap(
+                  data['cn'],
+                )
+              : null,
+          apptItem: (data['appt'] is Map)
+              ? CalendarItemInfo.fromMap(
+                  data['appt'],
+                )
+              : null,
+          taskItem: (data['task'] is Map)
+              ? TaskItemInfo.fromMap(
+                  data['task'],
+                )
+              : null,
+          convItem: (data['c'] is Map)
+              ? ConversationSummary.fromMap(
+                  data['c'],
+                )
+              : null,
+          wikiItem: (data['w'] is Map)
+              ? CommonDocumentInfo.fromMap(
+                  data['w'],
+                )
+              : null,
+          docItem: (data['doc'] is Map)
+              ? DocumentInfo.fromMap(
+                  data['doc'],
+                )
+              : null,
+          msgItem: (data['m'] is Map)
+              ? MessageSummary.fromMap(
+                  data['m'],
+                )
+              : null,
+          chatItem: (data['chat'] is Map)
+              ? ChatSummary.fromMap(
+                  data['chat'],
+                )
+              : null);
 }

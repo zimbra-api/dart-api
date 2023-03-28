@@ -11,6 +11,14 @@ class ContactActionResponse extends SoapResponse {
 
   ContactActionResponse({this.action});
 
-  factory ContactActionResponse.fromMap(Map<String, dynamic> data) =>
-      ContactActionResponse(action: data['action'] is Map ? FolderActionResult.fromMap(data['action']) : null);
+  factory ContactActionResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ContactActionResponse(
+        action: data['action'] is Map
+            ? FolderActionResult.fromMap(
+                data['action'],
+              )
+            : null,
+      );
 }

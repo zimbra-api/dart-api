@@ -7,9 +7,20 @@ import '../../common/type/soap_header.dart';
 import 'contact_action_body.dart';
 
 class ContactActionEnvelope extends SoapEnvelope {
-  ContactActionEnvelope(ContactActionBody body, {super.header}) : super(body..response?.header = header);
+  ContactActionEnvelope(
+    ContactActionBody body, {
+    super.header,
+  }) : super(body..response?.header = header);
 
-  factory ContactActionEnvelope.fromMap(Map<String, dynamic> data) =>
-      ContactActionEnvelope(ContactActionBody.fromMap(data['Body']),
-          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
+  factory ContactActionEnvelope.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ContactActionEnvelope(
+        ContactActionBody.fromMap(data['Body']),
+        header: data['Header'] != null
+            ? SoapHeader.fromMap(
+                data['Header'],
+              )
+            : null,
+      );
 }

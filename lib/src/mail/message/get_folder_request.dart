@@ -52,7 +52,10 @@ class GetFolderRequest extends SoapRequest {
   });
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) => GetFolderEnvelope(GetFolderBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => GetFolderEnvelope(
+        GetFolderBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

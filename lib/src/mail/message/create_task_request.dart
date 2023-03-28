@@ -20,5 +20,8 @@ class CreateTaskRequest extends CreateAppointmentRequest {
   });
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) => CreateTaskEnvelope(CreateTaskBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => CreateTaskEnvelope(
+        CreateTaskBody(request: this),
+        header: header,
+      );
 }

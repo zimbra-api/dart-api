@@ -24,8 +24,13 @@ class CompleteTaskInstanceRequest extends SoapRequest {
   CompleteTaskInstanceRequest(this.id, this.exceptionId, {this.timezone});
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      CompleteTaskInstanceEnvelope(CompleteTaskInstanceBody(request: this), header: header);
+  SoapEnvelope getEnvelope({
+    SoapHeader? header,
+  }) =>
+      CompleteTaskInstanceEnvelope(
+        CompleteTaskInstanceBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

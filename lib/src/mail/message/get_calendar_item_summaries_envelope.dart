@@ -7,10 +7,20 @@ import '../../common/type/soap_header.dart';
 import 'get_calendar_item_summaries_body.dart';
 
 class GetCalendarItemSummariesEnvelope extends SoapEnvelope {
-  GetCalendarItemSummariesEnvelope(GetCalendarItemSummariesBody body, {super.header})
-      : super(body..response?.header = header);
+  GetCalendarItemSummariesEnvelope(
+    GetCalendarItemSummariesBody body, {
+    super.header,
+  }) : super(body..response?.header = header);
 
-  factory GetCalendarItemSummariesEnvelope.fromMap(Map<String, dynamic> data) =>
-      GetCalendarItemSummariesEnvelope(GetCalendarItemSummariesBody.fromMap(data['Body']),
-          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
+  factory GetCalendarItemSummariesEnvelope.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetCalendarItemSummariesEnvelope(
+        GetCalendarItemSummariesBody.fromMap(data['Body']),
+        header: data['Header'] != null
+            ? SoapHeader.fromMap(
+                data['Header'],
+              )
+            : null,
+      );
 }

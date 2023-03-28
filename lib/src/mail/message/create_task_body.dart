@@ -7,11 +7,18 @@ import 'create_task_request.dart';
 import 'create_task_response.dart';
 
 class CreateTaskBody extends SoapBody {
-  CreateTaskBody({CreateTaskRequest? request, CreateTaskResponse? response})
-      : super(request: request, response: response);
+  CreateTaskBody({
+    CreateTaskRequest? request,
+    CreateTaskResponse? response,
+  }) : super(request: request, response: response);
 
   factory CreateTaskBody.fromMap(Map<String, dynamic> data) => CreateTaskBody(
-      response: data['CreateTaskResponse'] != null ? CreateTaskResponse.fromMap(data['CreateTaskResponse']) : null);
+        response: data['CreateTaskResponse'] != null
+            ? CreateTaskResponse.fromMap(
+                data['CreateTaskResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

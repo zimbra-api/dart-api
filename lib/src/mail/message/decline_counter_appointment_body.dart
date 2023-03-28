@@ -7,14 +7,21 @@ import 'decline_counter_appointment_request.dart';
 import 'decline_counter_appointment_response.dart';
 
 class DeclineCounterAppointmentBody extends SoapBody {
-  DeclineCounterAppointmentBody(
-      {DeclineCounterAppointmentRequest? request, DeclineCounterAppointmentResponse? response})
-      : super(request: request, response: response);
+  DeclineCounterAppointmentBody({
+    DeclineCounterAppointmentRequest? request,
+    DeclineCounterAppointmentResponse? response,
+  }) : super(request: request, response: response);
 
-  factory DeclineCounterAppointmentBody.fromMap(Map<String, dynamic> data) => DeclineCounterAppointmentBody(
-      response: data['DeclineCounterAppointmentResponse'] != null
-          ? DeclineCounterAppointmentResponse.fromMap(data['DeclineCounterAppointmentResponse'])
-          : null);
+  factory DeclineCounterAppointmentBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      DeclineCounterAppointmentBody(
+        response: data['DeclineCounterAppointmentResponse'] != null
+            ? DeclineCounterAppointmentResponse.fromMap(
+                data['DeclineCounterAppointmentResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

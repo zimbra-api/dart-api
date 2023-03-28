@@ -7,10 +7,20 @@ import '../../common/type/soap_header.dart';
 import 'decline_counter_appointment_body.dart';
 
 class DeclineCounterAppointmentEnvelope extends SoapEnvelope {
-  DeclineCounterAppointmentEnvelope(DeclineCounterAppointmentBody body, {super.header})
-      : super(body..response?.header = header);
+  DeclineCounterAppointmentEnvelope(
+    DeclineCounterAppointmentBody body, {
+    super.header,
+  }) : super(body..response?.header = header);
 
-  factory DeclineCounterAppointmentEnvelope.fromMap(Map<String, dynamic> data) =>
-      DeclineCounterAppointmentEnvelope(DeclineCounterAppointmentBody.fromMap(data['Body']),
-          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
+  factory DeclineCounterAppointmentEnvelope.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      DeclineCounterAppointmentEnvelope(
+        DeclineCounterAppointmentBody.fromMap(data['Body']),
+        header: data['Header'] != null
+            ? SoapHeader.fromMap(
+                data['Header'],
+              )
+            : null,
+      );
 }

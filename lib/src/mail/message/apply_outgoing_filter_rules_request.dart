@@ -12,9 +12,18 @@ import 'apply_outgoing_filter_rules_envelope.dart';
 /// One or the other can be specified, but not both.  Returns the list of ids of existing messages that were affected.
 /// Note that redirect actions are ignored when applying filter rules to existing messages.
 class ApplyOutgoingFilterRulesRequest extends ApplyFilterRulesRequest {
-  ApplyOutgoingFilterRulesRequest({super.filterRules, super.msgIds, super.query});
+  ApplyOutgoingFilterRulesRequest({
+    super.filterRules,
+    super.msgIds,
+    super.query,
+  });
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      ApplyOutgoingFilterRulesEnvelope(ApplyOutgoingFilterRulesBody(request: this), header: header);
+  SoapEnvelope getEnvelope({
+    SoapHeader? header,
+  }) =>
+      ApplyOutgoingFilterRulesEnvelope(
+        ApplyOutgoingFilterRulesBody(request: this),
+        header: header,
+      );
 }

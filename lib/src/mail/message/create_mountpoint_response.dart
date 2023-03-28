@@ -11,6 +11,14 @@ class CreateMountpointResponse extends SoapResponse {
 
   CreateMountpointResponse({this.mountpoint});
 
-  factory CreateMountpointResponse.fromMap(Map<String, dynamic> data) =>
-      CreateMountpointResponse(mountpoint: data['link'] is Map ? Mountpoint.fromMap(data['link']) : null);
+  factory CreateMountpointResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      CreateMountpointResponse(
+        mountpoint: data['link'] is Map
+            ? Mountpoint.fromMap(
+                data['link'],
+              )
+            : null,
+      );
 }

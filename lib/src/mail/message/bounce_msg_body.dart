@@ -7,11 +7,18 @@ import 'bounce_msg_request.dart';
 import 'bounce_msg_response.dart';
 
 class BounceMsgBody extends SoapBody {
-  BounceMsgBody({BounceMsgRequest? request, BounceMsgResponse? response})
-      : super(request: request, response: response);
+  BounceMsgBody({
+    BounceMsgRequest? request,
+    BounceMsgResponse? response,
+  }) : super(request: request, response: response);
 
   factory BounceMsgBody.fromMap(Map<String, dynamic> data) => BounceMsgBody(
-      response: data['BounceMsgResponse'] != null ? BounceMsgResponse.fromMap(data['BounceMsgResponse']) : null);
+        response: data['BounceMsgResponse'] != null
+            ? BounceMsgResponse.fromMap(
+                data['BounceMsgResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

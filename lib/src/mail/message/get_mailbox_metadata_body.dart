@@ -7,13 +7,21 @@ import 'get_mailbox_metadata_request.dart';
 import 'get_mailbox_metadata_response.dart';
 
 class GetMailboxMetadataBody extends SoapBody {
-  GetMailboxMetadataBody({GetMailboxMetadataRequest? request, GetMailboxMetadataResponse? response})
-      : super(request: request, response: response);
+  GetMailboxMetadataBody({
+    GetMailboxMetadataRequest? request,
+    GetMailboxMetadataResponse? response,
+  }) : super(request: request, response: response);
 
-  factory GetMailboxMetadataBody.fromMap(Map<String, dynamic> data) => GetMailboxMetadataBody(
-      response: data['GetMailboxMetadataResponse'] != null
-          ? GetMailboxMetadataResponse.fromMap(data['GetMailboxMetadataResponse'])
-          : null);
+  factory GetMailboxMetadataBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetMailboxMetadataBody(
+        response: data['GetMailboxMetadataResponse'] != null
+            ? GetMailboxMetadataResponse.fromMap(
+                data['GetMailboxMetadataResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

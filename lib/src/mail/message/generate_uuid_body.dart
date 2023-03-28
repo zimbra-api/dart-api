@@ -7,12 +7,21 @@ import 'generate_uuid_request.dart';
 import 'generate_uuid_response.dart';
 
 class GenerateUUIDBody extends SoapBody {
-  GenerateUUIDBody({GenerateUUIDRequest? request, GenerateUUIDResponse? response})
-      : super(request: request, response: response);
+  GenerateUUIDBody({
+    GenerateUUIDRequest? request,
+    GenerateUUIDResponse? response,
+  }) : super(request: request, response: response);
 
-  factory GenerateUUIDBody.fromMap(Map<String, dynamic> data) => GenerateUUIDBody(
-      response:
-          data['GenerateUUIDResponse'] != null ? GenerateUUIDResponse.fromMap(data['GenerateUUIDResponse']) : null);
+  factory GenerateUUIDBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GenerateUUIDBody(
+        response: data['GenerateUUIDResponse'] != null
+            ? GenerateUUIDResponse.fromMap(
+                data['GenerateUUIDResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

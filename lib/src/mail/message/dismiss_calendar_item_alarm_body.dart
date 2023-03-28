@@ -7,14 +7,21 @@ import 'dismiss_calendar_item_alarm_request.dart';
 import 'dismiss_calendar_item_alarm_response.dart';
 
 class DismissCalendarItemAlarmBody extends SoapBody {
-  DismissCalendarItemAlarmBody(
-      {DismissCalendarItemAlarmRequest? request, DismissCalendarItemAlarmResponse? response})
-      : super(request: request, response: response);
+  DismissCalendarItemAlarmBody({
+    DismissCalendarItemAlarmRequest? request,
+    DismissCalendarItemAlarmResponse? response,
+  }) : super(request: request, response: response);
 
-  factory DismissCalendarItemAlarmBody.fromMap(Map<String, dynamic> data) => DismissCalendarItemAlarmBody(
-      response: data['DismissCalendarItemAlarmResponse'] != null
-          ? DismissCalendarItemAlarmResponse.fromMap(data['DismissCalendarItemAlarmResponse'])
-          : null);
+  factory DismissCalendarItemAlarmBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      DismissCalendarItemAlarmBody(
+        response: data['DismissCalendarItemAlarmResponse'] != null
+            ? DismissCalendarItemAlarmResponse.fromMap(
+                data['DismissCalendarItemAlarmResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

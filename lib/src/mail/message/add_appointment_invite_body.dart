@@ -7,13 +7,19 @@ import 'add_appointment_invite_request.dart';
 import 'add_appointment_invite_response.dart';
 
 class AddAppointmentInviteBody extends SoapBody {
-  AddAppointmentInviteBody({AddAppointmentInviteRequest? request, AddAppointmentInviteResponse? response})
-      : super(request: request, response: response);
+  AddAppointmentInviteBody({
+    AddAppointmentInviteRequest? request,
+    AddAppointmentInviteResponse? response,
+  }) : super(request: request, response: response);
 
-  factory AddAppointmentInviteBody.fromMap(Map<String, dynamic> data) => AddAppointmentInviteBody(
-      response: data['AddAppointmentInviteResponse'] != null
-          ? AddAppointmentInviteResponse.fromMap(data['AddAppointmentInviteResponse'])
-          : null);
+  factory AddAppointmentInviteBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      AddAppointmentInviteBody(
+        response: data['AddAppointmentInviteResponse'] != null
+            ? AddAppointmentInviteResponse.fromMap(data['AddAppointmentInviteResponse'])
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

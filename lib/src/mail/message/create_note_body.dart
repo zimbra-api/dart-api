@@ -7,11 +7,18 @@ import 'create_note_request.dart';
 import 'create_note_response.dart';
 
 class CreateNoteBody extends SoapBody {
-  CreateNoteBody({CreateNoteRequest? request, CreateNoteResponse? response})
-      : super(request: request, response: response);
+  CreateNoteBody({
+    CreateNoteRequest? request,
+    CreateNoteResponse? response,
+  }) : super(request: request, response: response);
 
   factory CreateNoteBody.fromMap(Map<String, dynamic> data) => CreateNoteBody(
-      response: data['CreateNoteResponse'] != null ? CreateNoteResponse.fromMap(data['CreateNoteResponse']) : null);
+        response: data['CreateNoteResponse'] != null
+            ? CreateNoteResponse.fromMap(
+                data['CreateNoteResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

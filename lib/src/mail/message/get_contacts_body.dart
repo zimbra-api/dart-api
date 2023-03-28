@@ -7,11 +7,21 @@ import 'get_contacts_request.dart';
 import 'get_contacts_response.dart';
 
 class GetContactsBody extends SoapBody {
-  GetContactsBody({GetContactsRequest? request, GetContactsResponse? response})
-      : super(request: request, response: response);
+  GetContactsBody({
+    GetContactsRequest? request,
+    GetContactsResponse? response,
+  }) : super(request: request, response: response);
 
-  factory GetContactsBody.fromMap(Map<String, dynamic> data) => GetContactsBody(
-      response: data['GetContactsResponse'] != null ? GetContactsResponse.fromMap(data['GetContactsResponse']) : null);
+  factory GetContactsBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetContactsBody(
+        response: data['GetContactsResponse'] != null
+            ? GetContactsResponse.fromMap(
+                data['GetContactsResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

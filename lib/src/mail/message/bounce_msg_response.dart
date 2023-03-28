@@ -7,5 +7,8 @@ import '../../common/type/soap_response.dart';
 class BounceMsgResponse extends SoapResponse {
   BounceMsgResponse();
 
-  factory BounceMsgResponse.fromMap(Map<String, dynamic> data) => BounceMsgResponse();
+  factory BounceMsgResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      BounceMsgResponse();
 }

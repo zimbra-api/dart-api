@@ -11,10 +11,16 @@ class DiffDocumentResponse extends SoapResponse {
 
   DiffDocumentResponse({this.chunks = const []});
 
-  factory DiffDocumentResponse.fromMap(Map<String, dynamic> data) => DiffDocumentResponse(
-      chunks: (data['chunk'] is Iterable)
-          ? (data['chunk'] as Iterable)
-              .map<DispositionAndText>((chunk) => DispositionAndText.fromMap(chunk))
-              .toList(growable: false)
-          : const []);
+  factory DiffDocumentResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      DiffDocumentResponse(
+        chunks: (data['chunk'] is Iterable)
+            ? (data['chunk'] as Iterable)
+                .map<DispositionAndText>(
+                  (chunk) => DispositionAndText.fromMap(chunk),
+                )
+                .toList(growable: false)
+            : const [],
+      );
 }

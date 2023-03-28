@@ -7,13 +7,21 @@ import 'enable_shared_reminder_request.dart';
 import 'enable_shared_reminder_response.dart';
 
 class EnableSharedReminderBody extends SoapBody {
-  EnableSharedReminderBody({EnableSharedReminderRequest? request, EnableSharedReminderResponse? response})
-      : super(request: request, response: response);
+  EnableSharedReminderBody({
+    EnableSharedReminderRequest? request,
+    EnableSharedReminderResponse? response,
+  }) : super(request: request, response: response);
 
-  factory EnableSharedReminderBody.fromMap(Map<String, dynamic> data) => EnableSharedReminderBody(
-      response: data['EnableSharedReminderResponse'] != null
-          ? EnableSharedReminderResponse.fromMap(data['EnableSharedReminderResponse'])
-          : null);
+  factory EnableSharedReminderBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      EnableSharedReminderBody(
+        response: data['EnableSharedReminderResponse'] != null
+            ? EnableSharedReminderResponse.fromMap(
+                data['EnableSharedReminderResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

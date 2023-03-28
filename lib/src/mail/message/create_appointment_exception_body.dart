@@ -7,14 +7,21 @@ import 'create_appointment_exception_request.dart';
 import 'create_appointment_exception_response.dart';
 
 class CreateAppointmentExceptionBody extends SoapBody {
-  CreateAppointmentExceptionBody(
-      {CreateAppointmentExceptionRequest? request, CreateAppointmentExceptionResponse? response})
-      : super(request: request, response: response);
+  CreateAppointmentExceptionBody({
+    CreateAppointmentExceptionRequest? request,
+    CreateAppointmentExceptionResponse? response,
+  }) : super(request: request, response: response);
 
-  factory CreateAppointmentExceptionBody.fromMap(Map<String, dynamic> data) => CreateAppointmentExceptionBody(
-      response: data['CreateAppointmentExceptionResponse'] != null
-          ? CreateAppointmentExceptionResponse.fromMap(data['CreateAppointmentExceptionResponse'])
-          : null);
+  factory CreateAppointmentExceptionBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      CreateAppointmentExceptionBody(
+        response: data['CreateAppointmentExceptionResponse'] != null
+            ? CreateAppointmentExceptionResponse.fromMap(
+                data['CreateAppointmentExceptionResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

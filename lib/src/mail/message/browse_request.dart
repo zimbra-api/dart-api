@@ -23,7 +23,10 @@ class BrowseRequest extends SoapRequest {
   BrowseRequest(this.browseBy, {this.regex, this.max});
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) => BrowseEnvelope(BrowseBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => BrowseEnvelope(
+        BrowseBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

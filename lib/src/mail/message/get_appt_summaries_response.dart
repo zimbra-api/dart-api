@@ -12,17 +12,28 @@ class GetApptSummariesResponse extends SoapResponse {
   /// Task summaries
   final List<LegacyCalendaringData> taskEntries;
 
-  GetApptSummariesResponse({this.apptEntries = const [], this.taskEntries = const []});
+  GetApptSummariesResponse({
+    this.apptEntries = const [],
+    this.taskEntries = const [],
+  });
 
-  factory GetApptSummariesResponse.fromMap(Map<String, dynamic> data) => GetApptSummariesResponse(
-      apptEntries: (data['appt'] is Iterable)
-          ? (data['appt'] as Iterable)
-              .map<LegacyCalendaringData>((appt) => LegacyCalendaringData.fromMap(appt))
-              .toList(growable: false)
-          : const [],
-      taskEntries: (data['task'] is Iterable)
-          ? (data['task'] as Iterable)
-              .map<LegacyCalendaringData>((task) => LegacyCalendaringData.fromMap(task))
-              .toList(growable: false)
-          : const []);
+  factory GetApptSummariesResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetApptSummariesResponse(
+        apptEntries: (data['appt'] is Iterable)
+            ? (data['appt'] as Iterable)
+                .map<LegacyCalendaringData>(
+                  (appt) => LegacyCalendaringData.fromMap(appt),
+                )
+                .toList(growable: false)
+            : const [],
+        taskEntries: (data['task'] is Iterable)
+            ? (data['task'] as Iterable)
+                .map<LegacyCalendaringData>(
+                  (task) => LegacyCalendaringData.fromMap(task),
+                )
+                .toList(growable: false)
+            : const [],
+      );
 }

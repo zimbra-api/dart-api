@@ -7,9 +7,20 @@ import '../../common/type/soap_header.dart';
 import 'cancel_task_body.dart';
 
 class CancelTaskEnvelope extends SoapEnvelope {
-  CancelTaskEnvelope(CancelTaskBody body, {super.header}) : super(body..response?.header = header);
+  CancelTaskEnvelope(
+    CancelTaskBody body, {
+    super.header,
+  }) : super(body..response?.header = header);
 
-  factory CancelTaskEnvelope.fromMap(Map<String, dynamic> data) =>
-      CancelTaskEnvelope(CancelTaskBody.fromMap(data['Body']),
-          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
+  factory CancelTaskEnvelope.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      CancelTaskEnvelope(
+        CancelTaskBody.fromMap(data['Body']),
+        header: data['Header'] != null
+            ? SoapHeader.fromMap(
+                data['Header'],
+              )
+            : null,
+      );
 }

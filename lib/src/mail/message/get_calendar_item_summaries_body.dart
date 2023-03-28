@@ -7,14 +7,21 @@ import 'get_calendar_item_summaries_request.dart';
 import 'get_calendar_item_summaries_response.dart';
 
 class GetCalendarItemSummariesBody extends SoapBody {
-  GetCalendarItemSummariesBody(
-      {GetCalendarItemSummariesRequest? request, GetCalendarItemSummariesResponse? response})
-      : super(request: request, response: response);
+  GetCalendarItemSummariesBody({
+    GetCalendarItemSummariesRequest? request,
+    GetCalendarItemSummariesResponse? response,
+  }) : super(request: request, response: response);
 
-  factory GetCalendarItemSummariesBody.fromMap(Map<String, dynamic> data) => GetCalendarItemSummariesBody(
-      response: data['GetCalendarItemSummariesResponse'] != null
-          ? GetCalendarItemSummariesResponse.fromMap(data['GetCalendarItemSummariesResponse'])
-          : null);
+  factory GetCalendarItemSummariesBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetCalendarItemSummariesBody(
+        response: data['GetCalendarItemSummariesResponse'] != null
+            ? GetCalendarItemSummariesResponse.fromMap(
+                data['GetCalendarItemSummariesResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

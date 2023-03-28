@@ -17,8 +17,13 @@ class EnableSharedReminderRequest extends SoapRequest {
   EnableSharedReminderRequest(this.mount);
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      EnableSharedReminderEnvelope(EnableSharedReminderBody(request: this), header: header);
+  SoapEnvelope getEnvelope({
+    SoapHeader? header,
+  }) =>
+      EnableSharedReminderEnvelope(
+        EnableSharedReminderBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

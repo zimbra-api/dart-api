@@ -23,18 +23,30 @@ class ApplyFilterRulesRequest extends SoapRequest {
   /// Query string
   final String? query;
 
-  ApplyFilterRulesRequest({this.filterRules = const [], this.msgIds, this.query});
+  ApplyFilterRulesRequest({
+    this.filterRules = const [],
+    this.msgIds,
+    this.query,
+  });
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      ApplyFilterRulesEnvelope(ApplyFilterRulesBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => ApplyFilterRulesEnvelope(
+        ApplyFilterRulesBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
         if (filterRules.isNotEmpty)
           'filterRules': [
-            {'filterRule': filterRules.map((filterRule) => filterRule.toMap()).toList(growable: false)}
+            {
+              'filterRule': filterRules
+                  .map(
+                    (filterRule) => filterRule.toMap(),
+                  )
+                  .toList(growable: false)
+            }
           ],
         if (msgIds != null) 'm': msgIds!.toMap(),
         if (query != null) 'query': {'_content': query},

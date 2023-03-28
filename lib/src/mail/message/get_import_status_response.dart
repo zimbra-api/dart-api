@@ -41,45 +41,65 @@ class GetImportStatusResponse extends SoapResponse {
     this.unknownStatuses = const [],
   });
 
-  factory GetImportStatusResponse.fromMap(Map<String, dynamic> data) => GetImportStatusResponse(
-      imapStatuses: (data['imap'] is Iterable)
-          ? (data['imap'] as Iterable)
-              .map<ImportStatusInfo>((imap) => ImportStatusInfo.fromMap(imap))
-              .toList(growable: false)
-          : const [],
-      pop3Statuses: (data['pop3'] is Iterable)
-          ? (data['pop3'] as Iterable)
-              .map<ImportStatusInfo>((pop3) => ImportStatusInfo.fromMap(pop3))
-              .toList(growable: false)
-          : const [],
-      caldavStatuses: (data['caldav'] is Iterable)
-          ? (data['caldav'] as Iterable)
-              .map<ImportStatusInfo>((caldav) => ImportStatusInfo.fromMap(caldav))
-              .toList(growable: false)
-          : const [],
-      yabStatuses: (data['yab'] is Iterable)
-          ? (data['yab'] as Iterable)
-              .map<ImportStatusInfo>((yab) => ImportStatusInfo.fromMap(yab))
-              .toList(growable: false)
-          : const [],
-      rssStatuses: (data['rss'] is Iterable)
-          ? (data['rss'] as Iterable)
-              .map<ImportStatusInfo>((rss) => ImportStatusInfo.fromMap(rss))
-              .toList(growable: false)
-          : const [],
-      galStatuses: (data['gal'] is Iterable)
-          ? (data['gal'] as Iterable)
-              .map<ImportStatusInfo>((gal) => ImportStatusInfo.fromMap(gal))
-              .toList(growable: false)
-          : const [],
-      calStatuses: (data['cal'] is Iterable)
-          ? (data['cal'] as Iterable)
-              .map<ImportStatusInfo>((cal) => ImportStatusInfo.fromMap(cal))
-              .toList(growable: false)
-          : const [],
-      unknownStatuses: (data['unknown'] is Iterable)
-          ? (data['unknown'] as Iterable)
-              .map<ImportStatusInfo>((unknown) => ImportStatusInfo.fromMap(unknown))
-              .toList(growable: false)
-          : const []);
+  factory GetImportStatusResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetImportStatusResponse(
+        imapStatuses: (data['imap'] is Iterable)
+            ? (data['imap'] as Iterable)
+                .map<ImportStatusInfo>(
+                  (imap) => ImportStatusInfo.fromMap(imap),
+                )
+                .toList(growable: false)
+            : const [],
+        pop3Statuses: (data['pop3'] is Iterable)
+            ? (data['pop3'] as Iterable)
+                .map<ImportStatusInfo>(
+                  (pop3) => ImportStatusInfo.fromMap(pop3),
+                )
+                .toList(growable: false)
+            : const [],
+        caldavStatuses: (data['caldav'] is Iterable)
+            ? (data['caldav'] as Iterable)
+                .map<ImportStatusInfo>(
+                  (caldav) => ImportStatusInfo.fromMap(caldav),
+                )
+                .toList(growable: false)
+            : const [],
+        yabStatuses: (data['yab'] is Iterable)
+            ? (data['yab'] as Iterable)
+                .map<ImportStatusInfo>(
+                  (yab) => ImportStatusInfo.fromMap(yab),
+                )
+                .toList(growable: false)
+            : const [],
+        rssStatuses: (data['rss'] is Iterable)
+            ? (data['rss'] as Iterable)
+                .map<ImportStatusInfo>(
+                  (rss) => ImportStatusInfo.fromMap(rss),
+                )
+                .toList(growable: false)
+            : const [],
+        galStatuses: (data['gal'] is Iterable)
+            ? (data['gal'] as Iterable)
+                .map<ImportStatusInfo>(
+                  (gal) => ImportStatusInfo.fromMap(gal),
+                )
+                .toList(growable: false)
+            : const [],
+        calStatuses: (data['cal'] is Iterable)
+            ? (data['cal'] as Iterable)
+                .map<ImportStatusInfo>(
+                  (cal) => ImportStatusInfo.fromMap(cal),
+                )
+                .toList(growable: false)
+            : const [],
+        unknownStatuses: (data['unknown'] is Iterable)
+            ? (data['unknown'] as Iterable)
+                .map<ImportStatusInfo>(
+                  (unknown) => ImportStatusInfo.fromMap(unknown),
+                )
+                .toList(growable: false)
+            : const [],
+      );
 }

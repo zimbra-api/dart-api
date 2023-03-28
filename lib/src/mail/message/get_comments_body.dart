@@ -7,11 +7,21 @@ import 'get_comments_request.dart';
 import 'get_comments_response.dart';
 
 class GetCommentsBody extends SoapBody {
-  GetCommentsBody({GetCommentsRequest? request, GetCommentsResponse? response})
-      : super(request: request, response: response);
+  GetCommentsBody({
+    GetCommentsRequest? request,
+    GetCommentsResponse? response,
+  }) : super(request: request, response: response);
 
-  factory GetCommentsBody.fromMap(Map<String, dynamic> data) => GetCommentsBody(
-      response: data['GetCommentsResponse'] != null ? GetCommentsResponse.fromMap(data['GetCommentsResponse']) : null);
+  factory GetCommentsBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetCommentsBody(
+        response: data['GetCommentsResponse'] != null
+            ? GetCommentsResponse.fromMap(
+                data['GetCommentsResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

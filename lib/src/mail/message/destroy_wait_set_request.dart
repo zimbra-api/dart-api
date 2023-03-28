@@ -18,8 +18,10 @@ class DestroyWaitSetRequest extends SoapRequest {
   DestroyWaitSetRequest(this.waitSetId);
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      DestroyWaitSetEnvelope(DestroyWaitSetBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => DestroyWaitSetEnvelope(
+        DestroyWaitSetBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

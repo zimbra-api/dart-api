@@ -7,11 +7,18 @@ import 'browse_request.dart';
 import 'browse_response.dart';
 
 class BrowseBody extends SoapBody {
-  BrowseBody({BrowseRequest? request, BrowseResponse? response})
-      : super(request: request, response: response);
+  BrowseBody({
+    BrowseRequest? request,
+    BrowseResponse? response,
+  }) : super(request: request, response: response);
 
   factory BrowseBody.fromMap(Map<String, dynamic> data) => BrowseBody(
-      response: data['BrowseResponse'] != null ? BrowseResponse.fromMap(data['BrowseResponse']) : null);
+        response: data['BrowseResponse'] != null
+            ? BrowseResponse.fromMap(
+                data['BrowseResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

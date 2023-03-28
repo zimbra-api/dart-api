@@ -7,11 +7,18 @@ import 'get_folder_request.dart';
 import 'get_folder_response.dart';
 
 class GetFolderBody extends SoapBody {
-  GetFolderBody({GetFolderRequest? request, GetFolderResponse? response})
-      : super(request: request, response: response);
+  GetFolderBody({
+    GetFolderRequest? request,
+    GetFolderResponse? response,
+  }) : super(request: request, response: response);
 
   factory GetFolderBody.fromMap(Map<String, dynamic> data) => GetFolderBody(
-      response: data['GetFolderResponse'] != null ? GetFolderResponse.fromMap(data['GetFolderResponse']) : null);
+        response: data['GetFolderResponse'] != null
+            ? GetFolderResponse.fromMap(
+                data['GetFolderResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

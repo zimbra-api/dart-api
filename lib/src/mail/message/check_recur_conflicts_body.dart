@@ -7,13 +7,21 @@ import 'check_recur_conflicts_request.dart';
 import 'check_recur_conflicts_response.dart';
 
 class CheckRecurConflictsBody extends SoapBody {
-  CheckRecurConflictsBody({CheckRecurConflictsRequest? request, CheckRecurConflictsResponse? response})
-      : super(request: request, response: response);
+  CheckRecurConflictsBody({
+    CheckRecurConflictsRequest? request,
+    CheckRecurConflictsResponse? response,
+  }) : super(request: request, response: response);
 
-  factory CheckRecurConflictsBody.fromMap(Map<String, dynamic> data) => CheckRecurConflictsBody(
-      response: data['CheckRecurConflictsResponse'] != null
-          ? CheckRecurConflictsResponse.fromMap(data['CheckRecurConflictsResponse'])
-          : null);
+  factory CheckRecurConflictsBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      CheckRecurConflictsBody(
+        response: data['CheckRecurConflictsResponse'] != null
+            ? CheckRecurConflictsResponse.fromMap(
+                data['CheckRecurConflictsResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

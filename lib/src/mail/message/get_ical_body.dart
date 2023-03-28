@@ -7,11 +7,18 @@ import 'get_ical_request.dart';
 import 'get_ical_response.dart';
 
 class GetICalBody extends SoapBody {
-  GetICalBody({GetICalRequest? request, GetICalResponse? response})
-      : super(request: request, response: response);
+  GetICalBody({
+    GetICalRequest? request,
+    GetICalResponse? response,
+  }) : super(request: request, response: response);
 
   factory GetICalBody.fromMap(Map<String, dynamic> data) => GetICalBody(
-      response: data['GetICalResponse'] != null ? GetICalResponse.fromMap(data['GetICalResponse']) : null);
+        response: data['GetICalResponse'] != null
+            ? GetICalResponse.fromMap(
+                data['GetICalResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

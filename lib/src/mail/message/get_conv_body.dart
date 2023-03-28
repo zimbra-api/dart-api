@@ -7,11 +7,18 @@ import 'get_conv_request.dart';
 import 'get_conv_response.dart';
 
 class GetConvBody extends SoapBody {
-  GetConvBody({GetConvRequest? request, GetConvResponse? response})
-      : super(request: request, response: response);
+  GetConvBody({
+    GetConvRequest? request,
+    GetConvResponse? response,
+  }) : super(request: request, response: response);
 
   factory GetConvBody.fromMap(Map<String, dynamic> data) => GetConvBody(
-      response: data['GetConvResponse'] != null ? GetConvResponse.fromMap(data['GetConvResponse']) : null);
+        response: data['GetConvResponse'] != null
+            ? GetConvResponse.fromMap(
+                data['GetConvResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

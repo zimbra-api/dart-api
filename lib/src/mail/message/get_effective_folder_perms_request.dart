@@ -17,8 +17,13 @@ class GetEffectiveFolderPermsRequest extends SoapRequest {
   GetEffectiveFolderPermsRequest(this.folder);
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      GetEffectiveFolderPermsEnvelope(GetEffectiveFolderPermsBody(request: this), header: header);
+  SoapEnvelope getEnvelope({
+    SoapHeader? header,
+  }) =>
+      GetEffectiveFolderPermsEnvelope(
+        GetEffectiveFolderPermsBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

@@ -11,6 +11,14 @@ class GetConvResponse extends SoapResponse {
 
   GetConvResponse({this.conversation});
 
-  factory GetConvResponse.fromMap(Map<String, dynamic> data) =>
-      GetConvResponse(conversation: data['c'] is Map ? ConversationInfo.fromMap(data['c']) : null);
+  factory GetConvResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetConvResponse(
+        conversation: data['c'] is Map
+            ? ConversationInfo.fromMap(
+                data['c'],
+              )
+            : null,
+      );
 }

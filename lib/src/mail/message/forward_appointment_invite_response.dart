@@ -7,5 +7,8 @@ import '../../common/type/soap_response.dart';
 class ForwardAppointmentInviteResponse extends SoapResponse {
   ForwardAppointmentInviteResponse();
 
-  factory ForwardAppointmentInviteResponse.fromMap(Map<String, dynamic> data) => ForwardAppointmentInviteResponse();
+  factory ForwardAppointmentInviteResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ForwardAppointmentInviteResponse();
 }

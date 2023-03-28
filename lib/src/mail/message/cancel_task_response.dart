@@ -7,5 +7,8 @@ import 'cancel_appointment_response.dart';
 class CancelTaskResponse extends CancelAppointmentResponse {
   CancelTaskResponse();
 
-  factory CancelTaskResponse.fromMap(Map<String, dynamic> data) => CancelTaskResponse();
+  factory CancelTaskResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      CancelTaskResponse();
 }

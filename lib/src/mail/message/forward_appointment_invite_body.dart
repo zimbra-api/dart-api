@@ -7,14 +7,21 @@ import 'forward_appointment_invite_request.dart';
 import 'forward_appointment_invite_response.dart';
 
 class ForwardAppointmentInviteBody extends SoapBody {
-  ForwardAppointmentInviteBody(
-      {ForwardAppointmentInviteRequest? request, ForwardAppointmentInviteResponse? response})
-      : super(request: request, response: response);
+  ForwardAppointmentInviteBody({
+    ForwardAppointmentInviteRequest? request,
+    ForwardAppointmentInviteResponse? response,
+  }) : super(request: request, response: response);
 
-  factory ForwardAppointmentInviteBody.fromMap(Map<String, dynamic> data) => ForwardAppointmentInviteBody(
-      response: data['ForwardAppointmentInviteResponse'] != null
-          ? ForwardAppointmentInviteResponse.fromMap(data['ForwardAppointmentInviteResponse'])
-          : null);
+  factory ForwardAppointmentInviteBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ForwardAppointmentInviteBody(
+        response: data['ForwardAppointmentInviteResponse'] != null
+            ? ForwardAppointmentInviteResponse.fromMap(
+                data['ForwardAppointmentInviteResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

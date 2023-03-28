@@ -7,12 +7,21 @@ import 'auto_complete_request.dart';
 import 'auto_complete_response.dart';
 
 class AutoCompleteBody extends SoapBody {
-  AutoCompleteBody({AutoCompleteRequest? request, AutoCompleteResponse? response})
-      : super(request: request, response: response);
+  AutoCompleteBody({
+    AutoCompleteRequest? request,
+    AutoCompleteResponse? response,
+  }) : super(request: request, response: response);
 
-  factory AutoCompleteBody.fromMap(Map<String, dynamic> data) => AutoCompleteBody(
-      response:
-          data['AutoCompleteResponse'] != null ? AutoCompleteResponse.fromMap(data['AutoCompleteResponse']) : null);
+  factory AutoCompleteBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      AutoCompleteBody(
+        response: data['AutoCompleteResponse'] != null
+            ? AutoCompleteResponse.fromMap(
+                data['AutoCompleteResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

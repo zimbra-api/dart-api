@@ -21,5 +21,8 @@ class CancelTaskRequest extends CancelAppointmentRequest {
   });
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) => CancelTaskEnvelope(CancelTaskBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => CancelTaskEnvelope(
+        CancelTaskBody(request: this),
+        header: header,
+      );
 }

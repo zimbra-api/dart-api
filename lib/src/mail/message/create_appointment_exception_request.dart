@@ -36,8 +36,13 @@ class CreateAppointmentExceptionRequest extends CalItemRequestBase {
   });
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      CreateAppointmentExceptionEnvelope(CreateAppointmentExceptionBody(request: this), header: header);
+  SoapEnvelope getEnvelope({
+    SoapHeader? header,
+  }) =>
+      CreateAppointmentExceptionEnvelope(
+        CreateAppointmentExceptionBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

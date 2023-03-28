@@ -22,7 +22,10 @@ class BounceMsgRequest extends SoapRequest {
   BounceMsgRequest(this.msg);
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) => BounceMsgEnvelope(BounceMsgBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => BounceMsgEnvelope(
+        BounceMsgBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

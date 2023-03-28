@@ -7,13 +7,21 @@ import 'delete_data_source_request.dart';
 import 'delete_data_source_response.dart';
 
 class DeleteDataSourceBody extends SoapBody {
-  DeleteDataSourceBody({DeleteDataSourceRequest? request, DeleteDataSourceResponse? response})
-      : super(request: request, response: response);
+  DeleteDataSourceBody({
+    DeleteDataSourceRequest? request,
+    DeleteDataSourceResponse? response,
+  }) : super(request: request, response: response);
 
-  factory DeleteDataSourceBody.fromMap(Map<String, dynamic> data) => DeleteDataSourceBody(
-      response: data['DeleteDataSourceResponse'] != null
-          ? DeleteDataSourceResponse.fromMap(data['DeleteDataSourceResponse'])
-          : null);
+  factory DeleteDataSourceBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      DeleteDataSourceBody(
+        response: data['DeleteDataSourceResponse'] != null
+            ? DeleteDataSourceResponse.fromMap(
+                data['DeleteDataSourceResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

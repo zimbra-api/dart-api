@@ -25,7 +25,10 @@ class GetConvRequest extends SoapRequest {
   GetConvRequest(this.conversation);
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) => GetConvEnvelope(GetConvBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => GetConvEnvelope(
+        GetConvBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

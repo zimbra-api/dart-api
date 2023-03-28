@@ -7,11 +7,18 @@ import 'get_item_request.dart';
 import 'get_item_response.dart';
 
 class GetItemBody extends SoapBody {
-  GetItemBody({GetItemRequest? request, GetItemResponse? response})
-      : super(request: request, response: response);
+  GetItemBody({
+    GetItemRequest? request,
+    GetItemResponse? response,
+  }) : super(request: request, response: response);
 
   factory GetItemBody.fromMap(Map<String, dynamic> data) => GetItemBody(
-      response: data['GetItemResponse'] != null ? GetItemResponse.fromMap(data['GetItemResponse']) : null);
+        response: data['GetItemResponse'] != null
+            ? GetItemResponse.fromMap(
+                data['GetItemResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

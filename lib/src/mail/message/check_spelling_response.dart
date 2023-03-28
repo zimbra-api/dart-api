@@ -13,13 +13,22 @@ class CheckSpellingResponse extends SoapResponse {
   /// Information for misspelled words
   final List<Misspelling> misspelledWords;
 
-  CheckSpellingResponse({this.available = false, this.misspelledWords = const []});
+  CheckSpellingResponse({
+    this.available = false,
+    this.misspelledWords = const [],
+  });
 
-  factory CheckSpellingResponse.fromMap(Map<String, dynamic> data) => CheckSpellingResponse(
-      available: data['available'] ?? false,
-      misspelledWords: (data['misspelled'] is Iterable)
-          ? (data['misspelled'] as Iterable)
-              .map<Misspelling>((misspelled) => Misspelling.fromMap(misspelled))
-              .toList(growable: false)
-          : const []);
+  factory CheckSpellingResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      CheckSpellingResponse(
+        available: data['available'] ?? false,
+        misspelledWords: (data['misspelled'] is Iterable)
+            ? (data['misspelled'] as Iterable)
+                .map<Misspelling>(
+                  (misspelled) => Misspelling.fromMap(misspelled),
+                )
+                .toList(growable: false)
+            : const [],
+      );
 }

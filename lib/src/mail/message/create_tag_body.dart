@@ -7,11 +7,18 @@ import 'create_tag_request.dart';
 import 'create_tag_response.dart';
 
 class CreateTagBody extends SoapBody {
-  CreateTagBody({CreateTagRequest? request, CreateTagResponse? response})
-      : super(request: request, response: response);
+  CreateTagBody({
+    CreateTagRequest? request,
+    CreateTagResponse? response,
+  }) : super(request: request, response: response);
 
   factory CreateTagBody.fromMap(Map<String, dynamic> data) => CreateTagBody(
-      response: data['CreateTagResponse'] != null ? CreateTagResponse.fromMap(data['CreateTagResponse']) : null);
+        response: data['CreateTagResponse'] != null
+            ? CreateTagResponse.fromMap(
+                data['CreateTagResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

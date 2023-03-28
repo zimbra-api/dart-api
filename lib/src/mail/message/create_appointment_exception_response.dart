@@ -17,12 +17,16 @@ class CreateAppointmentExceptionResponse extends CreateCalendarItemResponse {
     super.echo,
   });
 
-  factory CreateAppointmentExceptionResponse.fromMap(Map<String, dynamic> data) => CreateAppointmentExceptionResponse(
-      calItemId: data['calItemId'],
-      deprecatedApptId: data['apptId'],
-      calInvId: data['invId'],
-      modifiedSequence: int.tryParse(data['ms']?.toString() ?? ''),
-      revision: int.tryParse(data['rev']?.toString() ?? ''),
-      msg: data['m'] is Map ? Id.fromMap(data['m']) : null,
-      echo: data['echo'] is Map ? CalEcho.fromMap(data['echo']) : null);
+  factory CreateAppointmentExceptionResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      CreateAppointmentExceptionResponse(
+        calItemId: data['calItemId'],
+        deprecatedApptId: data['apptId'],
+        calInvId: data['invId'],
+        modifiedSequence: int.tryParse(data['ms']?.toString() ?? ''),
+        revision: int.tryParse(data['rev']?.toString() ?? ''),
+        msg: data['m'] is Map ? Id.fromMap(data['m']) : null,
+        echo: data['echo'] is Map ? CalEcho.fromMap(data['echo']) : null,
+      );
 }

@@ -46,7 +46,10 @@ class GetFreeBusyRequest extends SoapRequest {
   });
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) => GetFreeBusyEnvelope(GetFreeBusyBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => GetFreeBusyEnvelope(
+        GetFreeBusyBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {
@@ -57,6 +60,11 @@ class GetFreeBusyRequest extends SoapRequest {
         if (id != null) 'id': id,
         if (name != null) 'name': name,
         if (excludeUid != null) 'excludeUid': excludeUid,
-        if (freebusyUsers.isNotEmpty) 'usr': freebusyUsers.map((usr) => usr.toMap()).toList(growable: false),
+        if (freebusyUsers.isNotEmpty)
+          'usr': freebusyUsers
+              .map(
+                (usr) => usr.toMap(),
+              )
+              .toList(growable: false),
       };
 }

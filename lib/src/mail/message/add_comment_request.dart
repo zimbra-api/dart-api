@@ -17,7 +17,10 @@ class AddCommentRequest extends SoapRequest {
   AddCommentRequest(this.comment);
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) => AddCommentEnvelope(AddCommentBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => AddCommentEnvelope(
+        AddCommentBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

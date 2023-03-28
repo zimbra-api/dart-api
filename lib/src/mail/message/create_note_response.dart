@@ -11,6 +11,10 @@ class CreateNoteResponse extends SoapResponse {
 
   CreateNoteResponse({this.note});
 
-  factory CreateNoteResponse.fromMap(Map<String, dynamic> data) =>
-      CreateNoteResponse(note: data['note'] is Map ? NoteInfo.fromMap(data['note']) : null);
+  factory CreateNoteResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      CreateNoteResponse(
+        note: data['note'] is Map ? NoteInfo.fromMap(data['note']) : null,
+      );
 }

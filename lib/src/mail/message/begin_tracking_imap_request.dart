@@ -10,8 +10,10 @@ import 'begin_tracking_imap_envelope.dart';
 
 class BeginTrackingIMAPRequest extends SoapRequest {
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      BeginTrackingIMAPEnvelope(BeginTrackingIMAPBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => BeginTrackingIMAPEnvelope(
+        BeginTrackingIMAPBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

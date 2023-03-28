@@ -22,8 +22,10 @@ class GetApptSummariesRequest extends SoapRequest {
   GetApptSummariesRequest(this.startTime, this.endTime, {this.folderId});
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      GetApptSummariesEnvelope(GetApptSummariesBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => GetApptSummariesEnvelope(
+        GetApptSummariesBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

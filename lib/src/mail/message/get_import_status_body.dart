@@ -7,13 +7,21 @@ import 'get_import_status_request.dart';
 import 'get_import_status_response.dart';
 
 class GetImportStatusBody extends SoapBody {
-  GetImportStatusBody({GetImportStatusRequest? request, GetImportStatusResponse? response})
-      : super(request: request, response: response);
+  GetImportStatusBody({
+    GetImportStatusRequest? request,
+    GetImportStatusResponse? response,
+  }) : super(request: request, response: response);
 
-  factory GetImportStatusBody.fromMap(Map<String, dynamic> data) => GetImportStatusBody(
-      response: data['GetImportStatusResponse'] != null
-          ? GetImportStatusResponse.fromMap(data['GetImportStatusResponse'])
-          : null);
+  factory GetImportStatusBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetImportStatusBody(
+        response: data['GetImportStatusResponse'] != null
+            ? GetImportStatusResponse.fromMap(
+                data['GetImportStatusResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

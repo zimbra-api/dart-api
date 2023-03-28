@@ -21,7 +21,10 @@ class AddMsgRequest extends SoapRequest {
   AddMsgRequest(this.msg, {this.filterSent});
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) => AddMsgEnvelope(AddMsgBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => AddMsgEnvelope(
+        AddMsgBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

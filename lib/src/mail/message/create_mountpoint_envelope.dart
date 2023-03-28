@@ -7,9 +7,20 @@ import '../../common/type/soap_header.dart';
 import 'create_mountpoint_body.dart';
 
 class CreateMountpointEnvelope extends SoapEnvelope {
-  CreateMountpointEnvelope(CreateMountpointBody body, {super.header}) : super(body..response?.header = header);
+  CreateMountpointEnvelope(
+    CreateMountpointBody body, {
+    super.header,
+  }) : super(body..response?.header = header);
 
-  factory CreateMountpointEnvelope.fromMap(Map<String, dynamic> data) =>
-      CreateMountpointEnvelope(CreateMountpointBody.fromMap(data['Body']),
-          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
+  factory CreateMountpointEnvelope.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      CreateMountpointEnvelope(
+        CreateMountpointBody.fromMap(data['Body']),
+        header: data['Header'] != null
+            ? SoapHeader.fromMap(
+                data['Header'],
+              )
+            : null,
+      );
 }

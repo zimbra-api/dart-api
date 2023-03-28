@@ -11,6 +11,10 @@ class CreateTagResponse extends SoapResponse {
 
   CreateTagResponse({this.tag});
 
-  factory CreateTagResponse.fromMap(Map<String, dynamic> data) =>
-      CreateTagResponse(tag: data['tag'] is Map ? TagInfo.fromMap(data['tag']) : null);
+  factory CreateTagResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      CreateTagResponse(
+        tag: data['tag'] is Map ? TagInfo.fromMap(data['tag']) : null,
+      );
 }

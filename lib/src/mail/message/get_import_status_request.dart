@@ -14,8 +14,10 @@ import 'get_import_status_envelope.dart';
 /// If import has not run yet, the success and error attributes are not specified in the response.
 class GetImportStatusRequest extends SoapRequest {
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      GetImportStatusEnvelope(GetImportStatusBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => GetImportStatusEnvelope(
+        GetImportStatusBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

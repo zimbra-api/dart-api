@@ -11,8 +11,10 @@ import 'generate_uuid_envelope.dart';
 /// Ajax client can use this request to ask the server for help in generating a proper, globally unique UUID.
 class GenerateUUIDRequest extends SoapRequest {
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      GenerateUUIDEnvelope(GenerateUUIDBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => GenerateUUIDEnvelope(
+        GenerateUUIDBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

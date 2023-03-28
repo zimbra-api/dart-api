@@ -17,8 +17,10 @@ class ContactActionRequest extends SoapRequest {
   ContactActionRequest(this.action);
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      ContactActionEnvelope(ContactActionBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => ContactActionEnvelope(
+        ContactActionBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

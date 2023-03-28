@@ -11,6 +11,14 @@ class GetICalResponse extends SoapResponse {
 
   GetICalResponse({this.content});
 
-  factory GetICalResponse.fromMap(Map<String, dynamic> data) =>
-      GetICalResponse(content: (data['ical'] is Map) ? ICalContent.fromMap(data['ical']) : null);
+  factory GetICalResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetICalResponse(
+        content: (data['ical'] is Map)
+            ? ICalContent.fromMap(
+                data['ical'],
+              )
+            : null,
+      );
 }

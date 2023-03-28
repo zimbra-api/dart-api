@@ -24,6 +24,8 @@ class CreateTaskExceptionRequest extends CreateAppointmentExceptionRequest {
   });
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      CreateTaskExceptionEnvelope(CreateTaskExceptionBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => CreateTaskExceptionEnvelope(
+        CreateTaskExceptionBody(request: this),
+        header: header,
+      );
 }

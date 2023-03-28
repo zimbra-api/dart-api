@@ -16,8 +16,13 @@ class GetIMAPRecentCutoffRequest extends SoapRequest {
   GetIMAPRecentCutoffRequest(this.id);
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      GetIMAPRecentCutoffEnvelope(GetIMAPRecentCutoffBody(request: this), header: header);
+  SoapEnvelope getEnvelope({
+    SoapHeader? header,
+  }) =>
+      GetIMAPRecentCutoffEnvelope(
+        GetIMAPRecentCutoffBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

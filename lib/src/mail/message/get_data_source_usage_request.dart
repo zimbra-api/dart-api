@@ -10,8 +10,10 @@ import 'get_data_source_usage_envelope.dart';
 
 class GetDataSourceUsageRequest extends SoapRequest {
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      GetDataSourceUsageEnvelope(GetDataSourceUsageBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => GetDataSourceUsageEnvelope(
+        GetDataSourceUsageBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

@@ -17,16 +17,34 @@ class DismissCalendarItemAlarmRequest extends SoapRequest {
   /// Details of task alarms to dismiss
   final List<DismissAlarm> taskAlarms;
 
-  DismissCalendarItemAlarmRequest({this.apptAlarms = const [], this.taskAlarms = const []});
+  DismissCalendarItemAlarmRequest({
+    this.apptAlarms = const [],
+    this.taskAlarms = const [],
+  });
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      DismissCalendarItemAlarmEnvelope(DismissCalendarItemAlarmBody(request: this), header: header);
+  SoapEnvelope getEnvelope({
+    SoapHeader? header,
+  }) =>
+      DismissCalendarItemAlarmEnvelope(
+        DismissCalendarItemAlarmBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
-        if (apptAlarms.isNotEmpty) 'appt': apptAlarms.map((appt) => appt.toMap()).toList(growable: false),
-        if (taskAlarms.isNotEmpty) 'task': taskAlarms.map((task) => task.toMap()).toList(growable: false),
+        if (apptAlarms.isNotEmpty)
+          'appt': apptAlarms
+              .map(
+                (appt) => appt.toMap(),
+              )
+              .toList(growable: false),
+        if (taskAlarms.isNotEmpty)
+          'task': taskAlarms
+              .map(
+                (task) => task.toMap(),
+              )
+              .toList(growable: false),
       };
 }

@@ -7,9 +7,16 @@ import '../../common/type/soap_header.dart';
 import 'complete_task_instance_body.dart';
 
 class CompleteTaskInstanceEnvelope extends SoapEnvelope {
-  CompleteTaskInstanceEnvelope(CompleteTaskInstanceBody body, {super.header}) : super(body..response?.header = header);
+  CompleteTaskInstanceEnvelope(
+    CompleteTaskInstanceBody body, {
+    super.header,
+  }) : super(body..response?.header = header);
 
-  factory CompleteTaskInstanceEnvelope.fromMap(Map<String, dynamic> data) =>
-      CompleteTaskInstanceEnvelope(CompleteTaskInstanceBody.fromMap(data['Body']),
-          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
+  factory CompleteTaskInstanceEnvelope.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      CompleteTaskInstanceEnvelope(
+        CompleteTaskInstanceBody.fromMap(data['Body']),
+        header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null,
+      );
 }

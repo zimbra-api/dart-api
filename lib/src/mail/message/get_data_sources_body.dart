@@ -7,13 +7,21 @@ import 'get_data_sources_request.dart';
 import 'get_data_sources_response.dart';
 
 class GetDataSourcesBody extends SoapBody {
-  GetDataSourcesBody({GetDataSourcesRequest? request, GetDataSourcesResponse? response})
-      : super(request: request, response: response);
+  GetDataSourcesBody({
+    GetDataSourcesRequest? request,
+    GetDataSourcesResponse? response,
+  }) : super(request: request, response: response);
 
-  factory GetDataSourcesBody.fromMap(Map<String, dynamic> data) => GetDataSourcesBody(
-      response: data['GetDataSourcesResponse'] != null
-          ? GetDataSourcesResponse.fromMap(data['GetDataSourcesResponse'])
-          : null);
+  factory GetDataSourcesBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetDataSourcesBody(
+        response: data['GetDataSourcesResponse'] != null
+            ? GetDataSourcesResponse.fromMap(
+                data['GetDataSourcesResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

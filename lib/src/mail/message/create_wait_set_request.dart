@@ -40,11 +40,17 @@ class CreateWaitSetRequest extends SoapRequest {
   /// Waitsets to add
   final List<WaitSetAddSpec> accounts;
 
-  CreateWaitSetRequest({this.defaultInterests, this.allAccounts, this.accounts = const []});
+  CreateWaitSetRequest({
+    this.defaultInterests,
+    this.allAccounts,
+    this.accounts = const [],
+  });
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      CreateWaitSetEnvelope(CreateWaitSetBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => CreateWaitSetEnvelope(
+        CreateWaitSetBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {
@@ -53,7 +59,11 @@ class CreateWaitSetRequest extends SoapRequest {
           'defTypes': defaultInterests!
               .split(',')
               .toSet()
-              .where((type) => InterestType.values.any((element) => element.name == type))
+              .where(
+                (type) => InterestType.values.any(
+                  (element) => element.name == type,
+                ),
+              )
               .join(','),
         if (allAccounts != null) 'allAccounts': allAccounts,
         if (accounts.isNotEmpty)

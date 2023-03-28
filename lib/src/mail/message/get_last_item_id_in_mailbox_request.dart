@@ -11,8 +11,13 @@ import 'get_last_item_id_in_mailbox_envelope.dart';
 /// Returns the last ID assigned to an item successfully created in the mailbox
 class GetLastItemIdInMailboxRequest extends SoapRequest {
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      GetLastItemIdInMailboxEnvelope(GetLastItemIdInMailboxBody(request: this), header: header);
+  SoapEnvelope getEnvelope({
+    SoapHeader? header,
+  }) =>
+      GetLastItemIdInMailboxEnvelope(
+        GetLastItemIdInMailboxBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

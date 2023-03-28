@@ -11,7 +11,12 @@ class CancelTaskBody extends SoapBody {
       : super(request: request, response: response);
 
   factory CancelTaskBody.fromMap(Map<String, dynamic> data) => CancelTaskBody(
-      response: data['CancelTaskResponse'] != null ? CancelTaskResponse.fromMap(data['CancelTaskResponse']) : null);
+        response: data['CancelTaskResponse'] != null
+            ? CancelTaskResponse.fromMap(
+                data['CancelTaskResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

@@ -7,5 +7,8 @@ import '../../common/type/soap_response.dart';
 class BeginTrackingIMAPResponse extends SoapResponse {
   BeginTrackingIMAPResponse();
 
-  factory BeginTrackingIMAPResponse.fromMap(Map<String, dynamic> data) => BeginTrackingIMAPResponse();
+  factory BeginTrackingIMAPResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      BeginTrackingIMAPResponse();
 }

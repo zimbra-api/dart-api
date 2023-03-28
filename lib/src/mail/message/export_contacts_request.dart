@@ -36,8 +36,13 @@ class ExportContactsRequest extends SoapRequest {
   });
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      ExportContactsEnvelope(ExportContactsBody(request: this), header: header);
+  SoapEnvelope getEnvelope({
+    SoapHeader? header,
+  }) =>
+      ExportContactsEnvelope(
+        ExportContactsBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

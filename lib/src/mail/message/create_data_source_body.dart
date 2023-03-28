@@ -7,13 +7,21 @@ import 'create_data_source_request.dart';
 import 'create_data_source_response.dart';
 
 class CreateDataSourceBody extends SoapBody {
-  CreateDataSourceBody({CreateDataSourceRequest? request, CreateDataSourceResponse? response})
-      : super(request: request, response: response);
+  CreateDataSourceBody({
+    CreateDataSourceRequest? request,
+    CreateDataSourceResponse? response,
+  }) : super(request: request, response: response);
 
-  factory CreateDataSourceBody.fromMap(Map<String, dynamic> data) => CreateDataSourceBody(
-      response: data['CreateDataSourceResponse'] != null
-          ? CreateDataSourceResponse.fromMap(data['CreateDataSourceResponse'])
-          : null);
+  factory CreateDataSourceBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      CreateDataSourceBody(
+        response: data['CreateDataSourceResponse'] != null
+            ? CreateDataSourceResponse.fromMap(
+                data['CreateDataSourceResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

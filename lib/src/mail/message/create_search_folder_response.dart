@@ -11,6 +11,14 @@ class CreateSearchFolderResponse extends SoapResponse {
 
   CreateSearchFolderResponse({this.searchFolder});
 
-  factory CreateSearchFolderResponse.fromMap(Map<String, dynamic> data) =>
-      CreateSearchFolderResponse(searchFolder: data['search'] is Map ? SearchFolder.fromMap(data['search']) : null);
+  factory CreateSearchFolderResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      CreateSearchFolderResponse(
+        searchFolder: data['search'] is Map
+            ? SearchFolder.fromMap(
+                data['search'],
+              )
+            : null,
+      );
 }

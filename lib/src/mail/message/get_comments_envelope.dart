@@ -7,9 +7,20 @@ import '../../common/type/soap_header.dart';
 import 'get_comments_body.dart';
 
 class GetCommentsEnvelope extends SoapEnvelope {
-  GetCommentsEnvelope(GetCommentsBody body, {super.header}) : super(body..response?.header = header);
+  GetCommentsEnvelope(
+    GetCommentsBody body, {
+    super.header,
+  }) : super(body..response?.header = header);
 
-  factory GetCommentsEnvelope.fromMap(Map<String, dynamic> data) =>
-      GetCommentsEnvelope(GetCommentsBody.fromMap(data['Body']),
-          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
+  factory GetCommentsEnvelope.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetCommentsEnvelope(
+        GetCommentsBody.fromMap(data['Body']),
+        header: data['Header'] != null
+            ? SoapHeader.fromMap(
+                data['Header'],
+              )
+            : null,
+      );
 }

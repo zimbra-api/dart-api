@@ -7,14 +7,21 @@ import 'announce_organizer_change_request.dart';
 import 'announce_organizer_change_response.dart';
 
 class AnnounceOrganizerChangeBody extends SoapBody {
-  AnnounceOrganizerChangeBody(
-      {AnnounceOrganizerChangeRequest? request, AnnounceOrganizerChangeResponse? response})
-      : super(request: request, response: response);
+  AnnounceOrganizerChangeBody({
+    AnnounceOrganizerChangeRequest? request,
+    AnnounceOrganizerChangeResponse? response,
+  }) : super(request: request, response: response);
 
-  factory AnnounceOrganizerChangeBody.fromMap(Map<String, dynamic> data) => AnnounceOrganizerChangeBody(
-      response: data['AnnounceOrganizerChangeResponse'] != null
-          ? AnnounceOrganizerChangeResponse.fromMap(data['AnnounceOrganizerChangeResponse'])
-          : null);
+  factory AnnounceOrganizerChangeBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      AnnounceOrganizerChangeBody(
+        response: data['AnnounceOrganizerChangeResponse'] != null
+            ? AnnounceOrganizerChangeResponse.fromMap(
+                data['AnnounceOrganizerChangeResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

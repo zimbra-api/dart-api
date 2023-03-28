@@ -7,9 +7,20 @@ import '../../common/type/soap_header.dart';
 import 'bounce_msg_body.dart';
 
 class BounceMsgEnvelope extends SoapEnvelope {
-  BounceMsgEnvelope(BounceMsgBody body, {super.header}) : super(body..response?.header = header);
+  BounceMsgEnvelope(
+    BounceMsgBody body, {
+    super.header,
+  }) : super(body..response?.header = header);
 
-  factory BounceMsgEnvelope.fromMap(Map<String, dynamic> data) =>
-      BounceMsgEnvelope(BounceMsgBody.fromMap(data['Body']),
-      header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
+  factory BounceMsgEnvelope.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      BounceMsgEnvelope(
+        BounceMsgBody.fromMap(data['Body']),
+        header: data['Header'] != null
+            ? SoapHeader.fromMap(
+                data['Header'],
+              )
+            : null,
+      );
 }

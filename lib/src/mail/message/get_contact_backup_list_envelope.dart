@@ -7,9 +7,20 @@ import '../../common/type/soap_header.dart';
 import 'get_contact_backup_list_body.dart';
 
 class GetContactBackupListEnvelope extends SoapEnvelope {
-  GetContactBackupListEnvelope(GetContactBackupListBody body, {super.header}) : super(body..response?.header = header);
+  GetContactBackupListEnvelope(
+    GetContactBackupListBody body, {
+    super.header,
+  }) : super(body..response?.header = header);
 
-  factory GetContactBackupListEnvelope.fromMap(Map<String, dynamic> data) =>
-      GetContactBackupListEnvelope(GetContactBackupListBody.fromMap(data['Body']),
-          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
+  factory GetContactBackupListEnvelope.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetContactBackupListEnvelope(
+        GetContactBackupListBody.fromMap(data['Body']),
+        header: data['Header'] != null
+            ? SoapHeader.fromMap(
+                data['Header'],
+              )
+            : null,
+      );
 }

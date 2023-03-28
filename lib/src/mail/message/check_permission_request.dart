@@ -21,13 +21,20 @@ class CheckPermissionRequest extends SoapRequest {
   CheckPermissionRequest(this.target, {this.rights = const []});
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      CheckPermissionEnvelope(CheckPermissionBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => CheckPermissionEnvelope(
+        CheckPermissionBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
         'target': target.toMap(),
-        if (rights.isNotEmpty) 'right': rights.map((right) => {'_content': right}).toList(growable: false),
+        if (rights.isNotEmpty)
+          'right': rights
+              .map(
+                (right) => {'_content': right},
+              )
+              .toList(growable: false),
       };
 }

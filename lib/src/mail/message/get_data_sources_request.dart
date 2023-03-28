@@ -12,8 +12,10 @@ import 'get_data_sources_envelope.dart';
 /// For each data source, every attribute value is returned except password.
 class GetDataSourcesRequest extends SoapRequest {
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      GetDataSourcesEnvelope(GetDataSourcesBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => GetDataSourcesEnvelope(
+        GetDataSourcesBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

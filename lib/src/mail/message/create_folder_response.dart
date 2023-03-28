@@ -23,8 +23,24 @@ class CreateFolderResponse extends SoapResponse {
     this.searchFolder,
   });
 
-  factory CreateFolderResponse.fromMap(Map<String, dynamic> data) => CreateFolderResponse(
-      folder: data['folder'] is Map ? Folder.fromMap(data['folder']) : null,
-      mountpoint: data['link'] is Map ? Mountpoint.fromMap(data['link']) : null,
-      searchFolder: data['search'] is Map ? SearchFolder.fromMap(data['search']) : null);
+  factory CreateFolderResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      CreateFolderResponse(
+        folder: data['folder'] is Map
+            ? Folder.fromMap(
+                data['folder'],
+              )
+            : null,
+        mountpoint: data['link'] is Map
+            ? Mountpoint.fromMap(
+                data['link'],
+              )
+            : null,
+        searchFolder: data['search'] is Map
+            ? SearchFolder.fromMap(
+                data['search'],
+              )
+            : null,
+      );
 }

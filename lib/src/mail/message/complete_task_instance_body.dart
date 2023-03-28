@@ -7,13 +7,21 @@ import 'complete_task_instance_request.dart';
 import 'complete_task_instance_response.dart';
 
 class CompleteTaskInstanceBody extends SoapBody {
-  CompleteTaskInstanceBody({CompleteTaskInstanceRequest? request, CompleteTaskInstanceResponse? response})
-      : super(request: request, response: response);
+  CompleteTaskInstanceBody({
+    CompleteTaskInstanceRequest? request,
+    CompleteTaskInstanceResponse? response,
+  }) : super(request: request, response: response);
 
-  factory CompleteTaskInstanceBody.fromMap(Map<String, dynamic> data) => CompleteTaskInstanceBody(
-      response: data['CompleteTaskInstanceResponse'] != null
-          ? CompleteTaskInstanceResponse.fromMap(data['CompleteTaskInstanceResponse'])
-          : null);
+  factory CompleteTaskInstanceBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      CompleteTaskInstanceBody(
+        response: data['CompleteTaskInstanceResponse'] != null
+            ? CompleteTaskInstanceResponse.fromMap(
+                data['CompleteTaskInstanceResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

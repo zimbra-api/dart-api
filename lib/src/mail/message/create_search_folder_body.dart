@@ -7,13 +7,21 @@ import 'create_search_folder_request.dart';
 import 'create_search_folder_response.dart';
 
 class CreateSearchFolderBody extends SoapBody {
-  CreateSearchFolderBody({CreateSearchFolderRequest? request, CreateSearchFolderResponse? response})
-      : super(request: request, response: response);
+  CreateSearchFolderBody({
+    CreateSearchFolderRequest? request,
+    CreateSearchFolderResponse? response,
+  }) : super(request: request, response: response);
 
-  factory CreateSearchFolderBody.fromMap(Map<String, dynamic> data) => CreateSearchFolderBody(
-      response: data['CreateSearchFolderResponse'] != null
-          ? CreateSearchFolderResponse.fromMap(data['CreateSearchFolderResponse'])
-          : null);
+  factory CreateSearchFolderBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      CreateSearchFolderBody(
+        response: data['CreateSearchFolderResponse'] != null
+            ? CreateSearchFolderResponse.fromMap(
+                data['CreateSearchFolderResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

@@ -7,5 +7,8 @@ import '../../common/type/soap_response.dart';
 class CompleteTaskInstanceResponse extends SoapResponse {
   CompleteTaskInstanceResponse();
 
-  factory CompleteTaskInstanceResponse.fromMap(Map<String, dynamic> data) => CompleteTaskInstanceResponse();
+  factory CompleteTaskInstanceResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      CompleteTaskInstanceResponse();
 }

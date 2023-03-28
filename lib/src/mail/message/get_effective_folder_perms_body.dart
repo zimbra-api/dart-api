@@ -7,14 +7,21 @@ import 'get_effective_folder_perms_request.dart';
 import 'get_effective_folder_perms_response.dart';
 
 class GetEffectiveFolderPermsBody extends SoapBody {
-  GetEffectiveFolderPermsBody(
-      {GetEffectiveFolderPermsRequest? request, GetEffectiveFolderPermsResponse? response})
-      : super(request: request, response: response);
+  GetEffectiveFolderPermsBody({
+    GetEffectiveFolderPermsRequest? request,
+    GetEffectiveFolderPermsResponse? response,
+  }) : super(request: request, response: response);
 
-  factory GetEffectiveFolderPermsBody.fromMap(Map<String, dynamic> data) => GetEffectiveFolderPermsBody(
-      response: data['GetEffectiveFolderPermsResponse'] != null
-          ? GetEffectiveFolderPermsResponse.fromMap(data['GetEffectiveFolderPermsResponse'])
-          : null);
+  factory GetEffectiveFolderPermsBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetEffectiveFolderPermsBody(
+        response: data['GetEffectiveFolderPermsResponse'] != null
+            ? GetEffectiveFolderPermsResponse.fromMap(
+                data['GetEffectiveFolderPermsResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

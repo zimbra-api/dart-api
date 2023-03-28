@@ -19,6 +19,8 @@ class GetAppointmentRequest extends GetCalendarItemRequestBase {
   });
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      GetAppointmentEnvelope(GetAppointmentBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => GetAppointmentEnvelope(
+        GetAppointmentBody(request: this),
+        header: header,
+      );
 }

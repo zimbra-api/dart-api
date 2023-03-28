@@ -7,9 +7,20 @@ import '../../common/type/soap_header.dart';
 import 'get_imap_recent_body.dart';
 
 class GetIMAPRecentEnvelope extends SoapEnvelope {
-  GetIMAPRecentEnvelope(GetIMAPRecentBody body, {super.header}) : super(body..response?.header = header);
+  GetIMAPRecentEnvelope(
+    GetIMAPRecentBody body, {
+    super.header,
+  }) : super(body..response?.header = header);
 
-  factory GetIMAPRecentEnvelope.fromMap(Map<String, dynamic> data) =>
-      GetIMAPRecentEnvelope(GetIMAPRecentBody.fromMap(data['Body']),
-          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
+  factory GetIMAPRecentEnvelope.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetIMAPRecentEnvelope(
+        GetIMAPRecentBody.fromMap(data['Body']),
+        header: data['Header'] != null
+            ? SoapHeader.fromMap(
+                data['Header'],
+              )
+            : null,
+      );
 }

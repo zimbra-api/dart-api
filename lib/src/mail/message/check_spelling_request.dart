@@ -27,8 +27,10 @@ class CheckSpellingRequest extends SoapRequest {
   CheckSpellingRequest({this.dictionary, this.ignoreList, this.text});
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      CheckSpellingEnvelope(CheckSpellingBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => CheckSpellingEnvelope(
+        CheckSpellingBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

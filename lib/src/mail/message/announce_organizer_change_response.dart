@@ -7,5 +7,8 @@ import '../../common/type/soap_response.dart';
 class AnnounceOrganizerChangeResponse extends SoapResponse {
   AnnounceOrganizerChangeResponse();
 
-  factory AnnounceOrganizerChangeResponse.fromMap(Map<String, dynamic> data) => AnnounceOrganizerChangeResponse();
+  factory AnnounceOrganizerChangeResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      AnnounceOrganizerChangeResponse();
 }

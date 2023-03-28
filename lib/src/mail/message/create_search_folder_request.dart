@@ -17,8 +17,10 @@ class CreateSearchFolderRequest extends SoapRequest {
   CreateSearchFolderRequest(this.searchFolder);
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      CreateSearchFolderEnvelope(CreateSearchFolderBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => CreateSearchFolderEnvelope(
+        CreateSearchFolderBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

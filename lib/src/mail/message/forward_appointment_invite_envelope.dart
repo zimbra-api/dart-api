@@ -7,10 +7,20 @@ import '../../common/type/soap_header.dart';
 import 'forward_appointment_invite_body.dart';
 
 class ForwardAppointmentInviteEnvelope extends SoapEnvelope {
-  ForwardAppointmentInviteEnvelope(ForwardAppointmentInviteBody body, {super.header})
-      : super(body..response?.header = header);
+  ForwardAppointmentInviteEnvelope(
+    ForwardAppointmentInviteBody body, {
+    super.header,
+  }) : super(body..response?.header = header);
 
-  factory ForwardAppointmentInviteEnvelope.fromMap(Map<String, dynamic> data) =>
-      ForwardAppointmentInviteEnvelope(ForwardAppointmentInviteBody.fromMap(data['Body']),
-          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
+  factory ForwardAppointmentInviteEnvelope.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ForwardAppointmentInviteEnvelope(
+        ForwardAppointmentInviteBody.fromMap(data['Body']),
+        header: data['Header'] != null
+            ? SoapHeader.fromMap(
+                data['Header'],
+              )
+            : null,
+      );
 }

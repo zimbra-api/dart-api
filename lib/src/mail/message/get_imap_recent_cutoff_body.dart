@@ -7,13 +7,21 @@ import 'get_imap_recent_cutoff_request.dart';
 import 'get_imap_recent_cutoff_response.dart';
 
 class GetIMAPRecentCutoffBody extends SoapBody {
-  GetIMAPRecentCutoffBody({GetIMAPRecentCutoffRequest? request, GetIMAPRecentCutoffResponse? response})
-      : super(request: request, response: response);
+  GetIMAPRecentCutoffBody({
+    GetIMAPRecentCutoffRequest? request,
+    GetIMAPRecentCutoffResponse? response,
+  }) : super(request: request, response: response);
 
-  factory GetIMAPRecentCutoffBody.fromMap(Map<String, dynamic> data) => GetIMAPRecentCutoffBody(
-      response: data['GetIMAPRecentCutoffResponse'] != null
-          ? GetIMAPRecentCutoffResponse.fromMap(data['GetIMAPRecentCutoffResponse'])
-          : null);
+  factory GetIMAPRecentCutoffBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetIMAPRecentCutoffBody(
+        response: data['GetIMAPRecentCutoffResponse'] != null
+            ? GetIMAPRecentCutoffResponse.fromMap(
+                data['GetIMAPRecentCutoffResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

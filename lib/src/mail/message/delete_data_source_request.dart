@@ -48,21 +48,61 @@ class DeleteDataSourceRequest extends SoapRequest {
   });
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      DeleteDataSourceEnvelope(DeleteDataSourceBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => DeleteDataSourceEnvelope(
+        DeleteDataSourceBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
-        if (imapDataSources.isNotEmpty) 'imap': imapDataSources.map((imap) => imap.toMap()).toList(growable: false),
-        if (pop3DataSources.isNotEmpty) 'pop3': pop3DataSources.map((pop3) => pop3.toMap()).toList(growable: false),
+        if (imapDataSources.isNotEmpty)
+          'imap': imapDataSources
+              .map(
+                (imap) => imap.toMap(),
+              )
+              .toList(growable: false),
+        if (pop3DataSources.isNotEmpty)
+          'pop3': pop3DataSources
+              .map(
+                (pop3) => pop3.toMap(),
+              )
+              .toList(growable: false),
         if (caldavDataSources.isNotEmpty)
-          'caldav': caldavDataSources.map((caldav) => caldav.toMap()).toList(growable: false),
-        if (yabDataSources.isNotEmpty) 'yab': yabDataSources.map((yab) => yab.toMap()).toList(growable: false),
-        if (rssDataSources.isNotEmpty) 'rss': rssDataSources.map((rss) => rss.toMap()).toList(growable: false),
-        if (galDataSources.isNotEmpty) 'gal': galDataSources.map((gal) => gal.toMap()).toList(growable: false),
-        if (calDataSources.isNotEmpty) 'cal': calDataSources.map((cal) => cal.toMap()).toList(growable: false),
+          'caldav': caldavDataSources
+              .map(
+                (caldav) => caldav.toMap(),
+              )
+              .toList(growable: false),
+        if (yabDataSources.isNotEmpty)
+          'yab': yabDataSources
+              .map(
+                (yab) => yab.toMap(),
+              )
+              .toList(growable: false),
+        if (rssDataSources.isNotEmpty)
+          'rss': rssDataSources
+              .map(
+                (rss) => rss.toMap(),
+              )
+              .toList(growable: false),
+        if (galDataSources.isNotEmpty)
+          'gal': galDataSources
+              .map(
+                (gal) => gal.toMap(),
+              )
+              .toList(growable: false),
+        if (calDataSources.isNotEmpty)
+          'cal': calDataSources
+              .map(
+                (cal) => cal.toMap(),
+              )
+              .toList(growable: false),
         if (unknownDataSources.isNotEmpty)
-          'unknown': unknownDataSources.map((imap) => imap.toMap()).toList(growable: false),
+          'unknown': unknownDataSources
+              .map(
+                (imap) => imap.toMap(),
+              )
+              .toList(growable: false),
       };
 }

@@ -10,9 +10,18 @@ import 'get_calendar_item_summaries_envelope.dart';
 
 /// Get calendar item summaries
 class GetCalendarItemSummariesRequest extends GetApptSummariesRequest {
-  GetCalendarItemSummariesRequest(super.startTime, super.endTime, {super.folderId});
+  GetCalendarItemSummariesRequest(
+    super.startTime,
+    super.endTime, {
+    super.folderId,
+  });
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      GetCalendarItemSummariesEnvelope(GetCalendarItemSummariesBody(request: this), header: header);
+  SoapEnvelope getEnvelope({
+    SoapHeader? header,
+  }) =>
+      GetCalendarItemSummariesEnvelope(
+        GetCalendarItemSummariesBody(request: this),
+        header: header,
+      );
 }

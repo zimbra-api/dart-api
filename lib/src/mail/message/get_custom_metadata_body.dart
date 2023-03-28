@@ -7,13 +7,21 @@ import 'get_custom_metadata_request.dart';
 import 'get_custom_metadata_response.dart';
 
 class GetCustomMetadataBody extends SoapBody {
-  GetCustomMetadataBody({GetCustomMetadataRequest? request, GetCustomMetadataResponse? response})
-      : super(request: request, response: response);
+  GetCustomMetadataBody({
+    GetCustomMetadataRequest? request,
+    GetCustomMetadataResponse? response,
+  }) : super(request: request, response: response);
 
-  factory GetCustomMetadataBody.fromMap(Map<String, dynamic> data) => GetCustomMetadataBody(
-      response: data['GetCustomMetadataResponse'] != null
-          ? GetCustomMetadataResponse.fromMap(data['GetCustomMetadataResponse'])
-          : null);
+  factory GetCustomMetadataBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      GetCustomMetadataBody(
+        response: data['GetCustomMetadataResponse'] != null
+            ? GetCustomMetadataResponse.fromMap(
+                data['GetCustomMetadataResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

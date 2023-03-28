@@ -7,12 +7,21 @@ import 'check_spelling_request.dart';
 import 'check_spelling_response.dart';
 
 class CheckSpellingBody extends SoapBody {
-  CheckSpellingBody({CheckSpellingRequest? request, CheckSpellingResponse? response})
-      : super(request: request, response: response);
+  CheckSpellingBody({
+    CheckSpellingRequest? request,
+    CheckSpellingResponse? response,
+  }) : super(request: request, response: response);
 
-  factory CheckSpellingBody.fromMap(Map<String, dynamic> data) => CheckSpellingBody(
-      response:
-          data['CheckSpellingResponse'] != null ? CheckSpellingResponse.fromMap(data['CheckSpellingResponse']) : null);
+  factory CheckSpellingBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      CheckSpellingBody(
+        response: data['CheckSpellingResponse'] != null
+            ? CheckSpellingResponse.fromMap(
+                data['CheckSpellingResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

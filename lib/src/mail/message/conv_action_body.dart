@@ -7,11 +7,21 @@ import 'conv_action_request.dart';
 import 'conv_action_response.dart';
 
 class ConvActionBody extends SoapBody {
-  ConvActionBody({ConvActionRequest? request, ConvActionResponse? response})
-      : super(request: request, response: response);
+  ConvActionBody({
+    ConvActionRequest? request,
+    ConvActionResponse? response,
+  }) : super(request: request, response: response);
 
-  factory ConvActionBody.fromMap(Map<String, dynamic> data) => ConvActionBody(
-      response: data['ConvActionResponse'] != null ? ConvActionResponse.fromMap(data['ConvActionResponse']) : null);
+  factory ConvActionBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ConvActionBody(
+        response: data['ConvActionResponse'] != null
+            ? ConvActionResponse.fromMap(
+                data['ConvActionResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

@@ -7,12 +7,21 @@ import 'empty_dumpster_request.dart';
 import 'empty_dumpster_response.dart';
 
 class EmptyDumpsterBody extends SoapBody {
-  EmptyDumpsterBody({EmptyDumpsterRequest? request, EmptyDumpsterResponse? response})
-      : super(request: request, response: response);
+  EmptyDumpsterBody({
+    EmptyDumpsterRequest? request,
+    EmptyDumpsterResponse? response,
+  }) : super(request: request, response: response);
 
-  factory EmptyDumpsterBody.fromMap(Map<String, dynamic> data) => EmptyDumpsterBody(
-      response:
-          data['EmptyDumpsterResponse'] != null ? EmptyDumpsterResponse.fromMap(data['EmptyDumpsterResponse']) : null);
+  factory EmptyDumpsterBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      EmptyDumpsterBody(
+        response: data['EmptyDumpsterResponse'] != null
+            ? EmptyDumpsterResponse.fromMap(
+                data['EmptyDumpsterResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

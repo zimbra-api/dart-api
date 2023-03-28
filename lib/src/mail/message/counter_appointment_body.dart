@@ -7,13 +7,21 @@ import 'counter_appointment_request.dart';
 import 'counter_appointment_response.dart';
 
 class CounterAppointmentBody extends SoapBody {
-  CounterAppointmentBody({CounterAppointmentRequest? request, CounterAppointmentResponse? response})
-      : super(request: request, response: response);
+  CounterAppointmentBody({
+    CounterAppointmentRequest? request,
+    CounterAppointmentResponse? response,
+  }) : super(request: request, response: response);
 
-  factory CounterAppointmentBody.fromMap(Map<String, dynamic> data) => CounterAppointmentBody(
-      response: data['CounterAppointmentResponse'] != null
-          ? CounterAppointmentResponse.fromMap(data['CounterAppointmentResponse'])
-          : null);
+  factory CounterAppointmentBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      CounterAppointmentBody(
+        response: data['CounterAppointmentResponse'] != null
+            ? CounterAppointmentResponse.fromMap(
+                data['CounterAppointmentResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

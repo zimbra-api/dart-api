@@ -20,8 +20,13 @@ class DeclineCounterAppointmentRequest extends SoapRequest {
   DeclineCounterAppointmentRequest({this.msg});
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      DeclineCounterAppointmentEnvelope(DeclineCounterAppointmentBody(request: this), header: header);
+  SoapEnvelope getEnvelope({
+    SoapHeader? header,
+  }) =>
+      DeclineCounterAppointmentEnvelope(
+        DeclineCounterAppointmentBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

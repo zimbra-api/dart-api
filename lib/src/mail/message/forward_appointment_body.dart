@@ -7,13 +7,21 @@ import 'forward_appointment_request.dart';
 import 'forward_appointment_response.dart';
 
 class ForwardAppointmentBody extends SoapBody {
-  ForwardAppointmentBody({ForwardAppointmentRequest? request, ForwardAppointmentResponse? response})
-      : super(request: request, response: response);
+  ForwardAppointmentBody({
+    ForwardAppointmentRequest? request,
+    ForwardAppointmentResponse? response,
+  }) : super(request: request, response: response);
 
-  factory ForwardAppointmentBody.fromMap(Map<String, dynamic> data) => ForwardAppointmentBody(
-      response: data['ForwardAppointmentResponse'] != null
-          ? ForwardAppointmentResponse.fromMap(data['ForwardAppointmentResponse'])
-          : null);
+  factory ForwardAppointmentBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      ForwardAppointmentBody(
+        response: data['ForwardAppointmentResponse'] != null
+            ? ForwardAppointmentResponse.fromMap(
+                data['ForwardAppointmentResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

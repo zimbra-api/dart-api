@@ -7,9 +7,20 @@ import '../../common/type/soap_header.dart';
 import 'delete_data_source_body.dart';
 
 class DeleteDataSourceEnvelope extends SoapEnvelope {
-  DeleteDataSourceEnvelope(DeleteDataSourceBody body, {super.header}) : super(body..response?.header = header);
+  DeleteDataSourceEnvelope(
+    DeleteDataSourceBody body, {
+    super.header,
+  }) : super(body..response?.header = header);
 
-  factory DeleteDataSourceEnvelope.fromMap(Map<String, dynamic> data) =>
-      DeleteDataSourceEnvelope(DeleteDataSourceBody.fromMap(data['Body']),
-          header: data['Header'] != null ? SoapHeader.fromMap(data['Header']) : null);
+  factory DeleteDataSourceEnvelope.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      DeleteDataSourceEnvelope(
+        DeleteDataSourceBody.fromMap(data['Body']),
+        header: data['Header'] != null
+            ? SoapHeader.fromMap(
+                data['Header'],
+              )
+            : null,
+      );
 }

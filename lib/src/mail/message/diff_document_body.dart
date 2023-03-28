@@ -7,12 +7,21 @@ import 'diff_document_request.dart';
 import 'diff_document_response.dart';
 
 class DiffDocumentBody extends SoapBody {
-  DiffDocumentBody({DiffDocumentRequest? request, DiffDocumentResponse? response})
-      : super(request: request, response: response);
+  DiffDocumentBody({
+    DiffDocumentRequest? request,
+    DiffDocumentResponse? response,
+  }) : super(request: request, response: response);
 
-  factory DiffDocumentBody.fromMap(Map<String, dynamic> data) => DiffDocumentBody(
-      response:
-          data['DiffDocumentResponse'] != null ? DiffDocumentResponse.fromMap(data['DiffDocumentResponse']) : null);
+  factory DiffDocumentBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      DiffDocumentBody(
+        response: data['DiffDocumentResponse'] != null
+            ? DiffDocumentResponse.fromMap(
+                data['DiffDocumentResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

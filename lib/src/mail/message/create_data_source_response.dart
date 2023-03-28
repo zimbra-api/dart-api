@@ -41,13 +41,49 @@ class CreateDataSourceResponse extends SoapResponse {
     this.unknownDataSource,
   });
 
-  factory CreateDataSourceResponse.fromMap(Map<String, dynamic> data) => CreateDataSourceResponse(
-      imapDataSource: data['imap']?[0] is Map ? DataSourceId.fromMap(data['imap'][0]) : null,
-      pop3DataSource: data['pop3']?[0] is Map ? DataSourceId.fromMap(data['pop3'][0]) : null,
-      caldavDataSource: data['caldav']?[0] is Map ? DataSourceId.fromMap(data['caldav'][0]) : null,
-      yabDataSource: data['yab']?[0] is Map ? DataSourceId.fromMap(data['yab'][0]) : null,
-      rssDataSource: data['rss']?[0] is Map ? DataSourceId.fromMap(data['rss'][0]) : null,
-      galDataSource: data['gal']?[0] is Map ? DataSourceId.fromMap(data['gal'][0]) : null,
-      calDataSource: data['cal']?[0] is Map ? DataSourceId.fromMap(data['cal'][0]) : null,
-      unknownDataSource: data['unknown']?[0] is Map ? DataSourceId.fromMap(data['unknown'][0]) : null);
+  factory CreateDataSourceResponse.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      CreateDataSourceResponse(
+        imapDataSource: data['imap']?[0] is Map
+            ? DataSourceId.fromMap(
+                data['imap'][0],
+              )
+            : null,
+        pop3DataSource: data['pop3']?[0] is Map
+            ? DataSourceId.fromMap(
+                data['pop3'][0],
+              )
+            : null,
+        caldavDataSource: data['caldav']?[0] is Map
+            ? DataSourceId.fromMap(
+                data['caldav'][0],
+              )
+            : null,
+        yabDataSource: data['yab']?[0] is Map
+            ? DataSourceId.fromMap(
+                data['yab'][0],
+              )
+            : null,
+        rssDataSource: data['rss']?[0] is Map
+            ? DataSourceId.fromMap(
+                data['rss'][0],
+              )
+            : null,
+        galDataSource: data['gal']?[0] is Map
+            ? DataSourceId.fromMap(
+                data['gal'][0],
+              )
+            : null,
+        calDataSource: data['cal']?[0] is Map
+            ? DataSourceId.fromMap(
+                data['cal'][0],
+              )
+            : null,
+        unknownDataSource: data['unknown']?[0] is Map
+            ? DataSourceId.fromMap(
+                data['unknown'][0],
+              )
+            : null,
+      );
 }

@@ -17,7 +17,10 @@ class CreateNoteRequest extends SoapRequest {
   CreateNoteRequest(this.note);
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) => CreateNoteEnvelope(CreateNoteBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => CreateNoteEnvelope(
+        CreateNoteBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

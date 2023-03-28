@@ -29,8 +29,13 @@ class AddAppointmentInviteRequest extends SoapRequest {
   AddAppointmentInviteRequest(this.msg, {this.partStat});
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      AddAppointmentInviteEnvelope(AddAppointmentInviteBody(request: this), header: header);
+  SoapEnvelope getEnvelope({
+    SoapHeader? header,
+  }) =>
+      AddAppointmentInviteEnvelope(
+        AddAppointmentInviteBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

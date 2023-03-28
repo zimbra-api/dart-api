@@ -42,18 +42,39 @@ class ExpandRecurRequest extends SoapRequest {
   });
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) => ExpandRecurEnvelope(ExpandRecurBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => ExpandRecurEnvelope(
+        ExpandRecurBody(request: this),
+        header: header,
+      );
 
   @override
   Map<String, dynamic> toMap() => {
         '_jsns': 'urn:zimbraMail',
         's': startTime,
         'e': endTime,
-        if (timezones.isNotEmpty) 'tz': timezones.map((tz) => tz.toMap()).toList(growable: false),
+        if (timezones.isNotEmpty)
+          'tz': timezones
+              .map(
+                (tz) => tz.toMap(),
+              )
+              .toList(growable: false),
         if (cancelComponents.isNotEmpty)
-          'cancel': cancelComponents.map((cancel) => cancel.toMap()).toList(growable: false),
-        if (inviteComponents.isNotEmpty) 'comp': inviteComponents.map((comp) => comp.toMap()).toList(growable: false),
+          'cancel': cancelComponents
+              .map(
+                (cancel) => cancel.toMap(),
+              )
+              .toList(growable: false),
+        if (inviteComponents.isNotEmpty)
+          'comp': inviteComponents
+              .map(
+                (comp) => comp.toMap(),
+              )
+              .toList(growable: false),
         if (exceptComponents.isNotEmpty)
-          'except': exceptComponents.map((except) => except.toMap()).toList(growable: false),
+          'except': exceptComponents
+              .map(
+                (except) => except.toMap(),
+              )
+              .toList(growable: false),
       };
 }

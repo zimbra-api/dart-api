@@ -7,13 +7,21 @@ import 'create_task_exception_request.dart';
 import 'create_task_exception_response.dart';
 
 class CreateTaskExceptionBody extends SoapBody {
-  CreateTaskExceptionBody({CreateTaskExceptionRequest? request, CreateTaskExceptionResponse? response})
-      : super(request: request, response: response);
+  CreateTaskExceptionBody({
+    CreateTaskExceptionRequest? request,
+    CreateTaskExceptionResponse? response,
+  }) : super(request: request, response: response);
 
-  factory CreateTaskExceptionBody.fromMap(Map<String, dynamic> data) => CreateTaskExceptionBody(
-      response: data['CreateTaskExceptionResponse'] != null
-          ? CreateTaskExceptionResponse.fromMap(data['CreateTaskExceptionResponse'])
-          : null);
+  factory CreateTaskExceptionBody.fromMap(
+    Map<String, dynamic> data,
+  ) =>
+      CreateTaskExceptionBody(
+        response: data['CreateTaskExceptionResponse'] != null
+            ? CreateTaskExceptionResponse.fromMap(
+                data['CreateTaskExceptionResponse'],
+              )
+            : null,
+      );
 
   @override
   Map<String, dynamic> toMap() => {

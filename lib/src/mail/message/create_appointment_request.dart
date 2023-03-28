@@ -21,6 +21,8 @@ class CreateAppointmentRequest extends CalItemRequestBase {
   });
 
   @override
-  SoapEnvelope getEnvelope({SoapHeader? header}) =>
-      CreateAppointmentEnvelope(CreateAppointmentBody(request: this), header: header);
+  SoapEnvelope getEnvelope({SoapHeader? header}) => CreateAppointmentEnvelope(
+        CreateAppointmentBody(request: this),
+        header: header,
+      );
 }
